@@ -1,0 +1,3 @@
+#!/bin/sh
+
+babel --source-maps --presets es2015,stage-0,react -d lib/ src/ && node ./bin/build_submodules.js
