@@ -13,9 +13,7 @@
     "react-dom": "^0.14.3",
     "source-map-support": "^0.4.0",
     "underscore": "^1.8.3",
-    "underscore.string": "^3.2.2"
-  },
-  "devDependencies": {
+    "underscore.string": "^3.2.2",
     "babel-cli": "^6.2.0",
     "babel-plugin-transform-decorators": "^6.3.13",
     "babel-preset-es2015": "^6.1.18",
@@ -27,7 +25,8 @@
     "clean": "rm -rf lib/",
     "babel": "babel --source-maps --presets es2015,stage-0,react -d lib/ src/",
     "build": "npm run clean && npm run babel",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "npm run build"
   },
   "keywords": [],
   "author": "",
