@@ -5,7 +5,6 @@ import {renderToString} from 'react-dom/server'
 import CoreMixin from './mixins/core'
 import mixSpecIntoComponent from './mixSpecIntoComponent'
 
-
 _.str = UnderscoreString
 
 const ESCAPE_LOOKUP = {
@@ -31,6 +30,33 @@ class Revelry {
   static Components = {}
   static Examples = {}
   static App = App
+
+  static pathToObject(container) {
+    return function(path) {
+      const parts = path.split('/')
+
+      let object = container
+
+      for(let i = 0; i < parts.length; i++) {
+        const key = parts[i]
+
+        object = object[key]
+        if(object === null || typeof object === 'undefined') {
+          break
+        }
+      }
+
+      return object
+    }
+  }
+
+  static isServerContext() {
+    return typeof window === 'undefined'
+  }
+
+  static isClientContext() {
+    return !Revelry.isServerContext()
+  }
 
   static appObject(name, object) {
     return Revelry.registerObject(`App.${name}`, object)
@@ -155,17 +181,19 @@ class Revelry {
   }
 
   static hasView(path) {
+    console.log('hasView', path, Revelry.App.Components)
     return Revelry.Components.Main.hasView(path)
   }
 
   static viewToString(path, options) {
+    console.log('viewToString', path, Revelry.App.Components)
     Revelry._resetUniqueId()
 
-    const {Main} = Revelry.App.Components
+    const {Main} = Revelry.Components
 
     const props = {
       path,
-      options: JSON.parse(options),
+      options,
     }
 
     const json = Revelry.escapeTextForBrowser(JSON.stringify(props))
@@ -195,8 +223,9 @@ class Revelry {
   }
 }
 
-
-
+if(Revelry.isClientContext()) {
+  window.global = window
+}
 
 
 
@@ -205,15 +234,11 @@ Revelry.registerComponent('Main', class Main extends React.Component {
 
   /* CLASS METHODS */
 
-  static pathToComponentClassName(path) {
-    return path.split('/').map(_.str.classify).join('.')
-  }
-
   static pathToComponentClass(path) {
-    const parts = Main.pathToComponentClassName(path).split('.')
+    const parts = path.split('/')
 
     let klass = Revelry.App.Components
-    console.log(Revelry.App.Components)
+    // console.log(Revelry.App.Components)
 
     for(let i = 0; i < parts.length; i++) {
       const key = parts[i]

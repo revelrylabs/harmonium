@@ -1,3 +1,5 @@
+import Rev from './revelry'
+
 // 'Borrowed' from the React 'classic component mixin.' This is the method react
 // uses to apply mixins to classes, check that mixins and valid, stack the mixin
 // lifecycle callbacks in the right way, etc

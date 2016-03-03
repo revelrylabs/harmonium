@@ -1,0 +1,5 @@
+export Currency from './formatting/Currency'
+export I18n from './formatting/I18n'
+export Lipsum from './formatting/Lipsum'
+export NumberFormatter from './formatting/NumberFormatter'
+export Pluralize from './formatting/Pluralize'

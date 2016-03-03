@@ -1,4 +1,7 @@
-Rev.registerMixin('BackboneProps', {
+import React from 'react'
+import Revelry from '../revelry'
+
+export default Revelry.registerMixin('BackboneProps', {
   // Component should contain a map of prop names to Backbone classes, like:
   //
   // backboneMap = {
@@ -43,5 +46,5 @@ Rev.registerMixin('BackboneProps', {
       model.off(null, null, this)
     })
   },
-  
+
 })

@@ -1,4 +1,6 @@
-Rev.registerMixin('PropTransformer', {
+import Revelry from '../revelry'
+
+export default Revelry.registerMixin('PropTransformer', {
 
   // propTransforms = {name: (x) => x.toUpperCase()}
 
