@@ -1,6 +1,6 @@
 {
-  "name": "revelry",
-  "version": "1.0.0",
+  "name": "revelry-components",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "dependencies": {
