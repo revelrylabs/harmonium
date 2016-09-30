@@ -23,7 +23,7 @@
   },
   "scripts": {
     "clean": "rm -rf lib/",
-    "babel": "babel --source-maps --presets es2015,stage-0,react -d lib/ src/",
+    "babel": "babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel",
     "test": "echo \"Error: no test specified\" && exit 1",
     "postinstall": "npm run build"
