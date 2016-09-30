@@ -33,7 +33,7 @@ export default class Button extends React.Component {
   }
 
   render() {
-    return <button {...this.passThroughProps} className={this.className}>
+    return <button {...this.passThroughProps} disabled={this.props.disabled} className={this.className}>
       {this.props.children}
     </button>
   }
