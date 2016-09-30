@@ -34,24 +34,21 @@ export default class StatelessTabs extends React.Component {
   }
 
   renderTab(child) {
+    const isActive = child.key === this.getActiveKey()
+
     const className = classNames({
-      active: child.key === this.getActiveKey(),
+      'is-active': isActive,
+      'tabs-title': true,
       'RevTabs-tab': true,
     })
 
-    return <dd key={child.key} className={className} onClick={this.handleTabClick(child)}>
-      {child.props.tab}
-    </dd>
-  }
-
-  renderContent(child) {
-    let newProps = {key: child.key}
-    newProps.active = child.key === this.getActiveKey()
-    return React.cloneElement(child, newProps)
+    return <li key={child.key} className={className}>
+      <a href="#" aria-selected={isActive} onClick={this.handleTabClick(child)}>{child.props.tab}</a>
+    </li>
   }
 
   render() {
-    let dlClassName = classNames({
+    let ulClassName = classNames({
       'RevTabs-tabs': true,
       tabs: true,
       vertical: this.props.vertical,
@@ -59,9 +56,9 @@ export default class StatelessTabs extends React.Component {
 
     return (
       <div className='RevTabs'>
-        <dl className={dlClassName}>
+        <ul className={ulClassName}>
           {React.Children.map(this.props.children, this.renderTab.bind(this))}
-        </dl>
+        </ul>
         <StatelessTabContent {...this.props} activeKey={this.getActiveKey()}>
           {this.props.children}
         </StatelessTabContent>

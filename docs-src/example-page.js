@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Layout from './layout'
 import ExampleSection from './example-section'
 import Source from './source'
+import {Row, Col} from '../src/grid'
 
 export default class ExamplePage extends Component {
   render() {
@@ -19,25 +20,25 @@ export default class ExamplePage extends Component {
       <Layout title={name} navKeys={navKeys}>
         <nav>
           <ol>
-            <li><a href="#source">Source</a></li>
             <li><a href="#examples">Examples</a></li>
             <ol>
               {examplesNavItems}
             </ol>
+            <li><a href="#source">Source</a></li>
           </ol>
         </nav>
+        <Row id="examples">
+          <Col><h2>Examples</h2></Col>
+          <Col medium={6} id="examples-rendered">
+            {examples}
+          </Col>
+          <Col medium={6} id="examples-source">
+            <Source src={examplesSrc} />
+          </Col>
+        </Row>
         <section id="source">
           <h2>Source</h2>
           <Source src={componentSrc} />
-        </section>
-        <section id="examples">
-          <h2>Examples</h2>
-          <section id="examples-source">
-            <Source src={examplesSrc} />
-          </section>
-          <section id="examples-rendered">
-            {examples}
-          </section>
         </section>
       </Layout>
     )

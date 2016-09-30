@@ -8,7 +8,7 @@ export default class Nav extends Component {
     ))
     return (
       <nav>
-        <p><a href="./index.html">Home</a></p>
+        <h1><a href="./index.html">CORE</a></h1>
         <ul>{elements}</ul>
       </nav>
     )

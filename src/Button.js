@@ -14,7 +14,9 @@ export default class Button extends React.Component {
       'disabled',
       'secondary',
       'success',
-      'expand',
+      'expanded',
+      'hollow',
+      'dropdown',
     ]
   }
 

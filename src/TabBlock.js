@@ -19,8 +19,8 @@ export default class TabBlock extends React.Component {
     return classNames(this.props.className, {
       'RevTabBlock': true,
       'RevTabBlock--active': this.props.active,
-      'content': true,
-      'active': this.props.active,
+      'tabs-panel': true,
+      'is-active': this.props.active,
     })
   }
 
