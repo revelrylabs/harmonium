@@ -1,15 +1,12 @@
 import React from 'react'
 
-
 export default class Pluralize extends React.Component {
 
-  static get propTypes() {
-    return {
-      count: React.PropTypes.number.isRequired,
-      one: React.PropTypes.string.isRequired,
-      more: React.PropTypes.string,
-    }
-  }
+  static propTypes = {
+    count: React.PropTypes.number.isRequired,
+    one: React.PropTypes.string.isRequired,
+    more: React.PropTypes.string,
+  };
 
   get text() {
     if(this.props.count === 1) {
