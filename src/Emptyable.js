@@ -17,7 +17,8 @@ export default class Emptyable extends React.Component {
   }
 
   render() {
-    if(this.props.children && this.props.children.length > 0) {
+    console.log(this.props.children)
+    if(this.props.children) {
       return React.createElement(
         this.props.componentClass,
         this.props,
