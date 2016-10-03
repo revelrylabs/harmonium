@@ -1,10 +1,10 @@
 import React from 'react'
-
+import NumberFormatter from './NumberFormatter'
 
 export default class Currency extends React.Component {
 
   static get propTypes() {
-    return Revelry.Components.NumberFormatter.propTypes
+    return NumberFormatter.propTypes
   }
 
   static get defaultProps() {
@@ -17,6 +17,6 @@ export default class Currency extends React.Component {
   }
 
   render() {
-    return <Revelry.Components.NumberFormatter {...this.props} />
+    return <NumberFormatter {...this.props} />
   }
 }

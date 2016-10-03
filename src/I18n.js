@@ -11,7 +11,7 @@ export default class I18n extends React.Component {
 
   get text() {
     if(typeof(I18n) === 'undefined') {
-      throw new Error('Missing i18n-js dependency for Revelry.Components.I18n')
+      throw new Error('Missing i18n-js dependency.')
     }
     return I18n.t(this.props.t, this.props)
   }

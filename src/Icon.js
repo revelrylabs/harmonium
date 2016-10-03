@@ -2,19 +2,13 @@ import React from 'react'
 import classNames from 'classNames'
 import _ from 'underscore'
 
-export default class Icon extends React.Component {
+const ADAPTERS = {
+  FontAwesome: function(icon) { return `fa fa-${icon}` },
+  IcoMoon: function(icon) { return `icon-${icon}` },
+  Foundation: function(icon) { return `fi-${icon}` },
+}
 
-  static get Adapters() {
-    return this._Adapters = this._Adapters || {
-      FontAwesome: function(icon) { return `fa fa-${icon}` },
-      IconMoon: function(icon) {
-        console.warn('The IconMoon adapter is deprecated. Why? Because the name of the lib is *IcoMoon*. Use that.')
-        return `icon-${icon}`
-      },
-      IcoMoon: function(icon) { return `icon-${icon}` },
-      Foundation: function(icon) { return `fi-${icon}` },
-    }
-  }
+export default class Icon extends React.Component {
 
   static get defaultType() {
     return this._defaultType || 'IcoMoon'
@@ -42,7 +36,7 @@ export default class Icon extends React.Component {
   }
 
   get adapter() {
-    return this.constructor.Adapters[this.props.type]
+    return ADAPTERS[this.props.type]
   }
 
   get iconSpecificClassName() {

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import _ from 'underscore'
 
 export default class NumberFormatter extends React.Component {
 
