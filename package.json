@@ -30,6 +30,7 @@
     "babel": "babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel && npm run docs",
     "docs": "node scripts/docs.js",
+    "web": "static docs -p $PORT",
     "postinstall": "npm run build"
   },
   "keywords": [],
