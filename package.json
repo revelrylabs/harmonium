@@ -16,6 +16,7 @@
     "classnames": "^2.2.5",
     "express": "^4.13.3",
     "jquery": "^2.1.4",
+    "node-dir": "^0.1.16",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
     "source-map-support": "^0.4.0",
@@ -25,10 +26,8 @@
   "scripts": {
     "clean": "rm -rf lib/",
     "babel": "babel --source-maps -d lib/ src/",
-    "build": "npm run clean && npm run babel",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "babel": "babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel && npm run docs",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "docs": "node scripts/docs.js",
     "web": "static docs -p $PORT",
     "postinstall": "npm run build"
