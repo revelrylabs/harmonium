@@ -1,6 +1,0 @@
-export StatelessTabContent from './tabs/StatelessTabContent'
-export StatelessTabs from './tabs/StatelessTabs'
-export TabBlock from './tabs/TabBlock'
-export Tabs from './tabs/Tabs'
-export StatelessTabsAccordion from './tabs/StatelessTabsAccordion'
-export TabsAccordion from './tabs/TabsAccordion'

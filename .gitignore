@@ -1,3 +1,5 @@
 .node-version
 node_modules/
 lib/
+docs/**/*
+!docs/.keep
