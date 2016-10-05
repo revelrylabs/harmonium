@@ -15,7 +15,7 @@ function genJS(items) {
   const imports = []
   const ids = []
 
-  imports.push(`import {createElement} from 'react'`)
+  imports.push(`import React, {createElement} from 'react'`)
   imports.push(`import {render} from 'react-dom'`)
 
   items.forEach((item) => {
