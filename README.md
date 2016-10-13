@@ -10,3 +10,12 @@ npm run docs
 ```
 
 You can open the generated HTML however you want, but `open ./docs/index.html` is a good choice on Mac.
+
+## Development
+
+```
+npm install
+npm run dev
+```
+
+This will open up a new browser tab at localhost:8000. While this is running you can make changes in the src folder and the site will automatically reload with your changes.
