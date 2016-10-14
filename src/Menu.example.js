@@ -47,11 +47,19 @@ export class Example extends Component {
                       </MenuItem>
                   </Menu>
               </MenuItem>
-              <MenuItem>
+              <MenuItem displayChildren={false}>
                   <a href="#">Item 2</a>
-              </MenuItem>
-              <MenuItem>
-                  <a href="#">Item 3</a>
+                  <Menu horizontal>
+                      <MenuItem>
+                          <a href="#">Item 4</a>
+                      </MenuItem>
+                      <MenuItem>
+                          <a href="#">Item 5</a>
+                      </MenuItem>
+                      <MenuItem>
+                          <a href="#">Item 6</a>
+                      </MenuItem>
+                  </Menu>
               </MenuItem>
           </Menu>
         </div>

@@ -2,11 +2,44 @@ import React from 'react'
 import classNames from 'classnames'
 
 class MenuItem extends React.Component {
-  render() {
-    return <li>
-      {this.props.children}
-    </li>
-  }
+    static get propTypes() {
+        return {
+            dropdown: React.PropTypes.bool,
+            displayChildren: React.PropTypes.bool
+        }
+    }
+
+    static get defaultProps() {
+        return {
+            dropdown: false,
+            displayChildren: true
+        }
+    }
+
+    get classes() {
+        const classes = classNames({
+            'is-dropdown-submenu-parent' : this.props.dropdown
+        });
+
+        return classes
+    }
+
+    get displayChildren() {
+        if (this.props.displayChildren){
+            return this.props.children
+        } else if(this.props.displayChildren == false && this.props.dropdown) {
+            return this.props.children[0]
+        } else {
+            return null
+        }
+    }
+
+    render() {
+        return <li role="menuitem" className={this.classes}>
+          {this.displayChildren}
+        </li>
+    }
+
 }
 
 
@@ -15,8 +48,8 @@ class Menu extends React.Component {
     return {
         horizontal: React.PropTypes.bool,
         vertical: React.PropTypes.bool,
-      drilldown: React.PropTypes.bool,
-      dropdown: React.PropTypes.bool
+        drilldown: React.PropTypes.bool,
+        dropdown: React.PropTypes.bool
     }
   }
 
@@ -29,7 +62,7 @@ class Menu extends React.Component {
     }
   }
 
-  get menuClasses() {
+  get classes() {
     const classes = classNames({
       'menu' : true,
       'vertical' : this.props.vertical && !this.props.horizontal,
@@ -42,8 +75,14 @@ class Menu extends React.Component {
   }
 
   render() {
-    return <ul className={this.menuClasses}>
-      { React.Children.map(this.props.children, (child, i) => React.cloneElement(child, { key: i })) }
+      return <ul className={this.classes} role="menu">
+            {
+                React.Children.map(this.props.children, (child, i) => React.cloneElement(child,
+                                                                                       {
+                                                                                           key: i,
+                                                                                           dropdown: this.props.dropdown
+                                                                                       }))
+            }
       </ul>
   }
 }
