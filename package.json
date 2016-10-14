@@ -33,7 +33,7 @@
     "clean": "rm -rf lib/",
     "babel": "babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel && npm run docs",
-    "test": "mocha ./src/**/*.test.js --opts ./mocha.opts",
+    "test": "mocha ./tests/**/*.test.js --opts ./mocha.opts",
     "docs": "node scripts/docs.js",
     "web": "static-server docs -p $PORT",
     "postinstall": "npm run build",
