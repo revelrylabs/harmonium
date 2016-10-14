@@ -1,20 +1,20 @@
 require('babel-register')
 
-const gulp = require('gulp');
-const webserver = require('gulp-webserver');
-const docGenerator = require('./docs-src/generate')
+const gulp = require('gulp')
+const webserver = require('gulp-webserver')
+const genDocs = require('./docs-src/generate').default
 
 gulp.task('webserver', () => {
   gulp.src('docs')
     .pipe(webserver({
       livereload: true,
-      open: true
-    }));
-});
+      open: true,
+    }))
+})
 
 gulp.task('docs', () => {
-  return docGenerator.default();
-});
+  return genDocs()
+})
 
 const watcher = gulp.watch('src/**/*.js', ['docs']);
 watcher.on('change', function(event) {
