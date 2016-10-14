@@ -94,7 +94,7 @@ export default function genDocs() {
   genStyles()
   dir.files(path.join(__dirname, '../src'), function(err, files) {
     const items = files
-      .filter((filePath) => !!filePath.match(/^(?!.*example\.js$).*\.js$/))
+      .filter((filePath) => !!filePath.match(/^(?!.*(example|test)\.js$).*\.js$/))
       .map((filePath) => ({
         name: filePath.match(/([^\/]+)\.js/)[1],
         component: filePath,
