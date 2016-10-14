@@ -16,9 +16,9 @@ gulp.task('docs', () => {
   return docGenerator.default();
 });
 
-gulp.watch('src/**/*.js', ['docs'], function(event) {
+const watcher = gulp.watch('src/**/*.js', ['docs']);
+watcher.on('change', function(event) {
   console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
 });
-
 
 gulp.task('default', ['docs', 'webserver']);

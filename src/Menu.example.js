@@ -1,14 +1,60 @@
 import React, {Component} from 'react'
-import Menu from './Menu'
+import { Menu, MenuItem } from './Menu'
 
 export class Example extends Component {
   render() {
     return (
-        <Menu>
-        <a href="#">Item 1</a>
-        <a href="#">Item 2</a>
-        <a href="#">Item 3</a>
-        </Menu>
+        <div>
+          <h3>Vertical Menu</h3>
+          <Menu>
+              <MenuItem>
+                  <a href="#">Item 1</a>
+              </MenuItem>
+              <MenuItem>
+                  <a href="#">Item 2</a>
+              </MenuItem>
+              <MenuItem>
+                  <a href="#">Item 3</a>
+              </MenuItem>
+          </Menu>
+
+          <h3>Horizontal Menu</h3>
+          <Menu horizontal>
+              <MenuItem>
+                  <a href="#">Item 1</a>
+              </MenuItem>
+              <MenuItem>
+                  <a href="#">Item 2</a>
+              </MenuItem>
+              <MenuItem>
+                  <a href="#">Item 3</a>
+              </MenuItem>
+          </Menu>
+
+          <h3>Sub Menu</h3>
+          <Menu dropdown>
+              <MenuItem>
+                  <a href="#">Item 1</a>
+                  <Menu horizontal>
+                      <MenuItem>
+                          <a href="#">Item 1</a>
+                      </MenuItem>
+                      <MenuItem>
+                          <a href="#">Item 2</a>
+                      </MenuItem>
+                      <MenuItem>
+                          <a href="#">Item 3</a>
+                      </MenuItem>
+                  </Menu>
+              </MenuItem>
+              <MenuItem>
+                  <a href="#">Item 2</a>
+              </MenuItem>
+              <MenuItem>
+                  <a href="#">Item 3</a>
+              </MenuItem>
+          </Menu>
+        </div>
     )
   }
 }
