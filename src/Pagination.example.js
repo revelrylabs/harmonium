@@ -13,9 +13,9 @@ export class Example extends Component {
   render() {
     return (
       <Pagination
-        currentPage={1}
+        currentPage={this.state.currentPage}
         totalPages={14}
-        maxViewPages={7}
+        maxViewPages={5}
         onPageClick={this.onPageClick}
       />
     )
