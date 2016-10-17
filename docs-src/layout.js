@@ -10,7 +10,7 @@ export default class Layout extends Component {
         <head>
           <title>{title}</title>
           <script type="text/javascript" src="./bundle.js" />
-          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/foundation/6.2.3/foundation.min.css" />
+          <link rel="stylesheet" href="./site.css" />
           <style>
             {
               "pre {overflow:auto;}" +

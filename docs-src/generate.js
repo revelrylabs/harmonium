@@ -4,6 +4,7 @@ import fs from 'fs'
 import path from 'path'
 import dir from 'node-dir'
 import browserify from 'browserify'
+import sass from 'node-sass'
 import IndexPage from './index-page'
 import ExamplePage from './example-page'
 
@@ -67,10 +68,33 @@ function genPage(item, navKeys) {
   fs.writeFile(destPath, html(<ExamplePage {...props} />))
 }
 
+const CSS_OUTPUT_FILE = path.join(__dirname, '../docs/site.css')
+function genStyles(cb) {
+  sass.render({
+    file: path.join(__dirname, './site.scss'),
+    outFile: CSS_OUTPUT_FILE,
+    includePaths: [
+      path.join(__dirname, '../node_modules/foundation-sites/scss'),
+      path.join(__dirname, '../scss'),
+    ],
+    sourceMap: true,
+  }, cb || function(err, {css}) {
+    if(err) {
+      console.log(error.status)
+      console.log(error.column)
+      console.log(error.message)
+      console.log(error.line)
+    } else {
+      fs.writeFile(CSS_OUTPUT_FILE, css, cb)
+    }
+  })
+}
+
 export default function genDocs() {
+  genStyles()
   dir.files(path.join(__dirname, '../src'), function(err, files) {
     const items = files
-      .filter((filePath) => !!filePath.match(/^(?!.*example\.js$).*\.js$/))
+      .filter((filePath) => !!filePath.match(/^(?!.*(example|test)\.js$).*\.js$/))
       .map((filePath) => ({
         name: filePath.match(/([^\/]+)\.js/)[1],
         component: filePath,
