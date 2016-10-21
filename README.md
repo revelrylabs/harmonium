@@ -23,7 +23,7 @@ While this is running you can make changes in the src folder and the site will a
 * Write an example file like `src/my-component.example.js`.
   * The module should have one or more named exports that are React components, defined with ES6 class syntax. (`export class Example1 extends Compnent {}`)
   * Each example will be built into the docs site.
-* Write a test file like `src/my-component.test.js`.
+* Write a test file like `tests/my-component.test.js`.
   * Run tests with `npm test`.
   * See `test-config.js` to see what additional globals are available in tests. (`decribe`, `it`, `expect`, `shallow`, `mount`, etc.)
 

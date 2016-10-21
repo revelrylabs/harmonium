@@ -1,4 +1,4 @@
-import Button from './Button'
+import Button from '../src/Button'
 
 describe('Button', () => {
   it('should render without throwing', () => {
