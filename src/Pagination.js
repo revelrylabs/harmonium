@@ -6,6 +6,11 @@ export default class Pagination extends Component {
     currentPage: PropTypes.number.isRequired,
     totalPages: PropTypes.number.isRequired,
     maxViewPages: PropTypes.number.isRequired,
+    showFirstLast: PropTypes.bool,
+  };
+
+  static defaultProps = {
+    showFirstLast: true,
   }
 
   getAttributes() {
@@ -50,15 +55,27 @@ export default class Pagination extends Component {
     return (
       baseRange.map( (e) => {
         const page = e + start
-        const activeClass = (page === currentPage) ? 'Active' : ''
 
-        return (
-          <li
-            key={page}
-            className={`Pagination-number ${activeClass}`}>
-            <a href="#" onClick={(e) => this.onClick(e, page)}>{page}</a>
-          </li>
-        )
+        if (page === currentPage) {
+          return (
+            <li key={page} className="current">
+              <span className="show-for-sr">You're on page </span>
+              {page}
+            </li>
+          )
+        } else {
+          return (
+            <li key={page}>
+              <a
+                href="#"
+                onClick={(e) => this.onClick(e, page)}
+                aria-label={`Page ${page}`}
+              >
+                {page}
+              </a>
+            </li>
+          )
+        }
       })
     )
   }
@@ -83,15 +100,17 @@ export default class Pagination extends Component {
     } else {
       return (
         <div className={`PaginationContent ${this.props.className}`}>
-          <ul className="Pagination">
+          <ul className="pagination" role="navigation" aria-label="Pagination">
             <li className={`Pagination-first ${beginArrowsClass}`}>
               <a href="#" onClick={(e) => this.onClick(e, 1)}>
                 <i className="icon-angle-double-left"/>
+                First
               </a>
             </li>
             <li className={`Pagination-previous ${beginArrowsClass}`}>
               <a href="#" onClick={(e) => this.onClick(e, currentPage - 1)}>
                 <i className="icon-angle-left"/>
+                Previous
               </a>
             </li>
             <li className={`Pagination-dots ${beginArrowsClass}`}>...</li>
@@ -99,11 +118,13 @@ export default class Pagination extends Component {
             <li className={`Pagination-dots ${endArrowsClass}`}>...</li>
             <li className={`Pagination-next ${endArrowsClass}`}>
               <a href="#" onClick={(e) => this.onClick(e, currentPage + 1)}>
+                Next
                 <i className="icon-angle-right"/>
               </a>
             </li>
             <li className={`Pagination-last ${endArrowsClass}`}>
               <a href="#" onClick={(e) => this.onClick(e, totalPages)}>
+                Last
                 <i className="icon-angle-double-right"/>
               </a>
             </li>
