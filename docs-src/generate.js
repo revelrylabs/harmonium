@@ -20,7 +20,11 @@ function genJS(items) {
   imports.push(`import {render} from 'react-dom'`)
 
   items.forEach((item) => {
+    // remove any cached require calls for the existing example file so that
+    // we can access new exports for rendering
+    delete require.cache[item.examples]
     const mod = require(item.examples)
+
     Object.keys(mod).forEach((key) => {
       const id = `${item.name}_examples_${key}`
       ids.push(id)
