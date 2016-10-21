@@ -16,9 +16,9 @@ gulp.task('docs', () => {
   return genDocs()
 })
 
-gulp.watch('src/**/*.js', ['docs'], function(event) {
-  console.log('File ' + event.path + ' was ' + event.type + ', running tasks...')
-})
+const watcher = gulp.watch('src/**/*.js', ['docs']);
+watcher.on('change', function(event) {
+  console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
+});
 
-
-gulp.task('default', ['docs', 'webserver'])
+gulp.task('default', ['docs', 'webserver']);
