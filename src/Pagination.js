@@ -7,10 +7,12 @@ export default class Pagination extends Component {
     totalPages: PropTypes.number.isRequired,
     maxViewPages: PropTypes.number.isRequired,
     showFirstLast: PropTypes.bool,
+    hideArrows: PropTypes.bool,
   };
 
   static defaultProps = {
     showFirstLast: true,
+    hideArrows: false,
   }
 
   getAttributes() {
@@ -90,10 +92,11 @@ export default class Pagination extends Component {
   }
 
   render() {
-    const {currentPage, totalPages} = this.props
+    const {currentPage, totalPages, hideArrows} = this.props
     const {beginArrows, endArrows, start, end} = this.getAttributes()
-    const beginArrowsClass = (beginArrows) ? '' : 'Disabled'
-    const endArrowsClass = (endArrows) ? '' : 'Disabled'
+    const irrelevantClass = (hideArrows) ? 'Hidden' : 'Disabled'
+    const beginArrowsClass = (beginArrows) ? '' : irrelevantClass
+    const endArrowsClass = (endArrows) ? '' : irrelevantClass
 
     if (totalPages === 1) {
       return null
@@ -105,12 +108,14 @@ export default class Pagination extends Component {
               <a href="#" onClick={(e) => this.onClick(e, 1)}>
                 <i className="icon-angle-double-left"/>
                 First
+                <span className="show-for-sr"> page</span>
               </a>
             </li>
             <li className={`Pagination-previous ${beginArrowsClass}`}>
               <a href="#" onClick={(e) => this.onClick(e, currentPage - 1)}>
                 <i className="icon-angle-left"/>
                 Previous
+                <span className="show-for-sr"> page</span>
               </a>
             </li>
             <li className={`Pagination-dots ${beginArrowsClass}`}>...</li>
@@ -119,12 +124,14 @@ export default class Pagination extends Component {
             <li className={`Pagination-next ${endArrowsClass}`}>
               <a href="#" onClick={(e) => this.onClick(e, currentPage + 1)}>
                 Next
+                <span className="show-for-sr"> page</span>
                 <i className="icon-angle-right"/>
               </a>
             </li>
             <li className={`Pagination-last ${endArrowsClass}`}>
               <a href="#" onClick={(e) => this.onClick(e, totalPages)}>
                 Last
+                <span className="show-for-sr"> page</span>
                 <i className="icon-angle-double-right"/>
               </a>
             </li>
