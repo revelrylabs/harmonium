@@ -3,14 +3,22 @@ import {Row, Col} from '../src/grid'
 import Nav from './nav'
 
 export default class Layout extends Component {
+  generateStyles(title) {
+    if (title === 'flexGrid') {
+      return <link rel="stylesheet" href="./site-flex.css" />
+    }
+    return <link rel="stylesheet" href="./site.css" />
+  }
+
   render() {
     const {title, children, navKeys} = this.props
+    console.log(title)
     return (
       <html>
         <head>
           <title>{title}</title>
           <script type="text/javascript" src="./bundle.js" />
-          <link rel="stylesheet" href="./site.css" />
+          {this.generateStyles(title)}
           <style>
             {
               "pre {overflow:auto;}" +
