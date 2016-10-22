@@ -1,49 +1,27 @@
-.pagination {
+.PaginationContent .pagination {
   li {
-    &.Disabled a {
+    &.Pagination-arrow {
+      display: inline-block;
+    }
+    &.Pagination-arrow.Disabled a {
       color: #cacaca;
       cursor: not-allowed;
     }
-    &.Pagination-dots.Disabled {
-      color: #cacaca;
-      cursor: default;
-    }
-    &.Hidden a,
+    &.Pagination-arrow.Hidden a,
     &.Pagination-dots.Hidden {
       display: none;
     }
+    &.Pagination-number,
+    &.Pagination-dots {
+      @media #{$small-only} {
+        display: none;
+      }
+    }
   }
 }
-// .Pagination {
-//   li {
-//     display: inline-block;
-//     &.Active a {
-//       color: $secondary-color;
-//     }
-//     &.Pagination-number, &.Pagination-dots {
-//       @media #{$small-only} {
-//         display: none;
-//       }
-//     }
-//   }
-//   a {
-//     @include uppercase-subheader;
-//     display: block;
-//     font-size: rem-calc(22);
-//     height: $pagination-height;
-//     text-align: center;
-//     text-decoration: none;
-//     &:hover,
-//     &:active,
-//     &:focus {
-//       border: 1px solid $body-font-color;
-//     }
-//   }
-// }
-// .PaginationContent .Pagination-page-list {
-//   display: none;
-//   @media #{$small-only} {
-//     display: block;
-//     text-align: center;
-//   }
-// }
+.PaginationContent .Pagination-mobile {
+  display: none;
+  @media #{$small-only} {
+    display: block;
+  }
+}

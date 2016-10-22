@@ -39,9 +39,12 @@ export class Example2 extends Component {
   render() {
     return (
       <div>
-        <h5 className="subheader">Hidden begin and end arrows</h5>
+        <h5 className="subheader">
+          Hidden begin and end arrows, and custom className (text-center)
+        </h5>
         <br />
         <Pagination
+          className="text-center"
           currentPage={this.state.currentPage}
           totalPages={14}
           maxViewPages={5}
