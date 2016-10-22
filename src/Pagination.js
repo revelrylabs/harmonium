@@ -8,7 +8,7 @@ export default class Pagination extends Component {
     className: PropTypes.string,
     currentPage: PropTypes.number.isRequired,
     totalPages: PropTypes.number.isRequired,
-    maxViewPages: PropTypes.number.isRequired,
+    maxViewPages: PropTypes.number,
     showFirstLast: PropTypes.bool,
     hideArrows: PropTypes.bool,
   };
@@ -16,6 +16,7 @@ export default class Pagination extends Component {
   static defaultProps = {
     showFirstLast: true,
     hideArrows: false,
+    maxViewPages: 5,
   }
 
   getAttributes() {
