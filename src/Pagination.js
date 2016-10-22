@@ -1,5 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 
+// TODO: once icons are added to this repo, enable them here and
+// provide ability to pass in custom first/previous/next/last content.
 export default class Pagination extends Component {
 
   static propTypes = {

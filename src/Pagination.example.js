@@ -13,7 +13,9 @@ export class Example1 extends Component {
   render() {
     return (
       <div>
-        <h5 className="subheader">Disabled (default) begin and end arrows</h5>
+        <p>This example shows the default case where begin and end arrows are disabled, and no class names are passed.</p>
+        <p>The component is mobile-responsive for all examples. The number links are hidden, and a text description of the pages is provided instead.</p>
+        <p>This component requires custom styling, which is included in the <strong>Pagination.scss</strong> file.</p>
         <br />
         <Pagination
           currentPage={this.state.currentPage}
@@ -39,9 +41,8 @@ export class Example2 extends Component {
   render() {
     return (
       <div>
-        <h5 className="subheader">
-          Hidden begin and end arrows, and custom className (text-center)
-        </h5>
+        <p>This example shows the pagination component when hidden begin and end arrows are set to true, and a custom className (text-center) is passed to the component.</p>
+        <p>Note that the component is still mobile-responsive, and still requires the included stylesheet (<strong>Pagination.scss</strong>).</p>
         <br />
         <Pagination
           className="text-center"
