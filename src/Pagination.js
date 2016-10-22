@@ -51,7 +51,9 @@ export default class Pagination extends Component {
   getArrowClass(relevant, samePage) {
     const {hideArrows} = this.props
 
-    if (!relevant && hideArrows) {
+    if (!relevant && hideArrows && samePage) {
+      return 'Pagination-arrow Hidden Disabled'
+    } else if (!relevant && hideArrows) {
       return 'Pagination-arrow Hidden'
     } else if (samePage) {
       return 'Pagination-arrow Disabled'
@@ -149,7 +151,7 @@ export default class Pagination extends Component {
               </a>
             </li>
           </ul>
-          <div className="Pagination-mobile">
+          <div className="Pagination-page-list">
             Page {currentPage} of {totalPages}
           </div>
         </div>

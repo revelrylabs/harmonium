@@ -7,7 +7,12 @@
       color: #cacaca;
       cursor: not-allowed;
     }
-    &.Pagination-arrow.Hidden a,
+    &.Pagination-arrow.Hidden a {
+      display: none;
+      @media #{$small-only} {
+        display: inline-block;
+      }
+    }
     &.Pagination-dots.Hidden {
       display: none;
     }
@@ -19,7 +24,7 @@
     }
   }
 }
-.PaginationContent .Pagination-mobile {
+.PaginationContent .Pagination-page-list {
   display: none;
   @media #{$small-only} {
     display: block;
