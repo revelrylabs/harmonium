@@ -129,7 +129,7 @@ export default class Pagination extends Component {
             <li key={page} className="Pagination-number">
               <a
                 href={setHref(page)}
-                onClick={(e) => this.onClick(e, page)}
+                onClick={this.createClickHandler(page)}
                 aria-label={anchorAriaLabel(page)}
               >
                 {page}
@@ -141,12 +141,16 @@ export default class Pagination extends Component {
     )
   }
 
-  onClick = (e, pageNumber) => {
-    e.preventDefault()
-    const samePage = pageNumber === this.props.currentPage
-    const invalidPage = pageNumber < 1 || pageNumber > this.props.totalPages
-    if (!samePage && !invalidPage) {
-      this.props.onPageClick(pageNumber)
+  createClickHandler(pageNumber) {
+    return (e) => {
+      e.preventDefault()
+      const {currentPage, totalPages, onPageClick} = this.props
+      const samePage = pageNumber === currentPage
+      const invalidPage = pageNumber < 1 || pageNumber > totalPages
+
+      if (!samePage && !invalidPage) {
+        onPageClick(pageNumber)
+      }
     }
   }
 
@@ -172,14 +176,14 @@ export default class Pagination extends Component {
         <div className={classNames('PaginationContent', this.props.className)}>
           <ul className="pagination" role="navigation" aria-label="Pagination">
             <li className={beginArrowsClass}>
-              <a href={setHref(1)} onClick={(e) => this.onClick(e, 1)}>
+              <a href={setHref(1)} onClick={this.createClickHandler(1)}>
                 {firstPageContent}
               </a>
             </li>
             <li className={beginArrowsClass}>
               <a
                 href={setHref(currentPage - 1)}
-                onClick={(e) => this.onClick(e, currentPage - 1)}
+                onClick={this.createClickHandler(currentPage - 1)}
               >
                 {previousPageContent}
               </a>
@@ -194,7 +198,7 @@ export default class Pagination extends Component {
             <li className={endArrowsClass}>
               <a
                 href={setHref(currentPage + 1)}
-                onClick={(e) => this.onClick(e, currentPage + 1)}
+                onClick={this.createClickHandler(currentPage + 1)}
               >
                 {nextPageContent}
               </a>
@@ -202,7 +206,7 @@ export default class Pagination extends Component {
             <li className={endArrowsClass}>
               <a
                 href={setHref(totalPages)}
-                onClick={(e) => this.onClick(e, totalPages)}
+                onClick={this.createClickHandler(totalPages)}
               >
                 {lastPageContent}
               </a>
