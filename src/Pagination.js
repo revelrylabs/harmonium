@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import classNames from 'classnames'
 
 // TODO: once icons are added to this repo, enable them here and
 // provide ability to pass in custom first/previous/next/last content.
@@ -7,16 +8,19 @@ export default class Pagination extends Component {
   static propTypes = {
     className: PropTypes.string,
     currentPage: PropTypes.number.isRequired,
-    totalPages: PropTypes.number.isRequired,
-    maxViewPages: PropTypes.number,
-    showFirstLast: PropTypes.bool,
     hideArrows: PropTypes.bool,
+    maxViewPages: PropTypes.number,
+    onPageClick: PropTypes.func.isRequired,
+    setHref: PropTypes.func,
+    showFirstLast: PropTypes.bool,
+    totalPages: PropTypes.number.isRequired,
   };
 
   static defaultProps = {
-    showFirstLast: true,
     hideArrows: false,
     maxViewPages: 5,
+    setHref: (page) => '#',
+    showFirstLast: true,
   }
 
   getAttributes() {
@@ -67,7 +71,7 @@ export default class Pagination extends Component {
 
   numberLinks(start, end) {
     const baseRange = Array.from(Array(end - start + 1).keys())
-    const currentPage = this.props.currentPage
+    const {currentPage, setHref} = this.props
 
     return (
       baseRange.map( (e) => {
@@ -84,7 +88,7 @@ export default class Pagination extends Component {
           return (
             <li key={page} className="Pagination-number">
               <a
-                href="#"
+                href={setHref(page)}
                 onClick={(e) => this.onClick(e, page)}
                 aria-label={`Page ${page}`}
               >
@@ -107,7 +111,7 @@ export default class Pagination extends Component {
   }
 
   render() {
-    const {currentPage, totalPages} = this.props
+    const {currentPage, totalPages, setHref} = this.props
     const {beginArrows, endArrows, start, end} = this.getAttributes()
     const beginArrowsClass = this.getArrowClass(beginArrows, currentPage === 1)
     const endArrowsClass = this.getArrowClass(endArrows, currentPage === totalPages)
@@ -116,38 +120,47 @@ export default class Pagination extends Component {
       return null
     } else {
       return (
-        <div className={`PaginationContent ${this.props.className}`}>
+        <div className={classNames('PaginationContent', this.props.className)}>
           <ul className="pagination" role="navigation" aria-label="Pagination">
             <li className={beginArrowsClass}>
-              <a href="#" onClick={(e) => this.onClick(e, 1)}>
+              <a href={setHref(1)} onClick={(e) => this.onClick(e, 1)}>
                 <i className="icon-angle-double-left"/>
                 First
                 <span className="show-for-sr"> page</span>
               </a>
             </li>
             <li className={beginArrowsClass}>
-              <a href="#" onClick={(e) => this.onClick(e, currentPage - 1)}>
+              <a
+                href={setHref(currentPage - 1)}
+                onClick={(e) => this.onClick(e, currentPage - 1)}
+              >
                 <i className="icon-angle-left"/>
                 Previous
                 <span className="show-for-sr"> page</span>
               </a>
             </li>
-            <li className={`Pagination-dots ${(beginArrows) ? '' : 'Hidden'}`}>
+            <li className={classNames('Pagination-dots', beginArrows ? '' : 'Hidden')}>
               ...
             </li>
             {this.numberLinks(start, end)}
-            <li className={`Pagination-dots ${(endArrows) ? '' : 'Hidden'}`}>
+            <li className={classNames('Pagination-dots', endArrows ? '' : 'Hidden')}>
               ...
             </li>
             <li className={endArrowsClass}>
-              <a href="#" onClick={(e) => this.onClick(e, currentPage + 1)}>
+              <a
+                href={setHref(currentPage + 1)}
+                onClick={(e) => this.onClick(e, currentPage + 1)}
+              >
                 Next
                 <span className="show-for-sr"> page</span>
                 <i className="icon-angle-right"/>
               </a>
             </li>
             <li className={endArrowsClass}>
-              <a href="#" onClick={(e) => this.onClick(e, totalPages)}>
+              <a
+                href={setHref(totalPages)}
+                onClick={(e) => this.onClick(e, totalPages)}
+              >
                 Last
                 <span className="show-for-sr"> page</span>
                 <i className="icon-angle-double-right"/>
