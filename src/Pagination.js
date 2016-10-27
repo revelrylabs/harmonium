@@ -6,19 +6,59 @@ import classNames from 'classnames'
 export default class Pagination extends Component {
 
   static propTypes = {
+    anchorAriaLabel: PropTypes.func,
     className: PropTypes.string,
     currentPage: PropTypes.number.isRequired,
+    currentPageText: PropTypes.string,
+    firstPageContent: PropTypes.node,
     hideArrows: PropTypes.bool,
+    lastPageContent: PropTypes.node,
     maxViewPages: PropTypes.number,
+    mobilePageListText: PropTypes.func,
+    nextPageContent: PropTypes.node,
     onPageClick: PropTypes.func.isRequired,
+    previousPageContent: PropTypes.node,
     setHref: PropTypes.func,
     showFirstLast: PropTypes.bool,
     totalPages: PropTypes.number.isRequired,
   };
 
   static defaultProps = {
+    anchorAriaLabel: (page) => `Page ${page}`,
+    currentPageText: "You're on page ",
+    firstPageContent: (
+      <span>
+        <i className="icon-angle-double-left"/>
+        First
+        <span className="show-for-sr"> page</span>
+      </span>
+    ),
     hideArrows: false,
+    lastPageContent: (
+      <span>
+        Last
+        <span className="show-for-sr"> page</span>
+        <i className="icon-angle-double-right"/>
+      </span>
+    ),
     maxViewPages: 5,
+    mobilePageListText: (currentPage, totalPages) => (
+      `Page ${currentPage} of ${totalPages}`
+    ),
+    nextPageContent: (
+      <span>
+        Next
+        <span className="show-for-sr"> page</span>
+        <i className="icon-angle-right"/>
+      </span>
+    ),
+    previousPageContent: (
+      <span>
+        <i className="icon-angle-left"/>
+        Previous
+        <span className="show-for-sr"> page</span>
+      </span>
+    ),
     setHref: (page) => '#',
     showFirstLast: true,
   }
@@ -71,7 +111,7 @@ export default class Pagination extends Component {
 
   numberLinks(start, end) {
     const baseRange = Array.from(Array(end - start + 1).keys())
-    const {currentPage, setHref} = this.props
+    const {currentPage, setHref, currentPageText, anchorAriaLabel} = this.props
 
     return (
       baseRange.map( (e) => {
@@ -80,7 +120,7 @@ export default class Pagination extends Component {
         if (page === currentPage) {
           return (
             <li key={page} className="Pagination-number current">
-              <span className="show-for-sr">You're on page </span>
+              <span className="show-for-sr">{currentPageText}</span>
               {page}
             </li>
           )
@@ -90,7 +130,7 @@ export default class Pagination extends Component {
               <a
                 href={setHref(page)}
                 onClick={(e) => this.onClick(e, page)}
-                aria-label={`Page ${page}`}
+                aria-label={anchorAriaLabel(page)}
               >
                 {page}
               </a>
@@ -111,7 +151,16 @@ export default class Pagination extends Component {
   }
 
   render() {
-    const {currentPage, totalPages, setHref} = this.props
+    const {
+      currentPage,
+      firstPageContent,
+      lastPageContent,
+      mobilePageListText,
+      nextPageContent,
+      previousPageContent,
+      setHref,
+      totalPages,
+    } = this.props
     const {beginArrows, endArrows, start, end} = this.getAttributes()
     const beginArrowsClass = this.getArrowClass(beginArrows, currentPage === 1)
     const endArrowsClass = this.getArrowClass(endArrows, currentPage === totalPages)
@@ -124,9 +173,7 @@ export default class Pagination extends Component {
           <ul className="pagination" role="navigation" aria-label="Pagination">
             <li className={beginArrowsClass}>
               <a href={setHref(1)} onClick={(e) => this.onClick(e, 1)}>
-                <i className="icon-angle-double-left"/>
-                First
-                <span className="show-for-sr"> page</span>
+                {firstPageContent}
               </a>
             </li>
             <li className={beginArrowsClass}>
@@ -134,9 +181,7 @@ export default class Pagination extends Component {
                 href={setHref(currentPage - 1)}
                 onClick={(e) => this.onClick(e, currentPage - 1)}
               >
-                <i className="icon-angle-left"/>
-                Previous
-                <span className="show-for-sr"> page</span>
+                {previousPageContent}
               </a>
             </li>
             <li className={classNames('Pagination-dots', beginArrows ? '' : 'Hidden')}>
@@ -151,9 +196,7 @@ export default class Pagination extends Component {
                 href={setHref(currentPage + 1)}
                 onClick={(e) => this.onClick(e, currentPage + 1)}
               >
-                Next
-                <span className="show-for-sr"> page</span>
-                <i className="icon-angle-right"/>
+                {nextPageContent}
               </a>
             </li>
             <li className={endArrowsClass}>
@@ -161,14 +204,12 @@ export default class Pagination extends Component {
                 href={setHref(totalPages)}
                 onClick={(e) => this.onClick(e, totalPages)}
               >
-                Last
-                <span className="show-for-sr"> page</span>
-                <i className="icon-angle-double-right"/>
+                {lastPageContent}
               </a>
             </li>
           </ul>
           <div className="Pagination-page-list">
-            Page {currentPage} of {totalPages}
+            {mobilePageListText(currentPage, totalPages)}
           </div>
         </div>
       )
