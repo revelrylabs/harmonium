@@ -4,11 +4,9 @@ import classNames from 'classnames'
 const CLASS_NAMES = {
   primary: 'primary',
   secondary: 'secondary',
-  disabled: 'disabled',
   alert: 'alert',
   warning: 'warning',
   success: 'success',
-
   small: 'small',
   medium: 'medium',
   large: 'large',
