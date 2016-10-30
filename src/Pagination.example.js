@@ -55,3 +55,33 @@ export class Example2 extends Component {
     )
   }
 }
+
+export class Example3 extends Component {
+  state = {
+    currentPage: 1,
+  }
+
+  onPageClick = (pageNumber) => {
+    this.setState({currentPage: pageNumber})
+  }
+
+  render() {
+    return (
+      <div>
+        <p>This example shows the default case for all props except custom content is passed for the first, next, previous, last buttons.</p>
+        <p>This component requires custom styling, which is included in the <strong>Pagination.scss</strong> file.</p>
+        <br />
+        <Pagination
+          currentPage={this.state.currentPage}
+          totalPages={14}
+          onPageClick={this.onPageClick}
+          firstPageContent={<i className="icon-angle-double-left" />}
+          previousPageContent={<i className="icon-angle-left" />}
+          nextPageContent={<i className="icon-angle-right" />}
+          lastPageContent={<i className="icon-angle-double-right" />}
+        />
+        <br />
+      </div>
+    )
+  }
+}

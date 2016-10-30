@@ -1,8 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
 
-// TODO: once icons are added to this repo, enable them here and
-// provide ability to pass in custom first/previous/next/last content.
+// TODO: once icons are added to this repo, enable them here.
 export default class Pagination extends Component {
 
   static propTypes = {
@@ -28,7 +27,7 @@ export default class Pagination extends Component {
     currentPageText: "You're on page ",
     firstPageContent: (
       <span>
-        <i className="icon-angle-double-left"/>
+        <i className="icon-angle-double-left" />
         First
         <span className="show-for-sr"> page</span>
       </span>
@@ -38,7 +37,7 @@ export default class Pagination extends Component {
       <span>
         Last
         <span className="show-for-sr"> page</span>
-        <i className="icon-angle-double-right"/>
+        <i className="icon-angle-double-right" />
       </span>
     ),
     maxViewPages: 5,
@@ -49,12 +48,12 @@ export default class Pagination extends Component {
       <span>
         Next
         <span className="show-for-sr"> page</span>
-        <i className="icon-angle-right"/>
+        <i className="icon-angle-right" />
       </span>
     ),
     previousPageContent: (
       <span>
-        <i className="icon-angle-left"/>
+        <i className="icon-angle-left" />
         Previous
         <span className="show-for-sr"> page</span>
       </span>
