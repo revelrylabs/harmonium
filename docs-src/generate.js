@@ -42,12 +42,12 @@ function genJS(items) {
   )
   addLine('})')
 
-  const jsSourceFile = path.join(__dirname, '__generated__.js')
-  fs.writeFile(jsSourceFile, lines.join('\n'))
-  browserify(jsSourceFile)
+  // create a Buffer object that contains all of the generated JS code that would
+  // be processed to avoid read/write racing conditions
+  const jsSourceBlob = new Buffer(lines.join('\n'))
+  browserify(jsSourceBlob)
     .transform('babelify')
     .bundle()
-    .on('end', () => fs.unlinkSync(jsSourceFile))
     .pipe(fs.createWriteStream(path.join(__dirname, '..', 'docs', 'bundle.js')))
 }
 
