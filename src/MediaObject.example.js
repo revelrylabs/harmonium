@@ -25,7 +25,7 @@ export class SectionAlignment extends Component {
       <MediaObject>
         <MediaObjectSection middle>
           <div>
-            <img src= "//placehold.it/100x100"/>
+            <img src="//placehold.it/100x100"/>
           </div>
         </MediaObjectSection>
         <MediaObjectSection>
@@ -34,7 +34,7 @@ export class SectionAlignment extends Component {
         </MediaObjectSection>
         <MediaObjectSection bottom>
           <div>
-            <img src= "//placehold.it/100x100"/>
+            <img src="//placehold.it/100x100"/>
           </div>
         </MediaObjectSection>
       </MediaObject>
@@ -48,7 +48,7 @@ export class Stack extends Component {
       <MediaObject stackForSmall>
         <MediaObjectSection>
           <div>
-            <img src= "//placehold.it/350x100"/>
+            <img src="//placehold.it/350x100"/>
           </div>
         </MediaObjectSection>
         <MediaObjectSection>
@@ -66,20 +66,20 @@ export class NestedMediaObjects extends Component {
       <MediaObject>
         <MediaObjectSection>
           <div>
-            <img src= "//placehold.it/100x100"/>
+            <img src="//placehold.it/100x100"/>
           </div>
         </MediaObjectSection>
         <MediaObjectSection>
-          <h4>I'm First!</h4>
+          <h4>First!</h4>
           <Lipsum/>
           <MediaObject>
             <MediaObjectSection>
               <div>
-                <img src= "//placehold.it/100x100"/>
+                <img src="//placehold.it/100x100"/>
               </div>
             </MediaObjectSection>
             <MediaObjectSection>
-              <h4>I'm Second!</h4>
+              <h4>Second!</h4>
               <Lipsum/>
             </MediaObjectSection>
           </MediaObject>
