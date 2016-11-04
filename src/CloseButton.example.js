@@ -19,7 +19,7 @@ export class Example extends Component {
         <Col>
           <Callout>
             Look at this close button!
-            <CloseButton>
+            <CloseButton aria-label="Close Callout">
               <span>&times;</span>
             </CloseButton>
           </Callout>
