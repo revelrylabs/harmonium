@@ -1,12 +1,12 @@
-.pagination li {
-  &.pagination-arrow {
+.Pagination li {
+  &.Pagination-arrow {
     display: inline-block;
   }
-  &.pagination-arrow.is-disabled a {
+  &.Pagination-arrow.is-disabled a {
     color: #cacaca;
     cursor: not-allowed;
   }
-  &.pagination-arrow.is-onlyMobile a {
+  &.Pagination-arrow.is-onlyMobile a {
     display: none;
     @media #{$small-only} {
       display: inline-block;
@@ -20,8 +20,8 @@
   }
 }
 @media #{$small-only} {
-  .pagination-number,
-  .pagination-dots {
+  .Pagination-number,
+  .Pagination-dots {
     display: none;
   }
 }
