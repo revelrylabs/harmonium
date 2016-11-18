@@ -1,24 +1,18 @@
 import React, {Component} from 'react'
 import {Row, Col} from '../src/grid'
 import Nav from './nav'
+import selectExamplesStylesheet from './selectExamplesStylesheet'
 
 export default class Layout extends Component {
-  generateStyles(title) {
-    if (title === 'flexGrid') {
-      return <link rel="stylesheet" href="./site-flex.css" />
-    }
-    return <link rel="stylesheet" href="./site.css" />
-  }
-
   render() {
     const {title, children, navKeys} = this.props
-    console.log(title)
+
     return (
       <html>
         <head>
           <title>{title}</title>
           <script type="text/javascript" src="./bundle.js" />
-          {this.generateStyles(title)}
+          {selectExamplesStylesheet(title)}
           <style>
             {
               "pre {overflow:auto;}" +

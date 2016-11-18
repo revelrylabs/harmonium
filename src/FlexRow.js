@@ -73,15 +73,10 @@ const CLASS_NAMES = {
 }
 
 export default class FlexRow extends Row {
-
-  //static propTypes = PROP_TYPES;
   static get propTypes() {
     return PROP_TYPES
   }
 
-  // static defaultProps = {
-  //   collapse: false,
-  // };
   static get propTypes() {
     return {
       collapse: false,

@@ -72,12 +72,12 @@ function genPage(item, navKeys) {
   fs.writeFile(destPath, html(<ExamplePage {...props} />))
 }
 
-const CSS_OUTPUT_FILE = path.join(__dirname, '../docs/site.css')
+const CSS_OUTPUT_FILE = path.join(__dirname, '../docs/site-noflex.css')
 const CSS_OUTPUT_FILE_FLEX = path.join(__dirname, '../docs/site-flex.css')
 
 function genStyles(cb) {
   sass.render({
-    file: path.join(__dirname, './site.scss'),
+    file: path.join(__dirname, './site-noflex.scss'),
     outFile: CSS_OUTPUT_FILE,
     includePaths: [
       path.join(__dirname, '../node_modules/foundation-sites/scss'),
