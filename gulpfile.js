@@ -5,6 +5,7 @@ const webserver = require('gulp-webserver')
 const genDocs = require('./docs-src/generate').default
 
 const paths = [
+  'docs-src/site-flex.scss',
   'docs-src/site.scss',
   'scss/**/*.scss',
   'src/**/*.js'

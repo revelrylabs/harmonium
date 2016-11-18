@@ -1,36 +1,36 @@
 0 info it worked if it ends with ok
-1 verbose cli [ '/Users/harleymckee/.nvm/versions/node/v6.2.1/bin/node',
-1 verbose cli   '/Users/harleymckee/.nvm/versions/node/v6.2.1/bin/npm',
+1 verbose cli [ '/Users/harleymckee/.nvm/versions/node/v6.9.1/bin/node',
+1 verbose cli   '/Users/harleymckee/.nvm/versions/node/v6.9.1/bin/npm',
 1 verbose cli   'run',
 1 verbose cli   'dev' ]
-2 info using npm@3.9.3
-3 info using node@v6.2.1
+2 info using npm@3.10.8
+3 info using node@v6.9.1
 4 verbose run-script [ 'predev', 'dev', 'postdev' ]
 5 info lifecycle revelry-components@1.0.1~predev: revelry-components@1.0.1
 6 silly lifecycle revelry-components@1.0.1~predev: no script for predev, continuing
 7 info lifecycle revelry-components@1.0.1~dev: revelry-components@1.0.1
 8 verbose lifecycle revelry-components@1.0.1~dev: unsafe-perm in lifecycle true
-9 verbose lifecycle revelry-components@1.0.1~dev: PATH: /Users/harleymckee/.nvm/versions/node/v6.2.1/lib/node_modules/npm/bin/node-gyp-bin:/Users/harleymckee/src/revelry_core_node/node_modules/.bin:/Users/harleymckee/.nvm/versions/node/v6.2.1/bin:/Users/harleymckee/.nvm/versions/node/v6.2.1/bin:/Users/harleymckee/.rbenv/bin:bin:/opt/boxen/heroku/bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/ruby-build/bin:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:/opt/boxen/node-build/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/opt/boxen/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+9 verbose lifecycle revelry-components@1.0.1~dev: PATH: /Users/harleymckee/.nvm/versions/node/v6.9.1/lib/node_modules/npm/bin/node-gyp-bin:/Users/harleymckee/src/revelry_core_node/node_modules/.bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Library/Frameworks/Python.framework/Versions/3.5/bin:/Users/harleymckee/.rbenv/bin:/Users/harleymckee/.nvm/versions/node/v6.9.1/bin:bin:/opt/boxen/heroku/bin:/opt/boxen/rbenv/shims:/opt/boxen/rbenv/bin:/opt/boxen/ruby-build/bin:/opt/boxen/nodenv/shims:/opt/boxen/nodenv/bin:/opt/boxen/node-build/bin:/opt/boxen/homebrew/bin:/opt/boxen/homebrew/sbin:/opt/boxen/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
 10 verbose lifecycle revelry-components@1.0.1~dev: CWD: /Users/harleymckee/src/revelry_core_node
 11 silly lifecycle revelry-components@1.0.1~dev: Args: [ '-c', 'gulp' ]
 12 silly lifecycle revelry-components@1.0.1~dev: Returned: code: 1  signal: null
 13 info lifecycle revelry-components@1.0.1~dev: Failed to exec dev script
 14 verbose stack Error: revelry-components@1.0.1 dev: `gulp`
 14 verbose stack Exit status 1
-14 verbose stack     at EventEmitter.<anonymous> (/Users/harleymckee/.nvm/versions/node/v6.2.1/lib/node_modules/npm/lib/utils/lifecycle.js:245:16)
+14 verbose stack     at EventEmitter.<anonymous> (/Users/harleymckee/.nvm/versions/node/v6.9.1/lib/node_modules/npm/lib/utils/lifecycle.js:255:16)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at EventEmitter.emit (events.js:191:7)
-14 verbose stack     at ChildProcess.<anonymous> (/Users/harleymckee/.nvm/versions/node/v6.2.1/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+14 verbose stack     at ChildProcess.<anonymous> (/Users/harleymckee/.nvm/versions/node/v6.9.1/lib/node_modules/npm/lib/utils/spawn.js:40:14)
 14 verbose stack     at emitTwo (events.js:106:13)
 14 verbose stack     at ChildProcess.emit (events.js:191:7)
-14 verbose stack     at maybeClose (internal/child_process.js:852:16)
-14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
 15 verbose pkgid revelry-components@1.0.1
 16 verbose cwd /Users/harleymckee/src/revelry_core_node
 17 error Darwin 14.5.0
-18 error argv "/Users/harleymckee/.nvm/versions/node/v6.2.1/bin/node" "/Users/harleymckee/.nvm/versions/node/v6.2.1/bin/npm" "run" "dev"
-19 error node v6.2.1
-20 error npm  v3.9.3
+18 error argv "/Users/harleymckee/.nvm/versions/node/v6.9.1/bin/node" "/Users/harleymckee/.nvm/versions/node/v6.9.1/bin/npm" "run" "dev"
+19 error node v6.9.1
+20 error npm  v3.10.8
 21 error code ELIFECYCLE
 22 error revelry-components@1.0.1 dev: `gulp`
 22 error Exit status 1

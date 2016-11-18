@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import {Row, Col} from './flexGrid'
+import Lipsum from './Lipsum'
 
 export class FlexGrid extends Component {
   render() {
@@ -26,7 +27,7 @@ export class FlexGrid extends Component {
             4 columns
           </Col>
           <Col>
-            Whatever's left!
+            {"Whatever's left!"}
           </Col>
         </Row>
         <Row>
@@ -34,10 +35,10 @@ export class FlexGrid extends Component {
             4 columns
           </Col>
           <Col>
-            Whatever's left!
+            {"Whatever's left!"}
           </Col>
           <Col>
-            Whatever's left!
+            {"Whatever's left!"}
           </Col>
         </Row>
         <Row>
@@ -130,10 +131,10 @@ export class FlexGrid extends Component {
         </Row>
         <Row alignMiddle>
           <Col>
-            I'm in the middle!
+            {"I'm in the middle!"}
           </Col>
           <Col>
-            I am as well, but I have so much text I take up more space! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis facere ducimus earum minus, inventore, ratione doloremque deserunt neque perspiciatis accusamus explicabo soluta, quod provident distinctio aliquam omnis? Labore, ullam possimus.
+            <Lipsum />
           </Col>
         </Row>
         <Row>
@@ -147,7 +148,7 @@ export class FlexGrid extends Component {
             Align top
           </Col>
           <Col>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?
+            <Lipsum />
           </Col>
         </Row>
         <Row smallCollapse mediumCollapse>

@@ -73,6 +73,8 @@ function genPage(item, navKeys) {
 }
 
 const CSS_OUTPUT_FILE = path.join(__dirname, '../docs/site.css')
+const CSS_OUTPUT_FILE_FLEX = path.join(__dirname, '../docs/site-flex.css')
+
 function genStyles(cb) {
   sass.render({
     file: path.join(__dirname, './site.scss'),
@@ -90,6 +92,26 @@ function genStyles(cb) {
       console.log(error.line)
     } else {
       fs.writeFile(CSS_OUTPUT_FILE, css, cb)
+    }
+  })
+
+  // dedupe
+  sass.render({
+    file: path.join(__dirname, './site-flex.scss'),
+    outFile: CSS_OUTPUT_FILE_FLEX,
+    includePaths: [
+      path.join(__dirname, '../node_modules/foundation-sites/scss'),
+      path.join(__dirname, '../scss'),
+    ],
+    sourceMap: true,
+  }, cb || function(err, {css}) {
+    if(err) {
+      console.log(error.status)
+      console.log(error.column)
+      console.log(error.message)
+      console.log(error.line)
+    } else {
+      fs.writeFile(CSS_OUTPUT_FILE_FLEX, css, cb)
     }
   })
 }
