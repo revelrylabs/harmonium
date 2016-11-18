@@ -1,7 +1,10 @@
 import React from 'react'
-import {expect} from 'chai'
+import chai, {expect} from 'chai'
 import {mount, shallow} from 'enzyme'
 import {jsdom} from 'jsdom'
+import chaiEnzyme from 'chai-enzyme'
+
+chai.use(chaiEnzyme())
 
 global.document = jsdom('')
 global.window = document.defaultView

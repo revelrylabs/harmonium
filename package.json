@@ -36,7 +36,6 @@
     "test": "mocha ./src/**/*.test.js --opts ./mocha.opts",
     "docs": "node scripts/docs.js",
     "web": "static-server docs -p $PORT",
-    "postinstall": "npm run build",
     "dev": "gulp"
   },
   "keywords": [],
@@ -46,12 +45,13 @@
     "babelify": "^7.3.0",
     "browserify": "^12.0.2",
     "chai": "^3.5.0",
+    "chai-enzyme": "^0.6.1",
     "enzyme": "^2.4.1",
     "gulp": "^3.9.1",
     "gulp-webserver": "^0.9.1",
     "jsdom": "^9.8.3",
     "mocha": "^3.1.2",
     "node-dir": "^0.1.16",
-    "react-addons-test-utils": "^15.3.2"
+    "react-addons-test-utils": "^0.14.8"
   }
 }
