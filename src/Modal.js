@@ -3,11 +3,9 @@ import StatelessModal from './StatelessModal'
 
 export default class Modal extends Component {
 
-  static get propTypes() {
-    return {
-      isOpen: React.PropTypes.bool,
-      onBackgroundClick: React.PropTypes.func,
-    }
+  static propTypes = {
+    isOpen: React.PropTypes.bool,
+    onBackgroundClick: React.PropTypes.func,
   }
 
   constructor(props) {
@@ -15,10 +13,9 @@ export default class Modal extends Component {
     this.state = {
       isOpen: props.isOpen,
     }
-    this.handleClick = this.handleClick.bind(this)
   }
 
-  handleClick(e) {
+  handleClick = (e) => {
     this.setState({isOpen: false})
     if (this.props.onBackgroundClick) {
       this.props.onBackgroundClick(e)

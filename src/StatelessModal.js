@@ -4,25 +4,16 @@ import Icon from './Icon'
 
 export default class StatelessModal extends Component {
 
-  constructor(props) {
-    super(props)
-    this.onBackgroundClick = this.onBackgroundClick.bind(this)
+  static propTypes = {
+    isOpen: React.PropTypes.bool,
+    onBackgroundClick: React.PropTypes.func,
   }
 
-  static get propTypes() {
-    return {
-      isOpen: React.PropTypes.bool,
-      onBackgroundClick: React.PropTypes.func,
-    }
+  static defaultProps = {
+    isOpen: false,
   }
 
-  static get defaultProps() {
-    return {
-      isOpen: false,
-    }
-  }
-
-  onBackgroundClick(e) {
+  onBackgroundClick = (e) => {
     if(this.props.onBackgroundClick) {
       this.props.onBackgroundClick(e)
     }
