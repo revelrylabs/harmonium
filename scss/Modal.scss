@@ -1,9 +1,9 @@
 .RevModal {
   bottom: 0;
   left: 0;
+  overflow-y: auto;
   padding: 0;
   position: fixed;
-  overflow-y: auto;
   right: 0;
   top: 0;
   z-index: 1000;
@@ -13,22 +13,22 @@
   background-color: #000;
   bottom: 0;
   left: 0;
+  opacity: 0.5;
   position: fixed;
   right: 0;
   top: 0;
-  opacity: 0.5;
 }
 
 .RevModal-content {
   background-color: #FFF;
+  left: 10%;
+  max-height: 80%;
+  max-width: 80%;
   opacity: 1;
+  overflow: auto;
   padding: 2rem;
   position: absolute;
-  overflow: auto;
-  max-width: 80%;
-  max-height: 80%;
   top: 10%;
-  left: 10%;
 }
 
 .Modal-close {
