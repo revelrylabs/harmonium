@@ -1,14 +1,19 @@
-import React, {PropTypes} from 'react'
+import React, {Component, PropTypes} from 'react'
 
-const HelpText = ({className, children}) => (
-  <span className={className}>
-    {children}
-  </span>
-)
+export default class HelpText extends Component {
 
-HelpText.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-  className: PropTypes.string,
+  static propTypes = {
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    className: PropTypes.string,
+  }
+
+  render() {
+    const {children, className} = this.props
+
+    return (
+      <span className={className}>
+        {children}
+      </span>
+    )
+  }
 }
-
-export default HelpText
