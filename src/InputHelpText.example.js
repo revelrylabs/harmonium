@@ -20,7 +20,7 @@ export class Example extends Component {
 
         <p>Example with help text as children:</p>
         <InputHelpText>
-          <p>I am some <strong>very</strong> helpful text.'</p>
+          <p>I am some <strong>very</strong> helpful text.</p>
         </InputHelpText>
       </div>
     )
