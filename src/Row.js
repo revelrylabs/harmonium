@@ -1,19 +1,12 @@
 import React from 'react'
 import classNames from 'classnames'
 
+const PROP_TYPES = {
+  collapse: false,
+}
+
 export default class Row extends React.Component {
-
-  static get propTypes() {
-    return {
-      collapse: React.PropTypes.bool,
-    }
-  }
-
-  static get defaultProps() {
-    return {
-      collapse: false,
-    }
-  }
+  static propTypes = PROP_TYPES;
 
   get className() {
     return classNames(this.props.className, {

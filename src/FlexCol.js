@@ -19,6 +19,7 @@ const BOOL_PROPS = [
 ]
 
 export default class FlexCol extends Col {
+  PROP_TYPES
   static get boolProps() {
     return BOOL_PROPS
   }
