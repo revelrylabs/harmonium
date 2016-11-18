@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-// import HelpText from './HelpText'
+import HelpText from './HelpText'
 
 export default class InputHelpText extends Component {
 
@@ -17,16 +17,4 @@ export default class InputHelpText extends Component {
 
     return <HelpText className={className}>{children}</HelpText>
   }
-}
-
-// TODO: delete once HelpText added here
-const HelpText = ({className, children}) => (
-  <span className={`HelpText ${className}`}>
-    {children}
-  </span>
-)
-
-HelpText.propTypes = {
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
-  className: PropTypes.string,
 }
