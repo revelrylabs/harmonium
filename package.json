@@ -50,6 +50,6 @@
     "gulp-webserver": "^0.9.1",
     "mocha": "^3.1.2",
     "node-dir": "^0.1.16",
-    "react-addons-test-utils": "^15.3.2"
+    "react-addons-test-utils": "^0.14.8"
   }
 }
