@@ -1,6 +1,6 @@
 # revelry_core_node
 
-This is the Node.js port of revelry_core.
+This is the Node.js port of revelry_core. You can find the deployed version [here](http://revelry-ui.herokuapp.com/).
 
 ## Setup
 

@@ -36,7 +36,6 @@
     "test": "mocha ./src/**/*.test.js --opts ./mocha.opts",
     "docs": "node scripts/docs.js",
     "web": "static-server docs -p $PORT",
-    "postinstall": "npm run build",
     "dev": "gulp"
   },
   "keywords": [],

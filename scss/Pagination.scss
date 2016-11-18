@@ -1,0 +1,27 @@
+.Pagination li {
+  &.Pagination-arrow {
+    display: inline-block;
+  }
+  &.Pagination-arrow.is-disabled a {
+    color: #cacaca;
+    cursor: not-allowed;
+  }
+  &.Pagination-arrow.is-onlyMobile a {
+    display: none;
+    @media #{$small-only} {
+      display: inline-block;
+    }
+  }
+}
+.PaginationWrapper-pageList {
+  display: none;
+  @media #{$small-only} {
+    display: block;
+  }
+}
+@media #{$small-only} {
+  .Pagination-number,
+  .Pagination-dots {
+    display: none;
+  }
+}
