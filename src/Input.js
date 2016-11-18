@@ -1,67 +1,79 @@
-import React from 'react'
-import classNames from 'classnames'
-import _ from 'underscore'
+import React, {Component, PropTypes} from 'react'
+import InputHelpText from './InputHelpText'
+import InputErrors from './InputErrors'
 
-export default class Input extends React.Component {
+export default class Input extends Component {
 
-  static get defaultProps() {
-    return {
-      dom: 'input',
-      type: 'text',
-    }
+  static propTypes = {
+    className: PropTypes.string,
+    defaultValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    errors: PropTypes.array,
+    helpText: PropTypes.string,
+    id: PropTypes.string,
+    label: PropTypes.string,
+    name: PropTypes.string,
+    onChange: PropTypes.func,
+    placeholder: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    required: PropTypes.bool,
+    type: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  };
+
+  static defaultProps = {
+    className: null,
+    errors: [],
+    required: false,
+    type: 'text',
   }
 
-  get typeClassMod() {
-    return this.props.dom === 'input' ? this.props.type : this.props.dom
-  }
+  get inputProps() {
+    const {
+      defaultValue,
+      id,
+      name,
+      onChange,
+      placeholder,
+      type,
+      value,
+    } = this.props
 
-  get labelClassName() {
-    let labelClassNamesObject = {
-      'RevInput': true,
-      'RevInput--label': true,
-      'is-invalid-label': this.props.error != null,
-    }
-    labelClassNamesObject[`RevInput-${this.typeClassMod}`] = true // E.g., "RevInput-checkbox"
-    return classNames(labelClassNamesObject)
-  }
-
-  get input() {
-    let props = _.omit(['dom', 'error', 'className'])
-    props.className = classNames(this.props.className, {
-      'RevInput--input': true,
-      'is-invalid-input': this.props.error != null,
-    })
-    return React.createElement(this.props.dom, props, this.props.children)
-  }
-
-  get innerLabel() {
-    return <span className="RevInput--innerLabel">{this.props.label}</span>
-  }
-
-  get error() {
-    if(this.props.error) {
-      return <span className="RevError form-error is-visible">{this.props.error}</span>
-    }
-    return null
-  }
-
-  get helpText() {
-    const {helpText} = this.props
-    return helpText ? <p className="RevInput-helpText help-text">{helpText}</p> : null
-  }
-
-  get shouldPutLabelAfterInput() {
-    return this.props.type === 'checkbox' || this.props.type === 'radio'
+    return {name, id, value, defaultValue, type, placeholder, onChange}
   }
 
   render() {
-    return <label className={this.labelClassName}>
-      {this.shouldPutLabelAfterInput ? null : this.innerLabel}
-      {this.input}
-      {this.shouldPutLabelAfterInput ? this.innerLabel : null}
-      {this.error}
-      {this.helpText}
-    </label>
-  }
+    const {id, errors, helpText, className, required, label} = this.props
 
+    return (
+      <label className={labelClasses(errors, className)}>
+        <span className="LabelText">{labelText(required, label)}</span>
+        <input className={inputClasses(errors)} {...this.inputProps} />
+        <InputHelpText>{helpText}</InputHelpText>
+        <InputErrors errors={errors} />
+      </label>
+    )
+  }
+}
+
+function labelClasses(errors, className) {
+  let classes = []
+
+  if (errors.length > 0) {
+    classes.push('is-invalid-label')
+  }
+  if (className) {
+    classes.push(className)
+  }
+  return classes.join(' ')
+}
+
+function labelText(required, label) {
+  if (required) {
+    return `${label} *`
+  } else {
+    return label
+  }
+}
+
+function inputClasses(errors) {
+  return errors.length > 0 ? 'is-invalid-input' : ''
 }
