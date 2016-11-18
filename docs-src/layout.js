@@ -1,16 +1,18 @@
 import React, {Component} from 'react'
 import {Row, Col} from '../src/grid'
 import Nav from './nav'
+import selectExamplesStylesheet from './selectExamplesStylesheet'
 
 export default class Layout extends Component {
   render() {
     const {title, children, navKeys} = this.props
+
     return (
       <html>
         <head>
           <title>{title}</title>
           <script type="text/javascript" src="./bundle.js" />
-          <link rel="stylesheet" href="./site.css" />
+          <link rel="stylesheet" href={selectExamplesStylesheet(title)} />
           <style>
             {
               "pre {overflow:auto;}" +
