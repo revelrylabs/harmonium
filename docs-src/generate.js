@@ -72,48 +72,35 @@ function genPage(item, navKeys) {
   fs.writeFile(destPath, html(<ExamplePage {...props} />))
 }
 
-const CSS_OUTPUT_FILE = path.join(__dirname, '../docs/site-noflex.css')
-const CSS_OUTPUT_FILE_FLEX = path.join(__dirname, '../docs/site-flex.css')
+function genStylesFromName(name, cb) {
+  const outputFile = path.join(__dirname, `../docs/${name}.css`)
+
+  sass.render({
+    file: path.join(__dirname, `./${name}.scss`),
+    outFile: outputFile,
+    includePaths: [
+      path.join(__dirname, '../node_modules/foundation-sites/scss'),
+      path.join(__dirname, '../scss'),
+      path.join(__dirname, './site-base.scss'),
+    ],
+    sourceMap: true,
+  }, cb || function(err, {css}) {
+    if(err) {
+      console.log(error.status)
+      console.log(error.column)
+      console.log(error.message)
+      console.log(error.line)
+    } else {
+      fs.writeFile(outputFile, css, cb)
+    }
+  })
+}
 
 function genStyles(cb) {
-  sass.render({
-    file: path.join(__dirname, './site-noflex.scss'),
-    outFile: CSS_OUTPUT_FILE,
-    includePaths: [
-      path.join(__dirname, '../node_modules/foundation-sites/scss'),
-      path.join(__dirname, '../scss'),
-    ],
-    sourceMap: true,
-  }, cb || function(err, {css}) {
-    if(err) {
-      console.log(error.status)
-      console.log(error.column)
-      console.log(error.message)
-      console.log(error.line)
-    } else {
-      fs.writeFile(CSS_OUTPUT_FILE, css, cb)
-    }
-  })
-
-  // dedupe
-  sass.render({
-    file: path.join(__dirname, './site-flex.scss'),
-    outFile: CSS_OUTPUT_FILE_FLEX,
-    includePaths: [
-      path.join(__dirname, '../node_modules/foundation-sites/scss'),
-      path.join(__dirname, '../scss'),
-    ],
-    sourceMap: true,
-  }, cb || function(err, {css}) {
-    if(err) {
-      console.log(error.status)
-      console.log(error.column)
-      console.log(error.message)
-      console.log(error.line)
-    } else {
-      fs.writeFile(CSS_OUTPUT_FILE_FLEX, css, cb)
-    }
-  })
+  // gen style entry points for foundation with flex enabled and disabled
+  // different examples use different implementations
+  genStylesFromName('site-flex', cb)
+  genStylesFromName('site-noflex', cb)
 }
 
 export default function genDocs() {

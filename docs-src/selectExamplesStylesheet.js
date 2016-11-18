@@ -1,9 +1,10 @@
 function selectStylesheetName(moduleName) {
+  console.log(moduleName)
   switch(moduleName) {
     case 'flexGrid':
-      return 'site-flex'
+      return 'site-flex.css'
   }
-  return 'site'
+  return 'site-noflex.css'
 }
 
 export default function selectExamplesStylesheet(moduleName) {

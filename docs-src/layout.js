@@ -12,7 +12,7 @@ export default class Layout extends Component {
         <head>
           <title>{title}</title>
           <script type="text/javascript" src="./bundle.js" />
-          {selectExamplesStylesheet(title)}
+          <link rel="stylesheet" href={selectExamplesStylesheet(title)} />
           <style>
             {
               "pre {overflow:auto;}" +
