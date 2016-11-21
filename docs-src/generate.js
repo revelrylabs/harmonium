@@ -20,11 +20,7 @@ function genJS(items) {
   imports.push(`import {render} from 'react-dom'`)
 
   items.forEach((item) => {
-    // remove any cached require calls for the existing example file so that
-    // we can access new exports for rendering
-    delete require.cache[item.examples]
     const mod = require(item.examples)
-
     Object.keys(mod).forEach((key) => {
       const id = `${item.name}_examples_${key}`
       ids.push(id)
@@ -42,12 +38,12 @@ function genJS(items) {
   )
   addLine('})')
 
-  // create a Buffer object that contains all of the generated JS code that would
-  // be processed to avoid read/write racing conditions
-  const jsSourceBlob = new Buffer(lines.join('\n'))
-  browserify(jsSourceBlob)
+  const jsSourceFile = path.join(__dirname, '__generated__.js')
+  fs.writeFile(jsSourceFile, lines.join('\n'))
+  browserify(jsSourceFile)
     .transform('babelify')
     .bundle()
+    .on('end', () => fs.unlinkSync(jsSourceFile))
     .pipe(fs.createWriteStream(path.join(__dirname, '..', 'docs', 'bundle.js')))
 }
 
