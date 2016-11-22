@@ -17,13 +17,7 @@ export class Singular extends Component {
           <Radio name="singular" defaultValue="1" label="One" />
         </Col>
         <Col>
-          <Radio name="singular" defaultValue="2" label="Has help text" help="This is help text." />
-        </Col>
-        <Col>
-          <Radio name="singular" defaultValue="3" label="Has error" error="This is an error." />
-        </Col>
-        <Col>
-          <Radio name="singular" defaultValue="2" label="Has both" help="This is help text." error="This is an error." />
+          <Radio name="singular" defaultValue="3" label="Has error" error />
         </Col>
       </Row>
     )
