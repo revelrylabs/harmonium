@@ -33,6 +33,8 @@ class RadioFieldset extends Component {
       label,
       help,
       error,
+      onChange,
+      readOnly,
       ...rest,
     } = this.props
 
@@ -43,6 +45,8 @@ class RadioFieldset extends Component {
       const props = {
         name,
         error,
+        onChange,
+        readOnly,
         label: option.label,
         key: option.key || option.value,
       }

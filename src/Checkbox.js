@@ -33,6 +33,8 @@ class CheckboxFieldset extends Component {
       label,
       help,
       error,
+      onChange,
+      readOnly,
       ...rest,
     } = this.props
 
@@ -52,6 +54,8 @@ class CheckboxFieldset extends Component {
       const props = {
         name,
         error,
+        onChange,
+        readOnly,
         label: option.label,
         key: option.key || option.value,
       }
