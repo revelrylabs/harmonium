@@ -6,7 +6,7 @@ export class Example extends Component {
     return (
       <div>
         <Input label="Name" />
-        <Input label="Name" helpText="this is help text" />
+        <Input label="Name" help="this is help text" />
         <Input label="Name" error="error" />
       </div>
     )

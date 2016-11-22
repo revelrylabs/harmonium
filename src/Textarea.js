@@ -1,17 +1,35 @@
-import React from 'react'
-import _ from 'underscore'
+import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
-import Input from './Input'
+import InputLabel from './InputLabel'
+import InputHelpText from './InputHelpText'
+import InputErrors from './InputErrors'
 
-export default class Textarea extends React.Component {
+export default class Textarea extends Component {
+
+  static propTypes = {
+    error: PropTypes.any,
+    label: PropTypes.node,
+    help: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
+  };
+
+  static defaultProps = {
+    type: 'text',
+  }
+
   render() {
-    let className = classNames(this.props.className, {
-      'RevTextarea': true,
+    const {error, help, className, label, ...props} = this.props
+
+    const inputClassName = classNames({
+      'is-invalid-input': !!error,
     })
-    let props = _.omit(['type'])
-    return <Input {...props}
-      className={className}
-      dom="textarea"
-    />
+
+    return (
+      <InputLabel className={className} error={error}>
+        {label}
+        <textarea className={inputClassName} {...props} />
+        <InputHelpText>{help}</InputHelpText>
+        <InputErrors>{error}</InputErrors>
+      </InputLabel>
+    )
   }
 }

@@ -48,7 +48,12 @@ function genJS(items) {
 }
 
 function html(instance) {
-  return `<!doctype html>${renderToStaticMarkup(instance)}`
+  try {
+    return `<!doctype html>${renderToStaticMarkup(instance)}`
+  } catch(error) {
+    console.log(instance.props.name)
+    throw error
+  }
 }
 
 function genIndex(navKeys) {
