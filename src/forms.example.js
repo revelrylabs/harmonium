@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Input, Textarea, Radio, Checkbox, Select, Option} from './forms'
+import {Form, Input, Textarea, Radio, Checkbox, Select, Option} from './forms'
 
 export class MetaPackage extends Component {
   render() {
