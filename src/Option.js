@@ -1,6 +1,6 @@
-import React from 'react'
+import React, {Component} from 'react'
 
-export default class Option extends React.Component {
+export default class Option extends Component {
   render() {
     return <option {...this.props} />
   }

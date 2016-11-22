@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {Row, Col} from './grid'
-import {Input, Textarea, Radio, Checkbox} from './forms'
+import {Input, Textarea, Radio, Checkbox, Select} from './forms'
 
 export class Example extends Component {
   render() {
@@ -51,6 +51,24 @@ export class Example extends Component {
                     {label: 'Right', value: 'right'},
                   ]}
                 />
+              </Col>
+              <Col>
+                <Select name="users[ears]" defaultValue="right" label="Ears in possession" options={[
+                  {label: 'Left', value: 'left'},
+                  {label: 'Right', value: 'right'},
+                ]} />
+              </Col>
+              <Col>
+                <Select multiple name="users[ears_multiple]" defaultValue={['right']} label="Ears in possession" options={[
+                  {label: 'Left', value: 'left'},
+                  {label: 'Right', value: 'right'},
+                ]} />
+              </Col>
+              <Col>
+                <Select multiple name="users[ears_multiple_explicit_options]" defaultValue={['right']} label="Ears in possession">
+                  <option value="left">Left</option>
+                  <option value="right">Right</option>
+                </Select>
               </Col>
             </Row>
           </form>
