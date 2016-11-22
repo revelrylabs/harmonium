@@ -15,7 +15,24 @@ export default class Select extends Component {
   }
 
   render() {
-    const {children, options, label, className, help, error, ...props} = this.props
+    const {children, options, className, error, ...props} = this.props
+
+    const inputClassName = classNames(className, {
+      'is-invalid-input': !!error,
+    })
+
+    return (
+      <select className={inputClassName} {...props}>
+        {children}
+        {options ? Select.options(options) : null}
+      </select>
+    )
+  }
+}
+
+class SelectStack extends Component {
+  render() {
+    const {children, label, className, help, error, ...props} = this.props
 
     const inputClassName = classNames({
       'is-invalid-input': !!error,
@@ -24,13 +41,13 @@ export default class Select extends Component {
     return (
       <InputLabel className={className} error={error}>
         {label}
-        <select className={inputClassName} {...props}>
+        <Select {...props} error={error}>
           {children}
-          {options ? Select.options(options) : null}
-        </select>
+        </Select>
         <InputHelpText>{help}</InputHelpText>
         <InputErrors>{error}</InputErrors>
       </InputLabel>
     )
   }
 }
+Select.Stack = SelectStack

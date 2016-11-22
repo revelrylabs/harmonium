@@ -16,13 +16,15 @@ export class OptionChildrenVsOptionsProp extends Component {
     return (
       <Row>
         <Col>
-          <Select name="airport" label="Airport with <option> children.">
+          <strong>{"Airport with <option> children."}</strong>
+          <Select name="airport">
             <option value="MSY">Louis Armstrong</option>
             <option value="JFK">John F. Kennedy</option>
           </Select>
         </Col>
         <Col>
-          <Select name="airport" label="Airport with `options` prop." options={[
+          <strong>"Airport with `options` prop."</strong>
+          <Select name="airport" options={[
             {label: 'Louis Armstrong', value: 'MSY'},
             {label: 'John F. Kennedy', value: 'JFK'},
           ]} />
@@ -40,18 +42,18 @@ export class MultipleValues extends Component {
   }
 }
 
-export class HelpTextAndError extends Component {
+export class Stacks extends Component {
   render() {
     return (
       <Row>
         <Col>
-          <Select options={OPTIONS} label="Has help text" help="This is the help text." />
+          <Select.Stack options={OPTIONS} label="Has help text" help="This is the help text." />
         </Col>
         <Col>
-          <Select options={OPTIONS} label="Has error" error="This is the error." />
+          <Select.Stack options={OPTIONS} label="Has error" error="This is the error." />
         </Col>
         <Col>
-          <Select options={OPTIONS} label="Stacks both help and error" help="This is the help text." error="This is the error." />
+          <Select.Stack options={OPTIONS} label="Stacks both help and error" help="This is the help text." error="This is the error." />
         </Col>
       </Row>
     )
