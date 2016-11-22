@@ -4,9 +4,6 @@ import InputGroup from './InputGroup'
 import Input from './Input'
 import Button from './Button'
 
-const ERROR = "This is an error."
-const HELP = "This is help text."
-
 export class Standalone extends Component {
   render() {
     return (
