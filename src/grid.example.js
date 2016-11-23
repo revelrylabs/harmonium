@@ -9,46 +9,43 @@ const Col = (props) => <OriginalCol {...props} style={style}>{props.children}</O
 
 const X = () => <div style={{border: '1px dotted #999'}}>X</div>
 
-export class Basic extends Component {
+export class Intro extends Component {
   render() {
     return (
-      <Row>
-        <Col>
-          <Row><Col><strong>small</strong></Col></Row>
-          <Row>
-            <Col small={4}><X /></Col>
-            <Col small={4}><X /></Col>
-            <Col small={4}><X /></Col>
-          </Row>
-          <Row>
-            <Col small={3}><X /></Col>
-            <Col small={4}><X /></Col>
-            <Col small={5}><X /></Col>
-          </Row>
-          <Row><Col><strong>medium</strong></Col></Row>
-          <Row>
-            <Col medium={4}><X /></Col>
-            <Col medium={4}><X /></Col>
-            <Col medium={4}><X /></Col>
-          </Row>
-          <Row>
-            <Col medium={3}><X /></Col>
-            <Col medium={4}><X /></Col>
-            <Col medium={5}><X /></Col>
-          </Row>
-          <Row><Col><strong>large</strong></Col></Row>
-          <Row>
-            <Col large={4}><X /></Col>
-            <Col large={4}><X /></Col>
-            <Col large={4}><X /></Col>
-          </Row>
-          <Row>
-            <Col large={3}><X /></Col>
-            <Col large={4}><X /></Col>
-            <Col large={5}><X /></Col>
-          </Row>
-        </Col>
-      </Row>
+      <div>
+        <Row>
+          <Col small={2} large={4}>x</Col>
+          <Col small={4} large={4}>x</Col>
+          <Col small={6} large={4}>x</Col>
+        </Row>
+        <Row>
+          <Col large={3}>x</Col>
+          <Col large={6}>x</Col>
+          <Col large={3}>x</Col>
+        </Row>
+        <Row>
+          <Col small={6} large={2}>x</Col>
+          <Col small={6} large={8}>x</Col>
+          <Col small={12} large={2}>x</Col>
+        </Row>
+        <Row>
+          <Col small={3}>x</Col>
+          <Col small={9}>x</Col>
+        </Row>
+        <Row>
+          <Col large={4}>x</Col>
+          <Col large={8}>x</Col>
+        </Row>
+        <Row>
+          <Col small={6} large={5}>x</Col>
+          <Col small={6} large={7}>x</Col>
+        </Row>
+        <Row>
+          <Col large={6}>x</Col>
+          <Col large={6}>x</Col>
+        </Row>
+
+      </div>
     )
   }
 }
