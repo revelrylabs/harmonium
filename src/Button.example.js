@@ -38,6 +38,9 @@ export class Styles extends Component {
           <Button expanded medium>expanded medium</Button>
           <Button expanded large>expanded large</Button>
         </Col>
+        <Col>
+          <Button secondary type="submit" name="action" value="cancel">Cancel</Button>
+        </Col>
       </Row>
     )
   }
