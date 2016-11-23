@@ -10,6 +10,9 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   mediumUncentered: 'medium-uncentered',
   largeUncentered: 'large-uncentered',
 
+  mediumExpand: 'medium-expand',
+  largeExpand: 'large-expand',
+
   end: 'end',
 
   expanded: 'expanded',
@@ -33,13 +36,42 @@ const NUMBER_PROPS_TO_CLASS_NAMES = {
   smallPull: (x) => `small-pull-${x}`,
   mediumPull: (x) => `medium-pull-${x}`,
   largePull: (x) => `large-pull-${x}`,
+
+  smallOrder: (x) => `small-order-${x}`,
+  mediumOrder: (x) => `medium-order-${x}`,
+  largeOrder: (x) => `large-order-${x}`,
 }
 
 const NUMBER_PROPS = Object.keys(NUMBER_PROPS_TO_CLASS_NAMES)
 
+const HORIZONTAL_ALIGNMENTS = {
+  right: true,
+  center: true,
+  justify: true,
+  spaced: true,
+}
+
+const VERTICAL_ALIGNMENTS = {
+  top: true,
+  middle: true,
+  bottom: true,
+  stretch: true,
+}
+
+function getAlignmentClassNames(hAlign, vAlign) {
+  const names = []
+  if(hAlign && HORIZONTAL_ALIGNMENTS[hAlign]) {
+    names.push(`align-self-${hAlign}`)
+  }
+  if(hAlign && VERTICAL_ALIGNMENTS[vAlign]) {
+    names.push(`align-self-${vAlign}`)
+  }
+  return names
+}
+
 export default class Col extends Component {
   render() {
-    const {children, className, ...props} = this.props
+    const {children, className, hAlign, vAlign, ...props} = this.props
 
     const boolClassNames = []
     BOOL_PROPS.forEach((name) => {
@@ -59,7 +91,13 @@ export default class Col extends Component {
       delete props[name]
     })
 
-    const divClassName = classNames(className, 'columns', boolClassNames, numberClassNames)
+    const divClassName = classNames(
+      className,
+      'columns',
+      boolClassNames,
+      numberClassNames,
+      getAlignmentClassNames(hAlign, vAlign)
+    )
 
     return (
       <div {...props} className={divClassName}>
