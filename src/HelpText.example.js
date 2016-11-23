@@ -14,7 +14,7 @@ export class Example2 extends Component {
 
   render() {
     return (
-      <HelpText><p>Help text with <strong>children</strong></p></HelpText>
+      <HelpText><span>Help text with <strong>children</strong></span></HelpText>
     )
   }
 }
