@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
 
-const CLASS_NAMES = {
+const PROP_NAME_TO_CLASS_NAME = {
   primary: 'primary',
   secondary: 'secondary',
   alert: 'alert',
@@ -11,40 +11,32 @@ const CLASS_NAMES = {
   medium: 'medium',
   large: 'large',
 }
+const PROP_NAMES = Object.keys(PROP_NAME_TO_CLASS_NAME)
+const PROP_TYPES = {}
 
-const PROP_TYPES = {
-  children: PropTypes.node,
-  id: PropTypes.string,
-}
-
-Object.keys(CLASS_NAMES).forEach(key => PROP_TYPES[key] = PropTypes.bool)
+PROP_NAMES.forEach((key) => PROP_TYPES[key] = PropTypes.bool)
 
 export default class Badge extends Component {
-  static propTypes = PROP_TYPES
 
-  get id() {
-    if (this.props.id)
-    return this.props.id
-  }
+  static propTypes = PROP_TYPES;
 
-  get className() {
-    const classNameList = ['badge']
+  render() {
+    const {className, children, ...props} = this.props
 
-    Object.keys(this.props).forEach(propName => {
-      const className = CLASS_NAMES[propName]
-      if (className) {
-        classNameList.push(className)
+    const propClassNames = []
+    PROP_NAMES.forEach((name) => {
+      if(props[name]) {
+        propClassNames.push(PROP_NAME_TO_CLASS_NAME[name])
+        delete props[name]
       }
     })
 
-    return classNames(classNameList)
-  }
+    const newClassName = classNames('badge', ...propClassNames)
 
-  render() {
-    return(
-      <div className={this.className} id={this.id}>
-        {this.props.children}
-      </div>
+    return (
+      <span {...props} className={newClassName}>
+        {children}
+      </span>
     )
   }
 }
