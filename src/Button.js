@@ -1,41 +1,42 @@
-import React from 'react'
+import React, {Component} from 'react'
 import classNames from 'classnames'
-import _ from 'underscore'
 
-export default class Button extends React.Component {
+const CLASS_NAME_PROPS = [
+  'tiny',
+  'small',
+  'medium',
+  'large',
+  'alert',
+  'disabled',
+  'secondary',
+  'success',
+  'expanded',
+  'hollow',
+  'dropdown',
+]
 
-  static get propsForClassNames() {
-    return this._propsForClassNames = this._propsForClassNames || [
-      'tiny',
-      'small',
-      'medium',
-      'large',
-      'alert',
-      'disabled',
-      'secondary',
-      'success',
-      'expanded',
-      'hollow',
-      'dropdown',
-    ]
-  }
+const CLASS_NAME_PROP_SHOULD_PASS_THROUGH = {
+  disabled: true,
+}
 
-  get className() {
-    let classNamesObject = {RevButton: true, button: true}
-    this.constructor.propsForClassNames.forEach((propName) => {
-      classNamesObject[propName] = this.props[propName] || false
-    })
-    return classNames(this.props.className, classNamesObject)
-  }
-
-  get passThroughProps() {
-    return _.omit(this._propsForClassNames)
-  }
-
+export default class Button extends Component {
   render() {
-    return <button {...this.passThroughProps} disabled={this.props.disabled} className={this.className}>
-      {this.props.children}
-    </button>
-  }
+    const {children, className, ...props} = this.props
 
+    const classNamesFromProps = {}
+    CLASS_NAME_PROPS.forEach((name) => {
+      classNamesFromProps[name] = !!props[name]
+      if(!CLASS_NAME_PROP_SHOULD_PASS_THROUGH[name]) {
+        delete props[name]
+      }
+    })
+
+    const buttonClassName = classNames(className, 'button', classNamesFromProps)
+
+    return (
+      <button {...props} className={buttonClassName}>
+        {children}
+      </button>
+    )
+  }
 }
