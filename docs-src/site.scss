@@ -1,5 +1,5 @@
 @import 'foundation';
-@include foundation-everything;
+@include foundation-everything(true);
 
 // Custom styles
 @import '../scss/Pagination';
