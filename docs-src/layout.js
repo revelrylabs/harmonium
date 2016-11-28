@@ -10,6 +10,7 @@ export default class Layout extends Component {
         <head>
           <title>{title}</title>
           <script type="text/javascript" src="./bundle.js" />
+          <link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet" />
           <link rel="stylesheet" href="./site.css" />
           <style>
             {

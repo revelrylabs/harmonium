@@ -1,10 +1,96 @@
 import React, {Component} from 'react'
 import Icon from './Icon'
+import {Row, Col} from './grid'
 
-export class Example extends Component {
+export class Basic extends Component {
   render() {
     return (
-      <Icon icon="file" />
+      <Icon className="stat" i="bitcoin" />
+    )
+  }
+}
+
+export class GeneralFoundationIcons extends Component {
+  render() {
+    const icons = [
+      'heart',
+      'star',
+      'plus',
+      'minus',
+      'x',
+      'check',
+      'upload',
+      'download',
+      'widget',
+      'marker',
+      'refresh',
+      'home',
+      'trash',
+      'paperclip',
+      'lock',
+      'unlock',
+      'calendar',
+      'cloud',
+      'magnifying-glass',
+      'zoom-out',
+      'zoom-in',
+      'wrench',
+      'rss',
+      'share',
+      'flag',
+      'list-thumbnails',
+      'list',
+      'thumbnails',
+      'annotate',
+      'folder',
+      'folder-lock',
+      'folder-add',
+      'clock',
+      'play-video',
+      'crop',
+      'archive',
+      'pencil',
+      'graph-trend',
+      'graph-bar',
+      'graph-horizontal',
+      'graph-pie',
+      'checkbox',
+      'minus-circle',
+      'x-circle',
+      'eye',
+      'database',
+      'results',
+      'results-demographics',
+      'like',
+      'dislike',
+      'upload-cloud',
+      'camera',
+      'alert',
+      'bookmark',
+      'contrast',
+      'mail',
+      'video',
+      'telephone',
+      'comment',
+      'comment-video',
+      'comment-quotes',
+      'comment-minus',
+      'comments',
+      'microphone',
+      'megaphone',
+      'sound',
+      'address-book',
+      'bluetooth',
+      'html5',
+      'css3',
+      'layout',
+      'web',
+    ]
+
+    return (
+      <Row>
+        {icons.map(icon => <Col><Icon className="stat" key={icon} i={icon} title={icon} /></Col>)}
+      </Row>
     )
   }
 }
