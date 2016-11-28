@@ -89,7 +89,18 @@ export class GeneralFoundationIcons extends Component {
 
     return (
       <Row>
-        {icons.map(icon => <Col><Icon className="stat" key={icon} i={icon} title={icon} /></Col>)}
+        {icons.map(icon => <Col key={icon}><Icon className="stat" i={icon} title={icon} /></Col>)}
+      </Row>
+    )
+  }
+}
+
+export class Deprecated extends Component {
+  render() {
+    return (
+      <Row>
+        <Col shrink><Icon className="stat" icon="dollar" /></Col>
+        <Col>Please use "i" instead of "icon"</Col>
       </Row>
     )
   }

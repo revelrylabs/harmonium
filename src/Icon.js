@@ -18,8 +18,13 @@ export default class Icon extends Component {
   };
 
   render() {
-    const {className, i, adapter, ...props} = this.props
-    const newClassName = classNames(className, adapter(i))
+    const {className, i, icon, adapter, ...props} = this.props
+
+    if(icon) {
+      console.warn('The `icon` property has been deprecated and will be removed in a future version. Please use <Icon i="icon-name" /> instead.')
+    }
+
+    const newClassName = classNames(className, adapter(i || icon))
 
     return (
       <i {...props} className={newClassName} />
