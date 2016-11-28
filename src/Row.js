@@ -82,8 +82,6 @@ export default class Row extends React.Component {
       getAlignmentClassNames(hAlign, vAlign)
     )
 
-    if(vAlign) console.log(divClassName)
-
     return (
       <div {...props} className={divClassName}>
         {children}
