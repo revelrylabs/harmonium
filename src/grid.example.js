@@ -238,24 +238,24 @@ export class HorizontalAlignmentOnRow extends Component {
     return (
       <div>
         <Row>
-          <Col small={4}>Aligned to</Col >
-          <Col small={4}>the left</Col >
+          <Col small={4}>Aligned to</Col>
+          <Col small={4}>the left</Col>
         </Row>
-        <Row hAlign="right">
-          <Col small={4}>Aligned to</Col >
-          <Col small={4}>the right</Col >
+        <Row right>
+          <Col small={4}>Aligned to</Col>
+          <Col small={4}>the right</Col>
         </Row>
-        <Row hAlign="center">
-          <Col small={4}>Aligned to</Col >
-          <Col small={4}>the middle</Col >
+        <Row center>
+          <Col small={4}>Aligned to</Col>
+          <Col small={4}>the middle</Col>
         </Row>
-        <Row hAlign="justify">
-          <Col small={4}>Aligned to</Col >
-          <Col small={4}>the edges</Col >
+        <Row justify>
+          <Col small={4}>Aligned to</Col>
+          <Col small={4}>the edges</Col>
         </Row>
-        <Row hAlign="spaced">
-          <Col small={4}>Aligned to</Col >
-          <Col small={4}>the space around</Col >
+        <Row spaced>
+          <Col small={4}>Aligned to</Col>
+          <Col small={4}>the space around</Col>
         </Row>
       </div>
     )
@@ -266,13 +266,23 @@ export class VerticalAlignmentOnRow extends Component {
   render() {
     return (
       <div>
-        <Row vAlign="middle">
+        <Row middle>
           <Col>I{"'"}m in the middle!</Col>
           <Col>I am as well, but I have so much text I take up more space! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis facere ducimus earum minus, inventore, ratione doloremque deserunt neque perspiciatis accusamus explicabo soluta, quod provident distinctio aliquam omnis? Labore, ullam possimus.</Col>
         </Row>
         <hr />
-        <Row vAlign="top">
+        <Row top>
           <Col>These columns align to the top.</Col>
+          <Col>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.</Col>
+        </Row>
+        <hr />
+        <Row bottom>
+          <Col>bottom</Col>
+          <Col>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.</Col>
+        </Row>
+        <hr />
+        <Row>
+          <Col>unspecified simply fills all vertical space</Col>
           <Col>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.</Col>
         </Row>
       </div>
@@ -284,9 +294,9 @@ export class VerticalAlignmentOnCol extends Component {
   render() {
     return (
       <Row>
-        <Col vAlign="bottom">Align bottom</Col>
-        <Col vAlign="middle">Align middle</Col>
-        <Col vAlign="top">Align top</Col>
+        <Col bottom>Align bottom</Col>
+        <Col middle>Align middle</Col>
+        <Col top>Align top</Col>
         <Col>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?</Col>
       </Row>
     )

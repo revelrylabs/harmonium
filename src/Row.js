@@ -15,6 +15,15 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   smallUnstack: 'small-unstack',
   mediumUnstack: 'medium-unstack',
   largeUnstack: 'large-unstack',
+
+  right: 'align-right',
+  center: 'align-center',
+  justify: 'align-justify',
+  spaced: 'align-spaced',
+  top: 'align-top',
+  middle: 'align-middle',
+  bottom: 'align-bottom',
+  stretch: 'align-stretch',
 }
 
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
@@ -27,34 +36,9 @@ const NUMBER_PROPS_TO_CLASS_NAMES = {
 
 const NUMBER_PROPS = Object.keys(NUMBER_PROPS_TO_CLASS_NAMES)
 
-const HORIZONTAL_ALIGNMENTS = {
-  right: true,
-  center: true,
-  justify: true,
-  spaced: true,
-}
-
-const VERTICAL_ALIGNMENTS = {
-  top: true,
-  middle: true,
-  bottom: true,
-  stretch: true,
-}
-
-function getAlignmentClassNames(hAlign, vAlign) {
-  const names = []
-  if(hAlign && HORIZONTAL_ALIGNMENTS[hAlign]) {
-    names.push(`align-${hAlign}`)
-  }
-  if(vAlign && VERTICAL_ALIGNMENTS[vAlign]) {
-    names.push(`align-${vAlign}`)
-  }
-  return names
-}
-
 export default class Row extends React.Component {
   render() {
-    const {children, className, hAlign, vAlign, ...props} = this.props
+    const {children, className, ...props} = this.props
 
     const boolClassNames = []
     BOOL_PROPS.forEach((name) => {
@@ -79,7 +63,6 @@ export default class Row extends React.Component {
       'row',
       boolClassNames,
       numberClassNames,
-      getAlignmentClassNames(hAlign, vAlign)
     )
 
     return (

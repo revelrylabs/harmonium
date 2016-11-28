@@ -19,6 +19,16 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   expanded: 'expanded',
 
   shrink: 'shrink',
+
+  left: 'align-self-left',
+  right: 'align-self-right',
+  center: 'align-self-center',
+  justify: 'align-self-justify',
+  spaced: 'align-self-spaced',
+  top: 'align-self-top',
+  middle: 'align-self-middle',
+  bottom: 'align-self-bottom',
+  stretch: 'align-self-stretch',
 }
 
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
@@ -61,20 +71,9 @@ const VERTICAL_ALIGNMENTS = {
   stretch: true,
 }
 
-function getAlignmentClassNames(hAlign, vAlign) {
-  const names = []
-  if(hAlign && HORIZONTAL_ALIGNMENTS[hAlign]) {
-    names.push(`align-self-${hAlign}`)
-  }
-  if(vAlign && VERTICAL_ALIGNMENTS[vAlign]) {
-    names.push(`align-self-${vAlign}`)
-  }
-  return names
-}
-
 export default class Col extends Component {
   render() {
-    const {children, className, hAlign, vAlign, ...props} = this.props
+    const {children, className, ...props} = this.props
 
     const boolClassNames = []
     BOOL_PROPS.forEach((name) => {
@@ -99,7 +98,6 @@ export default class Col extends Component {
       'columns',
       boolClassNames,
       numberClassNames,
-      getAlignmentClassNames(hAlign, vAlign)
     )
 
     return (
