@@ -71,6 +71,17 @@ export class Nesting extends Component {
   }
 }
 
+export class Shrink extends Component {
+  render() {
+    return (
+      <Row>
+        <Col shrink><div style={{backgroundColor: '#ffff99'}}>shrunk</div></Col>
+        <Col>remainder</Col>
+      </Row>
+    )
+  }
+}
+
 export class Offsets extends Component {
   render() {
     return (
@@ -96,7 +107,7 @@ export class Offsets extends Component {
   }
 }
 
-export class IncompleteRows extends Component {
+export class IncompleteRowsWithoutFlexGrid extends Component {
   render() {
     return (
       <div>
@@ -151,7 +162,7 @@ export class CenteredColumns extends Component {
   }
 }
 
-export class SourceOrdering extends Component {
+export class SourceOrderingWithoutFlexGrid extends Component {
   render() {
     return (
       <div>
@@ -180,6 +191,21 @@ export class SourceOrdering extends Component {
   }
 }
 
+export class SourceOrderingWithFlexGrid extends Component {
+  render() {
+    return (
+      <Row>
+        <Col smallOrder={2} mediumOrder={1}>
+          This column will come second on small, and first on medium and larger.
+        </Col>
+        <Col smallOrder={1} mediumOrder={2}>
+          This column will come first on small, and second on medium and larger.
+        </Col>
+      </Row>
+    )
+  }
+}
+
 export class BlockGrids extends Component {
   render() {
     return (
@@ -202,6 +228,66 @@ export class BlockGrids extends Component {
         <Col>
           <img src="//placehold.it/300x300" className="thumbnail" alt="" />
         </Col>
+      </Row>
+    )
+  }
+}
+
+export class HorizontalAlignmentOnRow extends Component {
+  render() {
+    return (
+      <div>
+        <Row>
+          <Col small={4}>Aligned to</Col >
+          <Col small={4}>the left</Col >
+        </Row>
+        <Row hAlign="right">
+          <Col small={4}>Aligned to</Col >
+          <Col small={4}>the right</Col >
+        </Row>
+        <Row hAlign="center">
+          <Col small={4}>Aligned to</Col >
+          <Col small={4}>the middle</Col >
+        </Row>
+        <Row hAlign="justify">
+          <Col small={4}>Aligned to</Col >
+          <Col small={4}>the edges</Col >
+        </Row>
+        <Row hAlign="spaced">
+          <Col small={4}>Aligned to</Col >
+          <Col small={4}>the space around</Col >
+        </Row>
+      </div>
+    )
+  }
+}
+
+export class VerticalAlignmentOnRow extends Component {
+  render() {
+    return (
+      <div>
+        <Row vAlign="middle">
+          <Col>I{"'"}m in the middle!</Col>
+          <Col>I am as well, but I have so much text I take up more space! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quis facere ducimus earum minus, inventore, ratione doloremque deserunt neque perspiciatis accusamus explicabo soluta, quod provident distinctio aliquam omnis? Labore, ullam possimus.</Col>
+        </Row>
+        <hr />
+        <Row vAlign="top">
+          <Col>These columns align to the top.</Col>
+          <Col>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum, tempora. Impedit eius officia possimus laudantium? Molestiae eaque, sapiente atque doloremque placeat! In sint, fugiat saepe sunt dolore tempore amet cupiditate.</Col>
+        </Row>
+      </div>
+    )
+  }
+}
+
+export class VerticalAlignmentOnCol extends Component {
+  render() {
+    return (
+      <Row>
+        <Col vAlign="bottom">Align bottom</Col>
+        <Col vAlign="middle">Align middle</Col>
+        <Col vAlign="top">Align top</Col>
+        <Col>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?</Col>
       </Row>
     )
   }

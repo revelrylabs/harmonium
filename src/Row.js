@@ -46,7 +46,7 @@ function getAlignmentClassNames(hAlign, vAlign) {
   if(hAlign && HORIZONTAL_ALIGNMENTS[hAlign]) {
     names.push(`align-${hAlign}`)
   }
-  if(hAlign && VERTICAL_ALIGNMENTS[vAlign]) {
+  if(vAlign && VERTICAL_ALIGNMENTS[vAlign]) {
     names.push(`align-${vAlign}`)
   }
   return names
@@ -81,6 +81,8 @@ export default class Row extends React.Component {
       numberClassNames,
       getAlignmentClassNames(hAlign, vAlign)
     )
+
+    if(vAlign) console.log(divClassName)
 
     return (
       <div {...props} className={divClassName}>

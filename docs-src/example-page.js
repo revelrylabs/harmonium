@@ -28,7 +28,7 @@ export default class ExamplePage extends Component {
           </ol>
         </nav>
         <Row id="examples">
-          <Col><h2>Examples</h2></Col>
+          <Col small={12}><h2>Examples</h2></Col>
           <Col medium={6} id="examples-rendered">
             {examples}
           </Col>

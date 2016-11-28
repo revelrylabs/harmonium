@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import classNames from 'classnames'
+import Row from './Row'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
   smallCentered: 'small-centered',
@@ -16,6 +17,8 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   end: 'end',
 
   expanded: 'expanded',
+
+  shrink: 'shrink',
 }
 
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
@@ -63,7 +66,7 @@ function getAlignmentClassNames(hAlign, vAlign) {
   if(hAlign && HORIZONTAL_ALIGNMENTS[hAlign]) {
     names.push(`align-self-${hAlign}`)
   }
-  if(hAlign && VERTICAL_ALIGNMENTS[vAlign]) {
+  if(vAlign && VERTICAL_ALIGNMENTS[vAlign]) {
     names.push(`align-self-${vAlign}`)
   }
   return names
