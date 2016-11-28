@@ -8,11 +8,18 @@ export default class AuthenticityToken extends Component {
   }
 
   render() {
+    const {authenticityTokenName, authenticityTokenValue} = this.context
+
+    // If a name has not been provided, just don't render.
+    if(!authenticityTokenName) {
+      return null
+    }
+
     return (
       <input
         type="hidden"
-        name={this.context.authenticityTokenName}
-        value={this.context.authenticityTokenValue}
+        name={authenticityTokenName}
+        value={authenticityTokenValue}
       />
     )
   }

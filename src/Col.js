@@ -1,84 +1,112 @@
-import React from 'react'
-import _str from 'underscore.string'
+import React, {Component} from 'react'
 import classNames from 'classnames'
+import Row from './Row'
 
-export default class Col extends React.Component {
+const BOOL_PROPS_TO_CLASS_NAMES = {
+  smallCentered: 'small-centered',
+  mediumCentered: 'medium-centered',
+  largeCentered: 'large-centered',
 
-  static get boolProps() {
-    return this._boolProps = this._boolProps || [
-      'end',
-      'smallCentered',
-      'mediumCentered',
-      'largeCentered',
-      'smallUncentered',
-      'mediumUncentered',
-      'largeUncentered',
-    ]
+  smallUncentered: 'small-uncentered',
+  mediumUncentered: 'medium-uncentered',
+  largeUncentered: 'large-uncentered',
+
+  mediumExpand: 'medium-expand',
+  largeExpand: 'large-expand',
+
+  end: 'end',
+
+  expanded: 'expanded',
+
+  shrink: 'shrink',
+}
+
+const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
+
+const NUMBER_PROPS_TO_CLASS_NAMES = {
+  small: (x) => `small-${x}`,
+  medium: (x) => `medium-${x}`,
+  large: (x) => `large-${x}`,
+
+  smallOffset: (x) => `small-offset-${x}`,
+  mediumOffset: (x) => `medium-offset-${x}`,
+  largeOffset: (x) => `large-offset-${x}`,
+
+  smallPush: (x) => `small-push-${x}`,
+  mediumPush: (x) => `medium-push-${x}`,
+  largePush: (x) => `large-push-${x}`,
+
+  smallPull: (x) => `small-pull-${x}`,
+  mediumPull: (x) => `medium-pull-${x}`,
+  largePull: (x) => `large-pull-${x}`,
+
+  smallOrder: (x) => `small-order-${x}`,
+  mediumOrder: (x) => `medium-order-${x}`,
+  largeOrder: (x) => `large-order-${x}`,
+}
+
+const NUMBER_PROPS = Object.keys(NUMBER_PROPS_TO_CLASS_NAMES)
+
+const HORIZONTAL_ALIGNMENTS = {
+  right: true,
+  center: true,
+  justify: true,
+  spaced: true,
+}
+
+const VERTICAL_ALIGNMENTS = {
+  top: true,
+  middle: true,
+  bottom: true,
+  stretch: true,
+}
+
+function getAlignmentClassNames(hAlign, vAlign) {
+  const names = []
+  if(hAlign && HORIZONTAL_ALIGNMENTS[hAlign]) {
+    names.push(`align-self-${hAlign}`)
   }
-
-  static get numberProps() {
-    return this._numberProps = this._numberProps || [
-      'small',
-      'smallOffset',
-      'smallPush',
-      'smallPull',
-      'medium',
-      'mediumOffset',
-      'mediumPush',
-      'mediumPull',
-      'large',
-      'largeOffset',
-      'largePush',
-      'largePull',
-    ]
+  if(vAlign && VERTICAL_ALIGNMENTS[vAlign]) {
+    names.push(`align-self-${vAlign}`)
   }
+  return names
+}
 
-  static get propTypes() {
-    let propTypes = {}
-    this.boolProps.forEach((x) => propTypes[x] = React.PropTypes.bool)
-    this.numberProps.forEach((x) => propTypes[x] = React.PropTypes.oneOf([
-      1, '1',
-      2, '2',
-      3, '3',
-      4, '4',
-      5, '5',
-      6, '6',
-      7, '7',
-      8, '8',
-      9, '9',
-      10, '10',
-      11, '11',
-      12, '12',
-    ]))
-    return propTypes
-  }
-
-  get className() {
-    let classNamesObject = {
-      'RevCol': true,
-      'columns': true,
-    }
-
-    this.constructor.boolProps.forEach((x) => {
-      if(this.props[x]) {
-        classNamesObject[_str.dasherize(x)] = true
-      }
-    })
-
-    this.constructor.numberProps.forEach((x) => {
-      let count = this.props[x]
-      if(count != null) {
-        classNamesObject[`${_str.dasherize(x)}-${count}`] = true
-      }
-    })
-
-    return classNames(this.props.className, classNamesObject)
-  }
-
+export default class Col extends Component {
   render() {
-    return <div {...this.props} className={this.className}>
-      {this.props.children}
-    </div>
+    const {children, className, hAlign, vAlign, ...props} = this.props
+
+    const boolClassNames = []
+    BOOL_PROPS.forEach((name) => {
+      if(props[name]) {
+        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name] )
+      }
+      delete props[name]
+    })
+
+    const numberClassNames = []
+    NUMBER_PROPS.forEach((name) => {
+      const value = props[name]
+      const fn = NUMBER_PROPS_TO_CLASS_NAMES[name]
+      if(value != null) {
+        numberClassNames.push(fn(value))
+      }
+      delete props[name]
+    })
+
+    const divClassName = classNames(
+      className,
+      'columns',
+      boolClassNames,
+      numberClassNames,
+      getAlignmentClassNames(hAlign, vAlign)
+    )
+
+    return (
+      <div {...props} className={divClassName}>
+        {children}
+      </div>
+    )
   }
 
 }

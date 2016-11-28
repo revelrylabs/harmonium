@@ -40,7 +40,7 @@ function genJS(items) {
 
   const jsSourceFile = path.join(__dirname, '__generated__.js')
   fs.writeFile(jsSourceFile, lines.join('\n'))
-  browserify(jsSourceFile)
+  browserify(jsSourceFile, {debug: true})
     .transform('babelify')
     .bundle()
     .on('end', () => fs.unlinkSync(jsSourceFile))
@@ -48,7 +48,12 @@ function genJS(items) {
 }
 
 function html(instance) {
-  return `<!doctype html>${renderToStaticMarkup(instance)}`
+  try {
+    return `<!doctype html>${renderToStaticMarkup(instance)}`
+  } catch(error) {
+    console.log(instance.props.name)
+    throw error
+  }
 }
 
 function genIndex(navKeys) {

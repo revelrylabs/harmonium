@@ -1,47 +1,33 @@
-import React from 'react'
-import classNames from 'classnames'
+import React, {Component} from 'react'
+import StatelessModal from './StatelessModal'
 
-export default class Modal extends React.Component {
+export default class Modal extends Component {
+
+  static propTypes = {
+    isOpen: React.PropTypes.bool,
+    onBackgroundClick: React.PropTypes.func,
+  }
 
   constructor(props) {
     super(props)
-    this.onBackgroundClick = this.onBackgroundClick.bind(this)
-  }
-
-  static get propTypes() {
-    return {
-      isOpen: React.PropTypes.bool,
-      onBackgroundClick: React.PropTypes.func,
+    this.state = {
+      isOpen: props.isOpen,
     }
   }
 
-  static get defaultProps() {
-    return {
-      isOpen: false,
-    }
-  }
-
-  onBackgroundClick(e) {
-    if(this.props.onBackgroundClick) {
+  handleClick = (e) => {
+    this.setState({isOpen: false})
+    if (this.props.onBackgroundClick) {
       this.props.onBackgroundClick(e)
     }
   }
 
   render() {
-    let className = classNames(this.props.className, {
-      'RevModal': true,
-    })
+    const {isOpen} = this.state
 
-    if(this.props.isOpen) {
-      return <div className={className}>
-        <div className="RevModal-background" onClick={this.onBackgroundClick} />
-        <div className="RevModal-content">
-          {this.props.children}
-        </div>
-      </div>
-    }
-
-    return null
+    return <StatelessModal isOpen={isOpen} onBackgroundClick={this.handleClick}>
+      {this.props.children}
+    </StatelessModal>
   }
 
 }
