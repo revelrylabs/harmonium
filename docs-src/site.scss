@@ -1,6 +1,10 @@
 @import 'foundation';
 @include foundation-everything(true);
 
+$card-radius: 8px;
+
 // Custom styles
 @import '../scss/Pagination';
 @import '../scss/Modal';
+@import '../scss/CardLayout';
+@import '../scss/Card';
