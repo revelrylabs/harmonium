@@ -13,7 +13,7 @@ $card-fill-border-width: $card-border-width 0 !default;
 $card-header-background: $topbar-background !default;
 $card-footer-background: $card-header-background !default;
 
-.Card {
+.rev-Card {
   background-color: $card-background;
   border: $card-border;
   border-radius: $card-radius;
@@ -25,19 +25,19 @@ $card-footer-background: $card-header-background !default;
   }
 }
 
-.Card-Slice {
+.rev-Card-slice {
   padding: $card-padding;
 }
 
-.Card-Header {
+.rev-Card-header {
   background-color: $card-header-background;
 }
 
-.Card-Footer {
+.rev-Card-footer {
   background-color: $card-footer-background;
 }
 
-.Card-Fill {
+.rev-Card-fill {
   border: $card-border;
   border-width: $card-fill-border-width;
   &:first-child, &:last-child {

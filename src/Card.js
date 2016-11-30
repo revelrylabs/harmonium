@@ -5,7 +5,7 @@ export default class Card extends Component {
   render() {
     const {className, children, ...props} = this.props
     return (
-      <CardLayout {...props} className={`Card ${className}`}>
+      <CardLayout {...props} className={`rev-Card ${className}`}>
         {children}
       </CardLayout>
     )
@@ -16,7 +16,7 @@ class CardHeader extends Component {
   render() {
     const {className, children, ...props} = this.props
     return (
-      <CardLayout.Bar className={`Card-Slice Card-Header ${className}`}>
+      <CardLayout.Bar className={`rev-Card-slice rev-Card-header ${className}`}>
         {children}
       </CardLayout.Bar>
     )
@@ -28,7 +28,7 @@ class CardFooter extends Component {
   render() {
     const {className, children, ...props} = this.props
     return (
-      <CardLayout.Bar className={`Card-Slice Card-Footer ${className}`}>
+      <CardLayout.Bar className={`rev-Card-slice rev-Card-footer ${className}`}>
         {children}
       </CardLayout.Bar>
     )
@@ -40,7 +40,7 @@ class CardFill extends Component {
   render() {
     const {className, children, ...props} = this.props
     return (
-      <CardLayout.Fill className={`Card-Slice Card-Fill ${className}`}>
+      <CardLayout.Fill className={`rev-Card-slice rev-Card-fill ${className}`}>
         {children}
       </CardLayout.Fill>
     )

@@ -11,7 +11,7 @@ export default class HelpText extends Component {
   render() {
     const {className, children, ...props} = this.props
 
-    const newClassName = classNames(className, 'help-text')
+    const newClassName = classNames(className, 'help-text', 'rev-HelpText')
 
     return (
       <p className={newClassName} {...props}>

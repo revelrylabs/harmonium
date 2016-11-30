@@ -10,8 +10,9 @@ export default class Checkbox extends Component {
   render() {
     const {error, className, label, children, ...props} = this.props
 
-    const inputClassName = classNames({
+    const inputClassName = classNames(className, 'rev-Checkbox', {
       'is-invalid-input': !!error,
+      'rev-Checkbox--invalid': !!error,
     })
 
     return (

@@ -1,4 +1,4 @@
-.RevModal {
+.rev-Modal {
   bottom: 0;
   left: 0;
   overflow-y: auto;
@@ -9,7 +9,7 @@
   z-index: 1000;
 }
 
-.RevModal-background {
+.rev-Modal-background {
   background-color: #000;
   bottom: 0;
   left: 0;
@@ -19,7 +19,7 @@
   top: 0;
 }
 
-.RevModal-content {
+.rev-Modal-content {
   background-color: #FFF;
   left: 10%;
   max-height: 80%;
@@ -31,7 +31,7 @@
   top: 10%;
 }
 
-.Modal-close {
+.rev-Modal-close {
   font-size: 28px;
   font-weight: bold;
   position: absolute;
