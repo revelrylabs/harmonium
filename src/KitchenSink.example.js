@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import KitchenSink from './KitchenSink'
 
-export class Show extends Component {
+export class ThisComponentExistsSolelyToMakeThemingEasierOnDesigners extends Component {
   render() {
     return <KitchenSink />
   }
