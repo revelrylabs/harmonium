@@ -2,21 +2,21 @@ import React, {Component, createElement} from 'react'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
-  tiny: 'tiny',
-  small: 'small',
-  large: 'large',
+  tiny: ['tiny', 'rev-Button--tiny'],
+  small: ['small', 'rev-Button--small'],
+  large: ['large', 'rev-Button--large'],
 
-  secondary: 'secondary',
-  success: 'success',
-  warning: 'warning',
-  alert: 'alert',
+  secondary: ['secondary', 'rev-Button--secondary'],
+  success: ['success', 'rev-Button--success'],
+  warning: ['warning', 'rev-Button--warning'],
+  alert: ['alert', 'rev-Button--alert'],
 
-  hollow: 'hollow',
+  hollow: ['hollow', 'rev-Button--hollow'],
 
-  expanded: 'expanded',
+  expanded: ['expanded', 'rev-Button--expanded'],
 
-  dropdown: 'dropdown',
-  arrowOnly: 'arrow-only',
+  dropdown: ['dropdown', 'rev-Button--dropdown'],
+  arrowOnly: ['arrow-only', 'rev-Button--arrowOnly'],
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
@@ -34,7 +34,7 @@ export default class Button extends Component {
 
     const {disabled, href} = props
 
-    const buttonClassName = classNames(className, 'button', boolClassNames, {
+    const buttonClassName = classNames(className, 'button', 'rev-Button', boolClassNames, {
       disabled,
     })
 

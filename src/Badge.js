@@ -2,14 +2,14 @@ import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
 
 const PROP_NAME_TO_CLASS_NAME = {
-  primary: 'primary',
-  secondary: 'secondary',
-  alert: 'alert',
-  warning: 'warning',
-  success: 'success',
-  small: 'small',
-  medium: 'medium',
-  large: 'large',
+  primary: ['primary', 'rev-Badge--primary'],
+  secondary: ['secondary', 'rev-Badge--secondary'],
+  alert: ['alert', 'rev-Badge--alert'],
+  warning: ['warning', 'rev-Badge--warning'],
+  success: ['success', 'rev-Badge--success'],
+  small: ['small', 'rev-Badge--small'],
+  medium: ['medium', 'rev-Badge--medium'],
+  large: ['large', 'rev-Badge--large'],
 }
 const PROP_NAMES = Object.keys(PROP_NAME_TO_CLASS_NAME)
 const PROP_TYPES = {}
@@ -31,7 +31,7 @@ export default class Badge extends Component {
       }
     })
 
-    const newClassName = classNames(className, 'badge', ...propClassNames)
+    const newClassName = classNames(className, 'badge', 'rev-Badge', propClassNames)
 
     return (
       <span {...props} className={newClassName}>

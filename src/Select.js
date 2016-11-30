@@ -17,8 +17,9 @@ export default class Select extends Component {
   render() {
     const {children, options, className, error, ...props} = this.props
 
-    const inputClassName = classNames(className, {
+    const inputClassName = classNames(className, 'rev-Select', {
       'is-invalid-input': !!error,
+      'rev-Select--invalid': !!error,
     })
 
     return (

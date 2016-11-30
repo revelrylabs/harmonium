@@ -1,14 +1,14 @@
-.CardLayout {
+.rev-CardLayout {
   display: flex;
   flex-flow: column;
   align-items: stretch;
 }
 
-.CardLayout-Bar {
+.rev-CardLayout-bar {
   flex: 0 1 auto;
 }
 
-.CardLayout-Fill {
+.rev-CardLayout-bill {
   flex: 1 1 auto;
   overflow: auto;
 }

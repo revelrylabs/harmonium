@@ -6,15 +6,13 @@ const CLASS_NAME_PROPS = ['secondary', 'primary', 'success', 'warning', 'alert']
 export default class Callout extends React.Component {
 
   get className() {
-    const classNamesObject = {
-      callout: true
-    }
+    const classNamesObject = {}
     CLASS_NAME_PROPS.forEach((name) => {
       if(this.props[name]) {
         classNamesObject[name] = true
       }
     })
-    return classNames(this.props.className, classNamesObject)
+    return classNames(this.props.className, 'callout', 'rev-Callout', classNamesObject)
   }
 
   render() {

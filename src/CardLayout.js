@@ -4,7 +4,7 @@ import classNames from 'classnames'
 export default class CardLayout extends Component {
   render() {
     const {className, children, ...props} = this.props
-    const divClassName = classNames(className, 'CardLayout')
+    const divClassName = classNames(className, 'rev-CardLayout')
     return (
       <div {...props} className={divClassName}>
         {children}
@@ -16,7 +16,7 @@ export default class CardLayout extends Component {
 export class CardLayoutBar extends Component {
   render() {
     const {className, children, ...props} = this.props
-    const divClassName = classNames(className, 'CardLayout-Bar')
+    const divClassName = classNames(className, 'rev-CardLayout-bar')
     return (
       <div {...props} className={divClassName}>
         {children}
@@ -29,7 +29,7 @@ CardLayout.Bar = CardLayoutBar
 export class CardLayoutFill extends Component {
   render() {
     const {className, children, ...props} = this.props
-    const divClassName = classNames(className, 'CardLayout-Fill')
+    const divClassName = classNames(className, 'rev-CardLayout-fill')
     return (
       <div {...props} className={divClassName}>
         {children}

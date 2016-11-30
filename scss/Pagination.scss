@@ -1,27 +1,29 @@
-.Pagination li {
-  &.Pagination-arrow {
+.rev-Pagination-arrow {
+  display: inline-block;
+}
+
+.rev-Pagination-arrow.is-disabled a {
+  color: #cacaca;
+  cursor: not-allowed;
+}
+
+.rev-Pagination-arrow.is-onlyMobile a {
+  display: none;
+  @media #{$small-only} {
     display: inline-block;
   }
-  &.Pagination-arrow.is-disabled a {
-    color: #cacaca;
-    cursor: not-allowed;
-  }
-  &.Pagination-arrow.is-onlyMobile a {
-    display: none;
-    @media #{$small-only} {
-      display: inline-block;
-    }
-  }
 }
-.PaginationWrapper-pageList {
+
+.rev-PaginationWrapper-pageList {
   display: none;
   @media #{$small-only} {
     display: block;
   }
 }
-@media #{$small-only} {
-  .Pagination-number,
-  .Pagination-dots {
+
+.rev-Pagination-number,
+.rev-Pagination-dots {
+  @media #{$small-only} {
     display: none;
   }
 }

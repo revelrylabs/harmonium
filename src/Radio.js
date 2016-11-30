@@ -10,8 +10,9 @@ export default class Radio extends Component {
   render() {
     const {error, className, label, children, ...props} = this.props
 
-    const inputClassName = classNames({
+    const inputClassName = classNames(className, 'rev-Radio', {
       'is-invalid-input': !!error,
+      'rev-Radio--invalid': !!error,
     })
 
     return (

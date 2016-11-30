@@ -2,36 +2,36 @@ import React, {Component} from 'react'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
-  collapse: 'collapse',
+  collapse: ['collapse', 'rev-Row--collapse'],
 
-  smallCollapse: 'small-collapse',
-  mediumCollapse: 'medium-collapse',
-  largeCollapse: 'large-collapse',
+  smallCollapse: ['small-collapse', 'rev-Row--smallCollapse'],
+  mediumCollapse: ['medium-collapse', 'rev-Row--mediumCollapse'],
+  largeCollapse: ['large-collapse', 'rev-Row--largeCollapse'],
 
-  smallUncollapse: 'small-uncollapse',
-  mediumUncollapse: 'medium-uncollapse',
-  largeUncollapse: 'large-uncollapse',
+  smallUncollapse: ['small-uncollapse', 'rev-Row--smallUncollapse'],
+  mediumUncollapse: ['medium-uncollapse', 'rev-Row--mediumUncollapse'],
+  largeUncollapse: ['large-uncollapse', 'rev-Row--largeUncollapse'],
 
-  smallUnstack: 'small-unstack',
-  mediumUnstack: 'medium-unstack',
-  largeUnstack: 'large-unstack',
+  smallUnstack: ['small-unstack', 'rev-Row--smallUnstack'],
+  mediumUnstack: ['medium-unstack', 'rev-Row--mediumUnstack'],
+  largeUnstack: ['large-unstack', 'rev-Row--largeUnstack'],
 
-  right: 'align-right',
-  center: 'align-center',
-  justify: 'align-justify',
-  spaced: 'align-spaced',
-  top: 'align-top',
-  middle: 'align-middle',
-  bottom: 'align-bottom',
-  stretch: 'align-stretch',
+  right: ['align-right', 'rev-Row--right'],
+  center: ['align-center', 'rev-Row--center'],
+  justify: ['align-justify', 'rev-Row--justify'],
+  spaced: ['align-spaced', 'rev-Row--spaced'],
+  top: ['align-top', 'rev-Row--top'],
+  middle: ['align-middle', 'rev-Row--middle'],
+  bottom: ['align-bottom', 'rev-Row--bottom'],
+  stretch: ['align-stretch', 'rev-Row--stretch'],
 }
 
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 const NUMBER_PROPS_TO_CLASS_NAMES = {
-  smallUp: (x) => `small-up-${x}`,
-  mediumUp: (x) => `medium-up-${x}`,
-  largeUp: (x) => `large-up-${x}`,
+  smallUp: (x) => [`small-up-${x}`, `rev-Row--smallUp${x}`],
+  mediumUp: (x) => [`medium-up-${x}`, `rev-Row--mediumUp${x}`],
+  largeUp: (x) => [`large-up-${x}`, `rev-Row--largeUp${x}`],
 }
 
 const NUMBER_PROPS = Object.keys(NUMBER_PROPS_TO_CLASS_NAMES)
@@ -61,6 +61,7 @@ export default class Row extends React.Component {
     const divClassName = classNames(
       className,
       'row',
+      'rev-Row',
       boolClassNames,
       numberClassNames,
     )
