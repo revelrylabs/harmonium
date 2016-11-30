@@ -1,0 +1,14 @@
+.CardLayout {
+  display: flex;
+  flex-flow: column;
+  align-items: stretch;
+}
+
+.CardLayout-Bar {
+  flex: 0 1 auto;
+}
+
+.CardLayout-Fill {
+  flex: 1 1 auto;
+  overflow: auto;
+}
