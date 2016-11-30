@@ -2,19 +2,10 @@ import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
 
 const CLASS_NAMES = {
-  primary: ['primary', 'rev-Label--primary'],
   secondary: ['secondary', 'rev-Label--secondary'],
-  tertiary: ['tertiary', 'rev-Label--tertiary'],
-
   alert: ['alert', 'rev-Label--alert'],
   warning: ['warning', 'rev-Label--warning'],
   success: ['success', 'rev-Label--success'],
-  info: ['info', 'rev-Label--info'],
-  tiny: ['tiny', 'rev-Label--tiny'],
-
-  small: ['small', 'rev-Label--small'],
-  medium: ['medium', 'rev-Label--medium'],
-  large: ['large', 'rev-Label--large'],
 }
 
 const PROP_TYPES = {
