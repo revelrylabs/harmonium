@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import classNames from 'classnames'
 import HelpText from './HelpText'
 
 export default class InputHelpText extends Component {
@@ -9,12 +10,14 @@ export default class InputHelpText extends Component {
   }
 
   render() {
-    const {children, ...props} = this.props
+    const {children, className, ...props} = this.props
 
     if (!children) {
       return null
     }
 
-    return <HelpText {...props}>{children}</HelpText>
+    const newClassName = classNames(className, 'rev-InputHelpText')
+
+    return <HelpText className={newClassName} {...props}>{children}</HelpText>
   }
 }
