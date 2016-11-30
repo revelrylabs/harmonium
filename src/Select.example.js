@@ -14,22 +14,26 @@ const OPTIONS = [
 export class OptionChildrenVsOptionsProp extends Component {
   render() {
     return (
-      <Row>
-        <Col>
-          <strong>{"Airport with <option> children."}</strong>
-          <Select name="airport">
-            <option value="MSY">Louis Armstrong</option>
-            <option value="JFK">John F. Kennedy</option>
-          </Select>
-        </Col>
-        <Col>
-          <strong>"Airport with `options` prop."</strong>
-          <Select name="airport" options={[
-            {label: 'Louis Armstrong', value: 'MSY'},
-            {label: 'John F. Kennedy', value: 'JFK'},
-          ]} />
-        </Col>
-      </Row>
+      <div>
+        <Row>
+          <Col>
+            <strong>{"Airport with <option> children."}</strong>
+            <Select name="airport">
+              <option value="MSY">Louis Armstrong</option>
+              <option value="JFK">John F. Kennedy</option>
+            </Select>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <strong>"Airport with `options` prop."</strong>
+            <Select name="airport" options={[
+              {label: 'Louis Armstrong', value: 'MSY'},
+              {label: 'John F. Kennedy', value: 'JFK'},
+            ]} />
+          </Col>
+        </Row>
+      </div>
     )
   }
 }
@@ -45,17 +49,21 @@ export class MultipleValues extends Component {
 export class Stacks extends Component {
   render() {
     return (
-      <Row>
-        <Col>
-          <Select.Stack options={OPTIONS} label="Has help text" help="This is the help text." />
-        </Col>
-        <Col>
-          <Select.Stack options={OPTIONS} label="Has error" error="This is the error." />
-        </Col>
-        <Col>
-          <Select.Stack options={OPTIONS} label="Stacks both help and error" help="This is the help text." error="This is the error." />
-        </Col>
-      </Row>
+      <div>
+        <Row>
+          <Col>
+            <Select.Stack options={OPTIONS} label="Has help text" help="This is the help text." />
+          </Col>
+          <Col>
+            <Select.Stack options={OPTIONS} label="Has error" error="This is the error." />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Select.Stack options={OPTIONS} label="Stacks both help and error" help="This is the help text." error="This is the error." />
+          </Col>
+        </Row>
+      </div>
     )
   }
 }

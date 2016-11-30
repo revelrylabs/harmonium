@@ -8,14 +8,16 @@ const HELP = "This is help text."
 export class Simple extends Component {
   render() {
     return (
-      <Row>
-        <Col>
-          <Input placeholder="Not a stack" />
-        </Col>
-        <Col>
-          <Input placeholder="Not a stack, has an error" error />
-        </Col>
-      </Row>
+      <div>
+        <Row>
+          <Col>
+            <Input placeholder="Not a stack" />
+          </Col>
+          <Col>
+            <Input placeholder="Has an error" error />
+          </Col>
+        </Row>
+      </div>
     )
   }
 }
@@ -23,20 +25,26 @@ export class Simple extends Component {
 export class Stack extends Component {
   render() {
     return (
-      <Row>
-        <Col>
-          <Input.Stack label="Is a stack" />
-        </Col>
-        <Col>
-          <Input.Stack label="Is a stack, has help text" help={HELP} />
-        </Col>
-        <Col>
-          <Input.Stack label="Is a stack, has an error" error={ERROR} />
-        </Col>
-        <Col>
-          <Input.Stack label="Is a stack, has both" help={HELP} error={ERROR} />
-        </Col>
-      </Row>
+      <div>
+        <Row>
+          <Col>
+            <Input.Stack label="Is a stack" />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Input.Stack label="Has help text" help={HELP} />
+          </Col>
+          <Col>
+            <Input.Stack label="Has an error" error={ERROR} />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Input.Stack label="Has both" help={HELP} error={ERROR} />
+          </Col>
+        </Row>
+      </div>
     )
   }
 }
@@ -44,20 +52,28 @@ export class Stack extends Component {
 export class Misc extends Component {
   render() {
     return (
-      <Row>
-        <Col>
-          <Input type="password" defaultValue="password" error />
-        </Col>
-        <Col>
-          <Input.Stack type="password" defaultValue="password" label="Password" />
-        </Col>
-        <Col>
-          <Input type="file" error />
-        </Col>
-        <Col>
-          <Input.Stack type="file" label="File upload" help="File must be PDF." error="File was not PDF!" />
-        </Col>
-      </Row>
+      <div>
+        <Row>
+          <Col>
+            <Input type="password" defaultValue="password" error />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Input.Stack type="password" defaultValue="password" label="Password" />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Input type="file" error />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Input.Stack type="file" label="File upload" help="File must be PDF." error="File was not PDF!" />
+          </Col>
+        </Row>
+      </div>
     )
   }
 }
