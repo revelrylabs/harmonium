@@ -1,35 +1,39 @@
-import React, {Component, PropTypes} from 'react'
-import classNames from 'classnames'
+import React, {Component, PropTypes, Children, cloneElement} from 'react'
 import InputLabel from './InputLabel'
+import classNames from 'classnames'
 import InputHelpText from './InputHelpText'
 import InputErrors from './InputErrors'
 
 export default class Textarea extends Component {
-
-  static propTypes = {
-    error: PropTypes.any,
-    label: PropTypes.node,
-    help: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
-  };
 
   static defaultProps = {
     type: 'text',
   }
 
   render() {
-    const {error, help, className, label, ...props} = this.props
-
-    const inputClassName = classNames({
+    const {className, error, ...props} = this.props
+    const inputClassName = classNames(className, 'rev-Textarea', {
       'is-invalid-input': !!error,
+      'rev-Textarea--invalid': !!error,
     })
+    return (
+      <textarea className={inputClassName} {...props} />
+    )
+  }
+}
+
+class TextareaStack extends Component {
+  render() {
+    const {error, help, className, label, ...props} = this.props
 
     return (
       <InputLabel className={className} error={error}>
         {label}
-        <textarea className={inputClassName} {...props} />
+        <Textarea {...props} error={error} />
         <InputHelpText>{help}</InputHelpText>
         <InputErrors>{error}</InputErrors>
       </InputLabel>
     )
   }
 }
+Textarea.Stack = TextareaStack
