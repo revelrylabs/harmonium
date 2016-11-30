@@ -1,42 +1,49 @@
-import React, {Component} from 'react'
+import React, {Component, createElement} from 'react'
 import classNames from 'classnames'
 
-const CLASS_NAME_PROPS = [
-  'tiny',
-  'small',
-  'medium',
-  'large',
-  'alert',
-  'disabled',
-  'secondary',
-  'success',
-  'expanded',
-  'hollow',
-  'dropdown',
-]
+const BOOL_PROPS_TO_CLASS_NAMES = {
+  tiny: 'tiny',
+  small: 'small',
+  large: 'large',
 
-const CLASS_NAME_PROP_SHOULD_PASS_THROUGH = {
-  disabled: true,
+  secondary: 'secondary',
+  success: 'success',
+  warning: 'warning',
+  alert: 'alert',
+
+  hollow: 'hollow',
+
+  expanded: 'expanded',
+
+  dropdown: 'dropdown',
+  arrowOnly: 'arrow-only',
 }
+const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 export default class Button extends Component {
   render() {
-    const {children, className, ...props} = this.props
+    const {className, children, ...props} = this.props
 
-    const classNamesFromProps = {}
-    CLASS_NAME_PROPS.forEach((name) => {
-      classNamesFromProps[name] = !!props[name]
-      if(!CLASS_NAME_PROP_SHOULD_PASS_THROUGH[name]) {
-        delete props[name]
+    const boolClassNames = []
+    BOOL_PROPS.forEach((name) => {
+      if(props[name]) {
+        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name] )
       }
+      delete props[name]
     })
 
-    const buttonClassName = classNames(className, 'button', classNamesFromProps)
+    const {disabled, href} = props
 
-    return (
-      <button {...props} className={buttonClassName}>
-        {children}
-      </button>
+    const buttonClassName = classNames(className, 'button', boolClassNames, {
+      disabled,
+    })
+
+    const component = href ? 'a' : 'button'
+
+    return createElement(
+      component,
+      {...props, className: buttonClassName},
+      children,
     )
   }
 }
