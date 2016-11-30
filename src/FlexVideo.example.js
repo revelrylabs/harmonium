@@ -8,7 +8,7 @@ export class Basic extends Component {
         width="420"
         height="315"
         src="https://www.youtube.com/embed/V9gkYw35Vws"
-        allowfullscreen
+        allowFullScreen
         style={{border:0}}
       />
     )
@@ -22,7 +22,7 @@ export class Widescreen extends Component {
         width="420"
         height="315"
         src="https://www.youtube.com/embed/aiBt44rrslw"
-        allowfullscreen
+        allowFullScreen
         style={{border:0}}
       />
     )
@@ -36,7 +36,7 @@ export class Vimeo extends Component {
         src="http://player.vimeo.com/video/60122989"
         width="400"
         height="225"
-        allowfullscreen
+        allowFullScreen
         style={{border:0}}
       />
     )
