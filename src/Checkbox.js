@@ -10,13 +10,17 @@ export default class Checkbox extends Component {
   render() {
     const {error, className, label, children, ...props} = this.props
 
-    const inputClassName = classNames(className, 'rev-Checkbox', {
-      'is-invalid-input': !!error,
+    const labelClassName = classNames(className, 'rev-Checkbox', {
       'rev-Checkbox--invalid': !!error,
     })
 
+    const inputClassName = classNames('rev-Checkbox-input', {
+      'is-invalid-input': !!error,
+      'rev-Checkbox-input--invalid': !!error,
+    })
+
     return (
-      <InputLabel className={className} error={error}>
+      <InputLabel className={labelClassName} error={error}>
         <input {...props} className={inputClassName} type="checkbox" />
         {label}
       </InputLabel>
@@ -27,6 +31,7 @@ export default class Checkbox extends Component {
 class CheckboxFieldset extends Component {
   render() {
     const {
+      className,
       options,
       name,
       value,
@@ -68,11 +73,19 @@ class CheckboxFieldset extends Component {
         props.defaultValue = option.value
         props.defaultChecked = !!defaultValueLookup[option.value]
       }
-      return <Checkbox {...props} />
+      return <Checkbox className="rev-CheckboxFieldset-checkbox" {...props} />
     })
 
+    const fieldsetClassName = classNames(className, 'rev-CheckboxFieldset')
+
     return (
-      <CheckableFieldset help={help} error={error} label={label} {...rest}>
+      <CheckableFieldset
+        {...rest}
+        className={fieldsetClassName}
+        help={help}
+        error={error}
+        label={label}
+      >
         {checkboxes}
       </CheckableFieldset>
     )
