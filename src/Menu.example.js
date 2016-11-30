@@ -121,10 +121,10 @@ export class IconsOnTop extends Component {
   render() {
     return (
       <Menu iconTop>
-        <Menu.Item><a href="#"><Icon icon="list" /> <span>One</span></a></Menu.Item>
-        <Menu.Item><a href="#"><Icon icon="list" /> <span>Two</span></a></Menu.Item>
-        <Menu.Item><a href="#"><Icon icon="list" /> <span>Three</span></a></Menu.Item>
-        <Menu.Item><a href="#"><Icon icon="list" /> <span>Four</span></a></Menu.Item>
+        <Menu.Item><a href="#"><Icon i="list" /> <span>One</span></a></Menu.Item>
+        <Menu.Item><a href="#"><Icon i="list" /> <span>Two</span></a></Menu.Item>
+        <Menu.Item><a href="#"><Icon i="list" /> <span>Three</span></a></Menu.Item>
+        <Menu.Item><a href="#"><Icon i="list" /> <span>Four</span></a></Menu.Item>
       </Menu>
     )
   }
