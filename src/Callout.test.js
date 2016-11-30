@@ -1,15 +1,15 @@
-import Badge from './Badge'
+import Callout from './Callout'
 
-describe('Badge', () => {
+describe('Callout', () => {
   it('should render without throwing', () => {
-    shallow(<Badge />)
+    shallow(<Callout />)
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'badge'
+    const inherentClassName = 'callout'
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Badge className={testClassName} />)
+    const childClassName = shallow(<Callout className={testClassName} />)
       .first()
       .prop('className')
 

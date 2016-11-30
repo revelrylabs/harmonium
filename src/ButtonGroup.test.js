@@ -1,15 +1,15 @@
-import Badge from './Badge'
+import ButtonGroup from './ButtonGroup'
 
-describe('Badge', () => {
+describe('ButtonGroup', () => {
   it('should render without throwing', () => {
-    shallow(<Badge />)
+    shallow(<ButtonGroup />)
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'badge'
+    const inherentClassName = 'button-group'
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Badge className={testClassName} />)
+    const childClassName = shallow(<ButtonGroup className={testClassName} />)
       .first()
       .prop('className')
 

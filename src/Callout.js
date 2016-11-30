@@ -14,7 +14,7 @@ export default class Callout extends React.Component {
         classNamesObject[name] = true
       }
     })
-    return classNames(classNamesObject)
+    return classNames(this.props.className, classNamesObject)
   }
 
   render() {

@@ -1,15 +1,15 @@
-import Badge from './Badge'
+import Col from './Col'
 
-describe('Badge', () => {
+describe('Col', () => {
   it('should render without throwing', () => {
-    shallow(<Badge />)
+    shallow(<Col />)
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'badge'
+    const inherentClassName = 'columns'
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Badge className={testClassName} />)
+    const childClassName = shallow(<Col className={testClassName} />)
       .first()
       .prop('className')
 

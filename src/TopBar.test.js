@@ -1,15 +1,15 @@
-import Badge from './Badge'
+import TopBar from './TopBar'
 
-describe('Badge', () => {
+describe('TopBar', () => {
   it('should render without throwing', () => {
-    shallow(<Badge />)
+    shallow(<TopBar />)
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'badge'
+    const inherentClassName = 'top-bar'
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Badge className={testClassName} />)
+    const childClassName = shallow(<TopBar className={testClassName} />)
       .first()
       .prop('className')
 

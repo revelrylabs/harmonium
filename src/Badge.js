@@ -31,7 +31,7 @@ export default class Badge extends Component {
       }
     })
 
-    const newClassName = classNames('badge', ...propClassNames)
+    const newClassName = classNames(className, 'badge', ...propClassNames)
 
     return (
       <span {...props} className={newClassName}>

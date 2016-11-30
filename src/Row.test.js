@@ -1,15 +1,15 @@
-import Badge from './Badge'
+import Row from './Row'
 
-describe('Badge', () => {
+describe('Row', () => {
   it('should render without throwing', () => {
-    shallow(<Badge />)
+    shallow(<Row />)
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'badge'
+    const inherentClassName = 'row'
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Badge className={testClassName} />)
+    const childClassName = shallow(<Row className={testClassName} />)
       .first()
       .prop('className')
 
