@@ -57,20 +57,6 @@ const NUMBER_PROPS_TO_CLASS_NAMES = {
 
 const NUMBER_PROPS = Object.keys(NUMBER_PROPS_TO_CLASS_NAMES)
 
-const HORIZONTAL_ALIGNMENTS = {
-  right: true,
-  center: true,
-  justify: true,
-  spaced: true,
-}
-
-const VERTICAL_ALIGNMENTS = {
-  top: true,
-  middle: true,
-  bottom: true,
-  stretch: true,
-}
-
 export default class Col extends Component {
   render() {
     const {children, className, ...props} = this.props
