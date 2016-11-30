@@ -1,19 +1,19 @@
 import React, {Component} from 'react'
-import {MediaObject, MediaObjectSection} from './MediaObject'
+import {MediaObject} from './MediaObject'
 import Lipsum from './Lipsum'
 
 export class Basics extends Component {
   render() {
     return (
       <MediaObject>
-        <MediaObjectSection>
+        <MediaObject.Section>
           <div>
             <img src= "//placehold.it/100x100"/>
           </div>
-        </MediaObjectSection>
-        <MediaObjectSection mainSection>
+        </MediaObject.Section>
+        <MediaObject.Section main>
           <Lipsum/>
-        </MediaObjectSection>
+        </MediaObject.Section>
       </MediaObject>
     )
   }
@@ -23,20 +23,20 @@ export class SectionAlignment extends Component {
   render() {
     return (
       <MediaObject>
-        <MediaObjectSection middle>
+        <MediaObject.Section middle>
           <div>
             <img src="//placehold.it/100x100"/>
           </div>
-        </MediaObjectSection>
-        <MediaObjectSection>
+        </MediaObject.Section>
+        <MediaObject.Section>
           <Lipsum/>
           <Lipsum/>
-        </MediaObjectSection>
-        <MediaObjectSection bottom>
+        </MediaObject.Section>
+        <MediaObject.Section bottom>
           <div>
             <img src="//placehold.it/100x100"/>
           </div>
-        </MediaObjectSection>
+        </MediaObject.Section>
       </MediaObject>
     )
   }
@@ -46,15 +46,15 @@ export class Stack extends Component {
   render() {
     return (
       <MediaObject stackForSmall>
-        <MediaObjectSection>
+        <MediaObject.Section>
           <div>
             <img src="//placehold.it/350x100"/>
           </div>
-        </MediaObjectSection>
-        <MediaObjectSection>
+        </MediaObject.Section>
+        <MediaObject.Section>
           <h4>I can stack!</h4>
           <Lipsum/>
-        </MediaObjectSection>
+        </MediaObject.Section>
       </MediaObject>
     )
   }
@@ -64,26 +64,26 @@ export class NestedMediaObjects extends Component {
   render() {
     return (
       <MediaObject>
-        <MediaObjectSection>
+        <MediaObject.Section>
           <div>
             <img src="//placehold.it/100x100"/>
           </div>
-        </MediaObjectSection>
-        <MediaObjectSection>
+        </MediaObject.Section>
+        <MediaObject.Section>
           <h4>First!</h4>
           <Lipsum/>
           <MediaObject>
-            <MediaObjectSection>
+            <MediaObject.Section>
               <div>
                 <img src="//placehold.it/100x100"/>
               </div>
-            </MediaObjectSection>
-            <MediaObjectSection>
+            </MediaObject.Section>
+            <MediaObject.Section>
               <h4>Second!</h4>
               <Lipsum/>
-            </MediaObjectSection>
+            </MediaObject.Section>
           </MediaObject>
-        </MediaObjectSection>
+        </MediaObject.Section>
       </MediaObject>
     )
   }
