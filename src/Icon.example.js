@@ -94,14 +94,3 @@ export class GeneralFoundationIcons extends Component {
     )
   }
 }
-
-export class Deprecated extends Component {
-  render() {
-    return (
-      <Row>
-        <Col shrink><Icon className="stat" icon="dollar" /></Col>
-        <Col>Please use "i" instead of "icon"</Col>
-      </Row>
-    )
-  }
-}
