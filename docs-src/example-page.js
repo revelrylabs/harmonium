@@ -3,6 +3,7 @@ import Layout from './layout'
 import ExampleSection from './example-section'
 import Source from './source'
 import {Row, Col} from '../src/grid'
+import Tabs from '../src/Tabs'
 
 function nameToTitle(name) {
   return name
@@ -33,15 +34,19 @@ export default class ExamplePage extends Component {
             <li><a href="#source">Source</a></li>
           </ol>
         </nav>
-        <Row id="examples">
-          <Col small={12}><h2>Examples</h2></Col>
-          <Col medium={6} id="examples-rendered">
+        <hr />
+        <section id="examples">
+          <h2>Examples</h2>
+          <section id="examples-rendered">
             {examples}
-          </Col>
-          <Col medium={6} id="examples-source">
+          </section>
+          <hr />
+          <h2>Examples Source</h2>
+          <section id="examples-source">
             <Source src={examplesSrc} />
-          </Col>
-        </Row>
+          </section>
+        </section>
+        <hr />
         <section id="source">
           <h2>Source</h2>
           <Source src={componentSrc} />
