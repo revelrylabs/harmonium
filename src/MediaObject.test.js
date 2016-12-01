@@ -1,4 +1,4 @@
-import {MediaObject, MediaObjectSection} from './MediaObject'
+import MediaObject from './MediaObject'
 
 describe('MediaObject', () => {
   it('should render without throwing', () => {
@@ -8,6 +8,6 @@ describe('MediaObject', () => {
 
 describe('MediaObjectSection', () => {
   it('should render without throwing', () => {
-    shallow(<MediaObjectSection />)
+    shallow(<MediaObject.Section />)
   })
 })

@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {MediaObject} from './MediaObject'
+import MediaObject from './MediaObject'
 import Lipsum from './Lipsum'
 
 export class Basics extends Component {
