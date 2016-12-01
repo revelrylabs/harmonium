@@ -26,8 +26,10 @@ class TextareaStack extends Component {
   render() {
     const {error, help, className, label, ...props} = this.props
 
+    const labelClassName = classNames(className, 'rev-TextareaStack')
+
     return (
-      <InputLabel className={className} error={error}>
+      <InputLabel className={labelClassName} error={error}>
         {label}
         <Textarea {...props} error={error} />
         <InputHelpText>{help}</InputHelpText>

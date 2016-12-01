@@ -26,8 +26,10 @@ class InputStack extends Component {
   render() {
     const {error, help, className, label, ...props} = this.props
 
+    const labelClassName = classNames(className, 'rev-InputStack')
+
     return (
-      <InputLabel className={className} error={error}>
+      <InputLabel className={labelClassName} error={error}>
         {label}
         <Input {...props} error={error} />
         <InputHelpText>{help}</InputHelpText>

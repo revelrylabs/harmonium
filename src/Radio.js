@@ -22,7 +22,7 @@ export default class Radio extends Component {
     return (
       <InputLabel className={labelClassName} error={error}>
         <input {...props} className={inputClassName} type="radio" />
-        {label}
+        <span className="rev-Radio-label">{label}</span>
       </InputLabel>
     )
   }

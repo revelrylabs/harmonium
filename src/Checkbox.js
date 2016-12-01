@@ -22,7 +22,7 @@ export default class Checkbox extends Component {
     return (
       <InputLabel className={labelClassName} error={error}>
         <input {...props} className={inputClassName} type="checkbox" />
-        {label}
+        <span className="rev-Checkbox-label">{label}</span>
       </InputLabel>
     )
   }

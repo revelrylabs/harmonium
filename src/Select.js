@@ -35,12 +35,10 @@ class SelectStack extends Component {
   render() {
     const {children, label, className, help, error, ...props} = this.props
 
-    const inputClassName = classNames({
-      'is-invalid-input': !!error,
-    })
+    const labelClassName = classNames(className, 'rev-SelectStack')
 
     return (
-      <InputLabel className={className} error={error}>
+      <InputLabel className={labelClassName} error={error}>
         {label}
         <Select {...props} error={error}>
           {children}

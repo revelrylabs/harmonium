@@ -6,7 +6,7 @@ export default class InputLabel extends Component {
   render() {
     const {error, className, children, ...props} = this.props
 
-    const labelClassName = classNames(className, {
+    const labelClassName = classNames(className, 'rev-InputLabel', {
       'is-invalid-label': !!error,
       'rev-InputLabel--invalid': !!error,
     })
