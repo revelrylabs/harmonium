@@ -1,24 +1,10 @@
 import React, {Component} from 'react'
 import classNames from 'classnames'
 
-const ADAPTERS = {
-  FONTAWESOME: (icon) => `fa fa-${icon}`,
-  ICOMOON: (icon) => `icon-${icon}`,
-  FOUNDATION: (icon) => `fi-${icon}`,
-}
-
 export default class Icon extends Component {
 
-  static ADAPTERS = ADAPTERS;
-
-  static defaultProps = {};
-
-  static setDefaultAdapter(adapterFunction) {
-    this.defaultProps.adapter = adapterFunction
-  };
-
   render() {
-    const {className, i, icon, adapter, ...props} = this.props
+    const {className, i, icon, ...props} = this.props
 
     if(icon) {
       console.warn('The `icon` property has been deprecated and will be removed in a future version. Please use <Icon i="icon-name" /> instead.')
@@ -27,9 +13,9 @@ export default class Icon extends Component {
 
     const newClassName = classNames(
       className,
+      `fi-${iconName}`,
       'rev-Icon',
       `rev-Icon--${iconName}`,
-      adapter(iconName),
     )
 
     return (
@@ -37,5 +23,3 @@ export default class Icon extends Component {
     )
   }
 }
-
-Icon.setDefaultAdapter(ADAPTERS.FOUNDATION)

@@ -5,7 +5,7 @@ import Checkbox from './Checkbox'
 const OPTIONS = [
   {label: 'North', value: 'N'},
   {label: 'South', value: 'S'},
-  {label: 'East', value: 'E'},
+  {label: 'East disabled', value: 'E', disabled: true},
   {label: 'West', value: 'W'},
 ]
 

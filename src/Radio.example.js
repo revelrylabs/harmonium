@@ -5,7 +5,7 @@ import Radio from './Radio'
 const OPTIONS = [
   {label: 'North', value: 'N'},
   {label: 'South', value: 'S'},
-  {label: 'East', value: 'E'},
+  {label: 'East disabled', value: 'E', disabled: true},
   {label: 'West', value: 'W'},
 ]
 
@@ -30,15 +30,15 @@ export class Fieldset extends Component {
       <div>
         <Row>
           <Col>
-            <Radio.Fieldset options={OPTIONS} label="Has help text" help="This is the help text." />
+            <Radio.Fieldset name="fieldset_help" options={OPTIONS} label="Has help text" help="This is the help text." />
           </Col>
           <Col>
-            <Radio.Fieldset options={OPTIONS} label="Has error" error="This is the error." />
+            <Radio.Fieldset name="fieldset_error" options={OPTIONS} label="Has error" error="This is the error." />
           </Col>
         </Row>
         <Row>
           <Col>
-            <Radio.Fieldset options={OPTIONS} label="Stacks both help and error" help="This is the help text." error="This is the error." />
+            <Radio.Fieldset name="fieldset_both" options={OPTIONS} label="Stacks both help and error" help="This is the help text." error="This is the error." />
           </Col>
         </Row>
       </div>

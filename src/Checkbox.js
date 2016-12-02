@@ -64,6 +64,7 @@ class CheckboxFieldset extends Component {
         readOnly,
         label: option.label,
         key: option.key || option.value,
+        disabled: option.disabled,
       }
       if(isControlled) {
         props.value = option.value
