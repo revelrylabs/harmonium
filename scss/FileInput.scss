@@ -1,6 +1,9 @@
 .rev-FileInput {
   .rev-InputGroup-field {
     overflow: hidden;
+    @if not($global-flexbox) {
+      width: 100%;
+    }
   }
 }
 
