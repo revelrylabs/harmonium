@@ -17,7 +17,7 @@ export default class TopBar extends Component {
       }
       delete props[name]
     })
-    const newClassName = classNames(className, 'top-bar')
+    const newClassName = classNames(className, 'top-bar', 'rev-TopBar')
     return (
       <div {...props} className={newClassName}>
         {children}
@@ -29,7 +29,7 @@ export default class TopBar extends Component {
 class TopBarLeft extends Component {
   render() {
     const {className, children, ...props} = this.props
-    const newClassName = classNames(className, 'top-bar-left')
+    const newClassName = classNames(className, 'top-bar-left', 'rev-TopBar-left')
     return (
       <div {...props} className={newClassName}>
         {children}
@@ -42,7 +42,7 @@ TopBar.Left = TopBarLeft
 class TopBarRight extends Component {
   render() {
     const {className, children, ...props} = this.props
-    const newClassName = classNames(className, 'top-bar-right')
+    const newClassName = classNames(className, 'top-bar-right', 'rev-TopBar-right')
     return (
       <div {...props} className={newClassName}>
         {children}
@@ -55,7 +55,7 @@ TopBar.Right = TopBarRight
 class TopBarTitle extends Component {
   render() {
     const {className, children, ...props} = this.props
-    const newClassName = classNames(className, 'top-bar-title')
+    const newClassName = classNames(className, 'top-bar-title', 'rev-TopBar-title')
     return (
       <div className={newClassName}>
         {children}

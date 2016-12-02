@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import Button from './Button'
+import ButtonGroup from './ButtonGroup'
 import {Row, Col} from './grid'
 
 export class Styles extends Component {
@@ -65,6 +66,17 @@ export class LinkButton extends Component {
         <p>Simply add an <code>href</code> attribute, and <code>&lt;Button&gt;</code> will render as a link tag.</p>
         <Button large expanded href="https://google.com" target="_blank">Google</Button>
       </div>
+    )
+  }
+}
+
+export class IconButton extends Component {
+  render() {
+    return (
+      <ButtonGroup>
+        <Button icon="upload" />
+        <Button icon="upload">Upload</Button>
+      </ButtonGroup>
     )
   }
 }

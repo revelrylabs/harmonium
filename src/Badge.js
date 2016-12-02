@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
+import Icon from './Icon'
 
 const PROP_NAME_TO_CLASS_NAME = {
   primary: ['primary', 'rev-Badge--primary'],
@@ -21,7 +22,7 @@ export default class Badge extends Component {
   static propTypes = PROP_TYPES;
 
   render() {
-    const {className, children, ...props} = this.props
+    const {className, children, icon, ...props} = this.props
 
     const propClassNames = []
     PROP_NAMES.forEach((name) => {
@@ -35,7 +36,7 @@ export default class Badge extends Component {
 
     return (
       <span {...props} className={newClassName}>
-        {children}
+        {icon ? <Icon i={icon} className="rev-Badge-icon" /> : null} {children}
       </span>
     )
   }

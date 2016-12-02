@@ -15,3 +15,14 @@ export class Styles extends Component {
     )
   }
 }
+
+export class Icons extends Component {
+  render() {
+    return (
+      <div>
+        <Badge warning icon="x" />
+        <Badge warning icon="x">ERROR</Badge>
+      </div>
+    )
+  }
+}

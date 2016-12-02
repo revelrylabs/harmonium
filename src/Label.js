@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
+import Icon from './Icon'
 
 const CLASS_NAMES = {
   secondary: ['secondary', 'rev-Label--secondary'],
@@ -29,8 +30,9 @@ export default class Label extends Component {
   }
 
   render() {
-    return <span className={this.className}>
-      {this.props.children}
+    const {icon, children, ...props} = this.props
+    return <span {...props} className={this.className}>
+      {icon ? <Icon i={icon} className="rev-Label-icon" /> : null} {this.props.children}
     </span>
   }
 }

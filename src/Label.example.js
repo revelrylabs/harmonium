@@ -19,3 +19,14 @@ export class Styles extends Component {
     )
   }
 }
+
+export class Icons extends Component {
+  render() {
+    return (
+      <div>
+        <Label warning icon="x" />
+        <Label warning icon="x">ERROR</Label>
+      </div>
+    )
+  }
+}
