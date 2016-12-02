@@ -22,7 +22,7 @@ const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 export default class Button extends Component {
   render() {
-    const {className, children, ...props} = this.props
+    const {className, children, tag, ...props} = this.props
 
     const boolClassNames = []
     BOOL_PROPS.forEach((name) => {
@@ -38,7 +38,7 @@ export default class Button extends Component {
       disabled,
     })
 
-    const component = href ? 'a' : 'button'
+    const component = tag || (href ? 'a' : 'button')
 
     return createElement(
       component,

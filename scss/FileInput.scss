@@ -1,0 +1,16 @@
+.rev-FileInput {
+  .rev-InputGroup-field {
+    overflow: hidden;
+  }
+}
+
+.rev-FileInput--invalid {
+  .rev-InputGroup-field {
+    @include form-input-error;
+    color: $form-label-color-invalid;
+  }
+}
+
+.rev-FileInput-button {
+  margin-bottom: 0;
+}
