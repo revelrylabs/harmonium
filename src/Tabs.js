@@ -1,36 +1,110 @@
-import React from 'react'
+import React, {Component, Children, cloneElement} from 'react'
+import classNames from 'classnames'
 
-import StatelessTabs from './StatelessTabs'
-
-export default class Tabs extends React.Component {
-
-  static get propTypes() {
-    return {
-      activeKey: React.PropTypes.string,
-      onChange: React.PropTypes.func,
-    }
+class TabsTitle extends Component {
+  render() {
+    const {onClick, href, title, active} = this.props
+    const className = classNames('tabs-title', {
+      'is-active': active,
+    })
+    return (
+      <li className={className}>
+        <a href={href || '#'} onClick={onClick} aria-selected={active}>
+          {title}
+        </a>
+      </li>
+    )
   }
+}
+
+class TabsPanel extends Component {
+  render() {
+    const {children, active} = this.props
+    if(!active) {
+      return null
+    }
+    const className = classNames('tabs-panel', 'is-active')
+    return (
+      <div className={className}>
+        {children}
+      </div>
+    )
+  }
+}
+
+class TabsItem extends Component {
+  render() {
+    const {renderTitle, ...props} = this.props
+    return renderTitle ? <TabsTitle {...props} /> : <TabsPanel {...props} />
+  }
+}
+
+export default class Tabs extends Component {
+  render() {
+    const {children, active} = this.props
+
+    let activeKey = active
+    const rewriteItem = (child) => {
+      activeKey = activeKey || child.props.contentKey // default to first child
+      const {contentKey} = child.props
+      return cloneElement(child, {active: activeKey == contentKey})
+    }
+
+    const rewriteItemToTitle = (item) => {
+      return cloneElement(item, {renderTitle: true})
+    }
+
+    const items = Children.map(children, rewriteItem)
+    const titles = items.map(rewriteItemToTitle)
+
+    return (
+      <div>
+        <ul className="tabs">
+          {titles}
+        </ul>
+        <div className="tabs-content">
+          {items}
+        </div>
+      </div>
+    )
+  }
+}
+
+class StatefulTabs extends Component {
 
   constructor(props) {
     super(props)
     this.state = {
-      activeKey: props.activeKey,
+      active: props.defaultActive || Children.toArray(props.children)[0].props.contentKey,
     }
-    this.handleChange = this.handleChange.bind(this)
   }
 
-  handleChange(e) {
-    this.setState({activeKey: e.activeTab.key})
-    if(this.props.onChange) {
-      this.props.onChange(e)
+  setActive = (contentKey) => {
+    this.setState({active: contentKey})
+  };
+
+  rewriteChild = (child) => {
+    const {contentKey, onClick} = child.props
+    const newOnClick = (e, ...args) => {
+      e.preventDefault()
+      this.setActive(contentKey)
+      if(onClick) {
+        return onClick(e, ...args)
+      }
     }
-  }
+    return cloneElement(child, {onClick: newOnClick})
+  };
 
   render() {
-    return <StatelessTabs {...this.props}
-      activeKey={this.state.activeKey}
-      onChange={this.handleChange}
-    />
+    const {active} = this.state
+    const {children} = this.props
+    return (
+      <Tabs active={this.state.active}>
+        {Children.map(children, this.rewriteChild)}
+      </Tabs>
+    )
   }
-
 }
+
+Tabs.Stateful = StatefulTabs
+Tabs.Item = TabsItem
