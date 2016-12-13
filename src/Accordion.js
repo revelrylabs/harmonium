@@ -56,7 +56,7 @@ export default class Accordion extends Component {
 
     const rewriteChild = (child) => {
       const active = activeMap[child.props.contentKey] || false
-      return cloneElement(child, {active, ...child.props})
+      return cloneElement(child, {active})
     }
 
     return (
@@ -96,7 +96,7 @@ class StatefulAccordion extends Component {
 
   rewriteChild = (child) => {
     const {multi} = this.props
-    const {contentKey, onClick, children, ...rest} = child.props
+    const {contentKey, onClick} = child.props
     const newOnClick = (e, ...args) => {
       e.preventDefault()
       this[multi ? 'toggleActiveStatus' : 'setExclusivelyActive'](contentKey)
@@ -104,13 +104,13 @@ class StatefulAccordion extends Component {
         return onClick(e, ...args)
       }
     }
-    return cloneElement(child, {onClick: newOnClick, ...rest}, children)
+    return cloneElement(child, {onClick: newOnClick})
   };
 
   render() {
-    const {children, active, ...props} = this.props
+    const {children, defaultActive, ...props} = this.props
     return (
-      <Accordion active={this.state.active}>
+      <Accordion {...props} active={this.state.active}>
         {Children.map(children, this.rewriteChild)}
       </Accordion>
     )
