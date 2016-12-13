@@ -1,6 +1,24 @@
 import React, {Component, Children, cloneElement} from 'react'
 import classNames from 'classnames'
 
+// Converts string or array of strings to string-to-bool object mapping
+// "one" -> {one: true}
+// ["one", "two"] -> {one: true, two: true}
+function activeToObject(active) {
+  let obj = {}
+  if(active == null) {
+    return obj
+  }
+  if(active instanceof Array) {
+    active.forEach((name) => obj[name] = true)
+  } else if(typeof(active) === 'object') {
+    obj = active
+  } else {
+    obj[active] = true
+  }
+  return obj
+}
+
 class AccordionItem extends Component {
   render() {
     const {children, className, onClick, href, title, active, ...props} = this.props
@@ -31,29 +49,10 @@ export default class Accordion extends Component {
     active: null,
   };
 
-  getActivePropAsObject() {
-    const {active} = this.props
-    let obj = {}
-
-    if(active == null) {
-      return obj
-    }
-
-    if(active instanceof Array) {
-      active.forEach((name) => obj[name] = true)
-    } else if(typeof(active) === 'object') {
-      obj = active
-    } else {
-      obj[active] = true
-    }
-
-    return obj
-  }
-
   render() {
-    const {children, ...props} = this.props
+    const {children, active} = this.props
 
-    const activeMap = this.getActivePropAsObject()
+    const activeMap = activeToObject(active)
 
     const rewriteChild = (child) => {
       const active = activeMap[child.props.contentKey] || false
@@ -72,9 +71,12 @@ Accordion.Item = AccordionItem
 
 class StatefulAccordion extends Component {
 
-  state = {
-    active: {},
-  };
+  constructor(props) {
+    super(props)
+    this.state = {
+      active: activeToObject(props.defaultActive)
+    }
+  }
 
   setExclusivelyActive = (contentKey) => {
     if(this.state.active[contentKey]) {
