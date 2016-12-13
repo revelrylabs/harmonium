@@ -7,7 +7,7 @@
   }
 }
 
-.rev-FileInput--invalid {
+.rev-FileInput.is-invalid {
   .rev-InputGroup-field {
     @include form-input-error;
     color: $form-label-color-invalid;

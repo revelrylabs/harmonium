@@ -14,7 +14,7 @@ export default class Input extends Component {
     const {className, error, ...props} = this.props
     const inputClassName = classNames(className, 'rev-Input', {
       'is-invalid-input': !!error,
-      'rev-Input--invalid': !!error,
+      'is-invalid': !!error,
     })
     return (
       <input className={inputClassName} {...props} />

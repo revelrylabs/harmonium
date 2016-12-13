@@ -11,10 +11,10 @@ export class Example extends React.Component {
           <Col><Callout>default</Callout></Col>
         </Row>
         <Row>
-          <Col><Callout secondary>secondary</Callout></Col>
+          <Col><Callout primary>primary</Callout></Col>
         </Row>
         <Row>
-          <Col><Callout primary>primary</Callout></Col>
+          <Col><Callout secondary>secondary</Callout></Col>
         </Row>
         <Row>
           <Col><Callout success>success</Callout></Col>

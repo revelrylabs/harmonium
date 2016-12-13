@@ -8,7 +8,7 @@ export default class InputLabel extends Component {
 
     const labelClassName = classNames(className, 'rev-InputLabel', {
       'is-invalid-label': !!error,
-      'rev-InputLabel--invalid': !!error,
+      'is-invalid': !!error,
     })
 
     return (

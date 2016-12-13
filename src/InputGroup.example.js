@@ -16,7 +16,7 @@ export class Standalone extends Component {
           <Button secondary>Cancel</Button>
         </InputGroup.Button>
         <InputGroup.Button>
-          <Button primary>Save</Button>
+          <Button>Save</Button>
         </InputGroup.Button>
       </InputGroup>
     )
