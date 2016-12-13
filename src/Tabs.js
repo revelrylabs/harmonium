@@ -4,9 +4,14 @@ import classNames from 'classnames'
 class TabsTitle extends Component {
   render() {
     const {onClick, href, title, active} = this.props
-    const className = classNames('tabs-title', {
-      'is-active': active,
-    })
+    const className = classNames(
+      'tabs-title',
+      'rev-TabsItem-title',
+      {
+        'is-active': active,
+        'rev-TabsItem-title--active': active,
+      }
+    )
     return (
       <li className={className}>
         <a href={href || '#'} onClick={onClick} aria-selected={active}>
@@ -23,7 +28,12 @@ class TabsPanel extends Component {
     if(!active) {
       return null
     }
-    const className = classNames('tabs-panel', 'is-active')
+    const className = classNames(
+      'tabs-panel',
+      'is-active',
+      'rev-TabsItem-panel',
+      'rev-TabsItem-panel--active',
+    )
     return (
       <div className={className}>
         {children}
@@ -41,7 +51,7 @@ class TabsItem extends Component {
 
 export default class Tabs extends Component {
   render() {
-    const {children, active} = this.props
+    const {children, className, active} = this.props
 
     let activeKey = active
     const rewriteItem = (child) => {
@@ -57,12 +67,14 @@ export default class Tabs extends Component {
     const items = Children.map(children, rewriteItem)
     const titles = items.map(rewriteItemToTitle)
 
+    const divClassName = classNames(className, 'rev-Tabs')
+
     return (
-      <div>
-        <ul className="tabs">
+      <div className={divClassName}>
+        <ul className="tabs rev-Tabs-titles">
           {titles}
         </ul>
-        <div className="tabs-content">
+        <div className="tabs-content rev-Tabs-content">
           {items}
         </div>
       </div>
@@ -97,9 +109,9 @@ class StatefulTabs extends Component {
 
   render() {
     const {active} = this.state
-    const {children} = this.props
+    const {children, ...props} = this.props
     return (
-      <Tabs active={this.state.active}>
+      <Tabs {...props} active={this.state.active}>
         {Children.map(children, this.rewriteChild)}
       </Tabs>
     )

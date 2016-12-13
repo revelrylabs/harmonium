@@ -28,15 +28,22 @@ class AccordionItem extends Component {
       'rev-AccordionItem--active': active,
     })
 
+    const aClassName = classNames('accordion-title', 'rev-AccordionItem-title', {
+      'rev-AccordionItem-title--active': active,
+    })
+
     const div = active ? (
-      <div style={{display: 'block'}} className="accordion-content rev-AccordionItem-content">
+      <div
+        style={{display: 'block'}}
+        className="accordion-content rev-AccordionItem-content rev-AccordionItem-content--active"
+      >
         {children}
       </div>
     ) : null
 
     return (
       <li {...props} className={liClassName}>
-        <a className="accordion-title" href={href || '#'} onClick={onClick}>{title}</a>
+        <a className={aClassName} href={href || '#'} onClick={onClick}>{title}</a>
         {div}
       </li>
     )
@@ -50,7 +57,7 @@ export default class Accordion extends Component {
   };
 
   render() {
-    const {children, active} = this.props
+    const {children, className, active, ...props} = this.props
 
     const activeMap = activeToObject(active)
 
@@ -59,8 +66,10 @@ export default class Accordion extends Component {
       return cloneElement(child, {active})
     }
 
+    const ulClassName = classNames(className, 'accordion', 'rev-Accordion')
+
     return (
-      <ul className="accordion">
+      <ul {...props} className={ulClassName}>
         {Children.map(children, rewriteChild)}
       </ul>
     )

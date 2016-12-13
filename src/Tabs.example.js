@@ -42,35 +42,32 @@ export class Stateful extends Component {
         <Row>
           <Col>
             <Callout alert>
-              <strong>Think hard before using this.</strong>
-              <p>
-                Reasons not to:
-                <ul>
-                  <li>
-                    You know what sucks?
-                    When there is an important piece of site content in tab 3...
-                    but you can{"'"}t hyperlink to it!
-                  </li>
-                  <li>
-                    Once the component is mounted,
-                    the active tab will be stuck until the user clicks a different one.
-                    No matter what props you give to the component,
-                    the tab will not change.
-                  </li>
-                  <li>
-                    If you are using client-side routing and page transitions,
-                    and one of those transitions is supposed to take you from tab 1
-                    to tab 2 on the same page, the component will stay mounted,
-                    so its state will not change, and it will be stuck on the tab
-                    it was already on.
-                  </li>
-                  <li>
-                    If you are using something like redux,
-                    you should use the stateless Tabs component instead,
-                    and you should manage state in redux.
-                  </li>
-                </ul>
-              </p>
+              <strong>Think hard before using this. Reasons not to:</strong>
+              <ul>
+                <li>
+                  You know what sucks?
+                  When there is an important piece of site content in tab 3...
+                  but you can{"'"}t hyperlink to it!
+                </li>
+                <li>
+                  Once the component is mounted,
+                  the active tab will be stuck until the user clicks a different one.
+                  No matter what props you give to the component,
+                  the tab will not change.
+                </li>
+                <li>
+                  If you are using client-side routing and page transitions,
+                  and one of those transitions is supposed to take you from tab 1
+                  to tab 2 on the same page, the component will stay mounted,
+                  so its state will not change, and it will be stuck on the tab
+                  it was already on.
+                </li>
+                <li>
+                  If you are using something like redux,
+                  you should use the stateless Tabs component instead,
+                  and you should manage state in redux.
+                </li>
+              </ul>
             </Callout>
           </Col>
         </Row>
