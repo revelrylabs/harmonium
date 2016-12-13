@@ -27,7 +27,7 @@ export class Example extends Component {
                 <Input type="text" placeholder="Search" />
               </InputGroup.Field>
               <InputGroup.Button>
-                <Button primary><Icon i="magnifying-glass" /></Button>
+                <Button><Icon i="magnifying-glass" /></Button>
               </InputGroup.Button>
             </InputGroup>
           </Form>

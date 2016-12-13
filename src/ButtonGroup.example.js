@@ -6,9 +6,9 @@ export class Styles extends Component {
   render() {
     return (
       <ButtonGroup>
-        <Button medium>one</Button>
-        <Button medium>two</Button>
-        <Button medium>three</Button>
+        <Button>one</Button>
+        <Button secondary>two</Button>
+        <Button success>three</Button>
       </ButtonGroup>
     )
   }
