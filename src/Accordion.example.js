@@ -41,35 +41,32 @@ export class Stateful extends Component {
     return (
       <div>
         <Callout alert>
-          <strong>Think hard before using this.</strong>
-          <p>
-            Reasons not to:
-            <ul>
-              <li>
-                You know what sucks?
-                When there is an important piece of site content in item 3...
-                but you can{"'"}t hyperlink to it!
-              </li>
-              <li>
-                Once the component is mounted,
-                the active item will be stuck until the user clicks a different one.
-                No matter what props you give to the component,
-                the item will not change.
-              </li>
-              <li>
-                If you are using client-side routing and page transitions,
-                and one of those transitions is supposed to take you from item 1
-                to item 2 on the same page, the component will stay mounted,
-                so its state will not change, and it will be stuck on the item
-                it was already on.
-              </li>
-              <li>
-                If you are using something like redux,
-                you should use the stateless Accordion component instead,
-                and you should manage state in redux.
-              </li>
-            </ul>
-          </p>
+          <strong>Think hard before using this. Reasons not to:</strong>
+          <ul>
+            <li>
+              You know what sucks?
+              When there is an important piece of site content in item 3...
+              but you can{"'"}t hyperlink to it!
+            </li>
+            <li>
+              Once the component is mounted,
+              the active item will be stuck until the user clicks a different one.
+              No matter what props you give to the component,
+              the item will not change.
+            </li>
+            <li>
+              If you are using client-side routing and page transitions,
+              and one of those transitions is supposed to take you from item 1
+              to item 2 on the same page, the component will stay mounted,
+              so its state will not change, and it will be stuck on the item
+              it was already on.
+            </li>
+            <li>
+              If you are using something like redux,
+              you should use the stateless Accordion component instead,
+              and you should manage state in redux.
+            </li>
+          </ul>
         </Callout>
         <h6>None defaultActive, click to change</h6>
         <Accordion.Stateful>
