@@ -19,7 +19,7 @@ export default class Select extends Component {
 
     const inputClassName = classNames(className, 'rev-Select', {
       'is-invalid-input': !!error,
-      'rev-Select--invalid': !!error,
+      'is-invalid': !!error,
     })
 
     return (

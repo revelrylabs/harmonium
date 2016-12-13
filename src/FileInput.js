@@ -32,7 +32,7 @@ export default class FileInput extends Component {
     const {filePath} = this.state
 
     const inputGroupClassName = classNames(className, 'rev-FileInput', {
-      'rev-FileInput--invalid': !!error,
+      'is-invalid': !!error,
     })
 
     return (

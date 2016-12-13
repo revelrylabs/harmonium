@@ -25,17 +25,16 @@ class AccordionItem extends Component {
 
     const liClassName = classNames(className, 'accordion-item', 'rev-AccordionItem', {
       'is-active': active,
-      'rev-AccordionItem--active': active,
     })
 
     const aClassName = classNames('accordion-title', 'rev-AccordionItem-title', {
-      'rev-AccordionItem-title--active': active,
+      'is-active': active,
     })
 
     const div = active ? (
       <div
         style={{display: 'block'}}
-        className="accordion-content rev-AccordionItem-content rev-AccordionItem-content--active"
+        className="accordion-content rev-AccordionItem-content is-active"
       >
         {children}
       </div>

@@ -4,14 +4,9 @@ import classNames from 'classnames'
 class TabsTitle extends Component {
   render() {
     const {onClick, href, title, active} = this.props
-    const className = classNames(
-      'tabs-title',
-      'rev-TabsItem-title',
-      {
-        'is-active': active,
-        'rev-TabsItem-title--active': active,
-      }
-    )
+    const className = classNames('tabs-title', 'rev-TabsItem-title', {
+      'is-active': active,
+    })
     return (
       <li className={className}>
         <a href={href || '#'} onClick={onClick} aria-selected={active}>
@@ -32,7 +27,6 @@ class TabsPanel extends Component {
       'tabs-panel',
       'is-active',
       'rev-TabsItem-panel',
-      'rev-TabsItem-panel--active',
     )
     return (
       <div className={className}>

@@ -14,7 +14,7 @@ export default class Textarea extends Component {
     const {className, error, ...props} = this.props
     const inputClassName = classNames(className, 'rev-Textarea', {
       'is-invalid-input': !!error,
-      'rev-Textarea--invalid': !!error,
+      'is-invalid': !!error,
     })
     return (
       <textarea className={inputClassName} {...props} />
