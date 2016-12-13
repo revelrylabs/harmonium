@@ -3,17 +3,15 @@ import classNames from 'classnames'
 import Icon from './Icon'
 
 const PROP_NAME_TO_CLASS_NAME = {
-  primary: ['primary', 'rev-Badge--primary'],
   secondary: ['secondary', 'rev-Badge--secondary'],
   alert: ['alert', 'rev-Badge--alert'],
   warning: ['warning', 'rev-Badge--warning'],
   success: ['success', 'rev-Badge--success'],
-  small: ['small', 'rev-Badge--small'],
-  medium: ['medium', 'rev-Badge--medium'],
-  large: ['large', 'rev-Badge--large'],
 }
 const PROP_NAMES = Object.keys(PROP_NAME_TO_CLASS_NAME)
-const PROP_TYPES = {}
+const PROP_TYPES = {
+  icon: PropTypes.string,
+}
 
 PROP_NAMES.forEach((key) => PROP_TYPES[key] = PropTypes.bool)
 

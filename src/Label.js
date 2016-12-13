@@ -2,37 +2,40 @@ import React, {Component, PropTypes} from 'react'
 import classNames from 'classnames'
 import Icon from './Icon'
 
-const CLASS_NAMES = {
+const PROP_NAME_TO_CLASS_NAME = {
   secondary: ['secondary', 'rev-Label--secondary'],
   alert: ['alert', 'rev-Label--alert'],
   warning: ['warning', 'rev-Label--warning'],
   success: ['success', 'rev-Label--success'],
 }
-
+const PROP_NAMES = Object.keys(PROP_NAME_TO_CLASS_NAME)
 const PROP_TYPES = {
-  children: PropTypes.node,
+  icon: PropTypes.string,
 }
-Object.keys(CLASS_NAMES).forEach(key => PROP_TYPES[key] = PropTypes.bool)
+
+PROP_NAMES.forEach((key) => PROP_TYPES[key] = PropTypes.bool)
 
 export default class Label extends Component {
-  static propTypes = PROP_TYPES
 
-  get className() {
-    const classNameList = []
-    Object.keys(this.props).forEach(propName => {
-      const className = CLASS_NAMES[propName]
-      if (className) {
-        classNameList.push(className)
+  static propTypes = PROP_TYPES;
+
+  render() {
+    const {className, children, icon, ...props} = this.props
+
+    const propClassNames = []
+    PROP_NAMES.forEach((name) => {
+      if(props[name]) {
+        propClassNames.push(PROP_NAME_TO_CLASS_NAME[name])
+        delete props[name]
       }
     })
 
-    return classNames(classNameList, 'label', 'rev-Label', this.props.className)
-  }
+    const newClassName = classNames(className, 'label', 'rev-Label', propClassNames)
 
-  render() {
-    const {icon, children, ...props} = this.props
-    return <span {...props} className={this.className}>
-      {icon ? <Icon i={icon} className="rev-Label-icon" /> : null} {this.props.children}
-    </span>
+    return (
+      <span {...props} className={newClassName}>
+        {icon ? <Icon i={icon} className="rev-Label-icon" /> : null} {children}
+      </span>
+    )
   }
 }

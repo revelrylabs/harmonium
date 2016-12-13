@@ -116,7 +116,7 @@ class StatefulAccordion extends Component {
   };
 
   render() {
-    const {children, defaultActive, ...props} = this.props
+    const {children, defaultActive, multi, ...props} = this.props
     return (
       <Accordion {...props} active={this.state.active}>
         {Children.map(children, this.rewriteChild)}
