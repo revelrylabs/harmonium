@@ -21,7 +21,7 @@ function activeToObject(active) {
 
 class AccordionItem extends Component {
   render() {
-    const {children, className, onClick, href, title, active, ...props} = this.props
+    const {children, className, onClick, href, title, active, contentKey, ...props} = this.props
 
     const liClassName = classNames(className, 'accordion-item', 'rev-AccordionItem', {
       'is-active': active,
