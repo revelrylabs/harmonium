@@ -31,14 +31,18 @@ class AccordionItem extends Component {
       'is-active': active,
     })
 
-    const div = active ? (
+    const divClassName = classNames('accordion-content', 'rev-AccordionItem-content', {
+      'is-active': active,
+    })
+
+    const div = (
       <div
-        style={{display: 'block'}}
-        className="accordion-content rev-AccordionItem-content is-active"
+        style={{display: active ? 'block' : 'none'}}
+        className={divClassName}
       >
         {children}
       </div>
-    ) : null
+    )
 
     return (
       <li {...props} className={liClassName}>
