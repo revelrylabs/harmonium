@@ -1,0 +1,5 @@
+.node-version
+node_modules/
+docs/**/*
+!docs/.keep
+npm-debug.log

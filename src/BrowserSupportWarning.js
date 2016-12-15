@@ -3,14 +3,23 @@ import bowser from 'bowser'
 import classNames from 'classnames'
 
 export default class BrowserSupportWarning extends Component {
-  render() {
-    const {minVersions, className, children} = this.props
+
+  state = {isSupported: null}
+
+  componentDidMount() {
+    const {minVersions} = this.props
     const userAgent = this.props.userAgent || (typeof(window) !== 'undefined' && window.navigator.userAgent) || null
     const isSupported = userAgent ? bowser.check(this.props.minVersions, this.userAgent) : true
-    if(isSupported) {
+    this.setState({isSupported})
+  }
+
+  render() {
+    const {isSupported} = this.state
+    if(isSupported === null || isSupported) {
       return null
     }
+    const {className, children} = this.props
     const divClassName = classNames(className, 'rev-BrowserSupportWarning')
-    return <div className={divClassName}>{this.props.children}</div>
+    return <div className={divClassName}>{children}</div>
   }
 }

@@ -50,9 +50,6 @@ add('ButtonGroup', ButtonGroup)
 import * as Icon from './Icon.example'
 add('Icon', Icon)
 
-import * as MediaObject from './MediaObject.example'
-add('MediaObject', MediaObject)
-
 import * as Menu from './Menu.example'
 add('Menu', Menu)
 

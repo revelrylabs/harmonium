@@ -19,8 +19,8 @@ export class Icons extends Component {
   render() {
     return (
       <div>
-        <Badge icon="x" />
-        <Badge warning icon="x">ERROR</Badge>
+        <Badge icon="home" />
+        <Badge warning icon="home">ERROR</Badge>
       </div>
     )
   }

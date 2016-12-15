@@ -5,7 +5,7 @@ import {Row, Col} from './grid'
 export class Basic extends Component {
   render() {
     return (
-      <Icon className="stat" i="bitcoin" />
+      <Icon className="stat" i="home" />
     )
   }
 }

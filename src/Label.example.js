@@ -24,8 +24,8 @@ export class Icons extends Component {
   render() {
     return (
       <div>
-        <Label icon="x" />
-        <Label warning icon="x">ERROR</Label>
+        <Label icon="home" />
+        <Label warning icon="home">ERROR</Label>
       </div>
     )
   }
