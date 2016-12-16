@@ -43,7 +43,13 @@ function genJS(items) {
   browserify(jsSourceFile, {debug: true})
     .transform('babelify')
     .bundle()
-    .on('end', () => fs.unlinkSync(jsSourceFile))
+    .on('end', () => {
+      try {
+        fs.unlinkSync(jsSourceFile)
+      } catch(err) {
+        console.log(err);
+      }
+    })
     .pipe(fs.createWriteStream(path.join(__dirname, '..', 'docs', 'bundle.js')))
 }
 
@@ -83,13 +89,14 @@ function genStyles(cb) {
       path.join(__dirname, '../scss'),
     ],
     sourceMap: true,
-  }, cb || function(err, {css}) {
+  }, cb || function(err, results) {
     if(err) {
-      console.log(error.status)
-      console.log(error.column)
-      console.log(error.message)
-      console.log(error.line)
+      console.log(err.status)
+      console.log(err.column)
+      console.log(err.message)
+      console.log(err.line)
     } else {
+      let {css} = results
       fs.writeFile(CSS_OUTPUT_FILE, css, cb)
     }
   })
