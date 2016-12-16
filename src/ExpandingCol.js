@@ -1,4 +1,3 @@
-import ReactTransitionGroup from 'react-addons-css-transition-group'
 import React, {cloneElement, PropTypes} from 'react'
 import {Row, Col} from './grid'
 import Button from './Button'
