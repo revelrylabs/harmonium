@@ -4,7 +4,7 @@ import Nav from './nav'
 
 export default class Layout extends Component {
   render() {
-    const {title, children, navKeys} = this.props
+    const {title, children, navKeys, activeKey} = this.props
     return (
       <html>
         <head>
@@ -26,7 +26,7 @@ export default class Layout extends Component {
         <body>
           <Row>
             <Col large={2} medium={3} style={{overflow: 'auto'}}>
-              <Nav keys={navKeys} />
+              <Nav keys={navKeys} activeKey={activeKey} />
             </Col>
             <Col large={10} medium={9}>
               <h1 id="top">{title}</h1>

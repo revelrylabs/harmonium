@@ -38,7 +38,7 @@ export class MenuItem extends Component {
   render() {
     const {children, className, text, active, ...props} = this.props
 
-    const newClassName = classNames('rev-Menu-item', {
+    const newClassName = classNames(className, 'rev-Menu-item', {
       'menu-text': text,
       'rev-Menu-item--text': text,
       'active': active,

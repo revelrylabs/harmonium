@@ -24,7 +24,7 @@ export default class ExamplePage extends Component {
       return <li key={name}><a href={`#${id}`}>{nameToTitle(name)}</a></li>
     })
     return (
-      <Layout title={name} navKeys={navKeys}>
+      <Layout title={name} navKeys={navKeys} activeKey={name}>
         <nav>
           <ol>
             <li><a href="#examples">Examples</a></li>
