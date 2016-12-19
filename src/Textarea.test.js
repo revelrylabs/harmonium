@@ -1,14 +1,14 @@
-import Input from './Input'
+import Textarea from './Textarea'
 
-describe('Input', () => {
+describe('Textarea', () => {
   it('should render without throwing', () => {
-    shallow(<Input />)
+    shallow(<Textarea />)
   })
 
   it('should add className to child', () => {
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Input className={testClassName} />)
+    const childClassName = shallow(<Textarea className={testClassName} />)
       .first()
       .prop('className')
 
@@ -16,15 +16,15 @@ describe('Input', () => {
   })
 })
 
-describe('Input.Stack', () => {
+describe('Textarea.Stack', () => {
   it('should render without throwing', () => {
-    shallow(<Input.Stack />)
+    shallow(<Textarea.Stack />)
   })
 
   it('should add className to child', () => {
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Input.Stack className={testClassName} />)
+    const childClassName = shallow(<Textarea.Stack className={testClassName} />)
       .first()
       .prop('className')
 

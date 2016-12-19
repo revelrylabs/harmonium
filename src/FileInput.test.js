@@ -1,14 +1,14 @@
-import Input from './Input'
+import FileInput from './FileInput'
 
-describe('Input', () => {
+describe('FileInput', () => {
   it('should render without throwing', () => {
-    shallow(<Input />)
+    shallow(<FileInput />)
   })
 
   it('should add className to child', () => {
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Input className={testClassName} />)
+    const childClassName = shallow(<FileInput className={testClassName} />)
       .first()
       .prop('className')
 
@@ -16,15 +16,15 @@ describe('Input', () => {
   })
 })
 
-describe('Input.Stack', () => {
+describe('FileInput.Stack', () => {
   it('should render without throwing', () => {
-    shallow(<Input.Stack />)
+    shallow(<FileInput.Stack />)
   })
 
   it('should add className to child', () => {
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Input.Stack className={testClassName} />)
+    const childClassName = shallow(<FileInput.Stack className={testClassName} />)
       .first()
       .prop('className')
 
