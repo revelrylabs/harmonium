@@ -1,6 +1,6 @@
 {
   "name": "revelry-components",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "dependencies": {
     "babel-cli": "^6.2.0",
@@ -36,7 +36,8 @@
     "test": "mocha ./src/**/*.test.js --opts ./mocha.opts",
     "docs": "node scripts/docs.js",
     "web": "static-server docs -p $PORT",
-    "dev": "gulp"
+    "dev": "gulp",
+    "postinstall": "npm run clean && npm run babel"
   },
   "keywords": [],
   "author": "",
