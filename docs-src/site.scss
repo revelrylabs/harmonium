@@ -1,7 +1,8 @@
 @import 'foundation';
 @include foundation-everything(true);
 
-$card-radius: 8px;
+// DOCS SITE
+@import '../scss/docs-site/media-queries';
 
 // Custom styles
 @import '../scss/Pagination';
