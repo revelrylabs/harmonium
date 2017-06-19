@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 
 const REV_CHART_SPEC = {
   Bar: {
@@ -99,12 +100,12 @@ const REV_CHART_SPEC = {
 class ChartBuilder extends React.Component {
   static get propTypes() {
     return {
-      data: React.PropTypes.object.isRequired,
-      type: React.PropTypes.oneOf(Object.keys(REV_CHART_SPEC)).isRequired,
-      options: React.PropTypes.object,
-      width: React.PropTypes.number,
-      height: React.PropTypes.number,
-      title: React.PropTypes.string,
+      data: PropTypes.object.isRequired,
+      type: PropTypes.oneOf(Object.keys(REV_CHART_SPEC)).isRequired,
+      options: PropTypes.object,
+      width: PropTypes.number,
+      height: PropTypes.number,
+      title: PropTypes.string,
     }
   }
 

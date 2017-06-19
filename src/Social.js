@@ -1,14 +1,15 @@
 import React, {Component, Children, createElement} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Button from "./Button"
 
 export default class Social extends Component {
   static get propTypes() {
     return {
-      socialNetwork: React.PropTypes.string,
-      url: React.PropTypes.string,
-      message: React.PropTypes.string,
-      button: React.PropTypes.bool
+      socialNetwork: PropTypes.string,
+      url: PropTypes.string,
+      message: PropTypes.string,
+      button: PropTypes.bool
     }
   }
   static get defaultProps() {

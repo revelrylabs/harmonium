@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import CardLayout from './CardLayout'
 import TopBar from './TopBar'
 import Button from './Button'

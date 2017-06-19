@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Icon from './Icon'
 
 export default class StatelessModal extends Component {
 
   static propTypes = {
-    isOpen: React.PropTypes.bool,
-    onBackgroundClick: React.PropTypes.func,
+    isOpen: PropTypes.bool,
+    onBackgroundClick: PropTypes.func,
   }
 
   static defaultProps = {

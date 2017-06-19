@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import classNames from 'classnames'
 
 export default class CardLayout extends Component {

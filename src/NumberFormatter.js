@@ -1,22 +1,23 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import _ from 'underscore'
 
 export default class NumberFormatter extends React.Component {
 
   static get propTypes() {
     return {
-      value: React.PropTypes.number.isRequired,
-      locales: React.PropTypes.string,
-      localeMatcher: React.PropTypes.oneOf(['lookup', 'best fit']),
-      style: React.PropTypes.oneOf(['decimal', 'currency', 'percent']),
-      currency: React.PropTypes.string,
-      currencyDisplay: React.PropTypes.oneOf(['symbol', 'code', 'name']),
-      useGrouping: React.PropTypes.bool,
-      minimumIntegerDigits: React.PropTypes.number,
-      minimumFractionDigits: React.PropTypes.number,
-      maximumFractionDigits: React.PropTypes.number,
-      minimumSignificantDigits: React.PropTypes.number,
-      maximumSignificantDigits: React.PropTypes.number,
+      value: PropTypes.number.isRequired,
+      locales: PropTypes.string,
+      localeMatcher: PropTypes.oneOf(['lookup', 'best fit']),
+      style: PropTypes.oneOf(['decimal', 'currency', 'percent']),
+      currency: PropTypes.string,
+      currencyDisplay: PropTypes.oneOf(['symbol', 'code', 'name']),
+      useGrouping: PropTypes.bool,
+      minimumIntegerDigits: PropTypes.number,
+      minimumFractionDigits: PropTypes.number,
+      maximumFractionDigits: PropTypes.number,
+      minimumSignificantDigits: PropTypes.number,
+      maximumSignificantDigits: PropTypes.number,
     }
   }
 
