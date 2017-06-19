@@ -1,18 +1,22 @@
 import React, {Component, Children, createElement} from 'react'
+import classNames from 'classnames'
+import Button from "./Button"
 
 export default class Social extends Component {
   static get propTypes() {
     return {
       socialNetwork: React.PropTypes.string,
       url: React.PropTypes.string,
-      message: React.PropTypes.string
+      message: React.PropTypes.string,
+      button: React.PropTypes.bool
     }
   }
   static get defaultProps() {
     return {
         socialNetwork: "Facebook",
         url: "http://revelry.co",
-        message: "Check this out!"
+        message: "Check this out!",
+        button: false
     }
   }
 
@@ -45,16 +49,33 @@ export default class Social extends Component {
   }
 
   render() {
-    const title = `Share via ${this.props.socialNetwork}`
-    return (
-      <a
-        href={this.getLink()}
-        rel="noopener noreferrer"
-        target="_blank"
-        title={title}
-      >
-        {this.props.children}
-      </a>
-    )
+    // Extract props that will not pass through.
+    const {className, children, socialNetwork, url, message, button, ...props} = this.props
+
+    const componentClassName = classNames(className, "social", `social--${socialNetwork}`)
+
+    const componentProps = {
+      // so any button options like tiny or expanded get passed along
+      ...props,
+      href: this.getLink(),
+      rel: "noopener noreferrer",
+      target: "_blank",
+      title: `Share via ${this.props.socialNetwork}`,
+      className: componentClassName
+    }
+
+    if (this.props.button) {
+      return (
+        <Button {...componentProps}>
+          {this.props.children}
+        </Button>
+      )
+    } else {
+      return (
+        <a {...componentProps}>
+          {this.props.children}
+        </a>
+      )
+    }
   }
 }
