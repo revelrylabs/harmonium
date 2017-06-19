@@ -22,27 +22,29 @@ export default class Social extends Component {
 
   getLink() {
     const {url, message} = this.props
+    const encodedMsg = encodeURIComponent(message)
+
     switch (this.props.socialNetwork) {
       case "Buffer":
-        return `https://buffer.com/add?text=${message}&url=${url}`
+        return `https://buffer.com/add?text=${encodedMsg}&url=${url}`
       case "Digg":
-        return `http://digg.com/submit?url=${url}&title=${message}`
+        return `http://digg.com/submit?url=${url}&title=${encodedMsg}`
       case "email":
-        return `mailto:?subject=${message}&body=${url}`
+        return `mailto:?subject=${encodedMsg}&body=${url}`
       case "Facebook":
         return `https://www.facebook.com/sharer/sharer.php?u=${url}`;
       case "Google+":
         return `https://plus.google.com/share?url=${url}`
       case "LinkedIn":
-        return `https://www.linkedin.com/shareArticle?url=${url}&title=${message}`
+        return `https://www.linkedin.com/shareArticle?url=${url}&title=${encodedMsg}`
       case "Pinterest":
-        return `https://pinterest.com/pin/create/bookmarklet/?url=${url}&description=${message}`
+        return `https://pinterest.com/pin/create/bookmarklet/?url=${url}&description=${encodedMsg}`
       case "Reddit":
-        return `https://reddit.com/submit?url=${url}&title=${message}`
+        return `https://reddit.com/submit?url=${url}&title=${encodedMsg}`
       case "Tumblr":
-        return `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${url}&caption=${message}`
+        return `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${url}&caption=${encodedMsg}`
       case "Twitter":
-        return `https://twitter.com/intent/tweet?url=${url}&text=${message}`
+        return `https://twitter.com/intent/tweet?url=${url}&text=${encodedMsg}`
       default:
         console.warn("No valid social network given!")
     }

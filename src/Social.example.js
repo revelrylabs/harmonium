@@ -72,9 +72,9 @@ export class SocialSharingIconsAndButtons extends Component {
   render() {
     return (
       <div>
-        <p>Pass an icon or image as a child and the link will wrap around it.</p>
+        <p>Pass an icon or image as a child and the link will wrap it.</p>
         <p>
-          <Social socialNetwork="Facebook" url="http://revelry.co" message="Sharing via an icon link!">
+          <Social socialNetwork="Facebook" url="http://revelry.co" message="Sharing via a clickable icon!">
             <Icon className="stat" i="like" />
           </Social>
         </p>
@@ -86,7 +86,7 @@ export class SocialSharingIconsAndButtons extends Component {
         </p>
         <p>Pass an icon/image child along with <code>button</code> and you'll get an icon button.</p>
         <p>
-          <Social socialNetwork="Facebook" url="http://revelry.co" message="Sharing via a button!" button>
+          <Social socialNetwork="Facebook" url="http://revelry.co" message="Sharing via an icon button!" button>
             <Icon className="stat" i="like" />
           </Social>
         </p>
