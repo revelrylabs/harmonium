@@ -25,8 +25,6 @@ export default class Social extends Component {
   }
 
   static defaultProps = {
-      type: Social.types.FACEBOOK,
-      url: "http://revelry.co",
       message: "Check this out!",
       componentClass: 'a',
   }

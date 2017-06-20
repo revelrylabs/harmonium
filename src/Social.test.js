@@ -2,14 +2,14 @@ import Social from './Social'
 
 describe('Social', () => {
   it('should render without throwing', () => {
-    shallow(<Social />)
+    shallow(<Social type={Social.types.FACEBOOK} url="https://revelry.co" />)
   })
 
   it('should add className to child', () => {
     const inherentClassName = 'social'
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Social className={testClassName} />)
+    const childClassName = shallow(<Social className={testClassName} type={Social.types.FACEBOOK} url="https://revelry.co" />)
       .first()
       .prop('className')
 
