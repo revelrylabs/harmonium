@@ -18,9 +18,9 @@ describe('Social', () => {
   })
 
   it('should render the right link', () => {
-      const tweetLink = "https://twitter.com/intent/tweet?url=http://revelry.co&text=Check%20this%20out!"
+      const tweetLink = "https://twitter.com/intent/tweet?url=http%3A%2F%2Frevelry.co&text=Check%20this%20out!"
       
-      const renderedLink = shallow(<Social socialNetwork="Twitter" />).first().prop('href')
+      const renderedLink = shallow(<Social type={Social.types.TWITTER} url="http://revelry.co" />).first().prop('href')
 
       expect(renderedLink).to.equal(tweetLink)
   })
