@@ -19,6 +19,7 @@ function genJS(items) {
   imports.push(`import React, {createElement} from 'react'`)
   imports.push(`import {render} from 'react-dom'`)
 
+
   items.forEach((item) => {
     const mod = require(item.examples)
     Object.keys(mod).forEach((key) => {
@@ -39,7 +40,8 @@ function genJS(items) {
   addLine('})')
 
   const jsSourceFile = path.join(__dirname, '__generated__.js')
-  fs.writeFile(jsSourceFile, lines.join('\n'))
+  // useless callback ahead because of a deprecation warning in Node 8.1.0
+  fs.writeFile(jsSourceFile, lines.join('\n'), () => true ) 
   browserify(jsSourceFile, {debug: true})
     .transform('babelify')
     .bundle()
@@ -64,7 +66,8 @@ function html(instance) {
 
 function genIndex(navKeys) {
   const destPath = path.join(__dirname, `../docs/index.html`)
-  fs.writeFile(destPath, html(<IndexPage navKeys={navKeys} />))
+  // useless callback ahead because of a deprecation warning in Node 8.1.0
+  fs.writeFile(destPath, html(<IndexPage navKeys={navKeys} />), () => true ) 
 }
 
 function genPage(item, navKeys) {
@@ -76,7 +79,8 @@ function genPage(item, navKeys) {
     exampleComponents: require(item.examples),
   }
   const destPath = path.join(__dirname, `../docs/${item.name}.html`)
-  fs.writeFile(destPath, html(<ExamplePage {...props} />))
+  // useless callback ahead because of a deprecation warning in Node 8.1.0
+  fs.writeFile(destPath, html(<ExamplePage {...props} />), () => true ) 
 }
 
 const CSS_OUTPUT_FILE = path.join(__dirname, '../docs/site.css')
@@ -97,7 +101,8 @@ function genStyles(cb) {
       console.log(err.line)
     } else {
       let {css} = results
-      fs.writeFile(CSS_OUTPUT_FILE, css, cb)
+      // useless callback ahead because of a deprecation warning in Node 8.1.0
+      fs.writeFile(CSS_OUTPUT_FILE, css, cb, () => true)
     }
   })
 }
