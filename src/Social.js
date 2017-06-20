@@ -20,9 +20,9 @@ export default class Social extends Component {
   static types = URL_FUNCTIONS
 
   static propTypes = {
-      type: React.PropTypes.func.isRequired,
-      url: React.PropTypes.string.isRequired,
-      message: React.PropTypes.string,
+      type: PropTypes.func.isRequired,
+      url: PropTypes.string.isRequired,
+      message: PropTypes.string,
   }
 
   static defaultProps = {
