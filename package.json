@@ -22,9 +22,9 @@
     "node-dir": "^0.1.17",
     "node-sass": "^4.5.3",
     "node-static": "^0.7.9",
-    "prop-types": "^15.5.10",
-    "react": ">=15.6.1",
-    "react-dom": ">=15.6.1",
+    "prop-types": "^15.5.7",
+    "react": ">=15.3.0 || 0.14.9",
+    "react-dom": ">=15.3.0 || 0.14.9",
     "source-map-support": "^0.4.15",
     "static-server": "^2.0.4",
     "underscore": "^1.8.3",
@@ -38,7 +38,8 @@
     "docs": "node scripts/docs.js",
     "web": "static-server docs -p $PORT",
     "dev": "gulp",
-    "postinstall": "npm run clean && npm run babel"
+    "postinstall": "npm run clean && npm run babel && npm run knownIssue",
+    "knownIssue": "echo 'Deprecation warnings for minimatch and graceful-fs are coming from Gulp and will be fixed in Gulp 4. https://github.com/gulpjs/gulp/issues/1571'"
   },
   "keywords": [],
   "author": "",
@@ -46,14 +47,12 @@
   "devDependencies": {
     "chai": "^3.5.0",
     "chai-enzyme": "^0.7.1",
-    "cheerio": "^0.22.0",
     "enzyme": "^2.8.2",
     "gulp": "^3.9.1",
     "gulp-webserver": "^0.9.1",
     "jsdom": "^11.0.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^3.4.2",
-    "react-addons-test-utils": ">=15.6.0",
-    "react-test-renderer": ">=15.6.1"
+    "react-test-renderer": ">=15.0.0"
   }
 }
