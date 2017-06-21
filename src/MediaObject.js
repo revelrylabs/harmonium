@@ -31,6 +31,8 @@ export default class MediaObject extends Component {
     Object.keys(this.props).forEach(propName => {
       const className = PARENT_CLASS_NAMES[propName]
       if (className) {
+        // fix an 'unknown prop' error for React 15.3.0
+        classNamesList.push(propName)
         classNamesList.push(className)
       }
     })
@@ -75,6 +77,8 @@ class MediaObjectSection extends Component {
     Object.keys(this.props).forEach(propName => {
       const className = SECTION_CLASS_NAMES[propName]
       if (className) {
+        // fix an 'unknown prop' error for React 15.3.0
+        classNamesList.push(propName)
         classNamesList.push(className)
       }
     })
@@ -83,12 +87,11 @@ class MediaObjectSection extends Component {
   }
 
   render() {
-    const {className, ...props} = this.props
+    const {className, children, ...props} = this.props
     const classNamesList = classNames(this.classNamesList, className)
     const passThroughProps = _.omit(props, this.classNamesList)
-
     return <div {...passThroughProps} className={classNamesList}>
-      {this.props.children}
+      {children}
     </div>
   }
 }

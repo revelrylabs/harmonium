@@ -17,13 +17,14 @@ export default class Emptyable extends React.Component {
   }
 
   render() {
-    if(this.props.children) {
+    const {children, componentClass, emptyState, ...props} = this.props
+    if(children) {
       return React.createElement(
-        this.props.componentClass,
-        this.props,
-        this.props.children
+        componentClass,
+        {...props},
+        children
       )
     }
-    return this.props.emptyState
+    return emptyState
   }
 }
