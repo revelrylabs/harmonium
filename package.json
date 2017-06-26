@@ -1,7 +1,11 @@
 {
   "name": "revelry-components",
-  "version": "1.0.2",
+  "version": "2.0.0",
   "description": "",
+  "repository": {
+    "type": "",
+    "url": ""
+  },
   "dependencies": {
     "babel-cli": "^6.24.1",
     "babel-plugin-transform-decorators": "^6.24.1",
@@ -23,8 +27,8 @@
     "node-sass": "^4.5.3",
     "node-static": "^0.7.9",
     "prop-types": "^15.5.7",
-    "react": ">=15.3.0 || 0.14.9",
-    "react-dom": ">=15.3.0 || 0.14.9",
+    "react": ">=15.3.0",
+    "react-dom": ">=15.3.0",
     "source-map-support": "^0.4.15",
     "static-server": "^2.0.4",
     "underscore": "^1.8.3",
@@ -38,8 +42,7 @@
     "docs": "node scripts/docs.js",
     "web": "static-server docs -p $PORT",
     "dev": "gulp",
-    "postinstall": "npm run clean && npm run babel && npm run knownIssue",
-    "knownIssue": "echo 'Deprecation warnings for minimatch and graceful-fs are coming from Gulp and will be fixed in Gulp 4. https://github.com/gulpjs/gulp/issues/1571'"
+    "postinstall": "npm run clean && npm run babel && node scripts/postinstall.js"
   },
   "keywords": [],
   "author": "",
