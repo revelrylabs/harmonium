@@ -28,22 +28,26 @@ export default class MediaObject extends Component {
 
   get classNamesList() {
     const classNamesList = ['media-object', 'rev-MediaObject']
+    const notPassingThrough = []
     Object.keys(this.props).forEach(propName => {
       const className = PARENT_CLASS_NAMES[propName]
       if (className) {
-        // fix an 'unknown prop' error for React 15.3.0
-        classNamesList.push(propName)
+        // fixes an 'unknown prop on div' error in React 15.3.0
+        notPassingThrough.push(propName)
         classNamesList.push(className)
       }
     })
 
-    return classNamesList
+    return { 
+      classNames: classNamesList,
+      remove: notPassingThrough 
+    }
   }
 
   render() {
     const {className, ...props} = this.props
-    const classNamesList = classNames(this.classNamesList, className)
-    const passThroughProps = _.omit(props, this.classNamesList)
+    const classNamesList = classNames(this.classNamesList.classNames, className)
+    const passThroughProps = _.omit(props, this.classNamesList.remove)
 
     return <div {...passThroughProps} className={classNamesList}>
       {this.props.children}
@@ -74,22 +78,26 @@ class MediaObjectSection extends Component {
 
   get classNamesList() {
     const classNamesList = ['media-object-section', 'rev-MediaObject-section']
+    const notPassingThrough = []
     Object.keys(this.props).forEach(propName => {
       const className = SECTION_CLASS_NAMES[propName]
       if (className) {
-        // fix an 'unknown prop' error for React 15.3.0
-        classNamesList.push(propName)
+        // fix an 'unknown prop on div' error in React 15.3.0
+        notPassingThrough.push(propName)
         classNamesList.push(className)
       }
     })
 
-    return classNamesList
+    return { 
+      classNames: classNamesList,
+      remove: notPassingThrough 
+    }
   }
 
   render() {
     const {className, children, ...props} = this.props
-    const classNamesList = classNames(this.classNamesList, className)
-    const passThroughProps = _.omit(props, this.classNamesList)
+    const classNamesList = classNames(this.classNamesList.classNames, className)
+    const passThroughProps = _.omit(props, this.classNamesList.remove)
     return <div {...passThroughProps} className={classNamesList}>
       {children}
     </div>
