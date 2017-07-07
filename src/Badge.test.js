@@ -16,11 +16,4 @@ describe('Badge', () => {
     expect(childClassName).to.contain(inherentClassName)
     expect(childClassName).to.contain(testClassName)
   })
-
-  // it('can render an icon', () => {
-  //   const icon = "home"
-    
-  //   const renderedIcon = shallow(<Badge icon={icon} /> ).first().prop()
-  //   expect(renderedIcon.contains).to.equal(icon)
-  // })
 })
