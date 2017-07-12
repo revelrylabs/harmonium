@@ -40,8 +40,7 @@ function genJS(items) {
   addLine('})')
 
   const jsSourceFile = path.join(__dirname, '__generated__.js')
-  // useless callback ahead because of a deprecation warning in Node 8.1.0
-  fs.writeFile(jsSourceFile, lines.join('\n'), () => true ) 
+  fs.writeFileSync(jsSourceFile, lines.join('\n')) 
   browserify(jsSourceFile, {debug: true})
     .transform('babelify')
     .bundle()
@@ -66,8 +65,7 @@ function html(instance) {
 
 function genIndex(navKeys) {
   const destPath = path.join(__dirname, `../docs/index.html`)
-  // useless callback ahead because of a deprecation warning in Node 8.1.0
-  fs.writeFile(destPath, html(<IndexPage navKeys={navKeys} />), () => true ) 
+  fs.writeFileSync(destPath, html(<IndexPage navKeys={navKeys} />)) 
 }
 
 function genPage(item, navKeys) {
@@ -79,12 +77,11 @@ function genPage(item, navKeys) {
     exampleComponents: require(item.examples),
   }
   const destPath = path.join(__dirname, `../docs/${item.name}.html`)
-  // useless callback ahead because of a deprecation warning in Node 8.1.0
-  fs.writeFile(destPath, html(<ExamplePage {...props} />), () => true ) 
+  fs.writeFileSync(destPath, html(<ExamplePage {...props} />)) 
 }
 
 const CSS_OUTPUT_FILE = path.join(__dirname, '../docs/site.css')
-function genStyles(cb) {
+function genStyles() {
   sass.render({
     file: path.join(__dirname, './site.scss'),
     outFile: CSS_OUTPUT_FILE,
@@ -93,7 +90,7 @@ function genStyles(cb) {
       path.join(__dirname, '../scss'),
     ],
     sourceMap: true,
-  }, cb || function(err, results) {
+  }, function(err, results) {
     if(err) {
       console.log(err.status)
       console.log(err.column)
@@ -101,8 +98,7 @@ function genStyles(cb) {
       console.log(err.line)
     } else {
       let {css} = results
-      // useless callback ahead because of a deprecation warning in Node 8.1.0
-      fs.writeFile(CSS_OUTPUT_FILE, css, cb, () => true)
+      fs.writeFileSync(CSS_OUTPUT_FILE, css)
     }
   })
 }
