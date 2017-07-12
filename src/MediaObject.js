@@ -26,30 +26,23 @@ Object.keys(PARENT_CLASS_NAMES).forEach(key => PARENT_PROP_TYPES[key] = PropType
 export default class MediaObject extends Component {
   static propTypes = PARENT_PROP_TYPES
 
-  get classNamesList() {
-    const classNamesList = ['media-object', 'rev-MediaObject']
-    const notPassingThrough = []
-    Object.keys(this.props).forEach(propName => {
-      const className = PARENT_CLASS_NAMES[propName]
-      if (className) {
-        // fixes an 'unknown prop on div' error in React 15.3.0
-        notPassingThrough.push(propName)
-        classNamesList.push(className)
+  render() {
+    // Extract props that won't pass through
+    const {className, children, ...props} = this.props
+
+    // Start building the className
+    const classNameList = []
+    Object.keys(PARENT_CLASS_NAMES).forEach( (name) => {
+      if (props[name]) {
+        classNameList.push(PARENT_CLASS_NAMES[name])
       }
+      delete props[name]
     })
 
-    return { 
-      classNames: classNamesList,
-      remove: notPassingThrough 
-    }
-  }
+    // Finish building the className
+    const mediaObjectClassNames = classNames(classNameList, 'media-object', 'rev-MediaObject', className)
 
-  render() {
-    const {className, ...props} = this.props
-    const classNamesList = classNames(this.classNamesList.classNames, className)
-    const passThroughProps = _.omit(props, this.classNamesList.remove)
-
-    return <div {...passThroughProps} className={classNamesList}>
+    return <div {...props} className={mediaObjectClassNames}>
       {this.props.children}
     </div>
   }
@@ -76,29 +69,23 @@ Object.keys(SECTION_CLASS_NAMES).forEach(key => SECTION_PROP_TYPES[key] = PropTy
 class MediaObjectSection extends Component {
   static propTypes = SECTION_PROP_TYPES
 
-  get classNamesList() {
-    const classNamesList = ['media-object-section', 'rev-MediaObject-section']
-    const notPassingThrough = []
-    Object.keys(this.props).forEach(propName => {
-      const className = SECTION_CLASS_NAMES[propName]
-      if (className) {
-        // fix an 'unknown prop on div' error in React 15.3.0
-        notPassingThrough.push(propName)
-        classNamesList.push(className)
+  render() {
+    // Extract props that won't pass through
+    const {className, children, ...props} = this.props
+
+    // Start building the className
+    const classNameList = []
+    Object.keys(SECTION_CLASS_NAMES).forEach( (name) => {
+      if (props[name]) {
+        classNameList.push(SECTION_CLASS_NAMES[name])
       }
+      delete props[name]
     })
 
-    return { 
-      classNames: classNamesList,
-      remove: notPassingThrough 
-    }
-  }
-
-  render() {
-    const {className, children, ...props} = this.props
-    const classNamesList = classNames(this.classNamesList.classNames, className)
-    const passThroughProps = _.omit(props, this.classNamesList.remove)
-    return <div {...passThroughProps} className={classNamesList}>
+    // Finish building the className
+    const sectionClassNames = classNames(classNameList, 'media-object-section', 'rev-MediaObject-section', className)
+    
+    return <div {...props} className={sectionClassNames}>
       {children}
     </div>
   }
