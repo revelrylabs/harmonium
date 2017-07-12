@@ -1,4 +1,5 @@
 import React, {Component, Children, createElement} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const URL_FUNCTIONS = {
@@ -19,9 +20,9 @@ export default class Social extends Component {
   static types = URL_FUNCTIONS
 
   static propTypes = {
-      type: React.PropTypes.func.isRequired,
-      url: React.PropTypes.string.isRequired,
-      message: React.PropTypes.string,
+      type: PropTypes.func.isRequired,
+      url: PropTypes.string.isRequired,
+      message: PropTypes.string,
   }
 
   static defaultProps = {

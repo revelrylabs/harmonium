@@ -1,4 +1,5 @@
-import React, {cloneElement, PropTypes} from 'react'
+import React, {cloneElement} from 'react'
+import PropTypes from 'prop-types'
 import {Row, Col} from './grid'
 import Button from './Button'
 

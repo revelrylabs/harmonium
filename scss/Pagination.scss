@@ -9,21 +9,21 @@
 
 .rev-Pagination-arrow.is-onlyMobile a {
   display: none;
-  @media #{$small-only} {
+  @include breakpoint(small only) {
     display: inline-block;
   }
 }
 
 .rev-PaginationWrapper-pageList {
   display: none;
-  @media #{$small-only} {
+  @include breakpoint(small only) {
     display: block;
   }
 }
 
 .rev-Pagination-number,
 .rev-Pagination-dots {
-  @media #{$small-only} {
+  @include breakpoint(small only) {
     display: none;
   }
 }

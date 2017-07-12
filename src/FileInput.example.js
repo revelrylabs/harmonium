@@ -1,4 +1,4 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import {Row, Col} from './grid'
 import FileInput from './FileInput'
 import Icon from './Icon'

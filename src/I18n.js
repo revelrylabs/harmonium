@@ -1,11 +1,11 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 
 export default class I18n extends React.Component {
 
   static get propTypes() {
     return {
-      t: React.PropTypes.string.isRequired,
+      t: PropTypes.string.isRequired,
     }
   }
 

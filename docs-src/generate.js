@@ -19,6 +19,7 @@ function genJS(items) {
   imports.push(`import React, {createElement} from 'react'`)
   imports.push(`import {render} from 'react-dom'`)
 
+
   items.forEach((item) => {
     const mod = require(item.examples)
     Object.keys(mod).forEach((key) => {
@@ -39,7 +40,7 @@ function genJS(items) {
   addLine('})')
 
   const jsSourceFile = path.join(__dirname, '__generated__.js')
-  fs.writeFile(jsSourceFile, lines.join('\n'))
+  fs.writeFileSync(jsSourceFile, lines.join('\n')) 
   browserify(jsSourceFile, {debug: true})
     .transform('babelify')
     .bundle()
@@ -64,7 +65,7 @@ function html(instance) {
 
 function genIndex(navKeys) {
   const destPath = path.join(__dirname, `../docs/index.html`)
-  fs.writeFile(destPath, html(<IndexPage navKeys={navKeys} />))
+  fs.writeFileSync(destPath, html(<IndexPage navKeys={navKeys} />)) 
 }
 
 function genPage(item, navKeys) {
@@ -76,11 +77,11 @@ function genPage(item, navKeys) {
     exampleComponents: require(item.examples),
   }
   const destPath = path.join(__dirname, `../docs/${item.name}.html`)
-  fs.writeFile(destPath, html(<ExamplePage {...props} />))
+  fs.writeFileSync(destPath, html(<ExamplePage {...props} />)) 
 }
 
 const CSS_OUTPUT_FILE = path.join(__dirname, '../docs/site.css')
-function genStyles(cb) {
+function genStyles() {
   sass.render({
     file: path.join(__dirname, './site.scss'),
     outFile: CSS_OUTPUT_FILE,
@@ -89,7 +90,7 @@ function genStyles(cb) {
       path.join(__dirname, '../scss'),
     ],
     sourceMap: true,
-  }, cb || function(err, results) {
+  }, function(err, results) {
     if(err) {
       console.log(err.status)
       console.log(err.column)
@@ -97,7 +98,7 @@ function genStyles(cb) {
       console.log(err.line)
     } else {
       let {css} = results
-      fs.writeFile(CSS_OUTPUT_FILE, css, cb)
+      fs.writeFileSync(CSS_OUTPUT_FILE, css)
     }
   })
 }

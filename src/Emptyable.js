@@ -1,12 +1,12 @@
 import React from 'react'
-
+import PropTypes from 'prop-types'
 
 export default class Emptyable extends React.Component {
 
   static get propTypes() {
     return {
-      componentClass: React.PropTypes.node,
-      emptyState: React.PropTypes.element.isRequired,
+      componentClass: PropTypes.node,
+      emptyState: PropTypes.element.isRequired,
     }
   }
 
@@ -17,13 +17,14 @@ export default class Emptyable extends React.Component {
   }
 
   render() {
-    if(this.props.children) {
+    const {children, componentClass, emptyState, ...props} = this.props
+    if(children) {
       return React.createElement(
-        this.props.componentClass,
-        this.props,
-        this.props.children
+        componentClass,
+        {...props},
+        children
       )
     }
-    return this.props.emptyState
+    return emptyState
   }
 }
