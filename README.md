@@ -1,3 +1,5 @@
+Master status: ![Travis Build Status](https://travis-ci.org/revelrylabs/revelry_core_node.svg?branch=master)
+
 # revelry_core_node
 
 This is the Node.js port of revelry_core. You can find the deployed version [here](http://revelry-ui.herokuapp.com/).
