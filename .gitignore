@@ -4,3 +4,5 @@ lib/
 docs/**/*
 !docs/.keep
 npm-debug.log
+/.nyc_output/*
+/coverage/*

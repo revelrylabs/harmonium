@@ -39,7 +39,7 @@
     "clean": "rm -rf lib/",
     "babel": "babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel && npm run docs",
-    "test": "mocha ./src/**/*.test.js --opts ./mocha.opts",
+    "test": "nyc mocha ./src/**/*.test.js --opts ./mocha.opts && nyc report --reporter=html",
     "docs": "node scripts/docs.js",
     "web": "static-server docs -p $PORT",
     "dev": "gulp",
@@ -49,6 +49,7 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "babel-plugin-istanbul": "^4.1.4",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.7.1",
     "enzyme": "^2.8.2",
@@ -57,6 +58,7 @@
     "jsdom": "^11.0.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^3.4.2",
+    "nyc": "^11.0.3",
     "react-test-renderer": ">=15.0.0"
   }
 }
