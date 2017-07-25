@@ -1,4 +1,4 @@
-Master status: ![Travis Build Status](https://travis-ci.org/revelrylabs/revelry_core_node.svg?branch=master)
+[Master status: ![Travis Build Status](https://travis-ci.org/revelrylabs/revelry_core_node.svg?branch=master)](https://travis-ci.org/revelrylabs/revelry_core_node)
 
 # revelry-components
 
