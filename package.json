@@ -39,7 +39,7 @@
     "clean": "rm -rf lib/",
     "babel": "babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel && npm run docs",
-    "test": "nyc mocha ./src/**/*.test.js --opts ./mocha.opts && nyc report --reporter=html",
+    "test": "NODE_ENV=test nyc mocha ./src/**/*.test.js --opts ./mocha.opts && nyc report --reporter=html",
     "docs": "node scripts/docs.js",
     "web": "static-server docs -p $PORT",
     "dev": "gulp",
@@ -72,6 +72,6 @@
       "text"
     ],
     "sourceMap": false,
-    "instrument": false
+    "instrument": true
   }
 }
