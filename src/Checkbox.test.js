@@ -37,4 +37,20 @@ describe('Checkbox.Fieldset', () => {
 
     expect(childClassName).to.contain(testClassName)
   })
+
+  it('handles the controlled case', () => {
+    const fieldset = shallow(
+      <Checkbox.Fieldset options={options} value={["L"]} />
+    )
+
+    expect(fieldset.children().first().prop('checked')).to.eq(true)
+  })
+
+  it('handles default values', () => {
+    const fieldset = shallow(
+      <Checkbox.Fieldset options={options} defaultValue={["L"]} />
+    )
+
+    expect(fieldset.children().first().prop('defaultChecked')).to.eq(true)
+  })
 })

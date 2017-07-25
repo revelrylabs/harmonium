@@ -16,4 +16,10 @@ describe('Callout', () => {
     expect(childClassName).to.contain(inherentClassName)
     expect(childClassName).to.contain(testClassName)
   })
+
+  it('handles type props', () => {
+    const callout = shallow(<Callout alert />)
+
+    expect(callout.prop('className')).to.contain('alert')
+  })
 })

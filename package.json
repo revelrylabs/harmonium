@@ -59,6 +59,19 @@
     "jsdom-global": "^3.0.2",
     "mocha": "^3.4.2",
     "nyc": "^11.0.3",
-    "react-test-renderer": ">=15.0.0"
+    "react-test-renderer": ">=15.0.0",
+    "sinon": "^2.3.8"
+  },
+  "nyc": {
+    "require": [
+      "babel-register"
+    ],
+    "reporter": [
+      "lcov",
+      "html",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false
   }
 }
