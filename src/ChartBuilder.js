@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import Chart from "chart.js"
 
 const REV_CHART_SPEC = {
-  Bar: {
+  bar: {
     defaultOptions: {
       // Whether the scale should start at zero, or an order of magnitude down from the lowest value
       scaleBeginAtZero: true,
@@ -28,7 +27,7 @@ const REV_CHART_SPEC = {
       datasetFill: false,
     },
   },
-  Donut: {
+  donut: {
     defaultOptions: {
       segmentShowStroke: true,
       segmentStrokeColor: '#fff',
@@ -40,7 +39,7 @@ const REV_CHART_SPEC = {
       animateScale: false,
     },
   },
-  Line: {
+  line: {
     defaultOptions: {
       scaleShowGridLines: true,
       scaleGridLineColor: 'rgba(0,0,0,.05)',
@@ -58,7 +57,7 @@ const REV_CHART_SPEC = {
       datasetFill: false,
     },
   },
-  Pie: {
+  pie: {
     defaultOptions: {
       segmentShowStroke: true,
       segmentStrokeColor: '#fff',
@@ -70,7 +69,7 @@ const REV_CHART_SPEC = {
       animateScale: false,
     },
   },
-  Radar: {
+  radar: {
     defaultOptions: {
       // Whether to show lines for each scale point
       scaleShowLine: true,
@@ -119,7 +118,7 @@ export default class ChartBuilder extends Component {
   }
 
   get ctx() {
-    return this.refs.canvas.getDOMNode().getContext('2d')
+    return this.canvas.getContext('2d')
   }
 
   get chartSpec() {
@@ -143,9 +142,15 @@ export default class ChartBuilder extends Component {
     if(this._chart) {
       throw new Error('`createChart` may only be called once.`')
     }
-    const temp = [ctx, { type: 'bar',data: {labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],datasets: [{label: '# of Votes',data: [12, 19, 3, 5, 2, 3],backgroundColor: ['rgba(255, 99, 132, 0.2)','rgba(54, 162, 235, 0.2)','rgba(255, 206, 86, 0.2)','rgba(75, 192, 192, 0.2)','rgba(153, 102, 255, 0.2)','rgba(255, 159, 64, 0.2)'],borderColor: ['rgba(255,99,132,1)','rgba(54, 162, 235, 1)','rgba(255, 206, 86, 1)','rgba(75, 192, 192, 1)','rgba(153, 102, 255, 1)','rgba(255, 159, 64, 1)'],borderWidth: 1}]},options: {scales: {yAxes: [{ticks: {beginAtZero:true}}]}}
-}]
-    this._chart = new Chart(...temp)
+
+    this._chart = new Chart(
+      this.ctx,
+      {
+        type: this.props.type,
+        data: this.props.data,
+        options: this.options
+      }
+    )
   }
 
   destroyChart() {
@@ -153,6 +158,7 @@ export default class ChartBuilder extends Component {
   }
 
   componentDidMount() {
+    console.log('componentDidMount');
     this.createChart()
   }
 
@@ -161,11 +167,12 @@ export default class ChartBuilder extends Component {
   }
 
   render() {
+    this.canvas = null
     return (
       <div>
         <h3 className="ChartTitle">{this.props.title}</h3>
         <canvas
-          ref="canvas"
+          ref={self => {this.canvas = self} }
           width={this.props.width}
           height={this.props.height}
         />
