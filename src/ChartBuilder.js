@@ -142,7 +142,6 @@ export default class ChartBuilder extends Component {
     if(this._chart) {
       throw new Error('`createChart` may only be called once.`')
     }
-
     this._chart = new Chart(
       this.ctx,
       {
