@@ -81,7 +81,7 @@ const REV_CHART_SPEC = {
       angleLineColor: 'rgba(0,0,0,.1)',
       // Pixel width of the angle line
       angleLineWidth: 1,
-      pointLabelFontFamily: "'Arial'",
+      pointLabelFontFamily: 'Arial',
       pointLabelFontStyle: 'normal',
       pointLabelFontSize: 10,
       pointLabelFontColor: '#666',
@@ -142,7 +142,7 @@ export default class ChartBuilder extends Component {
     if(this._chart) {
       throw new Error('`createChart` may only be called once.`')
     }
-    console.log(this.options)
+
     this._chart = new Chart(
       this.ctx,
       {
@@ -169,7 +169,7 @@ export default class ChartBuilder extends Component {
     this.canvas = null
     return (
       <div>
-        <h3 className="ChartTitle">{this.props.title}</h3>
+        <h3 className='ChartTitle'>{this.props.title}</h3>
         <canvas
           ref={self => {this.canvas = self} }
           width={this.props.width}
