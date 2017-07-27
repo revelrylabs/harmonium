@@ -168,7 +168,7 @@ export default class ChartBuilder extends Component {
     this.canvas = null
     return (
       <div>
-        <h3 className='ChartTitle'>{this.props.title}</h3>
+        <h3 className="ChartTitle">{this.props.title}</h3>
         <canvas
           ref={self => {this.canvas = self} }
           width={this.props.width}

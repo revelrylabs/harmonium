@@ -25,6 +25,8 @@ export class Example1 extends Component {
         }}
         type='pie'
         title='Pie Chart'
+        width="300px"
+        height="200px"
       />
     )
   }
