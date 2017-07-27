@@ -142,7 +142,7 @@ export default class ChartBuilder extends Component {
     if(this._chart) {
       throw new Error('`createChart` may only be called once.`')
     }
-
+    console.log(this.options)
     this._chart = new Chart(
       this.ctx,
       {
@@ -158,7 +158,6 @@ export default class ChartBuilder extends Component {
   }
 
   componentDidMount() {
-    console.log('componentDidMount');
     this.createChart()
   }
 
