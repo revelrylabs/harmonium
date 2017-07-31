@@ -24,4 +24,25 @@ describe('Social', () => {
 
       expect(renderedLink).to.equal(tweetLink)
   })
+
+  it('can handle every type', () => {
+    const PATTERNS = {
+      BUFFER: 'buffer',
+      DIGG: 'digg',
+      EMAIL: 'mailto',
+      FACEBOOK: 'facebook',
+      GOOGLE_PLUS: 'google',
+      LINKEDIN: 'linkedin',
+      PINTEREST: 'pinterest',
+      REDDIT: 'reddit',
+      TUMBLR: 'tumblr',
+      TWITTER: 'twitter',
+    }
+
+    for (let service in Social.types) {
+      const social = shallow(<Social type={Social.types[service]} url="http://example.com" />)
+
+      expect(social.find('a').prop('href')).to.contain(PATTERNS[service])
+    }
+  })
 })

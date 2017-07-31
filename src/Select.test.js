@@ -14,6 +14,19 @@ describe('Select', () => {
 
     expect(childClassName).to.contain(testClassName)
   })
+
+  it('handles options', () => {
+    const OPTIONS = [
+      {label: 'North', value: 'N'},
+      {label: 'South', value: 'S'},
+      {label: 'East', value: 'E'},
+      {label: 'West', value: 'W'},
+    ]
+
+    const select = shallow(<Select options={OPTIONS} />)
+
+    expect(select.children()).to.have.length(OPTIONS.length)
+  })
 })
 
 describe('Select.Stack', () => {

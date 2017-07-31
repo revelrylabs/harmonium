@@ -19,7 +19,7 @@ describe('Modal', () => {
 
     modal.prop('onBackgroundClick')()
 
-    expect(model.state('isOpen')).to.eq(false)
+    expect(modal.state('isOpen')).to.eq(false)
     expect(spy.called).to.eq(true)
   })
 })
