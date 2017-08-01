@@ -17,7 +17,7 @@ export default class TopBar extends Component {
       }
       delete props[name]
     })
-    const newClassName = classNames(className, 'top-bar', 'rev-TopBar')
+    const newClassName = classNames(className, 'top-bar', 'rev-TopBar', propClassNames)
     return (
       <div {...props} className={newClassName}>
         {children}
