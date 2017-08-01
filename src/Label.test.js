@@ -16,4 +16,10 @@ describe('Label', () => {
     expect(childClassName).to.contain(inherentClassName)
     expect(childClassName).to.contain(testClassName)
   })
+
+  it('it handles boolean type props', () => {
+    const label = shallow(<Label secondary />)
+
+    expect(label.prop('className')).to.contain('secondary')
+  })
 })

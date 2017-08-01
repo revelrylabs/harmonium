@@ -37,4 +37,20 @@ describe('Radio.Fieldset', () => {
 
     expect(childClassName).to.contain(testClassName)
   })
+
+  it('can handle the controlled case', () => {
+    const radioFieldset = shallow(
+      <Radio.Fieldset value="L" options={options} />
+    )
+
+    expect(radioFieldset.children().first().prop('checked')).to.eq(true)
+  })
+
+  it('can handle default values', () => {
+    const radioFieldset = shallow(
+      <Radio.Fieldset defaultValue="L" options={options} />
+    )
+
+    expect(radioFieldset.children().first().prop('defaultChecked')).to.eq(true)
+  })
 })
