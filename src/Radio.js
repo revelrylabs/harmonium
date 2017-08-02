@@ -58,14 +58,16 @@ class RadioFieldset extends Component {
         key: option.key || option.value,
         disabled: option.disabled,
       }
+
+      props.value = option.value
+
       if(isControlled) {
-        props.value = option.value
         props.checked = value == option.value
       }
       if(hasDefault) {
-        props.defaultValue = option.value
         props.defaultChecked = defaultValue == option.value
       }
+
       return <Radio {...props} className="rev-RadioFieldset-radio" />
     })
 

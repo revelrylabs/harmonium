@@ -1,4 +1,5 @@
 import Tabs from './Tabs'
+import sinon from 'sinon'
 
 describe('Tabs', () => {
   it('should render without throwing', () => {
@@ -17,5 +18,52 @@ describe('Tabs', () => {
 
     expect(childClassName).to.contain(inherentClassName)
     expect(childClassName).to.contain(testClassName)
+  })
+})
+
+describe('StatefulTabs', () => {
+  it('should render without throwing (default active case)', () => {
+    mount(
+      <Tabs.Stateful defaultActive={1}>
+        <Tabs.Item contentKey={1} title="One" renderTitle />
+      </Tabs.Stateful>
+    )
+  })
+
+  it('should render without throwing (wihtout default active case)', () => {
+    mount(
+      <Tabs.Stateful>
+        <Tabs.Item contentKey={1} title="One" renderTitle />
+      </Tabs.Stateful>
+    )
+  })
+
+  it('should handle clicks on child components', () => {
+    const spy = sinon.spy()
+    const stateful = shallow(
+      <Tabs.Stateful defaultActive={1}>
+        <div className="StatefulTabExample" onClick={spy} />
+      </Tabs.Stateful>
+    )
+
+    stateful.find('.StatefulTabExample').simulate('click', {preventDefault: () => {}})
+
+    expect(spy.called).to.eq(true)
+  })
+})
+
+describe('Tabs.Item', () => {
+  it('can render without error (title case)', () => {
+    mount(<Tabs.Item contentKey={1} title="One" renderTitle />)
+  })
+})
+
+describe('Tabs.Panel', () => {
+  it('can render without error (panel case, active)', () => {
+    mount(<Tabs.Item contentKey={1} title="One" active />)
+  })
+
+  it('can render without error (panel case, inactive)', () => {
+    mount(<Tabs.Item contentKey={1} title="One" />)
   })
 })

@@ -53,4 +53,11 @@ describe('Radio.Fieldset', () => {
 
     expect(radioFieldset.children().first().prop('defaultChecked')).to.eq(true)
   })
+
+  it('should respect option values even when there is no value or defaultValue', () => {
+    const value = 'OPTION_TEST_VALUE'
+    const testOptions = [{value}]
+    const radioFieldset = mount(<Radio.Fieldset options={testOptions} />)
+    expect(radioFieldset.find('input').prop('value')).to.eq(value)
+  })
 })
