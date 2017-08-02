@@ -1,0 +1,50 @@
+//ARROWS
+@mixin arrow-base($arrow-size: null) {
+  border: $arrow-size solid transparent;
+  bottom: auto;
+  content: '';
+  display: block;
+  height: 0;
+  left: auto;
+  position: absolute;
+  right: auto;
+  top: auto;
+  width: 0;
+  z-index: 1;
+}
+@mixin down-arrow($color: null, $arrow-size: 10px) {
+  @include arrow-base;
+  border: $arrow-size solid transparent;
+  border-bottom: 0;
+  border-top: $arrow-size solid $color;
+  bottom: -$arrow-size;
+  left: 50%;
+  margin-left: -$arrow-size;
+}
+@mixin left-arrow($color: null, $arrow-size: 10px) {
+  @include arrow-base;
+  border: $arrow-size solid transparent;
+  border-right: $arrow-size solid $color;
+  border-left: 0;
+  right: 100%;
+  margin-top: -$arrow-size;
+  top: 50%;
+}
+@mixin right-arrow($color: null, $arrow-size: 10px) {
+  @include arrow-base;
+  border: $arrow-size solid transparent;
+  border-left: $arrow-size solid $color;
+  border-right: 0;
+  left: 100%;
+  margin-top: -$arrow-size;
+  top: 50%;
+}
+@mixin up-arrow($color: null, $arrow-size: 10px) {
+  @include arrow-base;
+  border: $arrow-size solid transparent;
+  border-bottom: $arrow-size solid $color;
+  border-top: 0;
+  left: 50%;
+  margin-left: -$arrow-size;
+  top: -$arrow-size;
+}

@@ -1,0 +1,25 @@
+.rev-Split {
+  display: flex;
+  flex-wrap: wrap;
+}
+.rev-MainPanel {
+  display: flex;
+  flex: 17;
+  justify-content: center;
+  width: 68%;
+}
+.rev-Rail--left {
+  flex: 8;
+  min-width: 320px;
+  max-width: 640px;
+  width: 32%;
+}
+.rev-MainPanel-content {
+  @include body-color-stack;
+  min-width: 320px;
+  max-width: $medium;
+  padding-left: $global-horizontal-space;
+  padding-right: $global-horizontal-space;
+  padding-top: 1px;
+  padding-bottom: $global-vertical-space * 2;
+}

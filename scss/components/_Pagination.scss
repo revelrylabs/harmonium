@@ -1,0 +1,29 @@
+.Pagination-wrapper {
+  display: block;
+}
+.rev-Pagination,
+.Pagination {
+  display: block;
+  .rev-Pagination-arrow,
+  .rev-Pagination-number,
+  .rev-Pagination-dots,
+  .Pagination-arrow,
+  .Pagination-number,
+  .Pagination-dots {
+    display: inline-block;
+    font-size: $global-font-size;
+    &.is-disabled {
+      color: $disabled;
+      cursor: not-allowed;
+    }
+    &.is-onlyMobile {
+      display: inline-block;
+      @include breakpoint($medium)  {
+        display: none;
+      }
+    }
+  }
+}
+.PaginationWrapper-pageList {
+  font-size: $global-font-size;
+}

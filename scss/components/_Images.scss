@@ -1,0 +1,13 @@
+img {
+  display: block;
+  height: auto;
+  width: 100%;
+}
+.Thumbnail {
+  @include global-transition;
+  border: 5px solid $white;
+  border-radius: $global-radius;
+  box-shadow: 0 0 0 1px $divider-color;
+  margin: 0;
+  padding: 0;
+}

@@ -1,0 +1,7 @@
+<div>
+  <h6>1 active</h6>
+  <Accordion active={1}>
+    <Accordion.Item contentKey={1} title="One">1</Accordion.Item>
+    <Accordion.Item contentKey={2} title="Two">2</Accordion.Item>
+  </Accordion>
+</div>

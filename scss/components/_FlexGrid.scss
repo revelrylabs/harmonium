@@ -1,0 +1,85 @@
+// Justify Content
+.rev-Row--end {
+  @include flexJustifyEnd;
+}
+.rev-Row--center {
+  @include flexJustifyCenter;
+}
+.rev-Row--spaceAround {
+  @include flexJustifySpaceAround;
+}
+.rev-Row--spaceBetween {
+  @include flexJustifySpaceBetween;
+}
+// Align Items
+.rev-Row--top {
+  @include flexAlignStart;
+}
+.rev-Row--middle {
+  @include flexAlignCenter;
+}
+.rev-Row--bottom {
+  @include flexAlignEnd;
+}
+.rev-Row--stretch {
+  @include flexAlignStretch;
+}
+.rev-Row--baseline {
+  @include flexAlignBaseline;
+}
+// Align Self
+.rev-Col {
+  &.rev-Col--shrink {
+    flex: 0 0 auto;
+    width: auto;
+  }
+  &.rev-Col--end {
+    align-self: flex-end;
+  }
+  &.rev-Col--center {
+    align-self: center;
+  }
+  &.rev-Col--start {
+    align-self: flex-start;
+  }
+  &.rev-Col--baseline {
+    align-self: baseline;
+  }
+  &.rev-Col--stretch {
+    align-self: stretch;
+  }
+}
+// FLEX Odering
+@for $i from 0 through $grid-columns {
+  .rev-Col--smallOrder#{$i} {
+    order: $i;
+  }
+}
+@include breakpoint($medium) {
+  @for $i from 0 through $grid-columns {
+    .rev-Col--mediumOrder#{$i} {
+      order: $i;
+    }
+  }
+}
+@include breakpoint($large)  {
+  @for $i from 0 through $grid-columns {
+    .rev-Col--largeOrder#{$i} {
+      order: $i;
+    }
+  }
+}
+@include breakpoint($xlarge)  {
+  @for $i from 0 through $grid-columns {
+    .rev-Col--xlargeOrder#{$i} {
+      order: $i;
+    }
+  }
+}
+@include breakpoint($xxlarge)  {
+  @for $i from 0 through $grid-columns {
+    .rev-Col--xxlargeOrder#{$i} {
+      order: $i;
+    }
+  }
+}
