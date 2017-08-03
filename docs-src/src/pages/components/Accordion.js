@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import Accordion from 'revelry-components/lib/Accordion'
 import Callout from 'revelry-components/lib/Callout'
 import ExampleSection from '../../ExampleSection'
+import scope from '../../ExampleScope'
 
 const examples = {
   stateless: {
@@ -16,8 +17,6 @@ const examples = {
     'Allowing multiple open': require('raw!../../examples/Accordion/Stateful/MultiOpen.js.example'),
   },
 }
-
-const scope = {React: React, Accordion: Accordion, Callout: Callout}
 
 export default class AccordionExamplePage extends Component {
   render() {

@@ -1,0 +1,9 @@
+<div>
+  <Badge>1</Badge>
+  <Badge secondary>2</Badge>
+  <Badge warning>3</Badge>
+  <Badge success>4</Badge>
+  <Badge alert>5</Badge>
+  <Badge icon="home" />
+  <Badge warning icon="home">ERROR</Badge>
+</div>
