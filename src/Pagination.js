@@ -99,13 +99,13 @@ export default class Pagination extends Component {
     const {hideArrows} = this.props
 
     if (!relevant && hideArrows && samePage) {
-      return 'Pagination-arrow is-hidden is-disabled'
+      return 'rev-Pagination-arrow is-hidden is-disabled'
     } else if (!relevant && hideArrows) {
-      return 'Pagination-arrow is-onlyMobile'
+      return 'rev-Pagination-arrow is-onlyMobile'
     } else if (samePage) {
-      return 'Pagination-arrow is-disabled'
+      return 'rev-Pagination-arrow is-disabled'
     } else {
-      return 'Pagination-arrow'
+      return 'rev-Pagination-arrow'
     }
   }
 
@@ -119,14 +119,14 @@ export default class Pagination extends Component {
 
         if (page === currentPage) {
           return (
-            <li key={page} className="Pagination-number current">
+            <li key={page} className="rev-Pagination-number current">
               <span className="show-for-sr">{currentPageText}</span>
               {page}
             </li>
           )
         } else {
           return (
-            <li key={page} className="Pagination-number">
+            <li key={page} className="rev-Pagination-number">
               <a
                 href={href(page)}
                 onClick={this.createClickHandler(page)}
@@ -173,9 +173,9 @@ export default class Pagination extends Component {
       return null
     } else {
       return (
-        <div className={classNames('PaginationWrapper', this.props.className)}>
+        <div className={classNames('rev-PaginationWrapper', this.props.className)}>
           <ul
-            className="Pagination pagination"
+            className="rev-Pagination pagination"
             role="navigation"
             aria-label="Pagination"
           >
@@ -192,11 +192,11 @@ export default class Pagination extends Component {
                 {previousPageContent}
               </a>
             </li>
-            <li className={classNames('Pagination-dots', beginArrows ? '' : 'is-hidden')}>
+            <li className={classNames('rev-Pagination-dots', beginArrows ? '' : 'is-hidden')}>
               ...
             </li>
             {this.numberLinks(start, end)}
-            <li className={classNames('Pagination-dots', endArrows ? '' : 'is-hidden')}>
+            <li className={classNames('rev-Pagination-dots', endArrows ? '' : 'is-hidden')}>
               ...
             </li>
             <li className={endArrowsClass}>
@@ -216,7 +216,7 @@ export default class Pagination extends Component {
               </a>
             </li>
           </ul>
-          <div className="PaginationWrapper-pageList">
+          <div className="rev-PaginationWrapper-pageList">
             {mobilePageListText(currentPage, totalPages)}
           </div>
         </div>
