@@ -22,13 +22,13 @@ export default class StatelessModal extends Component {
 
   render() {
     let className = classNames(this.props.className, {
-      'RevModal': true,
+      'rev-Modal': true,
     })
 
     if(this.props.isOpen) {
       return <div className={className}>
-        <div className="RevModal-background" onClick={this.onBackgroundClick} />
-        <div className="RevModal-content">
+        <div className="rev-Modal-background" onClick={this.onBackgroundClick} />
+        <div className="rev-Modal-content">
           {this.props.children}
         </div>
       </div>
