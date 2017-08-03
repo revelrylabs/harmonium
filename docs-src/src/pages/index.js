@@ -1,7 +1,7 @@
 import React from 'react'
 
 const IndexPage = () => (
-  <div className="rev-MainPanel-content">
+  <div>
     <h1>Revelry<br/>Components</h1>
     <p>
       The World Wide Web (abbreviated WWW or the Web) is an information space

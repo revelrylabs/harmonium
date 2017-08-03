@@ -53,6 +53,7 @@ $header-color: $body-font-color;
 
 $divider-color: $lighter-gray;
 $muted: $lighter-gray;
+$very-muted: $lightest-gray;
 $disabled: $lighter-gray;
 
 @mixin body-color-stack {
@@ -69,6 +70,9 @@ $disabled: $lighter-gray;
   background-color: $primary-color;
   @if lightness($primary-color) > lightness(#666) {
     color: $body-bkgd;
+    a {
+      color: $body-bkgd;
+    }
   }
   @else {
     color: $body-font-color;
@@ -78,9 +82,19 @@ $disabled: $lighter-gray;
 @mixin muted-color-stack {
   background-color: $muted;
   @if lightness($muted) > lightness(#666) {
-    color: $body-bkgd;
+    color: $body-font-color;
   }
   @else {
+    color: $body-bkgd;
+  }
+}
+
+@mixin very-muted-color-stack {
+  background-color: $very-muted;
+  @if lightness($very-muted) > lightness(#666) {
     color: $body-font-color;
+  }
+  @else {
+    color: $body-bkgd;
   }
 }

@@ -3,7 +3,7 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-  @include muted-color-stack;
+  @include very-muted-color-stack;
 }
 *,
 *:before,
@@ -25,4 +25,5 @@ body {
 }
 hr {
   max-width: 100%;
+  margin-bottom: $global-vertical-space;
 }

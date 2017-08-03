@@ -8,7 +8,7 @@ import './index.scss'
 
 const Header = () => (
   <header className="rev-Header">
-    Headier
+    <Link to="/">Ockham</Link>
   </header>
 )
 
@@ -28,16 +28,18 @@ const TemplateWrapper = ({
       </Helmet>
       <Header />
       <div className="rev-Split">
-        <div className="rev-Rail--left">
-          <div className="rev-NavigationOutline">
-            <h2>Navigation Town</h2>
+        <div className="rev-Rail">
+          <nav className="rev-NavigationOutline">
+            <h2>Component Docs</h2>
             <ul>
-              <li><Link href="/components/Accordion">Accordion</Link></li>
+              <li><Link to="/components/Accordion/">Accordion</Link></li>
             </ul>
-          </div>
+          </nav>
         </div>
         <div className="rev-MainPanel">
-          {children()}
+          <main className="rev-MainPanel-content">
+            {children()}
+          </main>
         </div>
       </div>
     </div>

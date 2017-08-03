@@ -1,0 +1,27 @@
+.rev-Accordion {
+  margin-bottom: $global-vertical-space;
+}
+.rev-AccordionItem {
+  border: 1px solid $divider-color;
+  padding-bottom: 0;
+  padding-top: 0;
+}
+.rev-AccordionItem+.rev-AccordionItem {
+  border-top: 0;
+}
+.rev-AccordionItem-content {
+  padding: 0 $global-horizontal-space $global-vertical-space $global-horizontal-space;
+}
+.rev-AccordionItem-title {
+  display: block;
+  padding: $global-vertical-space $global-horizontal-space;
+  position: relative;
+  &::before {
+    content: '+';
+    position: absolute;
+    right: $global-horizontal-space;
+  }
+  &.is-active::before {
+    content: '-';
+  }
+}
