@@ -1,0 +1,18 @@
+@mixin placeholder {
+  &::-webkit-input-placeholder {
+    color: $lighter-gray;
+    font-family: $body-font-family;
+  }
+  &:-moz-placeholder {
+    color: $lighter-gray;
+    font-family: $body-font-family;
+  }
+  &::-moz-placeholder {
+    color: $lighter-gray;
+    font-family: $body-font-family;
+  }
+  &:-ms-input-placeholder {
+    color: $lighter-gray;
+    font-family: $body-font-family;
+  }
+}

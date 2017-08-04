@@ -1,0 +1,18 @@
+<div>
+  <Row>
+    <Col large={1}>1</Col>
+    <Col large={11}>11</Col>
+  </Row>
+  <Row>
+    <Col large={1}>1</Col>
+    <Col large={10} largeOffset={1}>10, offset 1</Col>
+  </Row>
+  <Row>
+    <Col large={1}>1</Col>
+    <Col large={9} largeOffset={2}>9, offset 2</Col>
+  </Row>
+  <Row>
+    <Col large={1}>1</Col>
+    <Col large={8} largeOffset={3}>8, offset 3</Col>
+  </Row>
+</div>

@@ -1,0 +1,34 @@
+@import "../../../scss/app";
+
+.CodeMirror-line.CodeMirror-line {
+  font-size: $global-font-size-small;
+  line-height: $global-vertical-space;
+  padding: 0;
+}
+.CodeMirror-lines.CodeMirror-lines {
+  padding: $global-vertical-space / 4 0;
+}
+.CodeMirror-scroll {
+  margin-left: $global-horizontal-space;
+}
+.playground {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: $global-vertical-space * 2;
+}
+.playgroundCode {
+  margin-bottom: $global-vertical-space;
+  order: 1;
+  width: 100%;
+}
+.playgroundError {
+  font-family: monospace;
+  overflow-x: scroll;
+  white-space: pre-wrap;
+  @include panel($padded: true);
+  @include alert-color-stack;
+}
+.playgroundPreview {
+  order: 0;
+  width: 100%;
+}

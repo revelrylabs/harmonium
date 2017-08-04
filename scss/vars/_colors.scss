@@ -1,0 +1,106 @@
+$test: #F0F;
+
+$blue: #1d71b8;
+$green: #2fac66;
+$red: #E31D1A;
+$yellow: #F4D03F;
+$orange: #E56634;
+
+$white: #FFF;
+$white-5: rgba(255, 255, 255, 0.05);
+$white-30: rgba(255, 255, 255, 0.30);
+$white-45: rgba(255, 255, 255, 0.45);
+$white-65: rgba(255, 255, 255, 0.65);
+$white-80: rgba(255, 255, 255, 0.8);
+
+$gray: #9B9B9B;
+$lightest-gray: #f6f6f6;
+$lighter-gray: #D0D0D0;
+$light-gray: #CCC;
+$dark-gray: #4A4A4A;
+$darker-gray: #2f2e2f;
+$black: #000;
+
+$black-3: rgba(0, 0, 0, 0.03);
+$black-8: rgba(0, 0, 0, 0.08);
+$black-15: rgba(0, 0, 0, 0.15);
+$black-30: rgba(0, 0, 0, 0.30);
+$black-45: rgba(0, 0, 0, 0.45);
+$black-70: rgba(0, 0, 0, 0.70);
+$black-80: rgba(0, 0, 0, 0.80);
+
+$primary-color: $blue;
+$primary: $primary-color;
+$secondary-color: $green;
+$secondary: $secondary-color;
+$tertiary-color: $lightest-gray;
+$tertiary: $tertiary-color;
+$accent-color: $orange;
+$accent: $accent-color;
+
+$success-color: $green;
+$success: $success-color;
+$alert-color: $red;
+$alert: $alert-color;
+$warning-color: $red;
+$warning: $warning-color;
+$cancel-color: $black;
+$cancel: $cancel-color;
+
+$body-bkgd: $white;
+$body-font-color: $darker-gray;
+$header-color: $body-font-color;
+
+$divider-color: $lighter-gray;
+$muted: $lighter-gray;
+$very-muted: $lightest-gray;
+$disabled: $lighter-gray;
+
+@mixin body-color-stack {
+  background-color: $body-bkgd;
+  color: $body-font-color;
+}
+
+@mixin inverted-body-color-stack {
+  background-color: $body-font-color;
+  color: $body-bkgd;
+}
+
+@mixin primary-color-stack {
+  background-color: $primary-color;
+  @if lightness($primary-color) > lightness(#666) {
+    color: $body-bkgd;
+    a {
+      color: $body-bkgd;
+    }
+  }
+  @else {
+    color: $body-font-color;
+  }
+}
+
+@mixin muted-color-stack {
+  background-color: $muted;
+  @if lightness($muted) > lightness(#666) {
+    color: $body-font-color;
+  }
+  @else {
+    color: $body-bkgd;
+  }
+}
+
+@mixin very-muted-color-stack {
+  background-color: $very-muted;
+  @if lightness($very-muted) > lightness(#666) {
+    color: $body-font-color;
+  }
+  @else {
+    color: $body-bkgd;
+  }
+}
+
+@mixin alert-color-stack {
+  background-color: $alert;
+  border-color: mix($alert, $white, 33%);
+  color: mix($alert, $white, 33%);
+}

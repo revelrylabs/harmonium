@@ -1,0 +1,6 @@
+<div>
+  <Emptyable componentClass="ul" emptyState={<strong>No items</strong>} />
+  <Emptyable componentClass="ul" emptyState={<strong>No items</strong>}>
+    <li>I am not empty.</li>
+  </Emptyable>
+</div>

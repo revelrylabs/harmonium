@@ -26,7 +26,7 @@ describe('StatelessModal', () => {
       </StatelessModal>
     )
 
-    modal.find('.RevModal-background').simulate('click')
+    modal.find('.rev-Modal-background').simulate('click')
 
     expect(spy.called).to.eq(true)
   })

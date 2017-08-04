@@ -1,0 +1,10 @@
+.rev-CardLayout {
+  @include flex(stretch, column, center, nowrap);
+}
+.rev-CardLayout-bar {
+  flex: 0 1 auto;
+}
+.rev-CardLayout-fill {
+  flex: 1 1 auto;
+  overflow: auto;
+}

@@ -1,0 +1,82 @@
+.u-collapse {
+  padding: 0 !important;
+  padding: 0 !important;
+}
+.u-collapseHorizontal {
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+}
+.u-collapseVertical {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+}
+@include breakpoint($small medium)  {
+  .u-collapse--small-only {
+    padding: 0 !important;
+    padding: 0 !important;
+  }
+  .u-collapseHorizontal--small-only {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .u-collapseVertical--small-only {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+@include breakpoint($medium large)  {
+  .u-collapse--medium-only {
+    padding: 0 !important;
+    padding: 0 !important;
+  }
+  .u-collapseHorizontal--medium-only {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .u-collapseVertical--medium-only {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+@include breakpoint($medium)  {
+  .u-collapse--medium-up {
+    padding: 0 !important;
+    padding: 0 !important;
+  }
+  .u-collapseHorizontal--medium-up {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .u-collapseVertical--medium-up {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+@include breakpoint($large $xlarge)  {
+  .u-collapse--large-only {
+    padding: 0 !important;
+    padding: 0 !important;
+  }
+  .u-collapseHorizontal--large-only {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .u-collapseVertical--large-only {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+  }
+}
+@include breakpoint($large)  {
+  .u-collapse--large-up {
+    padding: 0 !important;
+    padding: 0 !important;
+  }
+  .u-collapseHorizontal--large-up {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+  .u-collapseVertical--large-up {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+  }
+}

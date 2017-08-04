@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700');
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  @include very-muted-color-stack;
+}
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+  outline: 0;
+}
+body {
+  font-size: 1.6rem;
+  line-height: $global-lineheight;
+}
+.row .row {
+  margin: 0 auto;
+}
+.collapsed {
+  .row .column {
+    padding: 0 $global-padding;
+  }
+}
+hr {
+  max-width: 100%;
+  margin-bottom: $global-vertical-space;
+}

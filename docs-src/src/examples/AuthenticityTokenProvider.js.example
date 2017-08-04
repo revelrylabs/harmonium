@@ -1,0 +1,6 @@
+<AuthenticityTokenProvider name="csrf" value="plz no hackerz">
+  <Form onSubmit={e => alert(`name: csrf, value: ${e.currentTarget.elements['csrf'].value}`)}>
+    <Button>Click to see CSRF token</Button>
+  </Form>
+</AuthenticityTokenProvider>
+

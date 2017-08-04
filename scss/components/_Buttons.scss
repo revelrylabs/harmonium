@@ -1,0 +1,178 @@
+// Button Vars
+$button-bkgd: $primary;
+$button-bkgd-hover: darken($primary, 10%);
+$button-border: 0;
+$button-color: $white;
+$button-color-hover: $white;
+$button-radius: 0;
+$button-opacity-disabled: $disabled-opacity;
+
+// CLOSE BUTTON
+$closebutton-color: $darker-gray;
+$closebutton-color-hover: $black;
+$closebutton-lineheight: $global-lineheight;
+$closebutton-size: $global-font-size;
+
+.rev-Button {
+  @include global-transition;
+  background: $button-bkgd;
+  border: $button-border;
+  border-radius: $button-radius;
+  color: $button-color;
+  cursor: pointer;
+  font-size: $global-font-size;
+  font-weight: $global-weight-bold;
+  margin: $global-padding auto;
+  padding: $global-padding;
+  @include breakpoint($medium) {
+    padding: $global-padding $global-padding-large;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    background: $button-bkgd-hover;
+    color: $button-color-hover;
+  }
+  &.rev-Button--large {
+    font-size: $global-font-size-large;
+    padding: $global-padding $global-padding-large;
+  }
+  &.rev-Button--small {
+    font-size: $global-font-size-small;
+  }
+  &.rev-Button--tiny {
+    font-size: $global-font-size-small;
+    padding: $global-padding-small;
+  }
+  &.rev-Button--primary {
+    background: $primary-color;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($primary-color, 10%);
+    }
+    &.rev-Button--hollow {
+      background: transparent;
+      border-color: $primary-color;
+      color: $primary-color;
+      &:hover,
+      &:active,
+      &:focus {
+        background: transparent;
+        border-color: darken($primary-color, 10%);
+        color: darken($primary-color, 10%);
+      }
+    }
+  }
+  &.rev-Button--secondary {
+    background: $secondary-color;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($secondary-color, 10%);
+    }
+    &.rev-Button--hollow {
+      background: transparent;
+      border-color: $secondary-color;
+      color: $secondary-color;
+      &:hover,
+      &:active,
+      &:focus {
+        background: transparent;
+        border-color: darken($secondary-color, 10%);
+        color: darken($secondary-color, 10%);
+      }
+    }
+  }
+  &.rev-Button--success {
+    background: $success-color;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($success-color, 10%);
+    }
+    &.rev-Button--hollow {
+      background: transparent;
+      border-color: $success-color;
+      color: $success-color;
+      &:hover,
+      &:active,
+      &:focus {
+        background: transparent;
+        border-color: darken($success-color, 10%);
+        color: darken($success-color, 10%);
+      }
+    }
+  }
+  &.rev-Button--alert {
+    background: $alert-color;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($alert-color, 10%);
+    }
+    &.rev-Button--hollow {
+      background: transparent;
+      border-color: $alert-color;
+      color: $alert-color;
+      &:hover,
+      &:active,
+      &:focus {
+        background: transparent;
+        border-color: darken($alert-color, 10%);
+        color: darken($alert-color, 10%);
+      }
+    }
+  }
+  &.rev-Button--warning {
+    background: $warning-color;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($warning-color, 10%);
+    }
+    &.rev-Button--hollow {
+      background: transparent;
+      border-color: $warning-color;
+      color: $warning-color;
+      &:hover,
+      &:active,
+      &:focus {
+        background: transparent;
+        border-color: darken($warning-color, 10%);
+        color: darken($warning-color, 10%);
+      }
+    }
+  }
+  &.rev-Button--expanded {
+    width: 100%;
+  }
+  &.rev-Button--centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+  }
+  &.rev-Button--collapse {
+    margin: 0;
+  }
+  &.rev-Button--disabled {
+    cursor: disabled;
+    opacity: $button-opacity-disabled;
+  }
+}
+.rev-ButtonGroup {
+  font-size: $global-font-size;
+  margin: 0;
+  .rev-Button {
+    font-size: $global-font-size;
+  }
+}
+%close-button {
+  background: $closebutton-color;
+  &:hover,
+  &:active,
+  &:focus {
+    background: $closebutton-color-hover;
+  }
+}

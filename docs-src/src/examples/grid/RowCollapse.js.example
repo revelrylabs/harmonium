@@ -1,0 +1,8 @@
+<Row mediumUncollapse largeUncollapse>
+  <Col small={6}>
+    Removes gutter at large media query
+  </Col>
+  <Col small={6}>
+    Removes gutter at large media query
+  </Col>
+</Row>

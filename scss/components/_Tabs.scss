@@ -1,0 +1,45 @@
+.rev-Tabs {
+}
+.rev-Tabs-titles,
+.tabs {
+  border: 1px solid $divider-color;
+  display: block;
+  width: 100%;
+}
+.rev-TabsItem-title,
+.tabs-title {
+  float: left;
+  margin: 0;
+  padding: 0;
+  > a {
+    color: $anchor-color;
+    display: block;
+    font-size: $global-font-size;
+    line-height: 1;
+    padding: $global-padding;
+    &:hover {
+      color: $anchor-color-hover;
+    }
+    &:active,
+    &:focus {
+      background: $anchor-color-hover;
+      color: $white;
+    }
+  }
+  &.is-active {
+    > a,
+    a:hover,
+    a:active,
+    a:focus {
+      background: $anchor-color-hover;
+      color: $white;
+      cursor: default;
+    }
+  }
+}
+.rev-Tabs-content,
+.tabs-content {
+  border: 1px solid $divider-color;
+  border-top: 0;
+  padding: $global-padding;
+}

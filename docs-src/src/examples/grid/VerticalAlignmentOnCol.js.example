@@ -1,0 +1,6 @@
+<Row>
+  <Col bottom>Align bottom</Col>
+  <Col middle>Align middle</Col>
+  <Col top>Align top</Col>
+  <Col>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non harum laborum cum voluptate vel, eius adipisci similique dignissimos nobis at excepturi incidunt fugit molestiae quaerat, consequuntur porro temporibus. Nisi, ex?</Col>
+</Row>

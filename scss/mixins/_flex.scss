@@ -1,0 +1,51 @@
+@mixin flex($align-items: null, $flex-direction: null, $justify-content: null, $wrap: null) {
+  align-items: $align-items;
+  display: flex;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+  justify-content: $justify-content;
+}
+
+@mixin flexProps($align-items: null, $flex-direction: null, $justify-content: null, $wrap: null) {
+  align-items: $align-items;
+  flex-direction: $flex-direction;
+  flex-wrap: $wrap;
+  justify-content: $justify-content;
+}
+@mixin flexEqualWidthCols {
+  @include flexProps($wrap: wrap);
+  display: flex;
+  .rev-Col {
+    flex: 1;
+  }
+}
+@mixin flexJustifyStart {
+  @include flexProps($wrap: wrap);
+}
+@mixin flexJustifyEnd {
+  @include flexProps($justify-content: flex-end, $wrap: wrap);
+}
+@mixin flexJustifyCenter {
+  @include flexProps($justify-content: center, $wrap: wrap);
+}
+@mixin flexJustifySpaceBetween {
+  @include flexProps($justify-content: space-between, $wrap: wrap);
+}
+@mixin flexJustifySpaceAround {
+  @include flexProps($justify-content: space-around, $wrap: wrap);
+}
+@mixin flexAlignStart {
+  @include flexProps($align-items: flex-start);
+}
+@mixin flexAlignCenter {
+  @include flexProps($align-items: center);
+}
+@mixin flexAlignEnd {
+  @include flexProps($align-items: flex-end);
+}
+@mixin flexAlignStretch {
+  @include flexProps($align-items: stretch);
+}
+@mixin flexAlignBaseline {
+  @include flexProps($align-items: baseline);
+}

@@ -1,0 +1,22 @@
+<div>
+  <Row>
+    <Col small={10} smallPush={2}>10</Col>
+    <Col small={2} smallPull={10}>2, last</Col>
+  </Row>
+  <Row>
+    <Col large={9} largePush={3}>9</Col>
+    <Col large={3} largePull={9}>3, last</Col>
+  </Row>
+  <Row>
+    <Col large={8} largePush={4}>8</Col>
+    <Col large={4} largePull={8}>4, last</Col>
+  </Row>
+  <Row>
+    <Col small={5} smallPush={7}>7</Col>
+    <Col small={7} smallPull={5}>5, last</Col>
+  </Row>
+  <Row>
+    <Col medium={6} mediumPush={6}>6</Col>
+    <Col medium={6} mediumPull={6}>6, last</Col>
+  </Row>
+</div>

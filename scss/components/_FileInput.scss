@@ -1,0 +1,30 @@
+.rev-FileInput.is-invalid {
+  .rev-InputGroup-field {
+    /*@include form-input-error;*/
+    /*color: $form-label-color-invalid;*/
+  }
+}
+
+.rev-FileInput-button {
+  margin-bottom: 0;
+}
+
+.rev-FileInput {
+  .rev-InputGroup-field {
+    overflow: hidden;
+    /*@if not($global-flexbox) {
+      width: 100%;
+    }*/
+  }
+}
+
+.rev-FileInput.is-invalid {
+  .rev-InputGroup-field {
+    /*@include form-input-error;*/
+    /*color: $form-label-color-invalid;*/
+  }
+}
+
+.rev-FileInput-button {
+  margin-bottom: 0;
+}

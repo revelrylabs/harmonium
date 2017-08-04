@@ -1,0 +1,14 @@
+<Row>
+  <Col small={8}>8
+    <Row>
+      <Col small={8}>8 Nested
+        <Row>
+          <Col small={8}>8 Nested Again</Col>
+          <Col small={4}>4</Col>
+        </Row>
+      </Col>
+      <Col small={4}>4</Col>
+    </Row>
+  </Col>
+  <Col small={4}>4</Col>
+</Row>
