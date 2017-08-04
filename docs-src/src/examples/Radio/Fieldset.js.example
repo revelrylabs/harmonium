@@ -1,0 +1,32 @@
+React.createElement(
+class Fieldset extends Component {
+  get options() {
+    return [
+      {label: 'North', value: 'N'},
+      {label: 'South', value: 'S'},
+      {label: 'East disabled', value: 'E', disabled: true},
+      {label: 'West', value: 'W'},
+    ]
+  }
+  
+  render() {
+    return (
+      <div>
+        <Row>
+          <Col>
+            <Radio.Fieldset name="fieldset_help" options={this.options} label="Has help text" help="This is the help text." />
+          </Col>
+          <Col>
+            <Radio.Fieldset name="fieldset_error" options={this.options} label="Has error" error="This is the error." />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Radio.Fieldset name="fieldset_both" options={this.options} label="Stacks both help and error" help="This is the help text." error="This is the error." />
+          </Col>
+        </Row>
+      </div>
+    )
+  }
+}
+)

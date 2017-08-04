@@ -3,7 +3,9 @@
         import scope from '../../ExampleScope'
 
         const examples = {
-          'Select': require('raw!../../examples/Select.js.example')
+          'OptionChildrenVsOptionsProp': require('raw!../../examples/Select/OptionChildrenVsOptionsProp.js.example'),
+          'MultipleValues': require('raw!../../examples/Select/MultipleValues.js.example'),
+          'Stacks': require('raw!../../examples/Select/Stacks.js.example'),
         }
 
         export default class SelectExamplePage extends Component {

@@ -3,7 +3,8 @@
         import scope from '../../ExampleScope'
 
         const examples = {
-          'Radio': require('raw!../../examples/Radio.js.example')
+          'Singular': require('raw!../../examples/Radio/Singular.js.example'),
+          'Fieldset': require('raw!../../examples/Radio/Fieldset.js.example'),
         }
 
         export default class RadioExamplePage extends Component {

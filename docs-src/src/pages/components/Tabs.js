@@ -3,7 +3,9 @@
         import scope from '../../ExampleScope'
 
         const examples = {
-          'Tabs': require('raw!../../examples/Tabs.js.example')
+          'Stateless': require('raw!../../examples/Tabs/Stateless.js.example'),
+          'Stateful': require('raw!../../examples/Tabs/Stateful.js.example'),
+          'Vertical': require('raw!../../examples/Tabs/Vertical.js.example'),
         }
 
         export default class TabsExamplePage extends Component {

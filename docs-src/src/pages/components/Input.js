@@ -3,7 +3,9 @@
         import scope from '../../ExampleScope'
 
         const examples = {
-          'Input': require('raw!../../examples/Input.js.example')
+          'Basic': require('raw!../../examples/Input/Basic.js.example'),
+          'Stack': require('raw!../../examples/Input/Stack.js.example'),
+          'Misc': require('raw!../../examples/Input/Misc.js.example'),
         }
 
         export default class InputExamplePage extends Component {

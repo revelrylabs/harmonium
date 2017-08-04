@@ -3,7 +3,8 @@
         import scope from '../../ExampleScope'
 
         const examples = {
-          'Social': require('raw!../../examples/Social.js.example')
+          'Links': require('raw!../../examples/Social/Link.js.example'),
+          'With Icons And Buttons': require('raw!../../examples/Social/IconsAndButtons.js.example'),
         }
 
         export default class SocialExamplePage extends Component {

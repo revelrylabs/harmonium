@@ -3,7 +3,8 @@
         import scope from '../../ExampleScope'
 
         const examples = {
-          'Icon': require('raw!../../examples/Icon.js.example')
+          'Basic': require('raw!../../examples/Icon/Basic.js.example'),
+          'Foundation': require('raw!../../examples/Icon/Foundation.js.example')
         }
 
         export default class IconExamplePage extends Component {

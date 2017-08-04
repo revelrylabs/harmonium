@@ -3,7 +3,10 @@
         import scope from '../../ExampleScope'
 
         const examples = {
-          'MediaObject': require('raw!../../examples/MediaObject.js.example')
+          'Basic': require('raw!../../examples/MediaObject/Basic.js.example'),
+          'Stack': require('raw!../../examples/MediaObject/Stack.js.example'),
+          'SectionAlignment': require('raw!../../examples/MediaObject/SectionAlignment.js.example'),
+          'Nested': require('raw!../../examples/MediaObject/Nested.js.example'),
         }
 
         export default class MediaObjectExamplePage extends Component {

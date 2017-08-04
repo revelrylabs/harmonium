@@ -1,0 +1,19 @@
+<Menu vertical>
+  <Menu.Item>
+    <a href="#">One</a>
+    <Menu nested>
+      <Menu.Item><a href="#">A</a></Menu.Item>
+      <Menu.Item><a href="#">B</a></Menu.Item>
+      <Menu.Item><a href="#">C</a></Menu.Item>
+    </Menu>
+  </Menu.Item>
+  <Menu.Item>
+    <a href="#">Two</a>
+    <Menu nested vertical>
+      <Menu.Item><a href="#">A</a></Menu.Item>
+      <Menu.Item><a href="#">B</a></Menu.Item>
+      <Menu.Item><a href="#">C</a></Menu.Item>
+    </Menu>
+  </Menu.Item>
+  <Menu.Item><a href="#">Three</a></Menu.Item>
+</Menu>

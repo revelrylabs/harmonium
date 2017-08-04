@@ -1,0 +1,14 @@
+<div>
+  <p>Pass an icon or image as a child and the link will wrap it.</p>
+  <p>
+    <Social type={Social.types.FACEBOOK} url="http://revelry.co" message="Sharing via a clickable icon!">
+      <Icon className="stat" i="like" />
+    </Social>
+  </p>
+  <p>Add a <code>componentClass={'{Button}'}</code> prop and the link will render as a button.</p>
+  <p>
+    <Social type={Social.types.TWITTER} url="http://revelry.co" message="Sharing via a button!" componentClass={Button}>
+      Share on Twitter!
+    </Social>
+  </p>
+</div>

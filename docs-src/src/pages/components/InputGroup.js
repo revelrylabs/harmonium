@@ -3,7 +3,8 @@
         import scope from '../../ExampleScope'
 
         const examples = {
-          'InputGroup': require('raw!../../examples/InputGroup.js.example')
+          'Standalone': require('raw!../../examples/InputGroup/Standalone.js.example'),
+          'Stack': require('raw!../../examples/InputGroup/Stack.js.example'),
         }
 
         export default class InputGroupExamplePage extends Component {

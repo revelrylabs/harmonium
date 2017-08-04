@@ -1,0 +1,8 @@
+<Row>
+  <Col>
+    <Radio name="singular" defaultValue="1" label="One" />
+  </Col>
+  <Col>
+    <Radio name="singular" defaultValue="3" label="Has error" error />
+  </Col>
+</Row>

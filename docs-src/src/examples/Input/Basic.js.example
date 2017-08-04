@@ -1,0 +1,8 @@
+<Row>
+  <Col>
+    <Input placeholder="Not a stack" />
+  </Col>
+  <Col>
+    <Input placeholder="Has an error" error />
+  </Col>
+</Row>

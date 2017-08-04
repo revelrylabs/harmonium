@@ -3,7 +3,9 @@
         import scope from '../../ExampleScope'
 
         const examples = {
-          'Pagination': require('raw!../../examples/Pagination.js.example')
+          'Example1': require('raw!../../examples/Pagination/Example1.js.example'),
+          'Example2': require('raw!../../examples/Pagination/Example2.js.example'),
+          'Example3': require('raw!../../examples/Pagination/Example3.js.example'),
         }
 
         export default class PaginationExamplePage extends Component {
