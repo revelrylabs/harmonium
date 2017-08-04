@@ -84,4 +84,6 @@ export default class ExpandingCol extends React.Component {
   }
 }
 
-ExpandingCol.Stateful = ExpandingColStateContainer
+exports.ExpandingCol = ExpandingCol
+exports.Stateful = ExpandingColStateContainer
+exports.ExpandingColStateContainer = ExpandingColStateContainer
