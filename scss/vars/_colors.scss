@@ -98,3 +98,9 @@ $disabled: $lighter-gray;
     color: $body-bkgd;
   }
 }
+
+@mixin alert-color-stack {
+  background-color: $alert;
+  border-color: mix($alert, $white, 33%);
+  color: mix($alert, $white, 33%);
+}

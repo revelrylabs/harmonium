@@ -21,6 +21,13 @@
   order: 1;
   width: 100%;
 }
+.playgroundError {
+  font-family: monospace;
+  overflow-x: scroll;
+  white-space: pre-wrap;
+  @include panel($padded: true);
+  @include alert-color-stack;
+}
 .playgroundPreview {
   order: 0;
   width: 100%;

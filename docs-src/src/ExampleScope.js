@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {Component} from 'react'
 import Accordion from 'revelry-components/lib/Accordion'
 import AuthenticityToken from 'revelry-components/lib/AuthenticityToken'
 import AuthenticityTokenProvider from 'revelry-components/lib/AuthenticityTokenProvider'
@@ -54,6 +54,7 @@ import Visibility from 'revelry-components/lib/Visibility'
 
 export default {
   React: React,
+  Component: Component,
   Accordion: Accordion,
   AuthenticityToken: AuthenticityToken,
   AuthenticityTokenProvider: AuthenticityTokenProvider,

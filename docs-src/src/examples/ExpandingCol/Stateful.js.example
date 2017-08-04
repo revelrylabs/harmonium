@@ -1,0 +1,10 @@
+<Row>
+  <ExpandingCol.Stateful small={3}>
+    <Callout primary>
+      This state will be shown or hidden with the buttons.
+    </Callout>
+  </ExpandingCol.Stateful>
+  <Col small={9}>
+    This is outside the expander.
+  </Col>
+</Row>

@@ -1,0 +1,22 @@
+<div>
+  <Row>
+    <Col small={4}>Aligned to</Col>
+    <Col small={4}>the left</Col>
+  </Row>
+  <Row right>
+    <Col small={4}>Aligned to</Col>
+    <Col small={4}>the right</Col>
+  </Row>
+  <Row center>
+    <Col small={4}>Aligned to</Col>
+    <Col small={4}>the middle</Col>
+  </Row>
+  <Row justify>
+    <Col small={4}>Aligned to</Col>
+    <Col small={4}>the edges</Col>
+  </Row>
+  <Row spaced>
+    <Col small={4}>Aligned to</Col>
+    <Col small={4}>the space around</Col>
+  </Row>
+</div>

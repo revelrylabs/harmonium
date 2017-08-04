@@ -1,0 +1,15 @@
+<div>
+  <Callout>
+    <p>You should see no warning if your browser >= chrome45 or ie10:</p>
+    <BrowserSupportWarning minVersions={{chrome: '45', msie: '10'}}>
+      <p><strong>Please stop trying to browse the web with a potato.</strong></p>
+    </BrowserSupportWarning>
+  </Callout>
+  <hr />
+  <Callout>
+    <p>You should see a warning unless your browser is chrome or ie >= 9999</p>
+    <BrowserSupportWarning minVersions={{chrome: '9999', msie: '9999'}}>
+      <p><strong>Your browser is not chrome or ie v9999.</strong></p>
+    </BrowserSupportWarning>
+  </Callout>
+</div>

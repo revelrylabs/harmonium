@@ -1,0 +1,28 @@
+<div>
+  <Row largeUnstack>
+    <Col small={12}><FileInput /></Col>
+    <Col small={12}><FileInput button={<Icon i="upload" />} /></Col>
+    <Col small={12}>
+      <FileInput placeholder="placeholder + error" error />
+    </Col>
+  </Row>
+  <Row largeUnstack>
+    <Col small={12}>
+      <FileInput.Stack
+        label="This is the label."
+        help="This is help text."
+        placeholder="The placeholder passes through."
+        button="Yay!"
+      />
+    </Col>
+    <Col small={12}>
+    <FileInput.Stack
+      label="This is the label."
+      help="This is help text."
+      error="This is an error."
+      placeholder="The placeholder passes through."
+      button="Yay!"
+    />
+    </Col>
+  </Row>
+</div>

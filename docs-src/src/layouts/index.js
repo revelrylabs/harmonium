@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import {Row, Col} from 'revelry-components/lib/grid'
+import Navigation from './Navigation'
 
 import './index.scss'
 
@@ -28,14 +29,7 @@ const TemplateWrapper = ({
       </Helmet>
       <Header />
       <div className="rev-Split">
-        <div className="rev-Rail">
-          <nav className="rev-NavigationOutline">
-            <h2>Component Docs</h2>
-            <ul>
-              <li><Link to="/components/Accordion/">Accordion</Link></li>
-            </ul>
-          </nav>
-        </div>
+        <Navigation />
         <div className="rev-MainPanel">
           <main className="rev-MainPanel-content">
             {children()}

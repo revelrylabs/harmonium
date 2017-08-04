@@ -1,0 +1,20 @@
+<Row smallUp={1} mediumUp={2} largeUp={4}>
+  <Col>
+    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+  </Col>
+  <Col>
+    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+  </Col>
+  <Col>
+    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+  </Col>
+  <Col>
+    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+  </Col>
+  <Col>
+    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+  </Col>
+  <Col>
+    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+  </Col>
+</Row>
