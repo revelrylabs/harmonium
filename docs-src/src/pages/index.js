@@ -64,10 +64,6 @@ const IndexPage = () => (
       for entertainment, or largely for commercial, governmental, or
       non-governmental organisational purposes.
     </p>
-    <footer>Party Hard</footer>
-    <footer>Party Hard</footer>
-    <footer>Party Hard</footer>
-    <footer>Party Hard</footer>
   </div>
 )
 

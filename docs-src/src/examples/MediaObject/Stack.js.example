@@ -1,0 +1,11 @@
+<MediaObject stackForSmall>
+  <MediaObject.Section>
+    <div>
+      <img src="//placehold.it/350x100"/>
+    </div>
+  </MediaObject.Section>
+  <MediaObject.Section>
+    <h4>I can stack!</h4>
+    <Lipsum/>
+  </MediaObject.Section>
+</MediaObject>

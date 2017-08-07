@@ -1,0 +1,20 @@
+<div>
+  <Row>
+    <Col>
+      <Input.Stack label="Is a stack" />
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <Input.Stack label="Has help text" help={HELP} />
+    </Col>
+    <Col>
+      <Input.Stack label="Has an error" error={ERROR} />
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <Input.Stack label="Has both" help={HELP} error={ERROR} />
+    </Col>
+  </Row>
+</div>

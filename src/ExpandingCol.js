@@ -54,7 +54,7 @@ export class ExpandingColStateContainer extends React.Component {
   }
 }
 
-export class ExpandingCol extends React.Component {
+export default class ExpandingCol extends React.Component {
   static defaultProps = {
     className: 'rev-ExpandingCol--expanderless',
   }
@@ -83,3 +83,7 @@ export class ExpandingCol extends React.Component {
     )
   }
 }
+
+exports.ExpandingCol = ExpandingCol
+exports.Stateful = ExpandingColStateContainer
+exports.ExpandingColStateContainer = ExpandingColStateContainer

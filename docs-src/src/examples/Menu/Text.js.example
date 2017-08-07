@@ -1,0 +1,5 @@
+<Menu>
+  <Menu.Item text>Just Text</Menu.Item>
+  <Menu.Item><a href="#">Link</a></Menu.Item>
+  <Menu.Item><a href="#">Link</a></Menu.Item>
+</Menu>

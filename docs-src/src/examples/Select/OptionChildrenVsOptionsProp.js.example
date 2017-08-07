@@ -1,0 +1,20 @@
+<div>
+  <Row>
+    <Col>
+      <strong>{"Airport with <option> children."}</strong>
+      <Select name="airport">
+        <option value="MSY">Louis Armstrong</option>
+        <option value="JFK">John F. Kennedy</option>
+      </Select>
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <strong>"Airport with `options` prop."</strong>
+      <Select name="airport" options={[
+        {label: 'Louis Armstrong', value: 'MSY'},
+        {label: 'John F. Kennedy', value: 'JFK'},
+      ]} />
+    </Col>
+  </Row>
+</div>

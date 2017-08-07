@@ -1,0 +1,8 @@
+<Select options={
+  [
+    {label: 'North', value: 'N'},
+    {label: 'South', value: 'S'},
+    {label: 'East', value: 'E'},
+    {label: 'West', value: 'W'},
+  ]
+} defaultValue={['S', 'E']} multiple />

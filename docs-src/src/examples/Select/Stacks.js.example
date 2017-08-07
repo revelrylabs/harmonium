@@ -1,0 +1,32 @@
+React.createElement(
+class Stacks extends Component {
+  get options() {
+    return [
+      {label: 'North', value: 'N'},
+      {label: 'South', value: 'S'},
+      {label: 'East', value: 'E'},
+      {label: 'West', value: 'W'},
+    ]
+  }
+
+  render() {
+    return (
+      <div>
+        <Row>
+          <Col>
+            <Select.Stack options={this.options} label="Has help text" help="This is the help text." />
+          </Col>
+          <Col>
+            <Select.Stack options={this.options} label="Has error" error="This is the error." />
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <Select.Stack options={this.options} label="Stacks both help and error" help="This is the help text." error="This is the error." />
+          </Col>
+        </Row>
+      </div>
+    )
+  }
+}
+)

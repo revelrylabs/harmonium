@@ -1,15 +1,15 @@
-        import React, {Component} from 'react'
-        import ExampleSection from '../../ExampleSection'
-        import scope from '../../ExampleScope'
+import React, {Component} from 'react'
+import ExampleSection from '../../ExampleSection'
+import scope from '../../ExampleScope'
 
-        const examples = {
-          'Textarea': require('raw!../../examples/Textarea.js.example')
-        }
+const examples = {
+  'Textarea': require('raw!../../examples/Textarea.js.example')
+}
 
-        export default class TextareaExamplePage extends Component {
-          render() {
-            return <div>
-              <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
-            </div>
-          }
-        }
+export default class TextareaExamplePage extends Component {
+  render() {
+    return <div>
+      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+    </div>
+  }
+}
