@@ -1,0 +1,3 @@
+<BrowserSupportWarning minVersions={{chrome: '9999', msie: '9999'}}>
+  Your browser is not chrome or ie v9999.
+</BrowserSupportWarning>
