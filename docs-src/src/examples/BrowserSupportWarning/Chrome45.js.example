@@ -1,0 +1,3 @@
+<BrowserSupportWarning minVersions={{chrome: '45', msie: '10'}}>
+  Chrome 45+ or IE 10+ required.
+</BrowserSupportWarning>
