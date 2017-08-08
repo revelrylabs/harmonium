@@ -1,4 +1,4 @@
-<Card style={{height: '240px'}}>
+<Card>
   <Card.Header>Header content</Card.Header>
   <Card.Fill>
     <p><Lipsum /></p>

@@ -3,9 +3,9 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 
 const examples = {
-  'Example1': require('raw!../../examples/Pagination/Example1.js.example'),
-  'Example2': require('raw!../../examples/Pagination/Example2.js.example'),
-  'Example3': require('raw!../../examples/Pagination/Example3.js.example'),
+  'Basic': require('raw!../../examples/Pagination/Basic.js.example'),
+  'With Customization': require('raw!../../examples/Pagination/WithCustomization.js.example'),
+  'Custom Button Content': require('raw!../../examples/Pagination/WithCustomContent.js.example'),
 }
 
 export default class PaginationExamplePage extends Component {

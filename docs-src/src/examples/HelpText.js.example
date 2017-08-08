@@ -1,4 +1,6 @@
 <div>
   <HelpText>Help text with plain text</HelpText>
-  <HelpText><span>Help text with <strong>children</strong></span></HelpText>
+  <HelpText>
+    <span>Help text with <strong>children</strong></span>
+  </HelpText>
 </div>

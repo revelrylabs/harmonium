@@ -1,22 +1,15 @@
 <div>
-  <Row>
-    <Col>
-      <Input type="password" defaultValue="password" error />
-    </Col>
-  </Row>
-  <Row>
-    <Col>
-      <Input.Stack type="password" defaultValue="password" label="Password" />
-    </Col>
-  </Row>
-  <Row>
-    <Col>
-      <Input type="file" error />
-    </Col>
-  </Row>
-  <Row>
-    <Col>
-      <Input.Stack type="file" label="File upload" help="File must be PDF." error="File was not PDF!" />
-    </Col>
-  </Row>
+  <Input type="password" defaultValue="password" error />
+  <Input.Stack 
+    type="password" 
+    defaultValue="password" 
+    label="Password" 
+  />
+  <Input type="file" error />
+  <Input.Stack 
+    type="file" 
+    label="File upload" 
+    help="File must be PDF." 
+    error="File was not PDF!" 
+  />
 </div>

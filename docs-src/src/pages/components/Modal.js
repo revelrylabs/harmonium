@@ -3,12 +3,13 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 
 const examples = {
-  'Modal': require('raw!../../examples/Modal.js.example')
+  'Stateless': require('raw!../../examples/Modal/Stateless.js.example'),
+  'With Background Click': require('raw!../../examples/Modal/WithBackgroundClick.js.example'),
 }
 
 export default class ModalExamplePage extends Component {
   render() {
-    return <div>
+    return <div className="playgroundPreview--FakeViewportContainer">
       <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
     </div>
   }

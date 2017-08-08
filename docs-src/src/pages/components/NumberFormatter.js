@@ -3,7 +3,7 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 
 const examples = {
-  'NumberFormatter': require('raw!../../examples/NumberFormatter.js.example')
+  'Number Formatter': require('raw!../../examples/NumberFormatter.js.example')
 }
 
 export default class NumberFormatterExamplePage extends Component {

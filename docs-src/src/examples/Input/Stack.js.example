@@ -1,20 +1,6 @@
 <div>
-  <Row>
-    <Col>
-      <Input.Stack label="Is a stack" />
-    </Col>
-  </Row>
-  <Row>
-    <Col>
-      <Input.Stack label="Has help text" help={HELP} />
-    </Col>
-    <Col>
-      <Input.Stack label="Has an error" error={ERROR} />
-    </Col>
-  </Row>
-  <Row>
-    <Col>
-      <Input.Stack label="Has both" help={HELP} error={ERROR} />
-    </Col>
-  </Row>
+  <Input.Stack label="Is a stack" />
+  <Input.Stack label="Has help text" help="This is the help text" />
+  <Input.Stack label="Has an error" error="This is the error text" />
+  <Input.Stack label="Has both" help="This is the help text" error="This is the error text" />
 </div>

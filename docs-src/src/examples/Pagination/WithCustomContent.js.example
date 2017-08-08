@@ -11,9 +11,15 @@ React.createElement(
   render() {
     return (
       <div>
-        <p>This example shows the default case for all props except custom content is passed for the first, next, previous, last buttons.</p>
-        <p>This component requires custom styling, which is included in the <strong>Pagination.scss</strong> file.</p>
-        <br />
+        <p>
+          This example shows the default case for all props except 
+          custom content is passed for the first, next, previous, 
+          last buttons.
+        </p>
+        <p>
+          This component requires custom styling, which is included 
+          in the <strong>Pagination.scss</strong> file.
+        </p>
         <Pagination
           currentPage={this.state.currentPage}
           totalPages={14}
@@ -23,7 +29,6 @@ React.createElement(
           nextPageContent={<i className="icon-angle-right" />}
           lastPageContent={<i className="icon-angle-double-right" />}
         />
-        <br />
       </div>
     )
   }

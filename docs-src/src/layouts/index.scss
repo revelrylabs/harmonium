@@ -1,5 +1,8 @@
 @import "../../../scss/app";
 
+.CodeMirror.CodeMirror {
+  height: auto;
+}
 .CodeMirror-line.CodeMirror-line {
   font-size: $global-font-size-small;
   line-height: $global-vertical-space;
@@ -31,4 +34,13 @@
 .playgroundPreview {
   order: 0;
   width: 100%;
+}
+.playgroundPreview--FakeViewportContainer {
+  .playgroundPreview {
+    background: $light-gray;
+    min-height: 320px;
+    min-width: 320px;
+    transform: scale(1.0);
+    width: 100%;
+  }
 }

@@ -1,0 +1,6 @@
+<div className="FakeViewportContainer">
+  <StatelessModal isOpen={true}>
+    <h2>Stateless Modal Example</h2>
+    <p>Modal content goes here...</p>
+  </StatelessModal>
+</div>

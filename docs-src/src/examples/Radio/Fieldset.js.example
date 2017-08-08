@@ -12,19 +12,25 @@ class Fieldset extends Component {
   render() {
     return (
       <div>
-        <Row>
-          <Col>
-            <Radio.Fieldset name="fieldset_help" options={this.options} label="Has help text" help="This is the help text." />
-          </Col>
-          <Col>
-            <Radio.Fieldset name="fieldset_error" options={this.options} label="Has error" error="This is the error." />
-          </Col>
-        </Row>
-        <Row>
-          <Col>
-            <Radio.Fieldset name="fieldset_both" options={this.options} label="Stacks both help and error" help="This is the help text." error="This is the error." />
-          </Col>
-        </Row>
+        <Radio.Fieldset 
+          name="fieldset_help" 
+          options={this.options} 
+          label="Has help text" 
+          help="This is the help text." 
+        />
+        <Radio.Fieldset 
+          name="fieldset_error" 
+          options={this.options} 
+          label="Has error" 
+          error="This is the error." 
+        />
+        <Radio.Fieldset 
+          name="fieldset_both" 
+          options={this.options} 
+          label="Stacks both help and error" 
+          help="This is the help text." 
+          error="This is the error." 
+        />
       </div>
     )
   }

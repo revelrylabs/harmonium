@@ -1,14 +1,14 @@
-<Row>
-  <Col><Visibility showForSmall><span>showForSmall</span></Visibility></Col>
-  <Col><Visibility showForSmallOnly><span>showForSmallOnly</span></Visibility></Col>
-  <Col><Visibility hideForSmall><span>hideForSmall</span></Visibility></Col>
-  <Col><Visibility hideForSmallOnly><span>hideForSmallOnly</span></Visibility></Col>
-  <Col><Visibility showForMedium><span>showForMedium</span></Visibility></Col>
-  <Col><Visibility showForMediumOnly><span>showForMediumOnly</span></Visibility></Col>
-  <Col><Visibility hideForMedium><span>hideForMedium</span></Visibility></Col>
-  <Col><Visibility hideForMediumOnly><span>hideForMediumOnly</span></Visibility></Col>
-  <Col><Visibility showForLarge><span>showForLarge</span></Visibility></Col>
-  <Col><Visibility showForLargeOnly><span>showForLargeOnly</span></Visibility></Col>
-  <Col><Visibility hideForLarge><span>hideForLarge</span></Visibility></Col>
-  <Col><Visibility hideForLargeOnly><span>hideForLargeOnly</span></Visibility></Col>
-</Row>
+<div>
+  <p><Visibility showForSmall>showForSmall</Visibility></p>
+  <p><Visibility showForSmallOnly>showForSmallOnly</Visibility></p>
+  <p><Visibility hideForSmall>hideForSmall</Visibility></p>
+  <p><Visibility hideForSmallOnly>hideForSmallOnly</Visibility></p>
+  <p><Visibility showForMedium>showForMedium</Visibility></p>
+  <p><Visibility showForMediumOnly>showForMediumOnly</Visibility></p>
+  <p><Visibility hideForMedium>hideForMedium</Visibility></p>
+  <p><Visibility hideForMediumOnly>hideForMediumOnly</Visibility></p>
+  <p><Visibility showForLarge>showForLarge</Visibility></p>
+  <p><Visibility showForLargeOnly>showForLargeOnly</Visibility></p>
+  <p><Visibility hideForLarge>hideForLarge</Visibility></p>
+  <p><Visibility hideForLargeOnly>hideForLargeOnly</Visibility></p>
+</div>

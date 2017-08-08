@@ -1,24 +1,20 @@
-<Row>
-  <Col>
-    <h6>default to first tab</h6>
-    <Tabs>
-      <Tabs.Item contentKey={1} title="One">
-        <Lipsum p={1} />
-      </Tabs.Item>
-      <Tabs.Item contentKey={2} title="Two">
-        <Lipsum p={2} />
-      </Tabs.Item>
-    </Tabs>
-  </Col>
-  <Col>
-    <h6>explicitly set active to 2</h6>
-    <Tabs active={2}>
-      <Tabs.Item contentKey={1} title="One">
-        <Lipsum p={1} />
-      </Tabs.Item>
-      <Tabs.Item contentKey={2} title="Two">
-        <Lipsum p={2} />
-      </Tabs.Item>
-    </Tabs>
-  </Col>
-</Row>
+<div>
+  <h3>default to first tab</h3>
+  <Tabs>
+    <Tabs.Item contentKey={1} title="One">
+      <Lipsum p={1} />
+    </Tabs.Item>
+    <Tabs.Item contentKey={2} title="Two">
+      <Lipsum p={2} />
+    </Tabs.Item>
+  </Tabs>
+  <h3>explicitly set active to 2</h3>
+  <Tabs active={2}>
+    <Tabs.Item contentKey={1} title="One">
+      <Lipsum p={1} />
+    </Tabs.Item>
+    <Tabs.Item contentKey={2} title="Two">
+      <Lipsum p={2} />
+    </Tabs.Item>
+  </Tabs>
+</div>
