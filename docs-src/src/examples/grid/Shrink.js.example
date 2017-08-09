@@ -1,4 +1,4 @@
-<Row>
-  <Col shrink><div style={{backgroundColor: '#ffff99'}}>shrunk</div></Col>
+<Row className="ColumnExamples">
+  <Col shrink>shrunk</Col>
   <Col>remainder</Col>
 </Row>

@@ -44,3 +44,30 @@
     width: 100%;
   }
 }
+.ColumnExamples {
+  .columns {
+    text-align: center;
+  }
+  .columns:nth-child(6n+1) {
+    @include color-stack($gray);
+  }
+  .columns:nth-child(6n+2) {
+    @include color-stack($black);
+    
+  }
+  .columns:nth-child(6n+3) {
+    @include color-stack($darker-gray);
+  }
+  .columns:nth-child(6n+4) {
+    @include color-stack($dark-gray);
+  }
+  .columns:nth-child(6n+5) {
+    @include color-stack($light-gray);
+  }
+  .columns:nth-child(6n+6) {
+    @include color-stack($lighter-gray);
+  }
+  .columns .row {
+    outline: 1px solid $white;
+  }
+}

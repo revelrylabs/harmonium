@@ -1,4 +1,4 @@
-<Row mediumUncollapse largeUncollapse>
+<Row mediumUncollapse largeUncollapse className="ColumnExamples">
   <Col small={6}>
     Removes gutter at large media query
   </Col>

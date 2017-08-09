@@ -1,4 +1,4 @@
-<div>
+<div className="ColumnExamples">
   <Row>
     <Col small={3} smallCentered>3 centered</Col>
   </Row>

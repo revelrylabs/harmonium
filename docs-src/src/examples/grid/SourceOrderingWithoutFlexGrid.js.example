@@ -1,4 +1,4 @@
-<div>
+<div className="ColumnExamples">
   <Row>
     <Col small={10} smallPush={2}>10</Col>
     <Col small={2} smallPull={10}>2, last</Col>

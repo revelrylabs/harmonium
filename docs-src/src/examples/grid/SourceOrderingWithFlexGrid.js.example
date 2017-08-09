@@ -1,4 +1,4 @@
-<Row>
+<Row className="ColumnExamples">
   <Col smallOrder={2} mediumOrder={1}>
     This column will come second on small, and first on medium and larger.
   </Col>

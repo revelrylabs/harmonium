@@ -1,4 +1,4 @@
-<div>
+<div className="ColumnExamples">
   <Row middle>
     <Col>I{"'"}m in the middle!</Col>
     <Col>
