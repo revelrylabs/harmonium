@@ -12,10 +12,6 @@ $topbar-link-color-hover: $anchor-color-hover;
   padding: 0 $global-padding;
   z-index: $above;
 }
-.rev-TopBar-title,
-.top-bar-title {
-
-}
 .rev-TopBar-left,
 .rev-TopBar-right,
 .top-bar-left,
@@ -28,30 +24,4 @@ $topbar-link-color-hover: $anchor-color-hover;
 .rev-TopBar-right,
 .top-bar-right {
   float: right;
-}
-.rev-Menu {
-  background: transparent;
-}
-.rev-Menu-item {
-  margin: 0;
-  padding: 0;
-  a {
-    color: $topbar-link-color;
-    padding: $global-padding;
-    &:hover,
-    &:active,
-    &:focus {
-      color: $topbar-link-color-hover;
-    }
-  }
-  .rev-TopBar-left & {
-    a {
-      padding-left: 0;
-    }
-  }
-  .rev-TopBar-right & {
-    a {
-      padding-right: 0;
-    }
-  }
 }

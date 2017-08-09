@@ -1,0 +1,18 @@
+.rev-Menu-item {
+  display: block;
+  padding: 0;
+  a {
+    display: block;
+    padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
+  }
+  .rev-TopBar-left & {
+    a {
+      padding-left: 0;
+    }
+  }
+  .rev-TopBar-right & {
+    a {
+      padding-right: 0;
+    }
+  }
+}
