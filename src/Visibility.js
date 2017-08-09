@@ -39,9 +39,10 @@ export default class Visibility extends Component {
     })
 
     const newClassName = classNames(classNamesList)
-    if (typeof this.props.children === 'string') {
-      return <span className={newClassName}>{this.props.children}</span>
+    if (React.isValidElement(this.props.children)) {
+      return cloneElement(this.props.children, {className: newClassName})  
     }
-    return cloneElement(this.props.children, {className: newClassName})
+    
+    return <span className={newClassName}>{this.props.children}</span>
   }
 }
