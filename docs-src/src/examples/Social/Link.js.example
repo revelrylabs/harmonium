@@ -1,57 +1,52 @@
 <div>
-  <Row>
-    <Col>
-      <p>Pass in a supported social network (listed below), a link to share, and a message that will be the default post.</p>            
-      <p>
-        <Social type={Social.types.BUFFER} url="http://revelry.co" message="Sharing via a text link!">
-          Share via Buffer
-        </Social>
-      </p>
-      <p>
-        <Social type={Social.types.DIGG} url="http://revelry.co" message="Sharing via a text link!">
-          Share via Digg
-        </Social>
-      </p>
-      <p>
-        <Social type={Social.types.EMAIL} url="http://revelry.co" message="Sharing via a text link!">
-          Share via email
-        </Social>
-      </p>
-      <p>
-        <Social type={Social.types.FACEBOOK} url="http://revelry.co" message="Sharing via a text link!">
-          Share via Facebook
-        </Social>
-      </p>
-      <p>
-        <Social type={Social.types.GOOGLE_PLUS} url="http://revelry.co" message="Sharing via a text link!">
-          Share via Google+
-        </Social>
-      </p>
-      <p>
-        <Social type={Social.types.LINKEDIN} url="http://revelry.co" message="Sharing via a text link!">
-          Share via LinkedIn
-        </Social>
-      </p>
-      <p>
-        <Social type={Social.types.PINTEREST} url="http://revelry.co" message="Sharing via a text link!">
-          Share via Pinterest
-        </Social>
-      </p>
-      <p>
-        <Social type={Social.types.REDDIT} url="http://revelry.co" message="Sharing via a text link!">
-          Share via Reddit
-        </Social>
-      </p>
-      <p>
-        <Social type={Social.types.TUMBLR} url="http://revelry.co" message="Sharing via a text link!">
-          Share via Tumblr
-        </Social>
-      </p>
-      <p>
-        <Social type={Social.types.TWITTER} url="http://revelry.co" message="Sharing via a text link!">
-          Share via Twitter
-        </Social>
-      </p>
-    </Col>
-  </Row>
+  <p>
+    Pass in a supported social network (listed below), a 
+    link to share, and a message that will be the default 
+    post.
+  </p> 
+  <p>
+    <Social 
+      type={Social.types.FACEBOOK} 
+      url="http://revelry.co" 
+      message="Sharing via a text link!"
+    >
+      Share via Facebook
+    </Social>
+  </p>
+  <p>
+    <Social 
+      type={Social.types.TWITTER} 
+      url="http://revelry.co" 
+      message="Sharing via a text link!"
+    >
+      Share via Twitter
+    </Social>
+  </p>           
+  <p>
+    <Social 
+      type={Social.types.BUFFER} 
+      url="http://revelry.co" 
+      message="Sharing via a text link!"
+    >
+      Share via Buffer
+    </Social>
+  </p>
+  <p>
+    <Social 
+      type={Social.types.DIGG} 
+      url="http://revelry.co" 
+      message="Sharing via a text link!"
+    >
+      Share via Digg
+    </Social>
+  </p>
+  <p>
+    <Social 
+      type={Social.types.EMAIL} 
+      url="http://revelry.co" 
+      message="Sharing via a text link!"
+    >
+      Share via email
+    </Social>
+  </p>
 </div>

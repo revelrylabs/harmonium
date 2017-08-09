@@ -1,8 +1,8 @@
-<Row>
-  <Col>
+<div>
+  <div>
     <Radio name="singular" defaultValue="1" label="One" />
-  </Col>
-  <Col>
+  </div>
+  <div>
     <Radio name="singular" defaultValue="3" label="Has error" error />
-  </Col>
-</Row>
+  </div>
+</div>

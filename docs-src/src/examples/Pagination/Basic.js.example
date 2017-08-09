@@ -1,0 +1,21 @@
+React.createElement(
+class Example1 extends Component {
+  state = {
+    currentPage: 1,
+  }
+
+  onPageClick = (pageNumber) => {
+    this.setState({currentPage: pageNumber})
+  }
+
+  render() {
+    return (
+      <Pagination
+        currentPage={this.state.currentPage}
+        totalPages={9}
+        onPageClick={this.onPageClick}
+      />
+    )
+  }
+}
+)

@@ -1,6 +1,6 @@
 React.createElement(
 class CardLayoutExample extends Component {
-  static defaultHeight = '300px';
+  static defaultHeight = '396px';
 
   state = {
     height: this.constructor.defaultHeight,
@@ -18,11 +18,17 @@ class CardLayoutExample extends Component {
     return (
       <div>
         <p>
-          The Fill will squeeze and scroll when the CardLayout height is constrained.
-          When the height is not constrained, it will expand to fit its content.
-          Click the Expand and Contract buttons to illustrate the difference.
+          The Fill will squeeze and scroll when the CardLayout height 
+          is constrained. When the height is not constrained, it will 
+          expand to fit its content. Click the Expand and Contract 
+          buttons to illustrate the difference.
         </p>
-        <CardLayout style={{height: this.state ? this.state.height : null, border: '3px solid gray'}}>
+        <CardLayout 
+          style={{
+            height: this.state ? this.state.height : null, 
+            border: '3px solid gray'
+          }}
+        >
           <CardLayout.Bar>
             <Row>
               <Col><strong>CardLayout Header</strong></Col>

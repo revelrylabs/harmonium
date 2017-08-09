@@ -1,8 +1,0 @@
-<Callout alert>
-  <strong>Vertical tabs are NOT implemented yet.</strong>
-  <p>
-    A good implementation requires end-developer control over the layout.
-    We have not yet figured out a good API for this that lets the developer
-    mess around with grids and/or flex box.
-  </p>
-</Callout>

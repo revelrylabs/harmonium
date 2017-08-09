@@ -21,7 +21,7 @@ const CLASS_NAMES = {
 }
 
 const PROP_TYPES = {
-  children: PropTypes.element,
+  children: PropTypes.node,
 }
 Object.keys(CLASS_NAMES).forEach(key => PROP_TYPES[key] = PropTypes.bool)
 
@@ -39,8 +39,10 @@ export default class Visibility extends Component {
     })
 
     const newClassName = classNames(classNamesList)
-    return (
-      cloneElement(this.props.children, {className: newClassName})
-    )
+    if (React.isValidElement(this.props.children)) {
+      return cloneElement(this.props.children, {className: newClassName})  
+    }
+    
+    return <span className={newClassName}>{this.props.children}</span>
   }
 }

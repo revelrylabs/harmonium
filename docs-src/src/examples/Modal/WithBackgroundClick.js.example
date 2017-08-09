@@ -1,0 +1,6 @@
+<div className="FakeViewportContainer">
+  <Modal isOpen={true}>
+    <h2>Modal Example</h2>
+    <p>Click the background to dimiss it</p>
+  </Modal>
+</div>

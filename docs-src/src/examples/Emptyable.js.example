@@ -1,6 +1,15 @@
 <div>
-  <Emptyable componentClass="ul" emptyState={<strong>No items</strong>} />
-  <Emptyable componentClass="ul" emptyState={<strong>No items</strong>}>
-    <li>I am not empty.</li>
+  <h3>With No Children</h3>
+  <Emptyable 
+    componentClass="ul" 
+    emptyState={<strong>No items</strong>} 
+  />
+  <h3>With Children</h3>
+  <Emptyable 
+    componentClass="ul" 
+    emptyState={<strong>No items</strong>}
+  >
+    <li>Child1</li>
+    <li>Child2</li>
   </Emptyable>
 </div>

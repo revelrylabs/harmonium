@@ -1,18 +1,20 @@
-<Row>
-  <Col><TextAlign left><p>left</p></TextAlign></Col>
-  <Col><TextAlign right><p>right</p></TextAlign></Col>
-  <Col><TextAlign center><p>center</p></TextAlign></Col>
-  <Col><TextAlign justify><p>justify</p></TextAlign></Col>
-  <Col><TextAlign smallLeft><p>smallLeft</p></TextAlign></Col>
-  <Col><TextAlign smallRight><p>smallRight</p></TextAlign></Col>
-  <Col><TextAlign smallCenter><p>smallCenter</p></TextAlign></Col>
-  <Col><TextAlign smallJustify><p>smallJustify</p></TextAlign></Col>
-  <Col><TextAlign mediumLeft><p>mediumLeft</p></TextAlign></Col>
-  <Col><TextAlign mediumRight><p>mediumRight</p></TextAlign></Col>
-  <Col><TextAlign mediumCenter><p>mediumCenter</p></TextAlign></Col>
-  <Col><TextAlign mediumJustify><p>mediumJustify</p></TextAlign></Col>
-  <Col><TextAlign largeLeft><p>largeLeft</p></TextAlign></Col>
-  <Col><TextAlign largeRight><p>largeRight</p></TextAlign></Col>
-  <Col><TextAlign largeCenter><p>largeCenter</p></TextAlign></Col>
-  <Col><TextAlign largeJustify><p>largeJustify</p></TextAlign></Col>
-</Row>
+<div>
+  <p><TextAlign left><p>left</p></TextAlign></p>
+  <p><TextAlign right><p>right</p></TextAlign></p>
+  <p><TextAlign center><p>center</p></TextAlign></p>
+  <p><TextAlign justify><p>justify</p></TextAlign></p>
+  <p><TextAlign smallLeft><p>smallLeft</p></TextAlign></p>
+  <p><TextAlign smallRight><p>smallRight</p></TextAlign></p>
+  <p><TextAlign smallCenter><p>smallCenter</p></TextAlign></p>
+  <p><TextAlign smallJustify><p>smallJustify</p></TextAlign></p>
+  <p><TextAlign mediumLeft><p>mediumLeft</p></TextAlign></p>
+  <p><TextAlign mediumRight><p>mediumRight</p></TextAlign></p>
+  <p><TextAlign mediumCenter><p>mediumCenter</p></TextAlign></p>
+  <p>
+    <TextAlign mediumJustify><p>mediumJustify</p></TextAlign>
+  </p>
+  <p><TextAlign largeLeft><p>largeLeft</p></TextAlign></p>
+  <p><TextAlign largeRight><p>largeRight</p></TextAlign></p>
+  <p><TextAlign largeCenter><p>largeCenter</p></TextAlign></p>
+  <p><TextAlign largeJustify><p>largeJustify</p></TextAlign></p>
+</div>

@@ -1,29 +1,22 @@
-React.createElement(
-class DefaultStateless extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: false
-    }
-  }
-
-  // Don't do toggle methods in real life, Joel will be sad
-  toggleOpen = () => this.setState({open: !this.state.open})
-
-  render() {
-    let state = this.state || {open: false}
-    return (
-      <Row>
-        <ExpandingCol small={3} open={state.open}>
-          <Callout primary>
-            You did it!
-          </Callout>
-        </ExpandingCol>
-        <Col small={9} onClick={this.toggleOpen}>
-          Click me!
-        </Col>
-      </Row>
-    )
-  }
-}
-)
+<div>
+  <Row>
+    <ExpandingCol small={6}>
+      <Callout primary>
+        I am hidden away.
+      </Callout>
+    </ExpandingCol>
+    <Col small={6}>
+      The column next to this one is collapsed.
+    </Col>
+  </Row>
+  <Row>
+    <ExpandingCol small={6} open>
+      <Callout primary>
+        I am expanded.
+      </Callout>
+    </ExpandingCol>
+    <Col small={6}>
+      The column next to this one is expanded.
+    </Col>
+  </Row>
+</div>

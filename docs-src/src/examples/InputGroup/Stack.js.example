@@ -1,8 +1,12 @@
-<InputGroup.Stack label={label} help={help} error={error}>
+<InputGroup.Stack 
+  label="Price" 
+  help="Help text" 
+  error="Error messages"
+>
   <InputGroup.Label>
     $USD
   </InputGroup.Label>
   <InputGroup.Field>
-    <Input type="number" defaultValue={100.00} error={error} />
+    <Input type="number" defaultValue={100.00} />
   </InputGroup.Field>
 </InputGroup.Stack>

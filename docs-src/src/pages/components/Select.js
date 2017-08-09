@@ -3,9 +3,9 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 
 const examples = {
-  'OptionChildrenVsOptionsProp': require('raw!../../examples/Select/OptionChildrenVsOptionsProp.js.example'),
-  'MultipleValues': require('raw!../../examples/Select/MultipleValues.js.example'),
-  'Stacks': require('raw!../../examples/Select/Stacks.js.example'),
+  'Option As Children And Options As Props': require('raw!../../examples/Select/OptionChildrenVsOptionsProp.js.example'),
+  'Multiple Select With Values': require('raw!../../examples/Select/MultipleValues.js.example'),
+  'Select Stacks': require('raw!../../examples/Select/Stacks.js.example'),
 }
 
 export default class SelectExamplePage extends Component {

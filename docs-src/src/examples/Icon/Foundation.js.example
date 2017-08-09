@@ -78,7 +78,15 @@ class GeneralFoundationIcons extends Component {
 
     return (
       <Row>
-        {icons.map(icon => <Col key={icon}><Icon className="stat" i={icon} title={icon} /></Col>)}
+        {
+          icons.map((icon) => {
+            return (
+              <Col key={icon}>
+                <Icon className="stat" i={icon} title={icon} />
+              </Col>
+            )
+          })
+        }
       </Row>
     )
   }
