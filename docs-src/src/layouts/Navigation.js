@@ -1,52 +1,83 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Menu from 'revelry-components/lib/Menu'
 
 export default function Navigation() {
   return (
     <div className="rev-Rail">
       <nav className="rev-NavigationOutline">
         <h2>Component Docs</h2>
-        <ul>
-          <li><Link to="/components/Accordion/">Accordion</Link></li>
-          <li><Link to="/components/AuthenticityToken/">AuthenticityToken</Link></li>
-          <li><Link to="/components/Badge/">Badge</Link></li>
-          <li><Link to="/components/BrowserSupportWarning/">BrowserSupportWarning</Link></li>
-          <li><Link to="/components/Button/">Button</Link></li>
-          <li><Link to="/components/ButtonGroup/">ButtonGroup</Link></li>
-          <li><Link to="/components/Callout/">Callout</Link></li>
-          <li><Link to="/components/Card/">Card</Link></li>
-          <li><Link to="/components/CardLayout/">CardLayout</Link></li>
-          <li><Link to="/components/CheckableFieldset/">CheckableFieldset</Link></li>
-          <li><Link to="/components/Checkbox/">Checkbox</Link></li>
-          <li><Link to="/components/CloseButton/">CloseButton</Link></li>
-          <li><Link to="/components/Currency/">Currency</Link></li>
-          <li><Link to="/components/Emptyable/">Emptyable</Link></li>
-          <li><Link to="/components/ExpandingCol/">ExpandingCol</Link></li>
-          <li><Link to="/components/FileInput/">FileInput</Link></li>
-          <li><Link to="/components/FlexVideo/">FlexVideo</Link></li>
-          <li><Link to="/components/grid/">grid</Link></li>
-          <li><Link to="/components/HelpText/">HelpText</Link></li>
-          <li><Link to="/components/Icon/">Icon</Link></li>
-          <li><Link to="/components/Input/">Input</Link></li>
-          <li><Link to="/components/InputGroup/">InputGroup</Link></li>
-          <li><Link to="/components/Label/">Label</Link></li>
-          <li><Link to="/components/Lipsum/">Lipsum</Link></li>
-          <li><Link to="/components/MediaObject/">MediaObject</Link></li>
-          <li><Link to="/components/Menu/">Menu</Link></li>
-          <li><Link to="/components/Modal/">Modal</Link></li>
-          <li><Link to="/components/NumberFormatter/">NumberFormatter</Link></li>
-          <li><Link to="/components/Pagination/">Pagination</Link></li>
-          <li><Link to="/components/Pluralize/">Pluralize</Link></li>
-          <li><Link to="/components/Progress/">Progress</Link></li>
-          <li><Link to="/components/Radio/">Radio</Link></li>
-          <li><Link to="/components/Select/">Select</Link></li>
-          <li><Link to="/components/Social/">Social</Link></li>
-          <li><Link to="/components/Tabs/">Tabs</Link></li>
-          <li><Link to="/components/TextAlign/">TextAlign</Link></li>
-          <li><Link to="/components/Textarea/">Textarea</Link></li>
-          <li><Link to="/components/TopBar/">TopBar</Link></li>
-          <li><Link to="/components/Visibility/">Visibility</Link></li>
-        </ul>
+        <Menu>
+          <h3>Grid</h3>
+          <Menu nested>
+            <Menu.Item><Link to="/components/grid/">Rows &amp; Columns</Link></Menu.Item>
+            <Menu.Item><Link to="/components/ExpandingCol/">Expanding Columns</Link></Menu.Item>
+          </Menu>
+          <h3>Forms</h3>
+          <Menu nested>
+            <Menu.Item><Link to="/components/Button/">Button</Link></Menu.Item>
+            <Menu.Item><Link to="/components/ButtonGroup/">Button Group</Link></Menu.Item>
+            <Menu.Item><Link to="/components/CheckableFieldset/">Checkable Fieldset</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Checkbox/">Checkbox</Link></Menu.Item>
+            <Menu.Item><Link to="/components/FileInput/">File Input</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Input/">Input</Link></Menu.Item>
+            <Menu.Item><Link to="/components/InputGroup/">Input Group</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Label/">Label</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Radio/">Radio</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Select/">Select</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Textarea/">Textarea</Link></Menu.Item>
+          </Menu>
+          <h3>Lists</h3>
+          <Menu nested>
+            <Menu.Item><Link to="/components/Emptyable/">Emptyable</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Pagination/">Pagination</Link></Menu.Item>
+          </Menu>
+          <h3>Formatting</h3>
+          <Menu nested>
+            <Menu.Item><Link to="/components/Currency/">Currency</Link></Menu.Item>
+            <Menu.Item><Link to="/components/NumberFormatter/">Number Formatter</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Pluralize/">Pluralize</Link></Menu.Item>
+          </Menu>
+          <h3>Navigation</h3>
+          <Menu nested>
+            <Menu.Item><Link to="/components/Menu/">Menu</Link></Menu.Item>
+            <Menu.Item><Link to="/components/TopBar/">Top Bar</Link></Menu.Item>
+          </Menu>
+          <h3>Cards &amp; Media</h3>
+          <Menu nested>
+            <Menu.Item><Link to="/components/Card/">Card</Link></Menu.Item>
+            <Menu.Item><Link to="/components/CardLayout/">Card Layout</Link></Menu.Item>
+            <Menu.Item><Link to="/components/FlexVideo/">Flex Video</Link></Menu.Item>
+            <Menu.Item><Link to="/components/MediaObject/">Media Object</Link></Menu.Item>
+          </Menu>
+          <h3>Containers</h3>
+          <Menu nested>
+            <Menu.Item><Link to="/components/Accordion/">Accordion</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Callout/">Callout</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Modal/">Modal</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Tabs/">Tabs</Link></Menu.Item>
+          </Menu>
+          <h3>Atoms</h3>
+          <Menu nested>
+            <Menu.Item><Link to="/components/Badge/">Badge</Link></Menu.Item>
+            <Menu.Item><Link to="/components/CloseButton/">Close Button</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Icon/">Icon</Link></Menu.Item>
+          </Menu>
+          <h3>Utilities</h3>
+          <Menu nested>
+            <Menu.Item><Link to="/components/AuthenticityToken/">Authenticity Token</Link></Menu.Item>
+            <Menu.Item><Link to="/components/BrowserSupportWarning/">Browser Support Warning</Link></Menu.Item>
+            <Menu.Item><Link to="/components/HelpText/">Help Text</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Progress/">Progress</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Social/">Social</Link></Menu.Item>
+            <Menu.Item><Link to="/components/TextAlign/">Text Align</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Visibility/">Visibility</Link></Menu.Item>
+          </Menu>
+          <h3>Prototyping</h3>
+          <Menu nested>
+            <Menu.Item><Link to="/components/Lipsum/">Lorem Ipsum</Link></Menu.Item>
+          </Menu>
+        </Menu>
       </nav>
     </div>
   )
