@@ -44,10 +44,40 @@
     width: 100%;
   }
 }
+// For grid example pages, colorize columns and mark the edges, and put spacing between rows
 .ColumnExamples {
-  .columns {
-    text-align: center;
+  &.rev-Row,
+  .rev-Row {
+    margin-bottom: $global-vertical-space;
+    .rev-Row {
+      margin-bottom: 0;
+    }
   }
+  .rev-Col {
+    text-align: center;
+    background-clip: content-box;
+    position: relative;
+    // All of this is a way to put an outline-esque border on the left and 
+    // right edge without taking up space (doing it this way, because outline
+    // can't be applied to only left and right).
+    // If we just put left and right borders, it can cause weird overflows
+    // and wrapping with the grid, which is bad for a grid demo page
+    &:before {
+      // Needs content to be placed in DOM
+      content: ' ';
+      // Position to be the same size and location as the column
+      bottom: 0;
+      left: 0;
+      position: absolute;
+      right: 0;
+      top: 0;
+      // Mark left and right edges
+      border-left: 1px dashed $gray;
+      border-right: 1px dashed $gray;
+    }
+  }
+  // Throw some grayscale colors on the grid columns to show what space they 
+  // occupy
   .columns:nth-child(6n+1) {
     @include color-stack($gray);
   }
@@ -67,6 +97,7 @@
   .columns:nth-child(6n+6) {
     @include color-stack($lighter-gray);
   }
+  // For nesting example, show the extents of the nested row
   .columns .row {
     outline: 1px solid $white;
   }

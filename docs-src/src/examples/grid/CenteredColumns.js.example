@@ -6,7 +6,9 @@
     <Col small={6} smallCentered>6 centered</Col>
   </Row>
   <Row>
-    <Col small={9} smallCentered largeUncentered>9 centered</Col>
+    <Col small={9} smallCentered largeUncentered>
+      9 centered, largeUncentered
+    </Col>
   </Row>
   <Row>
     <Col small={11} smallCentered>11 centered</Col>
