@@ -1,46 +1,26 @@
-<div>
-  <Row middle>
-    <Col>I{"'"}m in the middle!</Col>
-    <Col>
-      I am as well, but I have so much text I take up more space! 
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-      Quis facere ducimus earum minus, inventore, ratione doloremque 
-      deserunt neque perspiciatis accusamus explicabo soluta, 
-      quod provident distinctio aliquam omnis? Labore, ullam 
-      possimus.
+<div className="ColumnExamples">
+  <Row middle flex>
+    <Col small={6}>I&apos;m in the middle!</Col>
+    <Col small={6}>
+      <Lipsum />
     </Col>
   </Row>
-  <hr />
-  <Row top>
-    <Col>These columns align to the top.</Col>
-    <Col>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-      Voluptatum, tempora. Impedit eius officia possimus 
-      laudantium? Molestiae eaque, sapiente atque doloremque 
-      placeat! In sint, fugiat saepe sunt dolore tempore amet 
-      cupiditate.
+  <Row top flex>
+    <Col small={6}>These columns align to the top.</Col>
+    <Col small={6}>
+      <Lipsum />
     </Col>
   </Row>
-  <hr />
-  <Row bottom>
-    <Col>bottom</Col>
-    <Col>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-      Voluptatum, tempora. Impedit eius officia possimus 
-      laudantium? Molestiae eaque, sapiente atque doloremque 
-      placeat! In sint, fugiat saepe sunt dolore tempore amet 
-      cupiditate.
+  <Row bottom flex>
+    <Col small={6}>bottom</Col>
+    <Col small={6}>
+      <Lipsum />
     </Col>
   </Row>
-  <hr />
-  <Row>
-    <Col>unspecified simply fills all vertical space</Col>
-    <Col>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-      Voluptatum, tempora. Impedit eius officia possimus 
-      laudantium? Molestiae eaque, sapiente atque doloremque 
-      placeat! In sint, fugiat saepe sunt dolore tempore amet 
-      cupiditate.
+  <Row flex>
+    <Col small={6}>unspecified simply fills all vertical space</Col>
+    <Col small={6}>
+      <Lipsum />
     </Col>
   </Row>
 </div>

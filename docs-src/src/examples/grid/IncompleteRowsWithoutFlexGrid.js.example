@@ -1,4 +1,4 @@
-<div>
+<div className="ColumnExamples">
   <Row>
     <Col medium={3}>3</Col>
     <Col medium={3}>3</Col>

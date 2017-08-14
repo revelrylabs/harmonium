@@ -10,6 +10,13 @@
   &.rev-Row--flex,
   &.rev-Row--smallFlex, {
     display: flex;
+    flex-flow: row wrap;
+    .rev-Col {
+      flex: 1 1 0px;
+    }
+    .shrink {
+      flex: 0 0 auto;
+    }
   }
   &.rev-Row--unflex,
   &.rev-Row--smallUnflex {
@@ -32,6 +39,9 @@
       padding-left: $grid-column-padding;
       padding-right: $grid-column-padding;
     }
+  }
+  &.rev-Row--right {
+    justify-content: flex-end;
   }
   @include breakpoint($medium)  {
     &.rev-Row--mediumFlex {
@@ -133,6 +143,8 @@
 
 // COLUMNS
 .rev-Col {
+  flex-grow: 1;
+  flex-shrink: 0;
   float: left;
   padding: 0 $grid-column-padding;
   position: relative;
@@ -150,6 +162,15 @@
 .rev-Col--Uncentered,
 .rev-Col--smallUncentered {
   float: left;
+}
+.rev-Col--bottom {
+  align-self: flex-end;
+}
+.rev-Col--middle {
+  align-self: center;
+}
+.rev-Col--top {
+  align-self: flex-start;
 }
 
 @for $i from 1 through $grid-columns {
