@@ -1,48 +1,12 @@
-// Breakpoint Mediaqueries
-
-// you can add any breakpoint vars you want
-// if only 1 value is given, it will compile to a min-width media query
-// if 2 values are given, it will compile to a min-width max-width media query
-$small: 0px;
-$medium: 640px;
-$large: 1024px;
-$xlarge: 1200px;
-$xxlarge: 1440px;
-
-// Global Padding
-$global-padding-tiny: 0.5rem;
-$global-padding-small: 1rem;
-$global-padding: 2rem;
-$global-padding-medium: 3rem;
-$global-padding-large: 4rem;
-$global-padding-larger: 6rem;
-$global-padding-largest: 8rem;
-$global-padding-jumbo: 10rem;
-
-// Global Margin
-// $global-margin-tiny: $global-padding-tiny;
-$global-margin-small: $global-padding-small;
-$global-margin: $global-padding;
-$global-margin-medium: $global-padding-medium;
-$global-margin-large: $global-padding-large;
-// $global-margin-larger: $global-padding-larger;
-// $global-margin-largest: $global-padding-largest;
-// $global-margin-jumbo: $global-padding-jumbo;
-
-// Global Width
-$global-width: $large;
-$grid-columns: 12;
-
-// Grid
-$grid-row-width: $global-width;
-$grid-gutter: $global-padding-large;
-$grid-column-padding: calc(#{$grid-gutter} / 2);
+// IMPORT FONTS HERE
 
 // Global Fonts
 $global-monospace-font: 'Montserrat', sans-serif;
 $global-serif-font: 'Georgia', serif;
 $global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 
+// we use the global-font-sizes for typographic utilities
+// AND to determine vertical spacing
 $global-font-size-tiny: 1rem;
 $global-font-size-small: 1.2rem;
 $global-font-size: 1.6rem;
@@ -54,15 +18,46 @@ $global-weight-normal: 400;
 $global-weight-bold: 700;
 $global-lineheight: 1.375;
 
-$global-radius: 2px;
-$global-rounded: 100000px;
-$global-box-shadow: 0 1px 6px 0 $black-15;
+// Breakpoint Mediaqueries
+// you can add any breakpoint vars you want
+// if only 1 value is given, it will compile to a min-width media query
+// if 2 values are given, it will compile to a min-width max-width media query
+$small: 0px;
+$medium: 640px;
+$large: 1024px;
+$xlarge: 1200px;
+$xxlarge: 1440px;
 
-$disabled-opacity: 0.25;
+// Global Width
+$global-width: $large;
+$grid-columns: 12;
 
 // Spacing
 $global-vertical-space: $global-font-size * $global-lineheight;
 $global-horizontal-space: 2rem;
+// ^ by default, global padding, margin, and grid padding based on this value
+
+// Global Padding
+$global-padding-small: calc(#{$global-horizontal-space} / 2);
+$global-padding: $global-horizontal-space;
+$global-padding-medium: calc(#{$global-horizontal-space} * 1.5);
+$global-padding-large: calc(#{$global-horizontal-space} * 2);
+
+// Global Margin
+$global-margin-small: $global-padding-small;
+$global-margin: $global-padding;
+$global-margin-medium: $global-padding-medium;
+$global-margin-large: $global-padding-large;
+
+// Grid
+$grid-row-width: $global-width;
+$grid-column-padding: $global-horizontal-space;
+$grid-gutter: calc(#{$grid-column-padding} * 2);
+
+$global-radius: 2px;
+$global-rounded: 100000px;
+$global-box-shadow: 0 1px 6px 0 $black-15;
+
 
 // Body Vars
 $body-background: $white;
@@ -81,7 +76,7 @@ $subheader-font-weight: $global-weight-normal;
 
 // Paragraph Vars
 $paragraph-lineheight: $global-lineheight;
-$paragraph-margin-bottom: $global-margin;
+$paragraph-margin-bottom: $global-vertical-space;
 $paragraph-text-rendering: optimizeLegibility;
 
 // Anchor Vars
@@ -98,3 +93,5 @@ $hr-margin: $global-padding-large auto;
 // Image Blur
 $image-blur: blur(8px);
 $no-image-blur: blur(0px);
+
+$disabled-opacity: 0.25;
