@@ -17,8 +17,6 @@
   }
   &.rev-Row--collapse,
   &.rev-Row--smallCollapse {
-    padding-left: $grid-column-padding;
-    padding-right: $grid-column-padding;
     > .rev-Col {
       padding-left: 0;
       padding-right: 0;
@@ -26,8 +24,6 @@
   }
   &.rev-Row--uncollapse,
   &.rev-Row--smallUncollapse {
-    padding-left: 0;
-    padding-right: 0;
     > .rev-Col {
       padding-left: $grid-column-padding;
       padding-right: $grid-column-padding;
@@ -41,16 +37,12 @@
       display: block;
     }
     &.rev-Row--mediumCollapse {
-      padding-left: $grid-column-padding;
-      padding-right: $grid-column-padding;
       > .rev-Col {
         padding-left: 0;
         padding-right: 0;
       }
     }
     &.rev-Row--mediumUncollapse {
-      padding-left: 0;
-      padding-right: 0;
       > .rev-Col {
         padding-left: $grid-column-padding;
         padding-right: $grid-column-padding;
@@ -65,16 +57,12 @@
       display: block;
     }
     &.rev-Row--largeCollapse {
-      padding-left: $grid-column-padding;
-      padding-right: $grid-column-padding;
       > .rev-Col {
         padding-left: 0;
         padding-right: 0;
       }
     }
     &.rev-Row--largeUncollapse {
-      padding-left: 0;
-      padding-right: 0;
       > .rev-Col {
         padding-left: $grid-column-padding;
         padding-right: $grid-column-padding;
@@ -89,16 +77,12 @@
       display: block;
     }
     &.rev-Row--xlargeCollapse {
-      padding-left: $grid-column-padding;
-      padding-right: $grid-column-padding;
       > .rev-Col {
         padding-left: 0;
         padding-right: 0;
       }
     }
     &.rev-Row--xlargeUncollapse {
-      padding-left: 0;
-      padding-right: 0;
       > .rev-Col {
         padding-left: $grid-column-padding;
         padding-right: $grid-column-padding;
@@ -113,16 +97,12 @@
       display: block;
     }
     &.rev-Row--xxlargeCollapse {
-      padding-left: $grid-column-padding;
-      padding-right: $grid-column-padding;
       > .rev-Col {
         padding-left: 0;
         padding-right: 0;
       }
     }
     &.rev-Row--xxlargeUncollapse {
-      padding-left: 0;
-      padding-right: 0;
       > .rev-Col {
         padding-left: $grid-column-padding;
         padding-right: $grid-column-padding;
