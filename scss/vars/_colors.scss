@@ -56,6 +56,19 @@ $muted: $lighter-gray;
 $very-muted: $lightest-gray;
 $disabled: $lighter-gray;
 
+@mixin color-stack($bg) {
+  background-color: $bg;
+  @if lightness($bg) < lightness(#888) {
+    color: $body-bkgd;
+    a {
+      color: $body-bkgd;
+    }
+  }
+  @else {
+    color: $body-font-color;
+  }
+}
+
 @mixin body-color-stack {
   background-color: $body-bkgd;
   color: $body-font-color;

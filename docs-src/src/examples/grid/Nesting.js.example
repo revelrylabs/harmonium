@@ -1,9 +1,9 @@
-<Row>
+<Row className="ColumnExamples">
   <Col small={8}>8
     <Row>
-      <Col small={8}>8 Nested
+      <Col small={8}>8
         <Row>
-          <Col small={8}>8 Nested Again</Col>
+          <Col small={8}>8</Col>
           <Col small={4}>4</Col>
         </Row>
       </Col>

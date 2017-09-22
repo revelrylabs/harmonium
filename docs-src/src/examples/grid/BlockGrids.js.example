@@ -1,20 +1,20 @@
-<Row smallUp={1} mediumUp={2} largeUp={4}>
+<Row smallUp={1} mediumUp={2} largeUp={4} className="ColumnExamples">
   <Col>
-    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+    <img src="//placekitten.com/g/300/300" className="thumbnail" alt="" />
   </Col>
   <Col>
-    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+    <img src="//placekitten.com/g/300/300" className="thumbnail" alt="" />
   </Col>
   <Col>
-    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+    <img src="//placekitten.com/g/300/300" className="thumbnail" alt="" />
   </Col>
   <Col>
-    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+    <img src="//placekitten.com/g/300/300" className="thumbnail" alt="" />
   </Col>
   <Col>
-    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+    <img src="//placekitten.com/g/300/300" className="thumbnail" alt="" />
   </Col>
   <Col>
-    <img src="//placehold.it/300x300" className="thumbnail" alt="" />
+    <img src="//placekitten.com/g/300/300" className="thumbnail" alt="" />
   </Col>
 </Row>

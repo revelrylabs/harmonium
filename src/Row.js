@@ -24,6 +24,7 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   middle: ['align-middle', 'rev-Row--middle'],
   bottom: ['align-bottom', 'rev-Row--bottom'],
   stretch: ['align-stretch', 'rev-Row--stretch'],
+  flex: ['rev-Row--flex'],
 }
 
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
