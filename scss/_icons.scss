@@ -9,7 +9,7 @@
   font-style: normal;
 }
 
-[class^='icon-'], [class*=' icon-'] {
+@mixin icon {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
   speak: none;
@@ -22,6 +22,10 @@
   /* Better Font Rendering =========== */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+[class^='icon-'], [class*=' icon-'] {
+  @include icon;
 }
 
 .icon-add:before {
