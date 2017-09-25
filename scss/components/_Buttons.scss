@@ -41,14 +41,7 @@ $closebutton-size: $global-font-size;
     font-size: $global-font-size-small;
     // Margins set so the resulting button will be 4 ver units high
     margin-top: ($global-font-size - $global-font-size-small) / 2;
-    margin-bottom: ($global-font-size - $global-font-size-small) / 2;
-  }
-  &.rev-Button--tiny {
-    font-size: $global-font-size-small;
-    line-height: 1.85;
-    margin-bottom: 1.1rem;
-    margin-top: 1.1rem;
-    padding: $global-padding-small;
+    margin-bottom: $global-vertical-space + ($global-font-size - $global-font-size-small) / 2;
   }
   &.rev-Button--primary {
     background: $primary-color;

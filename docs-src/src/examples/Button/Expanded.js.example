@@ -1,5 +1,4 @@
 <div>
-  <Button expanded tiny>expanded tiny</Button>
   <Button expanded small>expanded small</Button>
   <Button expanded>expanded</Button>
   <Button expanded large>expanded large</Button>

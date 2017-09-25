@@ -1,5 +1,4 @@
 <div>
-  <Button tiny>tiny</Button>
   <Button small>small</Button>
   <Button>(default)</Button>
   <Button large>large</Button>
