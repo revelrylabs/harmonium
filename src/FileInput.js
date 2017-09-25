@@ -6,6 +6,7 @@ import Button from './Button'
 import InputLabel from './InputLabel'
 import InputErrors from './InputErrors'
 import InputHelpText from './InputHelpText'
+import {Col, Row} from './grid'
 
 export default class FileInput extends Component {
 
@@ -38,15 +39,23 @@ export default class FileInput extends Component {
 
     return (
       <InputGroup className={inputGroupClassName}>
-        <InputGroup.Field>
-          <InputGroup.Label className="rev-FileInput-label">{filePath || placeholder}</InputGroup.Label>
-        </InputGroup.Field>
-        <InputGroup.Button>
-          <Button tag="label" className="rev-FileInput-button">
-            {button}
-            <input {...props} type="file" className="show-for-sr" onChange={this.onChange} />
-          </Button>
-        </InputGroup.Button>
+        <Row>
+          <Col medium={6} className="rev-Col--collapse">
+            <InputGroup.Button>
+              <Button tag="label" className="rev-FileInput-button" expanded>
+                {button}
+                <input {...props} type="file" className="u-showForSR" onChange={this.onChange} />
+              </Button>
+            </InputGroup.Button>
+          </Col>
+          <Col medium={6} className="rev-Col--collapse rev-Col--mediumUncollapse">
+            <div className="rev-FileInput-fileLabel">
+              <InputGroup.Field>
+                <InputGroup.Label className="rev-FileInput-label">{filePath || placeholder}</InputGroup.Label>
+              </InputGroup.Field>
+            </div>
+          </Col>
+        </Row>
       </InputGroup>
     )
   }

@@ -9,7 +9,7 @@ const examples = {
 
 export default class ExpandingColExamplePage extends Component {
   render() {
-    return <div>
+    return <div className="ColumnExamples">
       <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
     </div>
   }

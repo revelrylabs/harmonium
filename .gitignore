@@ -6,3 +6,4 @@ docs/**/*
 npm-debug.log
 /.nyc_output/*
 /coverage/*
+docs-src/package-lock.json

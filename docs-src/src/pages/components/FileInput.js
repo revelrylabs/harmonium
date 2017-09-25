@@ -3,7 +3,7 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 
 const examples = {
-  'FileInput': require('raw!../../examples/FileInput.js.example')
+  'File Input': require('raw!../../examples/FileInput.js.example')
 }
 
 export default class FileInputExamplePage extends Component {

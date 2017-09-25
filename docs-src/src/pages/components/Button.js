@@ -10,6 +10,7 @@ const examples = {
   'Expanded': require('raw!../../examples/Button/Expanded.js.example'),
   'Button with Form Attributes': require('raw!../../examples/Button/FormAttributes.js.example'),
   'Buttons with href prop become anchor links': require('raw!../../examples/Button/LinkButton.js.example'),
+  'Button Group': require('raw!../../examples/ButtonGroup.js.example'),
 }
 
 export default class ButtonExamplePage extends Component {

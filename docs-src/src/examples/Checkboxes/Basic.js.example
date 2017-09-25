@@ -1,0 +1,9 @@
+<div>
+  <Checkbox name="singular" defaultValue="1" label="One" />
+  <Checkbox
+    name="singular"
+    defaultValue="3"
+    label="Has error"
+    error
+  />
+</div>

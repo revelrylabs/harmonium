@@ -1,0 +1,11 @@
+.rev-CheckableFieldset {
+  margin-bottom: $global-vertical-space;
+  // Makes the fieldset, with the border, a multiple of the vertical rhythm unit
+  padding: calc(#{$global-vertical-space} - 0.5px) $global-horizontal-space;
+}
+.rev-Checkbox {
+  display: block;
+  .rev-Checkbox-input {
+    margin-right: $global-horizontal-space / 2;
+  }
+}
