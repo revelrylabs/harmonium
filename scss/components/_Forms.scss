@@ -36,7 +36,7 @@ $error-color: $warning;
 
 .rev-InputLabel {
   font-size: $label-font-size;
-  margin: 0 0 $global-padding;
+  margin: 0 0 $global-vertical-space;
 }
 .rev-LabelText,
 .rev-Checkbox-label,
@@ -67,5 +67,6 @@ $error-color: $warning;
   display: block;
   font-size: $global-font-size-small;
   font-style: normal;
+  line-height: 1.85;
   margin: 0;
 }

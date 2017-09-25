@@ -20,14 +20,12 @@ $closebutton-size: $global-font-size;
   border-radius: $button-radius;
   color: $button-color;
   cursor: pointer;
+  display: inline-block;
   font-size: $global-font-size;
   font-weight: $global-weight-bold;
   line-height: $global-lineheight;
-  margin: $global-padding auto;
-  padding: $global-padding;
-  @include breakpoint($medium) {
-    padding: $global-padding $global-padding-large;
-  }
+  margin: 0 auto $global-vertical-space;
+  padding: $global-vertical-space $global-horizontal-space;
   &:hover,
   &:active,
   &:focus {
@@ -36,13 +34,20 @@ $closebutton-size: $global-font-size;
   }
   &.rev-Button--large {
     font-size: $global-font-size-large;
-    padding: $global-padding $global-padding-large;
+    line-height: ($global-font-size-large / $global-font-size) * 1.1;
+    padding: 1.5 * $global-vertical-space 2 * $global-horizontal-space;
   }
   &.rev-Button--small {
     font-size: $global-font-size-small;
+    // Margins set so the resulting button will be 4 ver units high
+    margin-top: ($global-font-size - $global-font-size-small) / 2;
+    margin-bottom: ($global-font-size - $global-font-size-small) / 2;
   }
   &.rev-Button--tiny {
     font-size: $global-font-size-small;
+    line-height: 1.85;
+    margin-bottom: 1.1rem;
+    margin-top: 1.1rem;
     padding: $global-padding-small;
   }
   &.rev-Button--primary {

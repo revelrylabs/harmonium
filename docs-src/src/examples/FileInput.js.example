@@ -1,18 +1,7 @@
-<div>
-  <FileInput />
-  <FileInput button={<Icon i="upload" />} />
-  <FileInput placeholder="placeholder + error" error />
-  <FileInput.Stack
-    label="This is the label."
-    help="This is help text."
-    placeholder="The placeholder passes through."
-    button="Yay!"
-  />
-  <FileInput.Stack
-    label="This is the label."
-    help="This is help text."
-    error="This is an error."
-    placeholder="The placeholder passes through."
-    button="Yay!"
-  />
-</div>
+<FileInput.Stack
+  label="File Input:"
+  help="This is help text."
+  error="This is an error."
+  placeholder="Select file"
+  button="Click Here to Pick File"
+/>

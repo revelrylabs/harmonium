@@ -16,9 +16,7 @@ export default function Navigation() {
           <h3>Forms</h3>
           <Menu nested>
             <Menu.Item><Link to="/components/Button/">Button</Link></Menu.Item>
-            <Menu.Item><Link to="/components/ButtonGroup/">Button Group</Link></Menu.Item>
-            <Menu.Item><Link to="/components/CheckableFieldset/">Checkable Fieldset</Link></Menu.Item>
-            <Menu.Item><Link to="/components/Checkbox/">Checkbox</Link></Menu.Item>
+            <Menu.Item><Link to="/components/Checkbox/">Checkboxes and Fieldsets</Link></Menu.Item>
             <Menu.Item><Link to="/components/FileInput/">File Input</Link></Menu.Item>
             <Menu.Item><Link to="/components/Input/">Input</Link></Menu.Item>
             <Menu.Item><Link to="/components/InputGroup/">Input Group</Link></Menu.Item>

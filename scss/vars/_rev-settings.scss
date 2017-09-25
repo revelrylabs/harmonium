@@ -38,7 +38,7 @@ $global-horizontal-space: 2rem;
 // ^ by default, global padding, margin, and grid padding based on this value
 
 // Global Padding
-$global-padding-small: calc(#{$global-horizontal-space} / 2);
+$global-padding-small: calc(#{$global-vertical-space} / 2);
 $global-padding: $global-horizontal-space;
 $global-padding-medium: calc(#{$global-horizontal-space} * 1.5);
 $global-padding-large: calc(#{$global-horizontal-space} * 2);

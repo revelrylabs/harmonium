@@ -1,5 +1,5 @@
 <ButtonGroup>
   <Button>one</Button>
   <Button secondary>two</Button>
-  <Button success>three</Button>
+  <Button warning>three</Button>
 </ButtonGroup>
