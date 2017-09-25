@@ -1,10 +1,10 @@
-<Row>
-  <ExpandingCol.Stateful small={3}>
+<Row flex>
+  <ExpandingCol.Stateful small={6} shrink>
     <Callout primary>
       This state will be shown or hidden with the buttons.
     </Callout>
   </ExpandingCol.Stateful>
-  <Col small={9}>
+  <Col>
     This is outside the expander.
   </Col>
 </Row>

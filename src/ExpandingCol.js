@@ -19,8 +19,8 @@ export class ExpandingColStateContainer extends React.Component {
     // intentionally blank to override the 'expanderless' class of the stateless
     // version of the component
     className: '',
-    closer: <Button className="rev-ExpandingCol-closer secondary" icon="minus" />,
-    expander: <Button className="rev-ExpandingCol-expander secondary" icon="plus" />,
+    closer: <Button className="rev-ExpandingCol-closer rev-Button rev-Button--primary rev-Button--hollow">-</Button>,
+    expander: <Button className="rev-ExpandingCol-expander rev-Button rev-Button--primary rev-Button--hollow">+</Button>,
   }
 
   constructor(props) {
@@ -84,6 +84,6 @@ export default class ExpandingCol extends React.Component {
   }
 }
 
-exports.ExpandingCol = ExpandingCol
-exports.Stateful = ExpandingColStateContainer
-exports.ExpandingColStateContainer = ExpandingColStateContainer
+ExpandingCol.ExpandingCol = ExpandingCol
+ExpandingCol.Stateful = ExpandingColStateContainer
+ExpandingCol.ExpandingColStateContainer = ExpandingColStateContainer

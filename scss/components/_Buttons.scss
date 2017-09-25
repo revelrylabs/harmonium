@@ -22,6 +22,7 @@ $closebutton-size: $global-font-size;
   cursor: pointer;
   font-size: $global-font-size;
   font-weight: $global-weight-bold;
+  line-height: $global-lineheight;
   margin: $global-padding auto;
   padding: $global-padding;
   @include breakpoint($medium) {

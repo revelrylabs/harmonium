@@ -13,6 +13,12 @@ $expanding-col-button-width: 2.6rem;
   &:focus {
     outline: 0;
   }
+  margin: 0;
+  padding: 0 $global-horizontal-space / 4 $global-vertical-space $global-horizontal-space / 4;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 1 * $global-horizontal-space;
   // Some breakpoints have different column gutter widths, so adjust the edge
   // of the button to match-- with one rule per breakpoint
   /*@each $breakpoint, $value in $grid-column-padding {
@@ -38,7 +44,7 @@ $expanding-col-button-width: 2.6rem;
   transition: max-width $expanding-col-transition-time;
   transition-timing-function: $expanding-col-transition-timing-function;
   &.is-closed {
-    max-width: 4.5rem;
+    max-width: 0;
     // Some breakpoints have different column gutter widths, so the closed width
     // needs to be that gutter, plus the width of the button. Note, the gutter
     // value is the total gutter for both sides
@@ -59,12 +65,6 @@ $expanding-col-button-width: 2.6rem;
   }
 }
 .rev-ExpandingCol-pane-content {
-  // The expander button will be between the content area and the next column
-  // as a sort of "tab"
-  margin-right: $expanding-col-button-width;
-  // So that when this is collapsed, if there is content which has padding or
-  // margins, it will still be hidden (otherwise, this forces a width and can
-  // make content appear)
   overflow-x: hidden;
   .rev-ExpandingCol--expanderless & {
     // With no button, we only need a "one pixel" margin. Why not zero?
