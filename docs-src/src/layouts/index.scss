@@ -37,7 +37,9 @@
 }
 .playgroundPreview--FakeViewportContainer {
   .playgroundPreview {
-    background: $light-gray;
+    background: url('https://3ulsmb4eg8vz37c0vz2si64j-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/75ff3f3c-4aa5-11e6-9c23-4491699777fe.jpg');
+    background-position: center;
+    background-size: cover;
     min-height: 320px;
     min-width: 320px;
     transform: scale(1.0);
@@ -57,7 +59,7 @@
     text-align: center;
     background-clip: content-box;
     position: relative;
-    // All of this is a way to put an outline-esque border on the left and 
+    // All of this is a way to put an outline-esque border on the left and
     // right edge without taking up space (doing it this way, because outline
     // can't be applied to only left and right).
     // If we just put left and right borders, it can cause weird overflows
@@ -76,14 +78,14 @@
       border-right: 1px dashed $gray;
     }
   }
-  // Throw some grayscale colors on the grid columns to show what space they 
+  // Throw some grayscale colors on the grid columns to show what space they
   // occupy
   .columns:nth-child(6n+1) {
     @include color-stack($gray);
   }
   .columns:nth-child(6n+2) {
     @include color-stack($black);
-    
+
   }
   .columns:nth-child(6n+3) {
     @include color-stack($darker-gray);

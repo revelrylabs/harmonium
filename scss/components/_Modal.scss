@@ -1,39 +1,41 @@
-.rev-Modal {
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$modal-bkgd: $black-40 !default;
+$modal-content-bkgd: $white !default;
+$modal-content-border-size: 1px !default;
+$modal-content-border-color: $divider-color !default;
+$modal-content-color: $body-font-color !default;
+$modal-content-padding: 0 !default;
+
+.rev-Modal,
+.rev-Modal-background {
+  background: $modal-bkgd;
   bottom: 0;
   left: 0;
   overflow-y: auto;
-  padding: 0;
   position: fixed;
   right: 0;
   top: 0;
-  z-index: 1000;
 }
-
+.rev-Modal {
+  @include flex(center, row, center, nowrap);
+  z-index: $above-most;
+}
 .rev-Modal-background {
-  background-color: $black;
-  bottom: 0;
-  left: 0;
-  opacity: 0.5;
-  position: fixed;
-  right: 0;
-  top: 0;
+  background: $modal-bkgd;
 }
-
 .rev-Modal-content {
-  background-color: $white;
-  left: 10%;
-  max-height: 80%;
-  max-width: 80%;
-  opacity: 1;
-  overflow: auto;
-  padding: 2rem;
-  position: absolute;
-  top: 10%;
+  background: $modal-content-bkgd;
+  color: $modal-content-color;
+  max-width: $global-width;
+  padding: $modal-content-padding;
+  position: relative;
+  width: 90%;
 }
 
 .rev-Modal-close {
   font-size: $global-font-size-large;
-  font-weight: bold;
   position: absolute;
   right: $global-padding;
   top: $global-padding;

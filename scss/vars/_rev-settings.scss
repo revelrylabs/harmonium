@@ -56,7 +56,7 @@ $grid-gutter: calc(#{$grid-column-padding} * 2);
 
 $global-radius: 2px;
 $global-rounded: 100000px;
-$global-box-shadow: 0 1px 6px 0 $black-15;
+$global-box-shadow: 0 1px 6px 0 $black-20;
 
 
 // Body Vars
@@ -96,20 +96,32 @@ $no-image-blur: blur(0px);
 
 $disabled-opacity: 0.25;
 
-// CONTAINERS
-// Accordions
-/*$accordion-border-size: 1px;*/
-/*$accordion-border-color: $divider-color;*/
-/*$accordion-title-bkgd: $white;*/
-/*$accordion-title-color: $primary;*/
-/*$accordion-title-bkgd-hover: darken($accordion-title-bkgd, 5%);*/
-/*$accordion-title-color-hover: $accordion-title-color-hover;*/
-/*$accordion-title-bkgd-active: darken($accordion-title-bkgd, 5%);*/
-/*$accordion-title-color-active: $accordion-title-color;*/
 
-// Callouts
-/*$callout-bkgd: $white;*/
-/*$callout-border-size: 1px;*/
-/*$callout-border-color: $divider-color;*/
-/*$callout-color: $body-font-color;*/
-/*$callout-padding: $global-vertical-space $global-horizontal-space;*/
+//** Component Vars are commented out here because each compnent has its !default vars set at the top of the component stylesheet. If vars need to be updated, you can uncomment them below and make your changes. Vars below will always override the !default vars in the component stylesheets
+
+//## CONTAINERS -----------------------------
+
+//## Accordions
+//$accordion-border-size: 1px;
+//$accordion-border-color: $divider-color;
+//$accordion-title-bkgd: $white;
+//$accordion-title-color: $primary;
+//$accordion-title-bkgd-hover: darken($accordion-title-bkgd, 5%);
+//$accordion-title-color-hover: $accordion-title-color-hover;
+//$accordion-title-bkgd-active: darken($accordion-title-bkgd, 5%);
+//$accordion-title-color-active: $accordion-title-color;
+
+//## Callouts
+// $callout-bkgd: $white;
+// $callout-border-size: 1px;
+// $callout-border-color: $divider-color;
+// $callout-color: $body-font-color;
+// $callout-padding: $global-vertical-space $global-horizontal-space;
+
+//## Modals
+// $modal-bkgd: $black-40;
+// $modal-content-bkgd: $white;
+// $modal-content-border-size: 1px;
+// $modal-content-border-color: $divider-color;
+// $modal-content-color: $body-font-color;
+// $modal-content-padding: 0;
