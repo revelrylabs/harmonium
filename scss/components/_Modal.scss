@@ -5,6 +5,7 @@ $modal-bkgd: $black-40 !default;
 $modal-content-bkgd: $white !default;
 $modal-content-border-size: 1px !default;
 $modal-content-border-color: $divider-color !default;
+$modal-content-box-shadow: $global-box-shadow !default;
 $modal-content-color: $body-font-color !default;
 $modal-content-padding: 0 !default;
 
@@ -27,6 +28,7 @@ $modal-content-padding: 0 !default;
 }
 .rev-Modal-content {
   background: $modal-content-bkgd;
+  box-shadow: $global-box-shadow;
   color: $modal-content-color;
   max-width: $global-width;
   padding: $modal-content-padding;
