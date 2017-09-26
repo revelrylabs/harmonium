@@ -5,6 +5,7 @@ $button-border: 0;
 $button-color: $white;
 $button-color-hover: $white;
 $button-radius: 0;
+$button-padding: $global-vertical-space $global-horizontal-space;
 $button-opacity-disabled: $disabled-opacity;
 
 // CLOSE BUTTON
@@ -22,10 +23,9 @@ $closebutton-size: $global-font-size;
   cursor: pointer;
   display: inline-block;
   font-size: $global-font-size;
-  font-weight: $global-weight-bold;
   line-height: $global-lineheight;
   margin: 0 auto $global-vertical-space;
-  padding: $global-vertical-space $global-horizontal-space;
+  padding: $button-padding;
   &:hover,
   &:active,
   &:focus {
