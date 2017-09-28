@@ -28,7 +28,7 @@
     "node-sass": "^4.5.3",
     "node-static": "^0.7.9",
     "prop-types": "^15.5.7",
-    "react": ">=15.3.0",
+    "react": "^15.3",
     "react-dom": ">=15.3.0",
     "sassy-npm-importer": "^2.1.0",
     "source-map-support": "^0.4.15",
