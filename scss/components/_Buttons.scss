@@ -13,6 +13,14 @@ $closebutton-color-hover: $black;
 $closebutton-lineheight: $global-lineheight;
 $closebutton-size: $global-font-size;
 
+@mixin small-input {
+  font-size: $global-font-size-small;
+  line-height: $global-lineheight * $global-font-size;
+  // Margins set so the resulting button will be 4 ver units high
+  margin-bottom: $global-vertical-space;
+  padding: $global-vertical-space / 2 $global-horizontal-space;
+}
+
 .rev-Button {
   @include global-transition;
   background: $button-bkgd;
@@ -38,10 +46,7 @@ $closebutton-size: $global-font-size;
     padding: 1.5 * $global-vertical-space 2 * $global-horizontal-space;
   }
   &.rev-Button--small {
-    font-size: $global-font-size-small;
-    // Margins set so the resulting button will be 4 ver units high
-    margin-top: ($global-font-size - $global-font-size-small) / 2;
-    margin-bottom: $global-vertical-space + ($global-font-size - $global-font-size-small) / 2;
+    @include small-input;
   }
   &.rev-Button--primary {
     background: $primary-color;

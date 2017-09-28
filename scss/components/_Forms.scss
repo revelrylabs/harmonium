@@ -1,7 +1,10 @@
 $input-height: 44px;
 $input-bkgd: transparent;
 $input-bkgd-focus: $input-bkgd;
-$input-border: 1px solid $divider-color;
+$input-border-width: 1px;
+$input-border-style: solid;
+$input-border-color: $divider-color;
+$input-border: $input-border-width $input-border-style $input-border-color;
 $input-border-focus: 1px solid darken($divider-color, 5%);
 $input-box-shadow: none;
 $input-box-shadow-focus: $input-box-shadow;
@@ -12,6 +15,7 @@ $input-font-size: $global-font-size;
 $label-color: $gray;
 $label-font-size: $global-font-size;
 $error-color: $warning;
+$input-margin-bottom: $global-vertical-space;
 
 @mixin input-style {
   @include global-transition;
@@ -23,7 +27,7 @@ $error-color: $warning;
   color: $input-color;
   display: block;
   font-size: $input-font-size;
-  margin: 0;
+  margin: 0 0 $input-margin-bottom;
   padding: 0;
   &:active,
   &:focus {
@@ -35,8 +39,15 @@ $error-color: $warning;
 }
 
 .rev-InputLabel {
+  display: block;
   font-size: $label-font-size;
-  margin: 0 0 $global-vertical-space;
+  margin: 0 0 $input-margin-bottom;
+  .rev-Button,
+  .rev-Input,
+  .rev-FileInput-fileLabel,
+  .rev-InputGroup .rev-InputGroup-label {
+    margin-bottom: 0;
+  }
 }
 .rev-LabelText,
 .rev-Checkbox-label,
@@ -48,7 +59,7 @@ $error-color: $warning;
 .rev-Input {
   @include input-style;
   height: $input-height;
-  padding: 0 $global-padding-small;
+  padding: 0 calc(#{$global-horizontal-space} - #{$input-border-width});
 }
 .rev-Select {
   @include input-style;
