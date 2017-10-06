@@ -28,6 +28,7 @@ $input-margin-bottom: $global-vertical-space;
   display: block;
   font-size: $input-font-size;
   margin: 0 0 $input-margin-bottom;
+  max-width: 100%;
   padding: 0;
   &:active,
   &:focus {
@@ -35,6 +36,9 @@ $input-margin-bottom: $global-vertical-space;
     border: $input-border-focus;
     box-shadow: $input-box-shadow-focus;
     color: $input-color-focus;
+  }
+  &--expanded {
+    width: 100%;
   }
 }
 
@@ -64,8 +68,24 @@ $input-margin-bottom: $global-vertical-space;
 .rev-Select {
   @include input-style;
   height: $input-height;
-  padding: 0 $global-padding-small 0 0;
+  padding: 0 calc(#{$global-horizontal-space} - #{$input-border-width});
   -webkit-border-radius: 0;
+  .rev-InputGroup &,
+  &--unrounded {
+    border: 0;
+    height: calc(#{$input-height} - #{$input-border-width * 2});
+    margin-left: 1px;
+    margin-right: 1px;
+    outline: $input-border;
+    position: relative;
+    top: $input-border-width;
+    &:focus {
+      border: 0;
+      border-radius: 0;
+      outline: $input-border-focus;
+      outline-offset: 0;
+    }
+  }
 }
 .rev-Textarea {
   @include input-style;
