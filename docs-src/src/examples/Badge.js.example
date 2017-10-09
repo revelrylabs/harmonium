@@ -1,9 +1,10 @@
 <div>
-  <Badge>1</Badge>
+  <Badge>Default</Badge>
+  <Badge primary>1</Badge>
   <Badge secondary>2</Badge>
-  <Badge warning>3</Badge>
-  <Badge success>4</Badge>
-  <Badge alert>5</Badge>
-  <Badge icon="home" />
-  <Badge warning icon="home">ERROR</Badge>
+  <Badge tertiary>3</Badge>
+  <Badge accent>4</Badge>
+  <Badge warning>5</Badge>
+  <Badge success>6</Badge>
+  <Badge alert>7</Badge>
 </div>

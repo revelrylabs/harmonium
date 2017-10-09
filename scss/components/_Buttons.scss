@@ -44,102 +44,102 @@ $closebutton-size: $global-font-size;
     margin-bottom: $global-vertical-space + ($global-font-size - $global-font-size-small) / 2;
   }
   &.rev-Button--primary {
-    background: $primary-color;
+    background: $primary;
     &:hover,
     &:active,
     &:focus {
-      background: darken($primary-color, 10%);
+      background: darken($primary, 10%);
     }
     &.rev-Button--hollow {
       background: transparent;
-      border-color: $primary-color;
-      color: $primary-color;
+      border-color: $primary;
+      color: $primary;
       &:hover,
       &:active,
       &:focus {
         background: transparent;
-        border-color: darken($primary-color, 10%);
-        color: darken($primary-color, 10%);
+        border-color: darken($primary, 10%);
+        color: darken($primary, 10%);
       }
     }
   }
   &.rev-Button--secondary {
-    background: $secondary-color;
+    background: $secondary;
     &:hover,
     &:active,
     &:focus {
-      background: darken($secondary-color, 10%);
+      background: darken($secondary, 10%);
     }
     &.rev-Button--hollow {
       background: transparent;
-      border-color: $secondary-color;
-      color: $secondary-color;
+      border-color: $secondary;
+      color: $secondary;
       &:hover,
       &:active,
       &:focus {
         background: transparent;
-        border-color: darken($secondary-color, 10%);
-        color: darken($secondary-color, 10%);
+        border-color: darken($secondary, 10%);
+        color: darken($secondary, 10%);
       }
     }
   }
   &.rev-Button--success {
-    background: $success-color;
+    background: $success;
     &:hover,
     &:active,
     &:focus {
-      background: darken($success-color, 10%);
+      background: darken($success, 10%);
     }
     &.rev-Button--hollow {
       background: transparent;
-      border-color: $success-color;
-      color: $success-color;
+      border-color: $success;
+      color: $success;
       &:hover,
       &:active,
       &:focus {
         background: transparent;
-        border-color: darken($success-color, 10%);
-        color: darken($success-color, 10%);
+        border-color: darken($success, 10%);
+        color: darken($success, 10%);
       }
     }
   }
   &.rev-Button--alert {
-    background: $alert-color;
+    background: $alert;
     &:hover,
     &:active,
     &:focus {
-      background: darken($alert-color, 10%);
+      background: darken($alert, 10%);
     }
     &.rev-Button--hollow {
       background: transparent;
-      border-color: $alert-color;
-      color: $alert-color;
+      border-color: $alert;
+      color: $alert;
       &:hover,
       &:active,
       &:focus {
         background: transparent;
-        border-color: darken($alert-color, 10%);
-        color: darken($alert-color, 10%);
+        border-color: darken($alert, 10%);
+        color: darken($alert, 10%);
       }
     }
   }
   &.rev-Button--warning {
-    background: $warning-color;
+    background: $warning;
     &:hover,
     &:active,
     &:focus {
-      background: darken($warning-color, 10%);
+      background: darken($warning, 10%);
     }
     &.rev-Button--hollow {
       background: transparent;
-      border-color: $warning-color;
-      color: $warning-color;
+      border-color: $warning;
+      color: $warning;
       &:hover,
       &:active,
       &:focus {
         background: transparent;
-        border-color: darken($warning-color, 10%);
-        color: darken($warning-color, 10%);
+        border-color: darken($warning, 10%);
+        color: darken($warning, 10%);
       }
     }
   }

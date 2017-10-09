@@ -80,9 +80,9 @@ $paragraph-margin-bottom: $global-vertical-space;
 $paragraph-text-rendering: optimizeLegibility;
 
 // Anchor Vars
-$anchor-color: $primary-color;
-$anchor-color-hover: darken($primary-color, 10%);
-$anchor-color-active: darken($primary-color, 10%);
+$anchor-color: $primary;
+$anchor-color-hover: darken($primary, 10%);
+$anchor-color-active: darken($primary, 10%);
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 
@@ -141,3 +141,5 @@ $disabled-opacity: 0.25;
 //$tabs-title-link-color-active: $anchor-color-hover !default;
 //$tabs-title-link-padding: $global-vertical-space $global-horizontal-space !default;
 //$tabs-content-padding: $global-vertical-space 0 !default;
+
+//## Badges

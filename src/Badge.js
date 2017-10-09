@@ -4,10 +4,13 @@ import classNames from 'classnames'
 import Icon from './Icon'
 
 const PROP_NAME_TO_CLASS_NAME = {
-  secondary: ['secondary', 'rev-Badge--secondary'],
-  alert: ['alert', 'rev-Badge--alert'],
-  warning: ['warning', 'rev-Badge--warning'],
-  success: ['success', 'rev-Badge--success'],
+  primary: ['rev-Badge--primary'],
+  secondary: ['rev-Badge--secondary'],
+  tertiary: ['rev-Badge--tertiary'],
+  accent: ['rev-Badge--accent'],
+  alert: ['rev-Badge--alert'],
+  warning: ['rev-Badge--warning'],
+  success: ['rev-Badge--success'],
 }
 const PROP_NAMES = Object.keys(PROP_NAME_TO_CLASS_NAME)
 const PROP_TYPES = {
@@ -31,7 +34,7 @@ export default class Badge extends Component {
       }
     })
 
-    const newClassName = classNames(className, 'badge', 'rev-Badge', propClassNames)
+    const newClassName = classNames(className, 'rev-Badge', propClassNames)
 
     return (
       <span {...props} className={newClassName}>

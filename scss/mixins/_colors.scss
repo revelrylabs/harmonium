@@ -1,0 +1,26 @@
+$color-list: primary, secondary, tertiary, accent, success, alert, warning;
+$color-vars: $primary, $secondary, $tertiary, $accent, $success, $alert, $warning;
+
+@mixin color-management {
+  // by default we give most things the $primary bkgd-color
+  @for $i from 1 through length($color-list) {
+    background: $primary;
+    @if lightness($primary) > 50% {
+      color: $brand-dark;
+    }
+    @else {
+      color: $brand-light;
+    }
+    // for components that use color vars as props, we find the lightness
+    // of the bkgd-color and adjust the font-color accordingly
+    &--#{nth($color-list, $i)} {
+      background: nth($color-vars, $i);
+      @if lightness(nth($color-vars, $i)) > 50% {
+        color: $brand-dark;
+      }
+      @else {
+        color: $brand-light;
+      }
+    }
+  }
+}
