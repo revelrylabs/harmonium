@@ -1,12 +1,6 @@
 <div>
   <Callout>
     Look at this close button!
-    <CloseButton><Icon i="close"/></CloseButton>
-  </Callout>
-  <Callout>
-    Look at this close button!
-    <CloseButton aria-label="Close Callout">
-      <span>&times;</span>
-    </CloseButton>
+    <CloseButton aria-label="Close Callout">&times;</CloseButton>
   </Callout>
 </div>

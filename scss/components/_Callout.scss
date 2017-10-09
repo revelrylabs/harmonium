@@ -12,6 +12,7 @@ $callout-padding: $global-vertical-space $global-horizontal-space !default;
   border: $callout-border-size solid $callout-border-color;
   color: $callout-color;
   margin-bottom: $global-vertical-space;
+  overflow: hidden;
   padding: $global-vertical-space $global-horizontal-space;
   &.rev-Callout--primary {
     background: scale-color($primary, $lightness: 90%);

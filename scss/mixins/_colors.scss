@@ -1,3 +1,14 @@
+@mixin body-color-stack {
+  background-color: $body-bkgd;
+  color: $body-font-color;
+}
+
+@mixin inverted-body-color-stack {
+  background-color: $body-font-color;
+  color: $body-bkgd;
+}
+
+
 $color-list: primary, secondary, tertiary, accent, success, alert, warning;
 $color-vars: $primary, $secondary, $tertiary, $accent, $success, $alert, $warning;
 

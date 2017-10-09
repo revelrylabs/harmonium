@@ -124,22 +124,28 @@ $disabled-opacity: 0.25;
 //$modal-content-bkgd: $white;
 //$modal-content-border-size: 1px;
 //$modal-content-border-color: $divider-color;
-//$modal-content-box-shadow: $global-box-shadow !default;
+//$modal-content-box-shadow: $global-box-shadow;
 //$modal-content-color: $body-font-color;
 //$modal-content-padding: 0;
 
 //## Tabs
 //$tabs-margin: $global-vertical-space;
-//$tabs-border-size: 1px !default;
-//$tabs-border-color: $divider-color !default;
-//$tabs-title-bkgd: transparent !default;
-//$tabs-title-link-bkgd: $divider-color !default;
-//$tabs-title-link-color: $anchor-color !default;
-//$tabs-title-link-bkgd-hover: darken($tabs-title-link-bkgd, 5%) !default;
-//$tabs-title-link-color-hover: $anchor-color-hover !default;
-//$tabs-title-link-bkgd-active: darken($tabs-title-link-bkgd, 5%) !default;
-//$tabs-title-link-color-active: $anchor-color-hover !default;
-//$tabs-title-link-padding: $global-vertical-space $global-horizontal-space !default;
-//$tabs-content-padding: $global-vertical-space 0 !default;
+//$tabs-border-size: 1px;
+//$tabs-border-color: $divider-color;
+//$tabs-title-bkgd: transparent;
+//$tabs-title-link-bkgd: $divider-color;
+//$tabs-title-link-color: $anchor-color;
+//$tabs-title-link-bkgd-hover: darken($tabs-title-link-bkgd, 5%);
+//$tabs-title-link-color-hover: $anchor-color-hover;
+//$tabs-title-link-bkgd-active: darken($tabs-title-link-bkgd, 5%);
+//$tabs-title-link-color-active: $anchor-color-hover;
+//$tabs-title-link-padding: $global-vertical-space $global-horizontal-space;
+//$tabs-content-padding: $global-vertical-space 0;
 
 //## Badges
+//$badge-size: 32px;
+
+//## Close Buttons
+//$close-bkgd: $body-font-color;
+//$close-color: $body-bkgd;
+//$close-size: 44px;

@@ -11,7 +11,7 @@ export default class CloseButton extends Component {
 
   render() {
     const {className, ...props} = this.props
-    const classNamesList = classNames('close-button', 'rev-CloseButton', className)
+    const classNamesList = classNames('rev-CloseButton', className)
 
     return <button type="button" {...props} className={classNamesList}>
       {this.props.children}

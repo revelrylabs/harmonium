@@ -49,7 +49,6 @@ $accent: $brand-revelry;
 $success: $green;
 $alert: $red;
 $warning: $orange;
-$cancel: $black;
 
 $body-bkgd: $white;
 $body-font-color: $darker-gray;
@@ -71,16 +70,6 @@ $disabled: $lighter-gray;
   @else {
     color: $body-font-color;
   }
-}
-
-@mixin body-color-stack {
-  background-color: $body-bkgd;
-  color: $body-font-color;
-}
-
-@mixin inverted-body-color-stack {
-  background-color: $body-font-color;
-  color: $body-bkgd;
 }
 
 @mixin primary-color-stack {
