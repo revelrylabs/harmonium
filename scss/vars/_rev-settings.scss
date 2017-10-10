@@ -97,6 +97,13 @@ $no-image-blur: blur(0px);
 
 $disabled-opacity: 0.25;
 
+// Sizes
+// common size vars for things like badges, close buttons, fixed naviagtion bars
+$size-tiny: 16px;
+$size-small: 32px;
+$size-default: 44px;
+$size-large: 64px;
+$size-larger: 80px;
 
 //** Component Vars are commented out here because each compnent has its !default vars set at the top of the component stylesheet. If vars need to be updated, you can uncomment them below and make your changes. Vars below will always override the !default vars in the component stylesheets
 
@@ -143,9 +150,9 @@ $disabled-opacity: 0.25;
 //$tabs-content-padding: $global-vertical-space 0;
 
 //## Badges
-//$badge-size: 32px;
+//$badge-size: $size-small;
 
 //## Close Buttons
 //$close-bkgd: $body-font-color;
 //$close-color: $body-bkgd;
-//$close-size: 44px;
+//$close-size: $size-default;

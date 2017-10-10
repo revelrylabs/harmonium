@@ -1,4 +1,4 @@
-$badge-size: 32px !default;
+$badge-size: $size-small !default;
 
 .rev-Badge {
   @include color-management;

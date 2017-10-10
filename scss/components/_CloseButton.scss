@@ -3,7 +3,7 @@
 // this way updates can be made to a component by uncommenting settings vars
 $close-bkgd: $body-font-color !default;
 $close-color: $body-bkgd !default;
-$close-size: 44px !default;
+$close-size: $size-default !default;
 
 .rev-CloseButton {
   background: $close-bkgd;

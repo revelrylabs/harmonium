@@ -5,13 +5,19 @@ $brand-blue: #1D71B8;
 $brand-revelry: #FCDB40;
 $brand-dark: #101010;
 $brand-light: #F1F1F1;
-
-// UTIL COLORS
-$green: #2fac66;
-$red: #E31D1A;
-$orange: #E56634;
+$brand-green: #2fac66;
+$brand-red: #E31D1A;
+$brand-orange: #E56634;
 
 $white: #FFF;
+$lightest-gray: $brand-light;
+$lighter-gray: #D0D0D0;
+$light-gray: #CCC;
+$gray: #9B9B9B;
+$dark-gray: #4A4A4A;
+$darker-gray: $brand-dark;
+$black: #000;
+
 $white-05: rgba(255, 255, 255, 0.05);
 $white-10: rgba(255, 255, 255, 0.1);
 $white-20: rgba(255, 255, 255, 0.2);
@@ -22,15 +28,6 @@ $white-60: rgba(255, 255, 255, 0.6);
 $white-70: rgba(255, 255, 255, 0.7);
 $white-80: rgba(255, 255, 255, 0.8);
 $white-90: rgba(255, 255, 255, 0.9);
-
-$gray: #9B9B9B;
-$lightest-gray: $brand-light;
-$lighter-gray: #D0D0D0;
-$light-gray: #CCC;
-$dark-gray: #4A4A4A;
-$darker-gray: $brand-dark;
-
-$black: #000;
 $black-05: rgba(0, 0, 0, 0.05);
 $black-10: rgba(0, 0, 0, 0.1);
 $black-20: rgba(0, 0, 0, 0.2);
@@ -42,22 +39,24 @@ $black-70: rgba(0, 0, 0, 0.7);
 $black-80: rgba(0, 0, 0, 0.8);
 $black-90: rgba(0, 0, 0, 0.9);
 
+// UTILITY COLORS
 $primary: $brand-blue;
 $secondary: $brand-dark;
 $tertiary: $brand-light;
 $accent: $brand-revelry;
-$success: $green;
-$alert: $red;
-$warning: $orange;
+$success: $brand-green;
+$alert: $brand-red;
+$warning: $brand-orange;
 
 $body-bkgd: $white;
-$body-font-color: $darker-gray;
+$body-font-color: $brand-dark;
 $header-color: $body-font-color;
 
 $divider-color: $black-10;
 $muted: $lighter-gray;
 $very-muted: $lightest-gray;
 $disabled: $lighter-gray;
+
 
 @mixin color-stack($bg) {
   background-color: $bg;
