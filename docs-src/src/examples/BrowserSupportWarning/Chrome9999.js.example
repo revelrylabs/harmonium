@@ -1,3 +1,8 @@
 <BrowserSupportWarning minVersions={{chrome: '9999', msie: '9999'}}>
-  Your browser is not chrome or ie v9999.
+  <Row>
+    <Col>
+      <h3>Your browser is not supported.</h3>
+      <p>Google Chrome 9999 or Internet Explorer v9999 is required to use this application.</p>
+    </Col>
+  </Row>
 </BrowserSupportWarning>
