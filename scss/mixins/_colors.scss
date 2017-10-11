@@ -3,7 +3,7 @@
   color: $body-font-color;
 }
 
-@mixin inverted-body-color-stack {
+@mixin body-color-stack-inverted {
   background-color: $body-font-color;
   color: $body-bkgd;
 }
@@ -31,6 +31,18 @@ $color-vars: $primary, $secondary, $tertiary, $accent, $success, $alert, $warnin
       @else {
         color: $brand-light;
       }
+    }
+  }
+}
+@mixin color-management-inverted {
+  // by default we give most things the $primary bkgd-color
+  @for $i from 1 through length($color-list) {
+    background: $white;
+    border: 1px solid $primary;
+    color: $primary;
+    &--#{nth($color-list, $i)} {
+      color: nth($color-vars, $i);
+      border: 1px solid nth($color-vars, $i);
     }
   }
 }

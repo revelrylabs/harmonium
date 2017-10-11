@@ -107,6 +107,9 @@ $size-larger: 80px;
 
 //** Component Vars are commented out here because each compnent has its !default vars set at the top of the component stylesheet. If vars need to be updated, you can uncomment them below and make your changes. Vars below will always override the !default vars in the component stylesheets
 
+// Example component var naming
+// $[component]-[css property]-[variant]-[state]
+
 //## CONTAINERS -----------------------------
 
 //## Accordions
