@@ -42,7 +42,7 @@ export default class FileInput extends Component {
         <Row>
           <Col medium={6} className="rev-Col--collapse">
             <InputGroup.Button>
-              <Button tag="label" className="rev-FileInput-button" expanded>
+              <Button tag="label" className="rev-FileInput-button" expanded small>
                 {button}
                 <input {...props} type="file" className="u-showForSR" onChange={this.onChange} />
               </Button>

@@ -1,0 +1,33 @@
+@mixin callout($color: nil) {
+  padding: $global-vertical-space $global-horizontal-space / 2;
+  @if ($color != nil) {
+    background: scale-color($color, $lightness: 90%);
+    border: 1px solid $color;
+    color: $color;
+  }
+}
+.rev-Callout {
+  @include callout($divider-color);
+  color: $body-font-color;
+}
+.rev-Callout--expanded {
+
+}
+.rev-Callout--error {
+
+}
+.rev-Callout--primary {
+  @include callout($primary-color);
+}
+.rev-Callout--secondary {
+  @include callout($secondary-color);
+}
+.rev-Callout--success {
+  @include callout($success-color);
+}
+.rev-Callout--warning {
+  @include callout($warning-color);
+}
+.rev-Callout--alert {
+  @include callout($alert-color);
+}
