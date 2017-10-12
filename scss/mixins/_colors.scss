@@ -8,8 +8,8 @@
   color: $body-bkgd;
 }
 
-$color-list: primary, secondary, tertiary, accent, success, alert, warning;
-$color-vars: $primary, $secondary, $tertiary, $accent, $success, $alert, $warning;
+$color-list: primary, secondary, tertiary, accent, success, alert, warning, error;
+$color-vars: $primary, $secondary, $tertiary, $accent, $success, $alert, $warning, $error;
 
 @mixin color-management {
   // by default we give most things the $primary bkgd-color
