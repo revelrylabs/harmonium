@@ -4,10 +4,12 @@
   <Progress value={60} />
   <Progress value={80} />
   <Progress value={100} />
-  <Progress value={90}>text</Progress>
-  <Progress value={90} secondary>secondary</Progress>
-  <Progress value={90} success>success</Progress>
-  <Progress value={90} warning>warning</Progress>
-  <Progress value={90} alert>alert</Progress>
-  <Progress min={1} max={5} value={4}>4 on a 1 to 5 scale</Progress>
+  <Progress value={90} primary>90% primary</Progress>
+  <Progress value={80} secondary>80% secondary</Progress>
+  <Progress value={70} tertiary>70% tertiary</Progress>
+  <Progress value={60} accent>60% accent</Progress>
+  <Progress value={50} success>50% success</Progress>
+  <Progress value={40} warning>40% warning</Progress>
+  <Progress value={30} alert>30% alert</Progress>
+  <Progress min={1} max={5} value={4}>4 on a 5 point scale</Progress>
 </div>

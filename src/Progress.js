@@ -2,10 +2,13 @@ import React, {Component} from 'react'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
-  secondary: ['secondary', 'rev-Progress--secondary'],
-  success: ['success', 'rev-Progress--success'],
-  warning: ['warning', 'rev-Progress--warning'],
-  alert: ['alert', 'rev-Progress--alert'],
+  primary: ['rev-Progress--primary'],
+  secondary: ['rev-Progress--secondary'],
+  tertiary: ['rev-Progress--tertiary'],
+  accent: ['rev-Progress--accent'],
+  success: ['rev-Progress--success'],
+  warning: ['rev-Progress--warning'],
+  alert: ['rev-Progress--alert'],
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
@@ -33,14 +36,15 @@ export default class Progress extends Component {
     const width = `${ratio*100}%`
 
     const text = children ? (
-      <p className="progress-meter-text rev-Progress-meter-text">{children}</p>
+      <div className="rev-Progress-text">{children}</div>
     ) : null
 
     return (
       <div {...props} className={divClassName}>
-        <div className="progress-meter rev-Progress-meter" style={{width}}>
-          {text}
+        <div className="rev-Progress-track">
+          <div className="rev-Progress-track-amount " style={{width}} />
         </div>
+        {text}
       </div>
     )
   }

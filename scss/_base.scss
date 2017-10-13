@@ -24,6 +24,7 @@ body {
   }
 }
 hr {
+  border-color: $divider-color;
   max-width: 100%;
-  margin-bottom: $global-vertical-space;
+  margin: $global-vertical-space 0;
 }
