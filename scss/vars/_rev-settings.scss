@@ -22,6 +22,7 @@ $global-lineheight: 1.375;
 // you can add any breakpoint vars you want
 // if only 1 value is given, it will compile to a min-width media query
 // if 2 values are given, it will compile to a min-width max-width media query
+@import '../../node_modules/breakpoint-sass/stylesheets/breakpoint';
 $small: 0px;
 $medium: 640px;
 $large: 1024px;

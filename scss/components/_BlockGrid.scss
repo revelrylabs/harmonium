@@ -1,5 +1,3 @@
-@import '../../node_modules/breakpoint-sass/stylesheets/breakpoint';
-
 // BLOCK GRID
 @for $i from 1 through $grid-columns {
   .rev-Row--smallUp#{$i} {
