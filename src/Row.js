@@ -2,37 +2,59 @@ import React, {Component} from 'react'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
-  collapse: ['collapse', 'rev-Row--collapse'],
+  collapse: ['rev-Row--collapse'],
+  smallCollapse: ['rev-Row--smallCollapse'],
+  mediumCollapse: ['rev-Row--mediumCollapse'],
+  largeCollapse: ['rev-Row--largeCollapse'],
+  xlargeCollapse: ['rev-Row--xlargeCollapse'],
+  xxlargeCollapse: ['rev-Row--xxlargeCollapse'],
 
-  smallCollapse: ['small-collapse', 'rev-Row--smallCollapse'],
-  mediumCollapse: ['medium-collapse', 'rev-Row--mediumCollapse'],
-  largeCollapse: ['large-collapse', 'rev-Row--largeCollapse'],
+  uncollapse: ['rev-Row--uncollapse'],
+  smallUncollapse: ['rev-Row--smallUncollapse'],
+  mediumUncollapse: ['rev-Row--mediumUncollapse'],
+  largeUncollapse: ['rev-Row--largeUncollapse'],
+  xlargeUncollapse: ['rev-Row--xlargeUncollapse'],
+  xxlargeUncollapse: ['rev-Row--xxlargeUncollapse'],
 
-  smallUncollapse: ['small-uncollapse', 'rev-Row--smallUncollapse'],
-  mediumUncollapse: ['medium-uncollapse', 'rev-Row--mediumUncollapse'],
-  largeUncollapse: ['large-uncollapse', 'rev-Row--largeUncollapse'],
+  flex: ['rev-Row--flex'],
+  smallFlex: ['rev-Row--smallFlex'],
+  mediumFlex: ['rev-Row--mediumFlex'],
+  largeFlex: ['rev-Row--largeFlex'],
+  xlargeFlex: ['rev-Row--xlargeFlex'],
+  xxlargeFlex: ['rev-Row--xxlargeFlex'],
 
-  smallUnstack: ['small-unstack', 'rev-Row--smallUnstack'],
-  mediumUnstack: ['medium-unstack', 'rev-Row--mediumUnstack'],
-  largeUnstack: ['large-unstack', 'rev-Row--largeUnstack'],
+  unflex: ['rev-Row--unflex'],
+  smallUnflex: ['rev-Row--smallUnflex'],
+  mediumUnflex: ['rev-Row--mediumUnflex'],
+  largeUnflex: ['rev-Row--largeUnflex'],
+  xlargeUnflex: ['rev-Row--xlargeUnflex'],
+  xxlargeUnflex: ['rev-Row--xxlargeUnflex'],
 
-  right: ['align-right', 'rev-Row--right'],
-  center: ['align-center', 'rev-Row--center'],
-  justify: ['align-justify', 'rev-Row--justify'],
-  spaced: ['align-spaced', 'rev-Row--spaced'],
-  top: ['align-top', 'rev-Row--top'],
-  middle: ['align-middle', 'rev-Row--middle'],
-  bottom: ['align-bottom', 'rev-Row--bottom'],
-  stretch: ['align-stretch', 'rev-Row--stretch'],
+  smallUnstack: ['rev-Row--smallUnstack'],
+  mediumUnstack: ['rev-Row--mediumUnstack'],
+  largeUnstack: ['rev-Row--largeUnstack'],
+  xlargeUnstack: ['rev-Row--xlargeUnstack'],
+  xxlargeUnstack: ['rev-Row--xxlargeUnstack'],
+
+  right: ['rev-Row--right'],
+  center: ['rev-Row--center'],
+  justify: ['rev-Row--justify'],
+  spaced: ['rev-Row--spaced'],
+  top: ['rev-Row--top'],
+  middle: ['rev-Row--middle'],
+  bottom: ['rev-Row--bottom'],
+  stretch: ['rev-Row--stretch'],
   flex: ['rev-Row--flex'],
 }
 
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 const NUMBER_PROPS_TO_CLASS_NAMES = {
-  smallUp: (x) => [`small-up-${x}`, `rev-Row--smallUp${x}`],
-  mediumUp: (x) => [`medium-up-${x}`, `rev-Row--mediumUp${x}`],
-  largeUp: (x) => [`large-up-${x}`, `rev-Row--largeUp${x}`],
+  smallUp: (x) => [`rev-Row--smallUp${x}`],
+  mediumUp: (x) => [`rev-Row--mediumUp${x}`],
+  largeUp: (x) => [`rev-Row--largeUp${x}`],
+  xlargeUp: (x) => [`rev-Row--xlargeUp${x}`],
+  xxlargeUp: (x) => [`rev-Row--xxlargeUp${x}`],
 }
 
 const NUMBER_PROPS = Object.keys(NUMBER_PROPS_TO_CLASS_NAMES)
@@ -61,7 +83,6 @@ export default class Row extends React.Component {
 
     const divClassName = classNames(
       className,
-      'row',
       'rev-Row',
       boolClassNames,
       numberClassNames,
