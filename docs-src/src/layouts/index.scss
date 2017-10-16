@@ -103,4 +103,11 @@
   .columns .row {
     outline: 1px solid $white;
   }
+  // removing the bkgd on Block Grid so that kitty images look better
+  &.ColumnExamples--blockGrid {
+    .rev-Col {
+      background: transparent;
+      margin-bottom: $global-padding-small;
+    }
+  }
 }
