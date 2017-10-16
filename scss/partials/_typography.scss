@@ -71,3 +71,77 @@ a {
 small {
   font-size: 75%;
 }
+// TextAlignment
+//TODO: function for breakpoints
+.Text-left,
+.Text--smallLeft {
+  text-align: left;
+}
+.Text-right,
+.Text--smallRight {
+  text-align: right;
+}
+.Text-center,
+.Text--smallCenter {
+  text-align: center;
+}
+.Text-justify,
+.Text--smallJustify {
+  text-align: justify;
+}
+@include breakpoint($medium) {
+  .Text--mediumLeft {
+    text-align: left;
+  }
+  .Text--mediumRight {
+    text-align: right;
+  }
+  .Text--mediumCenter {
+    text-align: center;
+  }
+  .Text--mediumJustify {
+    text-align: justify;
+  }
+}
+@include breakpoint($large) {
+  .Text--largeLeft {
+    text-align: left;
+  }
+  .Text--largeRight {
+    text-align: right;
+  }
+  .Text--largeCenter {
+    text-align: center;
+  }
+  .Text--largeJustify {
+    text-align: justify;
+  }
+}
+@include breakpoint($xlarge) {
+  .Text--xlargeLeft {
+    text-align: left;
+  }
+  .Text--xlargeRight {
+    text-align: right;
+  }
+  .Text--xlargeCenter {
+    text-align: center;
+  }
+  .Text--xlargeJustify {
+    text-align: justify;
+  }
+}
+@include breakpoint($xxlarge) {
+  .Text--xxlargeLeft {
+    text-align: left;
+  }
+  .Text--xxlargeRight {
+    text-align: right;
+  }
+  .Text--xxlargeCenter {
+    text-align: center;
+  }
+  .Text--xxlargeJustify {
+    text-align: justify;
+  }
+}

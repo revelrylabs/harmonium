@@ -1,20 +1,26 @@
 <div>
-  <p><TextAlign left><p>left</p></TextAlign></p>
-  <p><TextAlign right><p>right</p></TextAlign></p>
-  <p><TextAlign center><p>center</p></TextAlign></p>
-  <p><TextAlign justify><p>justify</p></TextAlign></p>
-  <p><TextAlign smallLeft><p>smallLeft</p></TextAlign></p>
-  <p><TextAlign smallRight><p>smallRight</p></TextAlign></p>
-  <p><TextAlign smallCenter><p>smallCenter</p></TextAlign></p>
-  <p><TextAlign smallJustify><p>smallJustify</p></TextAlign></p>
-  <p><TextAlign mediumLeft><p>mediumLeft</p></TextAlign></p>
-  <p><TextAlign mediumRight><p>mediumRight</p></TextAlign></p>
-  <p><TextAlign mediumCenter><p>mediumCenter</p></TextAlign></p>
-  <p>
-    <TextAlign mediumJustify><p>mediumJustify</p></TextAlign>
-  </p>
-  <p><TextAlign largeLeft><p>largeLeft</p></TextAlign></p>
-  <p><TextAlign largeRight><p>largeRight</p></TextAlign></p>
-  <p><TextAlign largeCenter><p>largeCenter</p></TextAlign></p>
-  <p><TextAlign largeJustify><p>largeJustify</p></TextAlign></p>
+  <TextAlign left><p>left</p></TextAlign>
+  <TextAlign right><p>right</p></TextAlign>
+  <TextAlign center><p>center</p></TextAlign>
+  <TextAlign justify><p>justify</p></TextAlign>
+  <TextAlign smallLeft><p>smallLeft</p></TextAlign>
+  <TextAlign smallRight><p>smallRight</p></TextAlign>
+  <TextAlign smallCenter><p>smallCenter</p></TextAlign>
+  <TextAlign smallJustify><p>smallJustify</p></TextAlign>
+  <TextAlign mediumLeft><p>mediumLeft</p></TextAlign>
+  <TextAlign mediumRight><p>mediumRight</p></TextAlign>
+  <TextAlign mediumCenter><p>mediumCenter</p></TextAlign>
+  <TextAlign mediumJustify><p>mediumJustify</p></TextAlign>
+  <TextAlign largeLeft><p>largeLeft</p></TextAlign>
+  <TextAlign largeRight><p>largeRight</p></TextAlign>
+  <TextAlign largeCenter><p>largeCenter</p></TextAlign>
+  <TextAlign largeJustify><p>largeJustify</p></TextAlign>
+  <TextAlign xlargeLeft><p>largeLeft</p></TextAlign>
+  <TextAlign xlargeRight><p>largeRight</p></TextAlign>
+  <TextAlign xlargeCenter><p>largeCenter</p></TextAlign>
+  <TextAlign xlargeJustify><p>largeJustify</p></TextAlign>
+  <TextAlign xxlargeLeft><p>largeLeft</p></TextAlign>
+  <TextAlign xxlargeRight><p>largeRight</p></TextAlign>
+  <TextAlign xxlargeCenter><p>largeCenter</p></TextAlign>
+  <TextAlign xxlargeJustify><p>largeJustify</p></TextAlign>
 </div>
