@@ -1,9 +1,9 @@
 <TopBar>
-  <TopBar.Title>
-    <strong>Hello</strong>
-  </TopBar.Title>
   <TopBar.Left>
-    <Menu>
+    <strong>Hello</strong>
+  </TopBar.Left>
+  <TopBar.Left>
+    <Menu className="rev-Menu--horizontalLeft">
       <Menu.Item><a href="#">One</a></Menu.Item>
       <Menu.Item><a href="#">Two</a></Menu.Item>
     </Menu>

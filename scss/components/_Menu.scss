@@ -1,18 +1,23 @@
+.rev-Menu {
+  &.rev-Menu--horizontalCenter {
+    @include flex(center, row, center, wrap);
+  }
+  &.rev-Menu--horizontalLeft {
+    @include flex(center, row, flex-start, wrap);
+  }
+  &.rev-Menu--horizontalJustified {
+    @include flex(center, row, space-between, wrap);
+  }
+  &.rev-Menu--horizontalRight {
+    @include flex(center, row, flex-end, wrap);
+  }
+}
 .rev-Menu-item {
-  display: block;
+  margin: 0;
   padding: 0;
   a {
     display: block;
+    height: 100%;
     padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
-  }
-  .rev-TopBar-left & {
-    a {
-      padding-left: 0;
-    }
-  }
-  .rev-TopBar-right & {
-    a {
-      padding-right: 0;
-    }
   }
 }

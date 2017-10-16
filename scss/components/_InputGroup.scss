@@ -1,0 +1,6 @@
+.rev-InputGroup {
+  @include flex(stretch, row, flex-start, no-wrap);
+  .rev-Button {
+    margin: 0;
+  }
+}

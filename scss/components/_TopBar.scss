@@ -1,27 +1,65 @@
-$topbar-height: 60px;
-$topbar-bkgd: $darker-gray;
-$topbar-color: $lightest-gray;
-$topbar-link-color: $anchor-color;
-$topbar-link-color-hover: $anchor-color-hover;
-
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$topbar-bkgd: $body-bkgd !default;
+$topbar-border-color: $divider-color !default;
+$topbar-border-size: 1px !default;
+$topbar-color: $body-font-color !default;
+$topbar-height: 60px !default;
 
 .rev-TopBar {
+  @include flex(center, row, space-between, wrap);
   background: $topbar-bkgd;
+  border-bottom: $topbar-border-size solid $topbar-border-color;
   color: $topbar-color;
+  margin: 0 0 $global-vertical-space;
+  padding: 0;
   position: relative;
-  padding: 0 $global-padding;
+  width: 100%;
   z-index: $above;
-}
-.rev-TopBar-left,
-.rev-TopBar-right,
-.top-bar-left,
-.top-bar-right {
-  float: left;
-  ul {
-    background: transparent;
+  &.rev-TopBar--inverse {
+    background: $body-font-color;
+    border: 0;
+    color: $body-bkgd;
+  }
+  &.rev-TopBar--fixed {
+    height: $topbar-height;
+    left: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    .rev-Row {
+      @include flex(stretch, row, space-between);
+    }
+    .rev-TopBar-title,
+    .rev-TopBar-left,
+    .rev-TopBar-right {
+      line-height: $topbar-height;
+    }
+    .rev-Menu-item {
+      a {
+        padding: 0 $global-horizontal-space;
+      }
+    }
+  }
+  .rev-Row {
+    @include flex(center, row);
+  }
+  .rev-Form {
+    margin: $global-padding-tiny 0;
   }
 }
-.rev-TopBar-right,
-.top-bar-right {
+.rev-TopBar-title,
+.rev-TopBar-left,
+.rev-TopBar-right {
+  float: left;
+  width: auto;
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+}
+.rev-TopBar-right {
   float: right;
 }
