@@ -16,7 +16,7 @@
       }
     }
   }
-  @include breakpoint($medium) {
+  @include breakpoint($large) {
     .rev-Row--largeUp#{$i} {
       flex-wrap: wrap;
       .rev-Col {
@@ -25,7 +25,7 @@
       }
     }
   }
-  @include breakpoint($medium) {
+  @include breakpoint($xlarge) {
     .rev-Row--xlargeUp#{$i} {
       flex-wrap: wrap;
       .rev-Col {
@@ -34,7 +34,7 @@
       }
     }
   }
-  @include breakpoint($medium) {
+  @include breakpoint($xxlarge) {
     .rev-Row--xxlargeUp#{$i} {
       .rev-Col {
         flex: 0 0 auto;
