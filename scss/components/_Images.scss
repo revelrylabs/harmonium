@@ -3,11 +3,15 @@ img {
   height: auto;
   width: auto;
 }
+.ResponsiveImage {
+  height: auto;
+  width: 100%;
+}
 .Thumbnail {
   @include global-transition;
-  border: 5px solid $white;
-  border-radius: $global-radius;
+  background: $white;
   box-shadow: 0 0 0 1px $divider-color;
+  border-radius: $global-radius;
   margin: 0;
-  padding: 0;
+  padding: $global-padding-tiny;
 }
