@@ -34,7 +34,7 @@ $grid-columns: 12;
 
 // Spacing
 $global-vertical-space: $global-font-size * $global-lineheight;
-$global-horizontal-space: 2rem;
+$global-horizontal-space: 1.5rem;
 // ^ by default, global padding, margin, and grid padding based on this value
 
 // Global Padding
@@ -99,7 +99,8 @@ $disabled-opacity: 0.25;
 
 // Sizes
 // common size vars for things like badges, close buttons, fixed naviagtion bars
-$size-tiny: 16px;
+$size-tiny: 8px;
+$size-smaller: 16px;
 $size-small: 32px;
 $size-default: 44px;
 $size-large: 64px;
@@ -159,3 +160,11 @@ $size-larger: 80px;
 //$close-bkgd: $body-font-color;
 //$close-color: $body-bkgd;
 //$close-size: $size-default;
+
+//## Help Text
+//$help-text-color: $gray;
+
+//## Progress
+//$progress-radius: $global-rounded;
+//$progress-meter-height: $size-tiny;
+//$progress-meter-bkgd: $brand-dark;
