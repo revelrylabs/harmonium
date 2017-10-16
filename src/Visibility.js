@@ -3,21 +3,41 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const CLASS_NAMES = {
-  showForSmall: 'show-for-small',
-  showForMedium: 'show-for-medium',
-  showForLarge: 'show-for-large',
+  showForSmallUp: 'Show--smallUp',
+  showForMediumUp: 'Show--mediumUp',
+  showForLargeUp: 'Show--largeUp',
+  showForXlargeUp: 'Show--xlargeUp',
+  showForXxlargeUp: 'Show--xxlargeUp',
 
-  showForSmallOnly: 'show-for-small-only',
-  showForMediumOnly: 'show-for-medium-only',
-  showForLargeOnly: 'show-for-large-only',
+  showForSmallOnly: 'Show--smallOnly',
+  showForMediumOnly: 'Show--mediumOnly',
+  showForLargeOnly: 'Show--largeOnly',
+  showForXlargeOnly: 'Show--xlargeOnly',
+  showForXxlargeOnly: 'Show--xxlargeOnly',
 
-  hideForSmall: 'hide-for-small',
-  hideForMedium: 'hide-for-medium',
-  hideForLarge: 'hide-for-large',
+  hideForSmall: 'Hide',
+  hideForMedium: 'Hide--mediumUp',
+  hideForLarge: 'Hide--largeUp',
+  hideForXlarge: 'Hide--xlargeUp',
+  hideForXxlarge: 'Hide--xxlargeUp',
 
-  hideForSmallOnly: 'hide-for-small-only',
-  hideForMediumOnly: 'hide-for-medium-only',
-  hideForLargeOnly: 'hide-for-large-only',
+  hideForSmallOnly: 'Hide--smallOnly',
+  hideForMediumOnly: 'Hide--mediumOnly',
+  hideForLargeOnly: 'Hide--largeOnly',
+  hideForXlargeOnly: 'Hide--xlargeOnly',
+  hideForXxlargeOnly: 'Hide--xxlargeUp',
+
+  hiddenForSmall: 'Hidden',
+  hiddenForMedium: 'Hidden--mediumUp',
+  hiddenForLarge: 'Hidden--largeUp',
+  hiddenForXlarge: 'Hidden--xlargeUp',
+  hiddenForXxlarge: 'Hidden--xxlargeUp',
+
+  hiddenForSmallOnly: 'Hidden--smallOnly',
+  hiddenForMediumOnly: 'Hidden--mediumOnly',
+  hiddenForLargeOnly: 'Hidden--largeOnly',
+  hiddenForXlargeOnly: 'Hidden--xlargeOnly',
+  hiddenForXxlargeOnly: 'Hidden--xxlargeUp',
 }
 
 const PROP_TYPES = {
@@ -40,9 +60,9 @@ export default class Visibility extends Component {
 
     const newClassName = classNames(classNamesList)
     if (React.isValidElement(this.props.children)) {
-      return cloneElement(this.props.children, {className: newClassName})  
+      return cloneElement(this.props.children, {className: newClassName})
     }
-    
+
     return <span className={newClassName}>{this.props.children}</span>
   }
 }
