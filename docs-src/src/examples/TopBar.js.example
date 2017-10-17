@@ -15,7 +15,7 @@
           <Input type="text" placeholder="Search" />
         </InputGroup.Field>
         <InputGroup.Button>
-          <Button><Icon i="magnifying-glass" /></Button>
+          <Button>Search</Button>
         </InputGroup.Button>
       </InputGroup>
     </Form>
