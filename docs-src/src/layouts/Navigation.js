@@ -17,7 +17,6 @@ export default function Navigation() {
           <Menu nested>
             <Menu.Item><Link to="/components/Button/">Button</Link></Menu.Item>
             <Menu.Item><Link to="/components/Checkbox/">Checkboxes and Fieldsets</Link></Menu.Item>
-            <Menu.Item><Link to="/components/FileInput/">File Input</Link></Menu.Item>
             <Menu.Item><Link to="/components/Input/">Input</Link></Menu.Item>
             <Menu.Item><Link to="/components/InputGroup/">Input Group</Link></Menu.Item>
             <Menu.Item><Link to="/components/Label/">Label</Link></Menu.Item>

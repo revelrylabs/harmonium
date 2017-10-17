@@ -1,6 +1,6 @@
-<div>
-  <Input.Stack label="Is a stack" />
-  <Input.Stack label="Has help text" help="This is the help text" />
-  <Input.Stack label="Has an error" error="This is the error text" />
-  <Input.Stack label="Has both" help="This is the help text" error="This is the error text" />
-</div>
+<Input.Stack
+  label="Label"
+  placeholder="A placeholder"
+  help="This is the help text"
+  error="This is the error text"
+/>

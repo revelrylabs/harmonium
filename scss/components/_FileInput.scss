@@ -17,7 +17,7 @@
     }*/
   }
   .rev-FileInput-fileLabel {
-    padding-top: $global-vertical-space;
+    @include small-input;
   }
 }
 

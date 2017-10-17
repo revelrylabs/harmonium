@@ -1,6 +1,18 @@
 .rev-InputGroup {
-  @include flex(stretch, row, flex-start, no-wrap);
-  .rev-Button {
-    margin: 0;
+  .rev-Button,
+  .rev-Input,
+  .rev-InputGroup-button,
+  .rev-InputGroup-label {
+    display: inline-block;
+  }
+  .rev-Button,
+  .rev-InputGroup-label {
+    @include small-input;
+    position: relative;
+    top: -$input-border-width;
+  }
+  .rev-InputGroup-label {
+    background-color: $input-border-color;
+    color: darken($input-border-color, 40%);
   }
 }
