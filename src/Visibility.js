@@ -3,11 +3,11 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const CLASS_NAMES = {
-  showForSmallUp: 'Show--smallUp',
-  showForMediumUp: 'Show--mediumUp',
-  showForLargeUp: 'Show--largeUp',
-  showForXlargeUp: 'Show--xlargeUp',
-  showForXxlargeUp: 'Show--xxlargeUp',
+  showForSmall: 'Show--smallUp',
+  showForMedium: 'Show--mediumUp',
+  showForLarge: 'Show--largeUp',
+  showForXlarge: 'Show--xlargeUp',
+  showForXxlarge: 'Show--xxlargeUp',
 
   showForSmallOnly: 'Show--smallOnly',
   showForMediumOnly: 'Show--mediumOnly',

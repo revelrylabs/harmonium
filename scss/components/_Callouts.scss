@@ -17,17 +17,17 @@
 
 }
 .rev-Callout--primary {
-  @include callout($primary-color);
+  @include callout($primary);
 }
 .rev-Callout--secondary {
-  @include callout($secondary-color);
+  @include callout($secondary);
 }
 .rev-Callout--success {
-  @include callout($success-color);
+  @include callout($success);
 }
 .rev-Callout--warning {
-  @include callout($warning-color);
+  @include callout($warning);
 }
 .rev-Callout--alert {
-  @include callout($alert-color);
+  @include callout($alert);
 }

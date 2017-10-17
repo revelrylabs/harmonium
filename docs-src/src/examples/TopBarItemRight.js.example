@@ -8,7 +8,7 @@
       <Menu.Item><a href="#">Two</a></Menu.Item>
     </Menu>
   </TopBar.Item>
-  <TopBar.Item>
+  <TopBar.Item.Right>
     <Form>
       <InputGroup style={{margin: 0}}>
         <InputGroup.Field>
@@ -17,5 +17,5 @@
         <Button>Search</Button>
       </InputGroup>
     </Form>
-  </TopBar.Item>
+  </TopBar.Item.Right>
 </TopBar>

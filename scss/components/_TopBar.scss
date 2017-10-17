@@ -5,13 +5,13 @@ $topbar-bkgd: $body-bkgd !default;
 $topbar-border-color: $divider-color !default;
 $topbar-border-size: 1px !default;
 $topbar-color: $body-font-color !default;
-$topbar-height: 60px !default;
+$topbar-height: 64px !default;
 
 .rev-TopBar {
+  @include flex(center, row, space-between, no-wrap);
   background: $topbar-bkgd;
   border: $topbar-border-size solid $topbar-border-color;
   color: $topbar-color;
-  display: block;
   height: $topbar-height;
   line-height: $topbar-height;
   margin: 0 0 $global-vertical-space;
@@ -27,22 +27,29 @@ $topbar-height: 60px !default;
       padding-top: 0;
     }
   }
-  .rev-TopBar-left {
-    float: left;
-  }
-  .rev-TopBar-right {
-    float: right;
-  }
-  .rev-TopBar-center {
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   // SEARCH FORMS IN TOPBARS
   .rev-Form {
-    padding: $global-padding-tiny 0;
+    .rev-Button,
+    .rev-Input {
+      margin: 0;
+    }
   }
+  .rev-InputGroup {
 
+  }
+  // TOPBAR POSITIONING
+  &.rev-TopBar--center {
+    @include flex(center, row, center, no-wrap);
+  }
+  &.rev-TopBar--left {
+    @include flex(center, row, flex-start, no-wrap);
+  }
+  &.rev-TopBar--justified { //default
+    @include flex(center, row, space-between, no-wrap);
+  }
+  &.rev-TopBar--right {
+    @include flex(center, row, flex-end, no-wrap);
+  }
   // INVERSE COLOR TOPBAR
   &.rev-TopBar--inverse {
     background: $body-font-color;
@@ -60,14 +67,12 @@ $topbar-height: 60px !default;
     .rev-Row {
       @include flex(stretch, row, space-between);
     }
-    .rev-TopBar-left,
-    .rev-TopBar-right {
-      line-height: $topbar-height;
-    }
-    .rev-Menu-item {
-      a {
-        padding: 0 $global-horizontal-space;
-      }
-    }
   }
+}
+// can override positioning placed on the parent .rev-TopBar
+.rev-TopBar-item--right {
+  margin-left: auto;
+}
+.rev-TopBar-item--left {
+  margin-right: auto;
 }

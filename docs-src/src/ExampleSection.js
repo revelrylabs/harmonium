@@ -14,11 +14,11 @@ export default function ExampleSection({title, depth, examples, scope}) {
 
     for(let title in examples) {
       children.push(
-        <ExampleSection 
+        <ExampleSection
           title={title} 
-          examples={examples[title]} 
-          depth={depth + 1} 
-          scope={scope} 
+          examples={examples[title]}
+          depth={depth + 1}
+          scope={scope}
           key={title}
         />
       )

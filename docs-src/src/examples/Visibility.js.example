@@ -22,7 +22,7 @@
     <Visibility showForMedium>Show for Medium Up</Visibility>
   </Callout>
   <Callout className="ExampleVisibility">
-    <Visibility showForLargel>Show for Large Up</Visibility>
+    <Visibility showForLarge>Show for Large Up</Visibility>
   </Callout>
   <Callout className="ExampleVisibility">
     <Visibility showForXlarge>Show for XLarge Up</Visibility>

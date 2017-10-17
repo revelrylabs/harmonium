@@ -1,4 +1,4 @@
-<TopBar>
+<TopBar center>
   <TopBar.Item>
     <strong>Hello</strong>
   </TopBar.Item>

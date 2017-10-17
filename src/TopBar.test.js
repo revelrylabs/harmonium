@@ -6,7 +6,7 @@ describe('TopBar', () => {
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'top-bar'
+    const inherentClassName = 'rev-TopBar'
     const testClassName = '__TEST__'
 
     const childClassName = shallow(<TopBar className={testClassName} />)
@@ -20,24 +20,24 @@ describe('TopBar', () => {
   it('handles boolean styling components', () => {
     const topBar = shallow(<TopBar stackedForMedium />)
     console.log(topBar.debug())
-    expect(topBar.prop('className')).to.contain('stacked-for-medium')
+    expect(topBar.prop('className')).to.contain('stacked--mediumDown')
   })
 })
 
-describe('Topbar.Left', () => {
+describe('Topbar.Item', () => {
   it('should render without throwing', () => {
-    shallow(<TopBar.Left />)
+    shallow(<TopBar.Item />)
   })
 })
 
-describe('Topbar.Right', () => {
+describe('Topbar.Item.Right', () => {
   it('should render without throwing', () => {
-    shallow(<TopBar.Right />)
+    shallow(<TopBar.Item.Right />)
   })
 })
 
-describe('Topbar.Title', () => {
+describe('Topbar.Item.Left', () => {
   it('should render without throwing', () => {
-    shallow(<TopBar.Title />)
+    shallow(<TopBar.Item.Left />)
   })
 })

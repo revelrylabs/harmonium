@@ -4,6 +4,12 @@ import classNames from 'classnames'
 const BOOL_PROPS_TO_CLASS_NAMES = {
   stackedForMedium: 'stacked-for-medium',
   stackedForLarge: 'stacked-for-large',
+  stackedForLarge: 'stacked-for-large',
+  center: 'rev-TopBar--center',
+  left: 'rev-TopBar--left',
+  justified: 'rev-TopBar--justified',
+  right: 'rev-TopBar--right',
+  inverse: 'rev-TopBar--inverse',
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
@@ -26,10 +32,10 @@ export default class TopBar extends Component {
   }
 }
 
-class TopBarLeft extends Component {
+class TopBarItem extends Component {
   render() {
     const {className, children, ...props} = this.props
-    const newClassName = classNames(className, 'rev-TopBar-left')
+    const newClassName = classNames(className, 'rev-TopBar-item')
     return (
       <div {...props} className={newClassName}>
         {children}
@@ -37,12 +43,12 @@ class TopBarLeft extends Component {
     )
   }
 }
-TopBar.Left = TopBarLeft
+TopBar.Item = TopBarItem
 
-class TopBarRight extends Component {
+class TopBarItemRight extends Component {
   render() {
     const {className, children, ...props} = this.props
-    const newClassName = classNames(className, 'rev-TopBar-right')
+    const newClassName = classNames(className, 'rev-TopBar-item--right')
     return (
       <div {...props} className={newClassName}>
         {children}
@@ -50,12 +56,12 @@ class TopBarRight extends Component {
     )
   }
 }
-TopBar.Right = TopBarRight
+TopBar.Item.Right = TopBarItemRight
 
-class TopBarTitle extends Component {
+class TopBarItemLeft extends Component {
   render() {
     const {className, children, ...props} = this.props
-    const newClassName = classNames(className, 'rev-TopBar-title')
+    const newClassName = classNames(className, 'rev-TopBar-item--left')
     return (
       <div className={newClassName}>
         {children}
@@ -63,4 +69,4 @@ class TopBarTitle extends Component {
     )
   }
 }
-TopBar.Title = TopBarTitle
+TopBar.Item.Left = TopBarItemLeft

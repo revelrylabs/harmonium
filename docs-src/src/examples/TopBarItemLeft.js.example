@@ -1,7 +1,7 @@
 <TopBar>
-  <TopBar.Item>
+  <TopBar.Item.Left>
     <strong>Hello</strong>
-  </TopBar.Item>
+  </TopBar.Item.Left>
   <TopBar.Item>
     <Menu className="rev-Menu--horizontalLeft">
       <Menu.Item><a href="#">One</a></Menu.Item>
