@@ -1,7 +1,7 @@
 $topbar-drawer-width: 300px !default;
 
 // TopBar Mobile Drawer
-@mixin TopBarDrawer-mobile {
+@mixin Drawer-mobile {
   background: $body-bkgd;
   display: block;
   height: 100vh;
@@ -9,7 +9,7 @@ $topbar-drawer-width: 300px !default;
   top: 0;
   width: $topbar-drawer-width;
 }
-@mixin TopBarDrawer-desktop {
+@mixin Drawer-desktop {
   @include flex(center, row, space-between, no-wrap);
   background: transparent;
   position: static;
@@ -28,17 +28,17 @@ $topbar-drawer-width: 300px !default;
     @include flex(center, row, flex-end, no-wrap);
   }
 }
-.rev-TopBarDrawer {
-  @include TopBarDrawer-mobile;
-  &.rev-TopBarDrawer--left {
+.rev-Drawer {
+  @include Drawer-mobile;
+  &.rev-Drawer--left {
     left: -$topbar-drawer-width;
     left: 0;
   }
-  &.rev-TopBarDrawer--right {
+  &.rev-Drawer--right {
     right: -$topbar-drawer-width;
     right: 0;
   }
-  &.rev-TopBarDrawer--top {
+  &.rev-Drawer--top {
     height: auto;
     left: 0;
     top: -100%;
@@ -47,22 +47,22 @@ $topbar-drawer-width: 300px !default;
   }
   .rev-TopBar-breakpoint--mediumDown & {
     @include breakpoint($medium) {
-      @include TopBarDrawer-desktop;
+      @include Drawer-desktop;
     }
   }
   .rev-TopBar-breakpoint--largeDown & {
     @include breakpoint($large) {
-      @include TopBarDrawer-desktop;
+      @include Drawer-desktop;
     }
   }
   .rev-TopBar-breakpoint--xlargeDown & {
     @include breakpoint($xlarge) {
-      @include TopBarDrawer-desktop;
+      @include Drawer-desktop;
     }
   }
   .rev-TopBar-breakpoint--xxlargeDown & {
     @include breakpoint($xxlarge) {
-      @include TopBarDrawer-desktop;
+      @include Drawer-desktop;
     }
   }
 }

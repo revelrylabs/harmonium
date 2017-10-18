@@ -2,11 +2,9 @@
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
 $topbar-bkgd: $body-bkgd !default;
-$topbar-bkgd-inverse: $body-font-color !default;
 $topbar-border-color: $divider-color !default;
 $topbar-border-size: 1px !default;
 $topbar-color: $body-font-color !default;
-$topbar-color-inverse: $body-bkgd !default;
 $topbar-height: $size-large !default;
 $topbar-input-width: $size-largest !default;
 
@@ -59,9 +57,8 @@ $topbar-input-width: $size-largest !default;
   }
   // INVERSE COLOR TOPBAR
   &.rev-TopBar--inverse {
-    background: $topbar-bkgd-inverse;
+    @include body-color-stack-inverted;
     border: 0;
-    color: $topbar-color-inverse;
   }
   // FIXED POSITION TOPBAR
   &.rev-TopBar--fixed {

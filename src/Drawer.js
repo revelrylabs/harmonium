@@ -2,13 +2,13 @@ import React, {Component} from 'react'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
-  left: 'rev-TopBarDrawer--left',
-  right: 'rev-TopBarDrawer--right',
-  top: 'rev-TopBarDrawer--top',
+  left: 'rev-Drawer--left',
+  right: 'rev-Drawer--right',
+  top: 'rev-Drawer--top',
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
-export default class TopBarDrawer extends Component {
+export default class Drawer extends Component {
   render() {
     const {className, children, ...props} = this.props
     const propClassNames = []
@@ -18,7 +18,7 @@ export default class TopBarDrawer extends Component {
       }
       delete props[name]
     })
-    const newClassName = classNames(className, 'rev-TopBarDrawer', propClassNames)
+    const newClassName = classNames(className, 'rev-Drawer', propClassNames)
     return (
       <div {...props} className={newClassName}>
         {children}

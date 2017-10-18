@@ -85,6 +85,9 @@ $paragraph-text-rendering: optimizeLegibility;
 $anchor-color: $primary;
 $anchor-color-hover: darken($primary, 10%);
 $anchor-color-active: darken($primary, 10%);
+$anchor-color-inverse: $brand-light;
+$anchor-color-inverse-hover: $white;
+$anchor-color-inverse-active: $white;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 
@@ -116,11 +119,9 @@ $size-largest: 160px;
 
 //## NAVIGATION -----------------------------
 //$topbar-bkgd: $body-bkgd;
-//$topbar-bkgd-inverse: $body-font-color;
 //$topbar-border-color: $divider-color;
 //$topbar-border-size: 1px;
 //$topbar-color: $body-font-color;
-//$topbar-color-inverse: $body-bkgd;
 //$topbar-height: $size-large;
 //$topbar-input-width: $size-largest;
 

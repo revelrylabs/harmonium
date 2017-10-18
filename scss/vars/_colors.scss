@@ -3,8 +3,8 @@ $test: #F0F;
 // BRAND COLORS
 $brand-blue: #1D71B8;
 $brand-revelry: #FCDB40;
-$brand-dark: #101010;
-$brand-light: #F1F1F1;
+$brand-dark: #101010; // usually $body-font-color
+$brand-light: #F0F0F0; // usually $body-bkgd
 $brand-green: #2fac66;
 $brand-red: #E31D1A;
 $brand-orange: #E56634;
@@ -49,7 +49,7 @@ $alert: $brand-red;
 $warning: $brand-orange;
 $error: $brand-red;
 
-$body-bkgd: $white;
+$body-bkgd: $brand-light;
 $body-font-color: $brand-dark;
 $header-color: $body-font-color;
 

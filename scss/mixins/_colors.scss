@@ -6,12 +6,25 @@
 @mixin body-color-stack-inverted {
   background-color: $body-font-color;
   color: $body-bkgd;
+  a {
+    @if lightness($anchor-color) > 50% {
+      color: $anchor-color;
+    }
+    @else {
+      color: $anchor-color-inverse;
+      &:hover {
+        color: $anchor-color-inverse-hover;
+      }
+      &:active,
+      &:focus {
+        color: $anchor-color-inverse-active;
+      }
+    }
+  }
 }
 
 $color-list: primary, secondary, tertiary, accent, success, alert, warning, error;
 $color-vars: $primary, $secondary, $tertiary, $accent, $success, $alert, $warning, $error;
-
-
 
 @mixin color-management {
   // by default we give most things the $primary bkgd-color
