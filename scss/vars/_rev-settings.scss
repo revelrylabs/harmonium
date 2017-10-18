@@ -107,11 +107,22 @@ $size-small: 32px;
 $size-default: 44px;
 $size-large: 64px;
 $size-larger: 80px;
+$size-largest: 160px;
 
 //** Component Vars are commented out here because each compnent has its !default vars set at the top of the component stylesheet. If vars need to be updated, you can uncomment them below and make your changes. Vars below will always override the !default vars in the component stylesheets
 
 // Example component var naming
 // $[component]-[css property]-[variant]-[state]
+
+//## NAVIGATION -----------------------------
+//$topbar-bkgd: $body-bkgd;
+//$topbar-bkgd-inverse: $body-font-color;
+//$topbar-border-color: $divider-color;
+//$topbar-border-size: 1px;
+//$topbar-color: $body-font-color;
+//$topbar-color-inverse: $body-bkgd;
+//$topbar-height: $size-large;
+//$topbar-input-width: $size-largest;
 
 //## CONTAINERS -----------------------------
 

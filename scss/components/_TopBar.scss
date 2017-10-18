@@ -2,12 +2,14 @@
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
 $topbar-bkgd: $body-bkgd !default;
+$topbar-bkgd-inverse: $body-font-color !default;
 $topbar-border-color: $divider-color !default;
 $topbar-border-size: 1px !default;
 $topbar-color: $body-font-color !default;
-$topbar-height: 64px !default;
+$topbar-color-inverse: $body-bkgd !default;
+$topbar-height: $size-large !default;
+$topbar-input-width: $size-largest !default;
 
-$topbar-drawer-width: 300px !default;
 
 .rev-TopBar {
   @include flex(center, row, space-between, no-wrap);
@@ -15,7 +17,6 @@ $topbar-drawer-width: 300px !default;
   border: $topbar-border-size solid $topbar-border-color;
   color: $topbar-color;
   height: $topbar-height;
-  line-height: $topbar-height;
   margin: 0 0 $global-vertical-space;
   padding: 0;
   position: relative;
@@ -31,13 +32,17 @@ $topbar-drawer-width: 300px !default;
   }
   // SEARCH FORMS IN TOPBARS
   .rev-Form {
+    padding-left: $grid-column-padding;
+    padding-right: $grid-column-padding;
     .rev-Button,
     .rev-Input {
       margin: 0;
     }
   }
   .rev-InputGroup {
-
+    .rev-Input {
+      max-width: $topbar-input-width;
+    }
   }
   // TOPBAR POSITIONING
   &.rev-TopBar--center {
@@ -54,9 +59,9 @@ $topbar-drawer-width: 300px !default;
   }
   // INVERSE COLOR TOPBAR
   &.rev-TopBar--inverse {
-    background: $body-font-color;
+    background: $topbar-bkgd-inverse;
     border: 0;
-    color: $body-bkgd;
+    color: $topbar-color-inverse;
   }
   // FIXED POSITION TOPBAR
   &.rev-TopBar--fixed {

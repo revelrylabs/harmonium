@@ -10,7 +10,7 @@
   </TopBar.Item>
   <TopBar.Item>
     <Form>
-      <InputGroup style={{margin: 0}}>
+      <InputGroup>
         <InputGroup.Field>
           <Input type="text" placeholder="Search" />
         </InputGroup.Field>
