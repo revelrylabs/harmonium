@@ -1,6 +1,6 @@
 <TopBar>
   <TopBar.Item>
-    <strong>Hello</strong>
+    <a href="#" className="rev-Brand">LOGO</a>
   </TopBar.Item>
   <TopBar.Item>
     <Menu className="rev-Menu--horizontalLeft">
@@ -8,7 +8,7 @@
       <Menu.Item><a href="#">Two</a></Menu.Item>
     </Menu>
   </TopBar.Item>
-  <TopBar.Item.Right>
+  <TopBar.Item>
     <Form>
       <InputGroup style={{margin: 0}}>
         <InputGroup.Field>
@@ -17,5 +17,5 @@
         <Button>Search</Button>
       </InputGroup>
     </Form>
-  </TopBar.Item.Right>
+  </TopBar.Item>
 </TopBar>

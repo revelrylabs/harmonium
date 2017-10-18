@@ -7,6 +7,8 @@ $topbar-border-size: 1px !default;
 $topbar-color: $body-font-color !default;
 $topbar-height: 64px !default;
 
+$topbar-drawer-width: 300px !default;
+
 .rev-TopBar {
   @include flex(center, row, space-between, no-wrap);
   background: $topbar-bkgd;
@@ -69,10 +71,11 @@ $topbar-height: 64px !default;
     }
   }
 }
+
 // can override positioning placed on the parent .rev-TopBar
-.rev-TopBar-item--right {
+/*.rev-TopBar-item--right {
   margin-left: auto;
 }
 .rev-TopBar-item--left {
   margin-right: auto;
-}
+}*/

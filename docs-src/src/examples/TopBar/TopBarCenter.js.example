@@ -1,6 +1,6 @@
 <TopBar center>
   <TopBar.Item>
-    <strong>Hello</strong>
+    <a href="#" className="rev-Brand">LOGO</a>
   </TopBar.Item>
   <TopBar.Item>
     <Menu className="rev-Menu--horizontalLeft">
