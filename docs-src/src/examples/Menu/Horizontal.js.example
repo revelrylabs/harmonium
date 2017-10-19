@@ -1,7 +1,7 @@
 <Row>
-  <Col medium={6} xlarge={3}>
+  <Col>
     <Callout>
-      <Menu verticalLeft dividers>
+      <Menu horizontalLeft dividers>
         <Menu.Item text>Left Aligned</Menu.Item>
         <Menu.Item active><a href="#">One</a></Menu.Item>
         <Menu.Item><a href="#">Two</a></Menu.Item>
@@ -9,19 +9,19 @@
       </Menu>
     </Callout>
   </Col>
-  <Col medium={6} xlarge={3}>
+  <Col>
     <Callout>
-      <Menu verticalRight dividers>
-        <Menu.Item text>Right Aligned</Menu.Item>
+      <Menu horizontalJustified dividers>
+        <Menu.Item text>Justified</Menu.Item>
         <Menu.Item><a href="#">One</a></Menu.Item>
         <Menu.Item active><a href="#">Two</a></Menu.Item>
         <Menu.Item><a href="#">Three</a></Menu.Item>
       </Menu>
     </Callout>
   </Col>
-  <Col medium={6} xlarge={3}>
+  <Col>
     <Callout>
-      <Menu verticalCentered dividers>
+      <Menu horizontalCentered dividers>
         <Menu.Item text>Centered</Menu.Item>
         <Menu.Item><a href="#">One</a></Menu.Item>
         <Menu.Item><a href="#">Two</a></Menu.Item>
@@ -29,13 +29,23 @@
       </Menu>
     </Callout>
   </Col>
-  <Col medium={6} xlarge={3}>
+  <Col>
     <Callout>
-      <Menu verticalRight dividers icons>
-        <Menu.Item text>Right Aligned w/Icons</Menu.Item>
+      <Menu horizontalRight dividers>
+        <Menu.Item text>Right Aligned</Menu.Item>
+        <Menu.Item><a href="#">One</a></Menu.Item>
+        <Menu.Item active><a href="#">Two</a></Menu.Item>
+        <Menu.Item><a href="#">Three</a></Menu.Item>
+      </Menu>
+    </Callout>
+  </Col>
+  <Col>
+    <Callout>
+      <Menu horizontalLeft icons>
+        <Menu.Item text>Left Aligned w/Icons</Menu.Item>
         <Menu.Item><a href="#"><Icon i="home" />One</a></Menu.Item>
         <Menu.Item><a href="#"><Icon i="home" />Two</a></Menu.Item>
-        <Menu.Item><a href="#"><Icon i="home" />Three</a></Menu.Item>
+        <Menu.Item active><a href="#"><Icon i="home" />Three</a></Menu.Item>
       </Menu>
     </Callout>
   </Col>

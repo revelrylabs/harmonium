@@ -1,23 +1,84 @@
-.rev-Menu {
-  &.rev-Menu--horizontalCenter {
-    @include flex(center, row, center, wrap);
+@mixin vertical-menu {
+  display: block;
+  &.rev-Menu--dividers .rev-Menu-item,
+  .rev-Menu-item--divider {
+    border-bottom: 1px solid $divider-color;
   }
-  &.rev-Menu--horizontalLeft {
-    @include flex(center, row, flex-start, wrap);
+  .rev-Menu-item--text .rev-Menu-item--divider {
+    margin-bottom: $global-vertical-space / 2;
+  }
+  &.rev-Menu--dividers .rev-Menu-item:last-of-type {
+    border: 0;
+  }
+}
+@mixin horizontal-menu {
+  @include flex(center, row, space-between, wrap);
+  &.rev-Menu--dividers .rev-Menu-item,
+  .rev-Menu-item--divider {
+    border-left: 1px solid $divider-color;
+  }
+  &.rev-Menu--dividers .rev-Menu-item:first-of-type {
+    border: 0;
+  }
+}
+
+.rev-Menu {
+  &.rev-Menu--horizontal {
+    @include horizontal-menu;
   }
   &.rev-Menu--horizontalJustified {
-    @include flex(center, row, space-between, wrap);
+    @include horizontal-menu;
+    .rev-Menu-item {
+      flex: 1;
+      text-align: center;
+    }
+  }
+  &.rev-Menu--horizontalCentered {
+    @include horizontal-menu;
+    justify-content: center;
+  }
+  &.rev-Menu--horizontalLeft {
+    @include horizontal-menu;
+    justify-content: flex-start;
   }
   &.rev-Menu--horizontalRight {
-    @include flex(center, row, flex-end, wrap);
+    @include horizontal-menu;
+    justify-content: flex-end;
+  }
+  &.rev-Menu--vertical,
+  &.rev-Menu--verticalLeft {
+    @include vertical-menu;
+    text-align: left;
+  }
+  &.rev-Menu--verticalCentered {
+    @include vertical-menu;
+    text-align: center;
+  }
+  &.rev-Menu--verticalRight {
+    @include vertical-menu;
+    text-align: right;
+  }
+  &.rev-Menu--nested {
+    @include vertical-menu;
+    background: $black-05;
+    .rev-Menu--dividers & {
+      border-top: 1px solid $divider-color;
+    }
+    /*.rev-Menu-item {
+      padding-left: $global-horizontal-space;
+    }*/
   }
 }
 .rev-Menu-item {
   margin: 0;
   padding: 0;
+  &.rev-Menu-item--text,
   a {
     display: block;
-    height: 100%;
     padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
+  }
+  &.rev-Menu-item--active {
+    background: $primary;
+    color: $white;
   }
 }

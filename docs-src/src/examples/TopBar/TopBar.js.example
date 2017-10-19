@@ -4,7 +4,7 @@
       <a href="#" className="rev-Brand">LOGO</a>
     </TopBar.Item>
     <TopBar.Item>
-      <Menu className="rev-Menu--horizontalLeft">
+      <Menu horizontalLeft>
         <Menu.Item><a href="#">One</a></Menu.Item>
         <Menu.Item><a href="#">Two</a></Menu.Item>
       </Menu>
@@ -26,7 +26,7 @@
       <a href="#" className="rev-Brand">LOGO</a>
     </TopBar.Item>
     <TopBar.Item>
-      <Menu className="rev-Menu--horizontalLeft">
+      <Menu horizontalLeft>
         <Menu.Item><a href="#">One</a></Menu.Item>
         <Menu.Item><a href="#">Two</a></Menu.Item>
       </Menu>
