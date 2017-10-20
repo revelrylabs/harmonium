@@ -1,5 +1,9 @@
 @mixin header {
+  /*background: #F0F;*/
+  display: block;
   font-family: $global-sans-serif-font;
+  line-height: $global-lineheight;
+  margin: 0;
 }
 @mixin sans-serif-light {
   font-family: $global-sans-serif-font;
@@ -11,61 +15,62 @@
 
 h1 {
   @include header;
-  font-size: $global-font-size-larger;
-  line-height: $global-vertical-space;
-  margin-bottom: $global-vertical-space * 1;
-  margin-top: $global-vertical-space * 2;
-  text-transform: uppercase;
-  vertical-align: baseline;
+  font-size: $global-font-size-largest;
+  line-height: $global-vertical-space * 1.75;
+  padding-bottom: $global-vertical-space * 1.75;
+  padding-top: $global-vertical-space * 2.75;
 }
 h2 {
   @include header;
-  font-size: $global-font-size-large;
-  line-height: $global-vertical-space;
-  margin-bottom: $global-vertical-space * 1;
-  margin-top: $global-vertical-space * 2;
-  text-transform: uppercase;
+  font-size: $global-font-size-larger;
+  line-height: $global-vertical-space * 1.5;
+  padding-bottom: $global-vertical-space * 1.5;
+  padding-top: $global-vertical-space * 2.5;
 }
 h3 {
   @include header;
-  font-size: $global-font-size;
-  margin-bottom: 0;
-  margin-top: $global-vertical-space * 1;
-  text-transform: uppercase;
+  font-size: $global-font-size-large;
+  line-height: $global-vertical-space * 1.25;
+  padding-bottom: $global-vertical-space * 1.25;
+  padding-top: $global-vertical-space * 2.25;
 }
 h4 {
   @include header;
-  font-size: $global-font-size;
+  font-size: $global-font-size-medium;
   line-height: $global-vertical-space;
-  margin-bottom: 0;
-  margin-top: $global-vertical-space * 2;
-  text-transform: uppercase;
+  padding-bottom: $global-vertical-space;
+  padding-top: $global-vertical-space * 2;
 }
 h5 {
   @include header;
   font-size: $global-font-size;
-  font-weight: lighter;
   line-height: $global-vertical-space;
-  margin-bottom: 0;
-  margin-top: $global-vertical-space * 1;
-  text-transform: uppercase;
+  padding-bottom: $global-vertical-space;
+  padding-top: $global-vertical-space * 1.5;
 }
 h6 {
   @include header;
   font-size: $global-font-size;
-  font-weight: lighter;
   line-height: $global-vertical-space;
-  margin-bottom: 0;
-  margin-top: $global-vertical-space * 1;
+  padding-bottom: $global-vertical-space;
+  padding-top: $global-vertical-space * 1.5;
 }
 p {
-  margin: 0 0 $global-vertical-space 0;
+  /*background: #E0E0E0;*/
+  margin: 0;
   max-width: 40em;
-  padding: 0;
+  padding: 0 0 $global-vertical-space 0;
 }
 a {
-  color: $primary;
+  color: $anchor-color;
   text-decoration: none;
+  &:hover {
+    color: $anchor-color-hover;
+  }
+  &:active,
+  &:focus {
+    color: $anchor-color-active;
+  }
 }
 .rev-HelpText,
 small {

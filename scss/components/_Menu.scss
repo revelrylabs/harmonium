@@ -68,17 +68,33 @@
       padding-left: $global-horizontal-space;
     }*/
   }
+  &.rev-Menu--inverse {
+    @include body-color-stack-inverted;
+    .rev-Menu-item {
+      @include navigation-color-management-inverse;
+    }
+    .rev-Menu--nested {
+      background: $white-05;
+      .rev-Menu--dividers & {
+        border-top: 1px solid $white-10;
+      }
+      /*.rev-Menu-item {
+        padding-left: $global-horizontal-space;
+      }*/
+    }
+    &.rev-Menu--dividers .rev-Menu-item,
+    .rev-Menu-item--divider {
+      border-bottom: 1px solid $white-10;
+    }
+  }
 }
 .rev-Menu-item {
+  @include navigation-color-management;
   margin: 0;
   padding: 0;
   &.rev-Menu-item--text,
   a {
     display: block;
     padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
-  }
-  &.rev-Menu-item--active {
-    background: $primary;
-    color: $white;
   }
 }

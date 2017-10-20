@@ -5,7 +5,7 @@ $button-border: 0;
 $button-color: $white;
 $button-color-hover: $white;
 $button-radius: 0;
-$button-padding: $global-vertical-space $global-horizontal-space;
+$button-padding: $global-vertical-space / 1.5 $global-horizontal-space * 1.5;
 $button-opacity-disabled: $disabled-opacity;
 
 // CLOSE BUTTON
@@ -33,12 +33,13 @@ $closebutton-size: $global-font-size;
     color: $button-color-hover;
   }
   &.rev-Button--large {
-    font-size: $global-font-size-large;
+    font-size: $global-font-size-medium;
     line-height: ($global-font-size-large / $global-font-size) * 1.1;
-    padding: 1.5 * $global-vertical-space 2 * $global-horizontal-space;
+    padding: $global-vertical-space 2.5 * $global-horizontal-space;
   }
   &.rev-Button--small {
     @include small-input;
+    padding: $global-vertical-space / 2.5 $global-horizontal-space / 1.5;
   }
   &.rev-Button--primary {
     background: $primary;

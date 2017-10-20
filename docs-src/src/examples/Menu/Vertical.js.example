@@ -21,7 +21,7 @@
   </Col>
   <Col medium={6} xlarge={3}>
     <Callout>
-      <Menu verticalCentered dividers>
+      <Menu verticalCentered inverse dividers>
         <Menu.Item text>Centered</Menu.Item>
         <Menu.Item><a href="#">One</a></Menu.Item>
         <Menu.Item><a href="#">Two</a></Menu.Item>
@@ -31,7 +31,7 @@
   </Col>
   <Col medium={6} xlarge={3}>
     <Callout>
-      <Menu verticalRight dividers icons>
+      <Menu verticalRight inverse dividers icons>
         <Menu.Item text>Right Aligned w/Icons</Menu.Item>
         <Menu.Item><a href="#"><Icon i="home" />One</a></Menu.Item>
         <Menu.Item><a href="#"><Icon i="home" />Two</a></Menu.Item>

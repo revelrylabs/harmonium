@@ -31,7 +31,7 @@
   </Col>
   <Col>
     <Callout>
-      <Menu horizontalRight dividers>
+      <Menu horizontalRight inverse dividers>
         <Menu.Item text>Right Aligned</Menu.Item>
         <Menu.Item><a href="#">One</a></Menu.Item>
         <Menu.Item active><a href="#">Two</a></Menu.Item>
@@ -41,7 +41,7 @@
   </Col>
   <Col>
     <Callout>
-      <Menu horizontalLeft icons>
+      <Menu horizontalLeft inverse icons>
         <Menu.Item text>Left Aligned w/Icons</Menu.Item>
         <Menu.Item><a href="#"><Icon i="home" />One</a></Menu.Item>
         <Menu.Item><a href="#"><Icon i="home" />Two</a></Menu.Item>

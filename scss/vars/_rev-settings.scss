@@ -7,16 +7,18 @@ $global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida G
 
 // we use the global-font-sizes for typographic utilities
 // AND to determine vertical spacing
-$global-font-size-tiny: 1rem;
+$global-font-size-tiny: 0.8rem;
 $global-font-size-small: 1.2rem;
 $global-font-size: 1.6rem;
-$global-font-size-large: 1.8rem;
-$global-font-size-larger: 2rem;
+$global-font-size-medium: 2rem;
+$global-font-size-large: 2.4rem;
+$global-font-size-larger: 2.8rem;
+$global-font-size-largest: 3.2rem;
 
 $global-weight-light: 300;
 $global-weight-normal: 400;
 $global-weight-bold: 700;
-$global-lineheight: 1.375;
+$global-lineheight: 1.5;
 
 // Breakpoint Mediaqueries
 // you can add any breakpoint vars you want
@@ -35,15 +37,15 @@ $grid-columns: 12;
 
 // Spacing
 $global-vertical-space: $global-font-size * $global-lineheight;
-$global-horizontal-space: 1.6rem; // TODO: think about this value more
+$global-horizontal-space: $global-font-size; // TODO: think about this value more
 // ^ by default, global padding, margin, and grid padding based on this value
 
 // Global Padding
-$global-padding-tiny: calc(#{$global-horizontal-space} / 4);
-$global-padding-small: calc(#{$global-horizontal-space} / 2);
-$global-padding: $global-horizontal-space;
-$global-padding-medium: calc(#{$global-horizontal-space} * 1.5);
-$global-padding-large: calc(#{$global-horizontal-space} * 2);
+$global-padding-tiny: calc(#{$global-horizontal-space} / 4); // 4px
+$global-padding-small: calc(#{$global-horizontal-space} / 2); // 8px
+$global-padding: $global-horizontal-space; // 16px
+$global-padding-medium: calc(#{$global-horizontal-space} * 1.5); // 24px
+$global-padding-large: calc(#{$global-horizontal-space} * 2); // 32px
 
 // Global Margin
 $global-margin-small: $global-padding-small;

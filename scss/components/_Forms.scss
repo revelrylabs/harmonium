@@ -27,6 +27,7 @@ $input-margin-bottom: $global-vertical-space;
   color: $input-color;
   display: block;
   font-size: $input-font-size;
+  line-height: $global-lineheight;
   margin: 0 0 $input-margin-bottom;
   max-width: 100%;
   padding: 0;
@@ -98,6 +99,6 @@ $input-margin-bottom: $global-vertical-space;
   display: block;
   font-size: $global-font-size-small;
   font-style: normal;
-  line-height: 1.85;
+  /*line-height: 1.85;*/
   margin: 0;
 }

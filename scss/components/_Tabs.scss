@@ -25,27 +25,15 @@ $tabs-content-padding: $global-vertical-space 0 !default;
   width: 100%;
 }
 .rev-TabsTitle {
+  @include navigation-color-management;
   background: $tabs-title-bkgd;
   margin: 0;
   padding: 0;
 }
 .rev-TabsTitle-link {
-  background: $tabs-title-link-bkgd;
-  color: $tabs-title-link-color;
   display: block;
   font-size: $global-font-size;
   padding: $tabs-title-link-padding;
-  &:hover,
-  &:active,
-  &:focus {
-    background: $tabs-title-link-bkgd-hover;
-    color: $tabs-title-link-color-hover;
-  }
-  .is-active & {
-    background: $tabs-title-link-bkgd-active;
-    color: $tabs-title-link-color-active;
-    cursor: default;
-  }
 }
 .rev-Tabs-content {
   border: $tabs-border-size solid $tabs-border-color;

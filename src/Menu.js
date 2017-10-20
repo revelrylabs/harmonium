@@ -12,9 +12,10 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   verticalLeft: ['rev-Menu--verticalLeft'],
   verticalCentered: ['rev-Menu--verticalCentered'],
   verticalRight: ['rev-Menu--verticalRight'],
-  nested: ['rev-Menu--nested'],
 
+  nested: ['rev-Menu--nested'],
   dividers: ['rev-Menu--dividers'],
+  inverse: ['rev-Menu--inverse'],
   icons: ['rev-Menu--icons'],
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
