@@ -1,3 +1,9 @@
+@mixin image-contained {
+  img {
+    margin: $global-vertical-space 0;
+  }
+}
+
 img {
   display: block;
   height: auto;

@@ -1,7 +1,75 @@
-<Card>
-  <Card.Header>Header content</Card.Header>
-  <Card.Fill>
-    <p><Lipsum /></p>
-  </Card.Fill>
-  <Card.Footer>Footer content</Card.Footer>
-</Card>
+<Row>
+  <Col large={6}>
+    <Card>
+      <Card.Body>
+        <Row>
+          <Col>
+            <p><Lipsum /></p>
+          </Col>
+        </Row>
+      </Card.Body>
+    </Card>
+  </Col>
+  <Col large={6}>
+    <Card>
+      <Card.Header>
+        <Row>
+          <Col>
+            <h3>Header</h3>
+          </Col>
+        </Row>
+      </Card.Header>
+      <Card.Body>
+        <Row>
+          <Col>
+            <p><Lipsum /></p>
+          </Col>
+        </Row>
+      </Card.Body>
+      <Card.Footer>
+        <Row>
+          <Col>
+            <h6>Footer</h6>
+          </Col>
+        </Row>
+      </Card.Footer>
+    </Card>
+  </Col>
+
+  <Col large={6}>
+    <Card>
+      <Card.Header>
+        <Row className="rev-Row--flex rev-Row--middle">
+          <Col>
+            <h4>Header</h4>
+          </Col>
+          <Col shrink>
+            <Button small>Button</Button>
+          </Col>
+        </Row>
+      </Card.Header>
+      <Card.Body>
+        <Row>
+          <Col>
+            <img src="https://picsum.photos/800/400" className="ResponsiveImage" />
+          </Col>
+        </Row>
+      </Card.Body>
+    </Card>
+  </Col>
+
+  <Col large={6}>
+    <Card>
+      <Card.Body>
+        <img src="https://picsum.photos/800/400" className="ResponsiveImage" />
+      </Card.Body>
+      <Card.Footer>
+        <Row>
+          <Col>
+            <HelpText>Here's an image</HelpText>
+          </Col>
+        </Row>
+      </Card.Footer>
+    </Card>
+  </Col>
+</Row>

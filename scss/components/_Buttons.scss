@@ -14,6 +14,16 @@ $closebutton-color-hover: $black;
 $closebutton-lineheight: $global-lineheight;
 $closebutton-size: $global-font-size;
 
+@mixin button-contained {
+  .rev-Button {
+    margin: $global-vertical-space auto;
+    &.rev-Button--small {
+    }
+    &.rev-Button--large {
+    }
+  }
+}
+
 .rev-Button {
   @include global-transition;
   background: $button-bkgd;

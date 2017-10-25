@@ -7,13 +7,13 @@ $global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida G
 
 // we use the global-font-sizes for typographic utilities
 // AND to determine vertical spacing
-$global-font-size-tiny: 0.8rem;
-$global-font-size-small: 1.2rem;
 $global-font-size: 1.6rem;
-$global-font-size-medium: 2rem;
-$global-font-size-large: 2.4rem;
-$global-font-size-larger: 2.8rem;
-$global-font-size-largest: 3.2rem;
+$global-font-size-tiny: $global-font-size * 0.5;
+$global-font-size-small: $global-font-size * 0.75;
+$global-font-size-medium: $global-font-size * 1.25;
+$global-font-size-large: $global-font-size * 1.5;
+$global-font-size-larger: $global-font-size * 1.75;
+$global-font-size-largest: $global-font-size * 2;
 
 $global-weight-light: 300;
 $global-weight-normal: 400;
@@ -37,6 +37,7 @@ $grid-columns: 12;
 
 // Spacing
 $global-vertical-space: $global-font-size * $global-lineheight;
+$global-vertical-space-small: $global-vertical-space / 2;
 $global-horizontal-space: $global-font-size; // TODO: think about this value more
 // ^ by default, global padding, margin, and grid padding based on this value
 
@@ -61,6 +62,7 @@ $grid-gutter: calc(#{$grid-column-padding} * 2);
 $global-radius: 2px;
 $global-rounded: 100000px;
 $global-box-shadow: 0 1px 6px 0 $black-20;
+$global-box-shadow-hover: 0 1px 6px 0 $black-20;
 
 
 // Body Vars

@@ -111,3 +111,12 @@
     }
   }
 }
+// Color Swatches
+.ExampleSwatches {
+  @include aspect-ratio(1,1);
+  @include color-management;
+}
+// Visibility
+.ExampleVisibility {
+  padding: $global-vertical-space $global-horizontal-space;
+}
