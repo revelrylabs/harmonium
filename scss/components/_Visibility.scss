@@ -1,4 +1,4 @@
-@mixin element-invisible {
+@mixin SR-element {
   position: absolute !important;
   width: 1px;
   height: 1px;
@@ -28,7 +28,7 @@
   display: none;
 }
 .ShowForSR {
-  @include element-invisible;
+  @include SR-element;
 }
 @include breakpoint($small $medium)  {
   .Hidden--smallOnly {

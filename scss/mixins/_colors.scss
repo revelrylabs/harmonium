@@ -19,67 +19,23 @@
     }
   }
 }
-
-$navigation-bkgd: $black-0;
-$navigation-bkgd-hover: $black-0;
-$navigation-bkgd-click: $black-10;
-$navigation-bkgd-active: $black-05;
-
-$navigation-color: $anchor-color;
-$navigation-color-hover: brighten($anchor-color, 10%);
-$navigation-color-click: brighten($anchor-color, 10%);
-$navigation-color-active: brighten($anchor-color, 10%);
-
-$navigation-inverse-bkgd: $white-0;
-$navigation-inverse-bkgd-hover: $white-0;
-$navigation-inverse-bkgd-click: $white-20;
-$navigation-inverse-bkgd-active: $white-10;
-
-$navigation-inverse-color: $anchor-color;
-$navigation-inverse-color-hover: brighten($anchor-color, 10%);
-$navigation-inverse-color-click: brighten($anchor-color, 10%);
-$navigation-inverse-color-active: brighten($anchor-color, 10%);
-
+$navigation-bkgd-hover: $black-025;
 @mixin navigation-color-management {
   a {
-    background: $navigation-bkgd;
-    color: $navigation-color;
     &:hover {
       background: $navigation-bkgd-hover;
-      color: $navigation-color-hover;
     }
     &:active {
-      background: $navigation-bkgd-click;
-      color: $navigation-color-click;
+      background: opacify($navigation-bkgd-hover, 0.08);
     }
   }
-  &[class*='--active'] {
-    a {
-      background: $navigation-bkgd-active;
-      color: $navigation-color-active;
-    }
+  &[class*='--active'] a,
+  &:focus {
+    background: opacify($navigation-bkgd-hover, 0.05);
   }
 }
-@mixin navigation-color-management-inverse {
-  a {
-    background: $navigation-inverse-bkgd;
-    color: $navigation-inverse-color;
-    &:hover {
-      background: $navigation-inverse-bkgd-hover;
-      color: $navigation-inverse-color-hover;
-    }
-    &:active {
-      background: $navigation-inverse-bkgd-click;
-      color: $navigation-inverse-color-click;
-    }
-  }
-  &[class*='--active'] {
-    a {
-      background: $navigation-inverse-bkgd-active;
-      color: $navigation-inverse-color-active;
-    }
-  }
-}
+
+
 
 
 $color-list: primary, secondary, tertiary, accent, success, alert, warning, error;
@@ -107,4 +63,11 @@ $color-vars: $primary, $secondary, $tertiary, $accent, $success, $alert, $warnin
       }
     }
   }
+}
+
+@mixin muted {
+  opacity: 0.5;
+}
+@mixin disabled {
+  opacity: 0.35;
 }

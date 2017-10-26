@@ -81,10 +81,18 @@ p {
   padding: 0 0 $global-vertical-space 0;
 }
 .Lead {
+  display: block;
   font-size: $global-font-size-medium;
   margin-bottom: $global-vertical-space;
   padding-bottom: $global-vertical-space / 1.3;
 }
+.Small {
+  @include muted;
+  display: block;
+  font-size: $global-font-size-small;
+  padding: 0 0 $global-vertical-space / 2 0;
+}
+
 a {
   color: $anchor-color;
   text-decoration: none;
