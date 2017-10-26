@@ -19,19 +19,38 @@
     }
   }
 }
-$navigation-bkgd-hover: $black-025;
+// By default, setting all navigational items (menu, tabs, accordion, pagination)
+// to have various shades of transparent-black bkgd to indicate
+// hover, click, and active states
+$navigation-highlight: $black-025;
 @mixin navigation-color-management {
   a {
     &:hover {
-      background: $navigation-bkgd-hover;
+      background: $navigation-highlight;
     }
     &:active {
-      background: opacify($navigation-bkgd-hover, 0.08);
+      background: opacify($navigation-highlight, 0.08);
     }
   }
   &[class*='--active'] a,
   &:focus {
-    background: opacify($navigation-bkgd-hover, 0.05);
+    background: opacify($navigation-highlight, 0.05);
+  }
+}
+
+$navigation-highlight-inverted: $white-05;
+@mixin navigation-color-management-inverted {
+  a {
+    &:hover {
+      background: $navigation-highlight-inverted;
+    }
+    &:active {
+      background: opacify($navigation-highlight-inverted, 0.08);
+    }
+  }
+  &[class*='--active'] a,
+  &:focus {
+    background: opacify($navigation-highlight-inverted, 0.05);
   }
 }
 

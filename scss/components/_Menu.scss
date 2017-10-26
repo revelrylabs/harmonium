@@ -1,3 +1,25 @@
+$menu-bkgd: null !default;
+$menu-color: null !default;
+$menu-link-bkgd: null !default;
+$menu-link-bkgd-hover: null !default;
+$menu-link-bkgd-click: null !default;
+$menu-link-bkgd-active: null !default;
+$menu-link-color: null !default;
+$menu-link-color-hover: null !default;
+$menu-link-color-click: null !default;
+$menu-link-color-active: null !default;
+
+$menu-bkgd-inverse: null !default;
+$menu-color-inverse: null !default;
+$menu-link-bkgd-inverse: null !default;
+$menu-link-bkgd-inverse-hover: null !default;
+$menu-link-bkgd-inverse-click: null !default;
+$menu-link-bkgd-inverse-active: null !default;
+$menu-link-color-inverse: null !default;
+$menu-link-color-inverse-hover: null !default;
+$menu-link-color-inverse-click: null !default;
+$menu-link-color-inverse-active: null !default;
+
 @mixin vertical-menu {
   display: block;
   &.rev-Menu--dividers .rev-Menu-item,
@@ -23,6 +45,8 @@
 }
 
 .rev-Menu {
+  background: $menu-bkgd;
+  color: $menu-color;
   &.rev-Menu--horizontal {
     @include horizontal-menu;
   }
@@ -60,27 +84,19 @@
   }
   &.rev-Menu--nested {
     @include vertical-menu;
-    background: $black-05;
     .rev-Menu--dividers & {
       border-top: 1px solid $divider-color;
     }
-    /*.rev-Menu-item {
-      padding-left: $global-horizontal-space;
-    }*/
   }
   &.rev-Menu--inverse {
     @include body-color-stack-inverted;
-    .rev-Menu-item {
-      @include navigation-color-management-inverse;
-    }
+    background: $menu-bkgd-inverse;
+    color: $menu-color-inverse;
     .rev-Menu--nested {
       background: $white-05;
       .rev-Menu--dividers & {
         border-top: 1px solid $white-10;
       }
-      /*.rev-Menu-item {
-        padding-left: $global-horizontal-space;
-      }*/
     }
     &.rev-Menu--dividers .rev-Menu-item,
     .rev-Menu-item--divider {
@@ -92,9 +108,56 @@
   @include navigation-color-management;
   margin: 0;
   padding: 0;
+  .rev-Menu--inverse & {
+    @include navigation-color-management-inverted;
+  }
   &.rev-Menu-item--text,
   a {
     display: block;
     padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
+  }
+  a {
+    background: $menu-link-bkgd;
+    color: $menu-link-color;
+    &:hover {
+      background: $menu-link-bkgd-hover;
+      color: $menu-link-color-hover;
+    }
+    &:active {
+      background: $menu-link-bkgd-click;
+      color: $menu-link-color-click;
+    }
+    &:focus {
+      background: $menu-link-bkgd-active;
+      color: $menu-link-color-active;
+    }
+  }
+  &[class*='--active'] a {
+    background: $menu-link-bkgd-active;
+    color: $menu-link-color-active;
+  }
+  .rev-Menu--inverse  & {
+    .rev-Menu-item {
+      a {
+        background: $menu-link-bkgd-inverse;
+        color: $menu-link-color-inverse;
+        &:hover {
+          background: $menu-link-bkgd-inverse-hover;
+          color: $menu-link-color-inverse-hover;
+        }
+        &:active {
+          background: $menu-link-bkgd-inverse-click;
+          color: $menu-link-color-inverse-click;
+        }
+        &:focus {
+          background: $menu-link-bkgd-inverse-active;
+          color: $menu-link-color-inverse-active;
+        }
+      }
+      &[class*='--active'] a {
+        background: $menu-link-bkgd-inverse-active;
+        color: $menu-link-color-inverse-active;
+      }
+    }
   }
 }
