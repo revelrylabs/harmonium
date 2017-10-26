@@ -5,7 +5,6 @@ $card-radius: $global-radius !default;
 $card-header-background: $white !default;
 $card-footer-background: $white !default;
 
-
 .rev-Card,
 .rev-CardLayout {
   @include typography-contained;
@@ -13,7 +12,7 @@ $card-footer-background: $white !default;
   border: $card-border;
   border-radius: $card-radius;
   box-shadow: $global-box-shadow;
-  margin-bottom: $grid-gutter;
+  margin-bottom: $global-vertical-space;
   .rev-Col {
     @include image-contained;
   }
