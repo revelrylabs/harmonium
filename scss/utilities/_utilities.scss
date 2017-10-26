@@ -1,2 +1,6 @@
 @import 'collapse';
 @import 'typography';
+
+@mixin muted {
+  opacity: 0.45;
+}
