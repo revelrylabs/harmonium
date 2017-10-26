@@ -12,8 +12,17 @@ $global-font-size-tiny: $global-font-size * 0.5;
 $global-font-size-small: $global-font-size * 0.75;
 $global-font-size-medium: $global-font-size * 1.25;
 $global-font-size-large: $global-font-size * 1.5;
-$global-font-size-larger: $global-font-size * 1.75;
-$global-font-size-largest: $global-font-size * 2;
+$global-font-size-larger: $global-font-size * 2;
+$global-font-size-largest: $global-font-size * 2.5;
+
+// Headers (rems or unitless values only!)
+$h1: $global-font-size-largest;
+$h2: $global-font-size-larger;
+$h3: $global-font-size-large;
+$h4: $global-font-size-medium;
+$h5: $global-font-size;
+$h6: $global-font-size;
+//TODO: make sass map for header sizes with breakpoints for small/large
 
 $global-weight-light: 300;
 $global-weight-normal: 400;
@@ -36,9 +45,9 @@ $global-width: $large;
 $grid-columns: 12;
 
 // Spacing
-$global-vertical-space: $global-font-size * $global-lineheight;
-$global-vertical-space-small: $global-vertical-space / 2;
-$global-horizontal-space: $global-font-size; // TODO: think about this value more
+$global-vertical-space: $global-font-size * $global-lineheight; // 24px
+$global-vertical-space-small: $global-vertical-space / 2; // 16px
+$global-horizontal-space: $global-font-size; // 16px TODO: think about this value more
 // ^ by default, global padding, margin, and grid padding based on this value
 
 // Global Padding
@@ -49,6 +58,7 @@ $global-padding-medium: calc(#{$global-horizontal-space} * 1.5); // 24px
 $global-padding-large: calc(#{$global-horizontal-space} * 2); // 32px
 
 // Global Margin
+$global-margin-tiny: $global-padding-tiny;
 $global-margin-small: $global-padding-small;
 $global-margin: $global-padding;
 $global-margin-medium: $global-padding-medium;
@@ -66,7 +76,7 @@ $global-box-shadow-hover: 0 1px 6px 0 $black-20;
 
 
 // Body Vars
-$body-background: $white;
+$body-bkgd: $white;
 $body-font-color: $dark-gray;
 $body-font-family: $global-sans-serif-font;
 
