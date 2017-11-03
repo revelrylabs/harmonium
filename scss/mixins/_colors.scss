@@ -22,7 +22,7 @@
 // By default, setting all navigational items (menu, tabs, accordion, pagination)
 // to have various shades of transparent-black bkgd to indicate
 // hover, click, and active states
-$navigation-highlight: $black-025;
+$navigation-highlight: $black-05;
 @mixin navigation-color-management {
   a {
     &:hover {
@@ -62,14 +62,14 @@ $color-vars: $primary, $secondary, $tertiary, $accent, $success, $alert, $warnin
 
 @mixin color-management {
   // by default we give most things the $primary bkgd-color
+  background: $primary;
+  @if lightness($primary) > 50% {
+    color: $brand-dark;
+  }
+  @else {
+    color: $brand-light;
+  }
   @for $i from 1 through length($color-list) {
-    background: $primary;
-    @if lightness($primary) > 50% {
-      color: $brand-dark;
-    }
-    @else {
-      color: $brand-light;
-    }
     // for components that use color vars as props, we find the lightness
     // of the bkgd-color and adjust the font-color accordingly
     &--#{nth($color-list, $i)} {
