@@ -3,6 +3,10 @@
   @if type-of($number) == 'number' and not unitless($number) {
     @return $number / ($number * 0 + 1);
   }
+  @if type-of($number) == 'px' {
+    @return $number / ($number * 0.1 + 1);
+  }
+  /*TODO: check this!!*/
   @return $number;
 }
 // unitless values
@@ -13,36 +17,22 @@ $h4-value: strip-unit($h4);
 $h5-value: strip-unit($h5);
 $h6-value: strip-unit($h6);
 $global-font-size-value: strip-unit($global-font-size);
-$global-vertical-space-value: strip-unit($global-vertical-space);
+
 // header lists
 $header-font-sizes: h1, h2, h3, h4, h5, h6;
 $header-font-size-values: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value, $h6-value;
-/*$header-font-size-values-small: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value, $h6-value;*/
 
-// header vertical rhythm
 @for $i from 1 through length($header-font-sizes) {
   #{nth($header-font-sizes, $i)} { //h1
-    $scale: nth($header-font-size-values, $i) / $global-font-size-value;
-    font-size: nth($header-font-size-values, $i) * 1rem; //$h1
-    line-height: $global-vertical-space * ($scale / 2);
-    margin-bottom: $global-vertical-space * ($scale / 2);
-    margin-top: $global-vertical-space * $scale;
+    font-size: nth($header-font-size-values, $i) * 1rem;
+    margin-bottom: $global-vertical-space;
+    margin-top: $global-vertical-space * 2;
   }
-}
-
-@mixin header {
-  color: $header-color;
-  display: block;
-  font-family: $header-font-family;
-  font-style: $header-font-style;
-  font-wieght: $header-font-weight;
-  padding: 0;
 }
 @mixin typography-contained {
   @for $i from 1 through length($header-font-sizes) {
     #{nth($header-font-sizes, $i)} {
-      $scale: nth($header-font-size-values, $i) / $global-font-size-value;
-      margin-top: $global-vertical-space * ($scale / 2);
+      margin-top: $global-vertical-space;
     }
   }
   // TODO: better way to include p styles?
@@ -60,6 +50,15 @@ $header-font-size-values: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value,
   }
 }
 
+@mixin header {
+  color: $header-color;
+  display: block;
+  font-family: $header-font-family;
+  font-style: $header-font-style;
+  font-wieght: $header-font-weight;
+  padding: 0;
+}
+
 h1,
 h2,
 h3,
@@ -67,6 +66,18 @@ h4,
 h5,
 h6 {
   @include header;
+}
+h1 {
+  line-height: $global-vertical-space * 2.5;
+}
+h2 {
+  line-height: $global-vertical-space * 2;
+}
+h3 {
+  line-height: $global-vertical-space * 1.5;
+}
+h4, h5, h6 {
+  line-height: $global-lineheight;
 }
 h5, h6 {
   text-transform: uppercase;
@@ -76,21 +87,19 @@ h6 {
 }
 
 p {
-  margin: 0;
+  margin: 0 0 $global-vertical-space 0;
   max-width: 40em;
-  padding: 0 0 $global-vertical-space 0;
+  padding: 0;
 }
 .Lead {
   display: block;
   font-size: $global-font-size-medium;
-  margin-bottom: $global-vertical-space;
-  padding-bottom: $global-vertical-space / 1.3;
 }
 .Small {
   @include muted;
   display: block;
   font-size: $global-font-size-small;
-  padding: 0 0 $global-vertical-space / 2 0;
+  padding: 0 0 $global-padding-small 0;
 }
 
 a {

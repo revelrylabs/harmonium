@@ -9,13 +9,14 @@ $global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida G
 // AND to determine vertical spacing
 $global-font-size: 1.6rem;
 $global-font-size-tiny: $global-font-size * 0.5;
-$global-font-size-small: $global-font-size * 0.75;
-$global-font-size-medium: $global-font-size * 1.25;
-$global-font-size-large: $global-font-size * 1.5;
-$global-font-size-larger: $global-font-size * 2;
-$global-font-size-largest: $global-font-size * 2.5;
+$global-font-size-smaller: $global-font-size * 0.75;
+$global-font-size-small: $global-font-size * 0.875;
+$global-font-size-medium: $global-font-size * 1.5;
+$global-font-size-large: $global-font-size * 2;
+$global-font-size-larger: $global-font-size * 2.5;
+$global-font-size-largest: $global-font-size * 3;
 
-// Headers (rems or unitless values only!)
+// Headers (rems or unit-less values only!)
 $h1: $global-font-size-largest;
 $h2: $global-font-size-larger;
 $h3: $global-font-size-large;
@@ -51,11 +52,12 @@ $global-horizontal-space: $global-font-size; // 16px TODO: think about this valu
 // ^ by default, global padding, margin, and grid padding based on this value
 
 // Global Padding
-$global-padding-tiny: calc(#{$global-horizontal-space} / 4); // 4px
-$global-padding-small: calc(#{$global-horizontal-space} / 2); // 8px
-$global-padding: $global-horizontal-space; // 16px
-$global-padding-medium: calc(#{$global-horizontal-space} * 1.5); // 24px
-$global-padding-large: calc(#{$global-horizontal-space} * 2); // 32px
+$global-padding-tiny: $global-horizontal-space / 4; // 4px
+$global-padding-smaller: $global-vertical-space-small / 2.5; // 8px
+$global-padding-small: $global-vertical-space-small / 2; // 16px
+$global-padding: $global-vertical-space; // 24px
+$global-padding-medium: $global-vertical-space * 1.5; // 32px
+$global-padding-large: $global-vertical-space * 2; // 48px
 
 // Global Margin
 $global-margin-tiny: $global-padding-tiny;
@@ -67,7 +69,7 @@ $global-margin-large: $global-padding-large;
 // Grid
 $grid-row-width: $global-width;
 $grid-column-padding: $global-horizontal-space;
-$grid-gutter: calc(#{$grid-column-padding} * 2);
+$grid-gutter: $grid-column-padding * 2;
 
 $global-radius: 2px;
 $global-rounded: 100000px;
