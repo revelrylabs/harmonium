@@ -1,4 +1,4 @@
-$menu-bkgd: null !default;
+$menu-bkgd: $white !default;
 $menu-color: null !default;
 $menu-link-bkgd: null !default;
 $menu-link-bkgd-hover: null !default;
@@ -9,7 +9,7 @@ $menu-link-color-hover: null !default;
 $menu-link-color-click: null !default;
 $menu-link-color-active: null !default;
 
-$menu-bkgd-inverse: null !default;
+$menu-bkgd-inverse: $brand-dark !default;
 $menu-color-inverse: null !default;
 $menu-link-bkgd-inverse: null !default;
 $menu-link-bkgd-inverse-hover: null !default;
@@ -20,17 +20,28 @@ $menu-link-color-inverse-hover: null !default;
 $menu-link-color-inverse-click: null !default;
 $menu-link-color-inverse-active: null !default;
 
+$menu-dropdown-width: 24rem !default;
+
 @mixin vertical-menu {
   display: block;
-  &.rev-Menu--dividers .rev-Menu-item,
-  .rev-Menu-item--divider {
-    border-bottom: 1px solid $divider-color;
+  &.rev-Menu--dividers {
+    border-top: 1px solid $divider-color;
+    .rev-Menu--nested {
+      border-top: 1px solid $divider-color;
+    }
+    .rev-Menu-item,
+    .rev-Menu-item--divider {
+      border-bottom: 1px solid $divider-color;
+    }
+    .rev-Menu-item:last-of-type {
+      border: 0;
+    }
+  }
+  .rev-Menu--nested {
+    background: $black-025;
   }
   .rev-Menu-item--text .rev-Menu-item--divider {
     margin-bottom: $global-vertical-space / 2;
-  }
-  &.rev-Menu--dividers .rev-Menu-item:last-of-type {
-    border: 0;
   }
 }
 @mixin horizontal-menu {
@@ -42,11 +53,35 @@ $menu-link-color-inverse-active: null !default;
   &.rev-Menu--dividers .rev-Menu-item:first-of-type {
     border: 0;
   }
+  .rev-Menu--nested {
+    border: 1px solid $divider-color;
+    border-radius: $global-radius;
+    display: block;
+    position: absolute;
+    width: $menu-dropdown-width;
+    z-index: $above;
+    &:before {
+      @include arrow-up($divider-color, 8px);
+      left: $global-padding-large;
+    }
+  }
+  .rev-Menu-item {
+    &:hover,
+    &:active,
+    &:focus,
+    &.rev-Menu-item--active {
+      .rev-Menu--nested {
+        display: block;
+      }
+    }
+  }
 }
 
 .rev-Menu {
   background: $menu-bkgd;
   color: $menu-color;
+  position: relative;
+  z-index: $above-most;
   &.rev-Menu--horizontal {
     @include horizontal-menu;
   }
@@ -82,21 +117,17 @@ $menu-link-color-inverse-active: null !default;
     @include vertical-menu;
     text-align: right;
   }
-  &.rev-Menu--nested {
-    @include vertical-menu;
-    .rev-Menu--dividers & {
-      border-top: 1px solid $divider-color;
-    }
-  }
   &.rev-Menu--inverse {
     @include body-color-stack-inverted;
     background: $menu-bkgd-inverse;
     color: $menu-color-inverse;
+    &.rev-Menu--dividers {
+      .rev-Menu--nested {
+        border-color: $white-10;
+      }
+    }
     .rev-Menu--nested {
       background: $white-05;
-      .rev-Menu--dividers & {
-        border-top: 1px solid $white-10;
-      }
     }
     &.rev-Menu--dividers .rev-Menu-item,
     .rev-Menu-item--divider {
@@ -108,6 +139,7 @@ $menu-link-color-inverse-active: null !default;
   @include navigation-color-management;
   margin: 0;
   padding: 0;
+  position: relative;
   .rev-Menu--inverse & {
     @include navigation-color-management-inverted;
   }
