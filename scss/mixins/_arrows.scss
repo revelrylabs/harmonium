@@ -12,7 +12,7 @@
   width: 0;
   z-index: 1;
 }
-@mixin down-arrow($color: null, $arrow-size: 10px) {
+@mixin arrow-down($color: null, $arrow-size: 10px) {
   @include arrow-base;
   border: $arrow-size solid transparent;
   border-bottom: 0;
@@ -21,7 +21,7 @@
   left: 50%;
   margin-left: -$arrow-size;
 }
-@mixin left-arrow($color: null, $arrow-size: 10px) {
+@mixin arrow-left($color: null, $arrow-size: 10px) {
   @include arrow-base;
   border: $arrow-size solid transparent;
   border-right: $arrow-size solid $color;
@@ -30,7 +30,7 @@
   margin-top: -$arrow-size;
   top: 50%;
 }
-@mixin right-arrow($color: null, $arrow-size: 10px) {
+@mixin arrow-right($color: null, $arrow-size: 10px) {
   @include arrow-base;
   border: $arrow-size solid transparent;
   border-left: $arrow-size solid $color;
@@ -39,7 +39,7 @@
   margin-top: -$arrow-size;
   top: 50%;
 }
-@mixin up-arrow($color: null, $arrow-size: 10px) {
+@mixin arrow-up($color: null, $arrow-size: 10px) {
   @include arrow-base;
   border: $arrow-size solid transparent;
   border-bottom: $arrow-size solid $color;
