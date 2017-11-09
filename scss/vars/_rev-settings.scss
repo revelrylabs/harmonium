@@ -47,17 +47,15 @@ $grid-columns: 12;
 
 // Spacing
 $global-vertical-space: $global-font-size * $global-lineheight; // 24px
-$global-vertical-space-small: $global-vertical-space / 2; // 16px
-$global-horizontal-space: $global-font-size; // 16px TODO: think about this value more
-// ^ by default, global padding, margin, and grid padding based on this value
+$global-horizontal-space: $global-vertical-space / 2; // 16px
 
 // Global Padding
-$global-padding-tiny: $global-horizontal-space / 4; // 4px
-$global-padding-smaller: $global-vertical-space-small / 2.5; // 8px
-$global-padding-small: $global-vertical-space-small / 2; // 16px
-$global-padding: $global-vertical-space; // 24px
-$global-padding-medium: $global-vertical-space * 1.5; // 32px
-$global-padding-large: $global-vertical-space * 2; // 48px
+$global-padding-tiny: $global-vertical-space / 4; // 4px
+$global-padding-small: $global-vertical-space / 2.5; // 8px
+$global-padding: $global-vertical-space / 2; // 16px
+$global-padding-medium: $global-vertical-space; // 24px
+$global-padding-large: $global-vertical-space * 1.5; // 32px
+$global-padding-larger: $global-vertical-space * 2; // 48px
 
 // Global Margin
 $global-margin-tiny: $global-padding-tiny;
@@ -65,10 +63,11 @@ $global-margin-small: $global-padding-small;
 $global-margin: $global-padding;
 $global-margin-medium: $global-padding-medium;
 $global-margin-large: $global-padding-large;
+$global-margin-larger: $global-padding-larger;
 
 // Grid
 $grid-row-width: $global-width;
-$grid-column-padding: $global-horizontal-space;
+$grid-column-padding: $global-padding;
 $grid-gutter: $grid-column-padding * 2;
 
 $global-radius: 2px;
@@ -126,6 +125,17 @@ $size-default: 44px;
 $size-large: 64px;
 $size-larger: 80px;
 $size-largest: 160px;
+
+//## NAVIGATION COLORS
+$navigation-bkgd: $white;
+$navigation-bkgd-hover: darken($navigation-bkgd, 10%);
+$navigation-bkgd-click: darken($navigation-bkgd, 20%);
+$navigation-bkgd-active: darken($navigation-bkgd, 15%);
+
+$navigation-bkgd-inverted: $darker-gray;
+$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 10%);
+$navigation-bkgd-inverted-click: lighten($navigation-bkgd-inverted, 20%);
+$navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 
 //** Component Vars are commented out here because each compnent has its !default vars set at the top of the component stylesheet. If vars need to be updated, you can uncomment them below and make your changes. Vars below will always override the !default vars in the component stylesheets
 

@@ -103,6 +103,7 @@ p {
 }
 
 a {
+  @include global-transition;
   color: $anchor-color;
   text-decoration: none;
   &:hover {

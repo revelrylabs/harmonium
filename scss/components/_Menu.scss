@@ -25,7 +25,6 @@ $menu-dropdown-width: 24rem !default;
 @mixin vertical-menu {
   display: block;
   &.rev-Menu--dividers {
-    border-top: 1px solid $divider-color;
     .rev-Menu--nested {
       border-top: 1px solid $divider-color;
     }
@@ -36,9 +35,6 @@ $menu-dropdown-width: 24rem !default;
     .rev-Menu-item:last-of-type {
       border: 0;
     }
-  }
-  .rev-Menu--nested {
-    background: $black-025;
   }
   .rev-Menu-item--text .rev-Menu-item--divider {
     margin-bottom: $global-vertical-space / 2;
@@ -55,17 +51,23 @@ $menu-dropdown-width: 24rem !default;
   }
   .rev-Menu--nested {
     border: 1px solid $divider-color;
+    border-top: 0;
     border-radius: $global-radius;
-    display: block;
+    display: none;
     position: absolute;
     width: $menu-dropdown-width;
     z-index: $above;
-    &:before {
-      @include arrow-up($divider-color, 8px);
-      left: $global-padding-large;
+    .rev-Menu--nested {
+      border: 0;
+      position: static;
+      width: 100%;
+    }
+    li:hover & {
+      display: block;
     }
   }
   .rev-Menu-item {
+    position: relative;
     &:hover,
     &:active,
     &:focus,
@@ -121,17 +123,17 @@ $menu-dropdown-width: 24rem !default;
     @include body-color-stack-inverted;
     background: $menu-bkgd-inverse;
     color: $menu-color-inverse;
+    .rev-Menu {
+      background: $menu-bkgd-inverse;
+    }
     &.rev-Menu--dividers {
       .rev-Menu--nested {
-        border-color: $white-10;
+        border-color: $divider-color-light;
       }
-    }
-    .rev-Menu--nested {
-      background: $white-05;
     }
     &.rev-Menu--dividers .rev-Menu-item,
     .rev-Menu-item--divider {
-      border-bottom: 1px solid $white-10;
+      border-color: $divider-color-light;
     }
   }
 }
@@ -189,6 +191,22 @@ $menu-dropdown-width: 24rem !default;
       &[class*='--active'] a {
         background: $menu-link-bkgd-inverse-active;
         color: $menu-link-color-inverse-active;
+      }
+    }
+  }
+}
+/*TODO: do this smarter*/
+.rev-Menu--nested {
+  a {
+    padding-left: $global-padding-medium;
+  }
+  .rev-Menu--nested {
+    a {
+      padding-left: $global-padding-large;
+    }
+    .rev-Menu--nested {
+      a {
+        padding-left: $global-padding-larger;
       }
     }
   }

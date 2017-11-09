@@ -19,38 +19,44 @@
     }
   }
 }
-// By default, setting all navigational items (menu, tabs, accordion, pagination)
-// to have various shades of transparent-black bkgd to indicate
-// hover, click, and active states
-$navigation-highlight: $black-05;
+
+$navigation-bkgd: $white;
+$navigation-bkgd-hover: darken($navigation-bkgd, 8%);
+$navigation-bkgd-click: darken($navigation-bkgd, 18%);
+$navigation-bkgd-active: darken($navigation-bkgd, 12%);
+
+$navigation-bkgd-inverted: $darker-gray;
+$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 8%);
+$navigation-bkgd-inverted-click: lighten($navigation-bkgd-inverted, 18%);
+$navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 12%);
+
 @mixin navigation-color-management {
   a {
+    background: $navigation-bkgd;
     &:hover {
-      background: $navigation-highlight;
+      background: $navigation-bkgd-hover;
     }
     &:active {
-      background: opacify($navigation-highlight, 0.08);
+      background: $navigation-bkgd-click;
     }
   }
-  &[class*='--active'] a,
-  &:focus {
-    background: opacify($navigation-highlight, 0.05);
+  &[class*='--active'] a {
+    background: $navigation-bkgd-active;
   }
 }
 
-$navigation-highlight-inverted: $white-05;
 @mixin navigation-color-management-inverted {
   a {
+    background: $navigation-bkgd-inverted;
     &:hover {
-      background: $navigation-highlight-inverted;
+      background: $navigation-bkgd-inverted-hover;
     }
     &:active {
-      background: opacify($navigation-highlight-inverted, 0.08);
+      background: $navigation-bkgd-inverted-click;
     }
   }
-  &[class*='--active'] a,
-  &:focus {
-    background: opacify($navigation-highlight-inverted, 0.05);
+  &[class*='--active'] a {
+    background: $navigation-bkgd-inverted-active;
   }
 }
 
