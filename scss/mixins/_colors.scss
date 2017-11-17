@@ -21,14 +21,14 @@
 }
 
 $navigation-bkgd: $white;
-$navigation-bkgd-hover: darken($navigation-bkgd, 8%);
-$navigation-bkgd-click: darken($navigation-bkgd, 18%);
-$navigation-bkgd-active: darken($navigation-bkgd, 12%);
+$navigation-bkgd-hover: darken($navigation-bkgd, 5%);
+$navigation-bkgd-click: darken($navigation-bkgd, 15%);
+$navigation-bkgd-active: darken($navigation-bkgd, 10%);
 
 $navigation-bkgd-inverted: $darker-gray;
-$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 8%);
-$navigation-bkgd-inverted-click: lighten($navigation-bkgd-inverted, 18%);
-$navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 12%);
+$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 5%);
+$navigation-bkgd-inverted-click: lighten($navigation-bkgd-inverted, 15%);
+$navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 10%);
 
 @mixin navigation-color-management {
   a {
