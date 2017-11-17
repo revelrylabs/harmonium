@@ -61,10 +61,8 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 12%);
 }
 
 
-
-
-$color-list: primary, secondary, tertiary, accent, success, alert, warning, error;
-$color-vars: $primary, $secondary, $tertiary, $accent, $success, $alert, $warning, $error;
+$color-list: primary, success, alert, warning, error;
+$color-vars: $primary, $success, $alert, $warning, $error;
 
 @mixin color-management {
   // by default we give most things the $primary bkgd-color

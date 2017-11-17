@@ -116,6 +116,12 @@
   @include aspect-ratio(1,1);
   @include color-management;
 }
+// Buttons
+.ExampleButtons {
+  .rev-Button {
+    margin-right: $global-margin;
+  }
+}
 // Visibility
 .ExampleVisibility {
   padding: $global-padding;

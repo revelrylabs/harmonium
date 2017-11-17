@@ -1,6 +1,6 @@
 @mixin small-input {
-  line-height: $global-lineheight * $global-font-size;
+  line-height: $base-lineheight;
   // Margins set so the resulting button will be 4 ver units high
-  margin-bottom: $global-vertical-space;
-  padding: $global-vertical-space / 2 $global-horizontal-space;
+  margin-bottom: $global-padding-small;
+  padding: $global-padding-tiny $global-padding;
 }

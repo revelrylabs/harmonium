@@ -29,6 +29,7 @@ $global-weight-light: 300;
 $global-weight-normal: 400;
 $global-weight-bold: 700;
 $global-lineheight: 1.5;
+$base-lineheight: $global-lineheight * $global-font-size;
 
 // Breakpoint Mediaqueries
 // you can add any breakpoint vars you want
@@ -46,28 +47,28 @@ $global-width: $large;
 $grid-columns: 12;
 
 // Spacing
-$global-vertical-space: $global-font-size * $global-lineheight; // 24px
-$global-horizontal-space: $global-vertical-space / 2; // 16px
 
+$global-vertical-space: $global-font-size * $global-lineheight; // 24px
+$global-horizontal-space: $global-vertical-space; // 24px
+$base-size: .8rem;
 // Global Padding
-$global-padding-tiny: $global-vertical-space / 4; // 4px
-$global-padding-small: $global-vertical-space / 2.5; // 8px
-$global-padding: $global-vertical-space / 2; // 16px
-$global-padding-medium: $global-vertical-space; // 24px
-$global-padding-large: $global-vertical-space * 1.5; // 32px
-$global-padding-larger: $global-vertical-space * 2; // 48px
+$global-padding-tiny: $base-size / 2;  // 4px
+$global-padding-smaller: $base-size; // 8px
+$global-padding-small: $base-size * 2; // 16px
+$global-padding: $base-size * 3; // 24px
+$global-padding-large: $base-size * 4; // 32px
+$global-padding-larger: $base-size * 6; // 48px
 
 // Global Margin
 $global-margin-tiny: $global-padding-tiny;
 $global-margin-small: $global-padding-small;
 $global-margin: $global-padding;
-$global-margin-medium: $global-padding-medium;
 $global-margin-large: $global-padding-large;
 $global-margin-larger: $global-padding-larger;
 
 // Grid
 $grid-row-width: $global-width;
-$grid-column-padding: $global-padding;
+$grid-column-padding: $global-padding-small;
 $grid-gutter: $grid-column-padding * 2;
 
 $global-radius: 2px;
@@ -118,13 +119,13 @@ $disabled-opacity: 0.25;
 
 // Sizes
 // common size vars for things like badges, close buttons, fixed naviagtion bars
-$size-tiny: 8px;
-$size-smaller: 16px;
-$size-small: 32px;
-$size-default: 44px;
-$size-large: 64px;
-$size-larger: 80px;
-$size-largest: 160px;
+$size-tiny: 6px;
+$size-smaller: 12px;
+$size-small: 18px;
+$size-default: 24px;
+$size-large: 48px;
+$size-larger: 64px;
+$size-largest: 128px;
 
 //## NAVIGATION COLORS
 $navigation-bkgd: $white;

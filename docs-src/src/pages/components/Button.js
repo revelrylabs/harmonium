@@ -5,8 +5,6 @@ import scope from '../../ExampleScope'
 const examples = {
   'Sizes': require('raw!../../examples/Button/Sizes.js.example'),
   'Types': require('raw!../../examples/Button/Types.js.example'),
-  'Types (Disabled)': require('raw!../../examples/Button/DisabledTypes.js.example'),
-  'Hollow': require('raw!../../examples/Button/Hollow.js.example'),
   'Expanded': require('raw!../../examples/Button/Expanded.js.example'),
   'Button with Form Attributes': require('raw!../../examples/Button/FormAttributes.js.example'),
   'Buttons with href prop become anchor links': require('raw!../../examples/Button/LinkButton.js.example'),

@@ -1,7 +1,11 @@
-<div>
-  <Button>default</Button>
-  <Button secondary>secondary</Button>
-  <Button success>success</Button>
-  <Button warning>warning</Button>
-  <Button alert>alert</Button>
-</div>
+<Row className="ExampleButtons">
+  <Col>
+    <Button>Default/Primary</Button>
+    <Button secondary>Secondary</Button>
+    <Button inverted>Inverted</Button>
+    <Button disabled>Disabled</Button>
+    <Button success>Success</Button>
+    <Button warning>Warning</Button>
+    <Button alert>Alert</Button>
+  </Col>
+</Row>
