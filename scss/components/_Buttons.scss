@@ -16,12 +16,12 @@ $closebutton-size: $global-font-size;
 
 @mixin button-contained {
   .rev-Button {
-    margin: $global-margin-small auto;
+    margin: $global-vertical-space / 2 auto;
     &.rev-Button--small {
-      margin: $global-margin-small auto;
+      margin: $global-vertical-space / 2 auto;
     }
     &.rev-Button--large {
-      margin: $global-margin auto;
+      margin: $global-vertical-space auto;
     }
   }
 }
@@ -37,8 +37,8 @@ $closebutton-size: $global-font-size;
   font-size: $global-font-size;
   font-weight: normal;
   line-height: $base-lineheight;
-  margin: 0 auto $global-margin-small;
-  padding: $global-padding-small $global-padding-large;
+  margin: 0 auto $global-vertical-space;
+  padding: $global-padding-small $global-padding;
   &:hover,
   &:active,
   &:focus {
@@ -52,12 +52,11 @@ $closebutton-size: $global-font-size;
   }
   &.rev-Button--large {
     font-size: $global-font-size-medium;
-    padding: $global-padding $global-padding-larger;
-    margin: 0 auto $global-margin;
+    padding: $global-padding $global-padding-large;
+    margin: 0 auto $global-vertical-space;
   }
   &.rev-Button--small {
     @include small-input;
-    font-size: $global-font-size-small;
   }
   &.rev-Button--inverted {
     background: $button-color;

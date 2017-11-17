@@ -32,7 +32,8 @@ $header-font-size-values: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value,
 @mixin typography-contained {
   @for $i from 1 through length($header-font-sizes) {
     #{nth($header-font-sizes, $i)} {
-      margin-top: $global-vertical-space;
+      margin-top: $global-vertical-space / 2;
+      margin-bottom: $global-vertical-space / 2;
     }
   }
   // TODO: better way to include p styles?
