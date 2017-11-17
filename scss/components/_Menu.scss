@@ -198,7 +198,7 @@ $menu-dropdown-width: 24rem !default;
 /*TODO: do this smarter*/
 .rev-Menu--nested {
   a {
-    padding-left: $global-padding-medium;
+    padding-left: $global-padding;
   }
   .rev-Menu--nested {
     a {
