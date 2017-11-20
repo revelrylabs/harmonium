@@ -1,12 +1,13 @@
 // default component vars listed at the top of the component stylesheet
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
-$topbar-bkgd: $body-bkgd !default;
+$topbar-bkgd: $white !default;
 $topbar-border-color: $divider-color !default;
 $topbar-border-size: 1px !default;
 $topbar-color: $body-font-color !default;
 $topbar-height: $size-larger !default;
 $topbar-input-width: $size-largest !default;
+$topbar-link-bkgd: transparent !default;
 
 
 .rev-TopBar {
@@ -20,14 +21,6 @@ $topbar-input-width: $size-largest !default;
   position: relative;
   width: 100%;
   z-index: $above;
-  ul {
-    margin: 0;
-    padding: 0;
-    a {
-      padding-bottom: 0;
-      padding-top: 0;
-    }
-  }
   // SEARCH FORMS IN TOPBARS
   .rev-Form {
     padding-left: $grid-column-padding;
@@ -70,6 +63,12 @@ $topbar-input-width: $size-largest !default;
     width: 100%;
     .rev-Row {
       @include flex(stretch, row, space-between);
+    }
+  }
+  .rev-Menu  {
+    background: transparent;
+    .rev-Menu-item a {
+      border-radius: $global-radius;
     }
   }
 }

@@ -1,13 +1,8 @@
 $input-height: 44px;
 $input-bkgd: $brand-light;
 $input-bkgd-focus: $input-bkgd;
-$input-border-width: 1px;
-$input-border-style: solid;
-$input-border-color: $divider-color;
-$input-border: $input-border-width $input-border-style $input-border-color;
-$input-border-focus: 1px solid darken($divider-color, 5%);
-$input-box-shadow: none;
-$input-box-shadow-focus: $input-box-shadow;
+$input-box-shadow: 0 0 0 1px $divider-color inset;
+$input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset;
 $input-radius: 0;
 $input-color: $body-font-color;
 $input-color-focus: $input-color;
@@ -21,20 +16,20 @@ $input-margin-bottom: $global-vertical-space;
   @include global-transition;
   @include placeholder;
   background: $input-bkgd;
-  border: $input-border;
+  border: 0;
   border-radius: $input-radius;
   box-shadow: $input-box-shadow;
   color: $input-color;
   display: block;
   font-size: $input-font-size;
-  line-height: $global-lineheight;
-  margin: 0 0 $input-margin-bottom;
+  line-height: $base-lineheight;
+  margin: 0 0 $global-margin;
   max-width: 100%;
-  padding: 0;
+  outline: none;
+  padding: $global-padding-small;
   &:active,
   &:focus {
     background: $input-bkgd-focus;
-    border: $input-border-focus;
     box-shadow: $input-box-shadow-focus;
     color: $input-color-focus;
   }
@@ -63,27 +58,19 @@ $input-margin-bottom: $global-vertical-space;
 }
 .rev-Input {
   @include input-style;
-  height: $input-height;
-  padding: 0 calc(#{$global-horizontal-space} - #{$input-border-width});
 }
 .rev-Select {
   @include input-style;
-  height: $input-height;
-  padding: 0 calc(#{$global-horizontal-space} - #{$input-border-width});
+  border-radius: 0;
   -webkit-border-radius: 0;
   .rev-InputGroup &,
   &--unrounded {
     border: 0;
-    height: calc(#{$input-height} - #{$input-border-width * 2});
-    margin-left: 1px;
-    margin-right: 1px;
-    outline: $input-border;
+    outline: none;
     position: relative;
-    top: $input-border-width;
     &:focus {
       border: 0;
       border-radius: 0;
-      outline: $input-border-focus;
       outline-offset: 0;
     }
   }

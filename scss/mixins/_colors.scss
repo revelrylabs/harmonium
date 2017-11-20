@@ -67,7 +67,7 @@ $color-vars: $primary, $success, $alert, $warning, $error;
 @mixin color-management {
   // by default we give most things the $primary bkgd-color
   background: $primary;
-  @if lightness($primary) > 50% {
+  @if lightness($primary) > 65% {
     color: $brand-dark;
   }
   @else {

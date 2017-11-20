@@ -1,11 +1,19 @@
 .rev-InputGroup {
   @include flex(stretch, row, flex-start, nowrap);
   .rev-InputGroup-label {
-    @include small-input;
+    font-size: $global-font-size-small;
+    line-height: $base-lineheight;
+    padding: $global-padding-small $global-padding-small $global-padding-small 0;
     position: relative;
-    line-height: $global-lineheight;
   }
-  .rev-Button {
-    padding: $global-vertical-space / 2.5 $global-horizontal-space; // rev-Button--small padding
+  .rev-InputGroup-button {
+    .rev-Button {
+      border-radius: 0;
+    }
+    &:last-of-type {
+      .rev-Button {
+        border-radius: 0 $global-radius $global-radius 0;
+      }
+    }
   }
 }
