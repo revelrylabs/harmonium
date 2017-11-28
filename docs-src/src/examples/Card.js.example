@@ -1,14 +1,67 @@
 <Row>
-  <Col large={6}>
+  <Col>
+    <h3>Card Sizes</h3>
+  </Col>
+  <Col large={4}>
     <Card>
       <Card.Body>
         <Row>
           <Col>
-            <p><Lipsum /></p>
+            <p>Default Card</p>
           </Col>
         </Row>
       </Card.Body>
     </Card>
+  </Col>
+  <Col large={4}>
+    <Card small>
+      <Card.Body>
+        <Row>
+          <Col>
+            <p>Small Card</p>
+          </Col>
+        </Row>
+      </Card.Body>
+    </Card>
+  </Col>
+  <Col large={4}>
+    <Card large>
+      <Card.Body>
+        <Row>
+          <Col>
+            <p>Large Card</p>
+          </Col>
+        </Row>
+      </Card.Body>
+    </Card>
+  </Col>
+  <Col>
+    <h3>Card Types</h3>
+  </Col>
+  <Col large={6}>
+    <Card primary>
+      <Card.Body>
+        <Row>
+          <Col>
+            <p>Primary Card</p>
+          </Col>
+        </Row>
+      </Card.Body>
+    </Card>
+  </Col>
+  <Col large={6}>
+    <Card secondary>
+      <Card.Body>
+        <Row>
+          <Col>
+            <p>Secondary Card</p>
+          </Col>
+        </Row>
+      </Card.Body>
+    </Card>
+  </Col>
+  <Col>
+    <h3>Card Layouts</h3>
   </Col>
   <Col large={6}>
     <Card>

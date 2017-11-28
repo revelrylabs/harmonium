@@ -10,7 +10,7 @@ const examples = {
 export default class ModalExamplePage extends Component {
   render() {
     return <div className="playgroundPreview--FakeViewportContainer">
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Modals" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }

@@ -9,7 +9,7 @@ const examples = {
 export default class CalloutExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Callouts" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }

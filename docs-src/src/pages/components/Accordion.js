@@ -21,7 +21,7 @@ const examples = {
 export default class AccordionExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Accordions" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }

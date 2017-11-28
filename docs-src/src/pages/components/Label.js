@@ -9,7 +9,7 @@ const examples = {
 export default class LabelExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Labels" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }

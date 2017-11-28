@@ -1,5 +1,5 @@
 $card-background: $white !default;
-$card-border: 0 !default;
+$card-border: 1px solid $divider-color !default;
 $card-padding: 0 !default;
 $card-radius: $global-radius !default;
 $card-header-background: $white !default;
@@ -11,10 +11,17 @@ $card-footer-background: $white !default;
   background-color: $card-background;
   border: $card-border;
   border-radius: $card-radius;
-  box-shadow: $global-box-shadow;
   margin-bottom: $global-vertical-space;
   .rev-Col {
     @include image-contained;
+  }
+  &.rev-Card--primary {
+    border: 0;
+    box-shadow: $global-box-shadow;
+  }
+  &.rev-Card--secondary {
+    background: transparent;
+    border: 1px solid $divider-color;
   }
 }
 

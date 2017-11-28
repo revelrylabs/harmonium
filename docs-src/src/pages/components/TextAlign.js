@@ -9,7 +9,7 @@ const examples = {
 export default class TextAlignExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Text Alignment" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }
