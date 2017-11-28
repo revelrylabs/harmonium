@@ -6,6 +6,7 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   small: ['rev-Button--small'],
   large: ['rev-Button--large'],
 
+  primary: ['rev-Button--primary'],
   secondary: ['rev-Button--secondary'],
   inverted: ['rev-Button--inverted'],
 

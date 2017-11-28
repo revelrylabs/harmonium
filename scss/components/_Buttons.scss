@@ -58,18 +58,14 @@ $closebutton-size: $global-font-size;
   &.rev-Button--small {
     @include small-input;
   }
-  &.rev-Button--inverted {
-    background: $button-color;
-    box-shadow: 0 1px 4px 0 $black-20;
-    color: $button-bkgd;
+  &.rev-Button--primary {
+    box-shadow: $global-box-shadow;
     &:hover {
-      background: $white;
-      box-shadow: 0 2px 6px 0 $black-40;
-      color: $button-bkgd;
+      box-shadow: $global-box-shadow-hover;
     }
     &:active,
     &:focus {
-      box-shadow: 0 1px 2px 0 $black-20;
+      box-shadow: $global-box-shadow-active;
     }
   }
   &.rev-Button--secondary {
@@ -86,6 +82,32 @@ $closebutton-size: $global-font-size;
       background: $button-bkgd-active;
       box-shadow: 0 0 0 1px $button-bkgd-active inset;
       color: $button-color-active;
+    }
+  }
+  &.rev-Button--inverted {
+    background: $button-color;
+    color: $button-bkgd;
+    &:hover,
+    &:active,
+    &:focus {
+      background: $button-color;
+      color: $button-bkgd;
+    }
+    &.rev-Button--secondary {
+      background: transparent;
+      box-shadow: 0 0 0 1px $button-color inset;
+      color: $button-color;
+      &:hover {
+        background: $button-color-hover;
+        box-shadow: 0 0 0 1px $button-color-hover inset;
+        color: $button-bkgd-hover;
+      }
+      &:active,
+      &:focus {
+        background: $button-color-active;
+        box-shadow: 0 0 0 1px $button-color-active inset;
+        color: $button-bkgd-active;
+      }
     }
   }
   &.rev-Button--success {
