@@ -14,6 +14,7 @@ $card-footer-background: $white !default;
   margin-bottom: $global-vertical-space;
   .rev-Col {
     @include image-contained;
+    padding: 0 $global-padding;
   }
   &.rev-Card--primary {
     border: 0;
@@ -22,6 +23,17 @@ $card-footer-background: $white !default;
   &.rev-Card--secondary {
     background: transparent;
     border: 1px solid $divider-color;
+  }
+  &.rev-Card--small {
+    .rev-Col {
+      padding: 0 $global-padding-small;
+    }
+    p:first-child {
+      margin-top: $global-padding-small;
+    }
+    p:last-child {
+      margin-bottom: $global-padding-small;
+    }
   }
 }
 

@@ -24,21 +24,21 @@
       </Card.Body>
     </Card>
   </Col>
+  <Col>
+    <h3>Card Types</h3>
+  </Col>
   <Col large={4}>
-    <Card large>
+    <Card>
       <Card.Body>
         <Row>
           <Col>
-            <p>Large Card</p>
+            <p>Default Card</p>
           </Col>
         </Row>
       </Card.Body>
     </Card>
   </Col>
-  <Col>
-    <h3>Card Types</h3>
-  </Col>
-  <Col large={6}>
+  <Col large={4}>
     <Card primary>
       <Card.Body>
         <Row>
@@ -49,7 +49,7 @@
       </Card.Body>
     </Card>
   </Col>
-  <Col large={6}>
+  <Col large={4}>
     <Card secondary>
       <Card.Body>
         <Row>
@@ -65,6 +65,32 @@
   </Col>
   <Col large={6}>
     <Card>
+      <Card.Header>
+        <Row>
+          <Col>
+            <h3>Header</h3>
+          </Col>
+        </Row>
+      </Card.Header>
+      <Card.Body>
+        <Row>
+          <Col>
+            <p><Lipsum /></p>
+          </Col>
+        </Row>
+      </Card.Body>
+      <Card.Footer>
+        <Row>
+          <Col>
+            <h6>Footer</h6>
+          </Col>
+        </Row>
+      </Card.Footer>
+    </Card>
+  </Col>
+
+  <Col large={6}>
+    <Card small>
       <Card.Header>
         <Row>
           <Col>
