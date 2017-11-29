@@ -111,6 +111,13 @@
     }
   }
 }
+// Bkgd Colors
+.ExampleBkgd--primary {
+  background: $primary;
+  display: block;
+  margin-bottom: $global-padding;
+  padding: $global-padding $global-padding 0;
+}
 // Color Swatches
 .ExampleSwatches {
   @include aspect-ratio(1,1);

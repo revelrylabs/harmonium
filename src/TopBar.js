@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
+  fixed: 'rev-TopBar--fixed',
   center: 'rev-TopBar--center',
   left: 'rev-TopBar--left',
   justified: 'rev-TopBar--justified',

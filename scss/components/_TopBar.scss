@@ -61,6 +61,7 @@ $topbar-link-bkgd: transparent !default;
     position: fixed;
     top: 0;
     width: 100%;
+    z-index: $above-most;
     .rev-Row {
       @include flex(stretch, row, space-between);
     }
