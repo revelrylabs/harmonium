@@ -21,9 +21,6 @@
     }
     .shrink {
       flex: 0 0 auto;
-      &.is-closed {
-        max-width: 0;
-      }
     }
   }
   &.rev-Row--unflex,

@@ -69,7 +69,7 @@ $closebutton-size: $global-font-size;
     }
   }
   &.rev-Button--secondary {
-    background: $button-color;
+    background: transparent;
     box-shadow: 0 0 0 1px $button-bkgd inset;
     color: $button-bkgd;
     &:hover {
