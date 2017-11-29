@@ -36,6 +36,9 @@ $menu-dropdown-width: 24rem !default;
       border: 0;
     }
   }
+  .rev-Menu-item--divider {
+    border-bottom: 1px solid $divider-color;
+  }
   .rev-Menu-item--text .rev-Menu-item--divider {
     margin-bottom: $global-vertical-space / 2;
   }
@@ -83,7 +86,6 @@ $menu-dropdown-width: 24rem !default;
   background: $menu-bkgd;
   color: $menu-color;
   position: relative;
-  z-index: $above-most;
   &.rev-Menu--horizontal {
     @include horizontal-menu;
   }
