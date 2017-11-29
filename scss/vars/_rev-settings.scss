@@ -52,7 +52,7 @@ $global-horizontal-space: $global-vertical-space; // 24px
 $base-size: .8rem;
 
 // Global Padding
-$global-padding-tiny: $base-size / 4;  // 6px
+$global-padding-tiny: $global-vertical-space / 4;  // 6px
 $global-padding-small: $global-vertical-space / 2; // 12px
 $global-padding: $global-vertical-space; // 24px
 $global-padding-large: $global-vertical-space * 2; // 48px

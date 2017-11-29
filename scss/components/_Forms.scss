@@ -1,15 +1,14 @@
-$input-height: 44px;
 $input-bkgd: $brand-light;
 $input-bkgd-focus: $input-bkgd;
 $input-box-shadow: 0 0 0 1px $divider-color inset;
 $input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset;
-$input-radius: 0;
+$input-radius: $global-radius;
 $input-color: $body-font-color;
 $input-color-focus: $input-color;
 $input-font-size: $global-font-size;
-$label-color: $gray;
+$label-color: $body-font-color;
 $label-font-size: $global-font-size;
-$error-color: $warning;
+$error-color: $alert;
 $input-margin-bottom: $global-vertical-space;
 
 @mixin input-style {
@@ -18,6 +17,7 @@ $input-margin-bottom: $global-vertical-space;
   background: $input-bkgd;
   border: 0;
   border-radius: $input-radius;
+  -webkit-border-radius: $input-radius;
   box-shadow: $input-box-shadow;
   color: $input-color;
   display: block;
@@ -59,33 +59,49 @@ $input-margin-bottom: $global-vertical-space;
 .rev-Input {
   @include input-style;
 }
+.rev-Checkbox,
+.rev-Radio {
+  @include input-style;
+  box-shadow: none;
+  display: inline-block;
+  margin-bottom: $global-padding-tiny;
+  margin-right: $global-padding-tiny;
+  padding-bottom: $global-padding-small;
+  padding-top: $global-padding-small;
+  &:focus,
+  &:active {
+    box-shadow: none;
+  }
+  &.is-invalid {
+    background: lighten($error-color, 30%);
+  }
+  &.rev-Checkbox--stacked,
+  &.rev-Radio--stacked {
+    display: block;
+    margin-right: 0;
+  }
+}
 .rev-Select {
   @include input-style;
-  border-radius: 0;
-  -webkit-border-radius: 0;
   .rev-InputGroup &,
   &--unrounded {
-    border: 0;
-    outline: none;
-    position: relative;
-    &:focus {
-      border: 0;
-      border-radius: 0;
-      outline-offset: 0;
-    }
+
   }
 }
 .rev-Textarea {
   @include input-style;
   height: auto;
-  min-height: $input-height;
+  min-height: .6rem;
   padding: $global-padding-small;
 }
 .rev-InputHelpText,
-.form-error {
+.rev-InputErrors {
   display: block;
   font-size: $global-font-size-small;
   font-style: normal;
-  /*line-height: 1.85;*/
-  margin: 0;
+  margin-top: -$global-padding-tiny;
+  padding: $global-padding-tiny 0;
+}
+.rev-InputErrors {
+  color: $error-color;
 }
