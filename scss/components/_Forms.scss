@@ -26,17 +26,15 @@ $error-color: $alert;
   max-width: 100%;
   outline: none;
   padding: $global-padding-small;
+  width: 100%;
   &:active,
   &:focus {
     background-color: $input-bkgd-focus;
     box-shadow: $input-box-shadow-focus;
     color: $input-color-focus;
   }
-  &--expanded {
-    width: 100%;
-  }
 }
-
+// Form Labels
 .rev-InputLabel {
   display: block;
   font-size: $label-font-size;
@@ -44,6 +42,7 @@ $error-color: $alert;
   .rev-Button,
   .rev-Input,
   .rev-Select,
+  .rev-Textarea,
   .rev-FileInput-fileLabel,
   .rev-InputGroup .rev-InputGroup-label {
     margin-bottom: 0;
@@ -54,17 +53,7 @@ $error-color: $alert;
   color: $label-color;
   font-size: $label-font-size;
 }
-.rev-Input {
-  @include input-style;
-}
-
-
-.rev-Textarea {
-  @include input-style;
-  height: auto;
-  min-height: .6rem;
-  padding: $global-padding-small;
-}
+// Form HelpText & Errors
 .rev-InputHelpText,
 .rev-InputErrors {
   display: block;
