@@ -1,4 +1,4 @@
-$input-bkgd: $brand-light;
+$input-bkgd: $white;
 $input-bkgd-focus: $input-bkgd;
 $input-box-shadow: 0 0 0 1px $divider-color inset;
 $input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset;
@@ -49,9 +49,7 @@ $input-margin-bottom: $global-vertical-space;
     margin-bottom: 0;
   }
 }
-.rev-LabelText,
-.rev-Checkbox-label,
-.rev-Radio-label {
+.rev-LabelText {
   @include global-transition;
   color: $label-color;
   font-size: $label-font-size;
@@ -59,28 +57,7 @@ $input-margin-bottom: $global-vertical-space;
 .rev-Input {
   @include input-style;
 }
-.rev-Checkbox,
-.rev-Radio {
-  @include input-style;
-  box-shadow: none;
-  display: inline-block;
-  margin-bottom: $global-padding-tiny;
-  margin-right: $global-padding-tiny;
-  padding-bottom: $global-padding-small;
-  padding-top: $global-padding-small;
-  &:focus,
-  &:active {
-    box-shadow: none;
-  }
-  &.is-invalid {
-    background: lighten($error-color, 30%);
-  }
-  &.rev-Checkbox--stacked,
-  &.rev-Radio--stacked {
-    display: block;
-    margin-right: 0;
-  }
-}
+
 .rev-Select {
   @include input-style;
   .rev-InputGroup &,
@@ -99,8 +76,11 @@ $input-margin-bottom: $global-vertical-space;
   display: block;
   font-size: $global-font-size-small;
   font-style: normal;
-  margin-top: -$global-padding-tiny;
-  padding: $global-padding-tiny 0;
+  line-height: $base-lineheight;
+  padding: 0;
+  + .rev-InputErrors {
+    margin-top: -$global-padding-tiny;
+  }
 }
 .rev-InputErrors {
   color: $error-color;

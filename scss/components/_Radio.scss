@@ -1,4 +1,4 @@
-.rev-Checkbox {
+.rev-Radio {
   @include input-style;
   background: transparent;
   box-shadow: none;
@@ -14,15 +14,21 @@
   &.is-invalid {
     background: lighten($error-color, 30%);
   }
-  &.rev-Checkbox--stacked,
   &.rev-Radio--stacked {
     display: block;
     margin-right: 0;
   }
 }
-.rev-Checkbox-label {
+.rev-Radio-label {
   @extend .rev-LabelText;
 }
-.rev-Checkbox-input {
+.rev-Radio-input {
   margin-right: $global-padding-small;
+}
+.rev-Radio,
+.rev-Radio-input {
+  ~ .rev-InputHelpText,
+  ~ .rev-InputErrors {
+    margin-top: -$global-padding-tiny;
+  }
 }
