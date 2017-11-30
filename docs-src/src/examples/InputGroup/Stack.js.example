@@ -1,6 +1,6 @@
-<InputGroup.Stack 
-  label="Price" 
-  help="Help text" 
+<InputGroup.Stack
+  label="Price"
+  help="Help text"
   error="Error messages"
 >
   <InputGroup.Label>

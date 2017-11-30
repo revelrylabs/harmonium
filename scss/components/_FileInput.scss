@@ -5,29 +5,12 @@
   }
 }
 
-.rev-FileInput-button {
-  margin-bottom: 0;
-}
+
 
 .rev-FileInput {
   .rev-InputGroup-field {
-    overflow: hidden;
-    /*@if not($global-flexbox) {
-      width: 100%;
-    }*/
+    flex: 1;
   }
   .rev-FileInput-fileLabel {
-    @include small-input;
   }
-}
-
-.rev-FileInput.is-invalid {
-  .rev-InputGroup-field {
-    /*@include form-input-error;*/
-    /*color: $form-label-color-invalid;*/
-  }
-}
-
-.rev-FileInput-button {
-  margin-bottom: 0;
 }
