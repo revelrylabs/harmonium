@@ -9,12 +9,11 @@ $input-font-size: $global-font-size;
 $label-color: $body-font-color;
 $label-font-size: $global-font-size;
 $error-color: $alert;
-$input-margin-bottom: $global-vertical-space;
 
 @mixin input-style {
   @include global-transition;
   @include placeholder;
-  background: $input-bkgd;
+  background-color: $input-bkgd;
   border: 0;
   border-radius: $input-radius;
   -webkit-border-radius: $input-radius;
@@ -29,7 +28,7 @@ $input-margin-bottom: $global-vertical-space;
   padding: $global-padding-small;
   &:active,
   &:focus {
-    background: $input-bkgd-focus;
+    background-color: $input-bkgd-focus;
     box-shadow: $input-box-shadow-focus;
     color: $input-color-focus;
   }
@@ -41,9 +40,10 @@ $input-margin-bottom: $global-vertical-space;
 .rev-InputLabel {
   display: block;
   font-size: $label-font-size;
-  margin: 0 0 $input-margin-bottom;
+  margin: 0 0 $global-margin;
   .rev-Button,
   .rev-Input,
+  .rev-Select,
   .rev-FileInput-fileLabel,
   .rev-InputGroup .rev-InputGroup-label {
     margin-bottom: 0;
@@ -58,13 +58,7 @@ $input-margin-bottom: $global-vertical-space;
   @include input-style;
 }
 
-.rev-Select {
-  @include input-style;
-  .rev-InputGroup &,
-  &--unrounded {
 
-  }
-}
 .rev-Textarea {
   @include input-style;
   height: auto;
@@ -77,8 +71,9 @@ $input-margin-bottom: $global-vertical-space;
   font-size: $global-font-size-small;
   font-style: normal;
   line-height: $base-lineheight;
-  padding: 0;
+  padding: $global-padding-tiny 0;
   + .rev-InputErrors {
+    padding-top: 0;
     margin-top: -$global-padding-tiny;
   }
 }
