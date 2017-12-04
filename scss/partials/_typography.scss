@@ -137,7 +137,7 @@ small {
 .Text--smallJustify {
   text-align: justify;
 }
-@include breakpoint($medium) {
+@include breakpoint(medium) {
   .Text--mediumLeft {
     text-align: left;
   }
@@ -151,7 +151,7 @@ small {
     text-align: justify;
   }
 }
-@include breakpoint($large) {
+@include breakpoint(large) {
   .Text--largeLeft {
     text-align: left;
   }
@@ -165,7 +165,7 @@ small {
     text-align: justify;
   }
 }
-@include breakpoint($xlarge) {
+@include breakpoint(xlarge) {
   .Text--xlargeLeft {
     text-align: left;
   }
@@ -179,7 +179,7 @@ small {
     text-align: justify;
   }
 }
-@include breakpoint($xxlarge) {
+@include breakpoint(xxlarge) {
   .Text--xxlargeLeft {
     text-align: left;
   }

@@ -44,7 +44,7 @@
   &.rev-Row--right {
     justify-content: flex-end;
   }
-  @include breakpoint($medium)  {
+  @include breakpoint(medium)  {
     &.rev-Row--mediumFlex {
       display: flex;
     }
@@ -64,7 +64,7 @@
       }
     }
   }
-  @include breakpoint($large)  {
+  @include breakpoint(large)  {
     &.rev-Row--largeFlex {
       display: flex;
     }
@@ -84,7 +84,7 @@
       }
     }
   }
-  @include breakpoint($xlarge)  {
+  @include breakpoint(xlarge)  {
     &.rev-Row--xlargeFlex {
       display: flex;
     }
@@ -104,7 +104,7 @@
       }
     }
   }
-  @include breakpoint($xxlarge)  {
+  @include breakpoint(xxlarge)  {
     &.rev-Row--xxlargeFlex {
       display: flex;
     }
@@ -144,7 +144,7 @@
   &.rev-Col--uncollapse {
     padding: 0 $grid-column-padding;
   }
-  @include breakpoint($medium) {
+  @include breakpoint(medium) {
     &.rev-Col--mediumCollapse {
       padding-left: 0;
       padding-right: 0;
@@ -153,7 +153,7 @@
       padding: 0 $grid-column-padding;
     }
   }
-  @include breakpoint($large) {
+  @include breakpoint(large) {
     &.rev-Col--largeCollapse {
       padding-left: 0;
       padding-right: 0;
@@ -162,7 +162,7 @@
       padding: 0 $grid-column-padding;
     }
   }
-  @include breakpoint($xlarge) {
+  @include breakpoint(xlarge) {
     &.rev-Col--xlargeCollapse {
       padding-left: 0;
       padding-right: 0;
@@ -171,7 +171,7 @@
       padding: 0 $grid-column-padding;
     }
   }
-  @include breakpoint($xxlarge) {
+  @include breakpoint(xxlarge) {
     &.rev-Col--xxlargeCollapse {
       padding-left: 0;
       padding-right: 0;
@@ -215,7 +215,7 @@
     @include rev-Col-pull($i);
   }
 }
-@include breakpoint($medium)  {
+@include breakpoint(medium)  {
   @for $i from 1 through $grid-columns {
     .rev-Col--medium#{$i} {
       width: 100% / $grid-columns * $i;
@@ -239,7 +239,7 @@
     float: left;
   }
 }
-@include breakpoint($large)  {
+@include breakpoint(large)  {
   @for $i from 1 through $grid-columns {
     .rev-Col--large#{$i} {
       width: 100% / $grid-columns * $i;
@@ -263,7 +263,7 @@
     float: left;
   }
 }
-@include breakpoint($xlarge) {
+@include breakpoint(xlarge) {
   @for $i from 1 through $grid-columns {
     .rev-Col--xlarge#{$i} {
       width: 100% / $grid-columns * $i;
@@ -287,7 +287,7 @@
     float: left;
   }
 }
-@include breakpoint($xxlarge)  {
+@include breakpoint(xxlarge)  {
   @for $i from 1 through $grid-columns {
     .rev-Col--xxlarge#{$i} {
       width: 100% / $grid-columns * $i;

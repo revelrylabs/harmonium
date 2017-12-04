@@ -30,7 +30,7 @@
 .ShowForSR {
   @include SR-element;
 }
-@include breakpoint($small $medium)  {
+@include breakpoint(small-only)  {
   .Hidden--smallOnly {
     visibility: hidden;
   }
@@ -41,7 +41,7 @@
     display: block;
   }
 }
-@include breakpoint($medium $large)  {
+@include breakpoint(medium-only)  {
   .Hidden--mediumOnly {
     visibility: hidden;
   }
@@ -52,7 +52,7 @@
     display: block;
   }
 }
-@include breakpoint($large $xlarge)  {
+@include breakpoint(large-only)  {
   .Hidden--largeOnly {
     visibility: hidden;
   }
@@ -63,7 +63,7 @@
     display: block;
   }
 }
-@include breakpoint($xlarge $xxlarge)  {
+@include breakpoint(xlarge-only)  {
   .Hidden--xlargeOnly {
     visibility: hidden;
   }
@@ -75,7 +75,7 @@
   }
 }
 
-@include breakpoint($medium) {
+@include breakpoint(medium) {
   .Hidden--mediumUp {
     visibility: hidden;
   }
@@ -86,7 +86,7 @@
     display: block;
   }
 }
-@include breakpoint($large)  {
+@include breakpoint(large)  {
   .Hidden--largeUp {
     visibility: hidden;
   }
@@ -97,7 +97,7 @@
     display: block;
   }
 }
-@include breakpoint($xlarge)  {
+@include breakpoint(xlarge)  {
   .Hidden--xlargeUp {
     visibility: hidden;
   }
@@ -108,7 +108,7 @@
     display: block;
   }
 }
-@include breakpoint($xxlarge)  {
+@include breakpoint(xxlarge)  {
   .Hidden--xxlargeUp,
   .Hidden--xxlargeOnly {
     visibility: hidden;

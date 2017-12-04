@@ -57,28 +57,28 @@
     order: $i;
   }
 }
-@include breakpoint($medium) {
+@include breakpoint(medium) {
   @for $i from 0 through $grid-columns {
     .rev-Col--mediumOrder#{$i} {
       order: $i;
     }
   }
 }
-@include breakpoint($large)  {
+@include breakpoint(large)  {
   @for $i from 0 through $grid-columns {
     .rev-Col--largeOrder#{$i} {
       order: $i;
     }
   }
 }
-@include breakpoint($xlarge)  {
+@include breakpoint(xlarge)  {
   @for $i from 0 through $grid-columns {
     .rev-Col--xlargeOrder#{$i} {
       order: $i;
     }
   }
 }
-@include breakpoint($xxlarge)  {
+@include breakpoint(xxlarge)  {
   @for $i from 0 through $grid-columns {
     .rev-Col--xxlargeOrder#{$i} {
       order: $i;
@@ -96,7 +96,7 @@
   }
 }
 
-@include breakpoint($medium)  {
+@include breakpoint(medium)  {
   @for $i from 1 through $grid-columns {
     .rev-Row--flex .rev-Col--medium#{$i} {
       flex-basis: 100% / $grid-columns * $i;
@@ -105,7 +105,7 @@
     }
   }
 }
-@include breakpoint($large)  {
+@include breakpoint(large)  {
   @for $i from 1 through $grid-columns {
     .rev-Row--flex .rev-Col--large#{$i} {
       flex-basis: 100% / $grid-columns * $i;
@@ -114,7 +114,7 @@
     }
   }
 }
-@include breakpoint($xlarge) {
+@include breakpoint(xlarge) {
   @for $i from 1 through $grid-columns {
     .rev-Row--flex .rev-Col--xlarge#{$i} {
       flex-basis: 100% / $grid-columns * $i;
@@ -123,7 +123,7 @@
     }
   }
 }
-@include breakpoint($xxlarge)  {
+@include breakpoint(xxlarge)  {
   @for $i from 1 through $grid-columns {
     .rev-Row--flex .rev-Col--xxlarge#{$i} {
       flex-basis: 100% / $grid-columns * $i;
