@@ -1,3 +1,16 @@
+$breakpoints: (
+  small: (min-width: 0px),
+  small-only: ((min-width: 0px) and (max-width: 640px)),
+  medium: (min-width: 640px),
+  medium-only: ((min-width: 640px) and (max-width: 1024px)),
+  large: (min-width: 1024px),
+  large-only: ((min-width: 1024px) and (max-width: 1200px)),
+  xlarge: (min-width: 1200px),
+  xlarge-only: ((min-width: 1200px) and (max-width: 1440px)),
+  xxlarge: (min-width: 1440px),
+);
+@import '../mixins/media-queries';
+
 // IMPORT FONTS HERE
 
 // Global Fonts
@@ -31,19 +44,8 @@ $global-weight-bold: 700;
 $global-lineheight: 1.5;
 $base-lineheight: $global-lineheight * $global-font-size;
 
-// Breakpoint Mediaqueries
-// you can add any breakpoint vars you want
-// if only 1 value is given, it will compile to a min-width media query
-// if 2 values are given, it will compile to a min-width max-width media query
-@import '../../node_modules/breakpoint-sass/stylesheets/breakpoint';
-$small: 0px;
-$medium: 640px;
-$large: 1024px;
-$xlarge: 1200px;
-$xxlarge: 1440px;
-
 // Global Width
-$global-width: $large;
+$global-width: 1024px; // same as large breakpoint
 $grid-columns: 12;
 
 // Spacing
