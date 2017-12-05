@@ -1,12 +1,12 @@
-<div>
-  <h3>With No Children</h3>
-  <Emptyable
-    emptyState={<strong>No items</strong>}
-  />
-  <h3>With Children</h3>
-  <Emptyable
-    emptyState={<strong>No items</strong>}
-  >
-    <p>things</p>
-  </Emptyable>
-</div>
+<Row>
+  <Col>
+    <h3>With No Children</h3>
+    <Emptyable emptyState={<p className="EmptyState">There is no content here.</p>}/>
+  </Col>
+  <Col>
+    <h3>With Children</h3>
+    <Emptyable emptyState={<p className="EmptyState">There are no items here.</p>}>
+      <p>Content <strong>is</strong> present.</p>
+    </Emptyable>
+  </Col>
+</Row>
