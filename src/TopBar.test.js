@@ -17,27 +17,15 @@ describe('TopBar', () => {
     expect(childClassName).to.contain(testClassName)
   })
 
-  it('handles boolean styling components', () => {
-    const topBar = shallow(<TopBar stackedForMedium />)
+  it('handles boolean styling props', () => {
+    const topBar = shallow(<TopBar breakpointMedium />)
     console.log(topBar.debug())
-    expect(topBar.prop('className')).to.contain('stacked--mediumDown')
+    expect(topBar.prop('className')).to.contain('rev-TopBar-breakpoint--mediumDown')
   })
 })
 
 describe('Topbar.Item', () => {
   it('should render without throwing', () => {
     shallow(<TopBar.Item />)
-  })
-})
-
-describe('Topbar.Item.Right', () => {
-  it('should render without throwing', () => {
-    shallow(<TopBar.Item.Right />)
-  })
-})
-
-describe('Topbar.Item.Left', () => {
-  it('should render without throwing', () => {
-    shallow(<TopBar.Item.Left />)
   })
 })

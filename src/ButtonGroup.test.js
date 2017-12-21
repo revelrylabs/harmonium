@@ -6,7 +6,7 @@ describe('ButtonGroup', () => {
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'button-group'
+    const inherentClassName = 'rev-ButtonGroup'
     const testClassName = '__TEST__'
 
     const childClassName = shallow(<ButtonGroup className={testClassName} />)
