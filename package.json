@@ -54,7 +54,7 @@
     "babel-plugin-istanbul": "^4.1.4",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.7.1",
-    "enzyme": "^2.8.2",
+    "enzyme": ">=2.8.2",
     "gulp": "^3.9.1",
     "gulp-webserver": "^0.9.1",
     "jsdom": "^11.0.0",
