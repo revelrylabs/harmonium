@@ -1,3 +1,17 @@
+// Breakpoints
+$breakpoints: (
+  small: (min-width: 0px),
+  small-only: ((min-width: 0px) and (max-width: 640px)),
+  medium: (min-width: 640px),
+  medium-only: ((min-width: 640px) and (max-width: 1024px)),
+  large: (min-width: 1024px),
+  large-only: ((min-width: 1024px) and (max-width: 1200px)),
+  xlarge: (min-width: 1200px),
+  xlarge-only: ((min-width: 1200px) and (max-width: 1440px)),
+  xxlarge: (min-width: 1440px),
+);
+@import '../mixins/media-queries';
+
 // IMPORT FONTS HERE
 
 // Global Fonts
@@ -7,63 +21,67 @@ $global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida G
 
 // we use the global-font-sizes for typographic utilities
 // AND to determine vertical spacing
-$global-font-size-tiny: 1rem;
-$global-font-size-small: 1.2rem;
 $global-font-size: 1.6rem;
-$global-font-size-large: 1.8rem;
-$global-font-size-larger: 2rem;
+$global-font-size-tiny: $global-font-size * 0.5;
+$global-font-size-smaller: $global-font-size * 0.75;
+$global-font-size-small: $global-font-size * 0.875;
+$global-font-size-medium: $global-font-size * 1.5;
+$global-font-size-large: $global-font-size * 2;
+$global-font-size-larger: $global-font-size * 2.5;
+$global-font-size-largest: $global-font-size * 3;
+
+// Headers (rems or unit-less values only!)
+$h1: $global-font-size-largest;
+$h2: $global-font-size-larger;
+$h3: $global-font-size-large;
+$h4: $global-font-size-medium;
+$h5: $global-font-size;
+$h6: $global-font-size;
+//TODO: make sass map for header sizes with breakpoints for small/large
 
 $global-weight-light: 300;
 $global-weight-normal: 400;
 $global-weight-bold: 700;
-$global-lineheight: 1.375;
-
-// Breakpoint Mediaqueries
-// you can add any breakpoint vars you want
-// if only 1 value is given, it will compile to a min-width media query
-// if 2 values are given, it will compile to a min-width max-width media query
-@import '../../node_modules/breakpoint-sass/stylesheets/breakpoint';
-$small: 0px;
-$medium: 640px;
-$large: 1024px;
-$xlarge: 1200px;
-$xxlarge: 1440px;
+$global-lineheight: 1.5;
+$base-lineheight: $global-lineheight * $global-font-size;
 
 // Global Width
-$global-width: $large;
+$global-width: 1024px; // same as large breakpoint
 $grid-columns: 12;
 
 // Spacing
-$global-vertical-space: $global-font-size * $global-lineheight;
-$global-horizontal-space: 1.6rem; // TODO: think about this value more
-// ^ by default, global padding, margin, and grid padding based on this value
+$global-vertical-space: $global-font-size * $global-lineheight; // 24px
+$global-horizontal-space: $global-vertical-space; // 24px
+$base-size: .8rem;
 
 // Global Padding
-$global-padding-tiny: calc(#{$global-horizontal-space} / 4);
-$global-padding-small: calc(#{$global-horizontal-space} / 2);
-$global-padding: $global-horizontal-space;
-$global-padding-medium: calc(#{$global-horizontal-space} * 1.5);
-$global-padding-large: calc(#{$global-horizontal-space} * 2);
+$global-padding-tiny: $global-vertical-space / 4;  // 6px
+$global-padding-small: $global-vertical-space / 2; // 12px
+$global-padding: $global-vertical-space; // 24px
+$global-padding-large: $global-vertical-space * 2; // 48px
+$global-padding-larger: $global-vertical-space * 3; // 72px
 
 // Global Margin
+$global-margin-tiny: $global-padding-tiny;
 $global-margin-small: $global-padding-small;
 $global-margin: $global-padding;
-$global-margin-medium: $global-padding-medium;
 $global-margin-large: $global-padding-large;
+$global-margin-larger: $global-padding-larger;
 
 // Grid
 $grid-row-width: $global-width;
-$grid-column-padding: $global-horizontal-space;
-$grid-gutter: calc(#{$grid-column-padding} * 2);
+$grid-column-padding: $global-padding-small;
+$grid-gutter: $grid-column-padding * 2;
 
-$global-radius: 2px;
+$global-radius: 3px;
 $global-rounded: 100000px;
-$global-box-shadow: 0 1px 6px 0 $black-20;
-
+$global-box-shadow: 0 1px 4px 0 $black-40;
+$global-box-shadow-hover: 0 2px 6px 0 $black-50;
+$global-box-shadow-active: 0 1px 2px 0 $black-30;
 
 // Body Vars
-$body-background: $white;
-$body-font-color: $dark-gray;
+$body-bkgd: $brand-light;
+$body-font-color: $brand-dark;
 $body-font-family: $global-sans-serif-font;
 
 // Header Vars
@@ -85,6 +103,9 @@ $paragraph-text-rendering: optimizeLegibility;
 $anchor-color: $primary;
 $anchor-color-hover: darken($primary, 10%);
 $anchor-color-active: darken($primary, 10%);
+$anchor-color-inverse: $brand-light;
+$anchor-color-inverse-hover: $white;
+$anchor-color-inverse-active: $white;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 
@@ -102,16 +123,38 @@ $disabled-opacity: 0.25;
 // Sizes
 // common size vars for things like badges, close buttons, fixed naviagtion bars
 $size-tiny: 8px;
-$size-smaller: 16px;
-$size-small: 32px;
-$size-default: 44px;
-$size-large: 64px;
-$size-larger: 80px;
+$size-small: 16px;
+$size-default: 24px;
+$size-large: 48px;
+$size-larger: 64px;
+$size-largest: 128px;
+
+//## NAVIGATION COLORS
+$navigation-bkgd: $white;
+$navigation-bkgd-hover: darken($navigation-bkgd, 10%);
+$navigation-bkgd-click: darken($navigation-bkgd, 20%);
+$navigation-bkgd-active: darken($navigation-bkgd, 15%);
+
+$navigation-bkgd-inverted: $darker-gray;
+$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 10%);
+$navigation-bkgd-inverted-click: lighten($navigation-bkgd-inverted, 20%);
+$navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
+
+//## LAYOUTS
+//$rail-width: 300px;
 
 //** Component Vars are commented out here because each compnent has its !default vars set at the top of the component stylesheet. If vars need to be updated, you can uncomment them below and make your changes. Vars below will always override the !default vars in the component stylesheets
 
 // Example component var naming
 // $[component]-[css property]-[variant]-[state]
+
+//## NAVIGATION -----------------------------
+//$topbar-bkgd: $body-bkgd;
+//$topbar-border-color: $divider-color;
+//$topbar-border-size: 1px;
+//$topbar-color: $body-font-color;
+//$topbar-height: $size-large;
+//$topbar-input-width: $size-largest;
 
 //## CONTAINERS -----------------------------
 
@@ -141,6 +184,29 @@ $size-larger: 80px;
 //$modal-content-color: $body-font-color;
 //$modal-content-padding: 0;
 
+//## Menus
+//$menu-bkgd: null;
+//$menu-color: null;
+//$menu-link-bkgd: null;
+//$menu-link-bkgd-hover: null;
+//$menu-link-bkgd-click: null;
+//$menu-link-bkgd-active: null;
+//$menu-link-color: null;
+//$menu-link-color-hover: null;
+//$menu-link-color-click: null;
+//$menu-link-color-active: null;
+
+//$menu-bkgd-inverse: null;
+//$menu-color-inverse: null;
+//$menu-link-bkgd-inverse: null;
+//$menu-link-bkgd-inverse-hover: null;
+//$menu-link-bkgd-inverse-click: null;
+//$menu-link-bkgd-inverse-active: null;
+//$menu-link-color-inverse: null;
+//$menu-link-color-inverse-hover: null;
+//$menu-link-color-inverse-click: null;
+//$menu-link-color-inverse-active: null;
+
 //## Tabs
 //$tabs-margin: $global-vertical-space;
 //$tabs-border-size: 1px;
@@ -154,6 +220,8 @@ $size-larger: 80px;
 //$tabs-title-link-color-active: $anchor-color-hover;
 //$tabs-title-link-padding: $global-vertical-space $global-horizontal-space;
 //$tabs-content-padding: $global-vertical-space 0;
+
+
 
 //## Badges
 //$badge-size: $size-small;

@@ -8,17 +8,18 @@ $callout-color: $body-font-color !default;
 $callout-padding: $global-vertical-space $global-horizontal-space !default;
 
 .rev-Callout {
+  @include typography-contained;
   background: $callout-bkgd;
   border: $callout-border-size solid $callout-border-color;
   color: $callout-color;
   margin-bottom: $global-vertical-space;
-  overflow: hidden;
   padding: 0;
   &.rev-Callout--primary {
-    background: scale-color($primary, $lightness: 90%);
+    box-shadow: $global-box-shadow;
   }
   &.rev-Callout--secondary {
-    background: scale-color($secondary, $lightness: 90%);
+    background: transparent;
+    border: 1px solid $divider-color;
   }
   &.rev-Callout--success {
     background: scale-color($success, $lightness: 90%);

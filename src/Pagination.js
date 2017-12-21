@@ -30,14 +30,14 @@ export default class Pagination extends Component {
       <span>
         <i className="icon-angle-double-left" />
         First
-        <span className="show-for-sr"> page</span>
+        <span className="ShowForSR"> page</span>
       </span>
     ),
     hideArrows: false,
     lastPageContent: (
       <span>
         Last
-        <span className="show-for-sr"> page</span>
+        <span className="ShowForSR"> page</span>
         <i className="icon-angle-double-right" />
       </span>
     ),
@@ -48,7 +48,7 @@ export default class Pagination extends Component {
     nextPageContent: (
       <span>
         Next
-        <span className="show-for-sr"> page</span>
+        <span className="ShowForSR"> page</span>
         <i className="icon-angle-right" />
       </span>
     ),
@@ -56,7 +56,7 @@ export default class Pagination extends Component {
       <span>
         <i className="icon-angle-left" />
         Previous
-        <span className="show-for-sr"> page</span>
+        <span className="ShowForSR"> page</span>
       </span>
     ),
     href: (page) => '#',
@@ -99,11 +99,11 @@ export default class Pagination extends Component {
     const {hideArrows} = this.props
 
     if (!relevant && hideArrows && samePage) {
-      return 'rev-Pagination-arrow is-hidden is-disabled'
+      return 'rev-Pagination-arrow rev-Pagination-arrow--hidden'
     } else if (!relevant && hideArrows) {
-      return 'rev-Pagination-arrow is-onlyMobile'
+      return 'rev-Pagination-arrow rev-Pagination-arrow--hidden'
     } else if (samePage) {
-      return 'rev-Pagination-arrow is-disabled'
+      return 'rev-Pagination-arrow rev-Pagination-arrow--disabled'
     } else {
       return 'rev-Pagination-arrow'
     }
@@ -119,9 +119,9 @@ export default class Pagination extends Component {
 
         if (page === currentPage) {
           return (
-            <li key={page} className="rev-Pagination-number current">
-              <span className="show-for-sr">{currentPageText}</span>
-              {page}
+            <li key={page} className="rev-Pagination-number rev-Pagination-number--active">
+              <span className="ShowForSR">{currentPageText}</span>
+              <a>{page}</a>
             </li>
           )
         } else {
@@ -175,7 +175,7 @@ export default class Pagination extends Component {
       return (
         <div className={classNames('rev-PaginationWrapper', this.props.className)}>
           <ul
-            className="rev-Pagination pagination"
+            className="rev-Pagination"
             role="navigation"
             aria-label="Pagination"
           >
@@ -192,11 +192,11 @@ export default class Pagination extends Component {
                 {previousPageContent}
               </a>
             </li>
-            <li className={classNames('rev-Pagination-dots', beginArrows ? '' : 'is-hidden')}>
+            <li className={classNames('rev-Pagination-dots', beginArrows ? '' : 'rev-Pagination-dots--hidden')}>
               ...
             </li>
             {this.numberLinks(start, end)}
-            <li className={classNames('rev-Pagination-dots', endArrows ? '' : 'is-hidden')}>
+            <li className={classNames('rev-Pagination-dots', endArrows ? '' : 'rev-Pagination-dots--hidden')}>
               ...
             </li>
             <li className={endArrowsClass}>
@@ -217,7 +217,7 @@ export default class Pagination extends Component {
             </li>
           </ul>
           <div className="rev-PaginationWrapper-pageList">
-            {mobilePageListText(currentPage, totalPages)}
+            <span className="Small">( {mobilePageListText(currentPage, totalPages)} )</span>
           </div>
         </div>
       )

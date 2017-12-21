@@ -1,5 +1,5 @@
 <FileInput.Stack
-  label="File Input:"
+  label="File Input"
   help="This is help text."
   error="This is an error."
   placeholder="Select file"

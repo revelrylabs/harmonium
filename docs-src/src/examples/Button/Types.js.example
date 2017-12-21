@@ -1,7 +1,20 @@
-<div>
-  <Button>default</Button>
-  <Button secondary>secondary</Button>
-  <Button success>success</Button>
-  <Button warning>warning</Button>
-  <Button alert>alert</Button>
-</div>
+<Row className="ExampleButtons">
+  <Col>
+    <Button>Default</Button>
+    <Button primary>Primary</Button>
+    <Button secondary>Secondary</Button>
+  </Col>
+  <Col>
+    <div className="ExampleBkgd--primary">
+      <Button inverted>Inverted</Button>
+      <Button inverted primary>Inverted Primary</Button>
+      <Button inverted secondary>Inverted Secondary</Button>
+    </div>
+  </Col>
+  <Col>
+    <Button success>Success</Button>
+    <Button warning>Warning</Button>
+    <Button alert>Alert</Button>
+    <Button disabled>Disabled</Button>
+  </Col>
+</Row>

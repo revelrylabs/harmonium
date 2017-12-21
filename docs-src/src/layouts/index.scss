@@ -12,7 +12,7 @@
   padding: $global-vertical-space / 4 0;
 }
 .CodeMirror-scroll {
-  margin-left: $global-horizontal-space;
+  margin-left: $global-margin;
 }
 .playground {
   display: flex;
@@ -110,4 +110,26 @@
       margin-bottom: $global-padding-small;
     }
   }
+}
+// Bkgd Colors
+.ExampleBkgd--primary {
+  background: $primary;
+  display: block;
+  margin-bottom: $global-padding;
+  padding: $global-padding $global-padding 0;
+}
+// Color Swatches
+.ExampleSwatches {
+  @include aspect-ratio(1,1);
+  @include color-management;
+}
+// Buttons
+.ExampleButtons {
+  .rev-Button {
+    margin-right: $global-margin;
+  }
+}
+// Visibility
+.ExampleVisibility {
+  padding: $global-padding;
 }

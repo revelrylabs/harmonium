@@ -12,7 +12,7 @@ const examples = {
 export default class MediaObjectExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Media Objects" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }

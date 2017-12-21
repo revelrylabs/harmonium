@@ -3,21 +3,16 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 
 const examples = {
-  'Basic': require('raw!../../examples/Menu/Basic.js.example'),
-  'Simple': require('raw!../../examples/Menu/Simple.js.example'),
-  'Text': require('raw!../../examples/Menu/Text.js.example'),
-  'Vertical': require('raw!../../examples/Menu/Vertical.js.example'),
-  'Centered': require('raw!../../examples/Menu/Centered.js.example'),
-  'Right Alignment': require('raw!../../examples/Menu/RightAlignment.js.example'),
-  'Active State': require('raw!../../examples/Menu/ActiveState.js.example'),
-  'Icons On Top': require('raw!../../examples/Menu/IconsOnTop.js.example'),
-  'Nested': require('raw!../../examples/Menu/Nested.js.example'),
+  'Menu : Default': require('raw!../../examples/Menu/Default.js.example'),
+  'Menu : Horizontal': require('raw!../../examples/Menu/Horizontal.js.example'),
+  'Menu : Vertical': require('raw!../../examples/Menu/Vertical.js.example'),
+  'Menu : Nested': require('raw!../../examples/Menu/Nested.js.example'),
 }
 
 export default class MenuExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Menus" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }

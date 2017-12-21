@@ -1,6 +1,13 @@
+@mixin image-contained {
+  img {
+    margin: $global-vertical-space 0;
+  }
+}
+
 img {
   display: block;
   height: auto;
+  image-rendering: -webkit-optimize-contrast;
   width: auto;
 }
 .ResponsiveImage {

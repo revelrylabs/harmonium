@@ -1,0 +1,6 @@
+@mixin small-input {
+  font-size: $global-font-size-small;
+  line-height: $base-lineheight;
+  margin-bottom: $global-margin-small;
+  padding: $global-padding-tiny $global-padding-small;
+}

@@ -9,7 +9,7 @@ const examples = {
 export default class EmptyableExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Emptyable" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }

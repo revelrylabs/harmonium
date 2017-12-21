@@ -50,6 +50,7 @@ import TextAlign from 'revelry-components/lib/TextAlign'
 import Textarea from 'revelry-components/lib/Textarea'
 import Tokenizer from 'revelry-components/lib/Tokenizer'
 import TopBar from 'revelry-components/lib/TopBar'
+import Drawer from 'revelry-components/lib/Drawer'
 import Visibility from 'revelry-components/lib/Visibility'
 
 export default {
@@ -106,5 +107,6 @@ export default {
   Textarea: Textarea,
   Tokenizer: Tokenizer,
   TopBar: TopBar,
+  Drawer: Drawer,
   Visibility: Visibility,
 }

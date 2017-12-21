@@ -1,25 +1,32 @@
-<div>
-  <p><Checkbox name="singular" defaultValue="1" label="One" /></p>
-  <p>
-    <Checkbox 
-      name="singular" 
-      defaultValue="3" 
-      label="Has error" 
-      error 
+<Row>
+  <Col>
+    <Checkbox name="singular" defaultValue="1" label="Stacked Checkbox One" />
+    <Checkbox name="singular" defaultValue="2" label="Stacked Checkbox Two" />
+    <Checkbox name="singular" defaultValue="3" label="Stacked Checkbox Three" />
+    <Checkbox
+      name="singular"
+      defaultValue="3"
+      label="Has error"
+      error
     />
-  </p>
-  <p>
-    <Checkbox.Fieldset 
-      name="with_help" 
+  </Col>
+  <Col>
+    <Checkbox name="singular" defaultValue="1" label="Stacked Checkbox One" />
+    <Checkbox name="singular" defaultValue="2" label="Stacked Checkbox Two" />
+    <Checkbox name="singular" defaultValue="3" label="Stacked Checkbox Three" />
+  </Col>
+  <Col>
+    <Checkbox.Fieldset
+      name="with_help"
       options={[
         {label: 'North', value: 'N'},
         {label: 'South', value: 'S'},
         {label: 'East disabled', value: 'E', disabled: true},
         {label: 'West', value: 'W'},
-      ]} 
-      label="Has help text and error" 
-      help="This is the help text." 
+      ]}
+      label="Has help text and error"
+      help="This is the help text."
       error="This is the error."
     />
-  </p>
-</div>
+  </Col>
+</Row>

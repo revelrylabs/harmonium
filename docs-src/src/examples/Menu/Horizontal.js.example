@@ -1,0 +1,52 @@
+<Row>
+  <Col>
+    <Callout>
+      <Menu horizontalLeft dividers>
+        <Menu.Item text>Left Aligned</Menu.Item>
+        <Menu.Item active><a href="#">One</a></Menu.Item>
+        <Menu.Item><a href="#">Two</a></Menu.Item>
+        <Menu.Item><a href="#">Three</a></Menu.Item>
+      </Menu>
+    </Callout>
+  </Col>
+  <Col>
+    <Callout>
+      <Menu horizontalJustified dividers>
+        <Menu.Item text>Justified</Menu.Item>
+        <Menu.Item><a href="#">One</a></Menu.Item>
+        <Menu.Item active><a href="#">Two</a></Menu.Item>
+        <Menu.Item><a href="#">Three</a></Menu.Item>
+      </Menu>
+    </Callout>
+  </Col>
+  <Col>
+    <Callout>
+      <Menu horizontalCentered dividers>
+        <Menu.Item text>Centered</Menu.Item>
+        <Menu.Item><a href="#">One</a></Menu.Item>
+        <Menu.Item><a href="#">Two</a></Menu.Item>
+        <Menu.Item active><a href="#">Three</a></Menu.Item>
+      </Menu>
+    </Callout>
+  </Col>
+  <Col>
+    <Callout>
+      <Menu horizontalRight inverse dividers>
+        <Menu.Item text>Right Aligned</Menu.Item>
+        <Menu.Item><a href="#">One</a></Menu.Item>
+        <Menu.Item active><a href="#">Two</a></Menu.Item>
+        <Menu.Item><a href="#">Three</a></Menu.Item>
+      </Menu>
+    </Callout>
+  </Col>
+  <Col>
+    <Callout>
+      <Menu horizontalLeft inverse icons>
+        <Menu.Item text>Left Aligned w/Icons</Menu.Item>
+        <Menu.Item><a href="#"><Icon i="home" />One</a></Menu.Item>
+        <Menu.Item><a href="#"><Icon i="home" />Two</a></Menu.Item>
+        <Menu.Item active><a href="#"><Icon i="home" />Three</a></Menu.Item>
+      </Menu>
+    </Callout>
+  </Col>
+</Row>

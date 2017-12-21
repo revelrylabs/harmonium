@@ -1,11 +1,29 @@
-.rev-CheckableFieldset {
-  margin-bottom: $global-vertical-space;
-  // Makes the fieldset, with the border, a multiple of the vertical rhythm unit
-  padding: calc(#{$global-vertical-space} - 0.5px) $global-horizontal-space;
-}
 .rev-Checkbox {
-  display: block;
-  .rev-Checkbox-input {
-    margin-right: $global-horizontal-space / 2;
+  @include input-style;
+  background: transparent;
+  box-shadow: none;
+  display: inline-block;
+  margin-bottom: $global-padding-tiny;
+  margin-right: $global-padding-tiny;
+  padding-bottom: $global-padding-small;
+  padding-top: $global-padding-small;
+  width: auto;
+  &:focus,
+  &:active {
+    box-shadow: none;
   }
+  &.is-invalid {
+    background: lighten($error-color, 30%);
+  }
+  &.rev-Checkbox--stacked,
+  &.rev-Radio--stacked {
+    display: block;
+    margin-right: 0;
+  }
+}
+.rev-Checkbox-label {
+  @extend .rev-LabelText;
+}
+.rev-Checkbox-input {
+  margin-right: $global-padding-small;
 }

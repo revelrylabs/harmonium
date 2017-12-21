@@ -57,28 +57,28 @@
     order: $i;
   }
 }
-@include breakpoint($medium) {
+@include breakpoint(medium) {
   @for $i from 0 through $grid-columns {
     .rev-Col--mediumOrder#{$i} {
       order: $i;
     }
   }
 }
-@include breakpoint($large)  {
+@include breakpoint(large)  {
   @for $i from 0 through $grid-columns {
     .rev-Col--largeOrder#{$i} {
       order: $i;
     }
   }
 }
-@include breakpoint($xlarge)  {
+@include breakpoint(xlarge)  {
   @for $i from 0 through $grid-columns {
     .rev-Col--xlargeOrder#{$i} {
       order: $i;
     }
   }
 }
-@include breakpoint($xxlarge)  {
+@include breakpoint(xxlarge)  {
   @for $i from 0 through $grid-columns {
     .rev-Col--xxlargeOrder#{$i} {
       order: $i;
@@ -89,43 +89,43 @@
 // Set max-widths and flex-basis for numerical columns so they are contained
 // instead of expanding to take over the whole row
 @for $i from 1 through $grid-columns {
-  .rev-Row--flex.rev-Row--flex .rev-Col--small#{$i}.rev-Col--small#{$i} {
+  .rev-Row--flex .rev-Col--small#{$i} {
     flex-basis: 100% / $grid-columns * $i;
     max-width: 100% / $grid-columns * $i;
     width: auto;
   }
 }
 
-@include breakpoint($medium)  {
+@include breakpoint(medium)  {
   @for $i from 1 through $grid-columns {
-    .rev-Row--flex.rev-Row--flex .rev-Col--medium#{$i}.rev-Col--medium#{$i} {
+    .rev-Row--flex .rev-Col--medium#{$i} {
       flex-basis: 100% / $grid-columns * $i;
       max-width: 100% / $grid-columns * $i;
       width: auto;
     }
   }
 }
-@include breakpoint($large)  {
+@include breakpoint(large)  {
   @for $i from 1 through $grid-columns {
-    .rev-Row--flex.rev-Row--flex .rev-Col--large#{$i}.rev-Col--large#{$i} {
+    .rev-Row--flex .rev-Col--large#{$i} {
       flex-basis: 100% / $grid-columns * $i;
       max-width: 100% / $grid-columns * $i;
       width: auto;
     }
   }
 }
-@include breakpoint($xlarge) {
+@include breakpoint(xlarge) {
   @for $i from 1 through $grid-columns {
-    .rev-Row--flex.rev-Row--flex .rev-Col--xlarge#{$i}.rev-Col--xlarge#{$i} {
+    .rev-Row--flex .rev-Col--xlarge#{$i} {
       flex-basis: 100% / $grid-columns * $i;
       max-width: 100% / $grid-columns * $i;
       width: auto;
     }
   }
 }
-@include breakpoint($xxlarge)  {
+@include breakpoint(xxlarge)  {
   @for $i from 1 through $grid-columns {
-    .rev-Row--flex.rev-Row--flex .rev-Col--xxlarge#{$i}.rev-Col--xxlarge#{$i} {
+    .rev-Row--flex .rev-Col--xxlarge#{$i} {
       flex-basis: 100% / $grid-columns * $i;
       max-width: 100% / $grid-columns * $i;
       width: auto;

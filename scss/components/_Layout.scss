@@ -1,30 +1,43 @@
-@import 'Grid';
+$rail-width: 300px !default;
 
 .rev-Split {
   @extend .rev-Row;
   @extend .rev-Row--collapse;
-  padding: 0;
-}
-.rev-MainPanel {
-  @extend .rev-Col;
-  @extend .rev-Col--medium8;
-  @extend .rev-Col--centered;
   display: flex;
+}
+
+.rev-MainPanel {
+  display: flex;
+  flex: 0 1 100%;
   justify-content: center;
+  // background for main panel
+  /*&:after {
+    background: $primary;
+    content: '';
+    position: fixed;
+    height: 100%;
+    right: 0;
+    top: 0;
+    width: calc(((100vw - #{$global-width}) / 2) + (#{$global-width} - #{$rail-width}));
+    z-index: $default;
+  }*/
 }
 .rev-Rail {
-  @extend .rev-Col;
-  @extend .rev-Col--medium4;
+  flex: 0 0 auto;
+  max-width: $rail-width;
+  min-width: $rail-width;
+  // background for rail
+  /*&:after {
+    background: $primary;
+    content: '';
+    position: fixed;
+    height: 100%;
+    left: 0;
+    top: 0;
+    width: calc(((100vw - #{$global-width}) / 2) + #{$rail-width});
+    z-index: $default;
+  }*/
 }
 .rev-MainPanel-content {
-  @include body-color-stack;
-  padding-left: $global-horizontal-space * 2;
-  padding-right: $global-horizontal-space* 2;
-  padding-top: 1px;
-  padding-bottom: $global-vertical-space * 2;
-  
-  @include breakpoint($medium) {
-    padding-left: $global-horizontal-space  * 4;
-    padding-right: $global-horizontal-space * 4;
-  }
+  padding: 0 $global-padding $global-padding-large $global-padding;
 }

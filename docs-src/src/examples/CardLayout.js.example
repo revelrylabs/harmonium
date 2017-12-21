@@ -18,37 +18,49 @@ class CardLayoutExample extends Component {
     return (
       <div>
         <p>
-          The Fill will squeeze and scroll when the CardLayout height 
-          is constrained. When the height is not constrained, it will 
-          expand to fit its content. Click the Expand and Contract 
+          The Fill will squeeze and scroll when the CardLayout height
+          is constrained. When the height is not constrained, it will
+          expand to fit its content. Click the Expand and Contract
           buttons to illustrate the difference.
         </p>
-        <CardLayout 
+        <CardLayout
           style={{
-            height: this.state ? this.state.height : null, 
-            border: '3px solid gray'
+            height: this.state ? this.state.height : null,
           }}
         >
-          <CardLayout.Bar>
-            <Row>
-              <Col><strong>CardLayout Header</strong></Col>
-              <Col shrink>Today at 2pm</Col>
+          <Card.Header>
+            <Row className="rev-Row--flex rev-Row--middle">
+              <Col>
+                <h3>Header</h3>
+              </Col>
+              <Col shrink>
+                <HelpText>Today at 2pm</HelpText>
+              </Col>
             </Row>
-          </CardLayout.Bar>
-          <CardLayout.Bar>
-            You can have more than one header.
-          </CardLayout.Bar>
-          <CardLayout.Fill style={{backgroundColor: '#ff9'}}>
-            <p><Lipsum /></p>
-            <p><Lipsum p={2} /></p>
+          </Card.Header>
+          <Card.Header>
+            <Row>
+              <Col>
+                <p>You can have more than one header.</p>
+              </Col>
+            </Row>
+          </Card.Header>
+          <CardLayout.Fill>
+            <Row>
+              <Col>
+                <p><Lipsum /></p>
+                <p><Lipsum p={2} /></p>
+              </Col>
+            </Row>
           </CardLayout.Fill>
-          <CardLayout.Bar>
-            CardLayout Footer
-          </CardLayout.Bar>
-          <CardLayout.Bar>
-            <Button onClick={this.expand}>Expand</Button>
-            <Button onClick={this.contract}>Contract</Button>
-          </CardLayout.Bar>
+          <Card.Footer>
+            <Row>
+              <Col>
+                <Button onClick={this.expand}>Expand</Button>
+                <Button onClick={this.contract}>Contract</Button>
+              </Col>
+            </Row>
+          </Card.Footer>
         </CardLayout>
       </div>
     )

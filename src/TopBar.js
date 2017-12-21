@@ -2,8 +2,16 @@ import React, {Component} from 'react'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
-  stackedForMedium: 'stacked-for-medium',
-  stackedForLarge: 'stacked-for-large',
+  fixed: 'rev-TopBar--fixed',
+  center: 'rev-TopBar--center',
+  left: 'rev-TopBar--left',
+  justified: 'rev-TopBar--justified',
+  right: 'rev-TopBar--right',
+  inverse: 'rev-TopBar--inverse',
+  breakpointMedium: 'rev-TopBar-breakpoint--mediumDown',
+  breakpointLarge: 'rev-TopBar-breakpoint--largeDown',
+  breakpointXlarge: 'rev-TopBar-breakpoint--xlargeDown',
+  breakpointXxlarge: 'rev-TopBar-breakpoint--xxlargeDown',
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
@@ -26,10 +34,10 @@ export default class TopBar extends Component {
   }
 }
 
-class TopBarLeft extends Component {
+class TopBarItem extends Component {
   render() {
     const {className, children, ...props} = this.props
-    const newClassName = classNames(className, 'rev-TopBar-left')
+    const newClassName = classNames(className, 'rev-TopBar-item')
     return (
       <div {...props} className={newClassName}>
         {children}
@@ -37,30 +45,4 @@ class TopBarLeft extends Component {
     )
   }
 }
-TopBar.Left = TopBarLeft
-
-class TopBarRight extends Component {
-  render() {
-    const {className, children, ...props} = this.props
-    const newClassName = classNames(className, 'rev-TopBar-right')
-    return (
-      <div {...props} className={newClassName}>
-        {children}
-      </div>
-    )
-  }
-}
-TopBar.Right = TopBarRight
-
-class TopBarTitle extends Component {
-  render() {
-    const {className, children, ...props} = this.props
-    const newClassName = classNames(className, 'rev-TopBar-title')
-    return (
-      <div className={newClassName}>
-        {children}
-      </div>
-    )
-  }
-}
-TopBar.Title = TopBarTitle
+TopBar.Item = TopBarItem
