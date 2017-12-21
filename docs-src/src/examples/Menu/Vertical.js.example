@@ -1,6 +1,42 @@
-<Menu vertical>
-  <Menu.Item><a href="#">One</a></Menu.Item>
-  <Menu.Item><a href="#">Two</a></Menu.Item>
-  <Menu.Item><a href="#">Three</a></Menu.Item>
-  <Menu.Item><a href="#">Four</a></Menu.Item>
-</Menu>
+<Row>
+  <Col medium={6} xlarge={3}>
+    <Callout>
+      <Menu verticalLeft dividers>
+        <Menu.Item text>Left Aligned</Menu.Item>
+        <Menu.Item active><a href="#">One</a></Menu.Item>
+        <Menu.Item><a href="#">Two</a></Menu.Item>
+        <Menu.Item><a href="#">Three</a></Menu.Item>
+      </Menu>
+    </Callout>
+  </Col>
+  <Col medium={6} xlarge={3}>
+    <Callout>
+      <Menu verticalRight dividers>
+        <Menu.Item text>Right Aligned</Menu.Item>
+        <Menu.Item><a href="#">One</a></Menu.Item>
+        <Menu.Item active><a href="#">Two</a></Menu.Item>
+        <Menu.Item><a href="#">Three</a></Menu.Item>
+      </Menu>
+    </Callout>
+  </Col>
+  <Col medium={6} xlarge={3}>
+    <Callout>
+      <Menu verticalCentered inverse dividers>
+        <Menu.Item text>Centered</Menu.Item>
+        <Menu.Item><a href="#">One</a></Menu.Item>
+        <Menu.Item><a href="#">Two</a></Menu.Item>
+        <Menu.Item active><a href="#">Three</a></Menu.Item>
+      </Menu>
+    </Callout>
+  </Col>
+  <Col medium={6} xlarge={3}>
+    <Callout>
+      <Menu verticalRight inverse dividers icons>
+        <Menu.Item text>Right Aligned w/Icons</Menu.Item>
+        <Menu.Item><a href="#"><Icon i="home" />One</a></Menu.Item>
+        <Menu.Item><a href="#"><Icon i="home" />Two</a></Menu.Item>
+        <Menu.Item><a href="#"><Icon i="home" />Three</a></Menu.Item>
+      </Menu>
+    </Callout>
+  </Col>
+</Row>

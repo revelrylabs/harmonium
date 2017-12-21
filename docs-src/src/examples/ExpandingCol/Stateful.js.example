@@ -1,10 +1,14 @@
 <Row flex>
   <ExpandingCol.Stateful small={6} shrink>
-    <Callout primary>
-      This state will be shown or hidden with the buttons.
+    <Callout>
+      <Row>
+        <Col>
+          <p>This state will be shown or hidden with the buttons.</p>
+        </Col>
+      </Row>
     </Callout>
   </ExpandingCol.Stateful>
   <Col>
-    This is outside the expander.
+    <p>This is outside the expander.</p>
   </Col>
 </Row>

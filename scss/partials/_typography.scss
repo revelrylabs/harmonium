@@ -1,71 +1,119 @@
-@mixin header {
-  font-family: $global-sans-serif-font;
+// strip out units for typography math
+@function strip-unit($number) {
+  @if type-of($number) == 'number' and not unitless($number) {
+    @return $number / ($number * 0 + 1);
+  }
+  @if type-of($number) == 'px' {
+    @return $number / ($number * 0.1 + 1);
+  }
+  /*TODO: check this!!*/
+  @return $number;
 }
-@mixin sans-serif-light {
-  font-family: $global-sans-serif-font;
-  font-weight: 300;
+// unitless values
+$h1-value: strip-unit($h1);
+$h2-value: strip-unit($h2);
+$h3-value: strip-unit($h3);
+$h4-value: strip-unit($h4);
+$h5-value: strip-unit($h5);
+$h6-value: strip-unit($h6);
+$global-font-size-value: strip-unit($global-font-size);
+
+// header lists
+$header-font-sizes: h1, h2, h3, h4, h5, h6;
+$header-font-size-values: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value, $h6-value;
+
+@for $i from 1 through length($header-font-sizes) {
+  #{nth($header-font-sizes, $i)} { //h1
+    font-size: nth($header-font-size-values, $i) * 1rem;
+    margin-bottom: $global-vertical-space;
+    margin-top: $global-vertical-space * 2;
+  }
 }
-@mixin muted {
-  opacity: 0.45;
+@mixin typography-contained {
+  @for $i from 1 through length($header-font-sizes) {
+    #{nth($header-font-sizes, $i)} {
+      margin-top: $global-vertical-space / 2;
+      margin-bottom: $global-vertical-space / 2;
+    }
+  }
+  // TODO: better way to include p styles?
+  p {
+    margin: $global-vertical-space 0;
+    + p,
+    + h1,
+    + h2,
+    + h3,
+    + h4,
+    + h5,
+    + h6 {
+      margin: 0 0 $global-vertical-space 0;
+    }
+  }
 }
 
-h1 {
+@mixin header {
+  color: $header-color;
+  display: block;
+  font-family: $header-font-family;
+  font-style: $header-font-style;
+  font-wieght: $header-font-weight;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @include header;
-  font-size: $global-font-size-larger;
-  line-height: $global-vertical-space;
-  margin-bottom: $global-vertical-space * 1;
-  margin-top: $global-vertical-space * 2;
-  text-transform: uppercase;
-  vertical-align: baseline;
+}
+h1 {
+  line-height: $global-vertical-space * 2.5;
 }
 h2 {
-  @include header;
-  font-size: $global-font-size-large;
-  line-height: $global-vertical-space;
-  margin-bottom: $global-vertical-space * 1;
-  margin-top: $global-vertical-space * 2;
-  text-transform: uppercase;
+  line-height: $global-vertical-space * 2;
 }
 h3 {
-  @include header;
-  font-size: $global-font-size;
-  margin-bottom: 0;
-  margin-top: $global-vertical-space * 1;
-  text-transform: uppercase;
+  line-height: $global-vertical-space * 1.5;
 }
-h4 {
-  @include header;
-  font-size: $global-font-size;
-  line-height: $global-vertical-space;
-  margin-bottom: 0;
-  margin-top: $global-vertical-space * 2;
-  text-transform: uppercase;
+h4, h5, h6 {
+  line-height: $global-lineheight;
 }
-h5 {
-  @include header;
-  font-size: $global-font-size;
-  font-weight: lighter;
-  line-height: $global-vertical-space;
-  margin-bottom: 0;
-  margin-top: $global-vertical-space * 1;
+h5, h6 {
   text-transform: uppercase;
 }
 h6 {
-  @include header;
-  font-size: $global-font-size;
-  font-weight: lighter;
-  line-height: $global-vertical-space;
-  margin-bottom: 0;
-  margin-top: $global-vertical-space * 1;
+  color: lighten($header-color, 20%);
 }
+
 p {
-  margin: 0;
+  margin: 0 0 $global-vertical-space 0;
   max-width: 40em;
-  padding: 0 0 $global-vertical-space 0;
+  padding: 0;
 }
+.Lead {
+  display: block;
+  font-size: $global-font-size-medium;
+}
+.Small {
+  @include muted;
+  display: block;
+  font-size: $global-font-size-small;
+  padding: 0 0 $global-padding-small 0;
+}
+
 a {
-  color: $primary;
+  @include global-transition;
+  color: $anchor-color;
   text-decoration: none;
+  &:hover {
+    color: $anchor-color-hover;
+  }
+  &:active,
+  &:focus {
+    color: $anchor-color-active;
+  }
 }
 .rev-HelpText,
 small {
@@ -89,7 +137,7 @@ small {
 .Text--smallJustify {
   text-align: justify;
 }
-@include breakpoint($medium) {
+@include breakpoint(medium) {
   .Text--mediumLeft {
     text-align: left;
   }
@@ -103,7 +151,7 @@ small {
     text-align: justify;
   }
 }
-@include breakpoint($large) {
+@include breakpoint(large) {
   .Text--largeLeft {
     text-align: left;
   }
@@ -117,7 +165,7 @@ small {
     text-align: justify;
   }
 }
-@include breakpoint($xlarge) {
+@include breakpoint(xlarge) {
   .Text--xlargeLeft {
     text-align: left;
   }
@@ -131,7 +179,7 @@ small {
     text-align: justify;
   }
 }
-@include breakpoint($xxlarge) {
+@include breakpoint(xxlarge) {
   .Text--xxlargeLeft {
     text-align: left;
   }

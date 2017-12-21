@@ -11,7 +11,7 @@ const examples = {
 export default class PaginationExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Pagination" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }

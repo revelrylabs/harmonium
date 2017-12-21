@@ -1,5 +1,7 @@
-<Menu>
-  <Menu.Item text>Just Text</Menu.Item>
-  <Menu.Item><a href="#">Link</a></Menu.Item>
-  <Menu.Item><a href="#">Link</a></Menu.Item>
-</Menu>
+<Callout>
+  <Menu vertical>
+    <Menu.Item text divider>Just Text</Menu.Item>
+    <Menu.Item><a href="#">Link One</a></Menu.Item>
+    <Menu.Item><a href="#">Link Two</a></Menu.Item>
+  </Menu>
+</Callout>

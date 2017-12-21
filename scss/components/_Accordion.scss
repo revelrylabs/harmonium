@@ -23,7 +23,7 @@ $accordion-title-color-active: $accordion-title-color!default;
   background: $accordion-title-bkgd;
   color: $accordion-title-color;
   display: block;
-  padding: $global-vertical-space $global-horizontal-space;
+  padding: $global-padding;
   position: relative;
   &:before {
     //TODO: fix icon font path
@@ -31,7 +31,7 @@ $accordion-title-color-active: $accordion-title-color!default;
     // content: '\e900'; // .icon-add
     content: '+';
     position: absolute;
-    right: $global-horizontal-space;
+    right: $global-padding;
   }
   &:hover,
   &:active { // grouping hover, active, and focus for mobile support

@@ -16,7 +16,7 @@ class CardHeader extends Component {
   render() {
     const {className, children, ...props} = this.props
     return (
-      <CardLayout.Bar className={`rev-Card-slice rev-Card-header ${className}`}>
+      <CardLayout.Bar className={`rev-Card-header ${className}`}>
         {children}
       </CardLayout.Bar>
     )
@@ -28,7 +28,7 @@ class CardFooter extends Component {
   render() {
     const {className, children, ...props} = this.props
     return (
-      <CardLayout.Bar className={`rev-Card-slice rev-Card-footer ${className}`}>
+      <CardLayout.Bar className={`rev-Card-footer ${className}`}>
         {children}
       </CardLayout.Bar>
     )
@@ -36,14 +36,14 @@ class CardFooter extends Component {
 }
 Card.Footer = CardFooter
 
-class CardFill extends Component {
+class CardBody extends Component {
   render() {
     const {className, children, ...props} = this.props
     return (
-      <CardLayout.Fill className={`rev-Card-slice rev-Card-fill ${className}`}>
+      <CardLayout.Bar className={`rev-Card-body ${className}`}>
         {children}
-      </CardLayout.Fill>
+      </CardLayout.Bar>
     )
   }
 }
-Card.Fill = CardFill
+Card.Body = CardBody

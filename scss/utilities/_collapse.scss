@@ -10,7 +10,7 @@
   padding-bottom: 0 !important;
   padding-top: 0 !important;
 }
-@include breakpoint($small medium)  {
+@include breakpoint(small-only)  {
   .u-collapse--small-only {
     padding: 0 !important;
     padding: 0 !important;
@@ -24,7 +24,7 @@
     padding-top: 0 !important;
   }
 }
-@include breakpoint($medium large)  {
+@include breakpoint(medium-only)  {
   .u-collapse--medium-only {
     padding: 0 !important;
     padding: 0 !important;
@@ -38,7 +38,7 @@
     padding-top: 0 !important;
   }
 }
-@include breakpoint($medium)  {
+@include breakpoint(medium)  {
   .u-collapse--medium-up {
     padding: 0 !important;
     padding: 0 !important;
@@ -52,7 +52,7 @@
     padding-top: 0 !important;
   }
 }
-@include breakpoint($large $xlarge)  {
+@include breakpoint(large-only)  {
   .u-collapse--large-only {
     padding: 0 !important;
     padding: 0 !important;
@@ -66,7 +66,7 @@
     padding-top: 0 !important;
   }
 }
-@include breakpoint($large)  {
+@include breakpoint(large)  {
   .u-collapse--large-up {
     padding: 0 !important;
     padding: 0 !important;

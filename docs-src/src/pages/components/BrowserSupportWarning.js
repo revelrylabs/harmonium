@@ -10,7 +10,7 @@ const examples = {
 export default class BrowserSupportWarningExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Browser Support Warnings" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }

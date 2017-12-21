@@ -3,21 +3,21 @@ import classNames from 'classnames'
 import Icon from './Icon'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
-  tiny: ['tiny', 'rev-Button--tiny'],
-  small: ['small', 'rev-Button--small'],
-  large: ['large', 'rev-Button--large'],
+  small: ['rev-Button--small'],
+  large: ['rev-Button--large'],
 
-  secondary: ['secondary', 'rev-Button--secondary'],
-  success: ['success', 'rev-Button--success'],
-  warning: ['warning', 'rev-Button--warning'],
-  alert: ['alert', 'rev-Button--alert'],
+  primary: ['rev-Button--primary'],
+  secondary: ['rev-Button--secondary'],
+  inverted: ['rev-Button--inverted'],
 
-  hollow: ['hollow', 'rev-Button--hollow'],
+  success: ['rev-Button--success'],
+  warning: ['rev-Button--warning'],
+  alert: ['rev-Button--alert'],
+  disabled: ['rev-Button--disabled'],
 
-  expanded: ['expanded', 'rev-Button--expanded'],
+  expanded: ['rev-Button--expanded'],
 
-  dropdown: ['dropdown', 'rev-Button--dropdown'],
-  arrowOnly: ['arrow-only', 'rev-Button--arrowOnly'],
+  dropdown: ['rev-Button--dropdown'],
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
@@ -39,7 +39,7 @@ export default class Button extends Component {
     const {disabled, href} = props
 
     // Finish building the classNAme
-    const buttonClassName = classNames(className, 'button', 'rev-Button', boolClassNames, {
+    const buttonClassName = classNames(className, 'rev-Button', boolClassNames, {
       disabled,
     })
 

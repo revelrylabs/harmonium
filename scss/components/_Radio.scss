@@ -1,0 +1,35 @@
+.rev-Radio {
+  @include input-style;
+  background: transparent;
+  box-shadow: none;
+  display: inline-block;
+  margin-bottom: $global-padding-tiny;
+  margin-right: $global-padding-tiny;
+  padding-bottom: $global-padding-small;
+  padding-top: $global-padding-small;
+  width: auto;
+  &:focus,
+  &:active {
+    box-shadow: none;
+  }
+  &.is-invalid {
+    background: lighten($error-color, 30%);
+  }
+  &.rev-Radio--stacked {
+    display: block;
+    margin-right: 0;
+  }
+}
+.rev-Radio-label {
+  @extend .rev-LabelText;
+}
+.rev-Radio-input {
+  margin-right: $global-padding-small;
+}
+.rev-Radio,
+.rev-Radio-input {
+  ~ .rev-InputHelpText,
+  ~ .rev-InputErrors {
+    margin-top: -$global-padding-tiny;
+  }
+}

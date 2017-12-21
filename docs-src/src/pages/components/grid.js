@@ -27,16 +27,16 @@ export default class gridExamplePage extends Component {
     return <div>
       <h1>Grid</h1>
       <p>
-        Note: the examples on this page have been specifically styled to make 
+        Note: the examples on this page have been specifically styled to make
         normally invisible grid elements visible. These non-standard styles:
       </p>
       <ul>
         <li>
-          Content areas of grid columns have been given backgrounds to 
+          Content areas of grid columns have been given backgrounds to
           demonstrate their bounds.
         </li>
         <li>
-          The left and right edges of the columns have been marked with a 
+          The left and right edges of the columns have been marked with a
           dashed line to demonstrate the extent of the grid gutters.
         </li>
         <li>
@@ -44,7 +44,7 @@ export default class gridExamplePage extends Component {
           their bounds.
         </li>
       </ul>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection examples={examples} depth={1} scope={scope} />
     </div>
   }
 }

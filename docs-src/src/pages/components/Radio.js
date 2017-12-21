@@ -10,7 +10,7 @@ const examples = {
 export default class RadioExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Radio Buttons" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }

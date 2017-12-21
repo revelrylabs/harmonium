@@ -9,7 +9,7 @@ const examples = {
 export default class CloseButtonExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Examples" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Close Buttons" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }
