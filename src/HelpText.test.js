@@ -14,7 +14,7 @@ describe('HelpText', () => {
   it('returns text when present', () => {
     const component = shallow(<HelpText>test</HelpText>)
 
-    expect(component.find('p')).to.have.length(1)
-    expect(component.find('p')).to.have.text('test')
+    expect(component.find('small')).to.have.length(1)
+    expect(component.find('small')).to.have.text('test')
   })
 })

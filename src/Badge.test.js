@@ -6,7 +6,7 @@ describe('Badge', () => {
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'badge'
+    const inherentClassName = 'rev-Badge'
     const testClassName = '__TEST__'
 
     const childClassName = shallow(<Badge className={testClassName} />)

@@ -6,7 +6,7 @@ describe('Row', () => {
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'row'
+    const inherentClassName = 'rev-Row'
     const testClassName = '__TEST__'
 
     const childClassName = shallow(<Row className={testClassName} />)
@@ -20,9 +20,9 @@ describe('Row', () => {
   it('handles numerical props', () => {
     const cases = {
       /* prop: classPattern */
-      smallUp: 'small-up-1',
-      mediumUp: 'medium-up-1',
-      largeUp: 'large-up-1',
+      smallUp: 'rev-Row--smallUp1',
+      mediumUp: 'rev-Row--mediumUp1',
+      largeUp: 'rev-Row--largeUp1',
     }
 
     for (let propName in cases) {
