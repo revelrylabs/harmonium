@@ -28,7 +28,7 @@ describe('ExpandingColStateContainer', () => {
     let container = mount(
       <ExpandingColStateContainer>Test</ExpandingColStateContainer>
     )
-    let expander = container.find('.rev-ExpandingCol-expander')
+    let expander = container.find('.rev-ExpandingCol-expander').first()
 
     expander.simulate('click')
 
