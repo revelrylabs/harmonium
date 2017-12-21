@@ -1,10 +1,10 @@
 {
-  "name": "revelry-components",
-  "version": "2.0.1",
-  "description": "",
+  "name": "awesome-possum",
+  "version": "3.0.0",
+  "description": "An opinionated React component framework for teams that move fast.",
   "repository": {
-    "type": "",
-    "url": ""
+    "type": "git",
+    "url": "https://github.com/revelrylabs/possum.git"
   },
   "dependencies": {
     "babel-cli": "^6.24.1",
@@ -48,7 +48,25 @@
     "postinstall": "npm run clean && npm run babel && node scripts/postinstall.js"
   },
   "keywords": [],
-  "author": "",
+  "author": {
+    "name": "Revelry Labs",
+    "email": "support@revelry.co",
+    "url": "https://revelry.co"
+  },
+  "contributors": [
+    {
+      "name": "Joel Wietelmann",
+      "email": "joel@revelry.co"
+    },
+    {
+      "name": "Robert Prehn",
+      "email": "robert@revelry.co"
+    },
+    {
+      "name": "Laura Hill",
+      "email": "laura@revelry.co"
+    }
+  ],
   "license": "MIT",
   "devDependencies": {
     "babel-plugin-istanbul": "^4.1.4",

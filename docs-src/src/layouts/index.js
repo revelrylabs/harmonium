@@ -9,7 +9,7 @@ import './index.scss'
 
 const Header = () => (
   <header className="rev-Header">
-    <Link to="/">Ockham</Link>
+    <Link to="/">Possum</Link>
   </header>
 )
 
@@ -18,10 +18,10 @@ const TemplateWrapper = ({
 }) => (
     <div>
       <Helmet
-        title="Revelry Components"
+        title="React Components for Teams That Move Fast | Possum"
         meta={[
-          { name: 'description', content: 'Sample' },
-          { name: 'keywords', content: 'sample, something' },
+          { name: 'description', content: 'An opinionated React component framework for teams that move fast.' },
+          { name: 'keywords', content: 'React, JavaScript, SCSS, CSS, HTML, Web' },
         ]}
       >
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"/>

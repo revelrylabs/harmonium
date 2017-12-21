@@ -40,7 +40,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 
 module.exports = {
   siteMetadata: {
-    title: 'Revelry Components',
+    title: 'React Components for Teams That Move Fast | Possum',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

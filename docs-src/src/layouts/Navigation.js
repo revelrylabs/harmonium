@@ -6,7 +6,7 @@ export default function Navigation() {
   return (
     <div className="rev-Rail">
       <nav className="rev-NavigationOutline">
-        <h2>Component Docs</h2>
+        <h2><a href="/">Component Docs</a></h2>
         <Menu>
           <h3>Grid</h3>
           <Menu nested>
