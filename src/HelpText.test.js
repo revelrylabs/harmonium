@@ -15,6 +15,6 @@ describe('HelpText', () => {
     const component = shallow(<HelpText>test</HelpText>)
 
     expect(component.find('small')).to.have.length(1)
-    expect(component.find('small')).to.have.text('test')
+    expect(component.find('small').text()).to.contain('test')
   })
 })
