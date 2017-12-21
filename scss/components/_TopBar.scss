@@ -1,0 +1,73 @@
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$topbar-bkgd: $body-bkgd !default;
+$topbar-border-color: $divider-color !default;
+$topbar-border-size: 1px !default;
+$topbar-color: $body-font-color !default;
+$topbar-height: 60px !default;
+
+.rev-TopBar {
+  background: $topbar-bkgd;
+  border: $topbar-border-size solid $topbar-border-color;
+  color: $topbar-color;
+  display: block;
+  height: $topbar-height;
+  line-height: $topbar-height;
+  margin: 0 0 $global-vertical-space;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  z-index: $above;
+  ul {
+    margin: 0;
+    padding: 0;
+    a {
+      padding-bottom: 0;
+      padding-top: 0;
+    }
+  }
+  .rev-TopBar-left {
+    float: left;
+  }
+  .rev-TopBar-right {
+    float: right;
+  }
+  .rev-TopBar-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  // SEARCH FORMS IN TOPBARS
+  .rev-Form {
+    padding: $global-padding-tiny 0;
+  }
+
+  // INVERSE COLOR TOPBAR
+  &.rev-TopBar--inverse {
+    background: $body-font-color;
+    border: 0;
+    color: $body-bkgd;
+  }
+  // FIXED POSITION TOPBAR
+  &.rev-TopBar--fixed {
+    height: $topbar-height;
+    left: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    .rev-Row {
+      @include flex(stretch, row, space-between);
+    }
+    .rev-TopBar-left,
+    .rev-TopBar-right {
+      line-height: $topbar-height;
+    }
+    .rev-Menu-item {
+      a {
+        padding: 0 $global-horizontal-space;
+      }
+    }
+  }
+}

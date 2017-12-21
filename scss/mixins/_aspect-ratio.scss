@@ -1,0 +1,29 @@
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    padding-top: ($height / $width) * 100%;
+    width: 100%;
+  }
+  // > .AspectRatio-content {
+  //   background-size: cover;
+  //   bottom: -5%;
+  //   left: -5%;
+  //   min-height: 110%;
+  //   min-width: 110%;
+  //   position: absolute;
+  //   right: -5%;
+  //   top: -5%;
+  //   z-index: $below; // Watch this: may not be appropriate for all situations
+  // }
+}
+.AspectRatio-copy {
+  height: 100%;
+  left: 0;
+  padding: $global-padding-large;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: $above;
+}

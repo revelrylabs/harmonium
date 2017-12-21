@@ -6,7 +6,7 @@ describe('TopBar', () => {
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'top-bar'
+    const inherentClassName = 'rev-TopBar'
     const testClassName = '__TEST__'
 
     const childClassName = shallow(<TopBar className={testClassName} />)

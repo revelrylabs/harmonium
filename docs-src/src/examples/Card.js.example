@@ -1,0 +1,7 @@
+<Card>
+  <Card.Header>Header content</Card.Header>
+  <Card.Fill>
+    <p><Lipsum /></p>
+  </Card.Fill>
+  <Card.Footer>Footer content</Card.Footer>
+</Card>

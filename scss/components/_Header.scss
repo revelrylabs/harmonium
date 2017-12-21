@@ -1,0 +1,6 @@
+@import '../vars/colors';
+
+.rev-Header {
+  @include primary-color-stack;
+  padding: $global-vertical-space / 2 $global-horizontal-space;
+}

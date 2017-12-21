@@ -23,21 +23,20 @@ class AccordionItem extends Component {
   render() {
     const {children, className, onClick, href, title, active, contentKey, ...props} = this.props
 
-    const liClassName = classNames(className, 'accordion-item', 'rev-AccordionItem', {
+    const liClassName = classNames(className, 'rev-AccordionItem', {
       'is-active': active,
     })
 
-    const aClassName = classNames('accordion-title', 'rev-AccordionItem-title', {
+    const aClassName = classNames('rev-AccordionItem-title', {
       'is-active': active,
     })
 
-    const divClassName = classNames('accordion-content', 'rev-AccordionItem-content', {
+    const divClassName = classNames('rev-AccordionItem-content', {
       'is-active': active,
     })
 
     const div = (
       <div
-        style={{display: active ? 'block' : 'none'}}
         className={divClassName}
       >
         {children}
@@ -69,7 +68,7 @@ export default class Accordion extends Component {
       return cloneElement(child, {active})
     }
 
-    const ulClassName = classNames(className, 'accordion', 'rev-Accordion')
+    const ulClassName = classNames(className, 'rev-Accordion')
 
     return (
       <ul {...props} className={ulClassName}>

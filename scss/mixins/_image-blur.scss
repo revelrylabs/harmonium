@@ -1,0 +1,14 @@
+@mixin image-blur {
+  height: auto;
+  left: -$global-padding;
+  max-width: 1000%;
+  position: absolute;
+  top: -$global-padding;
+  width: 100%;
+  @supports (filter: blur(8px)) {
+    filter: $image-blur;
+    height: calc(100% + (#{$global-padding} + #{$global-padding}));
+    object-fit: cover;
+    width: calc(100% + (#{$global-padding} + #{$global-padding}));
+  }
+}

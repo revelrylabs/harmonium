@@ -1,0 +1,22 @@
+<div>
+  <Row>
+    <ExpandingCol small={6}>
+      <Callout primary>
+        I am hidden away.
+      </Callout>
+    </ExpandingCol>
+    <Col small={6}>
+      The column next to this one is collapsed.
+    </Col>
+  </Row>
+  <Row>
+    <ExpandingCol small={6} open>
+      <Callout primary>
+        I am expanded.
+      </Callout>
+    </ExpandingCol>
+    <Col small={6}>
+      The column next to this one is expanded.
+    </Col>
+  </Row>
+</div>

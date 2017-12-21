@@ -1,0 +1,50 @@
+@mixin body-color-stack {
+  background-color: $body-bkgd;
+  color: $body-font-color;
+}
+
+@mixin body-color-stack-inverted {
+  background-color: $body-font-color;
+  color: $body-bkgd;
+}
+
+$color-list: primary, secondary, tertiary, accent, success, alert, warning, error;
+$color-vars: $primary, $secondary, $tertiary, $accent, $success, $alert, $warning, $error;
+
+
+
+@mixin color-management {
+  // by default we give most things the $primary bkgd-color
+  @for $i from 1 through length($color-list) {
+    background: $primary;
+    @if lightness($primary) > 50% {
+      color: $brand-dark;
+    }
+    @else {
+      color: $brand-light;
+    }
+    // for components that use color vars as props, we find the lightness
+    // of the bkgd-color and adjust the font-color accordingly
+    &--#{nth($color-list, $i)} {
+      background: nth($color-vars, $i);
+      @if lightness(nth($color-vars, $i)) > 50% {
+        color: $brand-dark;
+      }
+      @else {
+        color: $brand-light;
+      }
+    }
+  }
+}
+@mixin color-management-inverted {
+  // by default we give most things the $primary bkgd-color
+  @for $i from 1 through length($color-list) {
+    background: $white;
+    border: 1px solid $primary;
+    color: $primary;
+    &--#{nth($color-list, $i)} {
+      color: nth($color-vars, $i);
+      border: 1px solid nth($color-vars, $i);
+    }
+  }
+}

@@ -12,12 +12,12 @@ export default class HelpText extends Component {
   render() {
     const {className, children, ...props} = this.props
 
-    const newClassName = classNames(className, 'help-text', 'rev-HelpText')
+    const newClassName = classNames(className, 'rev-HelpText')
 
     return (
-      <p className={newClassName} {...props}>
+      <small className={newClassName} {...props}>
         {children}
-      </p>
+      </small>
     )
   }
 }

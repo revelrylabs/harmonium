@@ -1,0 +1,16 @@
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$close-bkgd: $body-font-color !default;
+$close-color: $body-bkgd !default;
+$close-size: $size-default !default;
+
+.rev-CloseButton {
+  background: $close-bkgd;
+  border: 0;
+  color: $close-color;
+  float: right;
+  line-height: $close-size;
+  min-height: $close-size;
+  min-width: $close-size;
+}

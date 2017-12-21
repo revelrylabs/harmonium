@@ -1,0 +1,26 @@
+<div className="ColumnExamples">
+  <Row middle flex>
+    <Col small={6}>I&apos;m in the middle!</Col>
+    <Col small={6}>
+      <Lipsum />
+    </Col>
+  </Row>
+  <Row top flex>
+    <Col small={6}>These columns align to the top.</Col>
+    <Col small={6}>
+      <Lipsum />
+    </Col>
+  </Row>
+  <Row bottom flex>
+    <Col small={6}>bottom</Col>
+    <Col small={6}>
+      <Lipsum />
+    </Col>
+  </Row>
+  <Row flex>
+    <Col small={6}>unspecified simply fills all vertical space</Col>
+    <Col small={6}>
+      <Lipsum />
+    </Col>
+  </Row>
+</div>

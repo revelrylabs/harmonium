@@ -1,0 +1,76 @@
+/*@import "../node_modules/foundation-sites/scss/grid/gutter";*/
+
+$expanding-col-transition-time: 0.25s;
+$expanding-col-transition-timing-function: cubic-bezier(0.0,0.0,0.2,1);
+$expanding-col-button-width: 2.6rem;
+
+.rev-ExpandingCol-closer,
+.rev-ExpandingCol-expander {
+  position: absolute;
+  width: $expanding-col-button-width;
+  // Remove focus style because it doesn't look right when using the button
+  // as a tab to open/close the sidebar. Different than button in form scenario
+  &:focus {
+    outline: 0;
+  }
+  margin: 0;
+  padding: 0 $global-horizontal-space / 4 $global-vertical-space $global-horizontal-space / 4;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  width: 1 * $global-horizontal-space;
+  // Some breakpoints have different column gutter widths, so adjust the edge
+  // of the button to match-- with one rule per breakpoint
+  /*@each $breakpoint, $value in $grid-column-padding {
+    // We take half, because the foundation gutter amount is the sum of both
+    // sides, not a single side's gutter
+    $padding: rem-calc($value) / 2;*/
+
+    /*@include breakpoint($breakpoint) {
+      // rem-calc(1) adjusts for the border on the button-- which is hard coded
+      // in the button mixin, so I don't have a variable to key on
+      right: $padding + rem-calc(1);
+    }*/
+  /*}*/
+}
+.rev-ExpandingCol-pane {
+  // So that when this is collapsed, if there is content which has padding or
+  // margins, it will still be hidden (otherwise, this forces a width and can
+  // make content appear)
+  overflow-x: hidden;
+  // Position is relative so that we can position the buttons absolutely against
+  // this pane (in the upper right)
+  position: relative;
+  transition: max-width $expanding-col-transition-time;
+  transition-timing-function: $expanding-col-transition-timing-function;
+  &.is-closed {
+    max-width: 0;
+    // Some breakpoints have different column gutter widths, so the closed width
+    // needs to be that gutter, plus the width of the button. Note, the gutter
+    // value is the total gutter for both sides
+    /*@each $breakpoint, $value in $grid-column-padding {
+      @include breakpoint($breakpoint) {
+        max-width: rem-calc($value) + $expanding-col-button-width;
+      }
+    }*/
+  }
+  &.rev-ExpandingCol--expanderless.is-closed {
+    // Expanderless versions don't need to hold space for the button, and don't
+    // need gutters when collapsed (because you want the next column to start
+    // immediately against the edge, not a couple rems away from the edge of
+    // the row)
+    max-width: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.rev-ExpandingCol-pane-content {
+  overflow-x: hidden;
+  .rev-ExpandingCol--expanderless & {
+    // With no button, we only need a "one pixel" margin. Why not zero?
+    // With zero, the pane ends up being one pixel too small, which'll cut off
+    // borders in a lot of common situations. So add a pixel so it goes right
+    // to the edge of the content.
+    margin-right: rem-calc(1);
+  }
+}

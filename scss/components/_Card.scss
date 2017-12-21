@@ -1,0 +1,40 @@
+$card-background: $white !default;
+$card-border: 1px solid $divider-color !default;
+$card-padding: $global-padding !default;
+$card-radius: $global-radius !default;
+$card-header-background: $white !default;
+$card-footer-background: $white !default;
+
+
+
+.rev-Card,
+.rev-CardLayout {
+  background-color: $card-background;
+  border: $card-border;
+  border-radius: $card-radius;
+  :first-child {
+    border-radius: $card-radius $card-radius 0 0;
+  }
+  :last-child {
+    border-radius: 0 0 $card-radius $card-radius;
+  }
+}
+
+.rev-Card-slice,
+.rev-CardLayout-bar {
+  padding: $card-padding;
+}
+.rev-Card-header {
+  background-color: $card-header-background;
+}
+.rev-Card-footer {
+  background-color: $card-footer-background;
+}
+
+.rev-Card-fill,
+.rev-CardLayout-fill {
+  border: $card-border;
+  &:first-child, &:last-child {
+    border: none;
+  }
+}

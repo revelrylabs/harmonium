@@ -1,0 +1,8 @@
+<div>
+  <div>
+    <Radio name="singular" defaultValue="1" label="One" />
+  </div>
+  <div>
+    <Radio name="singular" defaultValue="3" label="Has error" error />
+  </div>
+</div>

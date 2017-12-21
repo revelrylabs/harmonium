@@ -1,0 +1,6 @@
+<div>
+  <Callout>
+    Look at this close button!
+    <CloseButton aria-label="Close Callout">&times;</CloseButton>
+  </Callout>
+</div>

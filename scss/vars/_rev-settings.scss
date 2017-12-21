@@ -1,0 +1,172 @@
+// IMPORT FONTS HERE
+
+// Global Fonts
+$global-monospace-font: 'Montserrat', sans-serif;
+$global-serif-font: 'Georgia', serif;
+$global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+
+// we use the global-font-sizes for typographic utilities
+// AND to determine vertical spacing
+$global-font-size-tiny: 1rem;
+$global-font-size-small: 1.2rem;
+$global-font-size: 1.6rem;
+$global-font-size-large: 1.8rem;
+$global-font-size-larger: 2rem;
+
+$global-weight-light: 300;
+$global-weight-normal: 400;
+$global-weight-bold: 700;
+$global-lineheight: 1.375;
+
+// Breakpoint Mediaqueries
+// you can add any breakpoint vars you want
+// if only 1 value is given, it will compile to a min-width media query
+// if 2 values are given, it will compile to a min-width max-width media query
+@import '../../node_modules/breakpoint-sass/stylesheets/breakpoint';
+$small: 0px;
+$medium: 640px;
+$large: 1024px;
+$xlarge: 1200px;
+$xxlarge: 1440px;
+
+// Global Width
+$global-width: $large;
+$grid-columns: 12;
+
+// Spacing
+$global-vertical-space: $global-font-size * $global-lineheight;
+$global-horizontal-space: 1.6rem; // TODO: think about this value more
+// ^ by default, global padding, margin, and grid padding based on this value
+
+// Global Padding
+$global-padding-tiny: calc(#{$global-horizontal-space} / 4);
+$global-padding-small: calc(#{$global-horizontal-space} / 2);
+$global-padding: $global-horizontal-space;
+$global-padding-medium: calc(#{$global-horizontal-space} * 1.5);
+$global-padding-large: calc(#{$global-horizontal-space} * 2);
+
+// Global Margin
+$global-margin-small: $global-padding-small;
+$global-margin: $global-padding;
+$global-margin-medium: $global-padding-medium;
+$global-margin-large: $global-padding-large;
+
+// Grid
+$grid-row-width: $global-width;
+$grid-column-padding: $global-horizontal-space;
+$grid-gutter: calc(#{$grid-column-padding} * 2);
+
+$global-radius: 2px;
+$global-rounded: 100000px;
+$global-box-shadow: 0 1px 6px 0 $black-20;
+
+
+// Body Vars
+$body-background: $white;
+$body-font-color: $dark-gray;
+$body-font-family: $global-sans-serif-font;
+
+// Header Vars
+$header-color: $body-font-color;
+$header-font-family: $global-sans-serif-font;
+$header-font-style: normal;
+$header-font-weight: $global-weight-normal;
+
+$subheader-color: $header-color;
+$header-font-family: $global-sans-serif-font;
+$subheader-font-weight: $global-weight-normal;
+
+// Paragraph Vars
+$paragraph-lineheight: $global-lineheight;
+$paragraph-margin-bottom: $global-vertical-space;
+$paragraph-text-rendering: optimizeLegibility;
+
+// Anchor Vars
+$anchor-color: $primary;
+$anchor-color-hover: darken($primary, 10%);
+$anchor-color-active: darken($primary, 10%);
+$anchor-text-decoration: none;
+$anchor-text-decoration-hover: none;
+
+// HR Vars
+$hr-width: $global-width;
+$hr-border: 1px solid $divider-color;
+$hr-margin: $global-padding-large auto;
+
+// Image Blur
+$image-blur: blur(8px);
+$no-image-blur: blur(0px);
+
+$disabled-opacity: 0.25;
+
+// Sizes
+// common size vars for things like badges, close buttons, fixed naviagtion bars
+$size-tiny: 8px;
+$size-smaller: 16px;
+$size-small: 32px;
+$size-default: 44px;
+$size-large: 64px;
+$size-larger: 80px;
+
+//** Component Vars are commented out here because each compnent has its !default vars set at the top of the component stylesheet. If vars need to be updated, you can uncomment them below and make your changes. Vars below will always override the !default vars in the component stylesheets
+
+// Example component var naming
+// $[component]-[css property]-[variant]-[state]
+
+//## CONTAINERS -----------------------------
+
+//## Accordions
+//$accordion-border-size: 1px;
+//$accordion-border-color: $divider-color;
+//$accordion-title-bkgd: $white;
+//$accordion-title-color: $primary;
+//$accordion-title-bkgd-hover: darken($accordion-title-bkgd, 5%);
+//$accordion-title-color-hover: $accordion-title-color-hover;
+//$accordion-title-bkgd-active: darken($accordion-title-bkgd, 5%);
+//$accordion-title-color-active: $accordion-title-color;
+
+//## Callouts
+//$callout-bkgd: $white;
+//$callout-border-size: 1px;
+//$callout-border-color: $divider-color;
+//$callout-color: $body-font-color;
+//$callout-padding: $global-vertical-space $global-horizontal-space;
+
+//## Modals
+//$modal-bkgd: $black-40;
+//$modal-content-bkgd: $white;
+//$modal-content-border-size: 1px;
+//$modal-content-border-color: $divider-color;
+//$modal-content-box-shadow: $global-box-shadow;
+//$modal-content-color: $body-font-color;
+//$modal-content-padding: 0;
+
+//## Tabs
+//$tabs-margin: $global-vertical-space;
+//$tabs-border-size: 1px;
+//$tabs-border-color: $divider-color;
+//$tabs-title-bkgd: transparent;
+//$tabs-title-link-bkgd: $divider-color;
+//$tabs-title-link-color: $anchor-color;
+//$tabs-title-link-bkgd-hover: darken($tabs-title-link-bkgd, 5%);
+//$tabs-title-link-color-hover: $anchor-color-hover;
+//$tabs-title-link-bkgd-active: darken($tabs-title-link-bkgd, 5%);
+//$tabs-title-link-color-active: $anchor-color-hover;
+//$tabs-title-link-padding: $global-vertical-space $global-horizontal-space;
+//$tabs-content-padding: $global-vertical-space 0;
+
+//## Badges
+//$badge-size: $size-small;
+
+//## Close Buttons
+//$close-bkgd: $body-font-color;
+//$close-color: $body-bkgd;
+//$close-size: $size-default;
+
+//## Help Text
+//$help-text-color: $gray;
+
+//## Progress
+//$progress-radius: $global-rounded;
+//$progress-meter-height: $size-tiny;
+//$progress-meter-bkgd: $brand-dark;

@@ -1,0 +1,12 @@
+<div>
+  <h3>Airport with `option` children.</h3>
+  <Select name="airport">
+    <option value="MSY">Louis Armstrong</option>
+    <option value="JFK">John F. Kennedy</option>
+  </Select>
+  <h3>Airport with `options` prop.</h3>
+  <Select name="airport" options={[
+    {label: 'Louis Armstrong', value: 'MSY'},
+    {label: 'John F. Kennedy', value: 'JFK'},
+  ]} />
+</div>

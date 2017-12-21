@@ -1,0 +1,5 @@
+<div>
+  <p><Lipsum p={1} /></p>
+  <p><Lipsum p={2} /></p>
+  <p><Lipsum p={3} /></p>
+</div>

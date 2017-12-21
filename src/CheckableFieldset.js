@@ -19,9 +19,9 @@ export default class CheckableFieldset extends Component {
         <fieldset {...props} className={fieldsetClassName}>
           {label ? <legend className={legendClassName}>{label}</legend> : null}
           {children}
+          <InputHelpText>{help}</InputHelpText>
+          <InputErrors>{error}</InputErrors>
         </fieldset>
-        <InputHelpText>{help}</InputHelpText>
-        <InputErrors>{error}</InputErrors>
       </div>
     )
   }

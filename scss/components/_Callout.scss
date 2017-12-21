@@ -1,0 +1,32 @@
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$callout-bkgd: $white !default;
+$callout-border-size: 1px !default;
+$callout-border-color: $divider-color !default;
+$callout-color: $body-font-color !default;
+$callout-padding: $global-vertical-space $global-horizontal-space !default;
+
+.rev-Callout {
+  background: $callout-bkgd;
+  border: $callout-border-size solid $callout-border-color;
+  color: $callout-color;
+  margin-bottom: $global-vertical-space;
+  overflow: hidden;
+  padding: 0;
+  &.rev-Callout--primary {
+    background: scale-color($primary, $lightness: 90%);
+  }
+  &.rev-Callout--secondary {
+    background: scale-color($secondary, $lightness: 90%);
+  }
+  &.rev-Callout--success {
+    background: scale-color($success, $lightness: 90%);
+  }
+  &.rev-Callout--warning {
+    background: scale-color($warning, $lightness: 90%);
+  }
+  &.rev-Callout--alert {
+    background: scale-color($alert, $lightness: 90%);
+  }
+}

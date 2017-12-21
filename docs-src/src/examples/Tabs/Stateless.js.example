@@ -1,0 +1,36 @@
+<div>
+  <h3>default to first tab</h3>
+  <Tabs>
+    <Tabs.Item contentKey={1} title="One">
+      <Row>
+        <Col>
+          <Lipsum p={1} />
+        </Col>
+      </Row>
+    </Tabs.Item>
+    <Tabs.Item contentKey={2} title="Two">
+      <Row>
+        <Col>
+          <Lipsum p={2} />
+        </Col>
+      </Row>
+    </Tabs.Item>
+  </Tabs>
+  <h3>explicitly set active to 2</h3>
+  <Tabs active={2}>
+    <Tabs.Item contentKey={1} title="One">
+      <Row>
+        <Col>
+          <Lipsum p={1} />
+        </Col>
+      </Row>
+    </Tabs.Item>
+    <Tabs.Item contentKey={2} title="Two">
+      <Row>
+        <Col>
+          <Lipsum p={2} />
+        </Col>
+      </Row>
+    </Tabs.Item>
+  </Tabs>
+</div>

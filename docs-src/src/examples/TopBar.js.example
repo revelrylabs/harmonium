@@ -1,0 +1,23 @@
+<TopBar>
+  <TopBar.Left>
+    <strong>Hello</strong>
+  </TopBar.Left>
+  <TopBar.Left>
+    <Menu className="rev-Menu--horizontalLeft">
+      <Menu.Item><a href="#">One</a></Menu.Item>
+      <Menu.Item><a href="#">Two</a></Menu.Item>
+    </Menu>
+  </TopBar.Left>
+  <TopBar.Right>
+    <Form>
+      <InputGroup style={{margin: 0}}>
+        <InputGroup.Field>
+          <Input type="text" placeholder="Search" />
+        </InputGroup.Field>
+        <InputGroup.Button>
+          <Button>Search</Button>
+        </InputGroup.Button>
+      </InputGroup>
+    </Form>
+  </TopBar.Right>
+</TopBar>

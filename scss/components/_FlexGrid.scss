@@ -1,0 +1,134 @@
+// Justify Content
+.rev-Row--end {
+  @include flexJustifyEnd;
+}
+.rev-Row--center {
+  @include flexJustifyCenter;
+}
+.rev-Row--spaced,
+.rev-Row--spaceAround {
+  @include flexJustifySpaceAround;
+}
+.rev-Row--justify,
+.rev-Row--spaceBetween {
+  @include flexJustifySpaceBetween;
+}
+// Align Items
+.rev-Row--top {
+  @include flexAlignStart;
+}
+.rev-Row--middle {
+  @include flexAlignCenter;
+}
+.rev-Row--bottom {
+  @include flexAlignEnd;
+}
+.rev-Row--stretch {
+  @include flexAlignStretch;
+}
+.rev-Row--baseline {
+  @include flexAlignBaseline;
+}
+// Align Self
+.rev-Col {
+  &.rev-Col--shrink {
+    flex: 0 0 auto;
+    width: auto;
+  }
+  &.rev-Col--end {
+    align-self: flex-end;
+  }
+  &.rev-Col--center {
+    align-self: center;
+  }
+  &.rev-Col--start {
+    align-self: flex-start;
+  }
+  &.rev-Col--baseline {
+    align-self: baseline;
+  }
+  &.rev-Col--stretch {
+    align-self: stretch;
+  }
+}
+// FLEX Odering
+@for $i from 0 through $grid-columns {
+  .rev-Col--smallOrder#{$i} {
+    order: $i;
+  }
+}
+@include breakpoint($medium) {
+  @for $i from 0 through $grid-columns {
+    .rev-Col--mediumOrder#{$i} {
+      order: $i;
+    }
+  }
+}
+@include breakpoint($large)  {
+  @for $i from 0 through $grid-columns {
+    .rev-Col--largeOrder#{$i} {
+      order: $i;
+    }
+  }
+}
+@include breakpoint($xlarge)  {
+  @for $i from 0 through $grid-columns {
+    .rev-Col--xlargeOrder#{$i} {
+      order: $i;
+    }
+  }
+}
+@include breakpoint($xxlarge)  {
+  @for $i from 0 through $grid-columns {
+    .rev-Col--xxlargeOrder#{$i} {
+      order: $i;
+    }
+  }
+}
+
+// Set max-widths and flex-basis for numerical columns so they are contained
+// instead of expanding to take over the whole row
+@for $i from 1 through $grid-columns {
+  .rev-Row--flex.rev-Row--flex .rev-Col--small#{$i}.rev-Col--small#{$i} {
+    flex-basis: 100% / $grid-columns * $i;
+    max-width: 100% / $grid-columns * $i;
+    width: auto;
+  }
+}
+
+@include breakpoint($medium)  {
+  @for $i from 1 through $grid-columns {
+    .rev-Row--flex.rev-Row--flex .rev-Col--medium#{$i}.rev-Col--medium#{$i} {
+      flex-basis: 100% / $grid-columns * $i;
+      max-width: 100% / $grid-columns * $i;
+      width: auto;
+    }
+  }
+}
+@include breakpoint($large)  {
+  @for $i from 1 through $grid-columns {
+    .rev-Row--flex.rev-Row--flex .rev-Col--large#{$i}.rev-Col--large#{$i} {
+      flex-basis: 100% / $grid-columns * $i;
+      max-width: 100% / $grid-columns * $i;
+      width: auto;
+    }
+  }
+}
+@include breakpoint($xlarge) {
+  @for $i from 1 through $grid-columns {
+    .rev-Row--flex.rev-Row--flex .rev-Col--xlarge#{$i}.rev-Col--xlarge#{$i} {
+      flex-basis: 100% / $grid-columns * $i;
+      max-width: 100% / $grid-columns * $i;
+      width: auto;
+    }
+  }
+}
+@include breakpoint($xxlarge)  {
+  @for $i from 1 through $grid-columns {
+    .rev-Row--flex.rev-Row--flex .rev-Col--xxlarge#{$i}.rev-Col--xxlarge#{$i} {
+      flex-basis: 100% / $grid-columns * $i;
+      max-width: 100% / $grid-columns * $i;
+      width: auto;
+    }
+  }
+}

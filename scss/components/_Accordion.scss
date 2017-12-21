@@ -1,0 +1,58 @@
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$accordion-border-size: 1px !default;
+$accordion-border-color: $divider-color !default;
+$accordion-title-bkgd: $white !default;
+$accordion-title-color: $primary !default;
+$accordion-title-bkgd-hover: darken($accordion-title-bkgd, 5%) !default;
+$accordion-title-color-hover: $accordion-title-color!default;
+$accordion-title-bkgd-active: darken($accordion-title-bkgd, 5%) !default;
+$accordion-title-color-active: $accordion-title-color!default;
+
+.rev-Accordion { // ul
+  border: $accordion-border-size solid $accordion-border-color;
+  margin-bottom: $global-vertical-space;
+}
+.rev-AccordionItem { // li
+  border-bottom: $accordion-border-size solid $accordion-border-color;
+  margin: 0;
+  padding: 0;
+}
+.rev-AccordionItem-title { // a inside the li
+  background: $accordion-title-bkgd;
+  color: $accordion-title-color;
+  display: block;
+  padding: $global-vertical-space $global-horizontal-space;
+  position: relative;
+  &:before {
+    //TODO: fix icon font path
+    // @include icon;
+    // content: '\e900'; // .icon-add
+    content: '+';
+    position: absolute;
+    right: $global-horizontal-space;
+  }
+  &:hover,
+  &:active { // grouping hover, active, and focus for mobile support
+    background: $accordion-title-bkgd-hover;
+    color: $accordion-title-color-hover;
+  }
+  &.is-active {
+    background: $accordion-title-bkgd-active;
+    color: $accordion-title-color-active;
+    &:before {
+      content: '-';
+    }
+  }
+}
+//TODO change display changes on .is-acitve to something that can transition
+.rev-AccordionItem-content {
+  @include global-transition;
+  display: none;
+  overflow: hidden;
+  padding: $global-padding;
+  &.is-active {
+    display: block;
+  }
+}

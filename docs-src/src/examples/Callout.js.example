@@ -1,0 +1,8 @@
+<div>
+  <Callout>default</Callout>
+  <Callout primary>primary</Callout>
+  <Callout secondary>secondary</Callout>
+  <Callout success>success</Callout>
+  <Callout warning>warning</Callout>
+  <Callout alert>alert</Callout>
+</div>

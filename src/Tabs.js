@@ -4,12 +4,12 @@ import classNames from 'classnames'
 class TabsTitle extends Component {
   render() {
     const {onClick, href, title, active} = this.props
-    const className = classNames('tabs-title', 'rev-TabsItem-title', {
+    const className = classNames('rev-TabsTitle', {
       'is-active': active,
     })
     return (
       <li className={className}>
-        <a href={href || '#'} onClick={onClick} aria-selected={active}>
+        <a className="rev-TabsTitle-link" href={href || '#'} onClick={onClick} aria-selected={active}>
           {title}
         </a>
       </li>
@@ -24,7 +24,6 @@ class TabsPanel extends Component {
       return null
     }
     const className = classNames(
-      'tabs-panel',
       'is-active',
       'rev-TabsItem-panel',
     )
@@ -65,10 +64,10 @@ export default class Tabs extends Component {
 
     return (
       <div className={divClassName}>
-        <ul className="tabs rev-Tabs-titles">
+        <ul className="rev-Tabs-titles">
           {titles}
         </ul>
-        <div className="tabs-content rev-Tabs-content">
+        <div className="rev-Tabs-content">
           {items}
         </div>
       </div>

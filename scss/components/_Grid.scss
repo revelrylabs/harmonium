@@ -1,0 +1,311 @@
+// ROWS
+.rev-Row {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $grid-row-width;
+  overflow: hidden; //TODO: is this horrible?
+  width: 100%;
+  &.rev-Row--flex,
+  &.rev-Row--smallFlex, {
+    display: flex;
+    flex-flow: row wrap;
+    .rev-Col {
+      flex: 1 1 0px;
+    }
+    .shrink {
+      flex: 0 0 auto;
+      &.is-closed {
+        max-width: 0;
+      }
+    }
+  }
+  &.rev-Row--unflex,
+  &.rev-Row--smallUnflex {
+    display: block;
+  }
+  &.rev-Row--collapse,
+  &.rev-Row--smallCollapse {
+    > .rev-Col {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  &.rev-Row--uncollapse,
+  &.rev-Row--smallUncollapse {
+    > .rev-Col {
+      padding-left: $grid-column-padding;
+      padding-right: $grid-column-padding;
+    }
+  }
+  &.rev-Row--right {
+    justify-content: flex-end;
+  }
+  @include breakpoint($medium)  {
+    &.rev-Row--mediumFlex {
+      display: flex;
+    }
+    &.rev-Row--mediumUnflex {
+      display: block;
+    }
+    &.rev-Row--mediumCollapse {
+      > .rev-Col {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    &.rev-Row--mediumUncollapse {
+      > .rev-Col {
+        padding-left: $grid-column-padding;
+        padding-right: $grid-column-padding;
+      }
+    }
+  }
+  @include breakpoint($large)  {
+    &.rev-Row--largeFlex {
+      display: flex;
+    }
+    &.rev-Row--largeUnflex {
+      display: block;
+    }
+    &.rev-Row--largeCollapse {
+      > .rev-Col {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    &.rev-Row--largeUncollapse {
+      > .rev-Col {
+        padding-left: $grid-column-padding;
+        padding-right: $grid-column-padding;
+      }
+    }
+  }
+  @include breakpoint($xlarge)  {
+    &.rev-Row--xlargeFlex {
+      display: flex;
+    }
+    &.rev-Row--xlargeUnflex {
+      display: block;
+    }
+    &.rev-Row--xlargeCollapse {
+      > .rev-Col {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    &.rev-Row--xlargeUncollapse {
+      > .rev-Col {
+        padding-left: $grid-column-padding;
+        padding-right: $grid-column-padding;
+      }
+    }
+  }
+  @include breakpoint($xxlarge)  {
+    &.rev-Row--xxlargeFlex {
+      display: flex;
+    }
+    &.rev-Row--xxlargeUnflex {
+      display: block;
+    }
+    &.rev-Row--xxlargeCollapse {
+      > .rev-Col {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    &.rev-Row--xxlargeUncollapse {
+      > .rev-Col {
+        padding-left: $grid-column-padding;
+        padding-right: $grid-column-padding;
+      }
+    }
+  }
+}
+
+// COLUMNS
+.rev-Col {
+  flex-grow: 1;
+  flex-shrink: 0;
+  float: left;
+  padding: 0 $grid-column-padding;
+  position: relative;
+  width: 100%;
+  &.rev-Col--end {
+    float: right;
+  }
+  &.rev-Col--collapse {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  &.rev-Col--uncollapse {
+    padding: 0 $grid-column-padding;
+  }
+  @include breakpoint($medium) {
+    &.rev-Col--mediumCollapse {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &.rev-Col--mediumUncollapse {
+      padding: 0 $grid-column-padding;
+    }
+  }
+  @include breakpoint($large) {
+    &.rev-Col--largeCollapse {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &.rev-Col--largeUncollapse {
+      padding: 0 $grid-column-padding;
+    }
+  }
+  @include breakpoint($xlarge) {
+    &.rev-Col--xlargeCollapse {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &.rev-Col--xlargeUncollapse {
+      padding: 0 $grid-column-padding;
+    }
+  }
+  @include breakpoint($xxlarge) {
+    &.rev-Col--xxlargeCollapse {
+      padding-left: 0;
+      padding-right: 0;
+    }
+    &.rev-Col--xxlargeUncollapse {
+      padding: 0 $grid-column-padding;
+    }
+  }
+}
+.rev-Col--centered,
+.rev-Col--smallCentered {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+}
+.rev-Col--Uncentered,
+.rev-Col--smallUncentered {
+  float: left;
+}
+.rev-Col--bottom {
+  align-self: flex-end;
+}
+.rev-Col--middle {
+  align-self: center;
+}
+.rev-Col--top {
+  align-self: flex-start;
+}
+
+@for $i from 1 through $grid-columns {
+  .rev-Col--small#{$i} {
+    width: 100% / $grid-columns * $i;
+  }
+  .rev-Col--smallOffset#{$i} {
+    left: 100% / $grid-columns * $i;
+  }
+  .rev-Col--smallPush#{$i} {
+    @include rev-Col-push($i);
+  }
+  .rev-Col--smallPull#{$i} {
+    @include rev-Col-pull($i);
+  }
+}
+@include breakpoint($medium)  {
+  @for $i from 1 through $grid-columns {
+    .rev-Col--medium#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+    .rev-Col--mediumOffset#{$i} {
+      left: 100% / $grid-columns * $i;
+    }
+    .rev-Col--mediumPush#{$i} {
+      @include rev-Col-push($i);
+    }
+    .rev-Col--mediumPull#{$i} {
+      @include rev-Col-pull($i);
+    }
+  }
+  .rev-Col--mediumCentered {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rev-Col--mediumUncentered {
+    float: left;
+  }
+}
+@include breakpoint($large)  {
+  @for $i from 1 through $grid-columns {
+    .rev-Col--large#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+    .rev-Col--largeOffset#{$i} {
+      left: 100% / $grid-columns * $i;
+    }
+    .rev-Col--largePush#{$i} {
+      @include rev-Col-push($i);
+    }
+    .rev-Col--largePull#{$i} {
+      @include rev-Col-pull($i);
+    }
+  }
+  .rev-Col--largeCentered {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rev-Col--largeUncentered {
+    float: left;
+  }
+}
+@include breakpoint($xlarge) {
+  @for $i from 1 through $grid-columns {
+    .rev-Col--xlarge#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+    .rev-Col--xlargeOffset#{$i} {
+      left: 100% / $grid-columns * $i;
+    }
+    .rev-Col--xlargePush#{$i} {
+      @include rev-Col-push($i);
+    }
+    .rev-Col--xlargePull#{$i} {
+      @include rev-Col-pull($i);
+    }
+  }
+  .rev-Col--xlargeCentered {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rev-Col--xlargeUncentered {
+    float: left;
+  }
+}
+@include breakpoint($xxlarge)  {
+  @for $i from 1 through $grid-columns {
+    .rev-Col--xxlarge#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+    .rev-Col--xxlargeOffset#{$i} {
+      left: 100% / $grid-columns * $i;
+    }
+    .rev-Col--xxlargePush#{$i} {
+      @include rev-Col-push($i);
+    }
+    .rev-Col--xxlargePull#{$i} {
+      @include rev-Col-pull($i);
+    }
+  }
+  .rev-Col--xxlargeCentered {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .rev-Col--xxlargeUncentered {
+    float: left;
+  }
+}

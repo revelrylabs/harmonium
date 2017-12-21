@@ -1,0 +1,14 @@
+.rev-BrowserSupportWarning {
+  @extend .rev-Callout;
+  @extend .rev-Callout--alert;
+  left: $global-padding;
+  position: fixed;
+  right: $global-padding;
+  top: $global-padding;
+  z-index: $above-everything;
+  @media screen and (min-width: 640px) {
+    left: 50%;
+    margin-left: -320px;
+    width: 640px;
+  }
+}

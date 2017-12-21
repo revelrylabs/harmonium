@@ -1,0 +1,177 @@
+// Button Vars
+$button-bkgd: $primary;
+$button-bkgd-hover: darken($primary, 10%);
+$button-border: 0;
+$button-color: $white;
+$button-color-hover: $white;
+$button-radius: 0;
+$button-padding: $global-vertical-space $global-horizontal-space;
+$button-opacity-disabled: $disabled-opacity;
+
+// CLOSE BUTTON
+$closebutton-color: $darker-gray;
+$closebutton-color-hover: $black;
+$closebutton-lineheight: $global-lineheight;
+$closebutton-size: $global-font-size;
+
+.rev-Button {
+  @include global-transition;
+  background: $button-bkgd;
+  border: $button-border;
+  border-radius: $button-radius;
+  color: $button-color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $global-font-size;
+  line-height: $global-lineheight;
+  margin: 0 auto $global-vertical-space;
+  padding: $button-padding;
+  &:hover,
+  &:active,
+  &:focus {
+    background: $button-bkgd-hover;
+    color: $button-color-hover;
+  }
+  &.rev-Button--large {
+    font-size: $global-font-size-large;
+    line-height: ($global-font-size-large / $global-font-size) * 1.1;
+    padding: 1.5 * $global-vertical-space 2 * $global-horizontal-space;
+  }
+  &.rev-Button--small {
+    font-size: $global-font-size-small;
+    // Margins set so the resulting button will be 4 ver units high
+    margin-top: ($global-font-size - $global-font-size-small) / 2;
+    margin-bottom: $global-vertical-space + ($global-font-size - $global-font-size-small) / 2;
+  }
+  &.rev-Button--primary {
+    background: $primary;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($primary, 10%);
+    }
+    &.rev-Button--hollow {
+      background: transparent;
+      border-color: $primary;
+      color: $primary;
+      &:hover,
+      &:active,
+      &:focus {
+        background: transparent;
+        border-color: darken($primary, 10%);
+        color: darken($primary, 10%);
+      }
+    }
+  }
+  &.rev-Button--secondary {
+    background: $secondary;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($secondary, 10%);
+    }
+    &.rev-Button--hollow {
+      background: transparent;
+      border-color: $secondary;
+      color: $secondary;
+      &:hover,
+      &:active,
+      &:focus {
+        background: transparent;
+        border-color: darken($secondary, 10%);
+        color: darken($secondary, 10%);
+      }
+    }
+  }
+  &.rev-Button--success {
+    background: $success;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($success, 10%);
+    }
+    &.rev-Button--hollow {
+      background: transparent;
+      border-color: $success;
+      color: $success;
+      &:hover,
+      &:active,
+      &:focus {
+        background: transparent;
+        border-color: darken($success, 10%);
+        color: darken($success, 10%);
+      }
+    }
+  }
+  &.rev-Button--alert {
+    background: $alert;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($alert, 10%);
+    }
+    &.rev-Button--hollow {
+      background: transparent;
+      border-color: $alert;
+      color: $alert;
+      &:hover,
+      &:active,
+      &:focus {
+        background: transparent;
+        border-color: darken($alert, 10%);
+        color: darken($alert, 10%);
+      }
+    }
+  }
+  &.rev-Button--warning {
+    background: $warning;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($warning, 10%);
+    }
+    &.rev-Button--hollow {
+      background: transparent;
+      border-color: $warning;
+      color: $warning;
+      &:hover,
+      &:active,
+      &:focus {
+        background: transparent;
+        border-color: darken($warning, 10%);
+        color: darken($warning, 10%);
+      }
+    }
+  }
+  &.rev-Button--expanded {
+    width: 100%;
+  }
+  &.rev-Button--centered {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 350px;
+  }
+  &.rev-Button--collapse {
+    margin: 0;
+  }
+  &.rev-Button--disabled {
+    cursor: disabled;
+    opacity: $button-opacity-disabled;
+  }
+}
+.rev-ButtonGroup {
+  font-size: $global-font-size;
+  margin: 0;
+  .rev-Button {
+    font-size: $global-font-size;
+  }
+}
+%close-button {
+  background: $closebutton-color;
+  &:hover,
+  &:active,
+  &:focus {
+    background: $closebutton-color-hover;
+  }
+}

@@ -6,7 +6,7 @@ describe('Callout', () => {
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'callout'
+    const inherentClassName = 'rev-Callout'
     const testClassName = '__TEST__'
 
     const childClassName = shallow(<Callout className={testClassName} />)

@@ -1,0 +1,147 @@
+@mixin header {
+  font-family: $global-sans-serif-font;
+}
+@mixin sans-serif-light {
+  font-family: $global-sans-serif-font;
+  font-weight: 300;
+}
+@mixin muted {
+  opacity: 0.45;
+}
+
+h1 {
+  @include header;
+  font-size: $global-font-size-larger;
+  line-height: $global-vertical-space;
+  margin-bottom: $global-vertical-space * 1;
+  margin-top: $global-vertical-space * 2;
+  text-transform: uppercase;
+  vertical-align: baseline;
+}
+h2 {
+  @include header;
+  font-size: $global-font-size-large;
+  line-height: $global-vertical-space;
+  margin-bottom: $global-vertical-space * 1;
+  margin-top: $global-vertical-space * 2;
+  text-transform: uppercase;
+}
+h3 {
+  @include header;
+  font-size: $global-font-size;
+  margin-bottom: 0;
+  margin-top: $global-vertical-space * 1;
+  text-transform: uppercase;
+}
+h4 {
+  @include header;
+  font-size: $global-font-size;
+  line-height: $global-vertical-space;
+  margin-bottom: 0;
+  margin-top: $global-vertical-space * 2;
+  text-transform: uppercase;
+}
+h5 {
+  @include header;
+  font-size: $global-font-size;
+  font-weight: lighter;
+  line-height: $global-vertical-space;
+  margin-bottom: 0;
+  margin-top: $global-vertical-space * 1;
+  text-transform: uppercase;
+}
+h6 {
+  @include header;
+  font-size: $global-font-size;
+  font-weight: lighter;
+  line-height: $global-vertical-space;
+  margin-bottom: 0;
+  margin-top: $global-vertical-space * 1;
+}
+p {
+  margin: 0;
+  max-width: 40em;
+  padding: 0 0 $global-vertical-space 0;
+}
+a {
+  color: $primary;
+  text-decoration: none;
+}
+.rev-HelpText,
+small {
+  font-size: 75%;
+}
+// TextAlignment
+//TODO: function for breakpoints
+.Text-left,
+.Text--smallLeft {
+  text-align: left;
+}
+.Text-right,
+.Text--smallRight {
+  text-align: right;
+}
+.Text-center,
+.Text--smallCenter {
+  text-align: center;
+}
+.Text-justify,
+.Text--smallJustify {
+  text-align: justify;
+}
+@include breakpoint($medium) {
+  .Text--mediumLeft {
+    text-align: left;
+  }
+  .Text--mediumRight {
+    text-align: right;
+  }
+  .Text--mediumCenter {
+    text-align: center;
+  }
+  .Text--mediumJustify {
+    text-align: justify;
+  }
+}
+@include breakpoint($large) {
+  .Text--largeLeft {
+    text-align: left;
+  }
+  .Text--largeRight {
+    text-align: right;
+  }
+  .Text--largeCenter {
+    text-align: center;
+  }
+  .Text--largeJustify {
+    text-align: justify;
+  }
+}
+@include breakpoint($xlarge) {
+  .Text--xlargeLeft {
+    text-align: left;
+  }
+  .Text--xlargeRight {
+    text-align: right;
+  }
+  .Text--xlargeCenter {
+    text-align: center;
+  }
+  .Text--xlargeJustify {
+    text-align: justify;
+  }
+}
+@include breakpoint($xxlarge) {
+  .Text--xxlargeLeft {
+    text-align: left;
+  }
+  .Text--xxlargeRight {
+    text-align: right;
+  }
+  .Text--xxlargeCenter {
+    text-align: center;
+  }
+  .Text--xxlargeJustify {
+    text-align: justify;
+  }
+}

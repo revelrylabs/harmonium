@@ -1,0 +1,10 @@
+<Row>
+  <Col small={6}>
+    <img src="https://picsum.photos/g/200/150" />
+    <HelpText>This image is grayscale.</HelpText>
+  </Col>
+  <Col small={6}>
+    <img src="https://picsum.photos/200/150" />
+    <HelpText>This image is <strong>full color!</strong></HelpText>
+  </Col>
+</Row>

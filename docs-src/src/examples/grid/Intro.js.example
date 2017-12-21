@@ -1,0 +1,33 @@
+<div className="ColumnExamples">
+  <Row>
+    <Col small={2} large={4}>x</Col>
+    <Col small={4} large={4}>x</Col>
+    <Col small={6} large={4}>x</Col>
+  </Row>
+  <Row>
+    <Col large={3}>x</Col>
+    <Col large={6}>x</Col>
+    <Col large={3}>x</Col>
+  </Row>
+  <Row>
+    <Col small={6} large={2}>x</Col>
+    <Col small={6} large={8}>x</Col>
+    <Col small={12} large={2}>x</Col>
+  </Row>
+  <Row>
+    <Col small={3}>x</Col>
+    <Col small={9}>x</Col>
+  </Row>
+  <Row>
+    <Col large={4}>x</Col>
+    <Col large={8}>x</Col>
+  </Row>
+  <Row>
+    <Col small={6} large={5}>x</Col>
+    <Col small={6} large={7}>x</Col>
+  </Row>
+  <Row>
+    <Col large={6}>x</Col>
+    <Col large={6}>x</Col>
+  </Row>
+</div>

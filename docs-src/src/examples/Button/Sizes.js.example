@@ -1,0 +1,5 @@
+<div>
+  <Button small>small</Button>
+  <Button>(default)</Button>
+  <Button large>large</Button>
+</div>

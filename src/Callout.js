@@ -22,7 +22,7 @@ export default class Callout extends React.Component {
       delete props[name]
     })
 
-    const divClassName = classNames(className, 'callout', 'rev-Callout', boolClassNames)
+    const divClassName = classNames(className, 'rev-Callout', boolClassNames)
 
     return (
       <div {...props} className={divClassName}>

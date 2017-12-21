@@ -1,0 +1,9 @@
+<BrowserSupportWarning minVersions={{chrome: '45', msie: '10'}}>
+  Chrome 45+ or IE 10+ required.
+  <Row>
+    <Col>
+      <h3>Your browser is not supported.</h3>
+      <p>Google Chrome 45+ or Internet Explorer 10+ is required to use this application.</p>
+    </Col>
+  </Row>
+</BrowserSupportWarning>
