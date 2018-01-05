@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Accordion from 'revelry-components/lib/Accordion'
-import Callout from 'revelry-components/lib/Callout'
+import Accordion from 'possum/lib/Accordion'
+import Callout from 'possum/lib/Callout'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 

@@ -1,8 +1,8 @@
 import React from 'react'
-import {Row, Col} from 'revelry-components/lib/grid'
-import Card from 'revelry-components/lib/Card'
-import Menu from 'revelry-components/lib/Menu'
-import HelpText from 'revelry-components/lib/HelpText'
+import {Row, Col} from 'possum/lib/grid'
+import Card from 'possum/lib/Card'
+import Menu from 'possum/lib/Menu'
+import HelpText from 'possum/lib/HelpText'
 
 const IndexPage = () => (
   <div>

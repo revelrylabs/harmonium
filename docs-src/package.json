@@ -21,8 +21,8 @@
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cache:rebuild": "rm node_modules/revelry-components || yarn cache clean && yarn install --force",
-    "postinstall": "ln -s ../.. node_modules/revelry-components"
+    "cache:rebuild": "rm node_modules/possum || yarn cache clean && yarn install --force",
+    "postinstall": "ln -s ../.. node_modules/possum"
   },
   "devDependencies": {
     "prettier": "^1.5.2"

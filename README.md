@@ -1,17 +1,17 @@
-[Master status: ![Travis Build Status](https://travis-ci.org/revelrylabs/revelry_core_node.svg?branch=master)](https://travis-ci.org/revelrylabs/revelry_core_node)
+[Master status: ![Travis Build Status](https://travis-ci.org/revelrylabs/possum.svg?branch=master)](https://travis-ci.org/revelrylabs/possum)
 
-# revelry-components
+# Possum
 
-This is the Revelry component library for React.
+Possum is a framework of React components optimized for teams that want to ship apps fast. It is a curated list of components that work together and have cohesive styles. One of our design goals is that you never have to research and handpick component packages. Whatever you need is already here.
 
-There is a gallery of example component usage [here](http://revelry-ui.herokuapp.com/).
+A gallery of components is at https://possum.revelry.co.
 
 ## Installation
 
 To install the toolkit for use in your project:
 
 ```sh
-npm install --save revelry-components
+npm install --save awesome-possum
 ```
 
 ## Usage
@@ -19,8 +19,9 @@ npm install --save revelry-components
 You can import components and use components from the toolkit like:
 
 ```jsx
-import {Row, Col} from 'revelry-components/lib/components/grid'
-import {Callout} from 'revelry-components/lib/components/Callout'
+import Col from 'possum/lib/Col'
+import Row from 'possum/lib/Row'
+import Callout from 'possum/lib/Callout'
 
 function Hello() {
   return (
@@ -33,19 +34,29 @@ function Hello() {
 }
 ```
 
-See the example site for more examples of how to use the components in your projects.
+See the example site at https://possum.revelry.co for more examples of how to
+use the components in your projects.
+
+## SCSS
+
+We don't just provide JavaScript. We've built a set of SCSS styles for all the
+components. It is in the `scss` directory of the package. You can either copy it
+into your project's SCSS directory, or use a tool like sassy-npm-importer to
+import it from the package.
 
 ## Configuration
 
-At this time, there are not significant configuration options for revelry-components itself. If you import Foundation styles for use with this library, you can configure it as normal.
+At this time, there's no package level configuration-- all options as passed as
+props to the components at time of use.
 
 ## Contributing and Development
 
-See [CONTRIBUTING.md](https://github.com/revelrylabs/revelry_core_node/blob/master/CONTRIBUTING.md) for guidance on how to develop revelry-components.
+See [CONTRIBUTING.md](https://github.com/revelrylabs/possum/blob/master/CONTRIBUTING.md)
+for guidance on how to develop possum.
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/revelrylabs/revelry_core_node. Check out [CONTRIBUTING.md](https://github.com/revelrylabs/revelry_core_node/blob/master/CONTRIBUTING.md) for more info.
+Bug reports and pull requests are welcome on GitHub at https://github.com/revelrylabs/possum. Check out [CONTRIBUTING.md](https://github.com/revelrylabs/possum/blob/master/CONTRIBUTING.md) for more info.
 
 Everyone is welcome to participate in the project. We expect contributors to
-adhere the Contributor Covenant Code of Conduct (see [CODE_OF_CONDUCT.md](https://github.com/revelrylabs/revelry_core_node/blob/master/CODE_OF_CONDUCT.md)).
+adhere the Contributor Covenant Code of Conduct (see [CODE_OF_CONDUCT.md](https://github.com/revelrylabs/possum/blob/master/CODE_OF_CONDUCT.md)).
 
 
