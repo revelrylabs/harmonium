@@ -1,7 +1,8 @@
+
 import React, {Component} from 'react'
-import Form from 'revelry-components/lib/Form'
-import Button from 'revelry-components/lib/Button'
-import AuthenticityTokenProvider from 'revelry-components/lib/AuthenticityTokenProvider'
+import Form from 'possum/lib/Form'
+import Button from 'possum/lib/Button'
+import AuthenticityTokenProvider from 'possum/lib/AuthenticityTokenProvider'
 import ExampleSection from '../../ExampleSection'
 
 const examples = {

@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Menu from 'revelry-components/lib/Menu'
-import Card from 'revelry-components/lib/Card'
+import Menu from 'possum/lib/Menu'
+import Card from 'possum/lib/Card'
 
 export default function Navigation() {
   return (

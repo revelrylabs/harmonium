@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
-import Badge from 'revelry-components/lib/Badge'
+import Badge from 'possum/lib/Badge'
 
 const examples = {
   'Badges': require('raw!../../examples/Badge.js.example')
