@@ -8,24 +8,26 @@ class CalendarHeaderRow extends React.Component {
   render() {
     return (
       <thead>
-        {
-          [0, 1, 2, 3, 4, 5, 6].map(i => {
-            return (
-              <th
-                class="rev-Calendar-body-headerCell"
-                key={`${this.props.firstDay.toISO()}:${i}`}
-              >
-                {
-                  this
-                    .props
-                    .firstDay
-                    .plus(Duration.fromObject({days: i}))
-                    .toLocaleString({weekday: 'narrow'})
-                }
-              </th>
-            )
-          })
-        }
+        <tr>
+          {
+            [0, 1, 2, 3, 4, 5, 6].map(i => {
+              return (
+                <th
+                  className="rev-Calendar-body-headerCell"
+                  key={`${this.props.firstDay.toISO()}:${i}`}
+                >
+                  {
+                    this
+                      .props
+                      .firstDay
+                      .plus(Duration.fromObject({days: i}))
+                      .toLocaleString({weekday: 'narrow'})
+                  }
+                </th>
+              )
+            })
+          }
+        </tr>
       </thead>
     )
   }
@@ -37,18 +39,17 @@ class CalendarWeekRow extends React.Component {
       <tr>
         {
           [0, 1, 2, 3, 4, 5, 6].map(i => {
+            let date = this
+                         .props
+                         .firstDay
+                         .plus(Duration.fromObject({days: i}))
             return (
               <td
                 className="rev-Calendar-body-bodyCell"
                 key={`${this.props.firstDay.toISO()}:${i}`}
+                onClick={_e => this.props.dateChanger(date.toFormat('yyyy-MM-dd'))}
               >
-                {
-                  this
-                    .props
-                    .firstDay
-                    .plus(Duration.fromObject({days: i}))
-                    .toLocaleString({day: 'numeric'})
-                }
+                {date.toLocaleString({day: 'numeric'})}
               </td>
             )
           })
@@ -59,39 +60,57 @@ class CalendarWeekRow extends React.Component {
 }
 
 class Calendar extends React.Component {
-  date() {
-    if (!this.props.date) {
+  constructor(props) {
+    super(props)
+    this.state = {
+      date: this.asLuxon(this.props.date),
+    }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({date: this.asLuxon(nextProps.date)})
+  }
+
+  asLuxon(date) {
+    if (!date) {
       return DateTime.local()
     }
 
-    return DateTime.fromISO(this.props.date)
+    return DateTime.fromISO(date)
   }
 
   startOfMonth() {
-    return this.date().startOf('month')
+    return this.state.date.startOf('month')
   }
 
   endOfMonth() {
-    return this.date().endOf('month')
+    return this.state.date.endOf('month')
   }
 
   startOfWeekOfStartOfMonth() {
     return this.startOfMonth().startOf('week').minus(Duration.fromObject({days: 1}))
   }
 
+  addMonth(n, e) {
+    e.preventDefault()
+    this.setState({date: this.startOfMonth().plus(Duration.fromObject({month: n}))})
+  }
+
   render() {
     return <Card>
       <Card.Header className="rev-Calendar-header">
-        {this.date().toLocaleString({month: 'long', year: 'numeric'})}
+        <button onClick={this.addMonth.bind(this, -1)}>&lsaquo;</button>
+        {this.state.date.toLocaleString({month: 'long', year: 'numeric'})}
+        <button onClick={this.addMonth.bind(this, 1)}>&rsaquo;</button>
       </Card.Header>
       <table className="rev-Calendar-body">
         <CalendarHeaderRow firstDay={this.startOfWeekOfStartOfMonth()} />
         <tbody>
-          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth()} />
-          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days:  7})} />
-          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 14})} />
-          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 21})} />
-          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 28})} />
+          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth()} dateChanger={this.props.dateChanger} />
+          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days:  7})} dateChanger={this.props.dateChanger} />
+          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 14})} dateChanger={this.props.dateChanger} />
+          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 21})} dateChanger={this.props.dateChanger} />
+          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 28})} dateChanger={this.props.dateChanger} />
         </tbody>
       </table>
     </Card>
@@ -103,7 +122,8 @@ class UncontrolledDatePicker extends React.Component {
     super(props)
     this.state = {
       focused: false,
-      value: this.defaultValue()
+      value: this.defaultValue(),
+      generation: 0,
     }
   }
 
@@ -118,6 +138,10 @@ class UncontrolledDatePicker extends React.Component {
     this.setState({value: event.target.value})
   }
 
+  dateChanger(date) {
+    this.setState({value: date, generation: this.state.generation + 1})
+  }
+
   render() {
     const {className, error, forceOpen, ...props} = this.props
     const inputClassName = classNames(className, 'rev-Input', {
@@ -125,24 +149,26 @@ class UncontrolledDatePicker extends React.Component {
       'is-invalid': !!error,
     })
 
-    return (
-      <span>
-        <Input
-          className={inputClassName}
-          type="date"
-          defaultValue={this.state.value}
-          onFocus={e => this.setState({focused: true})}
-          onBlur={e => this.setState({focused: false})}
-          {...props}
-          onChange={this.onChange.bind(this)}
-        />
-        {
-          this.state.focused || forceOpen ?
-          <Calendar date={this.state.value} /> :
-          null
-        }
-      </span>
-    )
+    return React.createElement('span', null,
+        React.createElement(Input, {
+          className: inputClassName,
+          type: "date",
+          defaultValue: this.state.value,
+          onFocus: e => this.setState({focused: true}),
+          onBlur: e => this.setState({focused: false}),
+          ...props,
+          onChange: this.onChange.bind(this),
+          key: this.state.generation,
+        }),
+        this.state.focused || forceOpen ?
+        React.createElement(
+          Calendar,
+          {
+            date: this.state.value,
+            dateChanger: this.dateChanger.bind(this),
+          }
+        ) : null
+      )
   }
 }
 
