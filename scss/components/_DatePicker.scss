@@ -1,12 +1,48 @@
 .rev-Calendar-body {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 32rem;
   width: 100%;
 }
 .rev-Calendar-body-headerCell {
   text-align: center;
 }
-.rev-Calendar-body-bodyCell {
+.rev-Calendar-body-bodyCell,
+.rev-Calendar-body-headerCell {
   text-align: center;
+  padding-bottom: calc((#{100% / 7} - 1em * #{$global-lineheight}) / 2);
+  padding-top: calc((#{100% / 7} - 1em * #{$global-lineheight}) / 2);
+}
+.rev-DatePicker--custom {
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+}
+.rev-Calendar-body-bodyCell--otherMonth {
+  color: $light-gray;
+}
+.rev-Calendar-body-bodyCell--thisMonth {
+
+}
+.rev-Calendar-body-bodyCell--selected {
+  border-radius: 50%;
+  background-color: $brand;
+  color: $white;
 }
 .rev-Calendar-header {
+  display: flex;
+  max-width: 100%;
   text-align: center;
+}
+.rev-Calendar-header-button {
+  background: $button-bkgd;
+  border: $button-border;
+  color: $button-color;
+  display: inline-block;
+  width: 3rem * $global-lineheight;
+}
+.rev-Calendar-header-label {
+  display: inline-block;
+  flex-grow: 1;
+  padding: 0.5em * $global-lineheight 0;
 }

@@ -35,17 +35,26 @@ class CalendarHeaderRow extends React.Component {
 
 class CalendarWeekRow extends React.Component {
   render() {
+
     return (
       <tr>
         {
           [0, 1, 2, 3, 4, 5, 6].map(i => {
-            let date = this
+            const date = this
                          .props
                          .firstDay
                          .plus(Duration.fromObject({days: i}))
+            const monthClass = date.toFormat('yyyy-MM') == this.props.currentMonth ?
+              'rev-Calendar-body-bodyCell--thisMonth' :
+              'rev-Calendar-body-bodyCell--otherMonth'
+
+            const selectionClass = this.props.selectedDate && date.toFormat('yyyy-MM-dd') == (this.props.selectedDate) ?
+              'rev-Calendar-body-bodyCell--selected' :
+              ''
+
             return (
               <td
-                className="rev-Calendar-body-bodyCell"
+                className={`rev-Calendar-body-bodyCell ${monthClass} ${selectionClass}`}
                 key={`${this.props.firstDay.toISO()}:${i}`}
                 onClick={_e => this.props.dateChanger(date.toFormat('yyyy-MM-dd'))}
               >
@@ -99,18 +108,18 @@ class Calendar extends React.Component {
   render() {
     return <Card>
       <Card.Header className="rev-Calendar-header">
-        <button onClick={this.addMonth.bind(this, -1)}>&lsaquo;</button>
-        {this.state.date.toLocaleString({month: 'long', year: 'numeric'})}
-        <button onClick={this.addMonth.bind(this, 1)}>&rsaquo;</button>
+        <button onClick={this.addMonth.bind(this, -1)} className="rev-Calendar-header-button">&lsaquo;</button>
+        <span className="rev-Calendar-header-label">{this.state.date.toLocaleString({month: 'short', year: 'numeric'})}</span>
+        <button onClick={this.addMonth.bind(this, 1)} className="rev-Calendar-header-button">&rsaquo;</button>
       </Card.Header>
       <table className="rev-Calendar-body">
         <CalendarHeaderRow firstDay={this.startOfWeekOfStartOfMonth()} />
         <tbody>
-          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth()} dateChanger={this.props.dateChanger} />
-          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days:  7})} dateChanger={this.props.dateChanger} />
-          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 14})} dateChanger={this.props.dateChanger} />
-          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 21})} dateChanger={this.props.dateChanger} />
-          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 28})} dateChanger={this.props.dateChanger} />
+          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth()} dateChanger={this.props.dateChanger} currentMonth={this.state.date.toFormat('yyyy-MM')} selectedDate={this.props.date} />
+          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days:  7})} dateChanger={this.props.dateChanger} currentMonth={this.state.date.toFormat('yyyy-MM')} selectedDate={this.props.date}  />
+          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 14})} dateChanger={this.props.dateChanger} currentMonth={this.state.date.toFormat('yyyy-MM')} selectedDate={this.props.date} />
+          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 21})} dateChanger={this.props.dateChanger} currentMonth={this.state.date.toFormat('yyyy-MM')} selectedDate={this.props.date} />
+          <CalendarWeekRow firstDay={this.startOfWeekOfStartOfMonth().plus({days: 28})} dateChanger={this.props.dateChanger} currentMonth={this.state.date.toFormat('yyyy-MM')} selectedDate={this.props.date}  />
         </tbody>
       </table>
     </Card>
@@ -125,6 +134,12 @@ class UncontrolledDatePicker extends React.Component {
       value: this.defaultValue(),
       generation: 0,
     }
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.setState({
+      value: nextProps.defaultValue || nextProps.value
+    })
   }
 
   defaultValue() {
@@ -142,33 +157,42 @@ class UncontrolledDatePicker extends React.Component {
     this.setState({value: date, generation: this.state.generation + 1})
   }
 
+  useNativePicker() {
+    return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+  }
+
   render() {
     const {className, error, forceOpen, ...props} = this.props
-    const inputClassName = classNames(className, 'rev-Input', {
+    const inputClassName = classNames(className, 'rev-DatePicker-input', {
       'is-invalid-input': !!error,
       'is-invalid': !!error,
     })
 
-    return React.createElement('span', null,
-        React.createElement(Input, {
-          className: inputClassName,
-          type: "date",
-          defaultValue: this.state.value,
-          onFocus: e => this.setState({focused: true}),
-          onBlur: e => this.setState({focused: false}),
-          ...props,
-          onChange: this.onChange.bind(this),
-          key: this.state.generation,
-        }),
-        this.state.focused || forceOpen ?
-        React.createElement(
-          Calendar,
-          {
-            date: this.state.value,
-            dateChanger: this.dateChanger.bind(this),
-          }
-        ) : null
-      )
+    const nativeClass = this.useNativePicker() ? 'rev-DatePicker--native' : 'rev-DatePicker--custom'
+
+    return React.createElement('span',
+      {
+        className: `rev-DatePicker ${nativeClass}`,
+      },
+      React.createElement(Input, {
+        className: inputClassName,
+        type: "date",
+        defaultValue: this.state.value,
+        onFocus: e => this.setState({focused: true}),
+        onBlur: e => this.setState({focused: false}),
+        ...props,
+        onChange: this.onChange.bind(this),
+        key: this.state.generation,
+      }),
+      this.state.focused || forceOpen ?
+      React.createElement(
+        Calendar,
+        {
+          date: this.state.value,
+          dateChanger: this.dateChanger.bind(this),
+        }
+      ) : null
+    )
   }
 }
 
