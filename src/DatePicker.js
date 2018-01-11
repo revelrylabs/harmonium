@@ -77,7 +77,9 @@ class Calendar extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({date: this.asLuxon(nextProps.date)})
+    if (nextProps.date != this.props.date) {
+      this.setState({date: this.asLuxon(nextProps.date)})
+    }
   }
 
   asLuxon(date) {
@@ -97,12 +99,16 @@ class Calendar extends React.Component {
   }
 
   startOfWeekOfStartOfMonth() {
-    return this.startOfMonth().startOf('week').minus(Duration.fromObject({days: 1}))
+    const weekday = this.startOfMonth().weekday % 7
+    return this.startOfMonth().minus(Duration.fromObject({days: weekday}))
   }
 
   addMonth(n, e) {
     e.preventDefault()
     this.setState({date: this.startOfMonth().plus(Duration.fromObject({month: n}))})
+    if (this.props.focuser) {
+      this.props.focuser()
+    }
   }
 
   render() {
@@ -130,9 +136,11 @@ class UncontrolledDatePicker extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      opened: this.props.forceOpen || false,
       focused: false,
       value: this.defaultValue(),
       generation: 0,
+      mousedIn: false,
     }
   }
 
@@ -155,10 +163,34 @@ class UncontrolledDatePicker extends React.Component {
 
   dateChanger(date) {
     this.setState({value: date, generation: this.state.generation + 1})
+    this.refocus()
   }
 
   useNativePicker() {
     return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+  }
+
+  mouseIn() {
+    this.setState({mousedIn: true})
+  }
+
+  mouseOut() {
+    this.setState({mousedIn: false, opened: this.state.focused })
+  }
+
+  focus() {
+    this.setState({focused: true, opened: true})
+  }
+
+  blur() {
+    this.setState({focused: false, opened: this.state.mousedIn})
+  }
+
+  refocus() {
+    if (this.nativeInput) {
+      this.nativeInput.focus()
+    }
+    this.focus()
   }
 
   render() {
@@ -170,26 +202,30 @@ class UncontrolledDatePicker extends React.Component {
 
     const nativeClass = this.useNativePicker() ? 'rev-DatePicker--native' : 'rev-DatePicker--custom'
 
-    return React.createElement('span',
+    return React.createElement('label',
       {
         className: `rev-DatePicker ${nativeClass}`,
+        onMouseOver: this.mouseIn.bind(this),
+        onMouseOut: this.mouseOut.bind(this),
       },
       React.createElement(Input, {
         className: inputClassName,
         type: "date",
         defaultValue: this.state.value,
-        onFocus: e => this.setState({focused: true}),
-        onBlur: e => this.setState({focused: false}),
+        onFocus: this.focus.bind(this),
+        onBlur: this.blur.bind(this),
         ...props,
         onChange: this.onChange.bind(this),
         key: this.state.generation,
+        inputRef: (input) => this.nativeInput = input
       }),
-      this.state.focused || forceOpen ?
+      this.state.opened || forceOpen ?
       React.createElement(
         Calendar,
         {
           date: this.state.value,
           dateChanger: this.dateChanger.bind(this),
+          focuser: this.refocus.bind(this),
         }
       ) : null
     )

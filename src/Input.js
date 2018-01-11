@@ -12,13 +12,13 @@ export default class Input extends Component {
   }
 
   render() {
-    const {className, error, ...props} = this.props
+    const {className, error, inputRef, ...props} = this.props
     const inputClassName = classNames(className, 'rev-Input', {
       'is-invalid-input': !!error,
       'is-invalid': !!error,
     })
     return (
-      <input className={inputClassName} {...props} />
+      <input className={inputClassName} {...props} ref={inputRef} />
     )
   }
 }

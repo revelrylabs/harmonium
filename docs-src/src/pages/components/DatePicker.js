@@ -3,7 +3,7 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 
 const examples = {
-  'Datepicker': require('raw!../../examples/Datepicker/Basic.js.example')
+  'Datepicker': require('raw!../../examples/DatePicker/Basic.js.example')
 }
 
 export default class DatePickerExamplePage extends Component {
