@@ -20,7 +20,7 @@ class UncontrolledDatePicker extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     this.setState({
-      value: nextProps.defaultValue || nextProps.value
+      value: nextProps.defaultValue || nextProps.value,
     })
   }
 
@@ -36,8 +36,18 @@ class UncontrolledDatePicker extends React.Component {
   }
 
   dateChanger(date) {
-    this.setState({value: date, generation: this.state.generation + 1})
+    this.setState({value: date})
+    this.nativeInput.value = date
+
+    this.fireChangeHandler()
+
     this.refocus()
+  }
+
+  fireChangeHandler() {
+    const event = new Event('change')
+    this.nativeInput.dispatchEvent(event)
+    this.onChange(event)
   }
 
   useNativePicker() {
@@ -68,7 +78,9 @@ class UncontrolledDatePicker extends React.Component {
   }
 
   render() {
-    const {className, error, forceOpen, overrides, ...props} = this.props
+    let {className, error, forceOpen, overrides, calendarDayClassName, dayClassName, weekClassName, weekHeaderClassName, isSelectable, calendarHighlights, ...props} = this.props
+    isSelectable = isSelectable || (() => true)
+    const calendarProps = {calendarDayClassName, dayClassName, weekClassName, weekHeaderClassName, isSelectable, calendarHighlights}
     const inputClassName = classNames(className, 'rev-DatePicker-input', {
       'is-invalid-input': !!error,
       'is-invalid': !!error,
@@ -102,6 +114,7 @@ class UncontrolledDatePicker extends React.Component {
               dateChanger={this.dateChanger.bind(this)}
               focuser={this.refocus.bind(this)}
               overrides={overrides}
+              {...calendarProps}
             /> : null
         }
       </label>

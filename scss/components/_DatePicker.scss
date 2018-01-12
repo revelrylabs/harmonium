@@ -29,6 +29,10 @@
   background-color: $brand;
   color: $white;
 }
+.rev-Calendar-body-bodyCell--unselectable {
+  background: $lighter-gray;
+  color: $light-gray;
+}
 .rev-Calendar-header {
   display: flex;
   max-width: 100%;

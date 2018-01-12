@@ -76,6 +76,7 @@ export default class Calendar extends React.Component {
                   firstDay={this.startOfWeekOfStartOfMonth().plus({days:  i})}
                   dateChanger={dateChanger}
                   currentMonth={this.state.date.toFormat('yyyy-MM')}
+                  isSelectable={this.props.isSelectable}
                   selectedDate={date}
                   overrides={overrides}
                   key={i}
