@@ -30,8 +30,14 @@ $error-color: $alert;
   &:active,
   &:focus {
     background-color: $input-bkgd-focus;
+    border: 0;
+    border-color: transparent;
     box-shadow: $input-box-shadow-focus;
     color: $input-color-focus;
+    outline: none;
+  }
+  &.is-invalid {
+    box-shadow: 0 0 0 1px $error-color inset;
   }
 }
 // Form Labels
