@@ -103,9 +103,11 @@ $paragraph-text-rendering: optimizeLegibility;
 $anchor-color: $primary;
 $anchor-color-hover: darken($primary, 10%);
 $anchor-color-active: darken($primary, 10%);
+$anchor-color-selected: darken($primary, 10%);
 $anchor-color-inverse: $brand-light;
 $anchor-color-inverse-hover: $white;
 $anchor-color-inverse-active: $white;
+$anchor-color-inverse-selected: $white;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 
@@ -185,27 +187,27 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$card-footer-background: $white;
 
 //## Menus
-//$menu-bkgd: null;
-//$menu-color: null;
-//$menu-link-bkgd: null;
-//$menu-link-bkgd-hover: null;
-//$menu-link-bkgd-click: null;
-//$menu-link-bkgd-active: null;
-//$menu-link-color: null;
-//$menu-link-color-hover: null;
-//$menu-link-color-click: null;
-//$menu-link-color-active: null;
+//$menu-bkgd: $white;
+//$menu-color: $body-font-color;
+//$menu-link-bkgd: transparent;
+//$menu-link-bkgd-hover: transparent;
+//$menu-link-bkgd-active: transparent;
+//$menu-link-bkgd-selected: $anchor-color-selected;
+//$menu-link-color: $anchor-color;
+//$menu-link-color-hover: $anchor-color-hover;
+//$menu-link-color-active: $anchor-color-active;
+//$menu-link-color-selected: $menu-bkgd;
 
-//$menu-bkgd-inverse: null;
-//$menu-color-inverse: null;
-//$menu-link-bkgd-inverse: null;
-//$menu-link-bkgd-inverse-hover: null;
-//$menu-link-bkgd-inverse-click: null;
-//$menu-link-bkgd-inverse-active: null;
-//$menu-link-color-inverse: null;
-//$menu-link-color-inverse-hover: null;
-//$menu-link-color-inverse-click: null;
-//$menu-link-color-inverse-active: null;
+//$menu-bkgd-inverse: $brand-dark;
+//$menu-color-inverse: $brand-light;
+//$menu-link-bkgd-inverse: transparent;
+//$menu-link-bkgd-inverse-hover: transparent;
+//$menu-link-bkgd-inverse-active: transparent;
+//$menu-link-bkgd-inverse-selected: $anchor-color-selected;
+//$menu-link-color-inverse: $anchor-color-inverse;
+//$menu-link-color-inverse-hover: $anchor-color-inverse-hover;
+//$menu-link-color-inverse-active: $anchor-color-inverse-active;
+//$menu-link-color-inverse-selected: $menu-bkgd-inverse;
 
 //## Modals
 //$modal-bkgd: $black-40;
