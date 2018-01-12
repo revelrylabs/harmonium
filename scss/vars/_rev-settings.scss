@@ -219,18 +219,21 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$modal-content-padding: 0;
 
 //## Tabs
-//$tabs-margin: $global-vertical-space;
+//$tabs-margin: $global-margin;
 //$tabs-border-size: 1px;
 //$tabs-border-color: $divider-color;
-//$tabs-title-bkgd: transparent;
-//$tabs-title-link-bkgd: $divider-color;
+//$tabs-titles-bkgd: $white;
+//$tabs-title-link-bkgd: transparent;
 //$tabs-title-link-color: $anchor-color;
-//$tabs-title-link-bkgd-hover: darken($tabs-title-link-bkgd, 5%);
+//$tabs-title-link-bkgd-hover: transparent;
 //$tabs-title-link-color-hover: $anchor-color-hover;
-//$tabs-title-link-bkgd-active: darken($tabs-title-link-bkgd, 5%);
-//$tabs-title-link-color-active: $anchor-color-hover;
-//$tabs-title-link-padding: $global-vertical-space $global-horizontal-space;
-//$tabs-content-padding: $global-vertical-space 0;
+//$tabs-title-link-bkgd-active: transparent;
+//$tabs-title-link-color-active: $anchor-color-active;
+//$tabs-title-link-bkgd-selected: $anchor-color-selected;
+//$tabs-title-link-color-selected: $tabs-titles-bkgd;
+//$tabs-title-link-padding: $global-padding-small $global-padding;
+//$tabs-content-bkgd: $white 0;
+//$tabs-content-padding: $global-padding 0;
 
 //## FORMS -----------------------------
 

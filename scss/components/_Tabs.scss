@@ -1,7 +1,7 @@
 // default component vars listed at the top of the component stylesheet
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
-$tabs-margin: $global-vertical-space !default;
+$tabs-margin: $global-margin !default;
 $tabs-border-size: 1px !default;
 $tabs-border-color: $divider-color !default;
 $tabs-titles-bkgd: $white !default;
