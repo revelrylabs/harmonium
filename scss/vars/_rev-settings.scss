@@ -149,22 +149,15 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 // $[component]-[css property]-[variant]-[state]
 
 //## NAVIGATION -----------------------------
-//$topbar-bkgd: $body-bkgd;
+//$topbar-bkgd: $white;
 //$topbar-border-color: $divider-color;
 //$topbar-border-size: 1px;
 //$topbar-color: $body-font-color;
-//$topbar-height: $size-large;
+//$topbar-height: $size-larger;
 //$topbar-input-width: $size-largest;
+//$topbar-link-bkgd: transparent;
 
 //## CONTAINERS -----------------------------
-
-//## Cards
-//$card-background: $white;
-//$card-border: 1px solid $divider-color;
-//$card-padding: 0;
-//$card-radius: $global-radius;
-//$card-header-background: $white;
-//$card-footer-background: $white;
 
 //## Accordions
 //$accordion-border-size: 1px;
@@ -183,14 +176,13 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$callout-color: $body-font-color;
 //$callout-padding: $global-vertical-space $global-horizontal-space;
 
-//## Modals
-//$modal-bkgd: $black-40;
-//$modal-content-bkgd: $white;
-//$modal-content-border-size: 1px;
-//$modal-content-border-color: $divider-color;
-//$modal-content-box-shadow: $global-box-shadow;
-//$modal-content-color: $body-font-color;
-//$modal-content-padding: 0;
+//## Cards
+//$card-background: $white;
+//$card-border: 1px solid $divider-color;
+//$card-padding: 0;
+//$card-radius: $global-radius;
+//$card-header-background: $white;
+//$card-footer-background: $white;
 
 //## Menus
 //$menu-bkgd: null;
@@ -215,6 +207,15 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$menu-link-color-inverse-click: null;
 //$menu-link-color-inverse-active: null;
 
+//## Modals
+//$modal-bkgd: $black-40;
+//$modal-content-bkgd: $white;
+//$modal-content-border-size: 1px;
+//$modal-content-border-color: $divider-color;
+//$modal-content-box-shadow: $global-box-shadow;
+//$modal-content-color: $body-font-color;
+//$modal-content-padding: 0;
+
 //## Tabs
 //$tabs-margin: $global-vertical-space;
 //$tabs-border-size: 1px;
@@ -229,7 +230,8 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$tabs-title-link-padding: $global-vertical-space $global-horizontal-space;
 //$tabs-content-padding: $global-vertical-space 0;
 
-//## Forms
+//## FORMS -----------------------------
+
 //$input-bkgd: $white;
 //$input-bkgd-focus: $input-bkgd;
 //$input-box-shadow: 0 0 0 1px $divider-color inset;

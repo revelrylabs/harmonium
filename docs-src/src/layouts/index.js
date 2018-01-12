@@ -10,9 +10,9 @@ import './index.scss'
 
 const Header = () => (
   <TopBar fixed>
-    <TopBar-item>
+    <TopBar.Item>
       <Link to="/">Possum</Link>
-    </TopBar-item>
+    </TopBar.Item>
   </TopBar>
 )
 
