@@ -10,11 +10,9 @@ import './index.scss'
 
 const Header = () => (
   <TopBar fixed>
-    <Row>
-      <Col>
-        <Link to="/">Possum</Link>
-      </Col>
-    </Row>
+    <TopBar-item>
+      <Link to="/">Possum</Link>
+    </TopBar-item>
   </TopBar>
 )
 
