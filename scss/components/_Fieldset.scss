@@ -15,6 +15,7 @@ fieldset,
   .rev-Checkbox {
     &.is-invalid {
       background: transparent;
+      box-shadow: none;
     }
   }
 }
