@@ -28,7 +28,9 @@ export default class TopBar extends Component {
     const newClassName = classNames(className, 'rev-TopBar', propClassNames)
     return (
       <div {...props} className={newClassName}>
-        {children}
+        <nav role="navigation">
+          {children}
+        </nav>
       </div>
     )
   }

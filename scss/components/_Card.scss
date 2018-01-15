@@ -12,9 +12,12 @@ $card-footer-background: $white !default;
   border: $card-border;
   border-radius: $card-radius;
   margin-bottom: $global-vertical-space;
+  .rev-Row {
+    padding-left: $global-padding-small;
+    padding-right: $global-padding-small;
+  }
   .rev-Col {
     @include image-contained;
-    padding: 0 $global-padding;
   }
   &.rev-Card--primary {
     border: 0;
@@ -25,8 +28,13 @@ $card-footer-background: $white !default;
     border: 1px solid $divider-color;
   }
   &.rev-Card--small {
+    .rev-Row {
+      padding-left: $global-padding-tiny;
+      padding-right: $global-padding-tiny;
+    }
     .rev-Col {
-      padding: 0 $global-padding-small;
+      padding-left: $global-padding-tiny;
+      padding-right: $global-padding-tiny;
     }
     p:first-child {
       margin-top: $global-padding-small;

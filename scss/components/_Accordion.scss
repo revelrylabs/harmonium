@@ -4,11 +4,14 @@
 $accordion-border-size: 1px !default;
 $accordion-border-color: $divider-color !default;
 $accordion-title-bkgd: $white !default;
-$accordion-title-color: $primary !default;
-$accordion-title-bkgd-hover: darken($accordion-title-bkgd, 5%) !default;
-$accordion-title-color-hover: $accordion-title-color!default;
-$accordion-title-bkgd-active: darken($accordion-title-bkgd, 5%) !default;
-$accordion-title-color-active: $accordion-title-color!default;
+$accordion-title-color: $anchor-color !default;
+$accordion-title-bkgd-hover: $accordion-title-bkgd !default;
+$accordion-title-color-hover: $anchor-color-hover !default;
+$accordion-title-bkgd-active: $accordion-title-bkgd !default;
+$accordion-title-color-active: $anchor-color-active !default;
+$accordion-title-bkgd-selected: $anchor-color-selected !default;
+$accordion-title-color-selected: $accordion-title-bkgd !default;
+$accordion-content-bkgd: $white !default;
 
 .rev-Accordion { // ul
   border: $accordion-border-size solid $accordion-border-color;
@@ -23,7 +26,7 @@ $accordion-title-color-active: $accordion-title-color!default;
   background: $accordion-title-bkgd;
   color: $accordion-title-color;
   display: block;
-  padding: $global-padding;
+  padding: $global-padding-small $global-padding;
   position: relative;
   &:before {
     //TODO: fix icon font path
@@ -33,22 +36,27 @@ $accordion-title-color-active: $accordion-title-color!default;
     position: absolute;
     right: $global-padding;
   }
-  &:hover,
-  &:active { // grouping hover, active, and focus for mobile support
+  &:hover {
     background: $accordion-title-bkgd-hover;
     color: $accordion-title-color-hover;
   }
-  &.is-active {
+  &:active,
+  &:focus {
     background: $accordion-title-bkgd-active;
     color: $accordion-title-color-active;
+  }
+  &.is-active {
+    background: $accordion-title-bkgd-selected;
+    color: $accordion-title-color-selected;
     &:before {
       content: '-';
     }
   }
 }
-//TODO change display changes on .is-acitve to something that can transition
+//TODO change display changes on .is-active to something that can transition
 .rev-AccordionItem-content {
   @include global-transition;
+  background: $accordion-content-bkgd;
   display: none;
   overflow: hidden;
   padding: $global-padding;
