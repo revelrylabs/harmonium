@@ -8,7 +8,6 @@ $input-color-focus: $input-color !default;
 $input-font-size: $global-font-size !default;
 $label-color: $body-font-color !default;
 $label-font-size: $global-font-size !default;
-$error-color: $alert !default;
 
 @mixin input-style {
   @include global-transition;
@@ -37,7 +36,7 @@ $error-color: $alert !default;
     outline: none;
   }
   &.is-invalid {
-    box-shadow: 0 0 0 1px $error-color inset;
+    box-shadow: 0 0 0 1px $error inset;
   }
 }
 // Form Labels
@@ -72,6 +71,7 @@ $error-color: $alert !default;
     margin-top: -$global-padding-tiny;
   }
 }
+.is-invalid-label,
 .rev-InputErrors {
-  color: $error-color;
+  color: $error;
 }

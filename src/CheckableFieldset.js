@@ -8,7 +8,7 @@ export default class CheckableFieldset extends Component {
   render() {
     const {label, className, children, help, error, name, value, defaultValue, options, ...props} = this.props
 
-    const fieldsetClassName = classNames(className, 'fieldset', 'rev-CheckableFieldset')
+    const fieldsetClassName = classNames(className, 'fieldset', 'rev-CheckableFieldset', {'is-invalid-fieldset': !!error})
 
     const legendClassName = classNames({
       'is-invalid-label': !!error,

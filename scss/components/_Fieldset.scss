@@ -8,4 +8,14 @@ fieldset,
   legend {
     padding: 0 $global-padding-tiny;
   }
+  &.is-invalid-fieldset {
+    border-color: $error;
+  }
+  .rev-Radio,
+  .rev-Checkbox {
+    &.is-invalid {
+      background: transparent;
+      box-shadow: none;
+    }
+  }
 }
