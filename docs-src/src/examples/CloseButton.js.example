@@ -1,6 +1,10 @@
 <div>
   <Callout>
-    Look at this close button!
-    <CloseButton aria-label="Close Callout">&times;</CloseButton>
+    <Row flex>
+      <Col middle>
+        Look at this close button!
+      </Col>
+      <CloseButton aria-label="Close Callout">&times;</CloseButton>
+    </Row>
   </Callout>
 </div>
