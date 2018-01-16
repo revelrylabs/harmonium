@@ -21,35 +21,52 @@ function goodDateInput() {
 class UncontrolledDatePicker extends React.Component {
   constructor(props) {
     super(props)
+    this.goodDateInput = goodDateInput() && !this.props.dateFormat
     this.state = {
       opened: this.props.forceOpen || false,
       focused: false,
-      value: this.defaultValue(),
+      ...this.valuesFromProps(props),
       generation: 0,
       mousedIn: false,
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    this.setState({
-      value: nextProps.defaultValue || nextProps.value,
-    })
+    this.setState(this.valuesFromProps(nextProps))
   }
 
-  defaultValue() {
-    return this.props.defaultValue || this.props.value
+  valuesFromProps(props) {
+    return this.valuesFromIso(this.props.defaultValue || this.props.value)
+  }
+
+  valuesFromIso(iso) {
+    return {
+      isoValue: iso,
+      formattedValue: this.isoToFormatted(iso),
+    }
+  }
+
+  isoToFormatted(iso) {
+    return DateTime.fromISO(iso).toFormat(this.dateFormat)
   }
 
   onChange(event) {
+    const asISO = DateTime.fromFormat(event.target.value, this.dateFormat).toISODate()
+
     if (this.props.onChange) {
       this.props.onChange(event)
     }
-    this.setState({value: event.target.value})
+
+    this.setState(this.valuesFromIso(asISO))
+  }
+
+  get dateFormat() {
+    return this.goodDateInput ? 'yyyy-MM-dd' : (this.props.dateFormat || 'MM/dd/yyyy')
   }
 
   dateChanger(date) {
-    this.setState({value: date})
-    this.nativeInput.value = date
+    this.setState(this.valuesFromIso(date))
+    this.nativeInput.value = this.isoToFormatted(date)
 
     this.fireChangeHandler()
 
@@ -74,11 +91,17 @@ class UncontrolledDatePicker extends React.Component {
     this.setState({mousedIn: false, opened: this.state.focused })
   }
 
-  focus() {
+  focus(event) {
+    if (this.props.onFocus) {
+      this.props.onFocus(event)
+    }
     this.setState({focused: true, opened: true})
   }
 
-  blur() {
+  blur(event) {
+    if (this.props.onBlur) {
+      this.props.onBlur(event)
+    }
     this.setState({focused: false, opened: this.state.mousedIn})
   }
 
@@ -93,19 +116,8 @@ class UncontrolledDatePicker extends React.Component {
     return (this.state.opened || this.props.forceOpen) && !this.props.disabled
   }
 
-  get dateFormat() {
-    return 'MM/dd/yyyy'
-  }
-
-  fromLocaleFormat(date) {
-    if (goodDateInput()) {
-      return date
-    }
-    return DateTime.fromFormat(date, this.dateFormat).toISODate()
-  }
-
   render() {
-    let {className, error, forceOpen, overrides, calendarDayClassName, dayClassName, weekClassName, weekHeaderClassName, isSelectable, calendarHighlights, ...props} = this.props
+    let {className, error, forceOpen, overrides, calendarDayClassName, dayClassName, weekClassName, weekHeaderClassName, isSelectable, calendarHighlights, name, ...props} = this.props
     isSelectable = isSelectable || (() => true)
     const calendarProps = {calendarDayClassName, dayClassName, weekClassName, weekHeaderClassName, isSelectable, calendarHighlights}
     const inputClassName = classNames(className, 'rev-DatePicker-input', {
@@ -123,28 +135,22 @@ class UncontrolledDatePicker extends React.Component {
         onMouseOver={this.mouseIn.bind(this)}
         onMouseOut={this.mouseOut.bind(this)}
       >
-        <Input
-          className={inputClassName}
-          type="date"
-          defaultValue={this.state.value}
+        <DateInputBlock
+          {...props}
+          isoValue={this.state.isoValue}
+          formattedValue={this.state.formattedValue}
+          goodDateInput={this.goodDateInput}
           onFocus={this.focus.bind(this)}
           onBlur={this.blur.bind(this)}
-          {...props}
           onChange={this.onChange.bind(this)}
-          key={this.state.generation}
+          generation={this.state.generation}
           inputRef={(input) => this.nativeInput = input}
-        />
-        <Input
-          type="text"
-          name={props.name}
-          key={`${this.state.generation}:trueInput`}
-          value={this.fromLocaleFormat(this.state.value)}
-          readOnly
+          overrides={overrides}
         />
         {
           (this.calendarOpened) ?
             <Calendar
-              selectedDate={this.state.value}
+              selectedDate={this.state.isoValue}
               dateChanger={this.dateChanger.bind(this)}
               focuser={this.refocus.bind(this)}
               overrides={overrides}
@@ -156,5 +162,32 @@ class UncontrolledDatePicker extends React.Component {
   }
 }
 
+const DateInputBlock = ({inputClassName, goodDateInput, generation, overrides, dateFormat, isoValue, formattedValue, ...props}) => {
+  const createElement = createElementWithOverride.bind(this, overrides)
+
+  return (
+    <div>
+      <Input
+        className={inputClassName}
+        type={goodDateInput ? "date" : "text"}
+        name={goodDateInput ? name : null}
+        {...props}
+        defaultValue={formattedValue}
+      />
+      {
+        goodDateInput ? null :
+          <Input
+            type="hidden"
+            name={props.name}
+            key={`${generation}:trueInput`}
+            value={isoValue || ''}
+            readOnly
+          />
+      }
+    </div>
+  )
+}
+
 UncontrolledDatePicker.Calendar = Calendar
 export default UncontrolledDatePicker
+
