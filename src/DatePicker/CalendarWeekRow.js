@@ -3,6 +3,17 @@ import {Duration} from 'luxon'
 import React from 'react'
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
+function configMapping(mapping, key, keyTransformer, trueValue) {
+  if(mapping.call) {
+    const mappedValue = mapping(key)
+    return mappedValue == true ? trueValue : mappedValue
+  } else if(mapping.length && typeof mapping.length === 'number') {
+    return mapping.indexOf(keyTransformer(key)) > -1 ? trueValue : null
+  } else {
+    return mapping[keyTransformer(key)]
+  }
+}
+
 function calculateMonthClass(date, currentMonth) {
   const modifier = date.toFormat('yyyy-MM') == currentMonth ? 'thisMonth' : 'otherMonth'
   return `rev-Calendar-body-bodyCell--${modifier}`
@@ -12,30 +23,46 @@ function calculateSelectionClass(isSelectable, date, selectedDate) {
   const selectable = isSelectable(date)
   if (!selectable) {
     return 'rev-Calendar-body-bodyCell--unselectable'
-  } else if (selectedDate && date.toFormat('yyyy-MM-dd') == selectedDate) {
+  } else if (selectedDate && date.toISODate() == selectedDate) {
     return 'rev-Calendar-body-bodyCell--selected'
   }
   return ''
 }
 
+function calculateHighlightClass(date, highlights) {
+  return configMapping(
+    highlights || {},
+    date,
+    (date) => date.toISODate(),
+    'rev-Calendar-body-bodyCell--highlighted',
+  ) || ''
+}
+
 function dayClickHandler(isSelectable, date, dateChanger) {
   const selectable = isSelectable(date)
   if (selectable) {
-    return _e => dateChanger(date.toFormat('yyyy-MM-dd'))
+    return _e => dateChanger(date.toISODate())
   }
   return null
 }
 
-const CalendarDay = ({date, currentMonth, isSelectable, overrides, selectedDate, dateChanger}) => {
+const CalendarDay = ({currentMonth, date, dateChanger, calendarHighlights, isSelectable, overrides, selectedDate}) => {
   const createElement = React.createElement
   const monthClass = calculateMonthClass(date, currentMonth)
   const selectionClass = calculateSelectionClass(isSelectable, date, selectedDate)
+  const highlightClass = calculateHighlightClass(date, calendarHighlights)
+  const selectable = isSelectable(date)
   return (
     <td
-      className={`rev-Calendar-body-bodyCell ${monthClass} ${selectionClass}`}
-      onClick={dayClickHandler(isSelectable, date, dateChanger)}
+      className={`rev-Calendar-body-bodyCell ${monthClass} ${selectionClass} ${highlightClass}`}
     >
-      {date.toLocaleString({day: 'numeric'})}
+      <button
+        onClick={dayClickHandler(isSelectable, date, dateChanger)}
+        aria-label={date.toLocaleString({year: 'numeric', month: 'long', day: 'numeric'})}
+        disabled={!selectable}
+      >
+        {date.toLocaleString({day: 'numeric'})}
+      </button>
     </td>
   )
 }
@@ -53,7 +80,7 @@ export default class CalendarWeekRow extends React.Component {
                          .firstDay
                          .plus(Duration.fromObject({days: i}))
 
-            return <CalendarDay date={date} {...this.props} key={date.toISO()} />
+            return <CalendarDay {...this.props} date={date} key={date.toISO()} />
           })
         }
       </tr>

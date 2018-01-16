@@ -10,8 +10,22 @@
 .rev-Calendar-body-bodyCell,
 .rev-Calendar-body-headerCell {
   text-align: center;
-  padding-bottom: calc((#{100% / 7} - 1em * #{$global-lineheight}) / 2);
-  padding-top: calc((#{100% / 7} - 1em * #{$global-lineheight}) / 2);
+  padding-bottom: calc((#{100% / 7}) / 2);
+  padding-top: calc((#{100% / 7}) / 2);
+  position: relative;
+  width: calc(100% / 7);
+  & > button {
+    appearance: none;
+    -webkit-appearance: none;
+    background: transparent;
+    border: none;
+    bottom: 0;
+    color: inherit;
+    display: block;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
 }
 .rev-DatePicker--custom {
   input[type="date"]::-webkit-calendar-picker-indicator {
@@ -24,14 +38,12 @@
 .rev-Calendar-body-bodyCell--thisMonth {
 
 }
-.rev-Calendar-body-bodyCell--selected {
-  border-radius: 50%;
+.rev-Calendar-body-bodyCell--selected.rev-Calendar-body-bodyCell--selected {
   background-color: $brand;
   color: $white;
 }
 .rev-Calendar-body-bodyCell--unselectable {
-  background: $lighter-gray;
-  color: $light-gray;
+  color: $lighter-gray;
 }
 .rev-Calendar-header {
   display: flex;
@@ -49,4 +61,7 @@
   display: inline-block;
   flex-grow: 1;
   padding: 0.5em * $global-lineheight 0;
+}
+.rev-Calendar-body-bodyCell--highlighted {
+  color: $success;
 }

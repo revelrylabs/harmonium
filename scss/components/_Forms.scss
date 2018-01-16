@@ -33,6 +33,9 @@ $error-color: $alert;
     box-shadow: $input-box-shadow-focus;
     color: $input-color-focus;
   }
+  &[disabled] {
+    @include disabled;
+  }
 }
 // Form Labels
 .rev-InputLabel {

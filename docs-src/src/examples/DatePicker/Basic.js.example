@@ -1,1 +1,1 @@
-<DatePicker defaultValue={'2018-03-12'} />
+<DatePicker defaultValue={'2018-03-12'} isSelectable={(date) => date.weekday < 6} calendarHighlights={['2018-03-14']} forceOpen />

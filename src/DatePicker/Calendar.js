@@ -11,13 +11,13 @@ export default class Calendar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      date: this.asLuxon(this.props.date),
+      date: this.asLuxon(this.props.selectedDate),
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.date != this.props.date) {
-      this.setState({date: this.asLuxon(nextProps.date)})
+    if (nextProps.selectedDate != this.props.selectedDate) {
+      this.setState({date: this.asLuxon(nextProps.selectedDate)})
     }
   }
 
@@ -26,7 +26,11 @@ export default class Calendar extends React.Component {
       return DateTime.local()
     }
 
-    return DateTime.fromISO(date)
+    const luxon = DateTime.fromISO(date)
+    if (luxon.invalid) {
+      return DateTime.local()
+    }
+    return luxon
   }
 
   startOfMonth() {
@@ -51,34 +55,31 @@ export default class Calendar extends React.Component {
   }
 
   render() {
-    const {date, dateChanger, overrides, ...props} = this.props
     const createElement = createElementWithOverride.bind(this, this.props.overrides)
 
     return <Card>
       <Card.Header className="rev-Calendar-header">
-        <button onClick={this.addMonth.bind(this, -1)} className="rev-Calendar-header-button">
+        <button onClick={this.addMonth.bind(this, -1)} className="rev-Calendar-header-button" aria-label="Previous Month">
           &lsaquo;
         </button>
         <span className="rev-Calendar-header-label">
           {this.state.date.toLocaleString({month: 'short', year: 'numeric'})}
         </span>
-        <button onClick={this.addMonth.bind(this, 1)} className="rev-Calendar-header-button">
+        <button onClick={this.addMonth.bind(this, 1)} className="rev-Calendar-header-button" aria-label="Next Month">
           &rsaquo;
         </button>
       </Card.Header>
       <table className="rev-Calendar-body">
-        <CalendarHeaderRow firstDay={this.startOfWeekOfStartOfMonth()} overrides={overrides} />
+        <CalendarHeaderRow firstDay={this.startOfWeekOfStartOfMonth()} overrides={this.props.overrides} />
         <tbody>
           {
             [0, 7, 14, 21, 28].map((i) => {
               return (
                 <CalendarWeekRow
+                  {...this.props}
                   firstDay={this.startOfWeekOfStartOfMonth().plus({days:  i})}
-                  dateChanger={dateChanger}
                   currentMonth={this.state.date.toFormat('yyyy-MM')}
                   isSelectable={this.props.isSelectable}
-                  selectedDate={date}
-                  overrides={overrides}
                   key={i}
                 />
               )

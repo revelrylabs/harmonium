@@ -5,6 +5,18 @@ import Input from './Input'
 import React from 'react'
 import Calendar from './DatePicker/Calendar'
 import createElementWithOverride from './Utilities/createElementWithOverride'
+import {DateTime} from 'luxon'
+
+function goodDateInput() {
+  if (typeof window === 'undefined') {
+    return true
+  } else {
+    const el = document.createElement('input')
+    el.type = 'date'
+    el.value = '!)'
+    return el.value == ''
+  }
+}
 
 class UncontrolledDatePicker extends React.Component {
   constructor(props) {
@@ -77,6 +89,21 @@ class UncontrolledDatePicker extends React.Component {
     this.focus()
   }
 
+  get calendarOpened() {
+    return (this.state.opened || this.props.forceOpen) && !this.props.disabled
+  }
+
+  get dateFormat() {
+    return 'MM/dd/yyyy'
+  }
+
+  fromLocaleFormat(date) {
+    if (goodDateInput()) {
+      return date
+    }
+    return DateTime.fromFormat(date, this.dateFormat).toISODate()
+  }
+
   render() {
     let {className, error, forceOpen, overrides, calendarDayClassName, dayClassName, weekClassName, weekHeaderClassName, isSelectable, calendarHighlights, ...props} = this.props
     isSelectable = isSelectable || (() => true)
@@ -107,10 +134,17 @@ class UncontrolledDatePicker extends React.Component {
           key={this.state.generation}
           inputRef={(input) => this.nativeInput = input}
         />
+        <Input
+          type="text"
+          name={props.name}
+          key={`${this.state.generation}:trueInput`}
+          value={this.fromLocaleFormat(this.state.value)}
+          readOnly
+        />
         {
-          this.state.opened || forceOpen ?
+          (this.calendarOpened) ?
             <Calendar
-              date={this.state.value}
+              selectedDate={this.state.value}
               dateChanger={this.dateChanger.bind(this)}
               focuser={this.refocus.bind(this)}
               overrides={overrides}
