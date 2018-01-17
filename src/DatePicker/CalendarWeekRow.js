@@ -70,7 +70,7 @@ const CalendarDay = ({currentMonth, date, dateChanger, highlights, isSelectable,
 
 export default class CalendarWeekRow extends React.Component {
   render() {
-    const {day, ...props} = this.props
+    const {day, firstDay, ...props} = this.props
     const createElement = createElementWithOverride.bind(this, this.props.overrides)
 
     return (

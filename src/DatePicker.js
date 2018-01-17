@@ -46,7 +46,7 @@ class UncontrolledDatePicker extends React.Component {
   }
 
   valuesFromProps(props) {
-    return this.valuesFromIso(this.props.defaultValue || this.props.value)
+    return this.valuesFromIso(props.defaultValue || props.value)
   }
 
   valuesFromIso(iso) {

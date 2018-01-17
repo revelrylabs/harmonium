@@ -14,6 +14,9 @@ export default class Calendar extends React.Component {
     return {
       nextLabel: <span>&rsaquo;</span>,
       previousLabel: <span>&lsaquo;</span>,
+      dateChanger: () => null,
+      focuser: () => null,
+      isSelectable: () => true,
     }
   }
 
@@ -46,10 +49,6 @@ export default class Calendar extends React.Component {
     return this.state.date.startOf('month')
   }
 
-  endOfMonth() {
-    return this.state.date.endOf('month')
-  }
-
   startOfWeekOfStartOfMonth() {
     const weekday = this.startOfMonth().weekday % 7
     return this.startOfMonth().minus(Duration.fromObject({days: weekday}))
@@ -64,18 +63,18 @@ export default class Calendar extends React.Component {
   }
 
   render() {
-    const {week, overrides, day, headerDay, isSelectable, dateChanger, selectedDate, highlights, nextLabel, previousLabel, ...props} = this.props
+    const {week, overrides, day, focuser, headerDay, isSelectable, dateChanger, selectedDate, highlights, nextLabel, previousLabel, ...props} = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
 
     return <Card {...props}>
       <Card.Header className="rev-Calendar-header">
-        <button onClick={this.addMonth.bind(this, -1)} className="rev-Calendar-header-button" aria-label="Previous Month">
+        <button onClick={this.addMonth.bind(this, -1)} className="rev-Calendar-header-button rev-Calendar-header-button--previous" aria-label="Previous Month">
           {previousLabel}
         </button>
         <span className="rev-Calendar-header-label">
           {this.state.date.toLocaleString({month: 'short', year: 'numeric'})}
         </span>
-        <button onClick={this.addMonth.bind(this, 1)} className="rev-Calendar-header-button" aria-label="Next Month">
+        <button onClick={this.addMonth.bind(this, 1)} className="rev-Calendar-header-button rev-Calendar-header-button--next" aria-label="Next Month">
           {nextLabel}
         </button>
       </Card.Header>
