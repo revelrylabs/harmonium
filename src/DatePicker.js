@@ -2,6 +2,8 @@
 
 import classNames from 'classnames'
 import Input from './Input'
+import InputHelpText from './InputHelpText'
+import InputErrors from './InputErrors'
 import React from 'react'
 import Calendar from './DatePicker/Calendar'
 import createElementWithOverride from './Utilities/createElementWithOverride'
@@ -19,11 +21,19 @@ function goodDateInput() {
 }
 
 class UncontrolledDatePicker extends React.Component {
+  static get defaultProps() {
+    const createElement = React.createElement
+
+    return {
+      isSelectable: () => true,
+    }
+  }
+
   constructor(props) {
     super(props)
     this.goodDateInput = goodDateInput() && !this.props.dateFormat
     this.state = {
-      opened: this.props.forceOpen || false,
+      isOpen: this.props.isOpen || false,
       focused: false,
       ...this.valuesFromProps(props),
       generation: 0,
@@ -88,21 +98,21 @@ class UncontrolledDatePicker extends React.Component {
   }
 
   mouseOut() {
-    this.setState({mousedIn: false, opened: this.state.focused })
+    this.setState({mousedIn: false, isOpen: this.state.focused })
   }
 
   focus(event) {
     if (this.props.onFocus) {
       this.props.onFocus(event)
     }
-    this.setState({focused: true, opened: true})
+    this.setState({focused: true, isOpen: true})
   }
 
   blur(event) {
     if (this.props.onBlur) {
       this.props.onBlur(event)
     }
-    this.setState({focused: false, opened: this.state.mousedIn})
+    this.setState({focused: false, isOpen: this.state.mousedIn})
   }
 
   refocus() {
@@ -113,17 +123,11 @@ class UncontrolledDatePicker extends React.Component {
   }
 
   get calendarOpened() {
-    return (this.state.opened || this.props.forceOpen) && !this.props.disabled
+    return (this.state.isOpen || this.props.isOpen) && !this.props.disabled
   }
 
   render() {
-    let {className, error, forceOpen, overrides, calendarDayClassName, dayClassName, weekClassName, weekHeaderClassName, isSelectable, calendarHighlights, name, ...props} = this.props
-    isSelectable = isSelectable || (() => true)
-    const calendarProps = {calendarDayClassName, dayClassName, weekClassName, weekHeaderClassName, isSelectable, calendarHighlights}
-    const inputClassName = classNames(className, 'rev-DatePicker-input', {
-      'is-invalid-input': !!error,
-      'is-invalid': !!error,
-    })
+    let {error, help, label, highlights, isOpen, overrides, isSelectable, calendar, week, day, headerDay, ...props} = this.props
 
     const createElement = createElementWithOverride.bind(this, overrides)
 
@@ -135,8 +139,10 @@ class UncontrolledDatePicker extends React.Component {
         onMouseOver={this.mouseIn.bind(this)}
         onMouseOut={this.mouseOut.bind(this)}
       >
+        {label}
         <DateInputBlock
           {...props}
+          error={error}
           isoValue={this.state.isoValue}
           formattedValue={this.state.formattedValue}
           goodDateInput={this.goodDateInput}
@@ -147,6 +153,8 @@ class UncontrolledDatePicker extends React.Component {
           inputRef={(input) => this.nativeInput = input}
           overrides={overrides}
         />
+        <InputHelpText>{help}</InputHelpText>
+        <InputErrors>{error}</InputErrors>
         {
           (this.calendarOpened) ?
             <Calendar
@@ -154,7 +162,12 @@ class UncontrolledDatePicker extends React.Component {
               dateChanger={this.dateChanger.bind(this)}
               focuser={this.refocus.bind(this)}
               overrides={overrides}
-              {...calendarProps}
+              isSelectable={isSelectable}
+              week={week}
+              highlights={highlights}
+              {...calendar}
+              day={day}
+              headerDay={headerDay}
             /> : null
         }
       </label>
@@ -162,23 +175,27 @@ class UncontrolledDatePicker extends React.Component {
   }
 }
 
-const DateInputBlock = ({inputClassName, goodDateInput, generation, overrides, dateFormat, isoValue, formattedValue, ...props}) => {
+const DateInputBlock = ({error, className, goodDateInput, generation, overrides, dateFormat, isoValue, formattedValue, name, ...props}) => {
   const createElement = createElementWithOverride.bind(this, overrides)
+  const inputClassName = classNames(className, 'rev-DatePicker-input', {
+    'is-invalid-input': !!error,
+    'is-invalid': !!error,
+  })
 
   return (
     <div>
       <Input
+        {...props}
         className={inputClassName}
         type={goodDateInput ? "date" : "text"}
         name={goodDateInput ? name : null}
-        {...props}
         defaultValue={formattedValue}
       />
       {
         goodDateInput ? null :
           <Input
             type="hidden"
-            name={props.name}
+            name={name}
             key={`${generation}:trueInput`}
             value={isoValue || ''}
             readOnly

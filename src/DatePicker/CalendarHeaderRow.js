@@ -14,6 +14,7 @@ export default class CalendarHeaderRow extends React.Component {
             [0, 1, 2, 3, 4, 5, 6].map(i => {
               return (
                 <th
+                  {...this.props.headerDay}
                   className="rev-Calendar-body-headerCell"
                   key={`${this.props.firstDay.toISO()}:${i}`}
                 >

@@ -8,6 +8,15 @@ import CalendarWeekRow from './CalendarWeekRow'
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
 export default class Calendar extends React.Component {
+  static get defaultProps() {
+    const createElement = React.createElement
+
+    return {
+      nextLabel: <span>&rsaquo;</span>,
+      previousLabel: <span>&lsaquo;</span>,
+    }
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -55,31 +64,36 @@ export default class Calendar extends React.Component {
   }
 
   render() {
-    const createElement = createElementWithOverride.bind(this, this.props.overrides)
+    const {week, overrides, day, headerDay, isSelectable, dateChanger, selectedDate, highlights, nextLabel, previousLabel, ...props} = this.props
+    const createElement = createElementWithOverride.bind(this, overrides)
 
-    return <Card>
+    return <Card {...props}>
       <Card.Header className="rev-Calendar-header">
         <button onClick={this.addMonth.bind(this, -1)} className="rev-Calendar-header-button" aria-label="Previous Month">
-          &lsaquo;
+          {previousLabel}
         </button>
         <span className="rev-Calendar-header-label">
           {this.state.date.toLocaleString({month: 'short', year: 'numeric'})}
         </span>
         <button onClick={this.addMonth.bind(this, 1)} className="rev-Calendar-header-button" aria-label="Next Month">
-          &rsaquo;
+          {nextLabel}
         </button>
       </Card.Header>
       <table className="rev-Calendar-body">
-        <CalendarHeaderRow firstDay={this.startOfWeekOfStartOfMonth()} overrides={this.props.overrides} />
+        <CalendarHeaderRow firstDay={this.startOfWeekOfStartOfMonth()} overrides={overrides} headerDay={headerDay} />
         <tbody>
           {
             [0, 7, 14, 21, 28].map((i) => {
               return (
                 <CalendarWeekRow
-                  {...this.props}
+                  {...week}
+                  day={day}
                   firstDay={this.startOfWeekOfStartOfMonth().plus({days:  i})}
                   currentMonth={this.state.date.toFormat('yyyy-MM')}
-                  isSelectable={this.props.isSelectable}
+                  isSelectable={isSelectable}
+                  dateChanger={dateChanger}
+                  selectedDate={selectedDate}
+                  highlights={highlights}
                   key={i}
                 />
               )

@@ -7,8 +7,7 @@
 .rev-Calendar-body-headerCell {
   text-align: center;
 }
-.rev-Calendar-body-bodyCell,
-.rev-Calendar-body-headerCell {
+.rev-Calendar-body-bodyCell {
   text-align: center;
   padding-bottom: calc((#{100% / 7}) / 2);
   padding-top: calc((#{100% / 7}) / 2);
@@ -26,6 +25,13 @@
     top: 0;
     width: 100%;
   }
+}
+.rev-Calendar-body-headerCell {
+  text-align: center;
+  padding-bottom: calc((#{100% / 7} - #{1.5rem * $global-lineheight}) / 2);
+  padding-top: calc((#{100% / 7} - #{1.5rem * $global-lineheight}) / 2);
+  position: relative;
+  width: calc(100% / 7);
 }
 .rev-DatePicker--custom {
   input[type="date"]::-webkit-calendar-picker-indicator {

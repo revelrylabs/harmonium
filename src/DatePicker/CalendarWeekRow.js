@@ -46,17 +46,18 @@ function dayClickHandler(isSelectable, date, dateChanger) {
   return null
 }
 
-const CalendarDay = ({currentMonth, date, dateChanger, calendarHighlights, isSelectable, overrides, selectedDate}) => {
+const CalendarDay = ({currentMonth, date, dateChanger, highlights, isSelectable, overrides, selectedDate, ...props}) => {
   const createElement = React.createElement
   const monthClass = calculateMonthClass(date, currentMonth)
   const selectionClass = calculateSelectionClass(isSelectable, date, selectedDate)
-  const highlightClass = calculateHighlightClass(date, calendarHighlights)
+  const highlightClass = calculateHighlightClass(date, highlights)
   const selectable = isSelectable(date)
   return (
     <td
       className={`rev-Calendar-body-bodyCell ${monthClass} ${selectionClass} ${highlightClass}`}
     >
       <button
+        {...props}
         onClick={dayClickHandler(isSelectable, date, dateChanger)}
         aria-label={date.toLocaleString({year: 'numeric', month: 'long', day: 'numeric'})}
         disabled={!selectable}
@@ -69,6 +70,7 @@ const CalendarDay = ({currentMonth, date, dateChanger, calendarHighlights, isSel
 
 export default class CalendarWeekRow extends React.Component {
   render() {
+    const {day, ...props} = this.props
     const createElement = createElementWithOverride.bind(this, this.props.overrides)
 
     return (
@@ -80,7 +82,7 @@ export default class CalendarWeekRow extends React.Component {
                          .firstDay
                          .plus(Duration.fromObject({days: i}))
 
-            return <CalendarDay {...this.props} date={date} key={date.toISO()} />
+            return <CalendarDay {...props} {...day} date={date} key={date.toISO()} />
           })
         }
       </tr>
