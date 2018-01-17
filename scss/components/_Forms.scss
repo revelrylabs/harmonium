@@ -1,14 +1,13 @@
-$input-bkgd: $white;
-$input-bkgd-focus: $input-bkgd;
-$input-box-shadow: 0 0 0 1px $divider-color inset;
-$input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset;
-$input-radius: $global-radius;
-$input-color: $body-font-color;
-$input-color-focus: $input-color;
-$input-font-size: $global-font-size;
-$label-color: $body-font-color;
-$label-font-size: $global-font-size;
-$error-color: $alert;
+$input-bkgd: $white !default;
+$input-bkgd-focus: $input-bkgd !default;
+$input-box-shadow: 0 0 0 1px $divider-color inset !default;
+$input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset !default;
+$input-radius: $global-radius !default;
+$input-color: $body-font-color !default;
+$input-color-focus: $input-color !default;
+$input-font-size: $global-font-size !default;
+$label-color: $body-font-color !default;
+$label-font-size: $global-font-size !default;
 
 @mixin input-style {
   @include global-transition;
@@ -30,8 +29,14 @@ $error-color: $alert;
   &:active,
   &:focus {
     background-color: $input-bkgd-focus;
+    border: 0;
+    border-color: transparent;
     box-shadow: $input-box-shadow-focus;
     color: $input-color-focus;
+    outline: none;
+  }
+  &.is-invalid {
+    box-shadow: 0 0 0 1px $error inset;
   }
   &[disabled] {
     @include disabled;
@@ -69,6 +74,7 @@ $error-color: $alert;
     margin-top: -$global-padding-tiny;
   }
 }
+.is-invalid-label,
 .rev-InputErrors {
-  color: $error-color;
+  color: $error;
 }

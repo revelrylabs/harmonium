@@ -103,9 +103,11 @@ $paragraph-text-rendering: optimizeLegibility;
 $anchor-color: $primary;
 $anchor-color-hover: darken($primary, 10%);
 $anchor-color-active: darken($primary, 10%);
+$anchor-color-selected: darken($primary, 10%);
 $anchor-color-inverse: $brand-light;
 $anchor-color-inverse-hover: $white;
 $anchor-color-inverse-active: $white;
+$anchor-color-inverse-selected: $white;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 
@@ -149,12 +151,13 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 // $[component]-[css property]-[variant]-[state]
 
 //## NAVIGATION -----------------------------
-//$topbar-bkgd: $body-bkgd;
+//$topbar-bkgd: $white;
 //$topbar-border-color: $divider-color;
 //$topbar-border-size: 1px;
 //$topbar-color: $body-font-color;
-//$topbar-height: $size-large;
+//$topbar-height: $size-larger;
 //$topbar-input-width: $size-largest;
+//$topbar-link-bkgd: transparent;
 
 //## CONTAINERS -----------------------------
 
@@ -162,11 +165,14 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$accordion-border-size: 1px;
 //$accordion-border-color: $divider-color;
 //$accordion-title-bkgd: $white;
-//$accordion-title-color: $primary;
-//$accordion-title-bkgd-hover: darken($accordion-title-bkgd, 5%);
-//$accordion-title-color-hover: $accordion-title-color-hover;
-//$accordion-title-bkgd-active: darken($accordion-title-bkgd, 5%);
-//$accordion-title-color-active: $accordion-title-color;
+//$accordion-title-color: $anchor-color;
+//$accordion-title-bkgd-hover: $accordion-title-bkgd;
+//$accordion-title-color-hover: $anchor-color-hover;
+//$accordion-title-bkgd-active: $accordion-title-bkgd;
+//$accordion-title-color-active: $anchor-color-active;
+//$accordion-title-bkgd-selected: $anchor-color-selected;
+//$accordion-title-color-selected: $accordion-title-bkgd;
+//$accordion-content-bkgd: $white;
 
 //## Callouts
 //$callout-bkgd: $white;
@@ -174,6 +180,37 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$callout-border-color: $divider-color;
 //$callout-color: $body-font-color;
 //$callout-padding: $global-vertical-space $global-horizontal-space;
+
+//## Cards
+//$card-background: $white;
+//$card-border: 1px solid $divider-color;
+//$card-padding: 0;
+//$card-radius: $global-radius;
+//$card-header-background: $white;
+//$card-footer-background: $white;
+
+//## Menus
+//$menu-bkgd: $white;
+//$menu-color: $body-font-color;
+//$menu-link-bkgd: transparent;
+//$menu-link-bkgd-hover: transparent;
+//$menu-link-bkgd-active: transparent;
+//$menu-link-bkgd-selected: $anchor-color-selected;
+//$menu-link-color: $anchor-color;
+//$menu-link-color-hover: $anchor-color-hover;
+//$menu-link-color-active: $anchor-color-active;
+//$menu-link-color-selected: $menu-bkgd;
+
+//$menu-bkgd-inverse: $brand-dark;
+//$menu-color-inverse: $brand-light;
+//$menu-link-bkgd-inverse: transparent;
+//$menu-link-bkgd-inverse-hover: transparent;
+//$menu-link-bkgd-inverse-active: transparent;
+//$menu-link-bkgd-inverse-selected: $anchor-color-selected;
+//$menu-link-color-inverse: $anchor-color-inverse;
+//$menu-link-color-inverse-hover: $anchor-color-inverse-hover;
+//$menu-link-color-inverse-active: $anchor-color-inverse-active;
+//$menu-link-color-inverse-selected: $menu-bkgd-inverse;
 
 //## Modals
 //$modal-bkgd: $black-40;
@@ -184,44 +221,35 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$modal-content-color: $body-font-color;
 //$modal-content-padding: 0;
 
-//## Menus
-//$menu-bkgd: null;
-//$menu-color: null;
-//$menu-link-bkgd: null;
-//$menu-link-bkgd-hover: null;
-//$menu-link-bkgd-click: null;
-//$menu-link-bkgd-active: null;
-//$menu-link-color: null;
-//$menu-link-color-hover: null;
-//$menu-link-color-click: null;
-//$menu-link-color-active: null;
-
-//$menu-bkgd-inverse: null;
-//$menu-color-inverse: null;
-//$menu-link-bkgd-inverse: null;
-//$menu-link-bkgd-inverse-hover: null;
-//$menu-link-bkgd-inverse-click: null;
-//$menu-link-bkgd-inverse-active: null;
-//$menu-link-color-inverse: null;
-//$menu-link-color-inverse-hover: null;
-//$menu-link-color-inverse-click: null;
-//$menu-link-color-inverse-active: null;
-
 //## Tabs
-//$tabs-margin: $global-vertical-space;
+//$tabs-margin: $global-margin;
 //$tabs-border-size: 1px;
 //$tabs-border-color: $divider-color;
-//$tabs-title-bkgd: transparent;
-//$tabs-title-link-bkgd: $divider-color;
+//$tabs-titles-bkgd: $white;
+//$tabs-title-link-bkgd: transparent;
 //$tabs-title-link-color: $anchor-color;
-//$tabs-title-link-bkgd-hover: darken($tabs-title-link-bkgd, 5%);
+//$tabs-title-link-bkgd-hover: transparent;
 //$tabs-title-link-color-hover: $anchor-color-hover;
-//$tabs-title-link-bkgd-active: darken($tabs-title-link-bkgd, 5%);
-//$tabs-title-link-color-active: $anchor-color-hover;
-//$tabs-title-link-padding: $global-vertical-space $global-horizontal-space;
-//$tabs-content-padding: $global-vertical-space 0;
+//$tabs-title-link-bkgd-active: transparent;
+//$tabs-title-link-color-active: $anchor-color-active;
+//$tabs-title-link-bkgd-selected: $anchor-color-selected;
+//$tabs-title-link-color-selected: $tabs-titles-bkgd;
+//$tabs-title-link-padding: $global-padding-small $global-padding;
+//$tabs-content-bkgd: $white 0;
+//$tabs-content-padding: $global-padding 0;
 
+//## FORMS -----------------------------
 
+//$input-bkgd: $white;
+//$input-bkgd-focus: $input-bkgd;
+//$input-box-shadow: 0 0 0 1px $divider-color inset;
+//$input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset;
+//$input-radius: $global-radius;
+//$input-color: $body-font-color;
+//$input-color-focus: $input-color;
+//$input-font-size: $global-font-size;
+//$label-color: $body-font-color;
+//$label-font-size: $global-font-size;
 
 //## Badges
 //$badge-size: $size-small;

@@ -1,18 +1,21 @@
 // default component vars listed at the top of the component stylesheet
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
-$tabs-margin: $global-vertical-space !default;
+$tabs-margin: $global-margin !default;
 $tabs-border-size: 1px !default;
 $tabs-border-color: $divider-color !default;
-$tabs-title-bkgd: transparent !default;
-$tabs-title-link-bkgd: $divider-color !default;
+$tabs-titles-bkgd: $white !default;
+$tabs-title-link-bkgd: transparent !default;
 $tabs-title-link-color: $anchor-color !default;
-$tabs-title-link-bkgd-hover: darken($tabs-title-link-bkgd, 5%) !default;
+$tabs-title-link-bkgd-hover: transparent !default;
 $tabs-title-link-color-hover: $anchor-color-hover !default;
-$tabs-title-link-bkgd-active: darken($tabs-title-link-bkgd, 5%) !default;
-$tabs-title-link-color-active: $anchor-color-hover !default;
-$tabs-title-link-padding: $global-vertical-space $global-horizontal-space !default;
-$tabs-content-padding: $global-vertical-space 0 !default;
+$tabs-title-link-bkgd-active: transparent !default;
+$tabs-title-link-color-active: $anchor-color-active !default;
+$tabs-title-link-bkgd-selected: $anchor-color-selected !default;
+$tabs-title-link-color-selected: $tabs-titles-bkgd !default;
+$tabs-title-link-padding: $global-padding-small $global-padding !default;
+$tabs-content-bkgd: $white 0 !default;
+$tabs-content-padding: $global-padding 0 !default;
 
 .rev-Tabs {
   margin-bottom: $tabs-margin;
@@ -20,22 +23,38 @@ $tabs-content-padding: $global-vertical-space 0 !default;
 }
 .rev-Tabs-titles { //ul
   @include flex(stretch, row, flex-start, wrap);
+  background: $tabs-titles-bkgd;
   border: $tabs-border-size solid $tabs-border-color;
   overflow: hidden;
   width: 100%;
 }
 .rev-TabsTitle {
-  @include navigation-color-management;
-  background: $tabs-title-bkgd;
   margin: 0;
   padding: 0;
 }
 .rev-TabsTitle-link {
+  background: $tabs-title-link-bkgd;
+  border-right: $tabs-border-size solid $tabs-border-color;
   display: block;
+  color: $tabs-title-link-color;
   font-size: $global-font-size;
   padding: $tabs-title-link-padding;
+  &:hover {
+    background: $tabs-title-link-bkgd-hover;
+    color: $tabs-title-link-color-hover;
+  }
+  &:active,
+  &:focus {
+    background: $tabs-title-link-bkgd-active;
+    color: $tabs-title-link-color-active;
+  }
+  [class*='--active'] & {
+    background: $tabs-title-link-bkgd-selected;
+    color: $tabs-title-link-color-selected;
+  }
 }
 .rev-Tabs-content {
+  background: $tabs-content-bkgd;
   border: $tabs-border-size solid $tabs-border-color;
   border-top: 0;
   padding: $tabs-content-padding;

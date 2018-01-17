@@ -9,9 +9,7 @@ $topbar-height: $size-larger !default;
 $topbar-input-width: $size-largest !default;
 $topbar-link-bkgd: transparent !default;
 
-
 .rev-TopBar {
-  @include flex(center, row, space-between, no-wrap);
   background: $topbar-bkgd;
   border: $topbar-border-size solid $topbar-border-color;
   color: $topbar-color;
@@ -21,6 +19,14 @@ $topbar-link-bkgd: transparent !default;
   position: relative;
   width: 100%;
   z-index: $above;
+  nav {
+    @include flex(center, row, space-between, no-wrap);
+    height: $topbar-height;
+    margin: 0 auto;
+    max-width: $global-width;
+    padding: 0 $global-padding;
+    width: 100%;
+  }
   // SEARCH FORMS IN TOPBARS
   .rev-Form {
     padding-left: $grid-column-padding;
@@ -37,16 +43,24 @@ $topbar-link-bkgd: transparent !default;
   }
   // TOPBAR POSITIONING
   &.rev-TopBar--center {
-    @include flex(center, row, center, no-wrap);
+    nav {
+      @include flex(center, row, center, no-wrap);
+    }
   }
   &.rev-TopBar--left {
-    @include flex(center, row, flex-start, no-wrap);
+    nav {
+      @include flex(center, row, flex-start, no-wrap);
+    }
   }
   &.rev-TopBar--justified { //default
-    @include flex(center, row, space-between, no-wrap);
+    nav {
+      @include flex(center, row, space-between, no-wrap);
+    }
   }
   &.rev-TopBar--right {
-    @include flex(center, row, flex-end, no-wrap);
+    nav {
+      @include flex(center, row, flex-end, no-wrap);
+    }
   }
   // INVERSE COLOR TOPBAR
   &.rev-TopBar--inverse {
