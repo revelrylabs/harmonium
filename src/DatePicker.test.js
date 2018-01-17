@@ -112,4 +112,11 @@ describe('DatePicker', () => {
 
     expect(input.find('.rev-Calendar-body-bodyCell--highlighted').exists()).to.equal(true)
   })
+
+  it('does overrides', () => {
+    const overrideComponent = () => <span>AVeryUniqueString</span>
+    const input = mount(<DatePicker overrides={{[DatePicker.Calendar]: overrideComponent}} isOpen />)
+
+    expect(input.text()).to.contain('AVeryUniqueString')
+  })
 })
