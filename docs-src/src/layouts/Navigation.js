@@ -5,8 +5,8 @@ import Card from 'possum/lib/Card'
 
 export default function Navigation() {
   return (
-    <div className="rev-Rail">
-      <nav className="rev-NavigationOutline">
+    <div className="rev-Drawer rev-Drawer--collapsible rev-Drawer--left">
+      <nav className="rev-Drawer-contents">
         <Card>
           <Menu vertical>
             <Menu.Item text><strong>Grid</strong></Menu.Item>
