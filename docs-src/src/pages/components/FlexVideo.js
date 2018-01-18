@@ -8,7 +8,7 @@ const examples = {
 
 export default class FlexVideoExamplePage extends Component {
   render() {
-    return <div>
+    return <div className="rev-Row rev-Row--collapse">
       <ExampleSection title="Flex Video" examples={examples} depth={1} scope={scope} />
     </div>
   }

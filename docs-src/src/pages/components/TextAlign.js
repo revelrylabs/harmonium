@@ -8,7 +8,7 @@ const examples = {
 
 export default class TextAlignExamplePage extends Component {
   render() {
-    return <div>
+    return <div className="rev-Row rev-Row--collapsed">
       <ExampleSection title="Text Alignment" examples={examples} depth={1} scope={scope} />
     </div>
   }
