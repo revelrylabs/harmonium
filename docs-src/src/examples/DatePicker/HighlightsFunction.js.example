@@ -1,0 +1,6 @@
+<DatePicker
+  isOpen
+  defaultValue="2018-03-12"
+  highlights={(date) => date.day % 2}
+  label="Highlights (as function)"
+/>

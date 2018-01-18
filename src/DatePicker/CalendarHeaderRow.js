@@ -1,14 +1,11 @@
 /** @jsx createElement */
-import { Duration } from "luxon";
-import React from "react";
-import createElementWithOverride from "../Utilities/createElementWithOverride";
+import { Duration } from 'luxon'
+import React from 'react'
+import createElementWithOverride from '../Utilities/createElementWithOverride'
 
 export default class CalendarHeaderRow extends React.Component {
   render() {
-    const createElement = createElementWithOverride.bind(
-      this,
-      this.props.overrides
-    );
+    const createElement = createElementWithOverride.bind(this, this.props.overrides)
 
     return (
       <thead>
@@ -22,12 +19,12 @@ export default class CalendarHeaderRow extends React.Component {
               >
                 {this.props.firstDay
                   .plus(Duration.fromObject({ days: i }))
-                  .toLocaleString({ weekday: "narrow" })}
+                  .toLocaleString({ weekday: 'narrow' })}
               </th>
-            );
+            )
           })}
         </tr>
       </thead>
-    );
+    )
   }
 }
