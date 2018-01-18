@@ -44,7 +44,8 @@ $menu-dropdown-width: 24rem !default;
   }
 }
 @mixin horizontal-menu {
-  @include flex(center, row, space-between, wrap);
+  @include flex(center, row, space-between, nowrap);
+  overflow-x: scroll;
   &.rev-Menu--dividers .rev-Menu-item,
   .rev-Menu-item--divider {
     border-left: 1px solid $divider-color;
