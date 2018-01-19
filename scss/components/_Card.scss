@@ -1,5 +1,8 @@
-$card-background: $white !default;
-$card-border: 1px solid $divider-color !default;
+$card-bkgd: $white !default;
+$card-border-color: $divider-color !default;
+$card-border-size: 1px !default;
+$card-border-style: solid !default;
+$card-border: $card-border-size $card-border-style $card-border-color !default;
 $card-padding: 0 !default;
 $card-radius: $global-radius !default;
 $card-header-background: $white !default;
@@ -8,7 +11,7 @@ $card-footer-background: $white !default;
 .rev-Card,
 .rev-CardLayout {
   @include typography-contained;
-  background-color: $card-background;
+  background-color: $card-bkgd;
   border: $card-border;
   border-radius: $card-radius;
   margin-bottom: $global-vertical-space;
