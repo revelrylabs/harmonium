@@ -82,7 +82,7 @@ export default class Calendar extends React.Component {
     const createElement = createElementWithOverride.bind(this, overrides)
 
     return (
-      <Card {...props}>
+      <Card {...props} className="rev-Calendar">
         <Card.Header className="rev-Calendar-header">
           <button
             onClick={this.addMonth.bind(this, -1)}
