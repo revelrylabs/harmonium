@@ -10,41 +10,83 @@
   right: auto;
   top: auto;
   width: 0;
-  z-index: 1;
+  z-index: $above-most;
 }
-@mixin arrow-down($color: null, $arrow-size: 10px) {
-  @include arrow-base;
-  border: $arrow-size solid transparent;
-  border-bottom: 0;
-  border-top: $arrow-size solid $color;
-  bottom: -$arrow-size;
-  left: 50%;
-  margin-left: -$arrow-size;
+/* @mixin arrow-outline($arrow-outline-color: $divider-color, $arrow-outline-size: 12px) {
+    @include arrow-base;
+
+} */
+@mixin arrow-down($color: null, $arrow-size: 12px) {
+  position: relative;
+  :before {
+    @include arrow-base;
+    border: $arrow-size solid transparent;
+    border-bottom: 0;
+    border-top: $arrow-size solid $color;
+    bottom: -$arrow-size;
+    left: 50%;
+    margin-left: -$arrow-size;
+  }
 }
-@mixin arrow-left($color: null, $arrow-size: 10px) {
-  @include arrow-base;
-  border: $arrow-size solid transparent;
-  border-right: $arrow-size solid $color;
-  border-left: 0;
-  right: 100%;
-  margin-top: -$arrow-size;
-  top: 50%;
+@mixin arrow-down-outline($color: null, $arrow-size: 12px) {
+  @include arrow-down;
+  :after {
+    @include arrow-base;
+    border: $arrow-size + 1 solid transparent;
+    border-bottom: 0;
+    border-top: $arrow-size + 1 solid $color;
+    bottom: -$arrow-size + 1;
+    left: 50%;
+    margin-left: -$arrow-size + 1;
+  }
 }
-@mixin arrow-right($color: null, $arrow-size: 10px) {
-  @include arrow-base;
-  border: $arrow-size solid transparent;
-  border-left: $arrow-size solid $color;
-  border-right: 0;
-  left: 100%;
-  margin-top: -$arrow-size;
-  top: 50%;
+
+@mixin arrow-left($color: null, $arrow-size: 12px) {
+  position: relative;
+  :before {
+    @include arrow-base;
+    border: $arrow-size solid transparent;
+    border-right: $arrow-size solid $color;
+    border-left: 0;
+    right: 100%;
+    margin-top: -$arrow-size;
+    top: 50%;
+  }
 }
-@mixin arrow-up($color: null, $arrow-size: 10px) {
-  @include arrow-base;
-  border: $arrow-size solid transparent;
-  border-bottom: $arrow-size solid $color;
-  border-top: 0;
-  left: 50%;
-  margin-left: -$arrow-size;
-  top: -$arrow-size;
+@mixin arrow-right($color: null, $arrow-size: 12px) {
+  position: relative;
+  :before {
+    @include arrow-base;
+    border: $arrow-size solid transparent;
+    border-left: $arrow-size solid $color;
+    border-right: 0;
+    left: 100%;
+    margin-top: -$arrow-size;
+    top: 50%;
+  }
+}
+@mixin arrow-up($color: null, $arrow-size: 12px) {
+  position: relative;
+  :before {
+    @include arrow-base;
+    border: $arrow-size solid transparent;
+    border-bottom: $arrow-size solid $color;
+    border-top: 0;
+    left: 50%;
+    margin-left: -$arrow-size;
+    top: -$arrow-size;
+  }
+}
+@mixin arrow-up-outline($color: null, $border-color: $divider-color, $arrow-size: 12px) {
+  @include arrow-up;
+  :after {
+    @include arrow-base;
+    border: $arrow-size + 1 solid transparent;
+    border-bottom: $arrow-size + 1 solid $border-color;
+    border-top: 0;
+    left: 50%;
+    margin-left: -$arrow-size - 1;
+    top: -$arrow-size - 1;
+    z-index: $above;
+  }
 }
