@@ -1,9 +1,12 @@
-$calendar-bkgd: $card-bkgd;
-$calendar-border: $card-border;
-$calendar-width: 32rem;
-$calendar-body-width: 100%;
-$calendar-header-bkgd: $card-bkgd;
-$calendar-header-height: $size-large;
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$calendar-bkgd: $card-bkgd !default;
+$calendar-border: $card-border !default;
+$calendar-width: 32rem !default;
+$calendar-body-width: 100% !default;
+$calendar-header-bkgd: $card-bkgd !default;
+$calendar-header-height: $size-large !default;
 
 .rev-DatePicker {
   display: block;
