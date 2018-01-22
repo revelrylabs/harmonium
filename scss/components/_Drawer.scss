@@ -1,12 +1,12 @@
 // Copyright © Revelry Labs, LLC 2017 - All Rights Reserved.
 $drawer-width: 300px !default;
-$drawer-bkgd: $lighter-gray;
-$mobile-nav-bkgd: $black;
+$drawer-bkgd: $lighter-gray !default;
+$mobile-nav-bkgd: $black !default;
 
-$drawer-height: 100%;
-$drawer-height-contained: 800px;
-$drawer-height-fixed: calc(100vh - #{$topbar-height});
-$drawer-overlay-top-value: $topbar-height;
+$drawer-height: 100% !default;
+$drawer-height-contained: 800px !default;
+$drawer-height-fixed: calc(100vh - #{$topbar-height}) !default;
+$drawer-overlay-top-value: $topbar-height !default;
 
 /* $drawer-breakpoint: $small;
 $drawer-mobile-nav-breakpoint: $medium; */
@@ -75,7 +75,7 @@ $drawer-mobile-nav-breakpoint: $medium; */
   z-index: $above-most;
 }
 @mixin drawer-collapsible {
-
+//TODO: collapsible toggle for overlay and relative drawers
 }
 
 .rev-DrawerContainer {
@@ -140,27 +140,27 @@ $drawer-mobile-nav-breakpoint: $medium; */
       }
     }
   }
-
-
-
-
-
-
-  &.rev-Drawer--nav {
+  //TODO: mobile Nav styles + toggle
+  &.rev-Drawer--mobileNav {
     @include breakpoint(medium) {
       @include drawer-nostyle;
     }
     @include breakpoint(medium-down) {
-      @include drawer;
-      background: $mobile-nav-bkgd;
-      position: fixed;
+      @include drawer-overlay;
+      &.rev-Drawer--left {
+        left: 0;
+        right: auto;
+      }
+      &.rev-Drawer--right {
+        left: auto;
+        right: 0;
+      }
     }
   }
-
 }
 
-
-#Drawer-toggle { //  input
+//TODO: Drawer Toggle
+/* #Drawer-toggle { //  input
   opacity: 0;
   position: fixed;
   right: 0;
@@ -217,4 +217,4 @@ $drawer-mobile-nav-breakpoint: $medium; */
   &:active {
     color: $primary;
   }
-}
+} */

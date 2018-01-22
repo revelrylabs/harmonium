@@ -5,6 +5,10 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   left: 'rev-Drawer--left',
   right: 'rev-Drawer--right',
   top: 'rev-Drawer--top',
+  scroll: 'rev-Drawer--scroll',
+  fixed: 'rev-Drawer--fixed',
+  overlay: 'rev-Drawer--overlay',
+  collapsible: 'rev-Drawer--collapsible',
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 

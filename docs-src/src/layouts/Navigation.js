@@ -2,10 +2,11 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Menu from 'possum/lib/Menu'
 import Card from 'possum/lib/Card'
+import Drawer from 'possum/lib/Drawer'
 
 export default function Navigation() {
   return (
-    <div className="rev-Drawer rev-Drawer--collapsible rev-Drawer--left">
+    <Drawer fixed>
       <nav className="rev-Drawer-contents">
         <Card>
           <Menu vertical>
@@ -71,6 +72,6 @@ export default function Navigation() {
           <Menu.Item><Link to="/components/Lipsum/">Lorem Ipsum</Link></Menu.Item>
         </Menu>
       </nav>
-    </div>
+    </Drawer>
   )
 }
