@@ -15,7 +15,6 @@ $calendar-header-height: $size-large;
   position: relative;
   top: -$global-padding-small;
   width: $calendar-width;
-
   // DatePicker Calendar Header Row
   .rev-Calendar-header {
     @include flex(center, row, space-between, nowrap);
@@ -27,9 +26,6 @@ $calendar-header-height: $size-large;
     @include button;
     border-radius: 0;
     margin: 0;
-  }
-  .rev-Calendar-header-label {
-
   }
   &.rev-Calendar--overlay {
     position: absolute;
