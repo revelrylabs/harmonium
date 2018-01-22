@@ -9,7 +9,7 @@ const examples = {
 
 export default class SocialExamplePage extends Component {
   render() {
-    return <div>
+    return <div className="rev-Row rev-Row--collapsed">
       <ExampleSection title="Social" examples={examples} depth={1} scope={scope} />
     </div>
   }

@@ -8,7 +8,7 @@ const examples = {
 
 export default class NumberFormatterExamplePage extends Component {
   render() {
-    return <div>
+    return <div className="rev-Row rev-Row--collapsed">
       <ExampleSection title="Number Formatting" examples={examples} depth={1} scope={scope} />
     </div>
   }

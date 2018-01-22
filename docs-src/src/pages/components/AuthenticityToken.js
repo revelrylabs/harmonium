@@ -13,7 +13,7 @@ const scope = {React: React, Form: Form, Button: Button, AuthenticityTokenProvid
 
 export default class AuthenticityTokenExamplePage extends Component {
   render() {
-    return <div>
+    return <div className="rev-Row rev-Row--collapse">
       <ExampleSection title="Authenticity Tokens" examples={examples} depth={1} scope={scope} />
     </div>
   }

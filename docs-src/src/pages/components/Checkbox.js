@@ -9,7 +9,7 @@ const examples = {
 
 export default class CheckboxExamplePage extends Component {
   render() {
-    return <div>
+    return <div className="rev-Row rev-Row--collapse">
       <ExampleSection title="Checkboxes" examples={examples} depth={1} scope={scope} />
     </div>
   }

@@ -31,13 +31,12 @@ const TemplateWrapper = ({
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"/>
       </Helmet>
       <Header />
-      <div className="rev-Split rev-ContentWrapper">
+
+      <div className="rev-ContentWrapper rev-DrawerContainer">
         <Navigation />
-        <div className="rev-MainPanel">
-          <main className="rev-MainPanel-content">
-            {children()}
-          </main>
-        </div>
+        <main className="rev-Content">
+          {children()}
+        </main>
       </div>
     </div>
   )

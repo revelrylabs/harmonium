@@ -8,7 +8,7 @@ const examples = {
 
 export default class CloseButtonExamplePage extends Component {
   render() {
-    return <div>
+    return <div className="rev-Row rev-Row--collapse">
       <ExampleSection title="Close Buttons" examples={examples} depth={1} scope={scope} />
     </div>
   }

@@ -1,0 +1,12 @@
+.rev-HorizontalScrollContainer {
+  overflow-x: scroll;
+  width: 100%;
+}
+@mixin vertical-scroll-container($height: 500px) {
+  height: $height;
+  max-height: $height;
+  overflow-y: scroll;
+}
+.rev-VerticalScrollContainer {
+  @include vertical-scroll-container;
+}

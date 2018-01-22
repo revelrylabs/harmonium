@@ -8,7 +8,7 @@ const examples = {
 
 export default class CalloutExamplePage extends Component {
   render() {
-    return <div>
+    return <div className="rev-Row rev-Row--collapse">
       <ExampleSection title="Callouts" examples={examples} depth={1} scope={scope} />
     </div>
   }

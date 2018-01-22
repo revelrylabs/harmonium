@@ -1,14 +1,28 @@
+// Sizes
+$small: 0px;
+$medium: 640px;
+$large: 1024px;
+$xlarge: 1200px;
+$xxlarge: 1440px;
+
+$global-width: 100%;
+$grid-row-width: $large;
+
 // Breakpoints
 $breakpoints: (
-  small: (min-width: 0px),
-  small-only: ((min-width: 0px) and (max-width: 640px)),
-  medium: (min-width: 640px),
-  medium-only: ((min-width: 640px) and (max-width: 1024px)),
-  large: (min-width: 1024px),
-  large-only: ((min-width: 1024px) and (max-width: 1200px)),
-  xlarge: (min-width: 1200px),
-  xlarge-only: ((min-width: 1200px) and (max-width: 1440px)),
-  xxlarge: (min-width: 1440px),
+  small: (min-width: $small),
+  small-only: ((min-width: $small) and (max-width: $medium)),
+  medium: (min-width: $medium),
+  medium-down: ((max-width: $medium)),
+  medium-only: ((min-width: $medium) and (max-width: $large)),
+  large: (min-width: $large),
+  large-down: ((max-width: $large)),
+  large-only: ((min-width: $large) and (max-width: $xlarge)),
+  xlarge: (min-width: $xlarge),
+  xlarge-down: ((max-width: $xlarge)),
+  xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge)),
+  xxlarge: (min-width: $xxlarge),
+  global-width: (min-width: $global-width),
 );
 @import '../mixins/media-queries';
 
@@ -45,8 +59,6 @@ $global-weight-bold: 700;
 $global-lineheight: 1.5;
 $base-lineheight: $global-lineheight * $global-font-size;
 
-// Global Width
-$global-width: 1024px; // same as large breakpoint
 $grid-columns: 12;
 
 // Spacing
@@ -69,7 +81,6 @@ $global-margin-large: $global-padding-large;
 $global-margin-larger: $global-padding-larger;
 
 // Grid
-$grid-row-width: $global-width;
 $grid-column-padding: $global-padding-small;
 $grid-gutter: $grid-column-padding * 2;
 

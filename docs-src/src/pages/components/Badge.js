@@ -10,7 +10,7 @@ const scope = {React: React, Badge: Badge, }
 
 export default class BadgeExamplePage extends Component {
   render() {
-    return <div>
+    return <div className="rev-Row rev-Row--collapse">
       <ExampleSection title="Badges" examples={examples} depth={1} scope={scope} />
     </div>
   }
