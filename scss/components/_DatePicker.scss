@@ -16,7 +16,7 @@ $calendar-header-height: $size-large !default;
   background: $calendar-bkgd;
   border: $calendar-border;
   position: relative;
-  top: -$global-padding-small;
+  top: $global-padding-small;
   width: $calendar-width;
   // DatePicker Calendar Header Row
   .rev-Calendar-header {
