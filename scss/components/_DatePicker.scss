@@ -5,6 +5,10 @@ $calendar-body-width: 100%;
 $calendar-header-bkgd: $card-bkgd;
 $calendar-header-height: $size-large;
 
+.rev-DatePicker {
+  display: block;
+  position: relative;
+}
 .rev-Card.rev-Calendar {
   background: $calendar-bkgd;
   border: $calendar-border;
@@ -15,7 +19,6 @@ $calendar-header-height: $size-large;
   // DatePicker Calendar Header Row
   .rev-Calendar-header {
     @include flex(center, row, space-between, nowrap);
-    @include arrow-up-outline($calendar-header-bkgd);
     background: $calendar-header-bkgd;
     height: $calendar-header-height;
     text-align: center;
@@ -25,7 +28,17 @@ $calendar-header-height: $size-large;
     border-radius: 0;
     margin: 0;
   }
-  .rev-Calendar-header-label {}
+  .rev-Calendar-header-label {
+
+  }
+  &.rev-Calendar--overlay {
+    position: absolute;
+    top: calc(100% + #{$global-padding});
+    z-index: $above-most;
+    .rev-Calendar-header {
+      @include arrow-up-outline($calendar-header-bkgd);
+    }
+  }
 }
 
 // DatePicker Calendar
