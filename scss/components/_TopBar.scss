@@ -18,7 +18,7 @@ $topbar-link-bkgd: transparent !default;
   padding: 0;
   position: relative;
   width: 100%;
-  z-index: $above;
+  z-index: $above-everything;
   nav {
     @include flex(center, row, space-between, no-wrap);
     height: $topbar-height;
@@ -75,7 +75,7 @@ $topbar-link-bkgd: transparent !default;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: $above-most;
+    z-index:  $above-everything;
     .rev-Row {
       @include flex(stretch, row, space-between);
     }
