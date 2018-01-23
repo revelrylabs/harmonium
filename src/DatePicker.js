@@ -279,7 +279,7 @@ class UncontrolledDatePicker extends React.Component {
 
     return (
       <label
-        className={`rev-DatePicker ${nativeClass}`}
+        className={`rev-DatePicker rev-InputLabel ${nativeClass}`}
         onMouseOver={this.mouseIn.bind(this)}
         onMouseOut={this.mouseOut.bind(this)}
       >
