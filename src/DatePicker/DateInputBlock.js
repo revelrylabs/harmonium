@@ -5,6 +5,19 @@ import React from 'react'
 import Input from '../Input'
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
+/**
+ * A component which contains the input(s) for a DatePicker. If the DatePicker
+ * is a true type="date" input, and we aren't overriding the default format,
+ * there will be one input here-- the input[type="date"]. If the browser has bad
+ * type="date" support, or we chosen a custom date format, there will be two
+ * inputs. One is a visible text input where the user types / calendar sets
+ * local formatted date values (e.g. 03/12/2018). The other will be a hidden
+ * input which carries the iso date value that a true date field would output.
+ * Only the hidden field in this case has a name= attribute, and so it is the
+ * only value submitted. This allows the server to expect the same format from
+ * the client, whether date inputs are well supported on the client or not.
+ * @param {object} props - the props of the DateInputBlock
+ */
 const DateInputBlock = ({
   error,
   className,
