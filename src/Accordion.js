@@ -24,15 +24,15 @@ class AccordionItem extends Component {
     const {children, className, onClick, href, title, active, contentKey, ...props} = this.props
 
     const liClassName = classNames(className, 'rev-AccordionItem', {
-      'is-active': active,
+      'rev-AccordionItem--selected': active,
     })
 
     const aClassName = classNames('rev-AccordionItem-title', {
-      'is-active': active,
+      'rev-AccordionItem-title--selected': active,
     })
 
     const divClassName = classNames('rev-AccordionItem-content', {
-      'is-active': active,
+      'rev-AccordionItem-content--selected': active,
     })
 
     const div = (
