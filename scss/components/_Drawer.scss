@@ -20,7 +20,6 @@ $drawer-mobile-nav-breakpoint: $medium; */
   width: $drawer-width;
   .rev-Drawer-contents {
     background: $drawer-bkgd;
-    padding: $global-padding;
     width: $drawer-width;
   }
   .rev-TopBar-item .rev-Menu {
@@ -83,6 +82,9 @@ $drawer-mobile-nav-breakpoint: $medium; */
 }
 .rev-Drawer {
   @include drawer;
+  @include breakpoint(small-only) {
+    display: none;
+  }
   &.rev-Drawer--scroll {
     @include drawer-scroll;
   }

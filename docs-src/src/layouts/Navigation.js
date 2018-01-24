@@ -8,27 +8,19 @@ export default function Navigation() {
   return (
     <Drawer fixed>
       <nav className="rev-Drawer-contents">
-        <Card>
-          <Menu vertical>
-            <Menu.Item text><strong>Grid</strong></Menu.Item>
-            <Menu.Item><Link to="/components/grid/">Rows &amp; Columns</Link></Menu.Item>
-            <Menu.Item><Link to="/components/ExpandingCol/">Expanding Columns</Link></Menu.Item>
-          </Menu>
-        </Card>
-        <Card>
-          <Menu>
-            <Menu.Item text><strong>Forms</strong></Menu.Item>
-            <Menu.Item><Link to="/components/Button/">Button</Link></Menu.Item>
-            <Menu.Item><Link to="/components/Checkbox/">Checkboxes and Fieldsets</Link></Menu.Item>
-            <Menu.Item><Link to="/components/Input/">Input</Link></Menu.Item>
-            <Menu.Item><Link to="/components/InputGroup/">Input Group</Link></Menu.Item>
-            <Menu.Item><Link to="/components/Label/">Label</Link></Menu.Item>
-            <Menu.Item><Link to="/components/Radio/">Radio</Link></Menu.Item>
-            <Menu.Item><Link to="/components/Select/">Select</Link></Menu.Item>
-            <Menu.Item><Link to="/components/Textarea/">Textarea</Link></Menu.Item>
-          </Menu>
-        </Card>
-        <Menu>
+        <Menu vertical dividers>
+          <Menu.Item text><strong>Grid</strong></Menu.Item>
+          <Menu.Item><Link to="/components/grid/">Rows &amp; Columns</Link></Menu.Item>
+          <Menu.Item><Link to="/components/ExpandingCol/">Expanding Columns</Link></Menu.Item>
+          <Menu.Item text><strong>Forms</strong></Menu.Item>
+          <Menu.Item><Link to="/components/Button/">Button</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Checkbox/">Checkboxes and Fieldsets</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Input/">Input</Link></Menu.Item>
+          <Menu.Item><Link to="/components/InputGroup/">Input Group</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Label/">Label</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Radio/">Radio</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Select/">Select</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Textarea/">Textarea</Link></Menu.Item>
           <Menu.Item text><strong>Lists</strong></Menu.Item>
           <Menu.Item><Link to="/components/Emptyable/">Emptyable</Link></Menu.Item>
           <Menu.Item><Link to="/components/Pagination/">Pagination</Link></Menu.Item>
