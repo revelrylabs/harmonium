@@ -7,6 +7,10 @@ import CalendarHeaderRow from './CalendarHeaderRow'
 import CalendarWeekRow from './CalendarWeekRow'
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
+/**
+ * A component representing a Calendar for a given focus month (& including the
+ * leading days of the first week and trailing days of the last week).
+ */
 export default class Calendar extends React.Component {
   /**
    * The default values for props of this component
@@ -127,12 +131,13 @@ export default class Calendar extends React.Component {
       highlights,
       nextLabel,
       previousLabel,
+      overlay,
       ...props
     } = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
 
     return (
-      <Card {...props} className="rev-Calendar">
+      <Card {...props} className={`rev-Calendar ${overlay ? 'rev-Calendar--overlay' : ''}`}>
         <Card.Header className="rev-Calendar-header">
           <button
             onClick={this.addMonth.bind(this, -1)}

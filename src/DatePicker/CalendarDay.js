@@ -3,6 +3,7 @@ import configMapping from '../Utilities/configMapping'
 
 /**
  * A className depending on whether the date is in the focused month or not.
+ * @private
  * @param {DateTime} date - the date in question as a Luxon DateTime
  * @param {string} currentMonth the current month as a string formatted yyyy-MM
  * @returns {string} the className
@@ -14,6 +15,7 @@ function calculateMonthClass(date, currentMonth) {
 
 /**
  * A className depending on whether the date is selectable or not.
+ * @private
  * @param {Function} isSelectable - a function which returns true id the date is
  *   selectable
  * @param {DateTime} date - a Luxon DateTime for the date in question
@@ -31,6 +33,7 @@ function calculateSelectionClass(isSelectable, date, selectedDate) {
 
 /**
  * A className for a date depending on whether or not it is 'highlighted.'
+ * @private
  * @param {DateTime} date - the date in question as a Luxon DateTime
  * @param {object|Array|Function} highlights a mapping between dates and
  *   highlight classes. If an array, gives a standard --highlighted modifier to
@@ -50,6 +53,7 @@ function calculateHighlightClass(date, highlights) {
 /**
  * Handles clicks onto the cell. If the cell is selectable, invoke the
  * dateChanger that was passed in. If not, do nothing.
+ * @private
  * @param {Function} isSelectable returns true if the date is selectable
  * @param {DateTime} date the date in question
  * @param {Function} dateChanger the handler to invoke if the cell is selectable

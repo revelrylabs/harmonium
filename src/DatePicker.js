@@ -270,6 +270,7 @@ class UncontrolledDatePicker extends React.Component {
       week,
       day,
       headerDay,
+      overlay,
       ...props
     } = this.props
 
@@ -308,6 +309,7 @@ class UncontrolledDatePicker extends React.Component {
             isSelectable={isSelectable}
             week={week}
             highlights={highlights}
+            overlay={overlay}
             {...calendar}
             day={day}
             headerDay={headerDay}
@@ -344,4 +346,5 @@ UncontrolledDatePicker.propTypes = {
 
 UncontrolledDatePicker.DateInputBlock = DateInputBlock
 UncontrolledDatePicker.Calendar = Calendar
+export {Calendar, DateInputBlock};
 export default UncontrolledDatePicker
