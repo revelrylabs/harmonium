@@ -32,7 +32,7 @@ $calendar-header-height: $size-large !default;
   }
   &.rev-Calendar--overlay {
     position: absolute;
-    top: calc(100% + #{$global-padding});
+    top: calc(100% + #{$global-padding-small});
     z-index: $above-most;
     .rev-Calendar-header {
       @include arrow-up-outline($calendar-header-bkgd);
