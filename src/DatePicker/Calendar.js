@@ -7,7 +7,15 @@ import CalendarHeaderRow from './CalendarHeaderRow'
 import CalendarWeekRow from './CalendarWeekRow'
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
+/**
+ * A component representing a Calendar for a given focus month (& including the
+ * leading days of the first week and trailing days of the last week).
+ */
 export default class Calendar extends React.Component {
+  /**
+   * The default values for props of this component
+   * @return {object} the default value object
+   */
   static get defaultProps() {
     const createElement = React.createElement
 
@@ -20,6 +28,11 @@ export default class Calendar extends React.Component {
     }
   }
 
+  /**
+   * Creates a Calendar. Sets state.date to a Luxon DateTime based on the
+   * selectedDate prop.
+   * @param {*} props
+   */
   constructor(props) {
     super(props)
     this.state = {
@@ -27,12 +40,25 @@ export default class Calendar extends React.Component {
     }
   }
 
+  /**
+   * Update state when props change. In particular, if we receive a different
+   * `selectedDate` prop from up the hierarchy, set state.date to a new Luxon
+   * DateTime appropriately (in order to force the calendar to focus on the new
+   * date).
+   * @param {*} nextProps
+   */
   componentWillReceiveProps(nextProps) {
     if (nextProps.selectedDate != this.props.selectedDate) {
       this.setState({ date: this.asLuxon(nextProps.selectedDate) })
     }
   }
 
+  /**
+   * Convert an iso date string to a Luxon DateTime. If iso date is blank / null,
+   * or invalid (e.g. 2018-06-66), return the local current date instead.
+   * @param {string} date - the date to convert, as either an iso date, or a
+   *   blank / null
+   */
   asLuxon(date) {
     if (!date) {
       return DateTime.local()
@@ -45,17 +71,45 @@ export default class Calendar extends React.Component {
     return luxon
   }
 
+  /**
+   * The start of the month of that the current focus date is in (e.g. if the
+   * input is filled with 2018-08-05 then this value is 2018-08-1).
+   * @returns {DateTime} - a Luxon DateTime represented the first day of the
+   *   month in question.
+   */
   startOfMonth() {
     return this.state.date.startOf('month')
   }
 
+  /**
+   * Returns the nearest Sunday falling on or before the start of the month.
+   * This is the first day of the first row of the calendar display. Note that
+   * this date is either equal to startOfMonth (if the month starts on a Sunday)
+   * or in the previous month (if the month starts on a different day of the
+   * week).
+   * @returns {DateTime} - a Luxon DateTime representing the Sunday when the first
+   *   week of the focus month starts.
+   */
   startOfWeekOfStartOfMonth() {
     const weekday = this.startOfMonth().weekday % 7
     return this.startOfMonth().minus(Duration.fromObject({ days: weekday }))
   }
 
-  addMonth(n, e) {
-    e.preventDefault()
+  /**
+   * Move the focus month up n months (or back |n| months if n is negative).
+   * It moves it to n months from startOfMonth to handle advancing between
+   * months with different numbers of days (2018-01-31 + 1 month in Luxon =
+   * 2018-03-03). We actually want Jan -> Feb -> Mar which only works if we do
+   * (2018-01-31).startOfMonth() + 1month = 2018-02-01.
+   *
+   * This function does not change the date in the input (only calendar display,
+   * so we can get away with using the first of the month like this.
+   * @param {int} n
+   * @param {Event} event - the event that caused this handler to be invoked
+   *   (e.g. the click event from the next or previous button on the calendar)
+   */
+  addMonth(n, event) {
+    event.preventDefault()
     this.setState({
       date: this.startOfMonth().plus(Duration.fromObject({ month: n }))
     })
@@ -77,12 +131,13 @@ export default class Calendar extends React.Component {
       highlights,
       nextLabel,
       previousLabel,
+      overlay,
       ...props
     } = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
 
     return (
-      <Card {...props} className="rev-Calendar">
+      <Card {...props} className={`rev-Calendar ${overlay ? 'rev-Calendar--overlay' : ''}`}>
         <Card.Header className="rev-Calendar-header">
           <button
             onClick={this.addMonth.bind(this, -1)}

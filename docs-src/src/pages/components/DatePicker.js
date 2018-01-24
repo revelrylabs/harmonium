@@ -17,6 +17,7 @@ const examples = {
   'With Highlights Object': require('raw!../../examples/DatePicker/HighlightsObject.js.example'),
   'With Highlights Function': require('raw!../../examples/DatePicker/HighlightsFunction.js.example'),
   'With Highlights Function And Class': require('raw!../../examples/DatePicker/HighlightsFunctionAndClass.js.example'),
+  'Overlay': require('raw!../../examples/DatePicker/Overlay.js.example'),
 }
 
 export default class DatePickerExamplePage extends Component {
