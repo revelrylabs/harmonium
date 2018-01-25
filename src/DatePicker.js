@@ -300,21 +300,20 @@ class UncontrolledDatePicker extends React.Component {
         />
         <InputHelpText>{help}</InputHelpText>
         <InputErrors>{error}</InputErrors>
-        {this.calendarOpened ? (
-          <Calendar
-            selectedDate={this.state.isoValue}
-            dateChanger={this.dateChanger.bind(this)}
-            focuser={this.refocus.bind(this)}
-            overrides={overrides}
-            isSelectable={isSelectable}
-            week={week}
-            highlights={highlights}
-            overlay={overlay}
-            {...calendar}
-            day={day}
-            headerDay={headerDay}
-          />
-        ) : null}
+        <Calendar
+          selectedDate={this.state.isoValue}
+          dateChanger={this.dateChanger.bind(this)}
+          focuser={this.refocus.bind(this)}
+          overrides={overrides}
+          isSelectable={isSelectable}
+          week={week}
+          highlights={highlights}
+          overlay={overlay}
+          {...calendar}
+          day={day}
+          headerDay={headerDay}
+          className={this.calendarOpened ? 'rev-Calendar--open' : 'rev-Calendar--closed'}
+        />
       </label>
     )
   }

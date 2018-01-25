@@ -17,6 +17,7 @@ $calendar-header-height: $size-large !default;
   border: $calendar-border;
   position: relative;
   top: -$global-padding-small;
+  transition: height 0.125s;
   width: $calendar-width;
   // DatePicker Calendar Header Row
   .rev-Calendar-header {
@@ -98,4 +99,15 @@ $calendar-header-height: $size-large !default;
 
 .rev-Calendar-body-bodyCell--highlighted {
   color: $success;
+}
+
+.rev-Calendar--closed.rev-Calendar--closed {
+  border: none;
+  height: 0;
+  overflow: scroll;
+}
+
+.rev-Calendar--open.rev-Calendar--open {
+  height: 33rem;
+  overflow: hidden;
 }

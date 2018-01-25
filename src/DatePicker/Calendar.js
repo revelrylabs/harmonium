@@ -120,6 +120,7 @@ export default class Calendar extends React.Component {
 
   render() {
     const {
+      className,
       week,
       overrides,
       day,
@@ -137,7 +138,7 @@ export default class Calendar extends React.Component {
     const createElement = createElementWithOverride.bind(this, overrides)
 
     return (
-      <Card {...props} className={`rev-Calendar ${overlay ? 'rev-Calendar--overlay' : ''}`}>
+      <Card {...props} className={`rev-Calendar ${overlay ? 'rev-Calendar--overlay' : ''} ${className}`}>
         <Card.Header className="rev-Calendar-header">
           <button
             onClick={this.addMonth.bind(this, -1)}
