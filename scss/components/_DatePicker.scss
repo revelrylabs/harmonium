@@ -16,8 +16,7 @@ $calendar-header-height: $size-large !default;
   background: $calendar-bkgd;
   border: $calendar-border;
   position: relative;
-  top: -$global-padding-small;
-  transition: height 0.125s;
+  margin-top: $global-padding-small;
   width: $calendar-width;
   // DatePicker Calendar Header Row
   .rev-Calendar-header {
@@ -33,11 +32,17 @@ $calendar-header-height: $size-large !default;
   }
   &.rev-Calendar--overlay {
     position: absolute;
-    top: calc(100% + #{$global-padding});
+    top: calc(100% + #{$global-padding-small});
     z-index: $above-most;
     .rev-Calendar-header {
       @include arrow-up-outline($calendar-header-bkgd);
     }
+  }
+}
+.rev-InputHelpText,
+.rev-InputErrors {
+  + .rev-Calendar {
+    margin-top: 0;
   }
 }
 
@@ -101,13 +106,17 @@ $calendar-header-height: $size-large !default;
   color: $success;
 }
 
+// FIXME: Laura, please make this transition good. I just put in the first thing
+//   that occurred to me to test that it works.
 .rev-Calendar--closed.rev-Calendar--closed {
   border: none;
   height: 0;
   overflow: scroll;
 }
-
 .rev-Calendar--open.rev-Calendar--open {
   height: 33rem;
   overflow: hidden;
+}
+.rev-Card.rev-Calendar {
+  transition: height 0.125s;
 }
