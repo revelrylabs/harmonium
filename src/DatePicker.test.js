@@ -55,14 +55,14 @@ describe('DatePicker', () => {
     input.find('input').simulate('focus')
     input.update()
 
-    expect(input.find(Calendar).exists()).to.equal(true)
+    expect(input.find(Calendar).prop('className')).to.contain('rev-Calendar--open')
     expect(focusSpy.called).to.equal(true)
     expect(blurSpy.called).to.equal(false)
 
     input.find('input').simulate('blur')
     input.update()
 
-    expect(input.find(Calendar).exists()).to.equal(false)
+    expect(input.find(Calendar).prop('className')).to.contain('rev-Calendar--closed')
     expect(blurSpy.called).to.equal(true)
   })
 
@@ -73,11 +73,11 @@ describe('DatePicker', () => {
     input.find('input').simulate('blur')
     input.update()
 
-    expect(input.find(Calendar).exists()).to.equal(true)
+    expect(input.find(Calendar).prop('className')).to.contain('rev-Calendar--open')
 
     input.find('label').simulate('mouseOut')
     input.update()
-    expect(input.find(Calendar).exists()).to.equal(false)
+    expect(input.find(Calendar).prop('className')).to.contain('rev-Calendar--closed')
   })
 
   it('can make items not selectable', () => {
