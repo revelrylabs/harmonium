@@ -1,24 +1,8 @@
 $menu-bkgd: $white !default;
 $menu-color: $body-font-color !default;
-$menu-link-bkgd: transparent !default;
-$menu-link-bkgd-hover: transparent !default;
-$menu-link-bkgd-active: transparent !default;
-$menu-link-bkgd-selected: $anchor-color-selected !default;
-$menu-link-color: $anchor-color !default;
-$menu-link-color-hover: $anchor-color-hover !default;
-$menu-link-color-active: $anchor-color-active !default;
-$menu-link-color-selected: $menu-bkgd !default;
 
 $menu-bkgd-inverse: $brand-dark !default;
 $menu-color-inverse: $brand-light !default;
-$menu-link-bkgd-inverse: transparent !default;
-$menu-link-bkgd-inverse-hover: transparent !default;
-$menu-link-bkgd-inverse-active: transparent !default;
-$menu-link-bkgd-inverse-selected: $anchor-color-selected !default;
-$menu-link-color-inverse: $anchor-color-inverse !default;
-$menu-link-color-inverse-hover: $anchor-color-inverse-hover !default;
-$menu-link-color-inverse-active: $anchor-color-inverse-active !default;
-$menu-link-color-inverse-selected: $menu-bkgd-inverse !default;
 
 $menu-dropdown-width: 24rem !default;
 
@@ -75,7 +59,7 @@ $menu-dropdown-width: 24rem !default;
     &:hover,
     &:active,
     &:focus,
-    &.rev-Menu-item--active {
+    &.rev-Menu-item--selected {
       .rev-Menu--nested {
         display: block;
       }
@@ -85,6 +69,7 @@ $menu-dropdown-width: 24rem !default;
 
 @mixin rev-menu-item {
   .rev-Menu-item {
+    @include navigation-color-mgmt;
     margin: 0;
     padding: 0;
     position: relative;
@@ -93,46 +78,13 @@ $menu-dropdown-width: 24rem !default;
       display: block;
       padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
     }
-    a {
-      background: $menu-link-bkgd;
-      color: $menu-link-color;
-      &:hover {
-        background: $menu-link-bkgd-hover;
-        color: $menu-link-color-hover;
-      }
-      &:active,
-      &:focus {
-        background: $menu-link-bkgd-active;
-        color: $menu-link-color-active;
-      }
-    }
-    &[class*='--active'] a {
-      background: $menu-link-bkgd-selected;
-      color: $menu-link-color-selected;
-    }
   }
 }
 
 @mixin rev-menu-item-inverse {
   @include rev-menu-item;
   .rev-Menu-item {
-    a {
-      background: $menu-link-bkgd-inverse;
-      color: $menu-link-color-inverse;
-      &:hover {
-        background: $menu-link-bkgd-inverse-hover;
-        color: $menu-link-color-inverse-hover;
-      }
-      &:active,
-      &:focus {
-        background: $menu-link-bkgd-inverse-active;
-        color: $menu-link-color-inverse-active;
-      }
-    }
-    &[class*='--active'] a {
-      background: $menu-link-bkgd-inverse-selected;
-      color: $menu-link-color-inverse-selected;
-    }
+    @include navigation-color-mgmt-inverted;
   }
 }
 
@@ -177,7 +129,6 @@ $menu-dropdown-width: 24rem !default;
     text-align: right;
   }
   &.rev-Menu--inverse {
-    @include body-color-stack-inverted;
     @include rev-menu-item-inverse;
     background: $menu-bkgd-inverse;
     color: $menu-color-inverse;
@@ -196,7 +147,7 @@ $menu-dropdown-width: 24rem !default;
   }
 }
 
-/*TODO: do this smarter*/
+// TODO: do this smarter
 .rev-Menu--nested {
   a {
     padding-left: $global-padding;

@@ -131,7 +131,7 @@ $hr-margin: $global-padding-large auto;
 $image-blur: blur(8px);
 $no-image-blur: blur(0px);
 
-$disabled-opacity: 0.25;
+$disabled-opacity: 0.35;
 
 // Sizes
 // common size vars for things like badges, close buttons, fixed naviagtion bars
@@ -143,15 +143,27 @@ $size-larger: 64px;
 $size-largest: 128px;
 
 //## NAVIGATION COLORS
+$navigation-color: $anchor-color;
+$navigation-color-hover: $anchor-color-hover;
+$navigation-color-selected: $white;
+$navigation-color-active: $navigation-color-selected; // When you click
+$navigation-color-disabled: $navigation-color; // When you click
 $navigation-bkgd: $white;
-$navigation-bkgd-hover: darken($navigation-bkgd, 10%);
-$navigation-bkgd-click: darken($navigation-bkgd, 20%);
-$navigation-bkgd-active: darken($navigation-bkgd, 15%);
+$navigation-bkgd-hover: darken($navigation-bkgd, 5%);
+$navigation-bkgd-selected: $primary;
+$navigation-bkgd-active: $navigation-bkgd-selected; // When you click
+$navigation-bkgd-disabled: $navigation-bkgd; // When you click
 
+$navigation-color-inverted: $white;
+$navigation-color-inverted-hover: darken($navigation-color-inverted, 10%);
+$navigation-color-inverted-selected: $white;
+$navigation-color-inverted-active: $navigation-color-selected; // When you click
+$navigation-color-inverted-disabled: $navigation-color-inverted; // When you click
 $navigation-bkgd-inverted: $darker-gray;
-$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 10%);
-$navigation-bkgd-inverted-click: lighten($navigation-bkgd-inverted, 20%);
-$navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
+$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 5%);
+$navigation-bkgd-inverted-selected: $anchor-color;
+$navigation-bkgd-inverted-active: $navigation-bkgd-inverted-selected;
+$navigation-bkgd-inverted-disabled: $navigation-bkgd-inverted;
 
 //## LAYOUTS
 //$rail-width: 300px;
@@ -277,3 +289,10 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$progress-radius: $global-rounded;
 //$progress-meter-height: $size-tiny;
 //$progress-meter-bkgd: $brand-dark;
+
+//## Pagination
+// $pagination-radius: 0;
+// $pagination-vertical-padding: $global-padding-tiny;
+// $pagination-padding: $pagination-vertical-padding $global-padding-small;
+// $pagination-margin: $global-padding-tiny / 2;
+// $pagination-dot-color: $dark-gray;

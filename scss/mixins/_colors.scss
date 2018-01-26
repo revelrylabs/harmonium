@@ -20,46 +20,82 @@
   }
 }
 
-$navigation-bkgd: $white;
-$navigation-bkgd-hover: darken($navigation-bkgd, 5%);
-$navigation-bkgd-click: darken($navigation-bkgd, 15%);
-$navigation-bkgd-active: darken($navigation-bkgd, 10%);
+$navigation-color: $anchor-color !default;
+$navigation-color-hover: $anchor-color-hover !default;
+$navigation-color-selected: $white !default;
+$navigation-color-active: $navigation-color-selected; // When you clic !defaultk
+$navigation-color-disabled: $navigation-color; // When you clic !defaultk
+$navigation-bkgd: $white !default;
+$navigation-bkgd-hover: darken($navigation-bkgd, 5%) !default;
+$navigation-bkgd-selected: $primary !default;
+$navigation-bkgd-active: $navigation-bkgd-selected; // When you clic !defaultk
+$navigation-bkgd-disabled: $navigation-bkgd; // When you clic !defaultk
 
-$navigation-bkgd-inverted: $darker-gray;
-$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 5%);
-$navigation-bkgd-inverted-click: lighten($navigation-bkgd-inverted, 15%);
-$navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 10%);
+$navigation-color-inverted: $white !default;
+$navigation-color-inverted-hover: darken($navigation-color-inverted, 10%) !default;
+$navigation-color-inverted-selected: $white !default;
+$navigation-color-inverted-active: $navigation-color-selected; // When you clic !defaultk
+$navigation-color-inverted-disabled: $navigation-color-inverted; // When you clic !defaultk
+$navigation-bkgd-inverted: $darker-gray !default;
+$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 5%) !default;
+$navigation-bkgd-inverted-selected: $anchor-color !default;
+$navigation-bkgd-inverted-active: $navigation-bkgd-inverted-selected !default;
+$navigation-bkgd-inverted-disabled: $navigation-bkgd-inverted !default;
 
-@mixin navigation-color-management {
+// NOTE: Use this mixin when the disabled class is not added to the same
+// element that the navigation-color-mgmt mixin is included on. Ex: Pagination.
+
+@mixin navigation-color-mgmt {
   a {
     background: $navigation-bkgd;
-    &:hover {
+    color: $navigation-color;
+    &:hover,
+    &:focus {
       background: $navigation-bkgd-hover;
+      color: $navigation-color-hover;
     }
     &:active {
-      background: $navigation-bkgd-click;
+      background: $navigation-bkgd-active;
+      color: $navigation-color-active;
     }
   }
-  &[class*='--active'] a {
-    background: $navigation-bkgd-active;
+  &[class*='--selected'] a {
+    background: $navigation-bkgd-selected;
+    color: $navigation-color-selected;
+  }
+  &[class*='--disabled'] a {
+    @include disabled;
+    background: $navigation-bkgd-disabled;
+    color: $navigation-color-disabled;
+    cursor: not-allowed;
   }
 }
 
-@mixin navigation-color-management-inverted {
+@mixin navigation-color-mgmt-inverted {
   a {
     background: $navigation-bkgd-inverted;
-    &:hover {
+    color: $navigation-color-inverted;
+    &:hover,
+    &:focus {
       background: $navigation-bkgd-inverted-hover;
+      color: $navigation-color-inverted-hover;
     }
     &:active {
-      background: $navigation-bkgd-inverted-click;
+      background: $navigation-bkgd-inverted-active;
+      color: $navigation-color-inverted-active;
     }
   }
-  &[class*='--active'] a {
-    background: $navigation-bkgd-inverted-active;
+  &[class*='--selected'] a {
+    background: $navigation-bkgd-inverted-selected;
+    color: $navigation-color-inverted-selected;
+  }
+  &[class*='--disabled'] a {
+    @include disabled;
+    background: $navigation-bkgd-inverted-disabled;
+    color: $navigation-color-inverted-disabled;
+    cursor: not-allowed;
   }
 }
-
 
 $color-list: primary, success, alert, warning, error;
 $color-vars: $primary, $success, $alert, $warning, $error;
@@ -92,5 +128,5 @@ $color-vars: $primary, $success, $alert, $warning, $error;
   opacity: 0.5;
 }
 @mixin disabled {
-  opacity: 0.35;
+  opacity: $disabled-opacity;
 }

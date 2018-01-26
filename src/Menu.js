@@ -48,7 +48,7 @@ export class MenuItem extends Component {
     const newClassName = classNames('rev-Menu-item', {
       'rev-Menu-item--divider': divider,
       'rev-Menu-item--text': text,
-      'rev-Menu-item--active': active,
+      'rev-Menu-item--selected': active,
     })
 
     return (
