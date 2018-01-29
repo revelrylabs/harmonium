@@ -44,7 +44,9 @@ describe('Calendar', () => {
     calendar
       .find('.rev-Calendar-header-button--next')
       .simulate('click', { preventDefault: () => null })
-    const monthString = DateTime.local()
+    const monthString = DateTime
+      .local()
+      .startOf('month')
       .plus(Duration.fromObject({ month: 1 }))
       .toLocaleString({ month: 'short', year: 'numeric' })
 
