@@ -138,54 +138,56 @@ export default class Calendar extends React.Component {
     const createElement = createElementWithOverride.bind(this, overrides)
 
     return (
-      <Card {...props} className={`rev-Calendar ${overlay ? 'rev-Calendar--overlay' : ''} ${className}`}>
-        <Card.Header className="rev-Calendar-header">
-          <button
-            onClick={this.addMonth.bind(this, -1)}
-            className="rev-Calendar-header-button rev-Calendar-header-button--previous"
-            aria-label="Previous Month"
-          >
-            {previousLabel}
-          </button>
-          <span className="rev-Calendar-header-label">
-            {this.state.date.toLocaleString({
-              month: 'short',
-              year: 'numeric'
-            })}
-          </span>
-          <button
-            onClick={this.addMonth.bind(this, 1)}
-            className="rev-Calendar-header-button rev-Calendar-header-button--next"
-            aria-label="Next Month"
-          >
-            {nextLabel}
-          </button>
-        </Card.Header>
-        <table className="rev-Calendar-body">
-          <CalendarHeaderRow
-            firstDay={this.startOfWeekOfStartOfMonth()}
-            overrides={overrides}
-            headerDay={headerDay}
-          />
-          <tbody>
-            {[0, 7, 14, 21, 28].map(i => {
-              return (
-                <CalendarWeekRow
-                  {...week}
-                  day={day}
-                  firstDay={this.startOfWeekOfStartOfMonth().plus({ days: i })}
-                  currentMonth={this.state.date.toFormat('yyyy-MM')}
-                  isSelectable={isSelectable}
-                  dateChanger={dateChanger}
-                  selectedDate={selectedDate}
-                  highlights={highlights}
-                  key={i}
-                />
-              )
-            })}
-          </tbody>
-        </table>
-      </Card>
+      <div {...props} className={`rev-Calendar ${overlay ? 'rev-Calendar--overlay' : ''} ${className}`}>
+        <Card>
+          <Card.Header className="rev-Calendar-header">
+            <button
+              onClick={this.addMonth.bind(this, -1)}
+              className="rev-Calendar-header-button rev-Calendar-header-button--previous"
+              aria-label="Previous Month"
+            >
+              {previousLabel}
+            </button>
+            <span className="rev-Calendar-header-label">
+              {this.state.date.toLocaleString({
+                month: 'short',
+                year: 'numeric'
+              })}
+            </span>
+            <button
+              onClick={this.addMonth.bind(this, 1)}
+              className="rev-Calendar-header-button rev-Calendar-header-button--next"
+              aria-label="Next Month"
+            >
+              {nextLabel}
+            </button>
+          </Card.Header>
+          <table className="rev-Calendar-body">
+            <CalendarHeaderRow
+              firstDay={this.startOfWeekOfStartOfMonth()}
+              overrides={overrides}
+              headerDay={headerDay}
+            />
+            <tbody>
+              {[0, 7, 14, 21, 28].map(i => {
+                return (
+                  <CalendarWeekRow
+                    {...week}
+                    day={day}
+                    firstDay={this.startOfWeekOfStartOfMonth().plus({ days: i })}
+                    currentMonth={this.state.date.toFormat('yyyy-MM')}
+                    isSelectable={isSelectable}
+                    dateChanger={dateChanger}
+                    selectedDate={selectedDate}
+                    highlights={highlights}
+                    key={i}
+                  />
+                )
+              })}
+            </tbody>
+          </table>
+        </Card>
+      </div>
     )
   }
 }
