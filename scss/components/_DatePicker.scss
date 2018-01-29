@@ -7,17 +7,45 @@ $calendar-width: 32rem !default;
 $calendar-body-width: 100% !default;
 $calendar-header-bkgd: $card-bkgd !default;
 $calendar-header-height: $size-large !default;
+$calendar-max-height-animation: 35rem !default;
 
 .rev-DatePicker {
   display: block;
   position: relative;
 }
-.rev-Card.rev-Calendar {
-  background: $calendar-bkgd;
-  border: $calendar-border;
+.rev-Calendar {
+  @include global-transition;
+  overflow: hidden;
   position: relative;
-  margin-top: $global-padding-small;
-  width: $calendar-width;
+  &.rev-Calendar--closed {
+    max-height: 0px;
+  }
+  &.rev-Calendar--open {
+    max-height: $calendar-max-height-animation;
+  }
+  &.rev-Calendar--overlay {
+    position: absolute;
+    top: calc(100% + #{$global-padding-small});
+    z-index: $above-most;
+    &.rev-Calendar--closed {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    &.rev-Calendar--open {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    .rev-Calendar-header {
+      @include arrow-up-outline($calendar-header-bkgd);
+    }
+  }
+  .rev-Card {
+    background: $calendar-bkgd;
+    border: $calendar-border;
+    margin-top: $global-padding-small;
+    width: $calendar-width;
+  }
+
   // DatePicker Calendar Header Row
   .rev-Calendar-header {
     @include flex(center, row, space-between, nowrap);
@@ -30,13 +58,11 @@ $calendar-header-height: $size-large !default;
     border-radius: 0;
     margin: 0;
   }
-  &.rev-Calendar--overlay {
-    position: absolute;
-    top: calc(100% + #{$global-padding-small});
-    z-index: $above-most;
-    .rev-Calendar-header {
-      @include arrow-up-outline($calendar-header-bkgd);
-    }
+  .rev-Calendar-header-button--previous {
+    border-top-left-radius: $card-radius;
+  }
+  .rev-Calendar-header-button--next {
+    border-top-right-radius: $card-radius;
   }
 }
 .rev-InputHelpText,
@@ -104,19 +130,4 @@ $calendar-header-height: $size-large !default;
 
 .rev-Calendar-body-bodyCell--highlighted {
   color: $success;
-}
-
-// FIXME: Laura, please make this transition good. I just put in the first thing
-//   that occurred to me to test that it works.
-.rev-Calendar--closed.rev-Calendar--closed {
-  border: none;
-  height: 0;
-  overflow: scroll;
-}
-.rev-Calendar--open.rev-Calendar--open {
-  height: 33rem;
-  overflow: hidden;
-}
-.rev-Card.rev-Calendar {
-  transition: height 0.125s;
 }
