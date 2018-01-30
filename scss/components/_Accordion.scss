@@ -3,14 +3,6 @@
 // this way updates can be made to a component by uncommenting settings vars
 $accordion-border-size: 1px !default;
 $accordion-border-color: $divider-color !default;
-$accordion-title-bkgd: $white !default;
-$accordion-title-color: $anchor-color !default;
-$accordion-title-bkgd-hover: $accordion-title-bkgd !default;
-$accordion-title-color-hover: $anchor-color-hover !default;
-$accordion-title-bkgd-active: $accordion-title-bkgd !default;
-$accordion-title-color-active: $anchor-color-active !default;
-$accordion-title-bkgd-selected: $anchor-color-selected !default;
-$accordion-title-color-selected: $accordion-title-bkgd !default;
 $accordion-content-bkgd: $white !default;
 
 .rev-Accordion { // ul
@@ -23,8 +15,7 @@ $accordion-content-bkgd: $white !default;
   padding: 0;
 }
 .rev-AccordionItem-title { // a inside the li
-  background: $accordion-title-bkgd;
-  color: $accordion-title-color;
+  @include stateful-color-mgmt;
   display: block;
   padding: $global-padding-small $global-padding;
   position: relative;
@@ -36,18 +27,7 @@ $accordion-content-bkgd: $white !default;
     position: absolute;
     right: $global-padding;
   }
-  &:hover {
-    background: $accordion-title-bkgd-hover;
-    color: $accordion-title-color-hover;
-  }
-  &:active,
-  &:focus {
-    background: $accordion-title-bkgd-active;
-    color: $accordion-title-color-active;
-  }
-  &.is-active {
-    background: $accordion-title-bkgd-selected;
-    color: $accordion-title-color-selected;
+  &--selected {
     &:before {
       content: '-';
     }
@@ -60,7 +40,7 @@ $accordion-content-bkgd: $white !default;
   display: none;
   overflow: hidden;
   padding: $global-padding;
-  &.is-active {
+  &--selected {
     display: block;
   }
 }
