@@ -26,7 +26,7 @@ $closebutton-size: $global-font-size;
   }
 }
 
-.rev-Button {
+@mixin button {
   @include global-transition;
   background: $button-bkgd;
   border: $button-border;
@@ -50,6 +50,9 @@ $closebutton-size: $global-font-size;
     background: $button-bkgd-active;
     color: $button-color-active;
   }
+}
+.rev-Button {
+  @include button;
   &.rev-Button--large {
     font-size: $global-font-size-medium;
     padding: $global-padding $global-padding-large;

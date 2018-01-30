@@ -1,0 +1,6 @@
+<DatePicker
+  isOpen
+  defaultValue="2018-03-12"
+  highlights={{'2018-03-14': 'ExamplePink', '2018-03-16': 'rev-Calendar-body-bodyCell--highlighted'}}
+  label="Highlights (as object)"
+/>

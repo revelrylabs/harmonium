@@ -15,6 +15,7 @@ export default function Navigation() {
           <Menu.Item text><strong>Forms</strong></Menu.Item>
           <Menu.Item><Link to="/components/Button/">Button</Link></Menu.Item>
           <Menu.Item><Link to="/components/Checkbox/">Checkboxes and Fieldsets</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Datepicker/">Date picker</Link></Menu.Item>
           <Menu.Item><Link to="/components/Input/">Input</Link></Menu.Item>
           <Menu.Item><Link to="/components/InputGroup/">Input Group</Link></Menu.Item>
           <Menu.Item><Link to="/components/Label/">Label</Link></Menu.Item>
