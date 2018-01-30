@@ -21,7 +21,7 @@ $modal-content-padding: 0 !default;
 }
 .rev-Modal {
   @include flex(center, row, center, nowrap);
-  z-index: $above-most;
+  z-index: $above-everything;
 }
 .rev-Modal-background {
   background: $modal-bkgd;

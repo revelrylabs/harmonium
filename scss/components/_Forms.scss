@@ -38,6 +38,9 @@ $label-font-size: $global-font-size !default;
   &.is-invalid {
     box-shadow: 0 0 0 1px $error inset;
   }
+  &[disabled] {
+    @include disabled;
+  }
 }
 // Form Labels
 .rev-InputLabel {
@@ -67,10 +70,19 @@ $label-font-size: $global-font-size !default;
   line-height: $base-lineheight;
   padding: $global-padding-tiny 0;
   + .rev-InputErrors {
-    padding-top: 0;
     margin-top: -$global-padding-tiny;
+    padding-top: 0;
   }
 }
+.rev-InputHelpText {
+  margin-top: -$global-padding;
+}
+.rev-InputLabel {
+  .rev-InputHelpText {
+    margin-top: 0;
+  }
+}
+
 .is-invalid-label,
 .rev-InputErrors {
   color: $error;

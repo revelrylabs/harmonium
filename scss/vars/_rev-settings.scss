@@ -193,7 +193,7 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$callout-padding: $global-vertical-space $global-horizontal-space;
 
 //## Cards
-//$card-background: $white;
+//$card-bkgd: $white;
 //$card-border: 1px solid $divider-color;
 //$card-padding: 0;
 //$card-radius: $global-radius;
@@ -261,6 +261,16 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$input-font-size: $global-font-size;
 //$label-color: $body-font-color;
 //$label-font-size: $global-font-size;
+
+//## DATEPICKER CALENDAR -----------------------------
+
+//$calendar-bkgd: $card-bkgd;
+//$calendar-border: $card-border;
+//$calendar-width: 32rem;
+//$calendar-body-width: 100%;
+//$calendar-header-bkgd: $card-bkgd;
+//$calendar-header-height: $size-large;
+//$calendar-max-height-animation: 35rem;
 
 //## Badges
 //$badge-size: $size-small;

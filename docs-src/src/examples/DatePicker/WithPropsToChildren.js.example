@@ -1,0 +1,9 @@
+<DatePicker
+  label="Overriding subcomponent props"
+  isOpen
+  style={{border: '1px dashed black'}}
+  calendar={{style: {border: '1px dotted #2E68FF'}}}
+  week={{style: {outline: '1px dotted #D32C0E'}}}
+  day={{style: {fontStyle: 'italic'}}}
+  headerDay={{style: {color: '#2E68FF'}}}
+/>
