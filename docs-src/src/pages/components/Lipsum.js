@@ -8,7 +8,7 @@ const examples = {
 
 export default class LipsumExamplePage extends Component {
   render() {
-    return <div className="rev-Row rev-Row--collapsed">
+    return <div>
       <ExampleSection title="Lipsum" examples={examples} depth={1} scope={scope} />
     </div>
   }

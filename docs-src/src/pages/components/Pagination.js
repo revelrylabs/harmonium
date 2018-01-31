@@ -10,7 +10,7 @@ const examples = {
 
 export default class PaginationExamplePage extends Component {
   render() {
-    return <div className="rev-Row rev-Row--collapsed">
+    return <div>
       <ExampleSection title="Pagination" examples={examples} depth={1} scope={scope} />
     </div>
   }
