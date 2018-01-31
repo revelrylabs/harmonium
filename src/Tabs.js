@@ -5,7 +5,7 @@ class TabsTitle extends Component {
   render() {
     const {onClick, href, title, active} = this.props
     const className = classNames('rev-TabsTitle', {
-      'rev-TabsTitle--active': active,
+      'rev-TabsTitle--selected': active,
     })
     return (
       <li className={className}>
@@ -24,7 +24,7 @@ class TabsPanel extends Component {
       return null
     }
     const className = classNames(
-      'is-active',
+      'rev-TabsItem-panel--selected',
       'rev-TabsItem-panel',
     )
     return (
