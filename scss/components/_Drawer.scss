@@ -1,12 +1,12 @@
 // Copyright © Revelry Labs, LLC 2017 - All Rights Reserved.
 $drawer-width: 300px !default;
-$drawer-bkgd: $lighter-gray !default;
+$drawer-bkgd: $white !default;
 $mobile-nav-bkgd: $black !default;
 
 $drawer-height: 100% !default;
 $drawer-height-contained: 800px !default;
-$drawer-height-fixed: calc(100vh - #{$topbar-height}) !default;
-$drawer-overlay-top-value: $topbar-height !default;
+$drawer-height-fixed: 100vh !default;
+$drawer-overlay-top-value: 0 !default;
 
 /* $drawer-breakpoint: $small;
 $drawer-mobile-nav-breakpoint: $medium; */
