@@ -22,7 +22,11 @@ const TemplateWrapper = ({
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"/>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"/>
       </Helmet>
-
+      <TopBar className="Show--smallOnly">
+        <Link className="rev-Brand" to="/"><h1>Possum</h1>
+          <small>Version 3.1.1</small>
+        </Link>
+      </TopBar>
       <div className="rev-ContentWrapper rev-DrawerContainer">
         <Navigation />
         <main className="rev-Content">

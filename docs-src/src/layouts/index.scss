@@ -144,6 +144,30 @@ h5, h6 {
   background: pink;
 }
 
+// Topbar Small Only
+@include breakpoint(small-only) {
+  .rev-TopBar {
+    background: linear-gradient(to bottom, $brand-purple 0%,$brand 100%);
+    .rev-Brand {
+      @include flex(baseline, row, flex-start, nowrap);
+      height: $topbar-height;
+    }
+    h1 {
+      color: $white;
+      font-size: $global-font-size-large;
+      line-height: $topbar-height;
+      margin: 0;
+      padding: 0 $global-padding-tiny 0 0;
+    }
+    small {
+      color: $white-60;
+      font-size: $global-font-size-small;
+      font-weight: normal;
+    }
+  }
+}
+
+
 // Sidebar Nav
 .DocsSiteNav {
   .rev-Drawer-contents {

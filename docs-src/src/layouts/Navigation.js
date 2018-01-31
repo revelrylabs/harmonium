@@ -8,7 +8,7 @@ export default function Navigation() {
   return (
     <Drawer fixed className="DocsSiteNav">
       <nav className="rev-Drawer-contents">
-        <Link className="rev-Brand" to="/"><h1>Possum</h1>
+        <Link className="rev-Brand Show--mediumUp" to="/"><h1>Possum</h1>
           <small>Version 3.1.1</small>
         </Link>
         <Menu vertical>
