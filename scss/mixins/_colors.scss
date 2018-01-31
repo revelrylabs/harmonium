@@ -68,10 +68,10 @@ $color-vars: $primary, $success, $alert, $warning, $error;
   // by default we give most things the $primary bkgd-color
   background: $primary;
   @if lightness($primary) > 65% {
-    color: $brand-dark;
+    color: $darker-gray;
   }
   @else {
-    color: $brand-light;
+    color: $lightest-gray;
   }
   @for $i from 1 through length($color-list) {
     // for components that use color vars as props, we find the lightness
@@ -79,10 +79,10 @@ $color-vars: $primary, $success, $alert, $warning, $error;
     &--#{nth($color-list, $i)} {
       background: nth($color-vars, $i);
       @if lightness(nth($color-vars, $i)) > 50% {
-        color: $brand-dark;
+        color: $darker-gray;
       }
       @else {
-        color: $brand-light;
+        color: $lightest-gray;
       }
     }
   }

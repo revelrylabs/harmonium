@@ -1,4 +1,4 @@
-$menu-bkgd: $white !default;
+$menu-bkgd: transparent !default;
 $menu-color: $body-font-color !default;
 $menu-link-bkgd: transparent !default;
 $menu-link-bkgd-hover: transparent !default;
@@ -7,10 +7,10 @@ $menu-link-bkgd-selected: $anchor-color-selected !default;
 $menu-link-color: $anchor-color !default;
 $menu-link-color-hover: $anchor-color-hover !default;
 $menu-link-color-active: $anchor-color-active !default;
-$menu-link-color-selected: $menu-bkgd !default;
+$menu-link-color-selected: $white !default;
 
-$menu-bkgd-inverse: $brand-dark !default;
-$menu-color-inverse: $brand-light !default;
+$menu-bkgd-inverse: $darker-gray !default;
+$menu-color-inverse: $lightest-gray !default;
 $menu-link-bkgd-inverse: transparent !default;
 $menu-link-bkgd-inverse-hover: transparent !default;
 $menu-link-bkgd-inverse-active: transparent !default;

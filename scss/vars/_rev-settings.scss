@@ -91,8 +91,8 @@ $global-box-shadow-hover: 0 2px 6px 0 $black-50;
 $global-box-shadow-active: 0 1px 2px 0 $black-30;
 
 // Body Vars
-$body-bkgd: $brand-light;
-$body-font-color: $brand-dark;
+$body-bkgd: $white;
+$body-font-color: $darker-gray;
 $body-font-family: $global-sans-serif-font;
 
 // Header Vars
@@ -115,7 +115,7 @@ $anchor-color: $primary;
 $anchor-color-hover: darken($primary, 10%);
 $anchor-color-active: darken($primary, 10%);
 $anchor-color-selected: darken($primary, 10%);
-$anchor-color-inverse: $brand-light;
+$anchor-color-inverse: $lightest-gray;
 $anchor-color-inverse-hover: $white;
 $anchor-color-inverse-active: $white;
 $anchor-color-inverse-selected: $white;
@@ -170,6 +170,14 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$topbar-input-width: $size-largest;
 //$topbar-link-bkgd: transparent;
 
+//$drawer-width: 300px;
+//$drawer-bkgd: $white;
+//$mobile-nav-bkgd: $black;
+//$drawer-height: 100%;
+//$drawer-height-contained: 800px;
+//$drawer-height-fixed: 100vh;
+//$drawer-overlay-top-value: 0;
+
 //## CONTAINERS -----------------------------
 
 //## Accordions
@@ -212,8 +220,8 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$menu-link-color-active: $anchor-color-active;
 //$menu-link-color-selected: $menu-bkgd;
 
-//$menu-bkgd-inverse: $brand-dark;
-//$menu-color-inverse: $brand-light;
+//$menu-bkgd-inverse: $darker-gray;
+//$menu-color-inverse: $lightest-gray;
 //$menu-link-bkgd-inverse: transparent;
 //$menu-link-bkgd-inverse-hover: transparent;
 //$menu-link-bkgd-inverse-active: transparent;
@@ -286,7 +294,7 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //## Progress
 //$progress-radius: $global-rounded;
 //$progress-meter-height: $size-tiny;
-//$progress-meter-bkgd: $brand-dark;
+//$progress-meter-bkgd: $darker-gray;
 
 //## Tab & Accordion
 // $stateful-item-color: $dark-gray;

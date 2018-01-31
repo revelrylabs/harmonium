@@ -1,6 +1,6 @@
 $progress-radius: $global-rounded !default;
 $progress-meter-height: $size-tiny !default;
-$progress-meter-bkgd: $brand-dark !default;
+$progress-meter-bkgd: $darker-gray !default;
 
 @mixin progress-color-management {
   @for $i from 1 through length($color-list) {
