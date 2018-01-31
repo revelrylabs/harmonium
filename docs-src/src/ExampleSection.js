@@ -25,7 +25,7 @@ export default function ExampleSection({title, depth, examples, scope}) {
     }
 
     return (
-      <Row collapsed>
+      <Row collapse>
         <Col>
           {React.createElement(`h${Math.min(6, depth)}`, {}, title)}
           {children}
