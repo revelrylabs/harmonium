@@ -1,5 +1,11 @@
 @import "../../../scss/app";
-
+// TYPOGRAPHY
+h5, h6 {
+  font-weight: normal;
+  letter-spacing: 1px;
+  margin: $global-padding-large 0 0;
+  text-transform: uppercase;
+}
 .CodeMirror.CodeMirror {
   height: auto;
 }
@@ -17,7 +23,7 @@
 .playground {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: $global-vertical-space * 2;
+  margin-bottom: $global-margin-large;
 }
 .playgroundCode {
   margin-bottom: $global-vertical-space;
@@ -136,4 +142,57 @@
 
 .ExamplePink {
   background: pink;
+}
+
+// Sidebar Nav
+.DocsSiteNav {
+  .rev-Drawer-contents {
+    background: $brand;
+    background: linear-gradient(to bottom, $brand-purple 0%,$brand 100%);
+    color: $white;
+  }
+  .rev-Brand {
+    color: $white;
+    display: block;
+    padding:  0 $global-padding;
+    h1 {
+      margin-bottom: 0;
+    }
+    small {
+      color: $white-60;
+      font-size: $global-font-size;
+      font-weight: normal;
+    }
+  }
+  .rev-Menu-item--text {
+    color: $white-60;
+  }
+  .rev-Menu-item a {
+    color: $white-80;
+    position: relative;
+    &:hover,
+    &:active,
+    &:focus {
+      background: $white-05;
+      color: $white;
+    }
+    &:active,
+    &:focus {
+      background: $white-10;
+    }
+  }
+  .rev-Menu-item--selected a {
+    background: $white-10;
+    color: $white;
+    &:after {
+      background: $white;
+      border-radius: 0 $global-radius $global-radius 0;
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 5px;
+    }
+  }
 }

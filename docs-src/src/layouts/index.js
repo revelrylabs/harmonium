@@ -8,14 +8,6 @@ import Navigation from './Navigation'
 
 import './index.scss'
 
-const Header = () => (
-  <TopBar fixed>
-    <TopBar.Item>
-      <Link to="/">Possum</Link>
-    </TopBar.Item>
-  </TopBar>
-)
-
 const TemplateWrapper = ({
   children
 }) => (
@@ -30,7 +22,6 @@ const TemplateWrapper = ({
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"/>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"/>
       </Helmet>
-      <Header />
 
       <div className="rev-ContentWrapper rev-DrawerContainer">
         <Navigation />

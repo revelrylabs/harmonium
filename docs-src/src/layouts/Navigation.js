@@ -6,53 +6,66 @@ import Drawer from 'possum/lib/Drawer'
 
 export default function Navigation() {
   return (
-    <Drawer fixed>
+    <Drawer fixed className="DocsSiteNav">
       <nav className="rev-Drawer-contents">
-        <Menu vertical dividers>
-          <Menu.Item text><strong>Grid</strong></Menu.Item>
+        <Link className="rev-Brand" to="/"><h1>Possum</h1>
+          <small>Version 3.1.1</small>
+        </Link>
+        <Menu vertical>
+          <Menu.Item text><h5>Grid</h5></Menu.Item>
           <Menu.Item><Link to="/components/grid/">Rows &amp; Columns</Link></Menu.Item>
           <Menu.Item><Link to="/components/ExpandingCol/">Expanding Columns</Link></Menu.Item>
-          <Menu.Item text><strong>Forms</strong></Menu.Item>
-          <Menu.Item><Link to="/components/Button/">Button</Link></Menu.Item>
-          <Menu.Item><Link to="/components/Checkbox/">Checkboxes and Fieldsets</Link></Menu.Item>
-          <Menu.Item><Link to="/components/Datepicker/">Date picker</Link></Menu.Item>
-          <Menu.Item><Link to="/components/Input/">Input</Link></Menu.Item>
+        </Menu>
+        <Menu vertical>
+          <Menu.Item text><h5>Forms</h5></Menu.Item>
+          <Menu.Item><Link to="/components/Button/">Buttons</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Checkbox/">Checkboxes</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Datepicker/">Date Picker</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Input/">Inputs</Link></Menu.Item>
           <Menu.Item><Link to="/components/InputGroup/">Input Group</Link></Menu.Item>
-          <Menu.Item><Link to="/components/Label/">Label</Link></Menu.Item>
-          <Menu.Item><Link to="/components/Radio/">Radio</Link></Menu.Item>
-          <Menu.Item><Link to="/components/Select/">Select</Link></Menu.Item>
-          <Menu.Item><Link to="/components/Textarea/">Textarea</Link></Menu.Item>
-          <Menu.Item text><strong>Lists</strong></Menu.Item>
+          <Menu.Item><Link to="/components/Label/">Labels</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Radio/">Radio Buttons</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Select/">Selects</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Textarea/">Textareas</Link></Menu.Item>
+        </Menu>
+        <Menu vertical>
+          <Menu.Item text><h5>Lists</h5></Menu.Item>
           <Menu.Item><Link to="/components/Emptyable/">Emptyable</Link></Menu.Item>
           <Menu.Item><Link to="/components/Pagination/">Pagination</Link></Menu.Item>
-
-          <Menu.Item text><strong>Formatting</strong></Menu.Item>
+        </Menu>
+        <Menu vertical>
+          <Menu.Item text><h5>Formatting</h5></Menu.Item>
           <Menu.Item><Link to="/components/Currency/">Currency</Link></Menu.Item>
           <Menu.Item><Link to="/components/NumberFormatter/">Number Formatter</Link></Menu.Item>
           <Menu.Item><Link to="/components/Pluralize/">Pluralize</Link></Menu.Item>
-
-          <Menu.Item text><strong>Navigation</strong></Menu.Item>
+        </Menu>
+        <Menu vertical>
+          <Menu.Item text><h5>Navigation</h5></Menu.Item>
           <Menu.Item><Link to="/components/Menu/">Menu</Link></Menu.Item>
           <Menu.Item><Link to="/components/TopBar/">Top Bar</Link></Menu.Item>
-
-          <Menu.Item text><strong>Cards &amp; Media</strong></Menu.Item>
+        </Menu>
+        <Menu vertical>
+          <Menu.Item text><h5>Cards &amp; Media</h5></Menu.Item>
           <Menu.Item><Link to="/components/Card/">Card</Link></Menu.Item>
           <Menu.Item><Link to="/components/CardLayout/">Card Layout</Link></Menu.Item>
           <Menu.Item><Link to="/components/FlexVideo/">Flex Video</Link></Menu.Item>
           <Menu.Item><Link to="/components/MediaObject/">Media Object</Link></Menu.Item>
-
-          <Menu.Item text><strong>Containers</strong></Menu.Item>
+        </Menu>
+        <Menu vertical>
+          <Menu.Item text><h5>Containers</h5></Menu.Item>
           <Menu.Item><Link to="/components/Accordion/">Accordion</Link></Menu.Item>
           <Menu.Item><Link to="/components/Callout/">Callout</Link></Menu.Item>
           <Menu.Item><Link to="/components/Modal/">Modal</Link></Menu.Item>
           <Menu.Item><Link to="/components/Tabs/">Tabs</Link></Menu.Item>
-
-          <Menu.Item text><strong>Atoms</strong></Menu.Item>
+        </Menu>
+        <Menu vertical>
+          <Menu.Item text><h5>Atoms</h5></Menu.Item>
           <Menu.Item><Link to="/components/Badge/">Badge</Link></Menu.Item>
           <Menu.Item><Link to="/components/CloseButton/">Close Button</Link></Menu.Item>
           <Menu.Item><Link to="/components/Icon/">Icon</Link></Menu.Item>
-
-          <Menu.Item text><strong>Utilities</strong></Menu.Item>
+        </Menu>
+        <Menu vertical>
+          <Menu.Item text><h5>Utilities</h5></Menu.Item>
           <Menu.Item><Link to="/components/AuthenticityToken/">Authenticity Token</Link></Menu.Item>
           <Menu.Item><Link to="/components/BrowserSupportWarning/">Browser Support Warning</Link></Menu.Item>
           <Menu.Item><Link to="/components/HelpText/">Help Text</Link></Menu.Item>
@@ -60,8 +73,9 @@ export default function Navigation() {
           <Menu.Item><Link to="/components/Social/">Social</Link></Menu.Item>
           <Menu.Item><Link to="/components/TextAlign/">Text Align</Link></Menu.Item>
           <Menu.Item><Link to="/components/Visibility/">Visibility</Link></Menu.Item>
-
-          <Menu.Item text><strong>Prototyping</strong></Menu.Item>
+        </Menu>
+        <Menu vertical>
+          <Menu.Item text><h5>Prototyping</h5></Menu.Item>
           <Menu.Item><Link to="/components/Lipsum/">Lorem Ipsum</Link></Menu.Item>
         </Menu>
       </nav>
