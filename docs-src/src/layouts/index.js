@@ -27,7 +27,7 @@ const TemplateWrapper = ({
           <small>Version 3.1.1</small>
         </Link>
       </TopBar>
-      <div className="rev-ContentWrapper rev-DrawerContainer">
+      <div className="rev-ContentWrapper">
         <Navigation />
         <main className="rev-Content">
           {children()}
