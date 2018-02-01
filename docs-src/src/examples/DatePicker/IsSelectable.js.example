@@ -1,0 +1,1 @@
+<DatePicker isSelectable={(date) => date.weekday < 6} label="Filter Selectable Dates" />

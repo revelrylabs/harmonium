@@ -15,6 +15,7 @@ import Checkbox from 'possum/lib/Checkbox'
 import CloseButton from 'possum/lib/CloseButton'
 import Col from 'possum/lib/Col'
 import Currency from 'possum/lib/Currency'
+import DatePicker from 'possum/lib/DatePicker'
 import Emptyable from 'possum/lib/Emptyable'
 import ExpandingCol from 'possum/lib/ExpandingCol'
 import FileInput from 'possum/lib/FileInput'
@@ -72,6 +73,7 @@ export default {
   CloseButton: CloseButton,
   Col: Col,
   Currency: Currency,
+  DatePicker: DatePicker,
   Emptyable: Emptyable,
   ExpandingCol: ExpandingCol,
   FileInput: FileInput,

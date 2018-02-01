@@ -1,4 +1,4 @@
-import React, {Component, Children, cloneElement} from 'react'
+import React, {Children, cloneElement, Component} from 'react'
 import classNames from 'classnames'
 
 // Converts string or array of strings to string-to-bool object mapping
@@ -11,7 +11,7 @@ function activeToObject(active) {
   }
   if(active instanceof Array) {
     active.forEach((name) => obj[name] = true)
-  } else if(typeof(active) === 'object') {
+  } else if (typeof(active) === 'object') {
     obj = active
   } else {
     obj[active] = true
@@ -21,19 +21,25 @@ function activeToObject(active) {
 
 class AccordionItem extends Component {
   render() {
-    const {children, className, onClick, href, title, active, contentKey, ...props} = this.props
+    const {children, className, onClick, href, title, active, renderHiddenPanes, contentKey, ...props} = this.props
 
     const liClassName = classNames(className, 'rev-AccordionItem', {
-      'is-active': active,
+      'rev-AccordionItem--selected': active,
     })
 
     const aClassName = classNames('rev-AccordionItem-title', {
-      'is-active': active,
+      'rev-AccordionItem-title--selected': active,
     })
 
     const divClassName = classNames('rev-AccordionItem-content', {
-      'is-active': active,
+      'rev-AccordionItem-content--selected': active,
     })
+
+    if (!active && !renderHiddenPanes)
+      return <li {...props} className={liClassName}>
+        <a className={aClassName} href={href || '#'} onClick={onClick}>{title}</a>
+      </li>
+
 
     const div = (
       <div
@@ -59,13 +65,13 @@ export default class Accordion extends Component {
   };
 
   render() {
-    const {children, className, active, ...props} = this.props
+    const {children, className, active, renderHiddenPanes, ...props} = this.props
 
     const activeMap = activeToObject(active)
 
     const rewriteChild = (child) => {
       const active = activeMap[child.props.contentKey] || false
-      return cloneElement(child, {active})
+      return cloneElement(child, {active, renderHiddenPanes})
     }
 
     const ulClassName = classNames(className, 'rev-Accordion')

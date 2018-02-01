@@ -1,0 +1,6 @@
+<DatePicker
+  isOpen
+  defaultValue="2018-03-12"
+  highlights={["2018-03-14", "2018-03-16"]}
+  label="Highlights (as array)"
+/>

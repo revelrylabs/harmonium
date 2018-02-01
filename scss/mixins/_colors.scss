@@ -130,3 +130,41 @@ $color-vars: $primary, $success, $alert, $warning, $error;
 @mixin disabled {
   opacity: $disabled-opacity;
 }
+
+$stateful-item-color: $dark-gray !default;
+$stateful-item-color-hover: darken($stateful-item-color, 10%) !default;
+$stateful-item-color-active: $primary !default;
+$stateful-item-color-selected: $primary !default;
+$stateful-item-color-disabled: $disabled !default;
+$stateful-item-bkgd: $white !default;
+$stateful-item-bkgd-hover: $lightest-gray !default;
+$stateful-item-bkgd-active: $stateful-item-bkgd !default;
+$stateful-item-bkgd-selected: $lightest-gray !default;
+$stateful-item-bkgd-disabled: $stateful-item-bkgd !default;
+$stateful-item-bkgd-disabled-hover: $stateful-item-bkgd-disabled !default;
+
+@mixin stateful-color-mgmt {
+  background: $stateful-item-bkgd;
+  color: $stateful-item-color;
+  &:hover {
+    background: $stateful-item-bkgd-hover;
+    color: $stateful-item-color-hover;
+  }
+  &:active,
+  &:focus {
+    background: $stateful-item-bkgd-active;
+    color: $stateful-item-color-active;
+  }
+  [class*='--selected'] & {
+    background: $stateful-item-bkgd-selected;
+    color: $stateful-item-color-selected;
+  }
+  &[class*='--disabled'] {
+    background: $stateful-item-bkgd-disabled;
+    color: $stateful-item-color-disabled;
+    cursor: not-allowed;
+    &:hover {
+      background: $stateful-item-bkgd-disabled-hover;
+    }
+  }
+}

@@ -1,6 +1,7 @@
-[Master status: ![Travis Build Status](https://travis-ci.org/revelrylabs/possum.svg?branch=master)](https://travis-ci.org/revelrylabs/possum)
-
 # Possum
+
+[![NPM Version][npm-badge]][npm-url]
+[![Travis Build Status][travis-badge]][travis-url]
 
 Possum is a framework of React components optimized for teams that want to ship apps fast. It is a curated list of components that work together and have cohesive styles. One of our design goals is that you never have to research and handpick component packages. Whatever you need is already here.
 
@@ -59,4 +60,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/revelr
 Everyone is welcome to participate in the project. We expect contributors to
 adhere the Contributor Covenant Code of Conduct (see [CODE_OF_CONDUCT.md](https://github.com/revelrylabs/possum/blob/master/CODE_OF_CONDUCT.md)).
 
-
+[npm-badge]: https://img.shields.io/npm/v/awesome-possum.svg
+[npm-url]: https://www.npmjs.com/package/awesome-possum
+[travis-badge]: https://img.shields.io/travis/revelrylabs/possum.svg
+[travis-url]: https://travis-ci.org/revelrylabs/possum

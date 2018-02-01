@@ -5,14 +5,6 @@ $tabs-margin: $global-margin !default;
 $tabs-border-size: 1px !default;
 $tabs-border-color: $divider-color !default;
 $tabs-titles-bkgd: $white !default;
-$tabs-title-link-bkgd: transparent !default;
-$tabs-title-link-color: $anchor-color !default;
-$tabs-title-link-bkgd-hover: transparent !default;
-$tabs-title-link-color-hover: $anchor-color-hover !default;
-$tabs-title-link-bkgd-active: transparent !default;
-$tabs-title-link-color-active: $anchor-color-active !default;
-$tabs-title-link-bkgd-selected: $anchor-color-selected !default;
-$tabs-title-link-color-selected: $tabs-titles-bkgd !default;
 $tabs-title-link-padding: $global-padding-small $global-padding !default;
 $tabs-content-bkgd: $white 0 !default;
 $tabs-content-padding: $global-padding 0 !default;
@@ -33,25 +25,11 @@ $tabs-content-padding: $global-padding 0 !default;
   padding: 0;
 }
 .rev-TabsTitle-link {
-  background: $tabs-title-link-bkgd;
+  @include stateful-color-mgmt;
   border-right: $tabs-border-size solid $tabs-border-color;
   display: block;
-  color: $tabs-title-link-color;
   font-size: $global-font-size;
   padding: $tabs-title-link-padding;
-  &:hover {
-    background: $tabs-title-link-bkgd-hover;
-    color: $tabs-title-link-color-hover;
-  }
-  &:active,
-  &:focus {
-    background: $tabs-title-link-bkgd-active;
-    color: $tabs-title-link-color-active;
-  }
-  [class*='--active'] & {
-    background: $tabs-title-link-bkgd-selected;
-    color: $tabs-title-link-color-selected;
-  }
 }
 .rev-Tabs-content {
   background: $tabs-content-bkgd;
