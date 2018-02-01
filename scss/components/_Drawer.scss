@@ -105,7 +105,6 @@ $drawer-mobile-nav-breakpoint: $medium; */
   &.rev-Drawer--collapsible {
     @include drawer-fixed;
     @include global-transition;
-    background: #F0F;
     &.rev-Drawer--left {
       .rev-Drawer-contents {
         @include global-transition;

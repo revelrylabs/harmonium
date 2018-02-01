@@ -144,10 +144,15 @@ h5, h6 {
   background: pink;
 }
 
+// Example TopBars
+.playground .rev-TopBar {
+  margin: 0 0 $global-vertical-space;
+}
 // Topbar Small Only
 @include breakpoint(small-only) {
-  .rev-TopBar {
-    background: linear-gradient(to bottom, $brand-purple 0%,$brand 100%);
+  .rev-TopBar.Show--smallOnly {
+    background: $brand-purple;
+    border: 0;
     .rev-Brand {
       @include flex(baseline, row, flex-start, nowrap);
       height: $topbar-height;
@@ -174,10 +179,10 @@ h5, h6 {
     background: $brand;
     background: linear-gradient(to bottom, $brand-purple 0%,$brand 100%);
     color: $white;
+    padding-bottom: $global-padding;
   }
   .rev-Brand {
     color: $white;
-    display: block;
     padding:  0 $global-padding;
     h1 {
       margin-bottom: 0;
