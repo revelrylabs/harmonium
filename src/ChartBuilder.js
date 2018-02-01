@@ -1,3 +1,4 @@
+import Chart from 'chart.js'
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
@@ -136,9 +137,6 @@ export default class ChartBuilder extends Component {
   }
 
   createChart() {
-    if(typeof Chart === 'undefined') {
-      throw new Error(`Global \`Chart\` is undefined - Is Chart.js loaded?`)
-    }
     if(this._chart) {
       throw new Error('`createChart` may only be called once.`')
     }
@@ -165,12 +163,10 @@ export default class ChartBuilder extends Component {
   }
 
   render() {
-    this.canvas = null
     return (
       <div>
         <h3 className="ChartTitle">{this.props.title}</h3>
-        <canvas
-          ref={self => {this.canvas = self} }
+        <canvas ref={(self) => { this.canvas = self }}
           width={this.props.width}
           height={this.props.height}
         />

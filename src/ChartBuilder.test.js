@@ -2,7 +2,7 @@ import ChartBuilder from './ChartBuilder.js'
 
 describe('ChartBuilder', () => {
   it('should render without throwing', () => {
-    shallow(
+    mount(
       <ChartBuilder
         data={{
           labels: ['Red', 'Blue'],
