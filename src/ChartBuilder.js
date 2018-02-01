@@ -1,8 +1,9 @@
-import React from 'react'
+import Chart from 'chart.js'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 
 const REV_CHART_SPEC = {
-  Bar: {
+  bar: {
     defaultOptions: {
       // Whether the scale should start at zero, or an order of magnitude down from the lowest value
       scaleBeginAtZero: true,
@@ -27,7 +28,7 @@ const REV_CHART_SPEC = {
       datasetFill: false,
     },
   },
-  Donut: {
+  donut: {
     defaultOptions: {
       segmentShowStroke: true,
       segmentStrokeColor: '#fff',
@@ -39,7 +40,7 @@ const REV_CHART_SPEC = {
       animateScale: false,
     },
   },
-  Line: {
+  line: {
     defaultOptions: {
       scaleShowGridLines: true,
       scaleGridLineColor: 'rgba(0,0,0,.05)',
@@ -57,7 +58,7 @@ const REV_CHART_SPEC = {
       datasetFill: false,
     },
   },
-  Pie: {
+  pie: {
     defaultOptions: {
       segmentShowStroke: true,
       segmentStrokeColor: '#fff',
@@ -69,7 +70,7 @@ const REV_CHART_SPEC = {
       animateScale: false,
     },
   },
-  Radar: {
+  radar: {
     defaultOptions: {
       // Whether to show lines for each scale point
       scaleShowLine: true,
@@ -81,7 +82,7 @@ const REV_CHART_SPEC = {
       angleLineColor: 'rgba(0,0,0,.1)',
       // Pixel width of the angle line
       angleLineWidth: 1,
-      pointLabelFontFamily: "'Arial'",
+      pointLabelFontFamily: 'Arial',
       pointLabelFontStyle: 'normal',
       pointLabelFontSize: 10,
       pointLabelFontColor: '#666',
@@ -97,7 +98,7 @@ const REV_CHART_SPEC = {
   },
 }
 
-class ChartBuilder extends React.Component {
+export default class ChartBuilder extends Component {
   static get propTypes() {
     return {
       data: PropTypes.object.isRequired,
@@ -118,7 +119,7 @@ class ChartBuilder extends React.Component {
   }
 
   get ctx() {
-    return this.refs.canvas.getDOMNode().getContext('2d')
+    return this.canvas.getContext('2d')
   }
 
   get chartSpec() {
@@ -136,15 +137,16 @@ class ChartBuilder extends React.Component {
   }
 
   createChart() {
-    if(typeof Chart === 'undefined') {
-      throw new Error(`Global \`Chart\` is undefined - Is Chart.js loaded?`)
-    }
     if(this._chart) {
       throw new Error('`createChart` may only be called once.`')
     }
-    this._chart = new Chart(this.ctx)[this.chartFuncName](
-      this.props.data,
-      this.options,
+    this._chart = new Chart(
+      this.ctx,
+      {
+        type: this.props.type,
+        data: this.props.data,
+        options: this.options
+      }
     )
   }
 
@@ -164,8 +166,7 @@ class ChartBuilder extends React.Component {
     return (
       <div>
         <h3 className="ChartTitle">{this.props.title}</h3>
-        <canvas
-          ref="canvas"
+        <canvas ref={(self) => { this.canvas = self }}
           width={this.props.width}
           height={this.props.height}
         />
