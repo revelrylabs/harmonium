@@ -72,6 +72,9 @@
   "devDependencies": {
     "babel-plugin-istanbul": "^4.1.4",
     "chai": "^3.5.0",
+    "chart": "^0.1.2",
+    "chart.js": "^2.6.0",
+    "chartjs": "^0.3.24",
     "enzyme": ">=2.8.2",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint-plugin-prettier": "^2.5.0",
