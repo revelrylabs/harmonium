@@ -1,15 +1,15 @@
-import React, {Component, Children, cloneElement} from 'react'
+import React, {Children, cloneElement, Component} from 'react'
 import classNames from 'classnames'
 
 class TabsTitle extends Component {
   render() {
     const {onClick, href, title, active} = this.props
-    const className = classNames('tabs-title', 'rev-TabsItem-title', {
-      'is-active': active,
+    const className = classNames('rev-TabsTitle', {
+      'rev-TabsTitle--selected': active,
     })
     return (
       <li className={className}>
-        <a href={href || '#'} onClick={onClick} aria-selected={active}>
+        <a className="rev-TabsTitle-link" href={href || '#'} onClick={onClick} aria-selected={active}>
           {title}
         </a>
       </li>
@@ -19,17 +19,24 @@ class TabsTitle extends Component {
 
 class TabsPanel extends Component {
   render() {
-    const {children, active} = this.props
-    if(!active) {
-      return null
-    }
+    const {children, active, renderHiddenTabs} = this.props
+
     const className = classNames(
-      'tabs-panel',
-      'is-active',
+      'rev-TabsItem-panel--selected',
       'rev-TabsItem-panel',
     )
+    if (renderHiddenTabs) {
+      if (!active)
+        return <div style={{display: "none"}} className={className}>
+          {children}
+        </div>
+    } else {
+      if (!active)
+        return null
+    }
+
     return (
-      <div className={className}>
+      <div style={{display: "block"}} className={className}>
         {children}
       </div>
     )
@@ -45,13 +52,13 @@ class TabsItem extends Component {
 
 export default class Tabs extends Component {
   render() {
-    const {children, className, active} = this.props
+    const {children, className, active, renderHiddenTabs} = this.props
 
     let activeKey = active
     const rewriteItem = (child) => {
       activeKey = activeKey || child.props.contentKey // default to first child
       const {contentKey} = child.props
-      return cloneElement(child, {active: activeKey == contentKey})
+      return cloneElement(child, {active: activeKey === contentKey, renderHiddenTabs})
     }
 
     const rewriteItemToTitle = (item) => {
@@ -65,10 +72,10 @@ export default class Tabs extends Component {
 
     return (
       <div className={divClassName}>
-        <ul className="tabs rev-Tabs-titles">
+        <ul className="rev-Tabs-titles">
           {titles}
         </ul>
-        <div className="tabs-content rev-Tabs-content">
+        <div className="rev-Tabs-content">
           {items}
         </div>
       </div>
@@ -94,7 +101,7 @@ class StatefulTabs extends Component {
     const newOnClick = (e, ...args) => {
       e.preventDefault()
       this.setActive(contentKey)
-      if(onClick) {
+      if (onClick) {
         return onClick(e, ...args)
       }
     }

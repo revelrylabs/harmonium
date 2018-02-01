@@ -1,0 +1,8 @@
+<Row flex className="ColumnExamples">
+  <Col mediumOrder={2} largeOrder={1}>
+    This column will come second on medium, and first on large.
+  </Col>
+  <Col mediumOrder={1} largeOrder={2}>
+    This column will come first on medium, and second on large.
+  </Col>
+</Row>

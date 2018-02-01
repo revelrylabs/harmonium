@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import InputGroup from './InputGroup'
 import Button from './Button'
@@ -43,7 +44,7 @@ export default class FileInput extends Component {
         <InputGroup.Button>
           <Button tag="label" className="rev-FileInput-button">
             {button}
-            <input {...props} type="file" className="show-for-sr" onChange={this.onChange} />
+            <input {...props} type="file" className="ShowForSR" onChange={this.onChange} />
           </Button>
         </InputGroup.Button>
       </InputGroup>

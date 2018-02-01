@@ -1,0 +1,1 @@
+<DatePicker label="With Component Overrides" overrides={{[DatePicker.Calendar]: Lipsum}} />

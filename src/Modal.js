@@ -1,11 +1,12 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import StatelessModal from './StatelessModal'
 
 export default class Modal extends Component {
 
   static propTypes = {
-    isOpen: React.PropTypes.bool,
-    onBackgroundClick: React.PropTypes.func,
+    isOpen: PropTypes.bool,
+    onBackgroundClick: PropTypes.func,
   }
 
   constructor(props) {

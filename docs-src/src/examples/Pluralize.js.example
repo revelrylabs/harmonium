@@ -1,0 +1,6 @@
+<div>
+  <Pluralize one="fork" count={1} />
+  <Pluralize one="fork" count={2} />
+  <Pluralize one="goose" more="geese" count={1} />
+  <Pluralize one="goose" more="geese" count={2} />
+</div>

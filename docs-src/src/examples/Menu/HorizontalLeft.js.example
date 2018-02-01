@@ -1,0 +1,6 @@
+<Menu horizontalLeft>
+  <Menu.Item><a href="#">One</a></Menu.Item>
+  <Menu.Item><a href="#">Two</a></Menu.Item>
+  <Menu.Item><a href="#">Three</a></Menu.Item>
+  <Menu.Item><a href="#">Four</a></Menu.Item>
+</Menu>

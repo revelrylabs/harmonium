@@ -1,0 +1,89 @@
+$input-bkgd: $white !default;
+$input-bkgd-focus: $input-bkgd !default;
+$input-box-shadow: 0 0 0 1px $divider-color inset !default;
+$input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset !default;
+$input-radius: $global-radius !default;
+$input-color: $body-font-color !default;
+$input-color-focus: $input-color !default;
+$input-font-size: $global-font-size !default;
+$label-color: $body-font-color !default;
+$label-font-size: $global-font-size !default;
+
+@mixin input-style {
+  @include global-transition;
+  @include placeholder;
+  background-color: $input-bkgd;
+  border: 0;
+  border-radius: $input-radius;
+  -webkit-border-radius: $input-radius;
+  box-shadow: $input-box-shadow;
+  color: $input-color;
+  display: block;
+  font-size: $input-font-size;
+  line-height: $base-lineheight;
+  margin: 0 0 $global-margin;
+  max-width: 100%;
+  outline: none;
+  padding: $global-padding-small;
+  width: 100%;
+  &:active,
+  &:focus {
+    background-color: $input-bkgd-focus;
+    border: 0;
+    border-color: transparent;
+    box-shadow: $input-box-shadow-focus;
+    color: $input-color-focus;
+    outline: none;
+  }
+  &.is-invalid {
+    box-shadow: 0 0 0 1px $error inset;
+  }
+  &[disabled] {
+    @include disabled;
+  }
+}
+// Form Labels
+.rev-InputLabel {
+  display: block;
+  font-size: $label-font-size;
+  margin: 0 0 $global-margin;
+  .rev-Button,
+  .rev-Input,
+  .rev-Select,
+  .rev-Textarea,
+  .rev-FileInput-fileLabel,
+  .rev-InputGroup .rev-InputGroup-label {
+    margin-bottom: 0;
+  }
+}
+.rev-LabelText {
+  @include global-transition;
+  color: $label-color;
+  font-size: $label-font-size;
+}
+// Form HelpText & Errors
+.rev-InputHelpText,
+.rev-InputErrors {
+  display: block;
+  font-size: $global-font-size-small;
+  font-style: normal;
+  line-height: $base-lineheight;
+  padding: $global-padding-tiny 0;
+  + .rev-InputErrors {
+    margin-top: -$global-padding-tiny;
+    padding-top: 0;
+  }
+}
+.rev-InputHelpText {
+  margin-top: -$global-padding;
+}
+.rev-InputLabel {
+  .rev-InputHelpText {
+    margin-top: 0;
+  }
+}
+
+.is-invalid-label,
+.rev-InputErrors {
+  color: $error;
+}

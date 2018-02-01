@@ -1,0 +1,97 @@
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$topbar-bkgd: $white !default;
+$topbar-border-color: $divider-color !default;
+$topbar-border-size: 1px !default;
+$topbar-color: $body-font-color !default;
+$topbar-height: $size-larger !default;
+$topbar-input-width: $size-largest !default;
+$topbar-link-bkgd: transparent !default;
+
+.rev-TopBar {
+  background: $topbar-bkgd;
+  border: $topbar-border-size solid $topbar-border-color;
+  color: $topbar-color;
+  height: $topbar-height;
+  margin: 0 0 $global-vertical-space;
+  padding: 0;
+  position: relative;
+  width: 100%;
+  z-index: $above-everything;
+  nav {
+    @include flex(center, row, space-between, no-wrap);
+    height: $topbar-height;
+    margin: 0 auto;
+    max-width: $global-width;
+    padding: 0 $global-padding;
+    width: 100%;
+  }
+  // SEARCH FORMS IN TOPBARS
+  .rev-Form {
+    padding-left: $grid-column-padding;
+    padding-right: $grid-column-padding;
+    .rev-Button,
+    .rev-Input {
+      margin: 0;
+    }
+  }
+  .rev-InputGroup {
+    .rev-Input {
+      max-width: $topbar-input-width;
+    }
+  }
+  // TOPBAR POSITIONING
+  &.rev-TopBar--center {
+    nav {
+      @include flex(center, row, center, no-wrap);
+    }
+  }
+  &.rev-TopBar--left {
+    nav {
+      @include flex(center, row, flex-start, no-wrap);
+    }
+  }
+  &.rev-TopBar--justified { //default
+    nav {
+      @include flex(center, row, space-between, no-wrap);
+    }
+  }
+  &.rev-TopBar--right {
+    nav {
+      @include flex(center, row, flex-end, no-wrap);
+    }
+  }
+  // INVERSE COLOR TOPBAR
+  &.rev-TopBar--inverse {
+    @include body-color-stack-inverted;
+    border: 0;
+  }
+  // FIXED POSITION TOPBAR
+  &.rev-TopBar--fixed {
+    height: $topbar-height;
+    left: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index:  $above-everything;
+    .rev-Row {
+      @include flex(stretch, row, space-between);
+    }
+  }
+  .rev-Menu  {
+    background: transparent;
+    .rev-Menu-item a {
+      border-radius: $global-radius;
+    }
+  }
+}
+
+// can override positioning placed on the parent .rev-TopBar
+/*.rev-TopBar-item--right {
+  margin-left: auto;
+}
+.rev-TopBar-item--left {
+  margin-right: auto;
+}*/

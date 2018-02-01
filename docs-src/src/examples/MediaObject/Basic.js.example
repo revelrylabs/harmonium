@@ -1,0 +1,10 @@
+<MediaObject>
+  <MediaObject.Section>
+    <div>
+      <img src= "//placehold.it/100x100"/>
+    </div>
+  </MediaObject.Section>
+  <MediaObject.Section main>
+    <Lipsum/>
+  </MediaObject.Section>
+</MediaObject>

@@ -1,0 +1,7 @@
+<div>
+  <Badge>Default</Badge>
+  <Badge primary>1</Badge>
+  <Badge warning>5</Badge>
+  <Badge success>6</Badge>
+  <Badge alert>7</Badge>
+</div>

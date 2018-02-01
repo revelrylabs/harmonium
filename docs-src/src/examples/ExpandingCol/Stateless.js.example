@@ -1,0 +1,30 @@
+<div>
+  <Row>
+    <ExpandingCol small={6}>
+      <Callout>
+        <Row>
+          <Col>
+            <p>I am hidden away.</p>
+          </Col>
+        </Row>
+      </Callout>
+    </ExpandingCol>
+    <Col small={6}>
+      <p>The column next to this one is collapsed.</p>
+    </Col>
+  </Row>
+  <Row>
+    <ExpandingCol small={6} open>
+      <Callout>
+        <Row>
+          <Col>
+            <p>I am expanded.</p>
+          </Col>
+        </Row>
+      </Callout>
+    </ExpandingCol>
+    <Col small={6}>
+      <p>The column next to this one is expanded.</p>
+    </Col>
+  </Row>
+</div>

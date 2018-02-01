@@ -6,7 +6,7 @@ describe('Badge', () => {
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'badge'
+    const inherentClassName = 'rev-Badge'
     const testClassName = '__TEST__'
 
     const childClassName = shallow(<Badge className={testClassName} />)
@@ -15,5 +15,11 @@ describe('Badge', () => {
 
     expect(childClassName).to.contain(inherentClassName)
     expect(childClassName).to.contain(testClassName)
+  })
+
+  it('should accept a badge type prop', () => {
+    const secondaryBadge = shallow(<Badge secondary />)
+
+    expect(secondaryBadge.prop('className')).to.contain('secondary')
   })
 })

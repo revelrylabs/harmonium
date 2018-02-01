@@ -6,7 +6,7 @@ describe('Row', () => {
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'row'
+    const inherentClassName = 'rev-Row'
     const testClassName = '__TEST__'
 
     const childClassName = shallow(<Row className={testClassName} />)
@@ -15,5 +15,27 @@ describe('Row', () => {
 
     expect(childClassName).to.contain(inherentClassName)
     expect(childClassName).to.contain(testClassName)
+  })
+
+  it('handles numerical props', () => {
+    const cases = {
+      /* prop: classPattern */
+      smallUp: 'rev-Row--smallUp1',
+      mediumUp: 'rev-Row--mediumUp1',
+      largeUp: 'rev-Row--largeUp1',
+    }
+
+    for (let propName in cases) {
+      const classPattern = cases[propName]
+      const component = shallow(<Row {...{[propName]: 1}} />)
+
+      expect(component.prop('className')).to.contain(classPattern)
+    }
+  })
+
+  it('handles boolean props', () => {
+    const component = shallow(<Row collapse />)
+
+    expect(component.prop('className')).to.contain('collapse')
   })
 })

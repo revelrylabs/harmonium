@@ -1,16 +1,31 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component} from 'react'
 import classNames from 'classnames'
 import InputLabel from './InputLabel'
 import InputHelpText from './InputHelpText'
 import InputErrors from './InputErrors'
 import CheckableFieldset from './CheckableFieldset'
 
-export default class Checkbox extends Component {
+const BOOL_PROPS_TO_CLASS_NAMES = {
+  stacked: ['rev-Checkbox--stacked'],
+  stackedForSmall: ['rev-Checkbox--stackedForSmall'],
+  stackedForMedium: ['rev-Checkbox--stackedForMedium']
+}
+const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
+export default class Checkbox extends Component {
   render() {
     const {error, className, label, children, ...props} = this.props
 
-    const labelClassName = classNames(className, 'rev-Checkbox', {
+    // Start building the className
+    const boolClassNames = []
+    BOOL_PROPS.forEach((name) => {
+      if(props[name]) {
+        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name] )
+      }
+      delete props[name]
+    })
+
+    const labelClassName = classNames(className, 'rev-Checkbox', boolClassNames, {
       'is-invalid': !!error,
     })
 

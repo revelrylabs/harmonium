@@ -1,4 +1,5 @@
-import React, {Component, PropTypes, Children, cloneElement} from 'react'
+import React, {Component, Children, cloneElement} from 'react'
+import PropTypes from 'prop-types'
 import InputLabel from './InputLabel'
 import classNames from 'classnames'
 import InputHelpText from './InputHelpText'
@@ -11,13 +12,13 @@ export default class Input extends Component {
   }
 
   render() {
-    const {className, error, ...props} = this.props
+    const {className, error, inputRef, ...props} = this.props
     const inputClassName = classNames(className, 'rev-Input', {
       'is-invalid-input': !!error,
       'is-invalid': !!error,
     })
     return (
-      <input className={inputClassName} {...props} />
+      <input className={inputClassName} {...props} ref={inputRef} />
     )
   }
 }

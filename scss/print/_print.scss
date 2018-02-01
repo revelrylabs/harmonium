@@ -1,0 +1,59 @@
+@media print {
+  @page {
+    margin: 2cm;
+  }
+  body {
+    background: $white;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p,
+  li {
+    color: $black;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    page-break-after: avoid;
+  }
+  ul,
+  img {
+    page-break-inside: avoid;
+  }
+  img {
+    max-width: 100% !important;
+  }
+  article {
+    page-break-before: always;
+  }
+  a {
+    &:link,
+    &:visited {
+      text-decoration: underline;
+      &:after {
+        content: " (" attr(href) ") ";
+      }
+    }
+  }
+  nav,
+  footer,
+  aside,
+  .pagination,
+  .HideForPrint {
+    display: none;
+  }
+  .ShowForPrint {
+    display: block;
+  }
+}

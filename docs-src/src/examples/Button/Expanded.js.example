@@ -1,0 +1,5 @@
+<div>
+  <Button expanded small>expanded small</Button>
+  <Button expanded>expanded</Button>
+  <Button expanded large>expanded large</Button>
+</div>

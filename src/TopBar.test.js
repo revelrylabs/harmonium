@@ -6,7 +6,7 @@ describe('TopBar', () => {
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'top-bar'
+    const inherentClassName = 'rev-TopBar'
     const testClassName = '__TEST__'
 
     const childClassName = shallow(<TopBar className={testClassName} />)
@@ -15,5 +15,17 @@ describe('TopBar', () => {
 
     expect(childClassName).to.contain(inherentClassName)
     expect(childClassName).to.contain(testClassName)
+  })
+
+  it('handles boolean styling props', () => {
+    const topBar = shallow(<TopBar breakpointMedium />)
+    console.log(topBar.debug())
+    expect(topBar.prop('className')).to.contain('rev-TopBar-breakpoint--mediumDown')
+  })
+})
+
+describe('Topbar.Item', () => {
+  it('should render without throwing', () => {
+    shallow(<TopBar.Item />)
   })
 })

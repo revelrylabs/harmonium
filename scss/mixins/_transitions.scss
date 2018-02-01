@@ -1,0 +1,6 @@
+@mixin global-transition($property: all, $delay: 0, $duration: 0.2s) {
+  transition-delay: $delay;
+  transition-duration: $duration;
+  transition-property: $property;
+  transition-timing-function: linear;
+}

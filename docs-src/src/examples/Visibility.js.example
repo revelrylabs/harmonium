@@ -1,0 +1,97 @@
+<div>
+  <Callout className="ExampleVisibility">
+    <Visibility showForSmallOnly>Show for Small Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility showForMediumOnly>Show for Medium Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility showForLargelOnly>Show for Large Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility showForXlargeOnly>Show for XLarge Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility showForXxlargeOnly>Show for XXLarge Only</Visibility>
+  </Callout>
+
+  <Callout className="ExampleVisibility">
+    <Visibility showForSmall>Show for Small Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility showForMedium>Show for Medium Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility showForLarge>Show for Large Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility showForXlarge>Show for XLarge Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility showForXxlarge>Show for XXLarge Up</Visibility>
+  </Callout>
+
+  <Callout className="ExampleVisibility">
+    <Visibility hideForSmallOnly>Hide for Small Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hideForMediumOnly>Hide for Medium Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hideForLargeOnly>Hide for Large Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hideForXlargeOnly>Hide for XLarge Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hideForXxlargeOnly>Hide for XXLarge Only</Visibility>
+  </Callout>
+
+  <Callout className="ExampleVisibility">
+    <Visibility hideForSmall>Hide for Small Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hideForMedium>Hide for Medium Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hideForLarge>Hide for Large Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hideForXlarge>Hide for XLarge Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hideForXxlarge>Hide for XXLarge Up</Visibility>
+  </Callout>
+
+  <Callout className="ExampleVisibility">
+    <Visibility hiddenForSmallOnly>Hidden for Small Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hiddenForMediumOnly>Hidden for Medium Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hiddenForLargeOnly>Hidden for Large Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hiddenForXlargeOnly>Hidden for XLarge Only</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hiddenForXxlargeOnly>Hidden for XXLarge Only</Visibility>
+  </Callout>
+
+  <Callout className="ExampleVisibility">
+    <Visibility hiddenForSmall>Hidden for Small Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hiddenForMedium>Hidden for Medium Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hiddenForLarge>Hidden for Large Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hiddenForXlarge>Hidden for XLarge Up</Visibility>
+  </Callout>
+  <Callout className="ExampleVisibility">
+    <Visibility hiddenForXxlarge>Hidden for XXLarge Up</Visibility>
+  </Callout>
+</div>

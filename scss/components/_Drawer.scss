@@ -1,0 +1,220 @@
+// Copyright © Revelry Labs, LLC 2017 - All Rights Reserved.
+$drawer-width: 300px !default;
+$drawer-bkgd: $lighter-gray !default;
+$mobile-nav-bkgd: $black !default;
+
+$drawer-height: 100% !default;
+$drawer-height-contained: 800px !default;
+$drawer-height-fixed: calc(100vh - #{$topbar-height}) !default;
+$drawer-overlay-top-value: $topbar-height !default;
+
+/* $drawer-breakpoint: $small;
+$drawer-mobile-nav-breakpoint: $medium; */
+/* TODO: learn how to do ^ */
+
+@mixin drawer {
+  margin: 0;
+  min-width: $drawer-width;
+  position: relative;
+  top: 0;
+  width: $drawer-width;
+  .rev-Drawer-contents {
+    background: $drawer-bkgd;
+    padding: $global-padding;
+    width: $drawer-width;
+  }
+  .rev-TopBar-item .rev-Menu {
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    .rev-Menu-item {
+      width: 100%;
+      a {
+        justify-content: center;
+      }
+    }
+  }
+}
+// for removing drawer styles
+@mixin drawer-nostyle {
+  @include flex(center, row, space-between, nowrap);
+  background: transparent;
+  display: flex !important;
+  position: static;
+  height: auto;
+  width: auto;
+  .rev-TopBar--center & {
+    @include flex(center, row, flex-start, nowrap);
+  }
+  .rev-TopBar--justified & {
+    @include flex(center, row, space-between, nowrap);
+  }
+  .rev-TopBar--left & {
+    @include flex(center, row, flex-start, nowrap);
+  }
+  .rev-TopBar--right & {
+    @include flex(center, row, flex-end, nowrap);
+  }
+}
+@mixin drawer-scroll($height: $drawer-height-contained) {
+  @include vertical-scroll-container($height);
+}
+@mixin drawer-fixed {
+  height: $drawer-height-fixed;
+  .rev-Drawer-contents {
+    @include drawer-scroll($drawer-height-fixed);
+    position: fixed;
+  }
+}
+@mixin drawer-overlay($top: $drawer-overlay-top-value) {
+  @include drawer-fixed;
+  left: 0;
+  margin: 0;
+  position: fixed;
+  top: $top;
+  z-index: $above-most;
+}
+@mixin drawer-collapsible {
+//TODO: collapsible toggle for overlay and relative drawers
+}
+
+.rev-DrawerContainer {
+  @include flex(flex-start, row, flex-start, nowrap);
+}
+.rev-Drawer {
+  @include drawer;
+  &.rev-Drawer--scroll {
+    @include drawer-scroll;
+  }
+  &.rev-Drawer--fixed {
+    @include drawer-fixed;
+  }
+  &.rev-Drawer--overlay {
+    @include drawer-overlay;
+    &.rev-Drawer--left {
+      left: 0;
+      right: auto;
+    }
+    &.rev-Drawer--right {
+      left: auto;
+      right: 0;
+    }
+  }
+  &.rev-Drawer--collapsible {
+    @include drawer-fixed;
+    @include global-transition;
+    background: #F0F;
+    &.rev-Drawer--left {
+      .rev-Drawer-contents {
+        @include global-transition;
+        left: 0;
+        right: auto;
+        @include breakpoint(global-width) {
+          left: calc((100vw - #{$global-width}) / 2);
+        }
+      }
+    }
+    &.rev-Drawer--right {
+      .rev-Drawer-contents {
+        left: auto;
+        right: 0;
+        @include breakpoint(global-width) {
+          right: calc((100vw - #{$global-width}) / 2);
+        }
+      }
+    }
+    &.collapsed {
+      max-width: 0;
+      min-width: 0;
+      overflow-x: hidden;
+      width: 0;
+      &.rev-Drawer--left {
+        .rev-Drawer-contents {
+          left: -$drawer-width;
+        }
+      }
+      &.rev-Drawer--right {
+        .rev-Drawer-contents {
+          right: -$drawer-width;
+        }
+      }
+    }
+  }
+  //TODO: mobile Nav styles + toggle
+  &.rev-Drawer--mobileNav {
+    @include breakpoint(medium) {
+      @include drawer-nostyle;
+    }
+    @include breakpoint(medium-down) {
+      @include drawer-overlay;
+      &.rev-Drawer--left {
+        left: 0;
+        right: auto;
+      }
+      &.rev-Drawer--right {
+        left: auto;
+        right: 0;
+      }
+    }
+  }
+}
+
+//TODO: Drawer Toggle
+/* #Drawer-toggle { //  input
+  opacity: 0;
+  position: fixed;
+  right: 0;
+  top: $topbar-height;
+  z-index: $below;
+}
+.Drawer-toggle { // label
+  @include global-transition;
+  background: $primary;
+  border-radius: $global-rounded $global-rounded 0 0;
+  color: $white;
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+  position: fixed;
+  right: -85px;
+  text-align: center;
+  top: 169px;
+  transform: rotate(-90deg);
+  width: 200px;
+  z-index: $above;
+  &:hover {
+    background: $anchor-color-hover;
+  }
+  &:active {
+    background: $anchor-color-active;
+  }
+}
+#Drawer-toggle:checked { // checked input
+  ~ .rev-Drawer { // Drawer Wrapper
+    min-width: $drawer-width;
+    right: -$global-padding;
+    width: $drawer-width;
+    .rev-Drawer-contents { // Scrollable Drawer Contents
+      right: 0;
+    }
+  }
+  + .Drawer-toggle { // label
+    right: 265px;
+  }
+}
+.NavToggle {
+  @include flex(center, row, center, nowrap);
+  background: transparent;
+  border: 0;
+  color: $white;
+  height: $topbar-height;
+  outline: none;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: $topbar-height;
+  &:hover,
+  &:active {
+    color: $primary;
+  }
+} */

@@ -1,0 +1,24 @@
+@mixin image-contained {
+  img {
+    margin: $global-vertical-space 0;
+  }
+}
+
+img {
+  display: block;
+  height: auto;
+  image-rendering: -webkit-optimize-contrast;
+  width: auto;
+}
+.ResponsiveImage {
+  height: auto;
+  width: 100%;
+}
+.Thumbnail {
+  @include global-transition;
+  background: $white;
+  box-shadow: 0 0 0 1px $divider-color;
+  border-radius: $global-radius;
+  margin: 0;
+  padding: $global-padding-tiny;
+}

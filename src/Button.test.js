@@ -6,7 +6,7 @@ describe('Button', () => {
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'button'
+    const inherentClassName = 'rev-Button'
     const testClassName = '__TEST__'
 
     const childClassName = shallow(<Button className={testClassName} />)
@@ -15,5 +15,11 @@ describe('Button', () => {
 
     expect(childClassName).to.contain(inherentClassName)
     expect(childClassName).to.contain(testClassName)
+  })
+
+  it('should handle props for different button types', () => {
+    const button = shallow(<Button secondary />)
+
+    expect(button.first().prop('className')).to.contain('secondary')
   })
 })

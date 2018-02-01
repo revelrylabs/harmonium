@@ -24,14 +24,18 @@ describe('ExpandingColStateContainer', () => {
     shallow(<ExpandingColStateContainer>Test</ExpandingColStateContainer>)
   })
 
-  it('should be openable', () => {
+  it('should be openable and closeable', () => {
     let container = mount(
       <ExpandingColStateContainer>Test</ExpandingColStateContainer>
     )
-    let expander = container.find('.rev-ExpandingCol-expander')
+    let expander = container.find('.rev-ExpandingCol-expander').first()
 
     expander.simulate('click')
 
     expect(container.state('open')).to.eq(true)
+
+    expander.simulate('click')
+
+    expect(container.state('open')).to.eq(false)
   })
 })

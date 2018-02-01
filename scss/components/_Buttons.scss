@@ -1,0 +1,172 @@
+// Button Vars
+$button-bkgd: $brand;
+$button-border: 0;
+$button-color: $white;
+$button-bkgd-hover: darken($brand, 5%);
+$button-color-hover: $white;
+$button-bkgd-active: darken($brand, 10%);
+$button-color-active: $white;
+$button-radius: $global-radius;
+
+// CLOSE BUTTON
+$closebutton-color: $darker-gray;
+$closebutton-color-hover: $black;
+$closebutton-lineheight: $global-lineheight;
+$closebutton-size: $global-font-size;
+
+@mixin button-contained {
+  .rev-Button {
+    margin: $global-vertical-space / 2 auto;
+    &.rev-Button--small {
+      margin: $global-vertical-space / 2 auto;
+    }
+    &.rev-Button--large {
+      margin: $global-vertical-space auto;
+    }
+  }
+}
+
+@mixin button {
+  @include global-transition;
+  background: $button-bkgd;
+  border: $button-border;
+  border-radius: $button-radius;
+  color: $button-color;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $global-font-size;
+  font-weight: normal;
+  line-height: $base-lineheight;
+  margin: 0 auto $global-vertical-space;
+  padding: $global-padding-small $global-padding;
+  &:hover,
+  &:active,
+  &:focus {
+    background: $button-bkgd-hover;
+    color: $button-color-hover;
+  }
+  &:active,
+  &:focus {
+    background: $button-bkgd-active;
+    color: $button-color-active;
+  }
+}
+.rev-Button {
+  @include button;
+  &.rev-Button--large {
+    font-size: $global-font-size-medium;
+    padding: $global-padding $global-padding-large;
+    margin: 0 auto $global-vertical-space;
+  }
+  &.rev-Button--small {
+    @include small-input;
+  }
+  &.rev-Button--primary {
+    box-shadow: $global-box-shadow;
+    &:hover {
+      box-shadow: $global-box-shadow-hover;
+    }
+    &:active,
+    &:focus {
+      box-shadow: $global-box-shadow-active;
+    }
+  }
+  &.rev-Button--secondary {
+    background: transparent;
+    box-shadow: 0 0 0 1px $button-bkgd inset;
+    color: $button-bkgd;
+    &:hover {
+      background: $button-bkgd-hover;
+      box-shadow: 0 0 0 1px $button-bkgd-hover inset;
+      color: $button-color-hover;
+    }
+    &:active,
+    &:focus {
+      background: $button-bkgd-active;
+      box-shadow: 0 0 0 1px $button-bkgd-active inset;
+      color: $button-color-active;
+    }
+  }
+  &.rev-Button--inverted {
+    background: $button-color;
+    color: $button-bkgd;
+    &:hover,
+    &:active,
+    &:focus {
+      background: $button-color;
+      color: $button-bkgd;
+    }
+    &.rev-Button--secondary {
+      background: transparent;
+      box-shadow: 0 0 0 1px $button-color inset;
+      color: $button-color;
+      &:hover {
+        background: $button-color-hover;
+        box-shadow: 0 0 0 1px $button-color-hover inset;
+        color: $button-bkgd-hover;
+      }
+      &:active,
+      &:focus {
+        background: $button-color-active;
+        box-shadow: 0 0 0 1px $button-color-active inset;
+        color: $button-bkgd-active;
+      }
+    }
+  }
+  &.rev-Button--success {
+    background: $success;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($success, 10%);
+    }
+  }
+  &.rev-Button--alert {
+    background: $alert;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($alert, 10%);
+    }
+  }
+  &.rev-Button--warning {
+    background: $warning;
+    &:hover,
+    &:active,
+    &:focus {
+      background: darken($warning, 10%);
+    }
+  }
+  &.rev-Button--expanded {
+    width: 100%;
+  }
+  &.rev-Button--collapse {
+    margin: 0;
+  }
+  &.rev-Button--disabled {
+    background: $lighter-gray;
+    color: $light-gray;
+    cursor: not-allowed;
+  }
+}
+.rev-ButtonGroup {
+  .rev-Button {
+    border-radius: 0;
+    border-right: 1px solid $divider-color;
+    &:first-child {
+      border-radius: $global-radius 0 0 $global-radius;
+    }
+    &:last-child {
+      border: 0;
+      border-radius: 0 $global-radius $global-radius 0;
+    }
+  }
+}
+%close-button {
+  background: $closebutton-color;
+  &:hover,
+  &:active,
+  &:focus {
+    background: $closebutton-color-hover;
+  }
+}

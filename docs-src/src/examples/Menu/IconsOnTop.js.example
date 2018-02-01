@@ -1,0 +1,6 @@
+<Menu iconTop>
+  <Menu.Item><a href="#"><Icon i="home" /> <span>One</span></a></Menu.Item>
+  <Menu.Item><a href="#"><Icon i="home" /> <span>Two</span></a></Menu.Item>
+  <Menu.Item><a href="#"><Icon i="home" /> <span>Three</span></a></Menu.Item>
+  <Menu.Item><a href="#"><Icon i="home" /> <span>Four</span></a></Menu.Item>
+</Menu>

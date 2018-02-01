@@ -1,4 +1,5 @@
-import React, {Component, PropTypes, Children, cloneElement} from 'react'
+import React, {Component, Children, cloneElement} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import InputLabel from './InputLabel'
 import InputHelpText from './InputHelpText'
@@ -19,7 +20,7 @@ class InputGroupLabel extends Component {
   render() {
     const {className, children, ...props} = this.props
     return (
-      <span {...props} className={classNames(className, 'input-group-label', 'rev-InputGroup-label')}>
+      <span {...props} className={classNames(className, 'rev-InputGroup-label')}>
         {children}
       </span>
     )
@@ -42,7 +43,7 @@ class InputGroupField extends Component {
     const {children, className} = this.props
     return cloneElement(
       Children.only(children),
-      {className: classNames(className, 'input-group-field', 'rev-InputGroup-field')},
+      {className: classNames(className, 'rev-InputGroup-field')},
     )
   }
 }

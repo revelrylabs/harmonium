@@ -1,0 +1,62 @@
+.rev-ExpandingCol-closer,
+.rev-ExpandingCol-expander {
+  display: block;
+  position: absolute;
+  margin: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: $above;
+  &.rev-Button {
+    margin: 0;
+  }
+}
+.rev-ExpandingCol-expander {
+  position: relative;
+}
+.rev-ExpandingCol-pane {
+  @include global-transition;
+  // So that when this is collapsed, if there is content which has padding or
+  // margins, it will still be hidden (otherwise, this forces a width and can
+  // make content appear)
+  overflow: hidden;
+  // Position is relative so that we can position the buttons absolutely against
+  // this pane (in the upper right)
+  position: relative;
+  &.is-closed {
+    // added a small delay here so that the content has time to fade out
+    // before the width is adjusted (making for a smoother transition)
+    @include global-transition(max-width, .25s);
+    flex: 0 100 0;
+  }
+  &.rev-ExpandingCol--expanderless.is-closed {
+    // Expanderless versions don't need to hold space for the button, and don't
+    // need gutters when collapsed (because you want the next column to start
+    // immediately against the edge, not a couple rems away from the edge of
+    // the row)
+    flex: 0 100 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.rev-ExpandingCol-pane-content {
+  // delay added here so that col can expand to full width before height
+  // is adjusted, making for a smoother transition
+  @include global-transition(max-height opacity, .25s);
+  // odd max-height here for transition
+  padding-right: $global-padding; // roughly the width of the expander button
+  max-height: 1000000px;
+  overflow: hidden;
+  opacity: 1;
+  .is-closed & {
+    @include global-transition(max-height opacity, 0s);
+    // max-height: 0 so that the vertical space of the hidden content doesn't
+    //add unnecessary space below the collapsed col
+    max-height: 0;
+    opacity: 0;
+    position: absolute;
+  }
+  .rev-ExpandingCol--expanderless & {
+    padding-right: 0;
+  }
+}

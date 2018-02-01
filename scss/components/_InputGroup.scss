@@ -1,0 +1,42 @@
+.rev-InputGroup {
+  @include flex(stretch, row, flex-start, nowrap);
+}
+.rev-InputGroup-label {
+  font-size: $global-font-size-small;
+  line-height: $base-lineheight;
+  margin-bottom: $global-padding;
+  padding: $global-padding-small $global-padding-small $global-padding-small 0;
+}
+.rev-InputGroup-field {
+  @include input-style;
+  border-radius: 0;
+  &:first-child {
+    border-bottom-left-radius: $input-radius;
+    border-top-left-radius: $input-radius;
+  }
+  &:last-child {
+    border-bottom-right-radius: $input-radius;
+    border-top-right-radius: $input-radius;
+  }
+}
+.rev-InputGroup-label + .rev-InputGroup-field {
+  border-bottom-left-radius: $input-radius;
+  border-top-left-radius: $input-radius;
+}
+.rev-InputGroup-button {
+  .rev-Button {
+    border-radius: 0;
+  }
+  &:first-child {
+    .rev-Button {
+      border-bottom-left-radius: $button-radius;
+      border-top-left-radius: $button-radius;
+    }
+  }
+  &:last-child {
+    .rev-Button {
+      border-bottom-right-radius: $button-radius;
+      border-top-right-radius: $button-radius;
+    }
+  }
+}

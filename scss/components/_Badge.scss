@@ -1,0 +1,13 @@
+$badge-size: $size-default !default;
+
+.rev-Badge {
+  @include color-management;
+  border-radius: $global-rounded;
+  display: inline-block;
+  font-size: $global-font-size-tiny;
+  min-height: $badge-size;
+  line-height: $badge-size;
+  padding: 0 $global-padding-tiny;
+  min-width: $badge-size;
+  text-align: center;
+}

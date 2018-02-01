@@ -1,0 +1,12 @@
+<div className="ColumnExamples">
+  <Row>
+    <Col medium={3}>3</Col>
+    <Col medium={3}>3</Col>
+    <Col medium={3}>3</Col>
+  </Row>
+  <Row>
+    <Col medium={3}>3</Col>
+    <Col medium={3}>3</Col>
+    <Col medium={3} end>3 end</Col>
+  </Row>
+</div>

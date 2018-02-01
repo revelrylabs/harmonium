@@ -1,0 +1,9 @@
+$help-text-color: $gray !default;
+
+.rev-HelpText {
+  display: block;
+  color: $help-text-color;
+  font-size: $global-font-size-small;
+  line-height: $base-lineheight;
+  padding: $global-padding-tiny 0;
+}

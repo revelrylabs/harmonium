@@ -1,9 +1,9 @@
 import React from 'react'
 import chai, {expect} from 'chai'
-import {mount, shallow} from 'enzyme'
-import chaiEnzyme from 'chai-enzyme'
+import {mount, shallow, configure} from 'enzyme'
+import Adapter from 'enzyme-adapter-react-16';
 
-chai.use(chaiEnzyme())
+configure({ adapter: new Adapter() });
 
 global.expect = expect
 global.mount = mount

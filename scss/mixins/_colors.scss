@@ -1,0 +1,134 @@
+@mixin body-color-stack {
+  background-color: $body-bkgd;
+  color: $body-font-color;
+}
+
+@mixin body-color-stack-inverted {
+  background-color: $body-font-color;
+  color: $body-bkgd;
+  a {
+    @if lightness($anchor-color) > 50% {}
+    @else {
+      color: $anchor-color-inverse;
+      &:hover {
+        color: $anchor-color-inverse-hover;
+      }
+      &:active {
+        color: $anchor-color-inverse-active;
+      }
+    }
+  }
+}
+
+$navigation-bkgd: $white;
+$navigation-bkgd-hover: darken($navigation-bkgd, 5%);
+$navigation-bkgd-click: darken($navigation-bkgd, 15%);
+$navigation-bkgd-active: darken($navigation-bkgd, 10%);
+
+$navigation-bkgd-inverted: $darker-gray;
+$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 5%);
+$navigation-bkgd-inverted-click: lighten($navigation-bkgd-inverted, 15%);
+$navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 10%);
+
+@mixin navigation-color-management {
+  a {
+    background: $navigation-bkgd;
+    &:hover {
+      background: $navigation-bkgd-hover;
+    }
+    &:active {
+      background: $navigation-bkgd-click;
+    }
+  }
+  &[class*='--active'] a {
+    background: $navigation-bkgd-active;
+  }
+}
+
+@mixin navigation-color-management-inverted {
+  a {
+    background: $navigation-bkgd-inverted;
+    &:hover {
+      background: $navigation-bkgd-inverted-hover;
+    }
+    &:active {
+      background: $navigation-bkgd-inverted-click;
+    }
+  }
+  &[class*='--active'] a {
+    background: $navigation-bkgd-inverted-active;
+  }
+}
+
+
+$color-list: primary, success, alert, warning, error;
+$color-vars: $primary, $success, $alert, $warning, $error;
+
+@mixin color-management {
+  // by default we give most things the $primary bkgd-color
+  background: $primary;
+  @if lightness($primary) > 65% {
+    color: $brand-dark;
+  }
+  @else {
+    color: $brand-light;
+  }
+  @for $i from 1 through length($color-list) {
+    // for components that use color vars as props, we find the lightness
+    // of the bkgd-color and adjust the font-color accordingly
+    &--#{nth($color-list, $i)} {
+      background: nth($color-vars, $i);
+      @if lightness(nth($color-vars, $i)) > 50% {
+        color: $brand-dark;
+      }
+      @else {
+        color: $brand-light;
+      }
+    }
+  }
+}
+
+@mixin muted {
+  opacity: 0.5;
+}
+@mixin disabled {
+  opacity: 0.35;
+}
+
+$stateful-item-color: $dark-gray !default;
+$stateful-item-color-hover: darken($stateful-item-color, 10%) !default;
+$stateful-item-color-active: $primary !default;
+$stateful-item-color-selected: $primary !default;
+$stateful-item-color-disabled: $disabled !default;
+$stateful-item-bkgd: $white !default;
+$stateful-item-bkgd-hover: $lightest-gray !default;
+$stateful-item-bkgd-active: $stateful-item-bkgd !default;
+$stateful-item-bkgd-selected: $lightest-gray !default;
+$stateful-item-bkgd-disabled: $stateful-item-bkgd !default;
+$stateful-item-bkgd-disabled-hover: $stateful-item-bkgd-disabled !default;
+
+@mixin stateful-color-mgmt {
+  background: $stateful-item-bkgd;
+  color: $stateful-item-color;
+  &:hover {
+    background: $stateful-item-bkgd-hover;
+    color: $stateful-item-color-hover;
+  }
+  &:active,
+  &:focus {
+    background: $stateful-item-bkgd-active;
+    color: $stateful-item-color-active;
+  }
+  [class*='--selected'] & {
+    background: $stateful-item-bkgd-selected;
+    color: $stateful-item-color-selected;
+  }
+  &[class*='--disabled'] {
+    background: $stateful-item-bkgd-disabled;
+    color: $stateful-item-color-disabled;
+    cursor: not-allowed;
+    &:hover {
+      background: $stateful-item-bkgd-disabled-hover;
+    }
+  }
+}

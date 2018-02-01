@@ -1,0 +1,4 @@
+<DatePicker
+  onChange={(e) => alert(e.target.value)}
+  label="With Custom Change Handler"
+/>

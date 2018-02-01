@@ -1,0 +1,17 @@
+<Row smallUp={1} mediumUp={3} largeUp={5} className="ColumnExamples ColumnExamples--blockGrid">
+  <Col>
+    <img src="//placekitten.com/g/300/300" className="ResponsiveImage" alt="" />
+  </Col>
+  <Col>
+    <img src="//placekitten.com/g/300/300" className="ResponsiveImage" alt="" />
+  </Col>
+  <Col>
+    <img src="//placekitten.com/g/300/300" className="ResponsiveImage" alt="" />
+  </Col>
+  <Col>
+    <img src="//placekitten.com/g/300/300" className="ResponsiveImage" alt="" />
+  </Col>
+  <Col>
+    <img src="//placekitten.com/g/300/300" className="ResponsiveImage" alt="" />
+  </Col>
+</Row>

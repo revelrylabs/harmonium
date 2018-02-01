@@ -1,0 +1,7 @@
+<div>
+  <Button disabled>default disabled</Button>
+  <Button secondary disabled>secondary disabled</Button>
+  <Button success disabled>success disabled</Button>
+  <Button warning disabled>warning disabled</Button>
+  <Button alert disabled>alert disabled</Button>
+</div>

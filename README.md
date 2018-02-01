@@ -1,37 +1,66 @@
-# revelry_core_node
+# Possum
 
-This is the Node.js port of revelry_core. You can find the deployed version [here](http://revelry-ui.herokuapp.com/).
+[![NPM Version][npm-badge]][npm-url]
+[![Travis Build Status][travis-badge]][travis-url]
 
-## Setup
+Possum is a framework of React components optimized for teams that want to ship apps fast. It is a curated list of components that work together and have cohesive styles. One of our design goals is that you never have to research and handpick component packages. Whatever you need is already here.
 
-Clone and run `npm install`.
+A gallery of components is at https://possum.revelry.co.
 
-## Running the docs site locally
+## Installation
 
+To install the toolkit for use in your project:
+
+```sh
+npm install --save awesome-possum
 ```
-npm run dev
+
+## Usage
+
+You can import components and use components from the toolkit like:
+
+```jsx
+import Col from 'possum/lib/Col'
+import Row from 'possum/lib/Row'
+import Callout from 'possum/lib/Callout'
+
+function Hello() {
+  return (
+    <Row>
+      <Col>
+        <Callout>Hello, world.</Callout>
+      </Col>
+    </Row>
+  )
+}
 ```
 
-This will open up a new browser tab at localhost:8000.
-While this is running you can make changes in the src folder and the site will automatically reload with your changes.
+See the example site at https://possum.revelry.co for more examples of how to
+use the components in your projects.
 
-## How to add code
+## SCSS
 
-### React components
+We don't just provide JavaScript. We've built a set of SCSS styles for all the
+components. It is in the `scss` directory of the package. You can either copy it
+into your project's SCSS directory, or use a tool like sassy-npm-importer to
+import it from the package.
 
-* Write a component like `src/my-component.js`.
-* Write an example file like `src/my-component.example.js`.
-  * The module should have one or more named exports that are React components, defined with ES6 class syntax. (`export class Example1 extends Compnent {}`)
-  * Each example will be built into the docs site.
-* Write a test file like `src/my-component.test.js`.
-  * Run tests with `npm test`.
-  * See `test-config.js` to see what additional globals are available in tests. (`decribe`, `it`, `expect`, `shallow`, `mount`, etc.)
+## Configuration
 
-### Sass
+At this time, there's no package level configuration-- all options as passed as
+props to the components at time of use.
 
-Try as often as possible to rely solely on Foundation Sites styles where available.
-On occasion, however, you will need specific styles for components that go beyond what Foundation offers.
-In this case:
+## Contributing and Development
 
-* Add an SCSS file like `scss/my-component.scss`
-* Edit `docs-src/site.scss` so that it imports your component's styles.
+See [CONTRIBUTING.md](https://github.com/revelrylabs/possum/blob/master/CONTRIBUTING.md)
+for guidance on how to develop possum.
+
+Bug reports and pull requests are welcome on GitHub at https://github.com/revelrylabs/possum. Check out [CONTRIBUTING.md](https://github.com/revelrylabs/possum/blob/master/CONTRIBUTING.md) for more info.
+
+Everyone is welcome to participate in the project. We expect contributors to
+adhere the Contributor Covenant Code of Conduct (see [CODE_OF_CONDUCT.md](https://github.com/revelrylabs/possum/blob/master/CODE_OF_CONDUCT.md)).
+
+[npm-badge]: https://img.shields.io/npm/v/awesome-possum.svg
+[npm-url]: https://www.npmjs.com/package/awesome-possum
+[travis-badge]: https://img.shields.io/travis/revelrylabs/possum.svg
+[travis-url]: https://travis-ci.org/revelrylabs/possum

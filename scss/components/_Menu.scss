@@ -1,0 +1,214 @@
+$menu-bkgd: $white !default;
+$menu-color: $body-font-color !default;
+$menu-link-bkgd: transparent !default;
+$menu-link-bkgd-hover: transparent !default;
+$menu-link-bkgd-active: transparent !default;
+$menu-link-bkgd-selected: $anchor-color-selected !default;
+$menu-link-color: $anchor-color !default;
+$menu-link-color-hover: $anchor-color-hover !default;
+$menu-link-color-active: $anchor-color-active !default;
+$menu-link-color-selected: $menu-bkgd !default;
+
+$menu-bkgd-inverse: $brand-dark !default;
+$menu-color-inverse: $brand-light !default;
+$menu-link-bkgd-inverse: transparent !default;
+$menu-link-bkgd-inverse-hover: transparent !default;
+$menu-link-bkgd-inverse-active: transparent !default;
+$menu-link-bkgd-inverse-selected: $anchor-color-selected !default;
+$menu-link-color-inverse: $anchor-color-inverse !default;
+$menu-link-color-inverse-hover: $anchor-color-inverse-hover !default;
+$menu-link-color-inverse-active: $anchor-color-inverse-active !default;
+$menu-link-color-inverse-selected: $menu-bkgd-inverse !default;
+
+$menu-dropdown-width: 24rem !default;
+
+@mixin vertical-menu {
+  display: block;
+  &.rev-Menu--dividers {
+    .rev-Menu--nested {
+      border-top: 1px solid $divider-color;
+    }
+    .rev-Menu-item,
+    .rev-Menu-item--divider {
+      border-bottom: 1px solid $divider-color;
+    }
+    .rev-Menu-item:last-of-type {
+      border: 0;
+    }
+  }
+  .rev-Menu-item--divider {
+    border-bottom: 1px solid $divider-color;
+  }
+  .rev-Menu-item--text .rev-Menu-item--divider {
+    margin-bottom: $global-vertical-space / 2;
+  }
+}
+@mixin horizontal-menu {
+  @include flex(center, row, space-between, nowrap);
+  overflow-x: scroll;
+  &.rev-Menu--dividers .rev-Menu-item,
+  .rev-Menu-item--divider {
+    border-left: 1px solid $divider-color;
+  }
+  &.rev-Menu--dividers .rev-Menu-item:first-of-type {
+    border: 0;
+  }
+  .rev-Menu--nested {
+    border: 1px solid $divider-color;
+    border-top: 0;
+    border-radius: $global-radius;
+    display: none;
+    position: absolute;
+    width: $menu-dropdown-width;
+    z-index: $above;
+    .rev-Menu--nested {
+      border: 0;
+      position: static;
+      width: 100%;
+    }
+    li:hover & {
+      display: block;
+    }
+  }
+  .rev-Menu-item {
+    position: relative;
+    &:hover,
+    &:active,
+    &:focus,
+    &.rev-Menu-item--active {
+      .rev-Menu--nested {
+        display: block;
+      }
+    }
+  }
+}
+
+@mixin rev-menu-item {
+  .rev-Menu-item {
+    margin: 0;
+    padding: 0;
+    position: relative;
+    &.rev-Menu-item--text,
+    a {
+      display: block;
+      padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
+    }
+    a {
+      background: $menu-link-bkgd;
+      color: $menu-link-color;
+      &:hover {
+        background: $menu-link-bkgd-hover;
+        color: $menu-link-color-hover;
+      }
+      &:active,
+      &:focus {
+        background: $menu-link-bkgd-active;
+        color: $menu-link-color-active;
+      }
+    }
+    &[class*='--active'] a {
+      background: $menu-link-bkgd-selected;
+      color: $menu-link-color-selected;
+    }
+  }
+}
+
+@mixin rev-menu-item-inverse {
+  @include rev-menu-item;
+  .rev-Menu-item {
+    a {
+      background: $menu-link-bkgd-inverse;
+      color: $menu-link-color-inverse;
+      &:hover {
+        background: $menu-link-bkgd-inverse-hover;
+        color: $menu-link-color-inverse-hover;
+      }
+      &:active,
+      &:focus {
+        background: $menu-link-bkgd-inverse-active;
+        color: $menu-link-color-inverse-active;
+      }
+    }
+    &[class*='--active'] a {
+      background: $menu-link-bkgd-inverse-selected;
+      color: $menu-link-color-inverse-selected;
+    }
+  }
+}
+
+.rev-Menu {
+  @include rev-menu-item;
+  background: $menu-bkgd;
+  color: $menu-color;
+  position: relative;
+  &.rev-Menu--horizontal {
+    @include horizontal-menu;
+  }
+  &.rev-Menu--horizontalJustified {
+    @include horizontal-menu;
+    .rev-Menu-item {
+      flex: 1;
+      text-align: center;
+    }
+  }
+  &.rev-Menu--horizontalCentered {
+    @include horizontal-menu;
+    justify-content: center;
+  }
+  &.rev-Menu--horizontalLeft {
+    @include horizontal-menu;
+    justify-content: flex-start;
+  }
+  &.rev-Menu--horizontalRight {
+    @include horizontal-menu;
+    justify-content: flex-end;
+  }
+  &.rev-Menu--vertical,
+  &.rev-Menu--verticalLeft {
+    @include vertical-menu;
+    text-align: left;
+  }
+  &.rev-Menu--verticalCentered {
+    @include vertical-menu;
+    text-align: center;
+  }
+  &.rev-Menu--verticalRight {
+    @include vertical-menu;
+    text-align: right;
+  }
+  &.rev-Menu--inverse {
+    @include body-color-stack-inverted;
+    @include rev-menu-item-inverse;
+    background: $menu-bkgd-inverse;
+    color: $menu-color-inverse;
+    .rev-Menu {
+      background: $menu-bkgd-inverse;
+    }
+    &.rev-Menu--dividers {
+      .rev-Menu--nested {
+        border-color: $divider-color-light;
+      }
+    }
+    &.rev-Menu--dividers .rev-Menu-item,
+    .rev-Menu-item--divider {
+      border-color: $divider-color-light;
+    }
+  }
+}
+
+/*TODO: do this smarter*/
+.rev-Menu--nested {
+  a {
+    padding-left: $global-padding;
+  }
+  .rev-Menu--nested {
+    a {
+      padding-left: $global-padding-large;
+    }
+    .rev-Menu--nested {
+      a {
+        padding-left: $global-padding-larger;
+      }
+    }
+  }
+}

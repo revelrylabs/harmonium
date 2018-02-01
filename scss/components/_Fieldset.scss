@@ -1,0 +1,21 @@
+fieldset,
+.rev-Fieldset,
+.rev-CheckableFieldset {
+  border: 1px solid $divider-color;
+  margin-bottom: $global-vertical-space;
+  // -2px for the borders. This maintains the vertical rhythm
+  padding: calc(#{$global-padding-small} - 2px) $global-padding;
+  legend {
+    padding: 0 $global-padding-tiny;
+  }
+  &.is-invalid-fieldset {
+    border-color: $error;
+  }
+  .rev-Radio,
+  .rev-Checkbox {
+    &.is-invalid {
+      background: transparent;
+      box-shadow: none;
+    }
+  }
+}

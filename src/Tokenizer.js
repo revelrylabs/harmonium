@@ -3,27 +3,27 @@ const KEY_ENTER = 13
 const KEY_ESC = 27
 
 import React from 'react'
-
+import PropTypes from 'prop-types'
 
 export default class Tokenizer extends React.Component {
 
   static get propTypes() {
     return {
-      placeholder: React.PropTypes.string,
-      remoteOptionsUrl: React.PropTypes.string,
-      queryParam: React.PropTypes.string,
-      selectedItems: React.PropTypes.array,
-      inputClassName: React.PropTypes.string,
-      optionListClassName: React.PropTypes.string,
-      optionClassName: React.PropTypes.string,
-      tokenListClassName: React.PropTypes.string,
-      tokenClassName: React.PropTypes.string,
-      removeButtonClassName: React.PropTypes.string,
-      leaveOpen: React.PropTypes.bool,
-      getItemValue: React.PropTypes.func,
-      getOptionComponent: React.PropTypes.func,
-      getTokenComponent: React.PropTypes.func,
-      getInputName: React.PropTypes.func,
+      placeholder: PropTypes.string,
+      remoteOptionsUrl: PropTypes.string,
+      queryParam: PropTypes.string,
+      selectedItems: PropTypes.array,
+      inputClassName: PropTypes.string,
+      optionListClassName: PropTypes.string,
+      optionClassName: PropTypes.string,
+      tokenListClassName: PropTypes.string,
+      tokenClassName: PropTypes.string,
+      removeButtonClassName: PropTypes.string,
+      leaveOpen: PropTypes.bool,
+      getItemValue: PropTypes.func,
+      getOptionComponent: PropTypes.func,
+      getTokenComponent: PropTypes.func,
+      getInputName: PropTypes.func,
 
     }
   }

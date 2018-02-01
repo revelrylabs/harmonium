@@ -1,0 +1,26 @@
+<div>
+  <TextAlign left><p>left</p></TextAlign>
+  <TextAlign right><p>right</p></TextAlign>
+  <TextAlign center><p>center</p></TextAlign>
+  <TextAlign justify><p>justify</p></TextAlign>
+  <TextAlign smallLeft><p>smallLeft</p></TextAlign>
+  <TextAlign smallRight><p>smallRight</p></TextAlign>
+  <TextAlign smallCenter><p>smallCenter</p></TextAlign>
+  <TextAlign smallJustify><p>smallJustify</p></TextAlign>
+  <TextAlign mediumLeft><p>mediumLeft</p></TextAlign>
+  <TextAlign mediumRight><p>mediumRight</p></TextAlign>
+  <TextAlign mediumCenter><p>mediumCenter</p></TextAlign>
+  <TextAlign mediumJustify><p>mediumJustify</p></TextAlign>
+  <TextAlign largeLeft><p>largeLeft</p></TextAlign>
+  <TextAlign largeRight><p>largeRight</p></TextAlign>
+  <TextAlign largeCenter><p>largeCenter</p></TextAlign>
+  <TextAlign largeJustify><p>largeJustify</p></TextAlign>
+  <TextAlign xlargeLeft><p>largeLeft</p></TextAlign>
+  <TextAlign xlargeRight><p>largeRight</p></TextAlign>
+  <TextAlign xlargeCenter><p>largeCenter</p></TextAlign>
+  <TextAlign xlargeJustify><p>largeJustify</p></TextAlign>
+  <TextAlign xxlargeLeft><p>largeLeft</p></TextAlign>
+  <TextAlign xxlargeRight><p>largeRight</p></TextAlign>
+  <TextAlign xxlargeCenter><p>largeCenter</p></TextAlign>
+  <TextAlign xxlargeJustify><p>largeJustify</p></TextAlign>
+</div>

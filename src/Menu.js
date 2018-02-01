@@ -2,14 +2,21 @@ import React, {Component} from 'react'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
-  right: ['align-right', 'rev-Menu--right'],
-  left: ['align-left', 'rev-Menu--left'],
-  center: ['align-center', 'rev-Menu--center'],
-  expanded: ['expanded', 'rev-Menu--expanded'],
-  vertical: ['vertical', 'rev-Menu--vertical'],
-  simple: ['simple', 'rev-Menu--simple'],
-  nested: ['nested', 'rev-Menu--nested'],
-  iconTop: ['icon-top', 'rev-Menu--iconTop'],
+  horizontal: ['rev-Menu--horizontalLeft'],
+  horizontalLeft: ['rev-Menu--horizontalLeft'],
+  horizontalCentered: ['rev-Menu--horizontalCentered'],
+  horizontalJustified: ['rev-Menu--horizontalJustified'],
+  horizontalRight: ['rev-Menu--horizontalRight'],
+
+  vertical: ['rev-Menu--verticalLeft'],
+  verticalLeft: ['rev-Menu--verticalLeft'],
+  verticalCentered: ['rev-Menu--verticalCentered'],
+  verticalRight: ['rev-Menu--verticalRight'],
+
+  nested: ['rev-Menu--nested'],
+  dividers: ['rev-Menu--dividers'],
+  inverse: ['rev-Menu--inverse'],
+  icons: ['rev-Menu--icons'],
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
@@ -24,7 +31,7 @@ export default class Menu extends Component {
       }
       delete props[name]
     })
-    const newClassName = classNames(className, 'menu', 'rev-Menu', boolClassNames)
+    const newClassName = classNames(className,'rev-Menu', boolClassNames)
 
     return (
       <ul {...props} className={newClassName}>
@@ -36,13 +43,12 @@ export default class Menu extends Component {
 
 export class MenuItem extends Component {
   render() {
-    const {children, className, text, active, ...props} = this.props
+    const {children, className, text, divider, active, ...props} = this.props
 
-    const newClassName = classNames(className, 'rev-Menu-item', {
-      'menu-text': text,
+    const newClassName = classNames('rev-Menu-item', {
+      'rev-Menu-item--divider': divider,
       'rev-Menu-item--text': text,
-      'active': active,
-      'is-active': active,
+      'rev-Menu-item--active': active,
     })
 
     return (

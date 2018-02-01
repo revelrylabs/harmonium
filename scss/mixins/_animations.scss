@@ -1,0 +1,22 @@
+@-webkit-keyframes fade-in {
+  0% {opacity: 0; }
+  100% { opacity: 1; }
+}
+@-moz-keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@-o-keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes fade-in {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+.FadeIn {
+  -moz-animation: fade-in 0.5s;
+  -o-animation: fade-in 0.5s;
+  -webkit-animation: fade-in 0.5s;
+  animation: fade-in 0.5s;
+}

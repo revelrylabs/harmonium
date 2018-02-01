@@ -1,0 +1,21 @@
+<TopBar right>
+  <TopBar.Item>
+    <a href="#" className="rev-Brand">LOGO</a>
+  </TopBar.Item>
+  <TopBar.Item>
+    <Menu horizontalLeft>
+      <Menu.Item><a href="#">One</a></Menu.Item>
+      <Menu.Item><a href="#">Two</a></Menu.Item>
+    </Menu>
+  </TopBar.Item>
+  <TopBar.Item>
+    <Form>
+      <InputGroup>
+        <InputGroup.Field>
+          <Input type="text" placeholder="Search" />
+        </InputGroup.Field>
+        <Button>Search</Button>
+      </InputGroup>
+    </Form>
+  </TopBar.Item>
+</TopBar>

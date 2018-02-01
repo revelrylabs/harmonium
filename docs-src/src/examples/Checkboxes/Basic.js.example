@@ -1,0 +1,18 @@
+<Row>
+  <Col>
+    <h3>Inline Checkboxes</h3>
+  </Col>
+  <Col>
+    <Checkbox name="singular" defaultValue="1" label="One" />
+    <Checkbox name="singular" defaultValue="2" label="Two" />
+    <Checkbox name="singular" defaultValue="3" label="Three" />
+  </Col>
+  <Col>
+    <h3>Stacked Checkboxes</h3>
+  </Col>
+  <Col>
+    <Checkbox stacked name="singular" defaultValue="1" label="Stacked Checkbox One" />
+    <Checkbox stacked name="singular" defaultValue="2" label="Stacked Checkbox Two" />
+    <Checkbox stacked name="singular" defaultValue="3" label="Stacked Checkbox Three" />
+  </Col>
+</Row>

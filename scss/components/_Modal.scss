@@ -1,0 +1,49 @@
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$modal-bkgd: $black-40 !default;
+$modal-content-bkgd: $white !default;
+$modal-content-border-size: 1px !default;
+$modal-content-border-color: $divider-color !default;
+$modal-content-box-shadow: $global-box-shadow !default;
+$modal-content-color: $body-font-color !default;
+$modal-content-padding: 0 !default;
+
+.rev-Modal,
+.rev-Modal-background {
+  background: $modal-bkgd;
+  bottom: 0;
+  left: 0;
+  overflow-y: auto;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.rev-Modal {
+  @include flex(center, row, center, nowrap);
+  z-index: $above-everything;
+}
+.rev-Modal-background {
+  background: $modal-bkgd;
+}
+.rev-Modal-content {
+  background: $modal-content-bkgd;
+  box-shadow: $global-box-shadow;
+  color: $modal-content-color;
+  max-width: $global-width;
+  padding: $modal-content-padding;
+  position: relative;
+  width: 90%;
+}
+
+.rev-Modal-close {
+  font-size: $global-font-size-large;
+  position: absolute;
+  right: $global-padding;
+  top: $global-padding;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: none;
+  }
+}

@@ -1,0 +1,22 @@
+<div>
+  <Row flex className="ColumnExamples">
+    <Col bottom small={6}>Align bottom</Col>
+    <Col small={6}>
+      <Lipsum />
+    </Col>
+  </Row>
+
+  <Row flex className="ColumnExamples">
+    <Col middle small={6}>Align middle</Col>
+    <Col small={6}>
+      <Lipsum />
+    </Col>
+  </Row>
+
+  <Row flex className="ColumnExamples">
+    <Col top small={6}>Align top</Col>
+    <Col small={6}>
+      <Lipsum />
+    </Col>
+  </Row>
+</div>

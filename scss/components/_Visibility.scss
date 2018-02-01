@@ -1,0 +1,124 @@
+@mixin SR-element {
+  position: absolute !important;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  white-space: nowrap;
+  clip-path: inset(50%);
+  border: 0;
+}
+.Hidden {
+  visibility: hidden;
+}
+.Hide {
+  display: none;
+}
+.Show--smallOnly,
+.Show--mediumOnly,
+.Show--largeOnly,
+.Show--xlargeOnly,
+.Show--xxlargeOnly,
+.Show--smallUp,
+.Show--mediumUp,
+.Show--largeUp,
+.Show--xlargeUp,
+.Show--xxlargeUp {
+  display: none;
+}
+.ShowForSR {
+  @include SR-element;
+}
+@include breakpoint(small-only)  {
+  .Hidden--smallOnly {
+    visibility: hidden;
+  }
+  .Hide--smallOnly {
+    display: none;
+  }
+  .Show--smallOnly {
+    display: block;
+  }
+}
+@include breakpoint(medium-only)  {
+  .Hidden--mediumOnly {
+    visibility: hidden;
+  }
+  .Hide--mediumOnly {
+    display: none;
+  }
+  .Show--mediumOnly {
+    display: block;
+  }
+}
+@include breakpoint(large-only)  {
+  .Hidden--largeOnly {
+    visibility: hidden;
+  }
+  .Hide--largeOnly {
+    display: none;
+  }
+  .Show--largeOnly {
+    display: block;
+  }
+}
+@include breakpoint(xlarge-only)  {
+  .Hidden--xlargeOnly {
+    visibility: hidden;
+  }
+  .Hide--xlargeOnly {
+    display: none;
+  }
+  .Show--xlargeOnly {
+    display: block;
+  }
+}
+
+@include breakpoint(medium) {
+  .Hidden--mediumUp {
+    visibility: hidden;
+  }
+  .Hide--mediumUp {
+    display: none;
+  }
+  .Show--mediumUp {
+    display: block;
+  }
+}
+@include breakpoint(large)  {
+  .Hidden--largeUp {
+    visibility: hidden;
+  }
+  .Hide--largeUp {
+    display: none;
+  }
+  .Show--largeUp {
+    display: block;
+  }
+}
+@include breakpoint(xlarge)  {
+  .Hidden--xlargeUp {
+    visibility: hidden;
+  }
+  .Hide--xlargeUp {
+    display: none;
+  }
+  .Show--xlargeUp {
+    display: block;
+  }
+}
+@include breakpoint(xxlarge)  {
+  .Hidden--xxlargeUp,
+  .Hidden--xxlargeOnly {
+    visibility: hidden;
+  }
+  .Hide--xxlargeUp,
+  .Hide--xxlargeOnly {
+    display: none;
+  }
+  .Show--xxlargeUp,
+  .Show--xxlargeOnly {
+    display: block;
+  }
+}

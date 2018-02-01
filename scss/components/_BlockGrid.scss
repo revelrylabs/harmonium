@@ -1,0 +1,45 @@
+// BLOCK GRID
+@for $i from 1 through $grid-columns {
+  .rev-Row--smallUp#{$i} {
+    flex-wrap: wrap;
+    .rev-Col {
+      flex: 0 0 auto;
+      width: calc(100% / #{$i});
+    }
+  }
+  @include breakpoint(medium) {
+    .rev-Row--mediumUp#{$i} {
+      flex-wrap: wrap;
+      .rev-Col {
+        flex: 0 0 auto;
+        width: calc(100% / #{$i});
+      }
+    }
+  }
+  @include breakpoint(large) {
+    .rev-Row--largeUp#{$i} {
+      flex-wrap: wrap;
+      .rev-Col {
+        flex: 0 0 auto;
+        width: calc(100% / #{$i});
+      }
+    }
+  }
+  @include breakpoint(xlarge) {
+    .rev-Row--xlargeUp#{$i} {
+      flex-wrap: wrap;
+      .rev-Col {
+        flex: 0 0 auto;
+        width: calc(100% / #{$i});
+      }
+    }
+  }
+  @include breakpoint(xxlarge) {
+    .rev-Row--xxlargeUp#{$i} {
+      .rev-Col {
+        flex: 0 0 auto;
+        width: calc(100% / #{$i});
+      }
+    }
+  }
+}

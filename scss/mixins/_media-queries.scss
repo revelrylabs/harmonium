@@ -1,0 +1,86 @@
+//$breakpoints list defined in settings
+
+$devices: (
+  // iPhone 7 / 8
+  iphone: (
+    and (device-width : 375px)
+    and (device-height : 667px)
+    and (-webkit-device-pixel-ratio : 2)
+  ),
+  iphone-portrait: (
+    and (device-width : 375px)
+    and (device-height : 667px)
+    and (-webkit-device-pixel-ratio : 2)
+    and (orientation : portrait)
+  ),
+  iphone-landscape: (
+    and (device-width : 375px)
+    and (device-height : 667px)
+    and (-webkit-device-pixel-ratio : 2)
+    and (orientation : landscape)
+  ),
+  // iPhone 6+ / 6s+ / 7+ / 8+
+  iphone-plus: (
+    and (device-width : 414px)
+    and (device-height : 736px)
+    and (-webkit-device-pixel-ratio : 3)
+  ),
+  iphone-plus-portrait: (
+    and (device-width : 414px)
+    and (device-height : 736px)
+    and (-webkit-device-pixel-ratio : 3)
+    and (orientation : portrait)
+  ),
+  iphone-plus-landscape: (
+    and (device-width : 414px)
+    and (device-height : 736px)
+    and (-webkit-device-pixel-ratio : 3)
+    and (orientation : landscape)
+  ),
+  // iPhone X
+  iphone-x: (
+    and (device-width : 375px)
+    and (device-height : 812px)
+    and (-webkit-device-pixel-ratio : 3)
+  ),
+  iphone-x-portrait: (
+    and (device-width : 375px)
+    and (device-height : 812px)
+    and (-webkit-device-pixel-ratio : 3)
+    and (orientation : portrait)
+  ),
+  iphone-x-landscape: (
+    and (device-width : 375px)
+    and (device-height : 812px)
+    and (-webkit-device-pixel-ratio : 3)
+    and (orientation : landscape)
+  ),
+);
+
+@mixin breakpoint($size) {
+  @each $item, $value in $breakpoints {
+    @if $item == $size {
+      @if $value != null {
+        @media screen and #{$value} {
+          @content;
+        }
+      }
+    }
+  }
+}
+@mixin device($size) {
+  @each $item, $value in $devices {
+    @if $item == $size {
+      @if $value != null {
+        @media only screen and #{$value} {
+          @content;
+        }
+      }
+    }
+  }
+}
+@mixin print {
+  @media print {
+    @content;
+  }
+}

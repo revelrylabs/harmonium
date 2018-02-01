@@ -1,0 +1,46 @@
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$accordion-border-size: 1px !default;
+$accordion-border-color: $divider-color !default;
+$accordion-content-bkgd: $white !default;
+
+.rev-Accordion { // ul
+  border: $accordion-border-size solid $accordion-border-color;
+  margin-bottom: $global-vertical-space;
+}
+.rev-AccordionItem { // li
+  border-bottom: $accordion-border-size solid $accordion-border-color;
+  margin: 0;
+  padding: 0;
+}
+.rev-AccordionItem-title { // a inside the li
+  @include stateful-color-mgmt;
+  display: block;
+  padding: $global-padding-small $global-padding;
+  position: relative;
+  &:before {
+    //TODO: fix icon font path
+    // @include icon;
+    // content: '\e900'; // .icon-add
+    content: '+';
+    position: absolute;
+    right: $global-padding;
+  }
+  &--selected {
+    &:before {
+      content: '-';
+    }
+  }
+}
+//TODO change display changes on .is-active to something that can transition
+.rev-AccordionItem-content {
+  @include global-transition;
+  background: $accordion-content-bkgd;
+  display: none;
+  overflow: hidden;
+  padding: $global-padding;
+  &--selected {
+    display: block;
+  }
+}

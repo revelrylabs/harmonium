@@ -1,0 +1,6 @@
+<DatePicker
+  isOpen
+  defaultValue="2018-03-12"
+  highlights={(date) => date.weekday == 2 ? 'ExamplePink' : ''}
+  label="Highlights (as function with class override)"
+/>

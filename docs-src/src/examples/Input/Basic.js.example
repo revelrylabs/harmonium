@@ -1,0 +1,4 @@
+<div>
+  <Input placeholder="Not a stack" />
+  <Input placeholder="Has an error" error />
+</div>

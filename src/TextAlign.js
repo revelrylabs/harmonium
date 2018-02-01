@@ -1,23 +1,37 @@
-import React, {Component, PropTypes, cloneElement} from 'react'
+import React, {Component, cloneElement} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const CLASS_NAMES = {
-  left: 'text-left',
-  right: 'text-right',
-  center: 'text-center',
-  justify: 'text-justify',
-  smallLeft: 'small-text-left',
-  smallRight: 'small-text-right',
-  smallCenter: 'small-text-center',
-  smallJustify: 'small-text-justify',
-  mediumLeft: 'medium-text-left',
-  mediumRight: 'medium-text-right',
-  mediumCenter: 'medium-text-center',
-  mediumJustify: 'medium-text-justify',
-  largeLeft: 'large-text-left',
-  largeRight: 'large-text-right',
-  largeCenter: 'large-text-center',
-  largeJustify: 'large-text-justify',
+  left: 'Text-left',
+  right: 'Text-right',
+  center: 'Text-center',
+  justify: 'Text-justify',
+
+  smallLeft: 'Text--smallLeft',
+  smallRight: 'Text--smallRight',
+  smallCenter: 'Text--smallCenter',
+  smallJustify: 'Text--smallJustify',
+
+  mediumLeft: 'Text--mediumLeft',
+  mediumRight: 'Text--mediumRight',
+  mediumCenter: 'Text--mediumCenter',
+  mediumJustify: 'Text--mediumJustify',
+
+  largeLeft: 'Text--largeLeft',
+  largeRight: 'Text--largeRight',
+  largeCenter: 'Text--largeCenter',
+  largeJustify: 'Text--largeJustify',
+
+  xlargeLeft: 'Text--xlargeLeft',
+  xlargeRight: 'Text--xlargeRight',
+  xlargeCenter: 'Text--xlargeCenter',
+  xlargeJustify: 'Text--xlargeJustify',
+
+  xxlargeLeft: 'Text--xxlargeLeft',
+  xxlargeRight: 'Text--xxlargeRight',
+  xxlargeCenter: 'Text--xxlargeCenter',
+  xxlargeJustify: 'Text--xxlargeJustify',
 }
 
 const PROP_TYPES = {

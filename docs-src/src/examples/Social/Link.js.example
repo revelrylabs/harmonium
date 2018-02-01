@@ -1,0 +1,52 @@
+<div>
+  <p>
+    Pass in a supported social network (listed below), a 
+    link to share, and a message that will be the default 
+    post.
+  </p> 
+  <p>
+    <Social 
+      type={Social.types.FACEBOOK} 
+      url="http://revelry.co" 
+      message="Sharing via a text link!"
+    >
+      Share via Facebook
+    </Social>
+  </p>
+  <p>
+    <Social 
+      type={Social.types.TWITTER} 
+      url="http://revelry.co" 
+      message="Sharing via a text link!"
+    >
+      Share via Twitter
+    </Social>
+  </p>           
+  <p>
+    <Social 
+      type={Social.types.BUFFER} 
+      url="http://revelry.co" 
+      message="Sharing via a text link!"
+    >
+      Share via Buffer
+    </Social>
+  </p>
+  <p>
+    <Social 
+      type={Social.types.DIGG} 
+      url="http://revelry.co" 
+      message="Sharing via a text link!"
+    >
+      Share via Digg
+    </Social>
+  </p>
+  <p>
+    <Social 
+      type={Social.types.EMAIL} 
+      url="http://revelry.co" 
+      message="Sharing via a text link!"
+    >
+      Share via email
+    </Social>
+  </p>
+</div>
