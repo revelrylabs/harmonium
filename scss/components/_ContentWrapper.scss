@@ -4,9 +4,45 @@
   width: 100%;
 }
 .rev-Content {
-  padding: 0 $global-padding;
+  padding: 0 $global-padding-large;
   width: 100%;
 }
 .rev-TopBar--fixed ~ .rev-ContentWrapper {
   padding-top: $topbar-height;
+}
+//TODO: function instead of repeating styles
+@include breakpoint(medium) {
+  .rev-TopBar--fixed.Show--smallOnly ~ .rev-ContentWrapper {
+    padding-top: 0;
+  }
+}
+@include breakpoint(large) {
+  .rev-TopBar--fixed.Show--mediumDown ~ .rev-ContentWrapper {
+    padding-top: 0;
+  }
+}
+@include breakpoint(xlarge) {
+  .rev-TopBar--fixed.Show--largeDown ~ .rev-ContentWrapper {
+    padding-top: 0;
+  }
+}
+@include breakpoint(xxlarge) {
+  .rev-TopBar--fixed.Show--xLargeDown ~ .rev-ContentWrapper {
+    padding-top: 0;
+  }
+}
+@include breakpoint(small-only) {
+  .rev-TopBar--fixed.Show--mediumUp ~ .rev-ContentWrapper {
+    padding-top: 0;
+  }
+}
+@include breakpoint(medium-down) {
+  .rev-TopBar--fixed.Show--largeUp ~ .rev-ContentWrapper {
+    padding-top: 0;
+  }
+}
+@include breakpoint(large-down) {
+  .rev-TopBar--fixed.Show--xLargeUp ~ .rev-ContentWrapper {
+    padding-top: 0;
+  }
 }

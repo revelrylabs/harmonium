@@ -2,11 +2,15 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Menu from 'possum/lib/Menu'
 import Card from 'possum/lib/Card'
-import Drawer from 'possum/lib/Drawer'
+import {Drawer} from 'possum/lib/Drawer'
 
 export default function Navigation() {
   return (
-    <Drawer fixed className="DocsSiteNav">
+    <Drawer
+      expanderChildren="+"
+      closerChildren="+"
+      className="rev-Drawer--fixed DocsSiteNav"
+    >
       <nav className="rev-Drawer-contents">
         <Link className="rev-Brand Show--mediumUp" to="/"><h1>Possum</h1>
           <small>Version 3.1.1</small>

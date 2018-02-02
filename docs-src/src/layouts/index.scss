@@ -151,11 +151,12 @@ h5, h6 {
 // Topbar Small Only
 @include breakpoint(small-only) {
   .rev-TopBar.Show--smallOnly {
-    background: $brand-purple;
+    background: $body-font-color;
     border: 0;
     .rev-Brand {
       @include flex(baseline, row, flex-start, nowrap);
       height: $topbar-height;
+      padding: 0;
     }
     h1 {
       color: $white;
@@ -172,9 +173,35 @@ h5, h6 {
   }
 }
 
-
 // Sidebar Nav
 .DocsSiteNav {
+  &.rev-Drawer.rev-Drawer--open {
+    .rev-Drawer-closer {
+      color: $white-60;
+      transform: rotate(0.125turn);
+      &:hover,
+      &:active,
+      &:focus {
+        color: $white;
+      }
+    }
+  }
+  @include breakpoint(small-only) {
+    top: $topbar-height;
+    &.rev-Drawer {
+      .rev-Drawer-closer {
+        top: $topbar-height;
+      }
+      .rev-Drawer-expander {
+        background: $brand;
+        border-radius: 0 $global-radius $global-radius 0;
+        color: $white;
+        font-size: 18px;
+        top: $topbar-height + 10;
+        width: $size-default;
+      }
+    }
+  }
   .rev-Drawer-contents {
     background: $brand;
     background: linear-gradient(to bottom, $brand-purple 0%,$brand 100%);
