@@ -11,7 +11,7 @@ export default function Navigation() {
       closerChildren="+"
       className="rev-Drawer--fixed DocsSiteNav"
     >
-      <nav className="rev-Drawer-contents">
+      <nav>
         <Link className="rev-Brand Show--mediumUp" to="/"><h1>Possum</h1>
           <small>Version 3.1.1</small>
         </Link>
@@ -59,6 +59,7 @@ export default function Navigation() {
           <Menu.Item text><h5>Containers</h5></Menu.Item>
           <Menu.Item><Link to="/components/Accordion/">Accordion</Link></Menu.Item>
           <Menu.Item><Link to="/components/Callout/">Callout</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Drawer/">Drawer</Link></Menu.Item>
           <Menu.Item><Link to="/components/Modal/">Modal</Link></Menu.Item>
           <Menu.Item><Link to="/components/Tabs/">Tabs</Link></Menu.Item>
         </Menu>

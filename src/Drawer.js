@@ -1,6 +1,4 @@
 import React, {PropTypes} from 'react'
-import {Row, Col} from 'possum/lib/grid'
-import CloseButton from 'possum/lib/CloseButton'
 
 export class Drawer extends React.Component {
   static get propTypes() {
@@ -61,7 +59,9 @@ export class Drawer extends React.Component {
 export const Expander = (props) => {
   return <div className={`rev-Drawer ${props.open ? 'rev-Drawer--open' : ''} ${props.className}`}>
     {props.closer}
-    {props.children}
+    <div className="rev-Drawer-contents">
+      {props.children}
+    </div>
   </div>
 }
 

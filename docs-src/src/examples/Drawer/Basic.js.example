@@ -1,0 +1,25 @@
+<div className="rev-ContentWrapper ExampleDrawerContainer">
+  <Drawer
+    expanderChildren="+"
+    closerChildren="+"
+  >
+    <Menu>
+      <Menu.Item text>
+        <span>Here is some text about the contents of this drawer.</span>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">one</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">two</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">three</a>
+      </Menu.Item>
+    </Menu>
+  </Drawer>
+  <main className="rev-Content">
+    <p><Lipsum /></p>
+    <p><Lipsum /></p>
+  </main>
+</div>
