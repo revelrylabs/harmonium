@@ -1,4 +1,5 @@
 @import "../../../scss/app";
+
 // TYPOGRAPHY
 h5, h6 {
   font-weight: normal;
@@ -207,6 +208,11 @@ h5, h6 {
     background: linear-gradient(to bottom, $brand-purple 0%,$brand 100%);
     color: $white;
     padding-bottom: $global-padding;
+    /* .rev-Menu,
+    .rev-Menu-item,
+    .rev-Menu-item a {
+      background: transparent;
+    } */
   }
   .rev-Brand {
     color: $white;
@@ -229,7 +235,7 @@ h5, h6 {
     &:hover,
     &:active,
     &:focus {
-      background: $white-05;
+      background: $white-06;
       color: $white;
     }
     &:active,

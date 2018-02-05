@@ -31,7 +31,7 @@
 
 
 // NAVIGATION COLORS
-$navigation-bkgd: $white !default;
+$navigation-bkgd: $white-0 !default;
 $navigation-color: $anchor-color !default;
 // hover navigation colors
 $navigation-bkgd-hover: $black-06 !default;
@@ -41,7 +41,7 @@ $navigation-bkgd-active: $black-10 !default;
 $navigation-color-active: $anchor-color-active !default;
 // selected state colors are reversed
 $navigation-bkgd-selected: $navigation-color !default;
-$navigation-color-selected: $navigation-bkgd !default;
+$navigation-color-selected: $anchor-color-inverse !default;
 // disabled navigation
 $navigation-color-disabled: $disabled !default;
 $navigation-bkgd-disabled: $navigation-bkgd !default; // will have disabled-opacity

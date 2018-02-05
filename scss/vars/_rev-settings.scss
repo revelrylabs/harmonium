@@ -113,12 +113,8 @@ $paragraph-text-rendering: optimizeLegibility;
 // Anchor Vars
 $anchor-color: $primary;
 $anchor-color-hover: darken($primary, 10%);
-$anchor-color-active: darken($primary, 10%);
-$anchor-color-selected: darken($primary, 10%);
-$anchor-color-inverse: $lightest-gray;
-$anchor-color-inverse-hover: $white;
-$anchor-color-inverse-active: $white;
-$anchor-color-inverse-selected: $white;
+$anchor-color-active: darken($primary, 15%);
+$anchor-color-inverse: $body-bkgd;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 
@@ -216,7 +212,7 @@ $size-largest: 128px;
 //$card-footer-background: $white;
 
 //## Menus
-//$menu-bkgd: $white;
+//$menu-bkgd: $white-0;
 //$menu-text-bkgd: $navigation-bkgd;
 //$menu-text-color: $body-font-color;
 // unless updated, menu link colors are managed by navigation-color-mgmt
