@@ -168,7 +168,7 @@ $size-largest: 128px;
 // Example component var naming
 // $[component]-[css property]-[variant]-[state]
 
-//## NAVIGATION -----------------------------
+//## TOPBAR -----------------------------
 //$topbar-bkgd: $white;
 //$topbar-border-color: $divider-color;
 //$topbar-border-size: 1px;
@@ -208,6 +208,7 @@ $size-largest: 128px;
 //$card-footer-background: $white;
 
 //## Menus
+//$menu-bkgd: $white;
 //$menu-text-bkgd: $navigation-bkgd;
 //$menu-text-color: $body-font-color;
 // unless updated, menu link colors are managed by navigation-color-mgmt
