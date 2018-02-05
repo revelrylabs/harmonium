@@ -1,10 +1,21 @@
 $menu-bkgd: $white !default;
 $menu-color: $body-font-color !default;
+$menu-text-bkgd: $menu-bkgd !default;
+// unless updated, menu link colors are managed by navigation-color-mgmt
+// (see NAVIGATION COLORS in rev-settings)
+$menu-link-bkgd: null !default;
+$menu-link-color: null !default;
+$menu-link-bkgd-hover: null !default;
+$menu-link-color-hover: null !default;
+$menu-link-bkgd-active: null !default;
+$menu-link-color-active: null !default;
+$menu-link-bkgd-selected: null !default;
+$menu-link-color-selected: null !default;
 
-$menu-bkgd-inverse: $brand-dark !default;
-$menu-color-inverse: $brand-light !default;
-
+// TODO: update with dropdown styles
 $menu-dropdown-width: 24rem !default;
+
+
 
 @mixin vertical-menu {
   display: block;
@@ -73,18 +84,30 @@ $menu-dropdown-width: 24rem !default;
     margin: 0;
     padding: 0;
     position: relative;
-    &.rev-Menu-item--text,
     a {
+      background-color: $menu-link-bkgd;
+      color: $menu-link-color;
+      display: block;
+      padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
+      &:hover {
+        background-color: $menu-link-bkgd-hover;
+        color: $menu-link-color-hover;
+      }
+      &:active,
+      &:focus {
+        background-color: $menu-link-bkgd-active;
+        color: $menu-link-color-active;
+      }
+    }
+    &[class*='--selected'] a {
+      background-color: $menu-link-bkgd-selected;
+      color: $menu-link-color-selected;
+    }
+    &.rev-Menu-item--text {
+      background-color: $menu-text-bkgd;
       display: block;
       padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
     }
-  }
-}
-
-@mixin rev-menu-item-inverse {
-  @include rev-menu-item;
-  .rev-Menu-item {
-    @include navigation-color-mgmt-inverted;
   }
 }
 
@@ -127,23 +150,6 @@ $menu-dropdown-width: 24rem !default;
   &.rev-Menu--verticalRight {
     @include vertical-menu;
     text-align: right;
-  }
-  &.rev-Menu--inverse {
-    @include rev-menu-item-inverse;
-    background: $menu-bkgd-inverse;
-    color: $menu-color-inverse;
-    .rev-Menu {
-      background: $menu-bkgd-inverse;
-    }
-    &.rev-Menu--dividers {
-      .rev-Menu--nested {
-        border-color: $divider-color-light;
-      }
-    }
-    &.rev-Menu--dividers .rev-Menu-item,
-    .rev-Menu-item--divider {
-      border-color: $divider-color-light;
-    }
   }
 }
 

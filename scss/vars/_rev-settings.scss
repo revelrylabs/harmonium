@@ -142,28 +142,23 @@ $size-large: 48px;
 $size-larger: 64px;
 $size-largest: 128px;
 
-//## NAVIGATION COLORS
-$navigation-color: $anchor-color;
-$navigation-color-hover: $anchor-color-hover;
-$navigation-color-selected: $white;
-$navigation-color-active: $navigation-color-selected; // When you click
-$navigation-color-disabled: $navigation-color; // When you click
-$navigation-bkgd: $white;
-$navigation-bkgd-hover: darken($navigation-bkgd, 5%);
-$navigation-bkgd-selected: $primary;
-$navigation-bkgd-active: $navigation-bkgd-selected; // When you click
-$navigation-bkgd-disabled: $navigation-bkgd; // When you click
+//## NAVIGATION COLORS-----------------------------
+//$navigation-bkgd: $body-bkgd;
+//$navigation-color: $anchor-color;
+// # hover navigation colors
+//$navigation-bkgd-hover: darken($navigation-bkgd, 3%);
+//$navigation-color-hover: $anchor-color-hover;
+// # onClick navigation colors
+//$navigation-bkgd-active: darken($navigation-bkgd, 6%);
+//$navigation-color-active: $anchor-color-active;
+// # selected state colors are reversed
+//$navigation-bkgd-selected: $navigation-color;
+//$navigation-color-selected: $navigation-bkgd;
+// # disabled navigation
+//$navigation-color-disabled: $disabled;
+//$navigation-bkgd-disabled: $navigation-bkgd; // will have disabled-opacity
 
-$navigation-color-inverted: $white;
-$navigation-color-inverted-hover: darken($navigation-color-inverted, 10%);
-$navigation-color-inverted-selected: $white;
-$navigation-color-inverted-active: $navigation-color-selected; // When you click
-$navigation-color-inverted-disabled: $navigation-color-inverted; // When you click
-$navigation-bkgd-inverted: $darker-gray;
-$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 5%);
-$navigation-bkgd-inverted-selected: $anchor-color;
-$navigation-bkgd-inverted-active: $navigation-bkgd-inverted-selected;
-$navigation-bkgd-inverted-disabled: $navigation-bkgd-inverted;
+
 
 //## LAYOUTS
 //$rail-width: 300px;
@@ -215,25 +210,17 @@ $navigation-bkgd-inverted-disabled: $navigation-bkgd-inverted;
 //## Menus
 //$menu-bkgd: $white;
 //$menu-color: $body-font-color;
-//$menu-link-bkgd: transparent;
-//$menu-link-bkgd-hover: transparent;
-//$menu-link-bkgd-active: transparent;
-//$menu-link-bkgd-selected: $anchor-color-selected;
-//$menu-link-color: $anchor-color;
-//$menu-link-color-hover: $anchor-color-hover;
-//$menu-link-color-active: $anchor-color-active;
-//$menu-link-color-selected: $menu-bkgd;
-
-//$menu-bkgd-inverse: $brand-dark;
-//$menu-color-inverse: $brand-light;
-//$menu-link-bkgd-inverse: transparent;
-//$menu-link-bkgd-inverse-hover: transparent;
-//$menu-link-bkgd-inverse-active: transparent;
-//$menu-link-bkgd-inverse-selected: $anchor-color-selected;
-//$menu-link-color-inverse: $anchor-color-inverse;
-//$menu-link-color-inverse-hover: $anchor-color-inverse-hover;
-//$menu-link-color-inverse-active: $anchor-color-inverse-active;
-//$menu-link-color-inverse-selected: $menu-bkgd-inverse;
+//$menu-text-bkgd: $menu-bkgd;
+// unless updated, menu link colors are managed by navigation-color-mgmt
+// (see NAVIGATION COLORS in rev-settings)
+//$menu-link-bkgd: null;
+//$menu-link-color: null;
+//$menu-link-bkgd-hover: null;
+//$menu-link-color-hover: null;
+//$menu-link-bkgd-active: null;
+//$menu-link-color-active: null;
+//$menu-link-bkgd-selected: null;
+//$menu-link-color-selected: null;
 
 //## Modals
 //$modal-bkgd: $black-40;
