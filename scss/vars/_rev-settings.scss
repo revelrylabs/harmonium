@@ -143,7 +143,7 @@ $size-larger: 64px;
 $size-largest: 128px;
 
 //## NAVIGATION COLORS-----------------------------
-//$navigation-bkgd: $body-bkgd;
+//$navigation-bkgd: $white;
 //$navigation-color: $anchor-color;
 // # hover navigation colors
 //$navigation-bkgd-hover: darken($navigation-bkgd, 3%);
@@ -208,9 +208,8 @@ $size-largest: 128px;
 //$card-footer-background: $white;
 
 //## Menus
-//$menu-bkgd: $white;
-//$menu-color: $body-font-color;
-//$menu-text-bkgd: $menu-bkgd;
+//$menu-text-bkgd: $navigation-bkgd;
+//$menu-text-color: $body-font-color;
 // unless updated, menu link colors are managed by navigation-color-mgmt
 // (see NAVIGATION COLORS in rev-settings)
 //$menu-link-bkgd: null;

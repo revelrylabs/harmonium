@@ -1,6 +1,5 @@
-$menu-bkgd: $white !default;
-$menu-color: $body-font-color !default;
-$menu-text-bkgd: $menu-bkgd !default;
+$menu-text-bkgd: $navigation-bkgd !default;
+$menu-text-color: $body-font-color !default;
 // unless updated, menu link colors are managed by navigation-color-mgmt
 // (see NAVIGATION COLORS in rev-settings)
 $menu-link-bkgd: null !default;
@@ -113,8 +112,6 @@ $menu-dropdown-width: 24rem !default;
 
 .rev-Menu {
   @include rev-menu-item;
-  background: $menu-bkgd;
-  color: $menu-color;
   position: relative;
   &.rev-Menu--horizontal {
     @include horizontal-menu;
@@ -153,18 +150,29 @@ $menu-dropdown-width: 24rem !default;
   }
 }
 
+//@for $i from 1 through 20 {
+//  .rev-Menu:nth-child(#{$i}) {
+//    .rev-Menu-text,
+//    .rev-Menu-item a {
+//      padding-left: calc(#{$global-padding-small} + (#{$global-padding-small} * #{$i}));
+//    }
+//  }
+// }
+
 // TODO: do this smarter
 .rev-Menu--nested {
-  a {
-    padding-left: $global-padding;
-  }
-  .rev-Menu--nested {
+  .rev-Menu-item {
     a {
-      padding-left: $global-padding-large;
+      padding-left: calc(#{$global-padding} + (#{$global-padding-small} * 1));
     }
     .rev-Menu--nested {
       a {
-        padding-left: $global-padding-larger;
+        padding-left: calc(#{$global-padding} + (#{$global-padding-small} * 2));
+      }
+      .rev-Menu--nested {
+        a {
+          padding-left: calc(#{$global-padding} + (#{$global-padding-small} * 3));
+        }
       }
     }
   }
