@@ -16,7 +16,8 @@ $darker-gray: $brand-dark;
 $black: #000;
 
 $white-0: rgba(255, 255, 255, 0); // for animation purposes
-$white-05: rgba(255, 255, 255, 0.05);
+$white-03: rgba(255, 255, 255, 0.03);
+$white-06: rgba(255, 255, 255, 0.06);
 $white-10: rgba(255, 255, 255, 0.1);
 $white-20: rgba(255, 255, 255, 0.2);
 $white-30: rgba(255, 255, 255, 0.3);
@@ -27,8 +28,8 @@ $white-70: rgba(255, 255, 255, 0.7);
 $white-80: rgba(255, 255, 255, 0.8);
 $white-90: rgba(255, 255, 255, 0.9);
 $black-0: rgba(0, 0, 0, 0); // for animation purposes
-$black-025: rgba(0, 0, 0, 0.025);
-$black-05: rgba(0, 0, 0, 0.05);
+$black-03: rgba(0, 0, 0, 0.03);
+$black-06: rgba(0, 0, 0, 0.06);
 $black-10: rgba(0, 0, 0, 0.1);
 $black-20: rgba(0, 0, 0, 0.2);
 $black-30: rgba(0, 0, 0, 0.3);
@@ -51,7 +52,8 @@ $divider-color-dark: $black-20;
 $divider-color-light: $white-10;
 $muted: $lighter-gray;
 $very-muted: $lightest-gray;
-$disabled: $lighter-gray;
+
+$disabled: $light-gray;
 
 
 @mixin color-stack($bg) {

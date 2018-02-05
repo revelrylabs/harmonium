@@ -131,7 +131,7 @@ $hr-margin: $global-padding-large auto;
 $image-blur: blur(8px);
 $no-image-blur: blur(0px);
 
-$disabled-opacity: 0.25;
+$disabled-opacity: 0.35;
 
 // Sizes
 // common size vars for things like badges, close buttons, fixed naviagtion bars
@@ -142,16 +142,23 @@ $size-large: 48px;
 $size-larger: 64px;
 $size-largest: 128px;
 
-//## NAVIGATION COLORS
-$navigation-bkgd: $white;
-$navigation-bkgd-hover: darken($navigation-bkgd, 10%);
-$navigation-bkgd-click: darken($navigation-bkgd, 20%);
-$navigation-bkgd-active: darken($navigation-bkgd, 15%);
+//## NAVIGATION COLORS-----------------------------
+//$navigation-bkgd: $white;
+//$navigation-color: $anchor-color;
+// # hover navigation colors
+//$navigation-bkgd-hover: darken($navigation-bkgd, 3%);
+//$navigation-color-hover: $anchor-color-hover;
+// # onClick navigation colors
+//$navigation-bkgd-active: darken($navigation-bkgd, 6%);
+//$navigation-color-active: $anchor-color-active;
+// # selected state colors are reversed
+//$navigation-bkgd-selected: $navigation-color;
+//$navigation-color-selected: $navigation-bkgd;
+// # disabled navigation
+//$navigation-color-disabled: $disabled;
+//$navigation-bkgd-disabled: $navigation-bkgd; // will have disabled-opacity
 
-$navigation-bkgd-inverted: $darker-gray;
-$navigation-bkgd-inverted-hover: lighten($navigation-bkgd-inverted, 10%);
-$navigation-bkgd-inverted-click: lighten($navigation-bkgd-inverted, 20%);
-$navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
+
 
 //## LAYOUTS
 //$rail-width: 300px;
@@ -161,7 +168,7 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 // Example component var naming
 // $[component]-[css property]-[variant]-[state]
 
-//## NAVIGATION -----------------------------
+//## TOPBAR -----------------------------
 //$topbar-bkgd: $white;
 //$topbar-border-color: $divider-color;
 //$topbar-border-size: 1px;
@@ -202,26 +209,18 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 
 //## Menus
 //$menu-bkgd: $white;
-//$menu-color: $body-font-color;
-//$menu-link-bkgd: transparent;
-//$menu-link-bkgd-hover: transparent;
-//$menu-link-bkgd-active: transparent;
-//$menu-link-bkgd-selected: $anchor-color-selected;
-//$menu-link-color: $anchor-color;
-//$menu-link-color-hover: $anchor-color-hover;
-//$menu-link-color-active: $anchor-color-active;
-//$menu-link-color-selected: $menu-bkgd;
-
-//$menu-bkgd-inverse: $brand-dark;
-//$menu-color-inverse: $brand-light;
-//$menu-link-bkgd-inverse: transparent;
-//$menu-link-bkgd-inverse-hover: transparent;
-//$menu-link-bkgd-inverse-active: transparent;
-//$menu-link-bkgd-inverse-selected: $anchor-color-selected;
-//$menu-link-color-inverse: $anchor-color-inverse;
-//$menu-link-color-inverse-hover: $anchor-color-inverse-hover;
-//$menu-link-color-inverse-active: $anchor-color-inverse-active;
-//$menu-link-color-inverse-selected: $menu-bkgd-inverse;
+//$menu-text-bkgd: $navigation-bkgd;
+//$menu-text-color: $body-font-color;
+// unless updated, menu link colors are managed by navigation-color-mgmt
+// (see NAVIGATION COLORS in rev-settings)
+//$menu-link-bkgd: null;
+//$menu-link-color: null;
+//$menu-link-bkgd-hover: null;
+//$menu-link-color-hover: null;
+//$menu-link-bkgd-active: null;
+//$menu-link-color-active: null;
+//$menu-link-bkgd-selected: null;
+//$menu-link-color-selected: null;
 
 //## Modals
 //$modal-bkgd: $black-40;
@@ -287,6 +286,13 @@ $navigation-bkgd-inverted-active: lighten($navigation-bkgd-inverted, 15%);
 //$progress-radius: $global-rounded;
 //$progress-meter-height: $size-tiny;
 //$progress-meter-bkgd: $brand-dark;
+
+//## Pagination
+// $pagination-radius: 0;
+// $pagination-vertical-padding: $global-padding-tiny;
+// $pagination-padding: $pagination-vertical-padding $global-padding-small;
+// $pagination-margin: $global-padding-tiny / 2;
+// $pagination-dot-color: $dark-gray;
 
 //## Tab & Accordion
 // $stateful-item-color: $dark-gray;

@@ -119,7 +119,7 @@ export default class Pagination extends Component {
 
         if (page === currentPage) {
           return (
-            <li key={page} className="rev-Pagination-number rev-Pagination-number--active">
+            <li key={page} className="rev-Pagination-number rev-Pagination-number--selected">
               <span className="ShowForSR">{currentPageText}</span>
               <a>{page}</a>
             </li>
