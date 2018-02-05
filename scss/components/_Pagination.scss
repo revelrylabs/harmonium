@@ -1,5 +1,8 @@
-$pagination-bkgd: null;
-$pagination-color: null;
+$pagination-radius: 0 !default;
+$pagination-vertical-padding: $global-padding-tiny !default;
+$pagination-padding: $pagination-vertical-padding $global-padding-small !default;
+$pagination-margin: $global-padding-tiny / 2 !default;
+$pagination-dot-color: $dark-gray !default;
 
 .rev-PaginationWrapper {
   display: block;
@@ -11,10 +14,6 @@ $pagination-color: null;
   .rev-Pagination-number,
   .rev-Pagination-dots {
     display: inline-block;
-    &--disabled {
-      @include disabled;
-      cursor: not-allowed;
-    }
     &--hidden  {
       display: none;
     }
@@ -22,7 +21,6 @@ $pagination-color: null;
 }
 .rev-Pagination-arrow,
 .rev-Pagination-dots {
-  margin: 0 $global-padding-small;
   &:first-child {
     margin-left: 0;
   }
@@ -31,19 +29,21 @@ $pagination-color: null;
   }
 }
 .rev-Pagination-dots {
-  @include muted;
+  background: $navigation-bkgd;
+  color: $pagination-dot-color;
+  line-height: initial;
+  padding: $pagination-vertical-padding;
 }
-.rev-Pagination-number {
-  @include navigation-color-management;
+.rev-Pagination-arrow,
+.rev-Pagination-number,
+.rev-Pagination-dots {
+  @include navigation-color-mgmt;
+  @include global-transition;
+  border-radius: $pagination-radius;
   font-size: $global-font-size-small;
-  margin: 0 $global-padding-tiny / 2;
+  margin-right: $pagination-margin;
   a {
-    @include global-transition;
-    border-radius: $global-rounded;
-    display: block;
-    height: $size-default;
-    line-height: $size-default;
-    min-width: $size-default;
+    padding: $pagination-padding;
     text-align: center;
   }
 }

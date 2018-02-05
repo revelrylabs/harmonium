@@ -45,10 +45,10 @@ export class MenuItem extends Component {
   render() {
     const {children, className, text, divider, active, ...props} = this.props
 
-    const newClassName = classNames('rev-Menu-item', {
+    const newClassName = classNames(`rev-Menu-item ${className||''}`, {
       'rev-Menu-item--divider': divider,
       'rev-Menu-item--text': text,
-      'rev-Menu-item--active': active,
+      'rev-Menu-item--selected': active,
     })
 
     return (
