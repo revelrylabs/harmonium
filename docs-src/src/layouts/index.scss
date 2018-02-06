@@ -208,11 +208,6 @@ h5, h6 {
     background: linear-gradient(to bottom, $brand-purple 0%,$brand 100%);
     color: $white;
     padding-bottom: $global-padding;
-    /* .rev-Menu,
-    .rev-Menu-item,
-    .rev-Menu-item a {
-      background: transparent;
-    } */
   }
   .rev-Brand {
     color: $white;
@@ -255,6 +250,30 @@ h5, h6 {
       position: absolute;
       top: 0;
       width: 5px;
+    }
+  }
+}
+.FixedDrawerLinks {
+  @include flex(stretch, row, center, nowrap);
+  @include global-transition;
+  background: $primary;
+  border-top: 1px solid $divider-color-dark;
+  bottom: 0;
+  left: -$drawer-width;
+  position: fixed;
+  width: $drawer-width;
+  z-index: $above;
+  .rev-Drawer--open & {
+    left: 0;
+  }
+  @include breakpoint(medium) {
+    left: 0;
+  }
+  .rev-Menu-item {
+    flex: 1;
+    text-align: center;
+    &:first-child {
+      border-right: 1px solid $divider-color-dark;
     }
   }
 }

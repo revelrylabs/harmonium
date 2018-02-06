@@ -18,6 +18,10 @@ export default function Navigation() {
         <Link className="rev-Brand Show--mediumUp" to="/"><h1>Possum</h1>
           <small>Version {packageInfo.version}</small>
         </Link>
+        <Menu className="FixedDrawerLinks">
+          <Menu.Item><a href="https://github.com/revelrylabs/possum">GitHub</a></Menu.Item>
+          <Menu.Item><a href="https://www.npmjs.com/package/awesome-possum">NPM</a></Menu.Item>
+        </Menu>
         <Menu vertical>
           <Menu.Item text><h5>Grid</h5></Menu.Item>
           <Menu.Item><Link to="/components/grid/">Rows &amp; Columns</Link></Menu.Item>
@@ -85,10 +89,6 @@ export default function Navigation() {
         <Menu vertical>
           <Menu.Item text><h5>Prototyping</h5></Menu.Item>
           <Menu.Item><Link to="/components/Lipsum/">Lorem Ipsum</Link></Menu.Item>
-        </Menu>
-        <Menu vertical>
-          <Menu.Item><a href="https://github.com/revelrylabs/possum">GitHub</a></Menu.Item>
-          <Menu.Item><a href="https://www.npmjs.com/package/awesome-possum">NPM</a></Menu.Item>
         </Menu>
       </nav>
     </Drawer>
