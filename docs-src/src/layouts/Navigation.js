@@ -8,9 +8,10 @@ import packageInfo from '../../../package.json'
 export default function Navigation() {
   return (
     <Drawer
+      fixed
       expanderChildren="+"
       closerChildren="+"
-      className="rev-Drawer--fixed DocsSiteNav"
+      className="DocsSiteNav"
       left
     >
       <nav>
