@@ -1,6 +1,4 @@
 import React from 'react'
-import {Row, Col} from './grid'
-import CloseButton from './CloseButton'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
 
