@@ -11,7 +11,7 @@ const examples = {
 
 export default class MediaObjectExamplePage extends Component {
   render() {
-    return <div className="rev-Row rev-Row--collapsed">
+    return <div>
       <ExampleSection title="Media Objects" examples={examples} depth={1} scope={scope} />
     </div>
   }

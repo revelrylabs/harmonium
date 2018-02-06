@@ -31,7 +31,7 @@
 
 
 // NAVIGATION COLORS
-$navigation-bkgd: $white !default;
+$navigation-bkgd: $white-0 !default;
 $navigation-color: $anchor-color !default;
 // hover navigation colors
 $navigation-bkgd-hover: $black-06 !default;
@@ -41,7 +41,7 @@ $navigation-bkgd-active: $black-10 !default;
 $navigation-color-active: $anchor-color-active !default;
 // selected state colors are reversed
 $navigation-bkgd-selected: $navigation-color !default;
-$navigation-color-selected: $navigation-bkgd !default;
+$navigation-color-selected: $anchor-color-inverse !default;
 // disabled navigation
 $navigation-color-disabled: $disabled !default;
 $navigation-bkgd-disabled: $navigation-bkgd !default; // will have disabled-opacity
@@ -84,10 +84,10 @@ $color-vars: $primary, $success, $alert, $warning, $error;
   // by default we give most things the $primary bkgd-color
   background: $primary;
   @if lightness($primary) > 65% {
-    color: $brand-dark;
+    color: $darker-gray;
   }
   @else {
-    color: $brand-light;
+    color: $lightest-gray;
   }
   @for $i from 1 through length($color-list) {
     // for components that use color vars as props, we find the lightness
@@ -95,10 +95,10 @@ $color-vars: $primary, $success, $alert, $warning, $error;
     &--#{nth($color-list, $i)} {
       background: nth($color-vars, $i);
       @if lightness(nth($color-vars, $i)) > 50% {
-        color: $brand-dark;
+        color: $darker-gray;
       }
       @else {
-        color: $brand-light;
+        color: $lightest-gray;
       }
     }
   }

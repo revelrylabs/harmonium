@@ -1,0 +1,35 @@
+<div className="rev-ContentWrapper ExampleDrawerContainer">
+  <Drawer
+    collapsible
+    expanderChildren="+"
+    closerChildren="+"
+  >
+    <Menu>
+      <Menu.Item text>
+        <span>This is a drawer that can collapse. Page content will expand/collapse to fit the available space.</span>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">one</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">two</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">three</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">four</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">five</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">six</a>
+      </Menu.Item>
+    </Menu>
+  </Drawer>
+  <main className="rev-Content">
+    <p><Lipsum /></p>
+    <p><Lipsum /></p>
+  </main>
+</div>

@@ -1,6 +1,6 @@
 // Sizes
 $small: 0px;
-$medium: 640px;
+$medium: 768px;
 $large: 1024px;
 $xlarge: 1200px;
 $xxlarge: 1440px;
@@ -91,8 +91,8 @@ $global-box-shadow-hover: 0 2px 6px 0 $black-50;
 $global-box-shadow-active: 0 1px 2px 0 $black-30;
 
 // Body Vars
-$body-bkgd: $brand-light;
-$body-font-color: $brand-dark;
+$body-bkgd: $white;
+$body-font-color: $darker-gray;
 $body-font-family: $global-sans-serif-font;
 
 // Header Vars
@@ -113,12 +113,8 @@ $paragraph-text-rendering: optimizeLegibility;
 // Anchor Vars
 $anchor-color: $primary;
 $anchor-color-hover: darken($primary, 10%);
-$anchor-color-active: darken($primary, 10%);
-$anchor-color-selected: darken($primary, 10%);
-$anchor-color-inverse: $brand-light;
-$anchor-color-inverse-hover: $white;
-$anchor-color-inverse-active: $white;
-$anchor-color-inverse-selected: $white;
+$anchor-color-active: darken($primary, 15%);
+$anchor-color-inverse: $body-bkgd;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 
@@ -177,6 +173,14 @@ $size-largest: 128px;
 //$topbar-input-width: $size-largest;
 //$topbar-link-bkgd: transparent;
 
+//$drawer-width: 300px;
+//$drawer-bkgd: $white;
+//$mobile-nav-bkgd: $black;
+//$drawer-height: 100%;
+//$drawer-height-contained: 800px;
+//$drawer-height-fixed: 100vh;
+//$drawer-overlay-top-value: 0;
+
 //## CONTAINERS -----------------------------
 
 //## Accordions
@@ -208,7 +212,7 @@ $size-largest: 128px;
 //$card-footer-background: $white;
 
 //## Menus
-//$menu-bkgd: $white;
+//$menu-bkgd: $white-0;
 //$menu-text-bkgd: $navigation-bkgd;
 //$menu-text-color: $body-font-color;
 // unless updated, menu link colors are managed by navigation-color-mgmt
@@ -285,7 +289,7 @@ $size-largest: 128px;
 //## Progress
 //$progress-radius: $global-rounded;
 //$progress-meter-height: $size-tiny;
-//$progress-meter-bkgd: $brand-dark;
+//$progress-meter-bkgd: $darker-gray;
 
 //## Pagination
 // $pagination-radius: 0;

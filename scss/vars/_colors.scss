@@ -1,18 +1,17 @@
 $test: #F0F;
 
 // BRAND COLORS
-$brand: #2E68FF;
+$brand: #295DE5;
 $brand-revelry: #FCDB40;
-$brand-dark: #2A2A2A; // usually $body-font-color
-$brand-light: #F4F4F4; // usually $body-bkgd
+$brand-purple: #6422EB;
 
 $white: #FFF;
-$lightest-gray: $brand-light;
+$lightest-gray: #F4F4F4;
 $lighter-gray: #D5D5D5;
 $light-gray: #ABABAB;
 $gray: #818181;
 $dark-gray: #565656;
-$darker-gray: $brand-dark;
+$darker-gray: #202020;
 $black: #000;
 
 $white-0: rgba(255, 255, 255, 0); // for animation purposes
@@ -42,10 +41,10 @@ $black-90: rgba(0, 0, 0, 0.9);
 
 // UTILITY COLORS
 $primary: $brand;
-$success: #14B953;
-$alert: #D32C0E;
-$warning: #E5D400;
-$error: #D32C0E;
+$success: #00A67F;
+$alert: #D94011;
+$warning: #D10034;
+$error: #D10034;
 
 $divider-color: $lighter-gray;
 $divider-color-dark: $black-20;

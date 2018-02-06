@@ -12,9 +12,6 @@
   &:active {
     box-shadow: none;
   }
-  &.is-invalid {
-    background: lighten($error, 30%);
-  }
   &.rev-Checkbox--stacked,
   &.rev-Radio--stacked {
     display: block;

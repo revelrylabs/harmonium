@@ -1,11 +1,11 @@
 import React from 'react'
+import {Row, Col} from 'possum/lib/grid'
 import Playground from 'component-playground'
 
 export default function ExampleSection({title, depth, examples, scope}) {
   if (typeof examples === "string") {
     return (
       <div>
-        {React.createElement(`h${Math.min(6, depth)}`, {})}
         <Playground codeText={examples} scope={scope} />
       </div>
     )
@@ -25,10 +25,12 @@ export default function ExampleSection({title, depth, examples, scope}) {
     }
 
     return (
-      <div className="rev-Col">
-        {React.createElement(`h${Math.min(6, depth)}`, {}, title)}
-        {children}
-      </div>
+      <Row collapse>
+        <Col>
+          {React.createElement(`h${Math.min(6, depth)}`, {}, title)}
+          {children}
+        </Col>
+      </Row>
     )
   }
 }
