@@ -5,6 +5,7 @@ import Helmet from 'react-helmet'
 import {Row, Col} from 'possum/lib/grid'
 import TopBar from 'possum/lib/TopBar'
 import Navigation from './Navigation'
+import packageInfo from '../../../package.json'
 
 import './index.scss'
 
@@ -24,7 +25,7 @@ const TemplateWrapper = ({
       </Helmet>
       <TopBar fixed className="Show--smallOnly">
         <Link className="rev-Brand" to="/"><h1>Possum</h1>
-          <small>Version 3.1.1</small>
+          <small>Version {packageInfo.version}</small>
         </Link>
       </TopBar>
       <div className="rev-ContentWrapper">

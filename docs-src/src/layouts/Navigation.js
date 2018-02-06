@@ -2,7 +2,8 @@ import React from 'react'
 import Link from 'gatsby-link'
 import Menu from 'possum/lib/Menu'
 import Card from 'possum/lib/Card'
-import {Drawer} from 'possum/lib/Drawer'
+import Drawer from 'possum/lib/Drawer'
+import packageInfo from '../../../package.json'
 
 export default function Navigation() {
   return (
@@ -10,10 +11,11 @@ export default function Navigation() {
       expanderChildren="+"
       closerChildren="+"
       className="rev-Drawer--fixed DocsSiteNav"
+      left
     >
       <nav className="rev-Drawer-contents">
         <Link className="rev-Brand Show--mediumUp" to="/"><h1>Possum</h1>
-          <small>Version 3.1.1</small>
+          <small>Version {packageInfo.version}</small>
         </Link>
         <Menu vertical>
           <Menu.Item text><h5>Grid</h5></Menu.Item>

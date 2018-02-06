@@ -1,8 +1,22 @@
-import React, {PropTypes} from 'react'
-import {Row, Col} from 'possum/lib/grid'
-import CloseButton from 'possum/lib/CloseButton'
+import React from 'react'
+import {Row, Col} from './grid'
+import CloseButton from './CloseButton'
+import classNames from 'classnames'
+import PropTypes from 'prop-types'
 
-export class Drawer extends React.Component {
+const BOOL_PROPS_TO_CLASS_NAMES = {
+  left: 'rev-Drawer--left',
+  right: 'rev-Drawer--right',
+  top: 'rev-Drawer--top',
+  scroll: 'rev-Drawer--scroll',
+  fixed: 'rev-Drawer--fixed',
+  overlay: 'rev-Drawer--overlay',
+  collapsible: 'rev-Drawer--collapsible',
+}
+
+const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
+
+export default class Drawer extends React.Component {
   static get propTypes() {
     return {
       children: PropTypes.node,
@@ -38,9 +52,16 @@ export class Drawer extends React.Component {
   }
 
   render() {
+    const propClassNames = BOOL_PROPS.reduce((acc, key) => {
+      const value = BOOL_PROPS_TO_CLASS_NAMES[key]
+      acc[value] = this.props[key]
+      return acc
+    }, {})
+    const newClassName = classNames(this.props.className, propClassNames)
+
     return <Expander
       open={this.state.open}
-      className={this.props.className}
+      className={newClassName}
       closer={<a className="rev-Drawer-closer" onClick={this.closePane}>{this.props.closerChildren}</a>}
     >
       {
