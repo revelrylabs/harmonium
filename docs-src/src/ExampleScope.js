@@ -16,6 +16,7 @@ import CloseButton from 'possum/lib/CloseButton'
 import Col from 'possum/lib/Col'
 import Currency from 'possum/lib/Currency'
 import DatePicker from 'possum/lib/DatePicker'
+import {Drawer} from 'possum/lib/Drawer'
 import Emptyable from 'possum/lib/Emptyable'
 import ExpandingCol from 'possum/lib/ExpandingCol'
 import FileInput from 'possum/lib/FileInput'
@@ -51,7 +52,6 @@ import TextAlign from 'possum/lib/TextAlign'
 import Textarea from 'possum/lib/Textarea'
 import Tokenizer from 'possum/lib/Tokenizer'
 import TopBar from 'possum/lib/TopBar'
-import Drawer from 'possum/lib/Drawer'
 import Visibility from 'possum/lib/Visibility'
 
 export default {
@@ -74,6 +74,7 @@ export default {
   Col: Col,
   Currency: Currency,
   DatePicker: DatePicker,
+  Drawer: Drawer,
   Emptyable: Emptyable,
   ExpandingCol: ExpandingCol,
   FileInput: FileInput,
@@ -109,6 +110,5 @@ export default {
   Textarea: Textarea,
   Tokenizer: Tokenizer,
   TopBar: TopBar,
-  Drawer: Drawer,
   Visibility: Visibility,
 }

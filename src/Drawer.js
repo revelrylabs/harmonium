@@ -82,7 +82,9 @@ export default class Drawer extends React.Component {
 export const Expander = (props) => {
   return <div className={`rev-Drawer ${props.open ? 'rev-Drawer--open' : ''} ${props.className}`}>
     {props.closer}
-    {props.children}
+    <div className="rev-Drawer-contents">
+      {props.children}
+    </div>
   </div>
 }
 

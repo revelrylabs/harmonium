@@ -24,4 +24,12 @@ describe('Drawer', () => {
 
     expect(drawer.find('.rev-Drawer').prop('className')).to.contain('rev-Drawer--open')
   })
+
+  it('should add className to child', () => {
+    const testClassName = '__TEST__'
+
+    const input = shallow(<Drawer className={testClassName} />).find(`.${testClassName}`)
+
+    expect(input.exists()).to.equal(true)
+  })
 })
