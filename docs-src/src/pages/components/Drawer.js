@@ -4,6 +4,9 @@ import scope from '../../ExampleScope'
 
 const examples = {
   'Basic': require('raw!../../examples/Drawer/Basic.js.example'),
+  'Scroll': require('raw!../../examples/Drawer/Scroll.js.example'),
+  'Collapsible': require('raw!../../examples/Drawer/Collapsible.js.example'),
+  'Overlay': require('raw!../../examples/Drawer/Overlay.js.example'),
 }
 
 export default class DrawerExamplePage extends Component {
