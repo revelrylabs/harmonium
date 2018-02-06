@@ -7,6 +7,7 @@ import HelpText from 'possum/lib/HelpText'
 const IndexPage = () => (
   <div>
     <h1>Possum</h1>
+
     <p>
       Possum is a framework of React components optimized for teams that want to
       ship apps fast. It is a curated list of components that work together and
