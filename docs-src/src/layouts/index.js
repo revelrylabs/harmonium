@@ -4,10 +4,25 @@ import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import {Row, Col} from 'possum/lib/grid'
 import TopBar from 'possum/lib/TopBar'
+import Menu from 'possum/lib/Menu'
 import Navigation from './Navigation'
 import packageInfo from '../../../package.json'
 
 import './index.scss'
+
+const Header = () => (
+  <TopBar fixed>
+    <TopBar.Item>
+      <Link to="/">Possum</Link>
+    </TopBar.Item>
+    <TopBar.Item>
+      <Menu horizontalLeft>
+        <Menu.Item><a href="https://github.com/revelrylabs/possum">GitHub</a></Menu.Item>
+        <Menu.Item><a href="https://www.npmjs.com/package/awesome-possum">NPM</a></Menu.Item>
+      </Menu>
+    </TopBar.Item>
+  </TopBar>
+)
 
 const TemplateWrapper = ({
   children

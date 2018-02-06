@@ -86,6 +86,10 @@ export default function Navigation() {
           <Menu.Item text><h5>Prototyping</h5></Menu.Item>
           <Menu.Item><Link to="/components/Lipsum/">Lorem Ipsum</Link></Menu.Item>
         </Menu>
+        <Menu vertical>
+          <Menu.Item><a href="https://github.com/revelrylabs/possum">GitHub</a></Menu.Item>
+          <Menu.Item><a href="https://www.npmjs.com/package/awesome-possum">NPM</a></Menu.Item>
+        </Menu>
       </nav>
     </Drawer>
   )
