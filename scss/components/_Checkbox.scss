@@ -17,6 +17,12 @@
     display: block;
     margin-right: 0;
   }
+  input:disabled {
+    @include disabled;
+    +.rev-Checkbox-label {
+      @include disabled;
+    }
+  }
 }
 .rev-Checkbox-label {
   @extend .rev-LabelText;

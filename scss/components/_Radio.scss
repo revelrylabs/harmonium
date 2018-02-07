@@ -16,6 +16,12 @@
     display: block;
     margin-right: 0;
   }
+  input:disabled {
+    @include disabled;
+    +.rev-Radio-label {
+      @include disabled;
+    }
+  }
 }
 .rev-Radio-label {
   @extend .rev-LabelText;

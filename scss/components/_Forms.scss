@@ -38,7 +38,7 @@ $label-font-size: $global-font-size !default;
   &.is-invalid {
     box-shadow: 0 0 0 1px $error inset;
   }
-  &[disabled] {
+  &:disabled {
     @include disabled;
   }
 }
