@@ -37,8 +37,8 @@ $pagination-dot-color: $dark-gray !default;
 .rev-Pagination-arrow,
 .rev-Pagination-number,
 .rev-Pagination-dots {
-  @include navigation-color-mgmt;
   @include global-transition;
+  @include navigation-color-mgmt;
   border-radius: $pagination-radius;
   font-size: $global-font-size-small;
   margin-right: $pagination-margin;

@@ -1,34 +1,51 @@
+@mixin muted {
+  opacity: 0.5;
+}
+@mixin disabled($background: transparent, $color: $disabled) {
+  background-color: $background;
+  color: $color;
+  cursor: not-allowed;
+  opacity: $disabled-opacity;
+  &:hover,
+  &:active,
+  &:focus {
+    background-color: $background;
+    color: $color;
+    opacity: $disabled-opacity;
+  }
+}
+
 @mixin body-color-stack {
   background-color: $body-bkgd;
   color: $body-font-color;
 }
 
-@mixin body-color-stack-inverted {
-  background-color: $body-font-color;
-  color: $body-bkgd;
-  a {
-    @if lightness($anchor-color) > 50% {}
-    @else {
-      color: $anchor-color-inverse;
-      &:hover {
-        color: $anchor-color-inverse-hover;
+// UTILITY COLORS
+$color-list: primary, success, alert, warning, error;
+$color-vars: $brand, $success, $alert, $warning, $error;
+
+@mixin color-management {
+  background: $body-font-color;
+  @if lightness($body-font-color) > 65% {
+    color: $body-font-color;
+  }
+  @else {
+    color: $white;
+  }
+  @for $i from 1 through length($color-list) {
+    // for components that use color vars as props, we find the lightness
+    // of the bkgd-color and adjust the font-color accordingly
+    &--#{nth($color-list, $i)} {
+      background: nth($color-vars, $i);
+      @if lightness(nth($color-vars, $i)) > 65% {
+        color: $body-font-color;
       }
-      &:active {
-        color: $anchor-color-inverse-active;
+      @else {
+        color: $white;
       }
     }
   }
 }
-
-@mixin muted {
-  opacity: 0.5;
-}
-@mixin disabled {
-  color: $disabled;
-  cursor: not-allowed;
-  opacity: $disabled-opacity;
-}
-
 
 // NAVIGATION COLORS
 $navigation-bkgd: $white-0 !default;
@@ -73,33 +90,6 @@ $navigation-bkgd-disabled: $navigation-bkgd !default; // will have disabled-opac
     a:active,
     a:focus {
       @include disabled;
-    }
-  }
-}
-
-$color-list: primary, success, alert, warning, error;
-$color-vars: $primary, $success, $alert, $warning, $error;
-
-@mixin color-management {
-  // by default we give most things the $primary bkgd-color
-  background: $primary;
-  @if lightness($primary) > 65% {
-    color: $darker-gray;
-  }
-  @else {
-    color: $lightest-gray;
-  }
-  @for $i from 1 through length($color-list) {
-    // for components that use color vars as props, we find the lightness
-    // of the bkgd-color and adjust the font-color accordingly
-    &--#{nth($color-list, $i)} {
-      background: nth($color-vars, $i);
-      @if lightness(nth($color-vars, $i)) > 50% {
-        color: $darker-gray;
-      }
-      @else {
-        color: $lightest-gray;
-      }
     }
   }
 }
