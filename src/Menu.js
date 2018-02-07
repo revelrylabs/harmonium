@@ -15,7 +15,6 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
 
   nested: ['rev-Menu--nested'],
   dividers: ['rev-Menu--dividers'],
-  inverse: ['rev-Menu--inverse'],
   icons: ['rev-Menu--icons'],
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)

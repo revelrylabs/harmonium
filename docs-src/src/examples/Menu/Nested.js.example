@@ -39,46 +39,6 @@
       </Menu>
     </Callout>
   </Col>
-  <Col medium={6}>
-    <Callout>
-      <Menu vertical inverse>
-        <Menu.Item><a href="#">One</a>
-          <Menu nested>
-            <Menu.Item><a href="#">Nested One</a></Menu.Item>
-            <Menu.Item><a href="#">Nested Two</a></Menu.Item>
-            <Menu.Item><a href="#">Nested Three</a></Menu.Item>
-          </Menu>
-        </Menu.Item>
-        <Menu.Item><a href="#">Two</a>
-          <Menu nested vertical>
-            <Menu.Item><a href="#">Nested One</a></Menu.Item>
-            <Menu.Item><a href="#">Nested Two</a></Menu.Item>
-          </Menu>
-        </Menu.Item>
-        <Menu.Item><a href="#">Three</a></Menu.Item>
-      </Menu>
-    </Callout>
-  </Col>
-  <Col medium={6}>
-    <Callout>
-      <Menu vertical inverse dividers>
-        <Menu.Item><a href="#">One</a>
-          <Menu nested>
-            <Menu.Item><a href="#">Nested One</a></Menu.Item>
-            <Menu.Item><a href="#">Nested Two</a>
-              <Menu nested>
-                <Menu.Item><a href="#">Double Nested One</a></Menu.Item>
-                <Menu.Item><a href="#">Double Nested Two</a></Menu.Item>
-              </Menu>
-            </Menu.Item>
-            <Menu.Item><a href="#">Nested Three</a></Menu.Item>
-          </Menu>
-        </Menu.Item>
-        <Menu.Item><a href="#">Two</a></Menu.Item>
-        <Menu.Item><a href="#">Three</a></Menu.Item>
-      </Menu>
-    </Callout>
-  </Col>
   <Col>
     <Callout>
       <Menu horizontal>

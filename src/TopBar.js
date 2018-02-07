@@ -7,7 +7,6 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   left: 'rev-TopBar--left',
   justified: 'rev-TopBar--justified',
   right: 'rev-TopBar--right',
-  inverse: 'rev-TopBar--inverse',
   breakpointMedium: 'rev-TopBar-breakpoint--mediumDown',
   breakpointLarge: 'rev-TopBar-breakpoint--largeDown',
   breakpointXlarge: 'rev-TopBar-breakpoint--xlargeDown',
