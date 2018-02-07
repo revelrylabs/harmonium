@@ -23,10 +23,18 @@
 @mixin muted {
   opacity: 0.5;
 }
-@mixin disabled {
-  color: $disabled;
+@mixin disabled($background: transparent, $color: $disabled) {
+  background: $background;
+  color: $color;
   cursor: not-allowed;
   opacity: $disabled-opacity;
+  &:hover,
+  &:active,
+  &:focus {
+    background: $background;
+    color: $color;
+    opacity: $disabled-opacity;
+  }
 }
 
 
