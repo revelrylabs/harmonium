@@ -62,11 +62,6 @@ $topbar-link-bkgd: transparent !default;
       @include flex(center, row, flex-end, no-wrap);
     }
   }
-  // INVERSE COLOR TOPBAR
-  &.rev-TopBar--inverse {
-    @include body-color-stack-inverted;
-    border: 0;
-  }
   // FIXED POSITION TOPBAR
   &.rev-TopBar--fixed {
     height: $topbar-height;
