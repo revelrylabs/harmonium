@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import Accordion from 'possum/lib/Accordion'
 import AuthenticityToken from 'possum/lib/AuthenticityToken'
 import AuthenticityTokenProvider from 'possum/lib/AuthenticityTokenProvider'
@@ -33,6 +33,7 @@ import InputHelpText from 'possum/lib/InputHelpText'
 import InputLabel from 'possum/lib/InputLabel'
 import Label from 'possum/lib/Label'
 import Lipsum from 'possum/lib/Lipsum'
+import Loader from 'possum/src/Loader'
 import MediaObject from 'possum/lib/MediaObject'
 import Menu from 'possum/lib/Menu'
 import Modal from 'possum/lib/Modal'
@@ -91,6 +92,7 @@ export default {
   InputLabel: InputLabel,
   Label: Label,
   Lipsum: Lipsum,
+  Loader: Loader,
   MediaObject: MediaObject,
   Menu: Menu,
   Modal: Modal,
@@ -110,5 +112,5 @@ export default {
   Tokenizer: Tokenizer,
   TopBar: TopBar,
   Drawer: Drawer,
-  Visibility: Visibility,
+  Visibility: Visibility
 }
