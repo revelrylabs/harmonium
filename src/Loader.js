@@ -7,12 +7,12 @@ const PROP_TYPES = {
 }
 
 export default class Loader extends Component {
-  // static propTypes = PROP_TYPES
+  static propTypes = PROP_TYPES
 
-  // render() {
-  //   const { className, ...props } = this.props
-  //   // const classNamesList = classNames('rev-CloseButton', className)
+  render() {
+    const { className, ...props } = this.props
+    // const classNamesList = classNames('rev-CloseButton', className)
 
-  //   return <p>Hello, I am a Loader.</p>
-  // }
+    return <p>Hello, I am a Loader.</p>
+  }
 }
