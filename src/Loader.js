@@ -13,6 +13,6 @@ export default class Loader extends Component {
     const { className, ...props } = this.props
     // const classNamesList = classNames('rev-CloseButton', className)
 
-    return <p>Hello, I am a Loader.</p>
+    return <div className="rev-Loader" />
   }
 }

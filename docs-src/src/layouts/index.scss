@@ -1,4 +1,4 @@
-@import "../../../scss/app";
+@import '../../../scss/app';
 
 .CodeMirror.CodeMirror {
   height: auto;
@@ -42,7 +42,7 @@
     background-size: cover;
     min-height: 320px;
     min-width: 320px;
-    transform: scale(1.0);
+    transform: scale(1);
     width: 100%;
   }
 }
@@ -80,23 +80,22 @@
   }
   // Throw some grayscale colors on the grid columns to show what space they
   // occupy
-  .columns:nth-child(6n+1) {
+  .columns:nth-child(6n + 1) {
     @include color-stack($gray);
   }
-  .columns:nth-child(6n+2) {
+  .columns:nth-child(6n + 2) {
     @include color-stack($black);
-
   }
-  .columns:nth-child(6n+3) {
+  .columns:nth-child(6n + 3) {
     @include color-stack($darker-gray);
   }
-  .columns:nth-child(6n+4) {
+  .columns:nth-child(6n + 4) {
     @include color-stack($dark-gray);
   }
-  .columns:nth-child(6n+5) {
+  .columns:nth-child(6n + 5) {
     @include color-stack($light-gray);
   }
-  .columns:nth-child(6n+6) {
+  .columns:nth-child(6n + 6) {
     @include color-stack($lighter-gray);
   }
   // For nesting example, show the extents of the nested row
