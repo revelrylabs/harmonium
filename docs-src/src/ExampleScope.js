@@ -50,6 +50,7 @@ import StatelessModal from 'possum/lib/StatelessModal'
 import Tabs from 'possum/lib/Tabs'
 import TextAlign from 'possum/lib/TextAlign'
 import Textarea from 'possum/lib/Textarea'
+import TimePicker from 'possum/lib/TimePicker'
 import Tokenizer from 'possum/lib/Tokenizer'
 import TopBar from 'possum/lib/TopBar'
 import Visibility from 'possum/lib/Visibility'
@@ -108,6 +109,7 @@ export default {
   Tabs: Tabs,
   TextAlign: TextAlign,
   Textarea: Textarea,
+  TimePicker: TimePicker,
   Tokenizer: Tokenizer,
   TopBar: TopBar,
   Visibility: Visibility,
