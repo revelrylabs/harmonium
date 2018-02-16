@@ -1,5 +1,12 @@
-<Row className="ExampleButtons">
-  <Col>
-    <Loader />
-  </Col>
-</Row>
+<div>
+  <Row>
+    <Col>
+      <Loader small />
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <Loader large />
+    </Col>
+  </Row>
+</div>
