@@ -1,0 +1,64 @@
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$container-bkgd: $card-bkgd !default;
+$container-border: $card-border !default;
+$container-width: 32rem !default;
+$container-max-height-animation: 35rem !default;
+
+.rev-TimePicker {
+  display: block;
+  position: relative;
+}
+
+.rev-TimeContainer {
+  @include global-transition;
+  @include flex(center, row, center, nowrap);
+  background: $container-bkgd;
+  border: $container-border;
+  margin-top: $global-padding-small;
+  width: $container-width;
+  overflow: hidden;
+  position: relative;
+
+  &.rev-TimeContainer--closed {
+    max-height: 0px;
+    border: none;
+  }
+
+  &.rev-TimeContainer--open {
+    max-height: $container-max-height-animation;
+  }
+}
+.rev-TimeTicker {
+  display: inline-block;
+  margin: 0 1rem;
+
+  &:first-of-type {
+    margin-left: 0;
+  }
+  
+  &:last-of-type {
+    margin-right: 0;
+  }
+  
+  .rev-Button {
+    padding: 0.25rem 1rem;
+    border-radius: 0;
+  }
+
+  .rev-TimeTicker-button--previous {
+    border-top-left-radius: $card-radius;
+    border-top-right-radius: $card-radius;
+  }
+
+  .rev-TimeTicker-value {
+    text-align: center;
+    padding: 1rem 0;
+  }
+
+  .rev-TimeTicker-button--next {
+    border-bottom-left-radius: $card-radius;
+    border-bottom-right-radius: $card-radius;
+  }
+}
