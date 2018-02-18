@@ -1,7 +1,6 @@
 /** @jsx createElement */
 
 import React, { createElement } from 'react'
-import Card from '../Card'
 import TimeTicker from './TimeTicker'
 
 /**
@@ -9,7 +8,7 @@ import TimeTicker from './TimeTicker'
  */
 export default class TimeContainer extends React.Component {
   /**
-   * Creates a container for the time tickers. Sets state.time to the values of the tickers
+   * Creates a container for the time tickers. Sets state.time to the input's current value
    * @param {object} props
    */
   constructor(props) {
@@ -26,9 +25,12 @@ export default class TimeContainer extends React.Component {
     } = this.props
 
     return (
-      <Card>
+      <div className={`rev-TimeContainer ${className}`}>
         <TimeTicker />
-      </Card>
+        <span>:</span>
+        <TimeTicker />
+        <TimeTicker />
+      </div>
     )
   }
 }
