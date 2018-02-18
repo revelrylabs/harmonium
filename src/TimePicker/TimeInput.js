@@ -10,16 +10,13 @@ import Input from '../Input'
  */
 const TimeInput = ({
   className,
-  goodTimeInput,
-  name,
   ...props
 }) => {
   return (
     <Input
       {...props}
-      className="rev-TimePicker-input"
-      type={goodTimeInput ? 'time' : 'text'}
-      name={name}
+      className={`rev-TimePicker-input ${className}`}
+      type="time"
     />
   )
 }

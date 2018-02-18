@@ -3,21 +3,6 @@ import PropTypes from 'prop-types';
 import TimeInput from './TimePicker/TimeInput'
 import TimeContainer from './TimePicker/TimeContainer'
 
-/**
- * Return true if time type inputs are well supported on this platform
- * @return {boolean} true if time type inputs are well supported, false otherwise
- */
-function goodTimeInput() {
-  if (typeof window === 'undefined') {
-    return true
-  } else {
-    const el = document.createElement('input')
-    el.type = 'time'
-    el.value = '!)'
-    return el.value === ''
-  }
-}
-
 /** 
  * A TimePicker component containing inputs and a container with three ticker
  * components for hours, minutes, and AM/PM respectively. */
@@ -29,9 +14,6 @@ class TimePicker extends React.Component {
    */
   constructor(props) {
     super(props)
-    // On platforms with poor time input support,
-    // we have to fall back to a text type input
-    this.goodTimeInput = goodTimeInput()
     this.state = {
       isOpen: this.props.isOpen || false,
       focused: false,
@@ -88,7 +70,6 @@ class TimePicker extends React.Component {
         {label}
         <TimeInput
           {...props}
-          goodTimeInput={this.goodTimeInput}
           onFocus={this.onFocus.bind(this)}
           onBlur={this.onBlur.bind(this)}
         />
