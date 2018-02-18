@@ -47,7 +47,7 @@ $container-max-height-animation: 35rem !default;
     border-radius: 0;
   }
 
-  .rev-TimeTicker-button--previous {
+  .rev-TimeTicker-button--next {
     border-top-left-radius: $card-radius;
     border-top-right-radius: $card-radius;
   }
@@ -57,7 +57,7 @@ $container-max-height-animation: 35rem !default;
     padding: 1rem 0;
   }
 
-  .rev-TimeTicker-button--next {
+  .rev-TimeTicker-button--previous {
     border-bottom-left-radius: $card-radius;
     border-bottom-right-radius: $card-radius;
   }

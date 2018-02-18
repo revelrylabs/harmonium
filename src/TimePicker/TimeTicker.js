@@ -21,8 +21,8 @@ import Button from '../Button'
     const createElement = React.createElement
 
     return {
-      previousLabel: <span>&#708;</span>,
-      nextLabel: <span>&#709;</span>,
+      previousLabel: <span>&#709;</span>,
+      nextLabel: <span>&#708;</span>,
     }
   }
 
@@ -44,16 +44,16 @@ import Button from '../Button'
 
     return (
       <div {...props} className={`rev-TimeTicker ${className}`}>
-        <Button className="rev-TimeTicker-button--previous">
-          {previousLabel}
+        <Button className="rev-TimeTicker-button--next">
+          {nextLabel}
         </Button>
 
         <div className="rev-TimeTicker-value">
           0
         </div>
 
-        <Button className="rev-TimeTicker-button--next">
-          {nextLabel}
+        <Button className="rev-TimeTicker-button--previous">
+          {previousLabel}
         </Button>
       </div>
     )
