@@ -12,7 +12,7 @@ const examples = {
 export default class DrawerExamplePage extends Component {
   render() {
     return <div>
-      <ExampleSection title="Drawer" examples={examples} depth={1} scope={scope} />
+      <ExampleSection title="Drawers" examples={examples} depth={1} scope={scope} />
     </div>
   }
 }
