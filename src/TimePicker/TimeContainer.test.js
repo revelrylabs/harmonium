@@ -1,5 +1,5 @@
 import TimeContainer from './TimeContainer'
-import { DateTime } from 'luxon'
+import { DateTime, Duration } from 'luxon'
 import sinon from 'sinon'
 
 describe('TimeContainer', () => {
@@ -37,5 +37,31 @@ describe('TimeContainer', () => {
     const timeString = hour + ':' + minute + ' ' + meridiem
 
     expect(timeString).to.equal(testTimeString)
+  })
+
+  it('can advance an hour backward', () => {
+    const container = mount(<TimeContainer />)
+    container
+      .find('.rev-TimeTicker-button--previous')
+      .first()
+      .simulate('click', { preventDefault: () => null })
+    const testHour = (DateTime.local()
+      .minus(Duration.fromObject({ hour: 1 })).hour % 12).toString()
+    const hour = container.find('.rev-TimeTicker-value').first().text()
+
+    expect(hour).to.equal(testHour)
+  })
+
+  it('can advance an hour forward', () => {
+    const container = mount(<TimeContainer />)
+    container
+      .find('.rev-TimeTicker-button--next')
+      .first()
+      .simulate('click', { preventDefault: () => null })
+    const testHour = (DateTime.local()
+      .plus(Duration.fromObject({ hour: 1 })).hour % 12).toString()
+    const hour = container.find('.rev-TimeTicker-value').first().text()
+
+    expect(hour).to.equal(testHour)
   })
 })

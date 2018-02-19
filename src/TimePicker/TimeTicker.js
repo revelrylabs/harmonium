@@ -27,7 +27,7 @@ import Button from '../Button'
   }
 
   /**
-   * Creates a container for the time tickers. Sets state.time to the values of the tickers
+   * Creates a container for the time tickers.
    * @param {object} props
    */
   constructor(props) {
@@ -40,12 +40,18 @@ import Button from '../Button'
       previousLabel,
       nextLabel,
       value,
+      onIncrement,
+      onDecrement,
+      refocusOnClick,
       ...props
     } = this.props
 
     return (
       <div {...props} className={`rev-TimeTicker ${className}`}>
-        <Button className="rev-TimeTicker-button--next">
+        <Button
+          onClick={onIncrement}
+          className="rev-TimeTicker-button--next"
+        >
           {nextLabel}
         </Button>
 
@@ -53,7 +59,10 @@ import Button from '../Button'
           {value}
         </div>
 
-        <Button className="rev-TimeTicker-button--previous">
+        <Button
+          onClick={onDecrement}
+          className="rev-TimeTicker-button--previous"
+        >
           {previousLabel}
         </Button>
       </div>
