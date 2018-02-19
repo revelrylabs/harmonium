@@ -42,7 +42,7 @@ describe('TimeContainer', () => {
   it('can advance an hour backward', () => {
     const container = mount(<TimeContainer />)
     container
-      .find('.rev-TimeTicker-button--previous')
+      .find('button.rev-TimeTicker-button--previous')
       .first()
       .simulate('click', { preventDefault: () => null })
     const testHour = (DateTime.local()
@@ -55,7 +55,7 @@ describe('TimeContainer', () => {
   it('can advance an hour forward', () => {
     const container = mount(<TimeContainer />)
     container
-      .find('.rev-TimeTicker-button--next')
+      .find('button.rev-TimeTicker-button--next')
       .first()
       .simulate('click', { preventDefault: () => null })
     const testHour = (DateTime.local()
@@ -63,5 +63,31 @@ describe('TimeContainer', () => {
     const hour = container.find('.rev-TimeTicker-value').first().text()
 
     expect(hour).to.equal(testHour)
+  })
+
+  it('can advance a minute backward', () => {
+    const container = mount(<TimeContainer />)
+    container
+      .find('button.rev-TimeTicker-button--previous')
+      .at(1)
+      .simulate('click', { preventDefault: () => null })
+    const testMinute = (DateTime.local()
+      .minus(Duration.fromObject({ minute: 1 })).minute).toString()
+    const minute = container.find('.rev-TimeTicker-value').at(1).text()
+
+    expect(minute).to.equal(testMinute)
+  })
+
+  it('can advance a minute forward', () => {
+    const container = mount(<TimeContainer />)
+    container
+      .find('button.rev-TimeTicker-button--next')
+      .at(1)
+      .simulate('click', { preventDefault: () => null })
+    const testMinute = (DateTime.local()
+      .plus(Duration.fromObject({ minute: 1 })).minute).toString()
+    const minute = container.find('.rev-TimeTicker-value').at(1).text()
+
+    expect(minute).to.equal(testMinute)
   })
 })

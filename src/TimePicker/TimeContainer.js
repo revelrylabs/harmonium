@@ -83,12 +83,16 @@ export default class TimeContainer extends React.Component {
     return (
       <div className={`rev-TimeContainer ${className}`}>
         <TimeTicker
-          value={this.state.time.hour % 12}
-          onIncrement={this.incrementUnit.bind(this, 1, 'hours')}
-          onDecrement={this.incrementUnit.bind(this, -1, 'hours')}
+          value={this.state.time.hour % 12 ? this.state.time.hour % 12 : 12}
+          onIncrement={this.incrementUnit.bind(this, 1, 'hour')}
+          onDecrement={this.incrementUnit.bind(this, -1, 'hour')}
         />
         <span>:</span>
-        <TimeTicker value={this.state.time.minute} />
+        <TimeTicker
+          value={this.state.time.minute}
+          onIncrement={this.incrementUnit.bind(this, 1, 'minute')}
+          onDecrement={this.incrementUnit.bind(this, -1, 'minute')}
+        />
         <TimeTicker value={this.state.time.hour >= 12 ? 'PM' : 'AM'} />
       </div>
     )
