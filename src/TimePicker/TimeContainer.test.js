@@ -45,8 +45,8 @@ describe('TimeContainer', () => {
       .find('button.rev-TimeTicker-button--previous')
       .first()
       .simulate('click', { preventDefault: () => null })
-    const testHour = (DateTime.local()
-      .minus(Duration.fromObject({ hour: 1 })).hour % 12).toString()
+    const testTime = DateTime.local().minus(Duration.fromObject({ hour: 1 }))
+    const testHour = (testTime.hour % 12 ? testTime.hour % 12 : 12).toString()
     const hour = container.find('.rev-TimeTicker-value').first().text()
 
     expect(hour).to.equal(testHour)
@@ -58,8 +58,8 @@ describe('TimeContainer', () => {
       .find('button.rev-TimeTicker-button--next')
       .first()
       .simulate('click', { preventDefault: () => null })
-    const testHour = (DateTime.local()
-      .plus(Duration.fromObject({ hour: 1 })).hour % 12).toString()
+    const testTime = DateTime.local().plus(Duration.fromObject({ hour: 1 }))
+    const testHour = (testTime.hour % 12 ? testTime.hour % 12 : 12).toString()
     const hour = container.find('.rev-TimeTicker-value').first().text()
 
     expect(hour).to.equal(testHour)
