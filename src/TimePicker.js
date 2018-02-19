@@ -17,7 +17,6 @@ class TimePicker extends React.Component {
     this.state = {
       isOpen: this.props.isOpen || false,
       focused: false,
-      value: ''
     }
   }
 
@@ -30,6 +29,7 @@ class TimePicker extends React.Component {
     if (this.props.onFocus) {
       this.props.onFocus(event)
     }
+
     this.setState({ focused: true, isOpen: true })
   }
 
@@ -42,6 +42,7 @@ class TimePicker extends React.Component {
     if (this.props.onBlur) {
       this.props.onBlur(event)
     }
+
     this.setState({ focused: false, isOpen: false })
   }
 

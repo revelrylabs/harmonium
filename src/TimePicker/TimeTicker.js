@@ -39,6 +39,7 @@ import Button from '../Button'
       className,
       previousLabel,
       nextLabel,
+      value,
       ...props
     } = this.props
 
@@ -49,7 +50,7 @@ import Button from '../Button'
         </Button>
 
         <div className="rev-TimeTicker-value">
-          0
+          {value}
         </div>
 
         <Button className="rev-TimeTicker-button--previous">
