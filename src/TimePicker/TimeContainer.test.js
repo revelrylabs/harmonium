@@ -90,4 +90,30 @@ describe('TimeContainer', () => {
 
     expect(minute).to.equal(testMinute)
   })
+
+  it('can advance AM/PM backward', () => {
+    const container = mount(<TimeContainer />)
+    container
+      .find('button.rev-TimeTicker-button--previous')
+      .at(2)
+      .simulate('click', { preventDefault: () => null })
+    const testTime = DateTime.local().plus(Duration.fromObject({ hour: 12 }))
+    const testMeridiem = testTime >= 12 ? 'PM' : 'AM'
+    const meridiem = container.find('.rev-TimeTicker-value').at(2).text()
+
+    expect(meridiem).to.equal(testMeridiem)
+  })
+
+  it('can advance AM/PM forward', () => {
+    const container = mount(<TimeContainer />)
+    container
+      .find('button.rev-TimeTicker-button--next')
+      .at(2)
+      .simulate('click', { preventDefault: () => null })
+    const testTime = DateTime.local().plus(Duration.fromObject({ hour: 12 }))
+    const testMeridiem = testTime >= 12 ? 'PM' : 'AM'
+    const meridiem = container.find('.rev-TimeTicker-value').at(2).text()
+
+    expect(meridiem).to.equal(testMeridiem)
+  })
 })

@@ -93,7 +93,11 @@ export default class TimeContainer extends React.Component {
           onIncrement={this.incrementUnit.bind(this, 1, 'minute')}
           onDecrement={this.incrementUnit.bind(this, -1, 'minute')}
         />
-        <TimeTicker value={this.state.time.hour >= 12 ? 'PM' : 'AM'} />
+        <TimeTicker
+          value={this.state.time.hour >= 12 ? 'PM' : 'AM'}
+          onIncrement={this.incrementUnit.bind(this, 12, 'hour')}
+          onDecrement={this.incrementUnit.bind(this, -12, 'hour')}
+        />
       </div>
     )
   }
