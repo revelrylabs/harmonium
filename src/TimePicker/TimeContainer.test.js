@@ -16,8 +16,8 @@ describe('TimeContainer', () => {
     const testTimeString = testHour + ':' + testMinute + ' ' + testMeridiem
 
     const hour = container.state().time.hour % 12
-    const minute = DateTime.local().minute
-    const meridiem = DateTime.local().hour >= 12 ? 'PM' : 'AM'
+    const minute = container.state().time.minute
+    const meridiem = container.state().time.hour >= 12 ? 'PM' : 'AM'
     const timeString = hour + ':' + minute + ' ' + meridiem
 
     expect(timeString).to.equal(testTimeString)
@@ -32,8 +32,8 @@ describe('TimeContainer', () => {
     const testTimeString = testHour + ':' + testMinute + ' ' + testMeridiem
 
     const hour = container.state().time.hour % 12
-    const minute = DateTime.local().minute
-    const meridiem = DateTime.local().hour >= 12 ? 'PM' : 'AM'
+    const minute = container.state().time.minute
+    const meridiem = container.state().time.hour >= 12 ? 'PM' : 'AM'
     const timeString = hour + ':' + minute + ' ' + meridiem
 
     expect(timeString).to.equal(testTimeString)
@@ -71,8 +71,8 @@ describe('TimeContainer', () => {
       .find('button.rev-TimeTicker-button--previous')
       .at(1)
       .simulate('click', { preventDefault: () => null })
-    const testMinute = (DateTime.local()
-      .minus(Duration.fromObject({ minute: 1 })).minute).toString()
+    const testTime = DateTime.local().minus(Duration.fromObject({ minute: 1 }))
+    const testMinute = testTime.minute.toString()
     const minute = container.find('.rev-TimeTicker-value').at(1).text()
 
     expect(minute).to.equal(testMinute)
@@ -84,8 +84,8 @@ describe('TimeContainer', () => {
       .find('button.rev-TimeTicker-button--next')
       .at(1)
       .simulate('click', { preventDefault: () => null })
-    const testMinute = (DateTime.local()
-      .plus(Duration.fromObject({ minute: 1 })).minute).toString()
+    const testTime = DateTime.local().plus(Duration.fromObject({ minute: 1 }))
+    const testMinute = testTime.minute.toString()
     const minute = container.find('.rev-TimeTicker-value').at(1).text()
 
     expect(minute).to.equal(testMinute)
