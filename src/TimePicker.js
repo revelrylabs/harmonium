@@ -52,10 +52,7 @@ class TimePicker extends React.Component {
    */
   constructor(props) {
     super(props)
-<<<<<<< HEAD
     this.useGoodTimeInput = useGoodTimeInput()
-=======
->>>>>>> 3cd0be8d845bfac69181e50cf9094ca1f5ec8d94
     this.state = {
       isOpen: this.props.isOpen || false,
       focused: false,
