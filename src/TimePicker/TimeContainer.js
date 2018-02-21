@@ -78,6 +78,13 @@ export default class TimeContainer extends React.Component {
     return minute
   }
 
+  /** Get the second value for the currently selected time */
+  getSeconds() {
+    let second = this.state.time.second
+    second = (second < 10 ? '0' : '') + second
+    return second
+  }
+
   /**
    * Increment the inputted unit by the inputted amount, n
    *
@@ -112,6 +119,7 @@ export default class TimeContainer extends React.Component {
       updateTime,
       refocusOnClick,
       use24hr,
+      showSeconds,
       ...props
     } = this.props
 
@@ -128,6 +136,14 @@ export default class TimeContainer extends React.Component {
           onIncrement={this.incrementUnit.bind(this, 1, 'minutes')}
           onDecrement={this.incrementUnit.bind(this, -1, 'minutes')}
         />
+        {showSeconds ? (<span>:</span>) : null}
+        {showSeconds ? (
+          <TimeTicker
+            value={this.getSeconds()}
+            onIncrement={this.incrementUnit.bind(this, 1, 'seconds')}
+            onDecrement={this.incrementUnit.bind(this, -1, 'seconds')}
+          />
+        ) : null}
         {use24hr ? null : (
           <TimeTicker
             value={this.state.time.hour >= 12 ? 'PM' : 'AM'}

@@ -20,9 +20,18 @@ function useGoodTimeInput() {
   }
 }
 
+/* TODO FEATURES:
+    overrides,
+    allow setting how much each button should increment,
+    allowing min and/or max times to be declared,
+    maybe giving ability to disallow certain times to be selected?
+      ^ might not need it if combination of min/max times and setting
+        increment amounts achieves same purpose
+*/
+
 /**
- * A TimePicker component containing inputs and a container with three ticker
- * components for hours, minutes, and AM/PM respectively. */
+ * A TimePicker component containing inputs and a container with two to four ticker
+ * components for hours, minutes, an optional seconds, and an optional AM/PM. */
 class TimePicker extends React.Component {
   /**
    * The default values for props of this component
@@ -32,7 +41,7 @@ class TimePicker extends React.Component {
     const createElement = React.createElement
 
     return {
-      use24hr: false
+      // showSeconds: true
     }
   }
 
@@ -124,15 +133,17 @@ class TimePicker extends React.Component {
   }
 
   /**
-   * Return the time format the component is using. Will be 'HH:mm' if we are
-   * using a well supported time input (without custom format). If we have fallen
-   * back to text field due to bad support, this will be 'hh:mm a'.
+   * Return the time format the component is using. Will be 'HH:mm' (or HH:mm:ss if seconds are to be
+   * shown) if we are using a well supported time input (without custom format). If we have fallen back
+   * to text field due to bad support, this will be 'hh:mm a' (or 'hh:mm:ss a' if seconds are to be shown).
    * @return {string} the time format in use by the component
    */
   get timeFormat() {
     // TODO: detect locale default format string and use that instead of
     //   hardcoded 'HH:mm'
-    return this.useGoodTimeInput ? 'HH:mm' : this.props.timeFormat || 'hh:mm a'
+    return this.useGoodTimeInput ? this.props.showSeconds ? 'HH:mm:ss' : 'HH:mm'
+                                 : this.props.timeFormat ||
+                                   this.props.showSeconds ? 'hh:mm:ss a' : 'hh:mm a'
   }
 
   /**
@@ -261,6 +272,7 @@ class TimePicker extends React.Component {
       isOpen,
       timeFormat,
       use24hr,
+      showSeconds,
       usePickerOnMobile,
       ...props
     } = this.props
@@ -281,6 +293,7 @@ class TimePicker extends React.Component {
           onBlur={this.onBlur.bind(this)}
           onChange={this.onChange.bind(this)}
           useGoodTimeInput={this.useGoodTimeInput}
+          showSeconds={showSeconds}
           formattedValue={this.state.formattedValue}
           generation={this.state.generation}
           inputRef={input => (this.nativeInput = input)}
@@ -294,6 +307,7 @@ class TimePicker extends React.Component {
           updateTime={this.updateTime.bind(this)}
           refocusOnClick={this.refocusOnClick.bind(this)}
           use24hr={use24hr}
+          showSeconds={showSeconds}
         />
       </label>
     )
@@ -304,6 +318,9 @@ TimePicker.propTypes = {
   label: PropTypes.node,
   error: PropTypes.node,
   help: PropTypes.node,
+  timeFormat: PropTypes.string,
+  use24hr: PropTypes.bool,
+  showSeconds: PropTypes.bool,
   isOpen: PropTypes.bool,
 }
 

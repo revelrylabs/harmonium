@@ -12,6 +12,7 @@ const TimeInput = ({
   className,
   error,
   useGoodTimeInput,
+  showSeconds,
   formattedValue,
   isoValue,
   generation,
@@ -27,6 +28,7 @@ const TimeInput = ({
       <Input
         {...props}
         className={className}
+        step={showSeconds ? '1' : null}
         type={useGoodTimeInput ? 'time' : 'text'}
         name={useGoodTimeInput ? name : null}
         defaultValue={formattedValue}
