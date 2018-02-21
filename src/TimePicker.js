@@ -18,10 +18,22 @@ function useGoodTimeInput() {
   }
 }
 
-/** 
+/**
  * A TimePicker component containing inputs and a container with three ticker
  * components for hours, minutes, and AM/PM respectively. */
 class TimePicker extends React.Component {
+  /**
+   * The default values for props of this component
+   * @return {object} the default value object
+   */
+  static get defaultProps() {
+    const createElement = React.createElement
+
+    return {
+      use24hr: false
+    }
+  }
+
   /**
    * Create a time picker. Determines if we can use browser native time type input
    * or if we need to fall back to a text type input (based on support).
@@ -129,7 +141,7 @@ class TimePicker extends React.Component {
     // Update isoValue & formattedValue based on the time value (which is an iso
     // time)
     this.setState(this.valuesFromIso(time))
-    
+
     // Update the native input value with the formatted version of the new time
     // (this prevents the native input value from sticking with a hand-typed
     // input value after the button is clicked in certain situations)
@@ -221,10 +233,11 @@ class TimePicker extends React.Component {
   }
 
   render() {
-    let {
+    const {
       label,
       isOpen,
       timeFormat,
+      use24hr,
       usePickerOnMobile,
       ...props
     } = this.props
@@ -250,6 +263,7 @@ class TimePicker extends React.Component {
           selectedTime={this.state.isoValue}
           updateTime={this.updateTime.bind(this)}
           refocusOnClick={this.refocusOnClick.bind(this)}
+          use24hr={use24hr}
         />
       </label>
     )

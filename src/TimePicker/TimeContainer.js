@@ -95,11 +95,11 @@ export default class TimeContainer extends React.Component {
     const newTime = this.state.time.plus(Duration.fromObject(durationObject))
 
     this.props.updateTime(newTime.toISOTime())
-    
+
     this.setState({
       time: newTime
     })
-    
+
     if (this.props.refocusOnClick) {
       this.props.refocusOnClick()
     }
@@ -111,6 +111,7 @@ export default class TimeContainer extends React.Component {
       selectedTime,
       updateTime,
       refocusOnClick,
+      use24hr,
       ...props
     } = this.props
 
@@ -127,13 +128,13 @@ export default class TimeContainer extends React.Component {
           onIncrement={this.incrementUnit.bind(this, 1, 'minutes')}
           onDecrement={this.incrementUnit.bind(this, -1, 'minutes')}
         />
-        (
+        {use24hr ? null : (
           <TimeTicker
             value={this.state.time.hour >= 12 ? 'PM' : 'AM'}
             onIncrement={this.incrementUnit.bind(this, 12, 'hours')}
             onDecrement={this.incrementUnit.bind(this, -12, 'hours')}
           />
-        )
+        )}
       </div>
     )
   }
