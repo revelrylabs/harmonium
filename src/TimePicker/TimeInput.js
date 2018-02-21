@@ -29,7 +29,7 @@ const TimeInput = ({
         {...props}
         className={className}
         step={showSeconds ? '1' : null}
-        type={useGoodTimeInput ? 'time' : 'text'}
+        type='time'
         name={useGoodTimeInput ? name : null}
         defaultValue={formattedValue}
       />
