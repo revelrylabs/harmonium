@@ -52,7 +52,7 @@ class TimePicker extends React.Component {
    */
   constructor(props) {
     super(props)
-    this.useGoodTimeInput = useGoodTimeInput() && !this.props.timeFormat
+    this.useGoodTimeInput = useGoodTimeInput()
     this.state = {
       isOpen: this.props.isOpen || false,
       focused: false,
@@ -134,7 +134,7 @@ class TimePicker extends React.Component {
 
   /**
    * Return the time format the component is using. Will be 'HH:mm' (or HH:mm:ss if seconds are to be
-   * shown) if we are using a well supported time input (without custom format). If we have fallen back
+   * shown) if we are using a well supported time input. If we have fallen back
    * to text field due to bad support, this will be 'hh:mm a' (or 'hh:mm:ss a' if seconds are to be shown).
    * @return {string} the time format in use by the component
    */
@@ -142,8 +142,7 @@ class TimePicker extends React.Component {
     // TODO: detect locale default format string and use that instead of
     //   hardcoded 'HH:mm'
     return this.useGoodTimeInput ? this.props.showSeconds ? 'HH:mm:ss' : 'HH:mm'
-                                 : this.props.timeFormat ||
-                                   this.props.showSeconds ? 'hh:mm:ss a' : 'hh:mm a'
+                                 : this.props.showSeconds ? 'hh:mm:ss a' : 'hh:mm a'
   }
 
   /**
@@ -270,7 +269,6 @@ class TimePicker extends React.Component {
       error,
       help,
       isOpen,
-      timeFormat,
       use24hr,
       showSeconds,
       usePickerOnMobile,
