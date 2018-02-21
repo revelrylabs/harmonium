@@ -74,4 +74,18 @@ describe('TimePicker', () => {
     expect(input.find(TimeContainer).prop('className')).to.contain('rev-TimeContainer--closed')
     expect(blurSpy.called).to.equal(true)
   })
+
+  it('keeps the calendar open when you do not have focus, but the mouse is over', () => {
+    const input = mount(<TimePicker />)
+    input.find('input').simulate('focus')
+    input.find('label').simulate('mouseOver')
+    input.find('input').simulate('blur')
+    input.update()
+
+    expect(input.find(TimeContainer).prop('className')).to.contain('rev-TimeContainer--open')
+
+    input.find('label').simulate('mouseOut')
+    input.update()
+    expect(input.find(TimeContainer).prop('className')).to.contain('rev-TimeContainer--closed')
+  })
 })

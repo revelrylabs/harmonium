@@ -51,8 +51,9 @@ class TimePicker extends React.Component {
       // oddly formatted text inputs
       ...this.valuesFromProps(props),
       // Generation exists to force the inputs in the component to accept the
-      // new value when we click the calendar
+      // new value when we click a ticker
       generation: 0,
+      mousedIn: false
     }
   }
 
@@ -153,7 +154,7 @@ class TimePicker extends React.Component {
     this.fireChangeHandler()
 
     // Force the input to be focused again (so that we don't immediately close
-    // the calendar because the button click makes us not focused on the input)
+    // the ticker container because the button click makes us not focused on the input)
     this.refocusOnClick()
   }
 
@@ -191,7 +192,7 @@ class TimePicker extends React.Component {
       this.props.onBlur(event)
     }
 
-    this.setState({ focused: false, isOpen: false })
+    this.setState({ focused: false, isOpen: this.state.mousedIn })
   }
 
   /**
@@ -215,6 +216,24 @@ class TimePicker extends React.Component {
   useNativePicker() {
     return typeof navigator !== 'undefined' &&
            /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+  }
+
+  /**
+   * Track when the mouse cursor is over the component, so that we can not
+   * immediately close the container when we lose focus-- which happens if you
+   * click the container buttons.
+   */
+  mouseIn() {
+    this.setState({ mousedIn: true })
+  }
+
+  /**
+   * Track when the mouse is no longer over the component, which means that it
+   * is safe to close the container if we lose focus, for example, because the
+   * focus has moved to the next element.
+   */
+  mouseOut() {
+    this.setState({ mousedIn: false, isOpen: this.state.focused })
   }
 
   /**
@@ -242,10 +261,14 @@ class TimePicker extends React.Component {
       ...props
     } = this.props
 
-    const nativeClass = this.useNativePicker() ? 'rev-DatePicker--native' : 'rev-DatePicker--custom'
+    const nativeClass = this.useNativePicker() ? 'rev-TimePicker--native' : 'rev-TimePicker--custom'
 
     return (
-      <label className={`rev-TimePicker rev-InputLabel ${nativeClass}`}>
+      <label
+        className={`rev-TimePicker rev-InputLabel ${nativeClass}`}
+        onMouseOver={this.mouseIn.bind(this)}
+        onMouseOut={this.mouseOut.bind(this)}
+      >
         {label}
         <TimeInput
           {...props}
