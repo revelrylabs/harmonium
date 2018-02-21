@@ -2,6 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import TimeInput from './TimePicker/TimeInput'
 import TimeContainer from './TimePicker/TimeContainer'
+import InputHelpText from './InputHelpText'
+import InputErrors from './InputErrors'
 import { DateTime } from 'luxon'
 
 /**
@@ -254,6 +256,8 @@ class TimePicker extends React.Component {
   render() {
     const {
       label,
+      error,
+      help,
       isOpen,
       timeFormat,
       use24hr,
@@ -272,6 +276,7 @@ class TimePicker extends React.Component {
         {label}
         <TimeInput
           {...props}
+          error={error}
           onFocus={this.onFocus.bind(this)}
           onBlur={this.onBlur.bind(this)}
           onChange={this.onChange.bind(this)}
@@ -280,6 +285,8 @@ class TimePicker extends React.Component {
           generation={this.state.generation}
           inputRef={input => (this.nativeInput = input)}
         />
+        <InputHelpText>{help}</InputHelpText>
+        <InputErrors>{error}</InputErrors>
         <TimeContainer
           {...props}
           className={this.isContainerOpen ? 'rev-TimeContainer--open' : 'rev-TimeContainer--closed'}
@@ -295,6 +302,8 @@ class TimePicker extends React.Component {
 
 TimePicker.propTypes = {
   label: PropTypes.node,
+  error: PropTypes.node,
+  help: PropTypes.node,
   isOpen: PropTypes.bool,
 }
 

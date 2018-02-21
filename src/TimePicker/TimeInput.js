@@ -10,12 +10,18 @@ import Input from '../Input'
  */
 const TimeInput = ({
   className,
+  error,
   useGoodTimeInput,
   formattedValue,
   isoValue,
   generation,
   ...props
 }) => {
+  const inputClassName = classNames(className, 'rev-TimePicker-input', {
+    'is-invalid-input': !!error,
+    'is-invalid': !!error
+  })
+
   return (
     <div>
       <Input
