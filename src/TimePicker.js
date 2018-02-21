@@ -1,7 +1,22 @@
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
 import TimeInput from './TimePicker/TimeInput'
 import TimeContainer from './TimePicker/TimeContainer'
+import { DateTime } from 'luxon'
+
+/**
+ * Determines if time type inputs are well supported on this platform
+ * @return {boolean} true if time type inputs are well supported, false otherwise
+ */
+function useGoodTimeInput() {
+  if (typeof window === 'undefined') {
+    return true
+  } else {
+    const el = document.createElement('input')
+    el.type = 'time'
+    return el.type === 'time'
+  }
+}
 
 /** 
  * A TimePicker component containing inputs and a container with three ticker
@@ -14,10 +29,131 @@ class TimePicker extends React.Component {
    */
   constructor(props) {
     super(props)
+    this.useGoodTimeInput = useGoodTimeInput() && !this.props.timeFormat
     this.state = {
       isOpen: this.props.isOpen || false,
       focused: false,
+      // Handles setting both the iso and 'local' format versions of the time
+      // into state. We do this so that we can always accept ISO times from
+      // up the hierarchy, but also handle accepting change events from unchecked
+      // oddly formatted text inputs
+      ...this.valuesFromProps(props),
+      // Generation exists to force the inputs in the component to accept the
+      // new value when we click the calendar
+      generation: 0,
     }
+  }
+
+  /**
+   * Handle updated props from up the chain. In particular, if we receive a new
+   * time from up the hierarchy, we want to reset the inputs and the tickers to
+   * that value.
+   * @param {object} nextProps
+   */
+  componentWillReceiveProps(nextProps) {
+    this.setState(this.valuesFromProps(nextProps))
+  }
+
+  /**
+   * Find the time value from the props, and convert it to two values-- an iso
+   * time and a 'local' format time version (so we can deal with poorly formatted
+   * text inputs intelligently).
+   * @param {object} props
+   * @return {object} an object with two keys: isoValue & formattedValue
+   */
+  valuesFromProps(props) {
+    return this.valuesFromIso(props.defaultValue || props.value)
+  }
+
+  /**
+   * Take an ISO formatted time and turn it into an object with iso and local
+   * format time.
+   * @param {string} iso - an iso format time
+   * @return {object} an object with two keys: isoValue & formattedValue
+   */
+  valuesFromIso(iso) {
+    return {
+      isoValue: iso,
+      formattedValue: this.isoToFormatted(iso)
+    }
+  }
+
+  /**
+   * Take an iso formatted time and put it into this picker's format
+   * @param {string} iso - an iso format time
+   * @return {string} a time formatted according to the format of this time picker
+   */
+  isoToFormatted(iso) {
+    if (!iso) {
+      return ''
+    }
+    return DateTime.fromISO(iso).toFormat(this.timeFormat)
+  }
+
+  /**
+   * Process change events from the input by updating the isoValue & formattedValue
+   * of this component. Will call down to an onChange handler passed in.
+   * @param {Event} event - the change event fired from the input
+   */
+  onChange(event) {
+    // Take whatever format the input gave us, and turn it into an ISO time string
+    const asISO = DateTime.fromFormat(event.target.value, this.timeFormat).toISOTime()
+
+    if (this.props.onChange) {
+      // Call into an onChange we got as props
+      this.props.onChange(event)
+    }
+
+    // Update isoValue & formattedValue from the ISO we built
+    this.setState(this.valuesFromIso(asISO))
+  }
+
+  /**
+   * Return the time format the component is using. Will be 'HH:mm' if we are
+   * using a well supported time input (without custom format). If we have fallen
+   * back to text field due to bad support, this will be 'hh:mm a'.
+   * @return {string} the time format in use by the component
+   */
+  get timeFormat() {
+    // TODO: detect locale default format string and use that instead of
+    //   hardcoded 'HH:mm'
+    return this.useGoodTimeInput ? 'HH:mm' : this.props.timeFormat || 'hh:mm a'
+  }
+
+  /**
+   * Invoked by a time ticker to tell the time picker to update the inputs (onClick
+   * of the ticker buttons).
+   * @param {string} time - the new time, in the format hh:mm
+   */
+  updateTime(time) {
+    // Update isoValue & formattedValue based on the time value (which is an iso
+    // time)
+    this.setState(this.valuesFromIso(time))
+    
+    // Update the native input value with the formatted version of the new time
+    // (this prevents the native input value from sticking with a hand-typed
+    // input value after the button is clicked in certain situations)
+    // It also sets us up to fire off a synthetic change event that looks just
+    // like change event from a typed input (so external change handlers are
+    // properly) invoked
+    this.nativeInput.value = this.isoToFormatted(time)
+
+    this.fireChangeHandler()
+
+    // Force the input to be focused again (so that we don't immediately close
+    // the calendar because the button click makes us not focused on the input)
+    this.refocusOnClick()
+  }
+
+  /**
+   * Create a synthetic change event and send it into the change handlers as if
+   * the user had typed the new value. This makes typed input and time ticker button
+   * clicks fire off the same handlers.
+   */
+  fireChangeHandler() {
+    const event = new Event('change')
+    this.nativeInput.dispatchEvent(event)
+    this.onChange(event)
   }
 
   /**
@@ -88,24 +224,31 @@ class TimePicker extends React.Component {
     let {
       label,
       isOpen,
-      refocusOnClick,
+      timeFormat,
+      usePickerOnMobile,
       ...props
     } = this.props
 
+    const nativeClass = this.useNativePicker() ? 'rev-DatePicker--native' : 'rev-DatePicker--custom'
+
     return (
-      <label
-        className={`rev-TimePicker rev-InputLabel`}
-      >
+      <label className={`rev-TimePicker rev-InputLabel ${nativeClass}`}>
         {label}
         <TimeInput
           {...props}
           onFocus={this.onFocus.bind(this)}
           onBlur={this.onBlur.bind(this)}
+          onChange={this.onChange.bind(this)}
+          useGoodTimeInput={this.useGoodTimeInput}
+          formattedValue={this.state.formattedValue}
+          generation={this.state.generation}
           inputRef={input => (this.nativeInput = input)}
         />
         <TimeContainer
           {...props}
           className={this.isContainerOpen ? 'rev-TimeContainer--open' : 'rev-TimeContainer--closed'}
+          selectedTime={this.state.isoValue}
+          updateTime={this.updateTime.bind(this)}
           refocusOnClick={this.refocusOnClick.bind(this)}
         />
       </label>
@@ -115,10 +258,10 @@ class TimePicker extends React.Component {
 
 TimePicker.propTypes = {
   label: PropTypes.node,
-  isOpen: PropTypes.bool
+  isOpen: PropTypes.bool,
 }
 
 TimePicker.TimeInput = TimeInput
 TimePicker.TimeContainer = TimeContainer
-export { TimeInput, TimeContainer };
+export { TimeInput, TimeContainer }
 export default TimePicker

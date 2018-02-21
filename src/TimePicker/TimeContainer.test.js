@@ -47,7 +47,8 @@ describe('TimeContainer', () => {
       .simulate('click', { preventDefault: () => null })
     const testTime = DateTime.local().minus(Duration.fromObject({ hour: 1 }))
     const testHour = (testTime.hour % 12 ? testTime.hour % 12 : 12).toString()
-    const hour = container.find('.rev-TimeTicker-value').first().text()
+    //cast time text to number to unformat 0 in front of single digits so that test passes for single digits
+    const hour = (+container.find('.rev-TimeTicker-value').first().text()).toString()
 
     expect(hour).to.equal(testHour)
   })
@@ -60,7 +61,8 @@ describe('TimeContainer', () => {
       .simulate('click', { preventDefault: () => null })
     const testTime = DateTime.local().plus(Duration.fromObject({ hour: 1 }))
     const testHour = (testTime.hour % 12 ? testTime.hour % 12 : 12).toString()
-    const hour = container.find('.rev-TimeTicker-value').first().text()
+    //cast time text to number to unformat 0 in front of single digits so that test passes for single digits
+    const hour = (+container.find('.rev-TimeTicker-value').first().text()).toString()
 
     expect(hour).to.equal(testHour)
   })
@@ -73,7 +75,8 @@ describe('TimeContainer', () => {
       .simulate('click', { preventDefault: () => null })
     const testTime = DateTime.local().minus(Duration.fromObject({ minute: 1 }))
     const testMinute = testTime.minute.toString()
-    const minute = container.find('.rev-TimeTicker-value').at(1).text()
+    //cast time text to number to unformat 0 in front of single digits so that test passes for single digits
+    const minute = (+container.find('.rev-TimeTicker-value').at(1).text()).toString()
 
     expect(minute).to.equal(testMinute)
   })
@@ -86,7 +89,8 @@ describe('TimeContainer', () => {
       .simulate('click', { preventDefault: () => null })
     const testTime = DateTime.local().plus(Duration.fromObject({ minute: 1 }))
     const testMinute = testTime.minute.toString()
-    const minute = container.find('.rev-TimeTicker-value').at(1).text()
+    //cast time text to number to unformat 0 in front of single digits so that test passes for single digits
+    const minute = (+container.find('.rev-TimeTicker-value').at(1).text()).toString()
 
     expect(minute).to.equal(testMinute)
   })

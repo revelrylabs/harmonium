@@ -17,6 +17,7 @@ export default class TimeContainer extends React.Component {
 
     return {
       refocusOnClick: () => null,
+      updateTime: () => null,
     }
   }
 
@@ -28,6 +29,18 @@ export default class TimeContainer extends React.Component {
     super(props)
     this.state = {
       time: this.getLuxonDateTime(this.props.selectedTime)
+    }
+  }
+
+  /**
+   * Update state when props change. In particular, if we receive a different
+   * `selectedTime` prop from up the hierarchy, set state.time to a new Luxon
+   * DateTime appropriately (in order to force the tickers to the new time)
+   * @param {*} nextProps
+   */
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.selectedTime != this.props.selectedTime) {
+      this.setState({ time: this.getLuxonDateTime(nextProps.selectedTime) })
     }
   }
 
@@ -51,10 +64,24 @@ export default class TimeContainer extends React.Component {
     return luxon
   }
 
+  /** Get the hour value for the currently selected time */
+  getHours() {
+    let hour = this.state.time.hour % 12 ? this.state.time.hour % 12 : 12
+    hour = (hour < 10 ? '0' : '') + hour
+    return hour
+  }
+
+  /** Get the minute value for the currently selected time */
+  getMinutes() {
+    let minute = this.state.time.minute
+    minute = (minute < 10 ? '0' : '') + minute
+    return minute
+  }
+
   /**
    * Increment the inputted unit by the inputted amount, n
    *
-   * This function does not change the date in the input (only container display)
+   * This function does not change the time in the input (only container display)
    * @param {int} n - the amount to increment the unit by
    * @param {int} unit - the unit to be incremented
    * @param {Event} event - the event that caused this handler to be invoked
@@ -62,11 +89,17 @@ export default class TimeContainer extends React.Component {
    */
   incrementUnit(n, unit, event) {
     event.preventDefault()
-    const durationObject = {};
-    durationObject[unit] = n;
+
+    const durationObject = {}
+    durationObject[unit] = n
+    const newTime = this.state.time.plus(Duration.fromObject(durationObject))
+
+    this.props.updateTime(newTime.toISOTime())
+    
     this.setState({
-      time: this.state.time.plus(Duration.fromObject(durationObject))
+      time: newTime
     })
+    
     if (this.props.refocusOnClick) {
       this.props.refocusOnClick()
     }
@@ -76,6 +109,7 @@ export default class TimeContainer extends React.Component {
     const {
       className,
       selectedTime,
+      updateTime,
       refocusOnClick,
       ...props
     } = this.props
@@ -83,21 +117,23 @@ export default class TimeContainer extends React.Component {
     return (
       <div className={`rev-TimeContainer ${className}`}>
         <TimeTicker
-          value={this.state.time.hour % 12 ? this.state.time.hour % 12 : 12}
-          onIncrement={this.incrementUnit.bind(this, 1, 'hour')}
-          onDecrement={this.incrementUnit.bind(this, -1, 'hour')}
+          value={this.getHours()}
+          onIncrement={this.incrementUnit.bind(this, 1, 'hours')}
+          onDecrement={this.incrementUnit.bind(this, -1, 'hours')}
         />
         <span>:</span>
         <TimeTicker
-          value={this.state.time.minute}
-          onIncrement={this.incrementUnit.bind(this, 1, 'minute')}
-          onDecrement={this.incrementUnit.bind(this, -1, 'minute')}
+          value={this.getMinutes()}
+          onIncrement={this.incrementUnit.bind(this, 1, 'minutes')}
+          onDecrement={this.incrementUnit.bind(this, -1, 'minutes')}
         />
-        <TimeTicker
-          value={this.state.time.hour >= 12 ? 'PM' : 'AM'}
-          onIncrement={this.incrementUnit.bind(this, 12, 'hour')}
-          onDecrement={this.incrementUnit.bind(this, -12, 'hour')}
-        />
+        (
+          <TimeTicker
+            value={this.state.time.hour >= 12 ? 'PM' : 'AM'}
+            onIncrement={this.incrementUnit.bind(this, 12, 'hours')}
+            onDecrement={this.incrementUnit.bind(this, -12, 'hours')}
+          />
+        )
       </div>
     )
   }

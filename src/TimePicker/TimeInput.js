@@ -10,14 +10,31 @@ import Input from '../Input'
  */
 const TimeInput = ({
   className,
+  useGoodTimeInput,
+  formattedValue,
+  isoValue,
+  generation,
   ...props
 }) => {
   return (
-    <Input
-      {...props}
-      className={`rev-TimePicker-input ${className}`}
-      type="time"
-    />
+    <div>
+      <Input
+        {...props}
+        className={className}
+        type={useGoodTimeInput ? 'time' : 'text'}
+        name={useGoodTimeInput ? name : null}
+        defaultValue={formattedValue}
+      />
+      {useGoodTimeInput ? null : (
+        <Input
+          type="hidden"
+          name={name}
+          key={`${generation}:trueInput`}
+          value={isoValue || ''}
+          readOnly
+        />
+      )}
+    </div>
   )
 }
 
