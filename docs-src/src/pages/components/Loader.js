@@ -3,7 +3,8 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 
 const examples = {
-  Sizes: require('raw!../../examples/Loader/Sizes.js.example')
+  Sizes: require('raw!../../examples/Loader/Sizes.js.example'),
+  Duration: require('raw!../../examples/Loader/Duration.js.example')
 }
 
 export default class LoaderExamplePage extends Component {

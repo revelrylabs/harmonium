@@ -1,0 +1,7 @@
+<div>
+  <Row>
+    <Col>
+      <Loader duration="600ms" />
+    </Col>
+  </Row>
+</div>
