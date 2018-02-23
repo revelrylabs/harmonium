@@ -21,7 +21,7 @@
   </Row>
   <Row>
     <Col>
-      <Loader size="10rem" />
+      <Loader size="15rem" />
     </Col>
   </Row>
 </div>

@@ -66,6 +66,7 @@ export default class Loader extends Component {
   resolveStyles(props = {}) {
     const small = props.small ? { borderWidth: '2', height: '17px', width: '17px' } : {}
     const medium = props.medium ? { borderWidth: '12', height: '88px', width: '88px' } : {}
+    const large = props.large ? { borderWidth: '12', height: '88px', width: '88px' } : {}
     const huge = props.huge ? { borderWidth: '16', height: '120px', width: '120px' } : {}
     let styles = {
       animationDuration: props.duration,
@@ -77,7 +78,7 @@ export default class Loader extends Component {
       height: props.size,
       width: props.size
     }
-    styles = { ...style, ...small, ...medium, ...large, ...huge }
+    styles = { ...styles, ...small, ...medium, ...large, ...huge }
 
     return styles
   }
