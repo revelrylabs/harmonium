@@ -7,12 +7,21 @@ const PROP_TYPES = {
   children: PropTypes.element,
   color: PropTypes.string,
   duration: PropTypes.string,
+  huge: PropTypes.bool,
   large: PropTypes.bool,
+  medium: PropTypes.bool,
   secondaryColor: PropTypes.string,
+  size: PropTypes.string,
   small: PropTypes.bool
 }
 
-const inc = num => num + 1
+/*
+ * Increment.
+ * Provided a number, returns its value, incremented by one.
+ **/
+function inc(num) {
+  return num + 1
+}
 
 export default class Loader extends Component {
   static propTypes = PROP_TYPES
@@ -54,7 +63,7 @@ export default class Loader extends Component {
   // .Loader--large {
   // @include loader02($align: center, $size: 88px, $border-size: 12px);
   // }
-  resolveStyles(props) {
+  resolveStyles(props = {}) {
     const small = props.small ? { borderWidth: '2', height: '17px', width: '17px' } : {}
     const medium = props.medium ? { borderWidth: '12', height: '88px', width: '88px' } : {}
     const huge = props.huge ? { borderWidth: '16', height: '120px', width: '120px' } : {}
@@ -64,28 +73,19 @@ export default class Loader extends Component {
       // borderTop: '16px solid #3498db,
       // borderColor: 'green',
       // borderTopColor: 'red',
-      borderWidth: '12'
-      // height: props.size,
-      // width: props.size
+      borderWidth: '12px',
+      height: props.size,
+      width: props.size
     }
-    styles = { ...style, ...small, ...large, ...medium }
+    styles = { ...style, ...small, ...medium, ...large, ...huge }
 
     return styles
   }
 
   render() {
     const { className, ...props } = this.props
+    const styles = this.resolveStyles(props)
     this.ensureNoConflicts(props)
-    let styles = {
-      animationDuration: props.duration,
-      // border: 16px solid #f3f3f3,
-      // borderTop: '16px solid #3498db,
-      // borderColor: 'green',
-      // borderTopColor: 'red',
-      borderWidth: '12'
-      // height: props.size,
-      // width: props.size
-    }
 
     return (
       <div className="rev-Loader" style={styles}>

@@ -21,5 +21,10 @@ describe('Loader', () => {
 
   it('assigns a variation on border-color when secondaryColor prop is specified', () => {})
 
-  it('throws an error if both small={true} and large={true} are specified as props', () => {})
+  it('throws an error if more than one size-related prop is specified', () => {
+    // Construct props wherein more than one size attribute is specified.
+    const customProps = { ...props, small: true, medium: true }
+
+    expect(() => shallow(<Loader {...customProps} />)).to.throw()
+  })
 })

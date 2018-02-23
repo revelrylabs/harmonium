@@ -6,7 +6,22 @@
   </Row>
   <Row>
     <Col>
+      <Loader medium />
+    </Col>
+  </Row>
+  <Row>
+    <Col>
       <Loader large />
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <Loader huge />
+    </Col>
+  </Row>
+  <Row>
+    <Col>
+      <Loader size="10rem" />
     </Col>
   </Row>
 </div>
