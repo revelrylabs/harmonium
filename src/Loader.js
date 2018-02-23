@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 // import classNames from 'classnames'
-import { defaultTo, has, reduce } from 'lodash'
+import { defaultTo, gt, has, reduce } from 'lodash'
 
 const PROP_TYPES = {
   children: PropTypes.element,
@@ -14,6 +14,14 @@ const PROP_TYPES = {
   size: PropTypes.string,
   small: PropTypes.bool
 }
+
+/*
+ * Style configurations for the various size props that may be specified.
+ **/
+// const small = { borderWidth: '2', height: '17px', width: '17px' }
+// const medium = { borderWidth: '12', height: '88px', width: '88px' }
+// const large = { borderWidth: '12', height: '88px', width: '88px' }
+// const huge = { borderWidth: '16', height: '120px', width: '120px' }
 
 /*
  * Increment.
@@ -35,11 +43,16 @@ export default class Loader extends Component {
     return reduce(attrs, (acc, curr) => (has(obj, curr) ? inc(acc) : acc), 0)
   }
 
+  /*
+   * Ensure no prop conflicts.
+   * Verifies that developer has not passed any conflicting props. Provided so,
+   * throws an error.
+   **/
   ensureNoConflicts(props = {}) {
     const sizeRelatedProps = ['huge', 'large', 'medium', 'size', 'small']
     const sum = this.sumPropsInObj(sizeRelatedProps, props)
 
-    if (sum > 1) {
+    if (gt(sum, 1)) {
       throw Error(
         `You have specified more than one of the following size-related props:
         small, medium, large, huge, size. Only one of these props may be 
@@ -48,21 +61,6 @@ export default class Loader extends Component {
     }
   }
 
-  // .Loader {
-  // @include loader02($align: center);
-  // }
-
-  // .Loader--small {
-  // @include loader02($align: center, $size: 17px, $color: $white, $border-size: 2px);
-  // }
-
-  // .Loader--middle {
-  // @include loader02($align: middle);
-  // }
-
-  // .Loader--large {
-  // @include loader02($align: center, $size: 88px, $border-size: 12px);
-  // }
   resolveStyles(props = {}) {
     const small = props.small ? { borderWidth: '2', height: '17px', width: '17px' } : {}
     const medium = props.medium ? { borderWidth: '12', height: '88px', width: '88px' } : {}

@@ -13,7 +13,11 @@ describe('Loader', () => {
 
   it('renders a small variation if prop small is specified as true', () => {})
 
+  it('renders a medium variation if prop medium is specified as true', () => {})
+
   it('renders a large variation if prop large is specified as true', () => {})
+
+  it('renders a huge variation if prop huge is specified as true', () => {})
 
   it('assigns a variation on animation-duration when duration prop is specified', () => {})
 
