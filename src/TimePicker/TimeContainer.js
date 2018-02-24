@@ -64,21 +64,27 @@ export default class TimeContainer extends React.Component {
     return luxon
   }
 
-  /** Get the hour value for the currently selected time */
+  /** Get the hour value for the currently selected time
+   * @returns {string} formatted hours value
+   */
   getHours() {
     let hour = this.state.time.hour % 12 ? this.state.time.hour % 12 : 12
     hour = (hour < 10 ? '0' : '') + hour
     return hour
   }
 
-  /** Get the minute value for the currently selected time */
+  /** Get the minute value for the currently selected time
+   * @returns {string} formatted minutes value
+   */
   getMinutes() {
     let minute = this.state.time.minute
     minute = (minute < 10 ? '0' : '') + minute
     return minute
   }
 
-  /** Get the second value for the currently selected time */
+  /** Get the second value for the currently selected time
+   * @returns {string} formatted seconds value
+   */
   getSeconds() {
     let second = this.state.time.second
     second = (second < 10 ? '0' : '') + second
