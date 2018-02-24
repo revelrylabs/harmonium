@@ -34,18 +34,6 @@ function useGoodTimeInput() {
  * components for hours, minutes, an optional seconds, and an optional AM/PM. */
 class TimePicker extends React.Component {
   /**
-   * The default values for props of this component
-   * @return {object} the default value object
-   */
-  static get defaultProps() {
-    const createElement = React.createElement
-
-    return {
-      // showSeconds: true
-    }
-  }
-
-  /**
    * Create a time picker. Determines if we can use browser native time type input
    * or if we need to fall back to a text type input (based on support).
    * @param {object} props
