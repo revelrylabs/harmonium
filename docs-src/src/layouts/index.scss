@@ -1,5 +1,11 @@
 @import "../../../scss/app";
 
+@mixin alert-color-stack {
+  background-color: $alert;
+  border-color: mix($alert, $white, 33%);
+  color: mix($alert, $white, 33%);
+}
+
 // TYPOGRAPHY
 h5, h6 {
   font-weight: normal;
