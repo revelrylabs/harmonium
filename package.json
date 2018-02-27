@@ -41,7 +41,7 @@
   },
   "scripts": {
     "clean": "rm -rf lib/",
-    "babel": "babel --source-maps -d lib/ src/",
+    "babel": "node_modules/.bin/babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel && npm run docs",
     "test": "NODE_ENV=test nyc mocha './src/**/*.test.js' --opts ./mocha.opts && nyc report --reporter=html",
     "docs": "node scripts/docs.js",
