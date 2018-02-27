@@ -47,7 +47,7 @@
     "docs": "node scripts/docs.js",
     "web": "static-server docs -p $PORT",
     "dev": "gulp",
-    "postinstall": "npm run clean && npm run babel && node scripts/postinstall.js"
+    "prepublishOnly": "npm run clean && npm run babel"
   },
   "keywords": [],
   "author": {
