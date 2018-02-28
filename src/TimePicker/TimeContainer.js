@@ -64,31 +64,21 @@ export default class TimeContainer extends React.Component {
     return luxon
   }
 
-  /** Get the hour value for the currently selected time
-   * @returns {string} formatted hours value
+  /** Get the formatted value of the given unit for the currently selected time
+   * @param {int} unit - the unit to be incremented (i.e. hour or minute)
+   * @returns {string} formatted value as a string
    */
-  getHours() {
-    let hour = this.state.time.hour % 12 ? this.state.time.hour % 12 : 12
-    hour = (hour < 10 ? '0' : '') + hour
-    return hour
-  }
+  getFormattedUnit(unit) {
+    let value;
 
-  /** Get the minute value for the currently selected time
-   * @returns {string} formatted minutes value
-   */
-  getMinutes() {
-    let minute = this.state.time.minute
-    minute = (minute < 10 ? '0' : '') + minute
-    return minute
-  }
+    if (unit === 'hour' && !this.props.use24hr) {
+      value = this.state.time[unit] % 12 ? this.state.time[unit] % 12 : 12
+    } else {
+      value = this.state.time[unit]
+    }
 
-  /** Get the second value for the currently selected time
-   * @returns {string} formatted seconds value
-   */
-  getSeconds() {
-    let second = this.state.time.second
-    second = (second < 10 ? '0' : '') + second
-    return second
+    value = (value < 10 ? '0' : '') + value
+    return value
   }
 
   /**
@@ -96,7 +86,7 @@ export default class TimeContainer extends React.Component {
    *
    * This function does not change the time in the input (only container display)
    * @param {int} n - the amount to increment the unit by
-   * @param {int} unit - the unit to be incremented
+   * @param {int} unit - the unit to be incremented (i.e. hour or minute)
    * @param {Event} event - the event that caused this handler to be invoked
    *   (e.g. the click event from the next or previous button on a ticker)
    */
@@ -132,20 +122,20 @@ export default class TimeContainer extends React.Component {
     return (
       <div className={`rev-TimeContainer ${className}`}>
         <TimeTicker
-          value={this.getHours()}
+          value={this.getFormattedUnit('hour')}
           onIncrement={this.incrementUnit.bind(this, 1, 'hours')}
           onDecrement={this.incrementUnit.bind(this, -1, 'hours')}
         />
         <span>:</span>
         <TimeTicker
-          value={this.getMinutes()}
+          value={this.getFormattedUnit('minute')}
           onIncrement={this.incrementUnit.bind(this, 1, 'minutes')}
           onDecrement={this.incrementUnit.bind(this, -1, 'minutes')}
         />
         {showSeconds ? (<span>:</span>) : null}
         {showSeconds ? (
           <TimeTicker
-            value={this.getSeconds()}
+            value={this.getFormattedUnit('second')}
             onIncrement={this.incrementUnit.bind(this, 1, 'seconds')}
             onDecrement={this.incrementUnit.bind(this, -1, 'seconds')}
           />
