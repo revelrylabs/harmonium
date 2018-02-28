@@ -21,6 +21,7 @@ function useGoodTimeInput() {
 }
 
 /* TODO FEATURES:
+    allow keyboard up & down to increment/decrement for accessibility concerns,
     overrides,
     allow setting how much each button should increment,
     allowing min and/or max times to be declared,
