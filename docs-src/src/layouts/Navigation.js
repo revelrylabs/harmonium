@@ -23,6 +23,10 @@ export default function Navigation() {
           <Menu.Item><a href="https://www.npmjs.com/package/awesome-possum">NPM</a></Menu.Item>
         </Menu>
         <Menu vertical>
+          <Menu.Item text><h5>Starter</h5></Menu.Item>
+          <Menu.Item><Link to="/settings-templates/settings-templates.zip">SCSS Starter Settings</Link></Menu.Item>
+        </Menu>
+        <Menu vertical>
           <Menu.Item text><h5>Grid</h5></Menu.Item>
           <Menu.Item><Link to="/components/grid/">Rows &amp; Columns</Link></Menu.Item>
           <Menu.Item><Link to="/components/ExpandingCol/">Expanding Columns</Link></Menu.Item>

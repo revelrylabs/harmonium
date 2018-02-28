@@ -15,9 +15,17 @@
   }
 }
 
-@mixin body-color-stack {
-  background-color: $body-bkgd;
-  color: $body-font-color;
+@mixin color-stack($bkgd: $body-bkgd) {
+  background-color: $bkgd;
+  @if lightness($bkgd) < lightness(#888) {
+    color: $white-80;
+    a {
+      color: $white-80;
+    }
+  }
+  @else {
+    color: $body-font-color;
+  }
 }
 
 // UTILITY COLORS
