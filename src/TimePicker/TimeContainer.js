@@ -65,7 +65,7 @@ export default class TimeContainer extends React.Component {
   }
 
   /** Get the formatted value of the given unit for the currently selected time
-   * @param {int} unit - the unit to be incremented (i.e. hour or minute)
+   * @param {string} unit - the unit to be incremented (i.e. hour or minute)
    * @returns {string} formatted value as a string
    */
   getFormattedUnit(unit) {
