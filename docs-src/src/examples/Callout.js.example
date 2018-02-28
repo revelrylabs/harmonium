@@ -1,8 +1,44 @@
 <div>
-  <Callout>default</Callout>
-  <Callout primary>primary</Callout>
-  <Callout secondary>secondary</Callout>
-  <Callout success>success</Callout>
-  <Callout warning>warning</Callout>
-  <Callout alert>alert</Callout>
+  <Callout>
+    <Row>
+      <Col>
+        <p>default</p>
+      </Col>
+    </Row>
+  </Callout>
+  <Callout primary>
+    <Row>
+      <Col>
+        <p>primary</p>
+      </Col>
+    </Row>
+  </Callout>
+  <Callout secondary>
+    <Row>
+      <Col>
+        <p>secondary</p>
+      </Col>
+    </Row>
+  </Callout>
+  <Callout success>
+    <Row>
+      <Col>
+        <p>success</p>
+      </Col>
+    </Row>
+  </Callout>
+  <Callout warning>
+    <Row>
+      <Col>
+        <p>warning</p>
+      </Col>
+    </Row>
+  </Callout>
+  <Callout alert>
+    <Row>
+      <Col>
+        <p>alert</p>
+      </Col>
+    </Row>
+  </Callout>
 </div>

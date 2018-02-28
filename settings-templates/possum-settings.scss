@@ -24,7 +24,8 @@ $breakpoints: (
   xxlarge: (min-width: $xxlarge),
   global-width: (min-width: $global-width),
 );
-@import '../mixins/media-queries';
+@import '~awesome-possum/scss/mixins/media-queries';
+@import '~awesome-possum/scss/mixins/z-index';
 
 // IMPORT FONTS HERE
 
@@ -86,7 +87,7 @@ $grid-gutter: $grid-column-padding * 2;
 
 $global-radius: 3px;
 $global-rounded: 100000px;
-$global-box-shadow: 0 1px 4px 0 $black-40;
+$global-box-shadow: 0 1px 4px 0 $black-30;
 $global-box-shadow-hover: 0 2px 6px 0 $black-50;
 $global-box-shadow-active: 0 1px 2px 0 $black-30;
 
@@ -139,25 +140,23 @@ $size-larger: 64px;
 $size-largest: 128px;
 
 //## NAVIGATION COLORS-----------------------------
-//$navigation-bkgd: $white;
-//$navigation-color: $anchor-color;
+$navigation-bkgd: $white;
+$navigation-color: $anchor-color;
 // # hover navigation colors
-//$navigation-bkgd-hover: darken($navigation-bkgd, 3%);
-//$navigation-color-hover: $anchor-color-hover;
+$navigation-bkgd-hover: darken($navigation-bkgd, 3%);
+$navigation-color-hover: $anchor-color-hover;
 // # onClick navigation colors
-//$navigation-bkgd-active: darken($navigation-bkgd, 6%);
-//$navigation-color-active: $anchor-color-active;
+$navigation-bkgd-active: darken($navigation-bkgd, 6%);
+$navigation-color-active: $anchor-color-active;
 // # selected state colors are reversed
-//$navigation-bkgd-selected: $navigation-color;
-//$navigation-color-selected: $navigation-bkgd;
+$navigation-bkgd-selected: $navigation-color;
+$navigation-color-selected: $navigation-bkgd;
 // # disabled navigation
-//$navigation-color-disabled: $disabled;
-//$navigation-bkgd-disabled: $navigation-bkgd; // will have disabled-opacity
-
-
+$navigation-color-disabled: $disabled;
+$navigation-bkgd-disabled: $navigation-bkgd; // will have disabled-opacity
 
 //## LAYOUTS
-//$rail-width: 300px;
+$rail-width: 300px;
 
 //** Component Vars are commented out here because each compnent has its !default vars set at the top of the component stylesheet. If vars need to be updated, you can uncomment them below and make your changes. Vars below will always override the !default vars in the component stylesheets
 
@@ -165,131 +164,131 @@ $size-largest: 128px;
 // $[component]-[css property]-[variant]-[state]
 
 //## TOPBAR -----------------------------
-//$topbar-bkgd: $white;
-//$topbar-border-color: $divider-color;
-//$topbar-border-size: 1px;
-//$topbar-color: $body-font-color;
-//$topbar-height: $size-larger;
-//$topbar-input-width: $size-largest;
-//$topbar-link-bkgd: transparent;
+$topbar-bkgd: $white;
+$topbar-border-color: $divider-color;
+$topbar-border-size: 1px;
+$topbar-color: $body-font-color;
+$topbar-height: $size-larger;
+$topbar-input-width: $size-largest;
+$topbar-link-bkgd: transparent;
 
-//$drawer-width: 300px;
-//$drawer-bkgd: $white;
-//$mobile-nav-bkgd: $black;
-//$drawer-height: 100%;
-//$drawer-height-contained: 800px;
-//$drawer-height-fixed: 100vh;
-//$drawer-overlay-top-value: 0;
+$drawer-width: 300px;
+$drawer-bkgd: $white;
+$mobile-nav-bkgd: $black;
+$drawer-height: 100%;
+$drawer-height-contained: 800px;
+$drawer-height-fixed: 100vh;
+$drawer-overlay-top-value: 0;
 
 //## CONTAINERS -----------------------------
 
 //## Accordions
-//$accordion-border-size: 1px;
-//$accordion-border-color: $divider-color;
-//$accordion-title-bkgd: $white;
-//$accordion-title-color: $anchor-color;
-//$accordion-title-bkgd-hover: $accordion-title-bkgd;
-//$accordion-title-color-hover: $anchor-color-hover;
-//$accordion-title-bkgd-active: $accordion-title-bkgd;
-//$accordion-title-color-active: $anchor-color-active;
-//$accordion-title-bkgd-selected: $anchor-color-selected;
-//$accordion-title-color-selected: $accordion-title-bkgd;
-//$accordion-content-bkgd: $white;
+$accordion-border-size: 1px;
+$accordion-border-color: $divider-color;
+$accordion-title-bkgd: $white;
+$accordion-title-color: $anchor-color;
+$accordion-title-bkgd-hover: $accordion-title-bkgd;
+$accordion-title-color-hover: $anchor-color-hover;
+$accordion-title-bkgd-active: $accordion-title-bkgd;
+$accordion-title-color-active: $anchor-color-active;
+$accordion-title-bkgd-selected: $anchor-color-selected;
+$accordion-title-color-selected: $accordion-title-bkgd;
+$accordion-content-bkgd: $white;
 
 //## Callouts
-//$callout-bkgd: $white;
-//$callout-border-size: 1px;
-//$callout-border-color: $divider-color;
-//$callout-color: $body-font-color;
-//$callout-padding: $global-vertical-space $global-horizontal-space;
+$callout-bkgd: $white;
+$callout-border-size: 1px;
+$callout-border-color: $divider-color;
+$callout-color: $body-font-color;
+$callout-padding: $global-vertical-space $global-horizontal-space;
 
 //## Cards
-//$card-bkgd: $white;
-//$card-border: 1px solid $divider-color;
-//$card-padding: 0;
-//$card-radius: $global-radius;
-//$card-header-background: $white;
-//$card-footer-background: $white;
+$card-bkgd: $white;
+$card-border: 1px solid $divider-color;
+$card-padding: 0;
+$card-radius: $global-radius;
+$card-header-background: $white;
+$card-footer-background: $white;
 
 //## Menus
-//$menu-bkgd: $white-0;
-//$menu-text-bkgd: $navigation-bkgd;
-//$menu-text-color: $body-font-color;
+$menu-bkgd: $white-0;
+$menu-text-bkgd: $navigation-bkgd;
+$menu-text-color: $body-font-color;
 // unless updated, menu link colors are managed by navigation-color-mgmt
 // (see NAVIGATION COLORS in rev-settings)
-//$menu-link-bkgd: null;
-//$menu-link-color: null;
-//$menu-link-bkgd-hover: null;
-//$menu-link-color-hover: null;
-//$menu-link-bkgd-active: null;
-//$menu-link-color-active: null;
-//$menu-link-bkgd-selected: null;
-//$menu-link-color-selected: null;
+$menu-link-bkgd: null;
+$menu-link-color: null;
+$menu-link-bkgd-hover: null;
+$menu-link-color-hover: null;
+$menu-link-bkgd-active: null;
+$menu-link-color-active: null;
+$menu-link-bkgd-selected: null;
+$menu-link-color-selected: null;
 
 //## Modals
-//$modal-bkgd: $black-40;
-//$modal-content-bkgd: $white;
-//$modal-content-border-size: 1px;
-//$modal-content-border-color: $divider-color;
-//$modal-content-box-shadow: $global-box-shadow;
-//$modal-content-color: $body-font-color;
-//$modal-content-padding: 0;
+$modal-bkgd: $black-40;
+$modal-content-bkgd: $white;
+$modal-content-border-size: 1px;
+$modal-content-border-color: $divider-color;
+$modal-content-box-shadow: $global-box-shadow;
+$modal-content-color: $body-font-color;
+$modal-content-padding: 0;
 
 //## Tabs
-//$tabs-margin: $global-margin;
-//$tabs-border-size: 1px;
-//$tabs-border-color: $divider-color;
-//$tabs-titles-bkgd: $white;
-//$tabs-title-link-bkgd: transparent;
-//$tabs-title-link-color: $anchor-color;
-//$tabs-title-link-bkgd-hover: transparent;
-//$tabs-title-link-color-hover: $anchor-color-hover;
-//$tabs-title-link-bkgd-active: transparent;
-//$tabs-title-link-color-active: $anchor-color-active;
-//$tabs-title-link-bkgd-selected: $anchor-color-selected;
-//$tabs-title-link-color-selected: $tabs-titles-bkgd;
-//$tabs-title-link-padding: $global-padding-small $global-padding;
-//$tabs-content-bkgd: $white 0;
-//$tabs-content-padding: $global-padding 0;
+$tabs-margin: $global-margin;
+$tabs-border-size: 1px;
+$tabs-border-color: $divider-color;
+$tabs-titles-bkgd: $white;
+$tabs-title-link-bkgd: transparent;
+$tabs-title-link-color: $anchor-color;
+$tabs-title-link-bkgd-hover: transparent;
+$tabs-title-link-color-hover: $anchor-color-hover;
+$tabs-title-link-bkgd-active: transparent;
+$tabs-title-link-color-active: $anchor-color-active;
+$tabs-title-link-bkgd-selected: $anchor-color-selected;
+$tabs-title-link-color-selected: $tabs-titles-bkgd;
+$tabs-title-link-padding: $global-padding-small $global-padding;
+$tabs-content-bkgd: $white 0;
+$tabs-content-padding: $global-padding 0;
 
 //## FORMS -----------------------------
 
-//$input-bkgd: $white;
-//$input-bkgd-focus: $input-bkgd;
-//$input-box-shadow: 0 0 0 1px $divider-color inset;
-//$input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset;
-//$input-radius: $global-radius;
-//$input-color: $body-font-color;
-//$input-color-focus: $input-color;
-//$input-font-size: $global-font-size;
-//$label-color: $body-font-color;
-//$label-font-size: $global-font-size;
+$input-bkgd: $white;
+$input-bkgd-focus: $input-bkgd;
+$input-box-shadow: 0 0 0 1px $divider-color inset;
+$input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset;
+$input-radius: $global-radius;
+$input-color: $body-font-color;
+$input-color-focus: $input-color;
+$input-font-size: $global-font-size;
+$label-color: $body-font-color;
+$label-font-size: $global-font-size;
 
 //## DATEPICKER CALENDAR -----------------------------
 
-//$calendar-bkgd: $card-bkgd;
-//$calendar-border: $card-border;
-//$calendar-width: 32rem;
-//$calendar-body-width: 100%;
-//$calendar-header-bkgd: $card-bkgd;
-//$calendar-header-height: $size-large;
-//$calendar-max-height-animation: 35rem;
+$calendar-bkgd: $card-bkgd;
+$calendar-border: $card-border;
+$calendar-width: 32rem;
+$calendar-body-width: 100%;
+$calendar-header-bkgd: $card-bkgd;
+$calendar-header-height: $size-large;
+$calendar-max-height-animation: 35rem;
 
 //## Badges
-//$badge-size: $size-small;
+$badge-size: $size-small;
 
 //## Close Buttons
-//$close-bkgd: $body-font-color;
-//$close-color: $body-bkgd;
-//$close-size: $size-default;
+$close-bkgd: $body-font-color;
+$close-color: $body-bkgd;
+$close-size: $size-default;
 
 //## Help Text
-//$help-text-color: $gray;
+$help-text-color: $gray;
 
 //## Progress
-//$progress-radius: $global-rounded;
-//$progress-meter-height: $size-tiny;
-//$progress-meter-bkgd: $darker-gray;
+$progress-radius: $global-rounded;
+$progress-meter-height: $size-tiny;
+$progress-meter-bkgd: $darker-gray;
 
 //## Pagination
 // $pagination-radius: 0;
