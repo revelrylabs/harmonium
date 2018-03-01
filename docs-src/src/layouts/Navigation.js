@@ -42,6 +42,7 @@ export default function Navigation() {
           <Menu.Item><Link to="/components/Radio/">Radio Buttons</Link></Menu.Item>
           <Menu.Item><Link to="/components/Select/">Selects</Link></Menu.Item>
           <Menu.Item><Link to="/components/Textarea/">Textareas</Link></Menu.Item>
+          <Menu.Item><Link to="/components/TimePicker/">Time Picker</Link></Menu.Item>
         </Menu>
         <Menu vertical>
           <Menu.Item text><h5>Lists</h5></Menu.Item>
