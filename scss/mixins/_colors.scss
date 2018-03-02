@@ -68,8 +68,8 @@ $navigation-color-active: $anchor-color-active !default;
 $navigation-bkgd-selected: $navigation-color !default;
 $navigation-color-selected: $anchor-color-inverse !default;
 // disabled navigation
-$navigation-color-disabled: $disabled !default;
 $navigation-bkgd-disabled: $navigation-bkgd !default; // will have disabled-opacity
+$navigation-color-disabled: $navigation-color !default; // will have disabled-opacity
 
 // NOTE: Use this mixin when the disabled class is not added to the same
 // element that the navigation-color-mgmt mixin is included on. Ex: Pagination.
@@ -103,22 +103,28 @@ $navigation-bkgd-disabled: $navigation-bkgd !default; // will have disabled-opac
     a:active,
     a:focus {
       @include disabled;
+      background: $navigation-bkgd-disabled;
+      color: $navigation-color-disabled;
     }
   }
 }
 
+// COMPONENT STATE COLORS
+$stateful-item-bkgd: $white-0 !default;
+$stateful-item-color: $body-font-color !default;
+// hover state colors
+$stateful-item-bkgd-hover: $black-06 !default;
+$stateful-item-color-hover: $anchor-color !default;
+// active state colors
+$stateful-item-bkgd-active: $black-10 !default;
+$stateful-item-color-active: $anchor-color-active !default;
+// selected state colors
+$stateful-item-bkgd-selected: $black-10 !default;
+$stateful-item-color-selected: $anchor-color-active !default;
+// disabled
+$stateful-item-bkgd-disabled: $stateful-item-bkgd !default; // will have disabled-opacity
+$stateful-item-color-disabled: $stateful-item-color !default; // will have disabled-opacity
 
-$stateful-item-color: $dark-gray !default;
-$stateful-item-color-hover: darken($stateful-item-color, 10%) !default;
-$stateful-item-color-active: $primary !default;
-$stateful-item-color-selected: $primary !default;
-$stateful-item-color-disabled: $disabled !default;
-$stateful-item-bkgd: $white !default;
-$stateful-item-bkgd-hover: $lightest-gray !default;
-$stateful-item-bkgd-active: $stateful-item-bkgd !default;
-$stateful-item-bkgd-selected: $lightest-gray !default;
-$stateful-item-bkgd-disabled: $stateful-item-bkgd !default;
-$stateful-item-bkgd-disabled-hover: $stateful-item-bkgd-disabled !default;
 
 @mixin stateful-color-mgmt {
   background: $stateful-item-bkgd;
@@ -137,11 +143,17 @@ $stateful-item-bkgd-disabled-hover: $stateful-item-bkgd-disabled !default;
     color: $stateful-item-color-selected;
   }
   &[class*='--disabled'] {
-    background: $stateful-item-bkgd-disabled;
-    color: $stateful-item-color-disabled;
-    cursor: not-allowed;
-    &:hover {
-      background: $stateful-item-bkgd-disabled-hover;
+    @include disabled;
+    &:hover,
+    &:active,
+    &:focus,
+    a,
+    a:hover,
+    a:active,
+    a:focus {
+      @include disabled;
+      background: $stateful-item-bkgd-disabled;
+      color: $stateful-item-color-disabled;
     }
   }
 }
