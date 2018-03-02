@@ -7,7 +7,7 @@ const examples = {
   Duration: require('raw!../../examples/Loader/Duration.js.example'),
   Color: require('raw!../../examples/Loader/Color.js.example'),
   'Secondary color': require('raw!../../examples/Loader/SecondaryColor.js.example'),
-  'Use with button': require('raw!../../examples/Loader/ButtonLoader.js.example')
+  'Usage with button': require('raw!../../examples/Loader/ButtonLoader.js.example')
 }
 
 export default class LoaderExamplePage extends Component {

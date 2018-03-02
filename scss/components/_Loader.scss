@@ -13,6 +13,27 @@
   // `height` properties.
   height: 120px;
   width: 120px;
+
+  &--small {
+    border-width: 2px;
+    height: 17px;
+    width: 17px;
+  }
+  &--medium {
+    border-width: 4px;
+    height: 32px;
+    width: 32px;
+  }
+  &--large {
+    border-width: 12;
+    height: 88px;
+    width: 88px;
+  }
+  &--huge {
+    border-width: 16;
+    height: 120px;
+    width: 120px;
+  }
 }
 
 @keyframes spin {
