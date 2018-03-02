@@ -1,27 +1,7 @@
-<div>
-  <Row>
-    <Col>
-      <Loader small />
-    </Col>
-  </Row>
-  <Row>
-    <Col>
-      <Loader medium />
-    </Col>
-  </Row>
-  <Row>
-    <Col>
-      <Loader large />
-    </Col>
-  </Row>
-  <Row>
-    <Col>
-      <Loader huge />
-    </Col>
-  </Row>
-  <Row>
-    <Col>
-      <Loader size="15rem" />
-    </Col>
-  </Row>
-</div>
+<Row largeUp={5} flex spaced style={{alignItems: "center"}}>
+  <Loader small />
+  <Loader medium />
+  <Loader large />
+  <Loader huge />
+  <Loader size="15rem" />
+</Row>

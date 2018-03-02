@@ -4,7 +4,9 @@ import scope from '../../ExampleScope'
 
 const examples = {
   Sizes: require('raw!../../examples/Loader/Sizes.js.example'),
-  Duration: require('raw!../../examples/Loader/Duration.js.example')
+  Duration: require('raw!../../examples/Loader/Duration.js.example'),
+  Color: require('raw!../../examples/Loader/Color.js.example'),
+  'Secondary color': require('raw!../../examples/Loader/SecondaryColor.js.example')
 }
 
 export default class LoaderExamplePage extends Component {

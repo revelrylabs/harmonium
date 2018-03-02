@@ -4,6 +4,7 @@ import PropTypes from 'prop-types'
 import { defaultTo, gt, has, reduce } from 'lodash'
 
 const PROP_TYPES = {
+  borderWidth: PropTypes.string,
   children: PropTypes.element,
   color: PropTypes.string,
   duration: PropTypes.string,
@@ -63,19 +64,25 @@ export default class Loader extends Component {
 
   resolveStyles(props = {}) {
     const small = props.small ? { borderWidth: '2', height: '17px', width: '17px' } : {}
-    const medium = props.medium ? { borderWidth: '12', height: '88px', width: '88px' } : {}
+    const medium = props.medium ? { borderWidth: '4', height: '32px', width: '32px' } : {}
     const large = props.large ? { borderWidth: '12', height: '88px', width: '88px' } : {}
     const huge = props.huge ? { borderWidth: '16', height: '120px', width: '120px' } : {}
     let styles = {
       animationDuration: props.duration,
       // border: 16px solid #f3f3f3,
       // borderTop: '16px solid #3498db,
-      // borderColor: 'green',
-      // borderTopColor: 'red',
-      borderWidth: '12px',
+      borderColor: props.secondaryColor,
+      borderTopColor: props.color,
+      // borderWidth: '12px',
+      borderWidth: props.borderWidth,
       height: props.size,
       width: props.size
     }
+
+    const secondaryColor = props.secondaryColor ? { borderColor: props.secondaryColor } : {}
+    const color = props.color ? { borderTopColor: props.color } : {}
+
+    // styles = { ...styles, ...small, ...medium, ...large, ...huge, ...secondaryColor, ...color }
     styles = { ...styles, ...small, ...medium, ...large, ...huge }
 
     return styles

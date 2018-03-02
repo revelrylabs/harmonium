@@ -19,11 +19,23 @@ describe('Loader', () => {
 
   it('renders a huge variation if prop huge is specified as true', () => {})
 
-  it('assigns a variation on animation-duration when duration prop is specified', () => {})
+  it('assigns a variation on animation-duration when duration prop is specified', () => {
+    const wrapper = shallow(<Loader duration="600ms" />)
 
-  it('assigns a variation on border-color-top when color prop is specified', () => {})
+    expect(wrapper.props().style.animationDuration).to.equal('600ms')
+  })
 
-  it('assigns a variation on border-color when secondaryColor prop is specified', () => {})
+  it('assigns a variation on border-top-color when color prop is specified', () => {
+    const wrapper = shallow(<Loader color="#000000" />)
+
+    expect(wrapper.props().style.borderTopColor).to.equal('#000000')
+  })
+
+  it('assigns a variation on border-color when secondaryColor prop is specified', () => {
+    const wrapper = shallow(<Loader secondaryColor="#FFFFFF" />)
+
+    expect(wrapper.props().style.borderColor).to.equal('#FFFFFF')
+  })
 
   it('throws an error if more than one size-related prop is specified', () => {
     // Construct props wherein more than one size attribute is specified.
