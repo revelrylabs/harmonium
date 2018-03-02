@@ -27,7 +27,7 @@ import Button from '../Button'
     <div {...props} className={`rev-TimeTicker ${className}`}>
       <Button
         onClick={onIncrement}
-        className="rev-TimeTicker-button--next"
+        className="rev-TimeTicker-button rev-TimeTicker-button--next"
       >
         {nextLabel}
       </Button>
@@ -38,7 +38,7 @@ import Button from '../Button'
 
       <Button
         onClick={onDecrement}
-        className="rev-TimeTicker-button--previous"
+        className="rev-TimeTicker-button rev-TimeTicker-button--previous"
       >
         {previousLabel}
       </Button>
