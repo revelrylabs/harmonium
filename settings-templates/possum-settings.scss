@@ -126,10 +126,11 @@ $hr-margin: $global-padding-large auto;
 $image-blur: blur(8px);
 $no-image-blur: blur(0px);
 
+// Disabled
 $disabled-opacity: 0.35;
 
 // Sizes
-// common size vars for things like badges, close buttons, fixed naviagtion bars
+// common size vars for things like badges
 $size-tiny: 8px;
 $size-small: 16px;
 $size-default: 24px;
@@ -137,7 +138,7 @@ $size-large: 48px;
 $size-larger: 64px;
 $size-largest: 128px;
 
-//## NAVIGATION COLORS-----------------------------
+//## Color Mgmt for Navigational Components -----------------------------
 $navigation-bkgd: $white-0;
 // ^transparent by default so that the bkgd of the component shows through
 $navigation-color: $anchor-color;
@@ -154,12 +155,30 @@ $navigation-color-selected: $navigation-bkgd;
 $navigation-color-disabled: $disabled;
 $navigation-bkgd-disabled: $navigation-bkgd; // will have disabled-opacity
 
-//** Component Vars are commented out here because each compnent has its !default vars set at the top of the component stylesheet. If vars need to be updated, you can uncomment them below and make your changes. Vars below will always override the !default vars in the component stylesheets
+//## Color Mgmt for Components with States -----------------------------
+// ex: tabs, accordions
+$stateful-item-bkgd: $white-0 !default;
+// ^transparent by default so that the bkgd of the component shows through
+$stateful-item-color: $body-font-color !default;
+// hover state colors
+$stateful-item-bkgd-hover: $black-06 !default;
+$stateful-item-color-hover: $anchor-color !default;
+// active state colors
+$stateful-item-bkgd-active: $black-10 !default;
+$stateful-item-color-active: $anchor-color-active !default;
+// selected state colors
+$stateful-item-bkgd-selected: $black-10 !default;
+$stateful-item-color-selected: $anchor-color-active !default;
+// disabled
+$stateful-item-bkgd-disabled: $stateful-item-bkgd !default; // will have disabled-opacity
+$stateful-item-color-disabled: $stateful-item-color !default; // will have disabled-opacity
 
-// Example component var naming
-// $[component]-[css property]-[variant]-[state]
 
-//## TOPBAR -----------------------------
+//## COMPONENT VARS
+
+//## LAYOUT ELEMENTS -----------------------------
+
+//## TopBar
 $topbar-bkgd: $white;
 $topbar-border-color: $divider-color;
 $topbar-border-size: 1px;
@@ -168,6 +187,7 @@ $topbar-height: $size-larger;
 $topbar-input-width: $size-largest;
 $topbar-link-bkgd: transparent;
 
+//## Drawer
 $drawer-width: 300px;
 $drawer-bkgd: $white;
 $mobile-nav-bkgd: $black;
@@ -176,12 +196,47 @@ $drawer-height-contained: 800px;
 $drawer-height-fixed: 100vh;
 $drawer-overlay-top-value: 0;
 
-//## CONTAINERS -----------------------------
+//## NAVIGATION -----------------------------
+
+//## Menus
+$menu-bkgd: $white-0;
+$menu-text-bkgd: $navigation-bkgd;
+$menu-text-color: $body-font-color;
+// unless updated here, menu link colors are managed by navigation-color-mgmt
+// (see Color Mgmt for Navigational Components)
+$menu-link-bkgd: null;
+$menu-link-color: null;
+$menu-link-bkgd-hover: null;
+$menu-link-color-hover: null;
+$menu-link-bkgd-active: null;
+$menu-link-color-active: null;
+$menu-link-bkgd-selected: null;
+$menu-link-color-selected: null;
+
+//## Pagination
+$pagination-radius: 0;
+$pagination-vertical-padding: $global-padding-tiny;
+$pagination-padding: $pagination-vertical-padding $global-padding-small;
+$pagination-margin: $global-padding-tiny / 2;
+$pagination-dot-color: $dark-gray;
+
+//## STATEFUL COMPONENTS -----------------------------
 
 //## Accordions
 $accordion-border-size: 1px;
 $accordion-border-color: $divider-color;
 $accordion-content-bkgd: $white;
+
+//## Tabs
+$tabs-margin: $global-margin;
+$tabs-border-size: 1px;
+$tabs-border-color: $divider-color;
+$tabs-titles-bkgd: $white;
+$tabs-title-link-padding: $global-padding-small $global-padding;
+$tabs-content-bkgd: $white 0;
+$tabs-content-padding: $global-padding 0;
+
+//## CONTAINERS -----------------------------
 
 //## Callouts
 $callout-bkgd: $white;
@@ -198,21 +253,6 @@ $card-radius: $global-radius;
 $card-header-background: $white;
 $card-footer-background: $white;
 
-//## Menus
-$menu-bkgd: $white-0;
-$menu-text-bkgd: $navigation-bkgd;
-$menu-text-color: $body-font-color;
-// unless updated, menu link colors are managed by navigation-color-mgmt
-// (see NAVIGATION COLORS)
-$menu-link-bkgd: null;
-$menu-link-color: null;
-$menu-link-bkgd-hover: null;
-$menu-link-color-hover: null;
-$menu-link-bkgd-active: null;
-$menu-link-color-active: null;
-$menu-link-bkgd-selected: null;
-$menu-link-color-selected: null;
-
 //## Modals
 $modal-bkgd: $black-40;
 $modal-content-bkgd: $white;
@@ -221,15 +261,6 @@ $modal-content-border-color: $divider-color;
 $modal-content-box-shadow: $global-box-shadow;
 $modal-content-color: $body-font-color;
 $modal-content-padding: 0;
-
-//## Tabs
-$tabs-margin: $global-margin;
-$tabs-border-size: 1px;
-$tabs-border-color: $divider-color;
-$tabs-titles-bkgd: $white;
-$tabs-title-link-padding: $global-padding-small $global-padding;
-$tabs-content-bkgd: $white 0;
-$tabs-content-padding: $global-padding 0;
 
 //## FORMS -----------------------------
 
@@ -269,23 +300,3 @@ $help-text-color: $gray;
 $progress-radius: $global-rounded;
 $progress-meter-height: $size-tiny;
 $progress-meter-bkgd: $darker-gray;
-
-//## Pagination
-$pagination-radius: 0;
-$pagination-vertical-padding: $global-padding-tiny;
-$pagination-padding: $pagination-vertical-padding $global-padding-small;
-$pagination-margin: $global-padding-tiny / 2;
-$pagination-dot-color: $dark-gray;
-
-//## Tab & Accordion
-$stateful-item-color: $dark-gray;
-$stateful-item-color-hover: darken($stateful-item-color, 10%);
-$stateful-item-color-active: $primary;
-$stateful-item-color-selected: $primary;
-$stateful-item-color-disabled: $disabled;
-$stateful-item-bkgd: $white;
-$stateful-item-bkgd-hover: $lightest-gray;
-$stateful-item-bkgd-active: $stateful-item-bkgd;
-$stateful-item-bkgd-selected: $lightest-gray;
-$stateful-item-bkgd-disabled: $stateful-item-bkgd;
-$stateful-item-bkgd-disabled-hover: $stateful-item-bkgd-disabled;
