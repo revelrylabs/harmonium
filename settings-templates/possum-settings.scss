@@ -288,11 +288,11 @@ $label-font-size: $global-font-size;
 
 $calendar-bkgd: $card-bkgd;
 $calendar-border: $card-border;
+$calendar-container-width: 32rem;
 $calendar-width: 32rem;
-$calendar-body-width: 100%;
+$calendar-max-height-animation: 35rem;
 $calendar-header-bkgd: $card-bkgd;
 $calendar-header-height: $size-large;
-$calendar-max-height-animation: 35rem;
 
 //## Badges
 $badge-size: $size-small;
