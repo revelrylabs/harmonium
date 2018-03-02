@@ -73,6 +73,7 @@ $navigation-color-disabled: $navigation-color !default; // will have disabled-op
 
 @mixin navigation-color-mgmt {
   a {
+    @include global-transition;
     background-color: $navigation-bkgd;
     color: $navigation-color;
     &:hover {
@@ -122,6 +123,7 @@ $stateful-item-color-disabled: $stateful-item-color !default; // will have disab
 
 
 @mixin stateful-color-mgmt {
+  @include global-transition;
   background: $stateful-item-bkgd;
   color: $stateful-item-color;
   &:hover {

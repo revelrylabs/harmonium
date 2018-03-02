@@ -139,6 +139,7 @@ $size-larger: 64px;
 $size-largest: 128px;
 
 //## Color Mgmt for Navigational Components -----------------------------
+// ex: menus, pagination
 $navigation-bkgd: $white-0;
 // ^transparent by default so that the bkgd of the component shows through
 $navigation-color: $anchor-color;
@@ -214,11 +215,19 @@ $menu-link-bkgd-selected: null;
 $menu-link-color-selected: null;
 
 //## Pagination
-$pagination-radius: 0;
-$pagination-vertical-padding: $global-padding-tiny;
-$pagination-padding: $pagination-vertical-padding $global-padding-small;
-$pagination-margin: $global-padding-tiny / 2;
-$pagination-dot-color: $dark-gray;
+$pagination-radius: $global-radius;
+$pagination-dot-bkgd: transparent;
+$pagination-dot-color: $body-font-color;
+// unless updated here, pagination colors are managed by navigation-color-mgmt
+// (see Color Mgmt for Navigational Components)
+$pagination-link-bkgd: null;
+$pagination-link-color: null;
+$pagination-link-bkgd-hover: null;
+$pagination-link-color-hover: null;
+$pagination-link-bkgd-active: null;
+$pagination-link-color-active: null;
+$pagination-link-bkgd-selected: null;
+$pagination-link-color-selected: null;
 
 //## STATEFUL COMPONENTS -----------------------------
 
