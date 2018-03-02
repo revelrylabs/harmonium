@@ -9,7 +9,8 @@ const examples = {
   'Always Open': require('raw!../../examples/TimePicker/AlwaysOpen.js.example'),
   'Disabled': require('raw!../../examples/TimePicker/Disabled.js.example'),
   'With 24 Hour Clock': require('raw!../../examples/TimePicker/TwentyFourHour.js.example'),
-  'With Seconds Shown': require('raw!../../examples/TimePicker/ShowSeconds.js.example')
+  'With Seconds Shown': require('raw!../../examples/TimePicker/ShowSeconds.js.example'),
+  'Overlay': require('raw!../../examples/TimePicker/Overlay.js.example')
 }
 
 export default class TimePickerExamplePage extends Component {
