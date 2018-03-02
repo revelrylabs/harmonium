@@ -58,6 +58,7 @@ $global-weight-bold: 700;
 $global-lineheight: 1.5;
 $base-lineheight: $global-lineheight * $global-font-size;
 
+// GRID COLS - determines the number of columns in a grid
 $grid-columns: 12;
 
 // Spacing
@@ -65,14 +66,14 @@ $global-vertical-space: $global-font-size * $global-lineheight; // 24px
 $global-horizontal-space: $global-vertical-space; // 24px
 $base-size: .8rem;
 
-// Global Padding
+// Global Padding - made up of vertical spacing multiples
 $global-padding-tiny: $global-vertical-space / 4;  // 6px
 $global-padding-small: $global-vertical-space / 2; // 12px
 $global-padding: $global-vertical-space; // 24px
 $global-padding-large: $global-vertical-space * 2; // 48px
 $global-padding-larger: $global-vertical-space * 3; // 72px
 
-// Global Margin
+// Global Margin - made up of vertical spacing multiples
 $global-margin-tiny: $global-padding-tiny;
 $global-margin-small: $global-padding-small;
 $global-margin: $global-padding;
@@ -83,8 +84,11 @@ $global-margin-larger: $global-padding-larger;
 $grid-column-padding: $global-padding-small;
 $grid-gutter: $grid-column-padding * 2;
 
+// Border Radiuses
 $global-radius: 3px;
 $global-rounded: 100000px;
+
+// Box Shadows
 $global-box-shadow: 0 1px 4px 0 $black-30;
 $global-box-shadow-hover: 0 2px 6px 0 $black-50;
 $global-box-shadow-active: 0 1px 2px 0 $black-30;
@@ -129,10 +133,10 @@ $no-image-blur: blur(0px);
 // Disabled
 $disabled-opacity: 0.35;
 
-// Sizes
+// Sizes - made up of vertical spacing multiples
 // common size vars for things like badges
-$size-tiny: 8px;
-$size-small: 16px;
+$size-tiny: 6px;
+$size-small: 12px;
 $size-default: 24px;
 $size-large: 48px;
 $size-larger: 64px;
@@ -158,28 +162,26 @@ $navigation-bkgd-disabled: $navigation-bkgd; // will have disabled-opacity
 
 //## Color Mgmt for Components with States -----------------------------
 // ex: tabs, accordions
-$stateful-item-bkgd: $white-0 !default;
+$stateful-item-bkgd: $white-0;
 // ^transparent by default so that the bkgd of the component shows through
-$stateful-item-color: $body-font-color !default;
+$stateful-item-color: $body-font-color;
 // hover state colors
-$stateful-item-bkgd-hover: $black-06 !default;
-$stateful-item-color-hover: $anchor-color !default;
+$stateful-item-bkgd-hover: $black-06;
+$stateful-item-color-hover: $anchor-color;
 // active state colors
-$stateful-item-bkgd-active: $black-10 !default;
-$stateful-item-color-active: $anchor-color-active !default;
+$stateful-item-bkgd-active: $black-10;
+$stateful-item-color-active: $anchor-color-active;
 // selected state colors
-$stateful-item-bkgd-selected: $black-10 !default;
-$stateful-item-color-selected: $anchor-color-active !default;
+$stateful-item-bkgd-selected: $black-10;
+$stateful-item-color-selected: $anchor-color-active;
 // disabled
-$stateful-item-bkgd-disabled: $stateful-item-bkgd !default; // will have disabled-opacity
-$stateful-item-color-disabled: $stateful-item-color !default; // will have disabled-opacity
+$stateful-item-bkgd-disabled: $stateful-item-bkgd; // will have disabled-opacity
+$stateful-item-color-disabled: $stateful-item-color; // will have disabled-opacity
 
-
-//## COMPONENT VARS
 
 //## LAYOUT ELEMENTS -----------------------------
 
-//## TopBar
+//# TopBar
 $topbar-bkgd: $white;
 $topbar-border-color: $divider-color;
 $topbar-border-size: 1px;
@@ -188,7 +190,7 @@ $topbar-height: $size-larger;
 $topbar-input-width: $size-largest;
 $topbar-link-bkgd: transparent;
 
-//## Drawer
+//# Drawer
 $drawer-width: 300px;
 $drawer-bkgd: $white;
 $mobile-nav-bkgd: $black;
@@ -199,7 +201,7 @@ $drawer-overlay-top-value: 0;
 
 //## NAVIGATION -----------------------------
 
-//## Menus
+//# Menus
 $menu-bkgd: $white-0;
 $menu-text-bkgd: $navigation-bkgd;
 $menu-text-color: $body-font-color;
@@ -214,7 +216,7 @@ $menu-link-color-active: null;
 $menu-link-bkgd-selected: null;
 $menu-link-color-selected: null;
 
-//## Pagination
+//# Pagination
 $pagination-radius: $global-radius;
 $pagination-dot-bkgd: transparent;
 $pagination-dot-color: $body-font-color;
@@ -231,12 +233,12 @@ $pagination-link-color-selected: null;
 
 //## STATEFUL COMPONENTS -----------------------------
 
-//## Accordions
+//# Accordions
 $accordion-border-size: 1px;
 $accordion-border-color: $divider-color;
 $accordion-content-bkgd: $white;
 
-//## Tabs
+//# Tabs
 $tabs-margin: $global-margin;
 $tabs-border-size: 1px;
 $tabs-border-color: $divider-color;
@@ -247,14 +249,14 @@ $tabs-content-padding: $global-padding 0;
 
 //## CONTAINERS -----------------------------
 
-//## Callouts
+//# Callouts
 $callout-bkgd: $white;
 $callout-border-size: 1px;
 $callout-border-color: $divider-color;
 $callout-color: $body-font-color;
 $callout-padding: $global-vertical-space $global-horizontal-space;
 
-//## Cards
+//# Cards
 $card-bkgd: $white;
 $card-border: 1px solid $divider-color;
 $card-padding: 0;
@@ -262,7 +264,7 @@ $card-radius: $global-radius;
 $card-header-background: $white;
 $card-footer-background: $white;
 
-//## Modals
+//# Modals
 $modal-bkgd: $black-40;
 $modal-content-bkgd: $white;
 $modal-content-border-size: 1px;
@@ -284,28 +286,41 @@ $input-font-size: $global-font-size;
 $label-color: $body-font-color;
 $label-font-size: $global-font-size;
 
-//## DATEPICKER CALENDAR -----------------------------
+//## PICKERS -----------------------------
 
+//# Calendar
 $calendar-bkgd: $card-bkgd;
 $calendar-border: $card-border;
 $calendar-container-width: 32rem;
 $calendar-width: 32rem;
 $calendar-max-height-animation: 35rem;
-$calendar-header-bkgd: $card-bkgd;
+$calendar-header-bkgd: $calendar-bkgd;
 $calendar-header-height: $size-large;
 
-//## Badges
-$badge-size: $size-small;
+//# Time
+$time-picker-container-width: 100%;
+$time-picker-bkgd: $card-bkgd;
+$time-picker-border: $card-border;
+$time-picker-width: auto;
+$time-picker-max-height-animation: 20rem;
+$time-picker-header-bkgd: $time-picker-bkgd;
 
-//## Close Buttons
+//## ATOMS -----------------------------
+
+//# Badges
+$badge-size: $size-default;
+
+//# Close Buttons
 $close-bkgd: $body-font-color;
 $close-color: $body-bkgd;
 $close-size: $size-default;
 
-//## Help Text
+//## UTILITIES -----------------------------
+
+//# Help Text
 $help-text-color: $gray;
 
-//## Progress
+//# Progress
 $progress-radius: $global-rounded;
 $progress-meter-height: $size-tiny;
 $progress-meter-bkgd: $darker-gray;
