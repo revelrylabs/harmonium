@@ -90,7 +90,12 @@ $navigation-bkgd-disabled: $navigation-bkgd !default; // will have disabled-opac
   }
   &[class*='--selected'] a {
     background-color: $navigation-bkgd-selected;
-    color: $navigation-color-selected;
+    @if lightness($navigation-bkgd-selected) > 65% {
+      color: $body-font-color;
+    }
+    @else {
+      color: $white;
+    }
   }
   &[class*='--disabled'] {
     a,
