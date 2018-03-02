@@ -138,7 +138,8 @@ $size-larger: 64px;
 $size-largest: 128px;
 
 //## NAVIGATION COLORS-----------------------------
-$navigation-bkgd: $white;
+$navigation-bkgd: $white-0;
+// ^transparent by default so that the bkgd of the component shows through
 $navigation-color: $anchor-color;
 // # hover navigation colors
 $navigation-bkgd-hover: darken($navigation-bkgd, 3%);
@@ -152,9 +153,6 @@ $navigation-color-selected: $navigation-bkgd;
 // # disabled navigation
 $navigation-color-disabled: $disabled;
 $navigation-bkgd-disabled: $navigation-bkgd; // will have disabled-opacity
-
-//## LAYOUTS
-$rail-width: 300px;
 
 //** Component Vars are commented out here because each compnent has its !default vars set at the top of the component stylesheet. If vars need to be updated, you can uncomment them below and make your changes. Vars below will always override the !default vars in the component stylesheets
 
@@ -205,7 +203,7 @@ $menu-bkgd: $white-0;
 $menu-text-bkgd: $navigation-bkgd;
 $menu-text-color: $body-font-color;
 // unless updated, menu link colors are managed by navigation-color-mgmt
-// (see NAVIGATION COLORS in rev-settings)
+// (see NAVIGATION COLORS)
 $menu-link-bkgd: null;
 $menu-link-color: null;
 $menu-link-bkgd-hover: null;

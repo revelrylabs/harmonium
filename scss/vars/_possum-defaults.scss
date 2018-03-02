@@ -27,7 +27,7 @@ $breakpoints: (
   global-width: (min-width: $global-width),
 );
 @import '../mixins/media-queries';
-@import '../vars/z-index';
+
 
 // IMPORT FONTS HERE
 
@@ -140,5 +140,21 @@ $size-default: 24px !default;
 $size-large: 48px !default;
 $size-larger: 64px !default;
 $size-largest: 128px !default;
+
+//## NAVIGATION COLORS-----------------------------
+$navigation-bkgd: $white-0 !default;
+$navigation-color: $anchor-color !default;
+// # hover navigation colors
+$navigation-bkgd-hover: darken($navigation-bkgd, 3%) !default;
+$navigation-color-hover: $anchor-color-hover !default;
+// # onClick navigation colors
+$navigation-bkgd-active: darken($navigation-bkgd, 6%) !default;
+$navigation-color-active: $anchor-color-active !default;
+// # selected state colors are reversed
+$navigation-bkgd-selected: $navigation-color !default;
+$navigation-color-selected: $navigation-bkgd !default;
+// # disabled navigation
+$navigation-color-disabled: $disabled !default;
+$navigation-bkgd-disabled: $navigation-bkgd !default; // will have disabled-opacity
 
 // COMPONENT VARS ARE LOCATED AT THE TOP OF THE COMPONENT STYLESHEET
