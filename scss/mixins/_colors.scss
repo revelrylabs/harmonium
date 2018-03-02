@@ -71,9 +71,6 @@ $navigation-color-selected: $anchor-color-inverse !default;
 $navigation-bkgd-disabled: $navigation-bkgd !default; // will have disabled-opacity
 $navigation-color-disabled: $navigation-color !default; // will have disabled-opacity
 
-// NOTE: Use this mixin when the disabled class is not added to the same
-// element that the navigation-color-mgmt mixin is included on. Ex: Pagination.
-
 @mixin navigation-color-mgmt {
   a {
     background-color: $navigation-bkgd;
@@ -102,9 +99,7 @@ $navigation-color-disabled: $navigation-color !default; // will have disabled-op
     a:hover,
     a:active,
     a:focus {
-      @include disabled;
-      background: $navigation-bkgd-disabled;
-      color: $navigation-color-disabled;
+      @include disabled($navigation-bkgd-disabled, $navigation-color-disabled);
     }
   }
 }
@@ -143,17 +138,9 @@ $stateful-item-color-disabled: $stateful-item-color !default; // will have disab
     color: $stateful-item-color-selected;
   }
   &[class*='--disabled'] {
-    @include disabled;
-    &:hover,
-    &:active,
-    &:focus,
-    a,
-    a:hover,
-    a:active,
-    a:focus {
-      @include disabled;
-      background: $stateful-item-bkgd-disabled;
-      color: $stateful-item-color-disabled;
+    @include disabled($stateful-item-bkgd-disabled, $stateful-item-color-disabled);
+    a {
+      @include disabled($stateful-item-bkgd-disabled, $stateful-item-color-disabled);
     }
   }
 }
