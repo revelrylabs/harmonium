@@ -24,8 +24,6 @@ $breakpoints: (
   xxlarge: (min-width: $xxlarge),
   global-width: (min-width: $global-width),
 );
-@import '~awesome-possum/scss/mixins/media-queries';
-@import '~awesome-possum/scss/mixins/z-index';
 
 // IMPORT FONTS HERE
 
@@ -185,14 +183,6 @@ $drawer-overlay-top-value: 0;
 //## Accordions
 $accordion-border-size: 1px;
 $accordion-border-color: $divider-color;
-$accordion-title-bkgd: $white;
-$accordion-title-color: $anchor-color;
-$accordion-title-bkgd-hover: $accordion-title-bkgd;
-$accordion-title-color-hover: $anchor-color-hover;
-$accordion-title-bkgd-active: $accordion-title-bkgd;
-$accordion-title-color-active: $anchor-color-active;
-$accordion-title-bkgd-selected: $anchor-color-selected;
-$accordion-title-color-selected: $accordion-title-bkgd;
 $accordion-content-bkgd: $white;
 
 //## Callouts
@@ -239,14 +229,6 @@ $tabs-margin: $global-margin;
 $tabs-border-size: 1px;
 $tabs-border-color: $divider-color;
 $tabs-titles-bkgd: $white;
-$tabs-title-link-bkgd: transparent;
-$tabs-title-link-color: $anchor-color;
-$tabs-title-link-bkgd-hover: transparent;
-$tabs-title-link-color-hover: $anchor-color-hover;
-$tabs-title-link-bkgd-active: transparent;
-$tabs-title-link-color-active: $anchor-color-active;
-$tabs-title-link-bkgd-selected: $anchor-color-selected;
-$tabs-title-link-color-selected: $tabs-titles-bkgd;
 $tabs-title-link-padding: $global-padding-small $global-padding;
 $tabs-content-bkgd: $white 0;
 $tabs-content-padding: $global-padding 0;
@@ -291,21 +273,21 @@ $progress-meter-height: $size-tiny;
 $progress-meter-bkgd: $darker-gray;
 
 //## Pagination
-// $pagination-radius: 0;
-// $pagination-vertical-padding: $global-padding-tiny;
-// $pagination-padding: $pagination-vertical-padding $global-padding-small;
-// $pagination-margin: $global-padding-tiny / 2;
-// $pagination-dot-color: $dark-gray;
+$pagination-radius: 0;
+$pagination-vertical-padding: $global-padding-tiny;
+$pagination-padding: $pagination-vertical-padding $global-padding-small;
+$pagination-margin: $global-padding-tiny / 2;
+$pagination-dot-color: $dark-gray;
 
 //## Tab & Accordion
-// $stateful-item-color: $dark-gray;
-// $stateful-item-color-hover: darken($stateful-item-color, 10%);
-// $stateful-item-color-active: $primary;
-// $stateful-item-color-selected: $primary;
-// $stateful-item-color-disabled: $disabled;
-// $stateful-item-bkgd: $white;
-// $stateful-item-bkgd-hover: $lightest-gray;
-// $stateful-item-bkgd-active: $stateful-item-bkgd;
-// $stateful-item-bkgd-selected: $lightest-gray;
-// $stateful-item-bkgd-disabled: $stateful-item-bkgd;
-// $stateful-item-bkgd-disabled-hover: $stateful-item-bkgd-disabled;
+$stateful-item-color: $dark-gray;
+$stateful-item-color-hover: darken($stateful-item-color, 10%);
+$stateful-item-color-active: $primary;
+$stateful-item-color-selected: $primary;
+$stateful-item-color-disabled: $disabled;
+$stateful-item-bkgd: $white;
+$stateful-item-bkgd-hover: $lightest-gray;
+$stateful-item-bkgd-active: $stateful-item-bkgd;
+$stateful-item-bkgd-selected: $lightest-gray;
+$stateful-item-bkgd-disabled: $stateful-item-bkgd;
+$stateful-item-bkgd-disabled-hover: $stateful-item-bkgd-disabled;
