@@ -261,6 +261,7 @@ class TimePicker extends React.Component {
       use24hr,
       showSeconds,
       usePickerOnMobile,
+      overlay,
       ...props
     } = this.props
 
@@ -295,6 +296,7 @@ class TimePicker extends React.Component {
           refocusOnClick={this.refocusOnClick.bind(this)}
           use24hr={use24hr}
           showSeconds={showSeconds}
+          overlay={overlay}
         />
       </label>
     )

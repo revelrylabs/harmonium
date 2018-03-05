@@ -11,7 +11,8 @@ html {
   outline: 0;
 }
 body {
-  @include color-stack;
+  background: $body-bkgd;
+  color: $body-font-color;
   font-size: 1.6rem;
   line-height: $global-lineheight;
 }

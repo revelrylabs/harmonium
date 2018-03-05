@@ -24,8 +24,6 @@ $breakpoints: (
   xxlarge: (min-width: $xxlarge),
   global-width: (min-width: $global-width),
 );
-@import '~awesome-possum/scss/mixins/media-queries';
-@import '~awesome-possum/scss/mixins/z-index';
 
 // IMPORT FONTS HERE
 
@@ -60,6 +58,7 @@ $global-weight-bold: 700;
 $global-lineheight: 1.5;
 $base-lineheight: $global-lineheight * $global-font-size;
 
+// GRID COLS - determines the number of columns in a grid
 $grid-columns: 12;
 
 // Spacing
@@ -67,14 +66,14 @@ $global-vertical-space: $global-font-size * $global-lineheight; // 24px
 $global-horizontal-space: $global-vertical-space; // 24px
 $base-size: .8rem;
 
-// Global Padding
+// Global Padding - made up of vertical spacing multiples
 $global-padding-tiny: $global-vertical-space / 4;  // 6px
 $global-padding-small: $global-vertical-space / 2; // 12px
 $global-padding: $global-vertical-space; // 24px
 $global-padding-large: $global-vertical-space * 2; // 48px
 $global-padding-larger: $global-vertical-space * 3; // 72px
 
-// Global Margin
+// Global Margin - made up of vertical spacing multiples
 $global-margin-tiny: $global-padding-tiny;
 $global-margin-small: $global-padding-small;
 $global-margin: $global-padding;
@@ -85,8 +84,11 @@ $global-margin-larger: $global-padding-larger;
 $grid-column-padding: $global-padding-small;
 $grid-gutter: $grid-column-padding * 2;
 
+// Border Radiuses
 $global-radius: 3px;
 $global-rounded: 100000px;
+
+// Box Shadows
 $global-box-shadow: 0 1px 4px 0 $black-30;
 $global-box-shadow-hover: 0 2px 6px 0 $black-50;
 $global-box-shadow-active: 0 1px 2px 0 $black-30;
@@ -128,19 +130,22 @@ $hr-margin: $global-padding-large auto;
 $image-blur: blur(8px);
 $no-image-blur: blur(0px);
 
+// Disabled
 $disabled-opacity: 0.35;
 
-// Sizes
-// common size vars for things like badges, close buttons, fixed naviagtion bars
-$size-tiny: 8px;
-$size-small: 16px;
+// Sizes - made up of vertical spacing multiples
+// common size vars for things like badges
+$size-tiny: 6px;
+$size-small: 12px;
 $size-default: 24px;
 $size-large: 48px;
 $size-larger: 64px;
 $size-largest: 128px;
 
-//## NAVIGATION COLORS-----------------------------
-$navigation-bkgd: $white;
+//## Color Mgmt for Navigational Components -----------------------------
+// ex: menus, pagination
+$navigation-bkgd: $white-0;
+// ^transparent by default so that the bkgd of the component shows through
 $navigation-color: $anchor-color;
 // # hover navigation colors
 $navigation-bkgd-hover: darken($navigation-bkgd, 3%);
@@ -155,15 +160,28 @@ $navigation-color-selected: $navigation-bkgd;
 $navigation-color-disabled: $disabled;
 $navigation-bkgd-disabled: $navigation-bkgd; // will have disabled-opacity
 
-//## LAYOUTS
-$rail-width: 300px;
+//## Color Mgmt for Components with States -----------------------------
+// ex: tabs, accordions
+$stateful-item-bkgd: $white-0;
+// ^transparent by default so that the bkgd of the component shows through
+$stateful-item-color: $body-font-color;
+// hover state colors
+$stateful-item-bkgd-hover: $black-06;
+$stateful-item-color-hover: $anchor-color;
+// active state colors
+$stateful-item-bkgd-active: $black-10;
+$stateful-item-color-active: $anchor-color-active;
+// selected state colors
+$stateful-item-bkgd-selected: $black-10;
+$stateful-item-color-selected: $anchor-color-active;
+// disabled
+$stateful-item-bkgd-disabled: $stateful-item-bkgd; // will have disabled-opacity
+$stateful-item-color-disabled: $stateful-item-color; // will have disabled-opacity
 
-//** Component Vars are commented out here because each compnent has its !default vars set at the top of the component stylesheet. If vars need to be updated, you can uncomment them below and make your changes. Vars below will always override the !default vars in the component stylesheets
 
-// Example component var naming
-// $[component]-[css property]-[variant]-[state]
+//## LAYOUT ELEMENTS -----------------------------
 
-//## TOPBAR -----------------------------
+//# TopBar
 $topbar-bkgd: $white;
 $topbar-border-color: $divider-color;
 $topbar-border-size: 1px;
@@ -172,6 +190,7 @@ $topbar-height: $size-larger;
 $topbar-input-width: $size-largest;
 $topbar-link-bkgd: transparent;
 
+//# Drawer
 $drawer-width: 300px;
 $drawer-bkgd: $white;
 $mobile-nav-bkgd: $black;
@@ -180,42 +199,14 @@ $drawer-height-contained: 800px;
 $drawer-height-fixed: 100vh;
 $drawer-overlay-top-value: 0;
 
-//## CONTAINERS -----------------------------
+//## NAVIGATION -----------------------------
 
-//## Accordions
-$accordion-border-size: 1px;
-$accordion-border-color: $divider-color;
-$accordion-title-bkgd: $white;
-$accordion-title-color: $anchor-color;
-$accordion-title-bkgd-hover: $accordion-title-bkgd;
-$accordion-title-color-hover: $anchor-color-hover;
-$accordion-title-bkgd-active: $accordion-title-bkgd;
-$accordion-title-color-active: $anchor-color-active;
-$accordion-title-bkgd-selected: $anchor-color-selected;
-$accordion-title-color-selected: $accordion-title-bkgd;
-$accordion-content-bkgd: $white;
-
-//## Callouts
-$callout-bkgd: $white;
-$callout-border-size: 1px;
-$callout-border-color: $divider-color;
-$callout-color: $body-font-color;
-$callout-padding: $global-vertical-space $global-horizontal-space;
-
-//## Cards
-$card-bkgd: $white;
-$card-border: 1px solid $divider-color;
-$card-padding: 0;
-$card-radius: $global-radius;
-$card-header-background: $white;
-$card-footer-background: $white;
-
-//## Menus
+//# Menus
 $menu-bkgd: $white-0;
 $menu-text-bkgd: $navigation-bkgd;
 $menu-text-color: $body-font-color;
-// unless updated, menu link colors are managed by navigation-color-mgmt
-// (see NAVIGATION COLORS in rev-settings)
+// unless updated here, menu link colors are managed by navigation-color-mgmt
+// (see Color Mgmt for Navigational Components)
 $menu-link-bkgd: null;
 $menu-link-color: null;
 $menu-link-bkgd-hover: null;
@@ -225,7 +216,55 @@ $menu-link-color-active: null;
 $menu-link-bkgd-selected: null;
 $menu-link-color-selected: null;
 
-//## Modals
+//# Pagination
+$pagination-radius: $global-radius;
+$pagination-dot-bkgd: transparent;
+$pagination-dot-color: $body-font-color;
+// unless updated here, pagination colors are managed by navigation-color-mgmt
+// (see Color Mgmt for Navigational Components)
+$pagination-link-bkgd: null;
+$pagination-link-color: null;
+$pagination-link-bkgd-hover: null;
+$pagination-link-color-hover: null;
+$pagination-link-bkgd-active: null;
+$pagination-link-color-active: null;
+$pagination-link-bkgd-selected: null;
+$pagination-link-color-selected: null;
+
+//## STATEFUL COMPONENTS -----------------------------
+
+//# Accordions
+$accordion-border-size: 1px;
+$accordion-border-color: $divider-color;
+$accordion-content-bkgd: $white;
+
+//# Tabs
+$tabs-margin: $global-margin;
+$tabs-border-size: 1px;
+$tabs-border-color: $divider-color;
+$tabs-titles-bkgd: $white;
+$tabs-title-link-padding: $global-padding-small $global-padding;
+$tabs-content-bkgd: $white 0;
+$tabs-content-padding: $global-padding 0;
+
+//## CONTAINERS -----------------------------
+
+//# Callouts
+$callout-bkgd: $white;
+$callout-border-size: 1px;
+$callout-border-color: $divider-color;
+$callout-color: $body-font-color;
+$callout-padding: $global-vertical-space $global-horizontal-space;
+
+//# Cards
+$card-bkgd: $white;
+$card-border: 1px solid $divider-color;
+$card-padding: 0;
+$card-radius: $global-radius;
+$card-header-background: $white;
+$card-footer-background: $white;
+
+//# Modals
 $modal-bkgd: $black-40;
 $modal-content-bkgd: $white;
 $modal-content-border-size: 1px;
@@ -233,23 +272,6 @@ $modal-content-border-color: $divider-color;
 $modal-content-box-shadow: $global-box-shadow;
 $modal-content-color: $body-font-color;
 $modal-content-padding: 0;
-
-//## Tabs
-$tabs-margin: $global-margin;
-$tabs-border-size: 1px;
-$tabs-border-color: $divider-color;
-$tabs-titles-bkgd: $white;
-$tabs-title-link-bkgd: transparent;
-$tabs-title-link-color: $anchor-color;
-$tabs-title-link-bkgd-hover: transparent;
-$tabs-title-link-color-hover: $anchor-color-hover;
-$tabs-title-link-bkgd-active: transparent;
-$tabs-title-link-color-active: $anchor-color-active;
-$tabs-title-link-bkgd-selected: $anchor-color-selected;
-$tabs-title-link-color-selected: $tabs-titles-bkgd;
-$tabs-title-link-padding: $global-padding-small $global-padding;
-$tabs-content-bkgd: $white 0;
-$tabs-content-padding: $global-padding 0;
 
 //## FORMS -----------------------------
 
@@ -264,48 +286,41 @@ $input-font-size: $global-font-size;
 $label-color: $body-font-color;
 $label-font-size: $global-font-size;
 
-//## DATEPICKER CALENDAR -----------------------------
+//## PICKERS -----------------------------
 
+//# Calendar
 $calendar-bkgd: $card-bkgd;
 $calendar-border: $card-border;
+$calendar-container-width: 32rem;
 $calendar-width: 32rem;
-$calendar-body-width: 100%;
-$calendar-header-bkgd: $card-bkgd;
-$calendar-header-height: $size-large;
 $calendar-max-height-animation: 35rem;
+$calendar-header-bkgd: $calendar-bkgd;
+$calendar-header-height: $size-large;
 
-//## Badges
-$badge-size: $size-small;
+//# Time
+$time-picker-container-width: 100%;
+$time-picker-bkgd: $card-bkgd;
+$time-picker-border: $card-border;
+$time-picker-width: auto;
+$time-picker-max-height-animation: 20rem;
+$time-picker-header-bkgd: $time-picker-bkgd;
 
-//## Close Buttons
+//## ATOMS -----------------------------
+
+//# Badges
+$badge-size: $size-default;
+
+//# Close Buttons
 $close-bkgd: $body-font-color;
 $close-color: $body-bkgd;
 $close-size: $size-default;
 
-//## Help Text
+//## UTILITIES -----------------------------
+
+//# Help Text
 $help-text-color: $gray;
 
-//## Progress
+//# Progress
 $progress-radius: $global-rounded;
 $progress-meter-height: $size-tiny;
 $progress-meter-bkgd: $darker-gray;
-
-//## Pagination
-// $pagination-radius: 0;
-// $pagination-vertical-padding: $global-padding-tiny;
-// $pagination-padding: $pagination-vertical-padding $global-padding-small;
-// $pagination-margin: $global-padding-tiny / 2;
-// $pagination-dot-color: $dark-gray;
-
-//## Tab & Accordion
-// $stateful-item-color: $dark-gray;
-// $stateful-item-color-hover: darken($stateful-item-color, 10%);
-// $stateful-item-color-active: $primary;
-// $stateful-item-color-selected: $primary;
-// $stateful-item-color-disabled: $disabled;
-// $stateful-item-bkgd: $white;
-// $stateful-item-bkgd-hover: $lightest-gray;
-// $stateful-item-bkgd-active: $stateful-item-bkgd;
-// $stateful-item-bkgd-selected: $lightest-gray;
-// $stateful-item-bkgd-disabled: $stateful-item-bkgd;
-// $stateful-item-bkgd-disabled-hover: $stateful-item-bkgd-disabled;

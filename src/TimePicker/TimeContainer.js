@@ -1,6 +1,7 @@
 /** @jsx createElement */
 
 import React, { createElement } from 'react'
+import Card from '../Card'
 import TimeTicker from './TimeTicker'
 import { DateTime, Duration } from 'luxon'
 
@@ -116,37 +117,45 @@ export default class TimeContainer extends React.Component {
       refocusOnClick,
       use24hr,
       showSeconds,
+      overlay,
       ...props
     } = this.props
 
     return (
-      <div className={`rev-TimeContainer ${className}`}>
-        <TimeTicker
-          value={this.getFormattedUnit('hour')}
-          onIncrement={this.incrementUnit.bind(this, 1, 'hours')}
-          onDecrement={this.incrementUnit.bind(this, -1, 'hours')}
-        />
-        <span>:</span>
-        <TimeTicker
-          value={this.getFormattedUnit('minute')}
-          onIncrement={this.incrementUnit.bind(this, 1, 'minutes')}
-          onDecrement={this.incrementUnit.bind(this, -1, 'minutes')}
-        />
-        {showSeconds ? (<span>:</span>) : null}
-        {showSeconds ? (
-          <TimeTicker
-            value={this.getFormattedUnit('second')}
-            onIncrement={this.incrementUnit.bind(this, 1, 'seconds')}
-            onDecrement={this.incrementUnit.bind(this, -1, 'seconds')}
-          />
-        ) : null}
-        {use24hr ? null : (
-          <TimeTicker
-            value={this.state.time.hour >= 12 ? 'PM' : 'AM'}
-            onIncrement={this.incrementUnit.bind(this, 12, 'hours')}
-            onDecrement={this.incrementUnit.bind(this, -12, 'hours')}
-          />
-        )}
+      <div className={`rev-TimeContainer ${overlay ? 'rev-TimeContainer--overlay' : ''} ${className}`}>
+        <Card>
+          <Card.Header>
+            <span className="rev-TimeContainer-header">Time Picker</span>
+          </Card.Header>
+          <Card.Body>
+            <TimeTicker
+              value={this.getFormattedUnit('hour')}
+              onIncrement={this.incrementUnit.bind(this, 1, 'hours')}
+              onDecrement={this.incrementUnit.bind(this, -1, 'hours')}
+            />
+            <span className="rev-TimeTicker-divider">:</span>
+            <TimeTicker
+              value={this.getFormattedUnit('minute')}
+              onIncrement={this.incrementUnit.bind(this, 1, 'minutes')}
+              onDecrement={this.incrementUnit.bind(this, -1, 'minutes')}
+            />
+            {showSeconds ? (<span className="rev-TimeTicker-divider">:</span>) : null}
+            {showSeconds ? (
+              <TimeTicker
+                value={this.getFormattedUnit('second')}
+                onIncrement={this.incrementUnit.bind(this, 1, 'seconds')}
+                onDecrement={this.incrementUnit.bind(this, -1, 'seconds')}
+              />
+            ) : null}
+            {use24hr ? null : (
+              <TimeTicker
+                value={this.state.time.hour >= 12 ? 'PM' : 'AM'}
+                onIncrement={this.incrementUnit.bind(this, 12, 'hours')}
+                onDecrement={this.incrementUnit.bind(this, -12, 'hours')}
+              />
+            )}
+          </Card.Body>
+        </Card>
       </div>
     )
   }
