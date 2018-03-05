@@ -84,7 +84,8 @@
     "nyc": "^11.4.1",
     "prettier": "^1.10.2",
     "react-test-renderer": ">=15.0.0",
-    "sinon": "^2.3.8"
+    "sinon": "^2.3.8",
+    "timekeeper": "^2.0.0"
   },
   "nyc": {
     "require": [
