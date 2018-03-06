@@ -37,6 +37,7 @@ import Lipsum from 'possum/lib/Lipsum'
 import MediaObject from 'possum/lib/MediaObject'
 import Menu from 'possum/lib/Menu'
 import Modal from 'possum/lib/Modal'
+import NewDrawer from 'possum/lib/NewDrawer'
 import NumberFormatter from 'possum/lib/NumberFormatter'
 import Option from 'possum/lib/Option'
 import Pagination from 'possum/lib/Pagination'
@@ -46,6 +47,7 @@ import Radio from 'possum/lib/Radio'
 import Row from 'possum/lib/Row'
 import Select from 'possum/lib/Select'
 import Social from 'possum/lib/Social'
+import StatelessDrawer from 'possum/lib/StatelessDrawer'
 import StatelessModal from 'possum/lib/StatelessModal'
 import Tabs from 'possum/lib/Tabs'
 import TextAlign from 'possum/lib/TextAlign'
@@ -95,6 +97,7 @@ export default {
   MediaObject: MediaObject,
   Menu: Menu,
   Modal: Modal,
+  NewDrawer: NewDrawer,
   NumberFormatter: NumberFormatter,
   Option: Option,
   Pagination: Pagination,
@@ -104,6 +107,7 @@ export default {
   Row: Row,
   Select: Select,
   Social: Social,
+  StatelessDrawer: StatelessDrawer,
   StatelessModal: StatelessModal,
   Tabs: Tabs,
   TextAlign: TextAlign,
