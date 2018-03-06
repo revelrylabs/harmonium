@@ -18,4 +18,6 @@ export default class NewDrawerExamplePage extends Component {
 
 /* The overlay drawer design is fixed, so it overlays on the actual 
 drawer.I did not want to modify the design but it does conflict 
-with the website outlay. */
+with the website outlay.
+I did create a NewDrawer based one the StatelessDrawer instead of modifying the actual 
+Drawer. */
