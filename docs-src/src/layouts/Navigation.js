@@ -24,7 +24,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text><h5>Starter</h5></Menu.Item>
-          <Menu.Item><Link to="/settings-templates/settings-templates.zip">SCSS Starter Settings</Link></Menu.Item>
+          <Menu.Item><a href="/settings-templates/settings-templates.zip" download>Download Starter Settings</a></Menu.Item>
         </Menu>
         <Menu vertical>
           <Menu.Item text><h5>Grid</h5></Menu.Item>
