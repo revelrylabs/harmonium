@@ -38,7 +38,6 @@ export default function Navigation() {
           <Menu.Item><Link to="/components/Datepicker/">Date Picker</Link></Menu.Item>
           <Menu.Item><Link to="/components/Input/">Inputs</Link></Menu.Item>
           <Menu.Item><Link to="/components/InputGroup/">Input Group</Link></Menu.Item>
-          <Menu.Item><Link to="/components/Label/">Labels</Link></Menu.Item>
           <Menu.Item><Link to="/components/Radio/">Radio Buttons</Link></Menu.Item>
           <Menu.Item><Link to="/components/Select/">Selects</Link></Menu.Item>
           <Menu.Item><Link to="/components/Textarea/">Textareas</Link></Menu.Item>
