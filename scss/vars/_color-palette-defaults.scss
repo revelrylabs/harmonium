@@ -1,0 +1,55 @@
+$test: #F0F !default;
+
+// BRAND COLORS
+$brand: #295DE5 !default;
+$brand-revelry: #FCDB40 !default;
+$brand-purple: #6422EB !default;
+
+$white: #FFF !default;
+$lightest-gray: #F4F4F4 !default;
+$lighter-gray: #D5D5D5 !default;
+$light-gray: #ABABAB !default;
+$gray: #818181 !default;
+$dark-gray: #565656 !default;
+$darker-gray: #202020 !default;
+$black: #000 !default;
+
+$white-0: rgba(255, 255, 255, 0) !default; // for animation purposes
+$white-03: rgba(255, 255, 255, 0.03) !default;
+$white-06: rgba(255, 255, 255, 0.06) !default;
+$white-10: rgba(255, 255, 255, 0.1) !default;
+$white-20: rgba(255, 255, 255, 0.2) !default;
+$white-30: rgba(255, 255, 255, 0.3) !default;
+$white-40: rgba(255, 255, 255, 0.4) !default;
+$white-50: rgba(255, 255, 255, 0.5) !default;
+$white-60: rgba(255, 255, 255, 0.6) !default;
+$white-70: rgba(255, 255, 255, 0.7) !default;
+$white-80: rgba(255, 255, 255, 0.8) !default;
+$white-90: rgba(255, 255, 255, 0.9) !default;
+$black-0: rgba(0, 0, 0, 0) !default; // for animation purposes
+$black-03: rgba(0, 0, 0, 0.03) !default;
+$black-06: rgba(0, 0, 0, 0.06) !default;
+$black-10: rgba(0, 0, 0, 0.1) !default;
+$black-20: rgba(0, 0, 0, 0.2) !default;
+$black-30: rgba(0, 0, 0, 0.3) !default;
+$black-40: rgba(0, 0, 0, 0.4) !default;
+$black-50: rgba(0, 0, 0, 0.5) !default;
+$black-60: rgba(0, 0, 0, 0.6) !default;
+$black-70: rgba(0, 0, 0, 0.7) !default;
+$black-80: rgba(0, 0, 0, 0.8) !default;
+$black-90: rgba(0, 0, 0, 0.9) !default;
+
+// UTILITY COLORS
+$primary: $brand !default;
+$success: #00A67F !default;
+$alert: #D94011 !default;
+$warning: #D10034 !default;
+$error: #D10034 !default;
+
+$divider-color: $black-10 !default;
+$divider-color-dark: $black-20 !default;
+$divider-color-light: $white-10 !default;
+$muted: $lighter-gray !default;
+$very-muted: $lightest-gray !default;
+
+$disabled: $light-gray !default;

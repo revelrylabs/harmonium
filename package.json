@@ -1,6 +1,6 @@
 {
   "name": "awesome-possum",
-  "version": "3.3.0",
+  "version": "3.3.2",
   "description": "An opinionated React component framework for teams that move fast.",
   "repository": {
     "type": "git",
@@ -41,13 +41,13 @@
   },
   "scripts": {
     "clean": "rm -rf lib/",
-    "babel": "babel --source-maps -d lib/ src/",
+    "babel": "node_modules/.bin/babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel && npm run docs",
     "test": "NODE_ENV=test nyc mocha './src/**/*.test.js' --opts ./mocha.opts && nyc report --reporter=html",
     "docs": "node scripts/docs.js",
     "web": "static-server docs -p $PORT",
     "dev": "gulp",
-    "postinstall": "npm run clean && npm run babel && node scripts/postinstall.js"
+    "prepublishOnly": "npm run clean && npm run babel"
   },
   "keywords": [],
   "author": {
@@ -83,9 +83,9 @@
     "mocha": "^3.4.2",
     "nyc": "^11.4.1",
     "prettier": "^1.10.2",
-    "react-addons-test-utils": "^15.6.0",
     "react-test-renderer": ">=15.0.0",
-    "sinon": "^2.3.8"
+    "sinon": "^2.3.8",
+    "timekeeper": "^2.0.0"
   },
   "nyc": {
     "require": [

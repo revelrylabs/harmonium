@@ -1,0 +1,144 @@
+// ALL VARS ARE WRITTEN AS !DEFAULT HERE SO THAT THEY CAN BE EASILY OVERWRITTEN
+
+// Sizes
+$small: 0px !default;
+$medium: 768px !default;
+$large: 1024px !default;
+$xlarge: 1200px !default;
+$xxlarge: 1440px !default;
+
+$global-width: 100% !default;
+$grid-row-width: $large !default;
+
+// Breakpoints
+$breakpoints: (
+  small: (min-width: $small),
+  small-only: ((min-width: $small) and (max-width: $medium)),
+  medium: (min-width: $medium),
+  medium-down: ((max-width: $medium)),
+  medium-only: ((min-width: $medium) and (max-width: $large)),
+  large: (min-width: $large),
+  large-down: ((max-width: $large)),
+  large-only: ((min-width: $large) and (max-width: $xlarge)),
+  xlarge: (min-width: $xlarge),
+  xlarge-down: ((max-width: $xlarge)),
+  xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge)),
+  xxlarge: (min-width: $xxlarge),
+  global-width: (min-width: $global-width),
+);
+@import '../mixins/media-queries';
+
+
+// IMPORT FONTS HERE
+
+// Global Fonts
+$global-monospace-font: 'Montserrat', sans-serif !default;
+$global-serif-font: 'Georgia', serif !default;
+$global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !default;
+
+// we use the global-font-sizes for typographic utilities
+// AND to determine vertical spacing
+$global-font-size: 1.6rem !default;
+$global-font-size-tiny: $global-font-size * 0.5 !default;
+$global-font-size-smaller: $global-font-size * 0.75 !default;
+$global-font-size-small: $global-font-size * 0.875 !default;
+$global-font-size-medium: $global-font-size * 1.5 !default;
+$global-font-size-large: $global-font-size * 2 !default;
+$global-font-size-larger: $global-font-size * 2.5 !default;
+$global-font-size-largest: $global-font-size * 3 !default;
+
+// Headers (rems or unit-less values only!)
+$h1: $global-font-size-largest !default;
+$h2: $global-font-size-larger !default;
+$h3: $global-font-size-large !default;
+$h4: $global-font-size-medium !default;
+$h5: $global-font-size !default;
+$h6: $global-font-size !default;
+//TODO: make sass map for header sizes with breakpoints for small/large
+
+$global-weight-light: 300 !default;
+$global-weight-normal: 400 !default;
+$global-weight-bold: 700 !default;
+$global-lineheight: 1.5 !default;
+$base-lineheight: $global-lineheight * $global-font-size !default;
+
+$grid-columns: 12 !default;
+
+// Spacing
+$global-vertical-space: $global-font-size * $global-lineheight !default; // 24px
+$global-horizontal-space: $global-vertical-space !default; // 24px
+$base-size: .8rem !default;
+
+// Global Padding
+$global-padding-tiny: $global-vertical-space / 4 !default;  // 6px
+$global-padding-small: $global-vertical-space / 2 !default; // 12px
+$global-padding: $global-vertical-space !default; // 24px
+$global-padding-large: $global-vertical-space * 2 !default; // 48px
+$global-padding-larger: $global-vertical-space * 3 !default; // 72px
+
+// Global Margin
+$global-margin-tiny: $global-padding-tiny !default;
+$global-margin-small: $global-padding-small !default;
+$global-margin: $global-padding !default;
+$global-margin-large: $global-padding-large !default;
+$global-margin-larger: $global-padding-larger !default;
+
+// Grid
+$grid-column-padding: $global-padding-small !default;
+$grid-gutter: $grid-column-padding * 2 !default;
+
+$global-radius: 3px !default;
+$global-rounded: 100000px !default;
+$global-box-shadow: 0 1px 4px 0 $black-30 !default;
+$global-box-shadow-hover: 0 2px 6px 0 $black-50 !default;
+$global-box-shadow-active: 0 1px 2px 0 $black-30 !default;
+
+// Body Vars
+$body-bkgd: $white !default;
+$body-font-color: $darker-gray !default;
+$body-font-family: $global-sans-serif-font !default;
+
+// Header Vars
+$header-color: $body-font-color !default;
+$header-font-family: $global-sans-serif-font !default;
+$header-font-style: normal !default;
+$header-font-weight: $global-weight-normal !default;
+
+$subheader-color: $header-color !default;
+$header-font-family: $global-sans-serif-font !default;
+$subheader-font-weight: $global-weight-normal !default;
+
+// Paragraph Vars
+$paragraph-lineheight: $global-lineheight !default;
+$paragraph-margin-bottom: $global-vertical-space !default;
+$paragraph-text-rendering: optimizeLegibility !default;
+
+// Anchor Vars
+$anchor-color: $primary !default;
+$anchor-color-hover: darken($primary, 10%) !default;
+$anchor-color-active: darken($primary, 15%) !default;
+$anchor-color-inverse: $body-bkgd !default;
+$anchor-text-decoration: none !default;
+$anchor-text-decoration-hover: none !default;
+
+// HR Vars
+$hr-width: $global-width !default;
+$hr-border: 1px solid $divider-color !default;
+$hr-margin: $global-padding-large auto !default;
+
+// Image Blur
+$image-blur: blur(8px) !default;
+$no-image-blur: blur(0px) !default;
+
+$disabled-opacity: 0.35 !default;
+
+// Sizes
+// common size vars for things like badges, close buttons, fixed naviagtion bars
+$size-tiny: 8px !default;
+$size-small: 16px !default;
+$size-default: 24px !default;
+$size-large: 48px !default;
+$size-larger: 64px !default;
+$size-largest: 128px !default;
+
+// COMPONENT VARS ARE LOCATED AT THE TOP OF THE COMPONENT STYLESHEET

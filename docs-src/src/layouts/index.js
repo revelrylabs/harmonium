@@ -10,20 +10,6 @@ import packageInfo from '../../../package.json'
 
 import './index.scss'
 
-const Header = () => (
-  <TopBar fixed>
-    <TopBar.Item>
-      <Link to="/">Possum</Link>
-    </TopBar.Item>
-    <TopBar.Item>
-      <Menu horizontalLeft>
-        <Menu.Item><a href="https://github.com/revelrylabs/possum">GitHub</a></Menu.Item>
-        <Menu.Item><a href="https://www.npmjs.com/package/awesome-possum">NPM</a></Menu.Item>
-      </Menu>
-    </TopBar.Item>
-  </TopBar>
-)
-
 const TemplateWrapper = ({
   children
 }) => (

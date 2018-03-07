@@ -3,7 +3,6 @@
 html {
   box-sizing: border-box;
   font-size: 62.5%;
-  @include very-muted-color-stack;
 }
 *,
 *:before,
@@ -12,7 +11,8 @@ html {
   outline: 0;
 }
 body {
-  @include body-color-stack;
+  background: $body-bkgd;
+  color: $body-font-color;
   font-size: 1.6rem;
   line-height: $global-lineheight;
 }

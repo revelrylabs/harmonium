@@ -38,6 +38,11 @@ const IndexPage = () => (
        <a href="https://www.npmjs.com/package/sassy-npm-importer">sassy-npm-importer</a>{' '}
        to import it from the package.
     </p>
+    <p>
+      The styles can be easily customized for your project through many
+      overrideable SCSS variables. You can download starter settings files
+      to include in your project <a href="/settings-templates/settings-templates.zip">here.</a>
+    </p>
   </div>
 )
 

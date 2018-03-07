@@ -46,63 +46,10 @@ $alert: #D94011;
 $warning: #D10034;
 $error: #D10034;
 
-$divider-color: $lighter-gray;
+$divider-color: $black-10;
 $divider-color-dark: $black-20;
 $divider-color-light: $white-10;
 $muted: $lighter-gray;
 $very-muted: $lightest-gray;
 
 $disabled: $light-gray;
-
-
-@mixin color-stack($bg) {
-  background-color: $bg;
-  @if lightness($bg) < lightness(#888) {
-    color: $body-bkgd;
-    a {
-      color: $body-bkgd;
-    }
-  }
-  @else {
-    color: $body-font-color;
-  }
-}
-
-@mixin primary-color-stack {
-  background-color: $primary;
-  @if lightness($primary) > lightness(#666) {
-    color: $body-bkgd;
-    a {
-      color: $body-bkgd;
-    }
-  }
-  @else {
-    color: $body-font-color;
-  }
-}
-
-@mixin muted-color-stack {
-  background-color: $muted;
-  @if lightness($muted) > lightness(#666) {
-    color: $body-font-color;
-  }
-  @else {
-    color: $body-bkgd;
-  }
-}
-
-@mixin very-muted-color-stack {
-  background-color: $very-muted;
-  @if lightness($very-muted) > lightness(#666) {
-    color: $body-font-color;
-  }
-  @else {
-    color: $body-bkgd;
-  }
-}
-
-@mixin alert-color-stack {
-  background-color: $alert;
-  border-color: mix($alert, $white, 33%);
-  color: mix($alert, $white, 33%);
-}

@@ -8,6 +8,7 @@
     "gatsby": "^1.0.1",
     "gatsby-link": "^1.0.1",
     "gatsby-plugin-react-helmet": "^1.0.1",
+    "gatsby-plugin-react-next": "^1.0.9",
     "gatsby-plugin-sass": "^1.0.1",
     "raw-loader": "^0.5.1"
   },
