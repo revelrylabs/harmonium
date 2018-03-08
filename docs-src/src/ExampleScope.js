@@ -32,7 +32,6 @@ import InputErrors from 'possum/lib/InputErrors'
 import InputGroup from 'possum/lib/InputGroup'
 import InputHelpText from 'possum/lib/InputHelpText'
 import InputLabel from 'possum/lib/InputLabel'
-import Label from 'possum/lib/Label'
 import Lipsum from 'possum/lib/Lipsum'
 import MediaObject from 'possum/lib/MediaObject'
 import Menu from 'possum/lib/Menu'
@@ -91,7 +90,6 @@ export default {
   InputGroup: InputGroup,
   InputHelpText: InputHelpText,
   InputLabel: InputLabel,
-  Label: Label,
   Lipsum: Lipsum,
   MediaObject: MediaObject,
   Menu: Menu,
