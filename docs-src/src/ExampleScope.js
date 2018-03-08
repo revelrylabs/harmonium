@@ -32,7 +32,6 @@ import InputErrors from 'possum/lib/InputErrors'
 import InputGroup from 'possum/lib/InputGroup'
 import InputHelpText from 'possum/lib/InputHelpText'
 import InputLabel from 'possum/lib/InputLabel'
-import Label from 'possum/lib/Label'
 import Lipsum from 'possum/lib/Lipsum'
 import MediaObject from 'possum/lib/MediaObject'
 import Menu from 'possum/lib/Menu'
@@ -52,6 +51,7 @@ import StatelessModal from 'possum/lib/StatelessModal'
 import Tabs from 'possum/lib/Tabs'
 import TextAlign from 'possum/lib/TextAlign'
 import Textarea from 'possum/lib/Textarea'
+import TimePicker from 'possum/lib/TimePicker'
 import Tokenizer from 'possum/lib/Tokenizer'
 import TopBar from 'possum/lib/TopBar'
 import Visibility from 'possum/lib/Visibility'
@@ -92,7 +92,6 @@ export default {
   InputGroup: InputGroup,
   InputHelpText: InputHelpText,
   InputLabel: InputLabel,
-  Label: Label,
   Lipsum: Lipsum,
   MediaObject: MediaObject,
   Menu: Menu,
@@ -112,6 +111,7 @@ export default {
   Tabs: Tabs,
   TextAlign: TextAlign,
   Textarea: Textarea,
+  TimePicker: TimePicker,
   Tokenizer: Tokenizer,
   TopBar: TopBar,
   Visibility: Visibility,

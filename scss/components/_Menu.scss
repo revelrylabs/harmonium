@@ -152,15 +152,6 @@ $menu-dropdown-width: 24rem !default;
   }
 }
 
-//@for $i from 1 through 20 {
-//  .rev-Menu:nth-child(#{$i}) {
-//    .rev-Menu-text,
-//    .rev-Menu-item a {
-//      padding-left: calc(#{$global-padding-small} + (#{$global-padding-small} * #{$i}));
-//    }
-//  }
-// }
-
 // TODO: do this smarter
 .rev-Menu--nested {
   .rev-Menu-item {

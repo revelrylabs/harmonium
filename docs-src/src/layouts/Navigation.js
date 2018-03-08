@@ -23,6 +23,10 @@ export default function Navigation() {
           <Menu.Item><a href="https://www.npmjs.com/package/awesome-possum">NPM</a></Menu.Item>
         </Menu>
         <Menu vertical>
+          <Menu.Item text><h5>Starter</h5></Menu.Item>
+          <Menu.Item><a href="/settings-templates/settings-templates.zip" download>Download Starter Settings</a></Menu.Item>
+        </Menu>
+        <Menu vertical>
           <Menu.Item text><h5>Grid</h5></Menu.Item>
           <Menu.Item><Link to="/components/grid/">Rows &amp; Columns</Link></Menu.Item>
           <Menu.Item><Link to="/components/ExpandingCol/">Expanding Columns</Link></Menu.Item>
@@ -34,10 +38,10 @@ export default function Navigation() {
           <Menu.Item><Link to="/components/Datepicker/">Date Picker</Link></Menu.Item>
           <Menu.Item><Link to="/components/Input/">Inputs</Link></Menu.Item>
           <Menu.Item><Link to="/components/InputGroup/">Input Group</Link></Menu.Item>
-          <Menu.Item><Link to="/components/Label/">Labels</Link></Menu.Item>
           <Menu.Item><Link to="/components/Radio/">Radio Buttons</Link></Menu.Item>
           <Menu.Item><Link to="/components/Select/">Selects</Link></Menu.Item>
           <Menu.Item><Link to="/components/Textarea/">Textareas</Link></Menu.Item>
+          <Menu.Item><Link to="/components/TimePicker/">Time Picker</Link></Menu.Item>
         </Menu>
         <Menu vertical>
           <Menu.Item text><h5>Lists</h5></Menu.Item>
