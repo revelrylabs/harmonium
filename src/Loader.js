@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 // import classNames from 'classnames'
-import { defaultTo, gt, has, reduce } from 'lodash'
+import { defaultTo, gt, has, reduce, without } from 'lodash'
 
 const PROP_TYPES = {
   borderWidth: PropTypes.string,
@@ -19,6 +19,8 @@ const PROP_TYPES = {
 /*
  * Style configurations for the various size props that may be specified.
  **/
+const sizeRelatedProps = ['huge', 'large', 'medium', 'size', 'small']
+
 // const small = { borderWidth: '2', height: '17px', width: '17px' }
 // const medium = { borderWidth: '12', height: '88px', width: '88px' }
 // const large = { borderWidth: '12', height: '88px', width: '88px' }
@@ -50,7 +52,7 @@ export default class Loader extends Component {
    * throws an error.
    **/
   ensureNoConflicts(props = {}) {
-    const sizeRelatedProps = ['huge', 'large', 'medium', 'size', 'small']
+    // const sizeRelatedProps = ['huge', 'large', 'medium', 'size', 'small']
     const sum = this.sumPropsInObj(sizeRelatedProps, props)
 
     if (gt(sum, 1)) {
@@ -62,11 +64,25 @@ export default class Loader extends Component {
     }
   }
 
+  // omitUndefinedProps(obj = {}) {
+  //   return reduce(obj, (acc, curr) => isUndefined(curr) ? omit(obj, curr)), {})
+  // }
+
+  resolveClassNames(props = {}) {
+    const classes = without(sizeRelatedProps, 'size')
+
+    return reduce(
+      classes,
+      (acc, curr) => (props[curr] ? acc.concat(`rev-Loader--${curr}`) : acc),
+      ''
+    )
+  }
+
   resolveStyles(props = {}) {
-    const small = props.small ? { borderWidth: '2', height: '17px', width: '17px' } : {}
-    const medium = props.medium ? { borderWidth: '4', height: '32px', width: '32px' } : {}
-    const large = props.large ? { borderWidth: '12', height: '88px', width: '88px' } : {}
-    const huge = props.huge ? { borderWidth: '16', height: '120px', width: '120px' } : {}
+    // const small = props.small ? { borderWidth: '2', height: '17px', width: '17px' } : {}
+    // const medium = props.medium ? { borderWidth: '4', height: '32px', width: '32px' } : {}
+    // const large = props.large ? { borderWidth: '12', height: '88px', width: '88px' } : {}
+    // const huge = props.huge ? { borderWidth: '16', height: '120px', width: '120px' } : {}
     let styles = {
       animationDuration: props.duration,
       // border: 16px solid #f3f3f3,
@@ -78,23 +94,21 @@ export default class Loader extends Component {
       height: props.size,
       width: props.size
     }
-
-    const secondaryColor = props.secondaryColor ? { borderColor: props.secondaryColor } : {}
-    const color = props.color ? { borderTopColor: props.color } : {}
-
-    // styles = { ...styles, ...small, ...medium, ...large, ...huge, ...secondaryColor, ...color }
-    styles = { ...styles, ...small, ...medium, ...large, ...huge }
+    const overrides = props.style ? props.style : {}
+    styles = { ...styles, ...overrides }
 
     return styles
   }
 
   render() {
-    const { className, ...props } = this.props
-    const styles = this.resolveStyles(props)
     this.ensureNoConflicts(props)
 
+    const { className, ...props } = this.props
+    const classes = this.resolveClassNames(props)
+    const styles = this.resolveStyles(props)
+
     return (
-      <div className="rev-Loader" style={styles}>
+      <div className={`rev-Loader ${classes}`} style={styles}>
         {props.children}
       </div>
     )
