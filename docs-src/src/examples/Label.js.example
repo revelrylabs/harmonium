@@ -1,9 +1,0 @@
-<div>
-  <Label>(default)</Label>
-  <Label secondary>secondary</Label>
-  <Label success>success</Label>
-  <Label alert>alert</Label>
-  <Label warning>warning</Label>
-  <Label icon="home" />
-  <Label warning icon="home">ERROR</Label>
-</div>
