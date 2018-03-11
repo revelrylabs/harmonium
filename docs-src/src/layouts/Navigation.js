@@ -71,6 +71,7 @@ export default function Navigation() {
           <Menu.Item><Link to="/components/Accordion/">Accordion</Link></Menu.Item>
           <Menu.Item><Link to="/components/Callout/">Callout</Link></Menu.Item>
           <Menu.Item><Link to="/components/Modal/">Modal</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Sticky/">Sticky</Link></Menu.Item>
           <Menu.Item><Link to="/components/Tabs/">Tabs</Link></Menu.Item>
         </Menu>
         <Menu vertical>

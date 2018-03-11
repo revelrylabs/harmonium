@@ -46,6 +46,7 @@ import Row from 'possum/lib/Row'
 import Select from 'possum/lib/Select'
 import Social from 'possum/lib/Social'
 import StatelessModal from 'possum/lib/StatelessModal'
+import Sticky from 'possum/lib/Sticky'
 import Tabs from 'possum/lib/Tabs'
 import TextAlign from 'possum/lib/TextAlign'
 import Textarea from 'possum/lib/Textarea'
@@ -104,6 +105,7 @@ export default {
   Select: Select,
   Social: Social,
   StatelessModal: StatelessModal,
+  Sticky: Sticky,
   Tabs: Tabs,
   TextAlign: TextAlign,
   Textarea: Textarea,
