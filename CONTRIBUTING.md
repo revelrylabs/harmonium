@@ -2,7 +2,7 @@
 
 ## Development Setup
 
-Clone and run `npm install`.
+Clone and run `npm install && npm prepublishOnly`.
 
 ## Running the docs site locally
 
@@ -13,7 +13,11 @@ npm run develop
 ```
 
 This will open up a new browser tab at localhost:8000.
-While this is running you can make changes in the src folder and the site will automatically reload with your changes.
+While this is running you can make changes in the src folder and the site will
+automatically reload with your changes.
+
+From time to time, you may need to run `npm prepublishOnly` in the root possum
+directory to rebuild the `lib/` directory as you change components.
 
 If your changes aren't being reflected, try stopping the dev server, running
 `npm run cache:rebuild`, and then `npm run develop` again.
