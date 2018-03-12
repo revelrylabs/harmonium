@@ -146,6 +146,33 @@ add overlay collapsible for all sidebars at specified breakpoint */
     min-width: $drawer-width;
     width: $drawer-width;
   }
+  .rev-Content & {
+    position: absolute;
+    height: 100%;
+    z-index: 5;
+    .rev-Drawer-contents {
+      position: absolute;
+      height: 100%;
+      overflow: visible;
+      width: 0;
+      & > * {
+        display: none;
+      }
+    }
+    .rev-Drawer-expander.rev-Drawer-expander,
+    .rev-Drawer-closer.rev-Drawer-closer {
+      display: block;
+      left: $drawer-width;
+      position: absolute;
+      top: $global-lineheight * -1rem;
+    }
+  }
+  &.rev-Drawer--open .rev-Drawer-contents {
+    width: $drawer-width;
+    & > * {
+      display: block;
+    }
+  }
 }
 // COLLAPSIBLE DRAWER
 @mixin drawer-collapsible {
