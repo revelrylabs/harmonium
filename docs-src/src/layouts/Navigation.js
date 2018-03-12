@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Menu from 'possum/lib/Menu'
-import Card from 'possum/lib/Card'
-import Drawer from 'possum/lib/Drawer'
+import Menu from 'awesome-possum/lib/Menu'
+import Card from 'awesome-possum/lib/Card'
+import Drawer from 'awesome-possum/lib/Drawer'
 import packageInfo from '../../../package.json'
 
 export default function Navigation() {
