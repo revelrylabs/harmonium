@@ -4,6 +4,7 @@ import scope from '../../ExampleScope'
 
 const examples = {
   'Stateless': require('raw!../../examples/Sticky/Stateless.js.example'),
+  'Stateful': require('raw!../../examples/Sticky/Stateful.js.example'),
 }
 
 export default class StickyExamplePage extends Component {

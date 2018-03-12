@@ -1,4 +1,4 @@
-import Sticky from './Sticky'
+import Sticky, {Sticky} from './Sticky'
 import sinon from 'sinon'
 
 describe('Sticky', () => {
@@ -18,5 +18,11 @@ describe('Sticky', () => {
 
     expect(childClassName).to.contain(inherentClassName)
     expect(childClassName).to.contain(testClassName)
+  })
+})
+
+describe('Sticky.Stateful', () => {
+  it('should render without throwing', () => {
+    shallow(<Sticky.Stateful><span>test</span></Sticky.Stateful>)
   })
 })
