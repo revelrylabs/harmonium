@@ -59,5 +59,3 @@ describe('StatelessDrawer', () => {
     expect(input.exists()).to.equal(true)
   })
 })
-
-/* 'it can expand and collapse test' = I am manually setting the state to open and close through setProps. */
