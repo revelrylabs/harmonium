@@ -16,7 +16,7 @@ import CloseButton from 'awesome-possum/lib/CloseButton'
 import Col from 'awesome-possum/lib/Col'
 import Currency from 'awesome-possum/lib/Currency'
 import DatePicker from 'awesome-possum/lib/DatePicker'
-import {Drawer} from 'awesome-possum/lib/Drawer'
+import Drawer from 'awesome-possum/lib/Drawer'
 import Emptyable from 'awesome-possum/lib/Emptyable'
 import ExpandingCol from 'awesome-possum/lib/ExpandingCol'
 import FileInput from 'awesome-possum/lib/FileInput'
@@ -36,7 +36,6 @@ import Lipsum from 'awesome-possum/lib/Lipsum'
 import MediaObject from 'awesome-possum/lib/MediaObject'
 import Menu from 'awesome-possum/lib/Menu'
 import Modal from 'awesome-possum/lib/Modal'
-import NewDrawer from 'awesome-possum/lib/NewDrawer'
 import NumberFormatter from 'awesome-possum/lib/NumberFormatter'
 import Option from 'awesome-possum/lib/Option'
 import Pagination from 'awesome-possum/lib/Pagination'
@@ -96,7 +95,6 @@ export default {
   MediaObject: MediaObject,
   Menu: Menu,
   Modal: Modal,
-  NewDrawer: NewDrawer,
   NumberFormatter: NumberFormatter,
   Option: Option,
   Pagination: Pagination,

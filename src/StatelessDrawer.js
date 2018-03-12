@@ -1,6 +1,7 @@
 import React from 'react'
 import classNames from 'classnames'
 import PropTypes from 'prop-types'
+import Expander from './Expander'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
   left: 'rev-Drawer--left',
@@ -74,22 +75,4 @@ export default class StatelessDrawer extends React.Component {
   }
 }
 
-export const Expander = (props) => {
-  return <div className={`rev-Drawer ${props.open ? 'rev-Drawer--open' : ''} ${props.className}`}>
-    {props.closer}
-    <div className="rev-Drawer-contents">
-      {props.children}
-    </div>
-  </div>
-}
-
-Expander.defaultProps = {
-  className: '',
-}
-
-Expander.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  closer: PropTypes.node,
-  open: PropTypes.bool,
-}
+export { Expander }

@@ -12,10 +12,10 @@ class StatelessDrawerExample extends Component {
 
   render() {
     return (
-      <div>
+      <div className="ExampleDrawerContainer">
         <StatelessDrawer
           collapsible
-          overlay  
+          overlay
           open={this.state.open}
           close={this.closeDrawer}
           expand={this.expandDrawer}

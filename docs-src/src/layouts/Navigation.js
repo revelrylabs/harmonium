@@ -58,7 +58,7 @@ export default function Navigation() {
           <Menu.Item text><h5>Navigation</h5></Menu.Item>
           <Menu.Item><Link to="/components/Menu/">Menu</Link></Menu.Item>
           <Menu.Item><Link to="/components/TopBar/">Top Bar</Link></Menu.Item>
-          <Menu.Item><Link to="/components/NewDrawer/">New Drawer</Link></Menu.Item>
+          <Menu.Item><Link to="/components/Drawer/">Stateful Drawer</Link></Menu.Item>
           <Menu.Item><Link to="/components/StatelessDrawer/">StatelessDrawer</Link></Menu.Item>
         </Menu>
         <Menu vertical>
