@@ -104,6 +104,7 @@ export default {
   Row: Row,
   Select: Select,
   Social: Social,
+  StatelessDrawer: StatelessDrawer,
   StatelessModal: StatelessModal,
   Sticky: Sticky,
   Tabs: Tabs,

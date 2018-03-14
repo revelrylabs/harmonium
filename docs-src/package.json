@@ -5,12 +5,14 @@
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
     "component-playground": "^2.0.0",
-    "gatsby": "^1.0.1",
+    "gatsby": "^1.9.231",
     "gatsby-link": "^1.0.1",
     "gatsby-plugin-react-helmet": "^1.0.1",
     "gatsby-plugin-react-next": "^1.0.9",
     "gatsby-plugin-sass": "^1.0.1",
-    "raw-loader": "^0.5.1"
+    "raw-loader": "^0.5.1",
+    "resolve-cwd": "^2.0.0",
+    "yargs-parser": "^9.0.2"
   },
   "keywords": [
     "gatsby"
@@ -22,8 +24,8 @@
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cache:rebuild": "rm node_modules/possum || yarn cache clean && yarn install --force",
-    "postinstall": "ln -s ../.. node_modules/possum"
+    "cache:rebuild": "rm node_modules/awesome-possum || yarn cache clean && yarn install --force",
+    "postinstall": "ln -s ../.. node_modules/awesome-possum"
   },
   "devDependencies": {
     "prettier": "^1.5.2"
