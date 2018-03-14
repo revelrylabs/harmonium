@@ -1,8 +1,8 @@
 import React from 'react'
-import {Row, Col} from 'possum/lib/grid'
-import Card from 'possum/lib/Card'
-import Menu from 'possum/lib/Menu'
-import HelpText from 'possum/lib/HelpText'
+import {Row, Col} from 'awesome-possum/lib/grid'
+import Card from 'awesome-possum/lib/Card'
+import Menu from 'awesome-possum/lib/Menu'
+import HelpText from 'awesome-possum/lib/HelpText'
 
 const IndexPage = () => (
   <div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row, Col} from 'possum/lib/grid'
+import {Row, Col} from 'awesome-possum/lib/grid'
 import Playground from 'component-playground'
 
 export default function ExampleSection({title, depth, examples, scope}) {
