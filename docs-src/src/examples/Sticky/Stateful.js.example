@@ -1,5 +1,6 @@
-<Sticky.Stateful style={{paddingBottom: '1600px', margin: '0 auto 1600px'}}>
-  <p>
+<Sticky.Stateful style={{border: '1px solid black', paddingBottom: '1000px', margin: '0 auto 750px'}}>
+  <span>
     This is an example of a stateful Sticky.
-  </p>
+    Borders provide visual clarity to see exactly when this sticks/unsticks.
+  </span>
 </Sticky.Stateful>
