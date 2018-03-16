@@ -11,27 +11,43 @@ describe('Loader', () => {
     expect(() => mount(<Loader {...props} />)).not.to.throw()
   })
 
-  it('renders a small variation if prop small is specified as true', () => {})
+  it('renders a small variation if prop "small" is specified as true', () => {
+    const wrapper = shallow(<Loader small />)
 
-  it('renders a medium variation if prop medium is specified as true', () => {})
+    expect(wrapper.hasClass('rev-Loader--small')).to.equal(true)
+  })
 
-  it('renders a large variation if prop large is specified as true', () => {})
+  it('renders a medium variation if prop "medium" is specified as true', () => {
+    const wrapper = shallow(<Loader medium />)
 
-  it('renders a huge variation if prop huge is specified as true', () => {})
+    expect(wrapper.hasClass('rev-Loader--medium')).to.equal(true)
+  })
 
-  it('assigns a variation on animation-duration when duration prop is specified', () => {
+  it('renders a large variation if prop "large" is specified as true', () => {
+    const wrapper = shallow(<Loader large />)
+
+    expect(wrapper.hasClass('rev-Loader--large')).to.equal(true)
+  })
+
+  it('renders a huge variation if prop "huge" is specified as true', () => {
+    const wrapper = shallow(<Loader huge />)
+
+    expect(wrapper.hasClass('rev-Loader--huge')).to.equal(true)
+  })
+
+  it('assigns a variation on animation-duration when prop "duration" is specified', () => {
     const wrapper = shallow(<Loader duration="600ms" />)
 
     expect(wrapper.props().style.animationDuration).to.equal('600ms')
   })
 
-  it('assigns a variation on border-top-color when color prop is specified', () => {
+  it('assigns a variation on border-top-color when prop "color" is specified', () => {
     const wrapper = shallow(<Loader color="#000000" />)
 
     expect(wrapper.props().style.borderTopColor).to.equal('#000000')
   })
 
-  it('assigns a variation on border-color when secondaryColor prop is specified', () => {
+  it('assigns a variation on border-color when prop "secondaryColor" is specified', () => {
     const wrapper = shallow(<Loader secondaryColor="#FFFFFF" />)
 
     expect(wrapper.props().style.borderColor).to.equal('#FFFFFF')

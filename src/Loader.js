@@ -17,20 +17,16 @@ const PROP_TYPES = {
 }
 
 /*
- * Style configurations for the various size props that may be specified.
+ * Size-related props.
+ * Itemizes style configurations for the various size props that may be passed.
  **/
 const sizeRelatedProps = ['huge', 'large', 'medium', 'size', 'small']
-
-// const small = { borderWidth: '2', height: '17px', width: '17px' }
-// const medium = { borderWidth: '12', height: '88px', width: '88px' }
-// const large = { borderWidth: '12', height: '88px', width: '88px' }
-// const huge = { borderWidth: '16', height: '120px', width: '120px' }
 
 /*
  * Increment.
  * Provided a number, returns its value, incremented by one.
  **/
-function inc(num) {
+function inc(num = 0) {
   return num + 1
 }
 
@@ -52,7 +48,6 @@ export default class Loader extends Component {
    * throws an error.
    **/
   ensureNoConflicts(props = {}) {
-    // const sizeRelatedProps = ['huge', 'large', 'medium', 'size', 'small']
     const sum = this.sumPropsInObj(sizeRelatedProps, props)
 
     if (gt(sum, 1)) {
@@ -79,31 +74,24 @@ export default class Loader extends Component {
   }
 
   resolveStyles(props = {}) {
-    // const small = props.small ? { borderWidth: '2', height: '17px', width: '17px' } : {}
-    // const medium = props.medium ? { borderWidth: '4', height: '32px', width: '32px' } : {}
-    // const large = props.large ? { borderWidth: '12', height: '88px', width: '88px' } : {}
-    // const huge = props.huge ? { borderWidth: '16', height: '120px', width: '120px' } : {}
-    let styles = {
+    const styles = {
       animationDuration: props.duration,
-      // border: 16px solid #f3f3f3,
-      // borderTop: '16px solid #3498db,
       borderColor: props.secondaryColor,
       borderTopColor: props.color,
-      // borderWidth: '12px',
       borderWidth: props.borderWidth,
       height: props.size,
       width: props.size
     }
-    const overrides = props.style ? props.style : {}
-    styles = { ...styles, ...overrides }
+    const overrides = props.style || {}
 
-    return styles
+    return { ...styles, ...overrides }
   }
 
   render() {
+    const { className, ...props } = this.props
+
     this.ensureNoConflicts(props)
 
-    const { className, ...props } = this.props
     const classes = this.resolveClassNames(props)
     const styles = this.resolveStyles(props)
 
