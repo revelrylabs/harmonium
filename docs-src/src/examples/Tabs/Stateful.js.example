@@ -1,6 +1,6 @@
 <div>
   <h3>default to first tab</h3>
-  <Tabs.Stateful inverse>
+  <Tabs.Stateful>
     <Tabs.Item contentKey={1} title="One">
       <Row>
         <Col>

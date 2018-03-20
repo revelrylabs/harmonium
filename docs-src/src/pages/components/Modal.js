@@ -10,7 +10,7 @@ const examples = {
 export default class ModalExamplePage extends Component {
   render() {
     return <div className="playgroundPreview--FakeViewportContainer">
-      <div className="rev-Row rev-Row--collapsed">
+      <div>
         <ExampleSection title="Modals" examples={examples} depth={1} scope={scope} />
       </div>
     </div>

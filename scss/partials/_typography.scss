@@ -52,7 +52,6 @@ $header-font-size-values: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value,
 }
 
 @mixin header {
-  color: $header-color;
   display: block;
   font-family: $header-font-family;
   font-style: $header-font-style;

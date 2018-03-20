@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
-import Accordion from 'possum/lib/Accordion'
-import Callout from 'possum/lib/Callout'
+import Accordion from 'awesome-possum/lib/Accordion'
+import Callout from 'awesome-possum/lib/Callout'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 

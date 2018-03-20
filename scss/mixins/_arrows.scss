@@ -101,7 +101,7 @@
   }
 }
 @mixin arrow-up-outline($color: null, $border-color: $divider-color, $arrow-size: 12px) {
-  @include arrow-up;
+  @include arrow-up($color);
   :after {
     @include arrow-base;
     border: $arrow-size + 1 solid transparent;

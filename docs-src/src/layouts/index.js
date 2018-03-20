@@ -2,19 +2,13 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
-import {Row, Col} from 'possum/lib/grid'
-import TopBar from 'possum/lib/TopBar'
+import {Row, Col} from 'awesome-possum/lib/grid'
+import TopBar from 'awesome-possum/lib/TopBar'
+import Menu from 'awesome-possum/lib/Menu'
 import Navigation from './Navigation'
+import packageInfo from '../../../package.json'
 
 import './index.scss'
-
-const Header = () => (
-  <TopBar fixed>
-    <TopBar.Item>
-      <Link to="/">Possum</Link>
-    </TopBar.Item>
-  </TopBar>
-)
 
 const TemplateWrapper = ({
   children
@@ -30,9 +24,12 @@ const TemplateWrapper = ({
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"/>
         <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"/>
       </Helmet>
-      <Header />
-
-      <div className="rev-ContentWrapper rev-DrawerContainer">
+      <TopBar fixed className="Show--smallOnly">
+        <Link className="rev-Brand" to="/"><h1>Possum</h1>
+          <small>Version {packageInfo.version}</small>
+        </Link>
+      </TopBar>
+      <div className="rev-ContentWrapper">
         <Navigation />
         <main className="rev-Content">
           {children()}

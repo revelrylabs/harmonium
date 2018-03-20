@@ -144,9 +144,7 @@ $closebutton-size: $global-font-size;
     margin: 0;
   }
   &.rev-Button--disabled {
-    background: $lighter-gray;
-    color: $light-gray;
-    cursor: not-allowed;
+    @include disabled($button-bkgd, $button-color);
   }
 }
 .rev-ButtonGroup {
