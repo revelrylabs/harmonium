@@ -21,9 +21,9 @@ npm install --save awesome-possum
 You can import components and use components from the toolkit like:
 
 ```jsx
-import Col from 'possum/lib/Col'
-import Row from 'possum/lib/Row'
-import Callout from 'possum/lib/Callout'
+import Col from 'awesome-possum/lib/Col'
+import Row from 'awesome-possum/lib/Row'
+import Callout from 'awesome-possum/lib/Callout'
 
 function Hello() {
   return (

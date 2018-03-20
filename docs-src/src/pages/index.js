@@ -1,12 +1,13 @@
 import React from 'react'
-import {Row, Col} from 'possum/lib/grid'
-import Card from 'possum/lib/Card'
-import Menu from 'possum/lib/Menu'
-import HelpText from 'possum/lib/HelpText'
+import {Row, Col} from 'awesome-possum/lib/grid'
+import Card from 'awesome-possum/lib/Card'
+import Menu from 'awesome-possum/lib/Menu'
+import HelpText from 'awesome-possum/lib/HelpText'
 
 const IndexPage = () => (
   <div>
     <h1>Possum</h1>
+
     <p>
       Possum is a framework of React components optimized for teams that want to
       ship apps fast. It is a curated list of components that work together and
@@ -36,6 +37,11 @@ const IndexPage = () => (
       can either copy it into your project's SCSS directory, or use a tool like{' '}
        <a href="https://www.npmjs.com/package/sassy-npm-importer">sassy-npm-importer</a>{' '}
        to import it from the package.
+    </p>
+    <p>
+      The styles can be easily customized for your project through many
+      overrideable SCSS variables. You can download starter settings files
+      to include in your project <a href="/settings-templates/settings-templates.zip">here.</a>
     </p>
   </div>
 )

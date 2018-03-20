@@ -1,0 +1,57 @@
+React.createElement(
+class StatelessDrawerExample extends Component {
+  state = { open: true };
+
+  expandDrawer = () => {
+    this.setState({ open: true })
+  }
+
+  closeDrawer = () => {
+    this.setState({ open: false })
+  }
+
+  render() {
+    return (
+      <div className="ExampleDrawerContainer">
+        <StatelessDrawer
+          collapsible
+          overlay
+          open={this.state.open}
+          close={this.closeDrawer}
+          expand={this.expandDrawer}
+          expanderChildren= '+'
+          closerChildren= '+'
+          >
+          <Menu>
+            <Menu.Item text>
+              <span>This is a drawer that is collapsible and it overlays page content.</span>
+            </Menu.Item>
+            <Menu.Item>
+              <a href='#'>one</a>
+            </Menu.Item>
+            <Menu.Item>
+              <a href='#about' onClick={(_e) => this.closeDrawer()}>About Item 1</a>
+            </Menu.Item>
+            <Menu.Item>
+              <a href='#about2' onClick={(_e) => this.closeDrawer()}>About Item 2</a>
+            </Menu.Item>
+          </Menu>
+        </StatelessDrawer>
+        <main className='rev-Content'>
+          <p><Lipsum /></p>
+          <p><Lipsum /></p>
+          <p><Lipsum /></p>
+          <p id='about'>About Item 1</p>
+          <p><Lipsum /></p>
+          <p><Lipsum /></p>
+          <p><Lipsum /></p>
+          <p id='about2'>About Item 2</p>
+          <p><Lipsum /></p>
+          <p><Lipsum /></p>
+          <p><Lipsum /></p>
+        </main>
+      </div>
+    )
+  }
+}
+)

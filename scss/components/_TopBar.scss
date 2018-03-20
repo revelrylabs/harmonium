@@ -14,7 +14,7 @@ $topbar-link-bkgd: transparent !default;
   border: $topbar-border-size solid $topbar-border-color;
   color: $topbar-color;
   height: $topbar-height;
-  margin: 0 0 $global-vertical-space;
+  margin: 0;
   padding: 0;
   position: relative;
   width: 100%;
@@ -24,7 +24,7 @@ $topbar-link-bkgd: transparent !default;
     height: $topbar-height;
     margin: 0 auto;
     max-width: $global-width;
-    padding: 0 $global-padding;
+    padding: 0 $global-padding-large;
     width: 100%;
   }
   // SEARCH FORMS IN TOPBARS
@@ -61,11 +61,6 @@ $topbar-link-bkgd: transparent !default;
     nav {
       @include flex(center, row, flex-end, no-wrap);
     }
-  }
-  // INVERSE COLOR TOPBAR
-  &.rev-TopBar--inverse {
-    @include body-color-stack-inverted;
-    border: 0;
   }
   // FIXED POSITION TOPBAR
   &.rev-TopBar--fixed {

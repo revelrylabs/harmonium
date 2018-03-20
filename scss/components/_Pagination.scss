@@ -1,5 +1,14 @@
-$pagination-bkgd: null;
-$pagination-color: null;
+$pagination-radius: $global-radius !default;
+$pagination-dot-bkgd: transparent !default;
+$pagination-dot-color: $body-font-color !default;
+$pagination-link-bkgd: null !default;
+$pagination-link-color: null !default;
+$pagination-link-bkgd-hover: null !default;
+$pagination-link-color-hover: null !default;
+$pagination-link-bkgd-active: null !default;
+$pagination-link-color-active: null !default;
+$pagination-link-bkgd-selected: null !default;
+$pagination-link-color-selected: null !default;
 
 .rev-PaginationWrapper {
   display: block;
@@ -7,45 +16,43 @@ $pagination-color: null;
 .rev-Pagination {
   display: block;
   text-align: center;
-  .rev-Pagination-arrow,
-  .rev-Pagination-number,
-  .rev-Pagination-dots {
-    display: inline-block;
-    &--disabled {
-      @include disabled;
-      cursor: not-allowed;
-    }
-    &--hidden  {
-      display: none;
-    }
-  }
 }
 .rev-Pagination-arrow,
+.rev-Pagination-number,
 .rev-Pagination-dots {
-  margin: 0 $global-padding-small;
-  &:first-child {
-    margin-left: 0;
-  }
-  &:last-child {
-    margin-right: 0;
-  }
-}
-.rev-Pagination-dots {
-  @include muted;
-}
-.rev-Pagination-number {
-  @include navigation-color-management;
+  @include navigation-color-mgmt;
+  border-radius: $pagination-radius;
+  display: inline-block;
   font-size: $global-font-size-small;
-  margin: 0 $global-padding-tiny / 2;
-  a {
-    @include global-transition;
-    border-radius: $global-rounded;
-    display: block;
-    height: $size-default;
-    line-height: $size-default;
-    min-width: $size-default;
-    text-align: center;
+  margin: 0 $global-margin-tiny / 4;
+  &--hidden  {
+    display: none;
   }
+  a {
+    background: $pagination-link-bkgd;
+    border: 1px solid $divider-color;
+    border-radius: $pagination-radius;
+    color: $pagination-link-color;
+    padding: $global-padding-tiny $global-padding-small;
+    text-align: center;
+    &:hover {
+      background-color: $pagination-link-bkgd-hover;
+      color: $pagination-link-color-hover;
+    }
+    &:active,
+    &:focus {
+      background-color: $pagination-link-bkgd-active;
+      color: $pagination-link-color-active;
+    }
+  }
+  &[class*='--selected'] a {
+    background-color: $pagination-link-bkgd-selected;
+    color: $pagination-link-color-selected;
+  }
+}
+.rev-Pagination-dots {
+  background: $pagination-dot-bkgd;
+  color: $pagination-dot-color;
 }
 .rev-PaginationWrapper-pageList {
   text-align: center;

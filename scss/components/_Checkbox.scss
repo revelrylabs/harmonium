@@ -12,13 +12,16 @@
   &:active {
     box-shadow: none;
   }
-  &.is-invalid {
-    background: lighten($error, 30%);
-  }
   &.rev-Checkbox--stacked,
   &.rev-Radio--stacked {
     display: block;
     margin-right: 0;
+  }
+  input:disabled {
+    @include disabled;
+    +.rev-Checkbox-label {
+      @include disabled;
+    }
   }
 }
 .rev-Checkbox-label {

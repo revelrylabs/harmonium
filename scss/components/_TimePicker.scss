@@ -1,0 +1,83 @@
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$time-picker-container-width: 100% !default;
+$time-picker-bkgd: $card-bkgd !default;
+$time-picker-border: $card-border !default;
+$time-picker-width: auto !default;
+$time-picker-max-height-animation: 20rem !default;
+$time-picker-header-bkgd: $time-picker-bkgd !default;
+
+.rev-TimePicker {
+  display: block;
+  position: relative;
+}
+.rev-TimeContainer {
+  @include global-transition;
+  @include flex(center, row, flex-start, nowrap);
+  overflow: hidden;
+  position: relative;
+  width: $time-picker-container-width;
+  &.rev-TimeContainer--closed {
+    max-height: 0px;
+  }
+  &.rev-TimeContainer--open {
+    max-height: $time-picker-max-height-animation;
+  }
+  &.rev-TimeContainer--overlay {
+    position: absolute;
+    top: calc(100% + #{$global-padding-small});
+    z-index: $above-most;
+    &.rev-TimeContainer--closed {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    &.rev-TimeContainer--open {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+    .rev-Card-header {
+      @include arrow-up-outline($time-picker-header-bkgd);
+    }
+  }
+  .rev-Card {
+    background: $time-picker-bkgd;
+    border: $time-picker-border;
+    margin-top: $global-padding-small;
+    width: $time-picker-width;
+    .rev-Card-header {
+      background: $time-picker-header-bkgd;
+    }
+    .rev-Card-body {
+      @include flex(center, row, center, nowrap);
+      padding: $global-padding-small;
+    }
+  }
+}
+.rev-TimeContainer-header {
+  display: block;
+  font-size: $global-font-size;
+  line-height: $global-lineheight;
+  padding: $global-padding-tiny;
+  text-align: center;
+}
+.rev-TimeTicker {
+  display: inline-block;
+  + .rev-TimeTicker {
+    margin-left: $global-padding-tiny;
+  }
+}
+.rev-TimeTicker-button {
+  border-right: 1px solid $divider-color;
+  padding: 0;
+  width: $size-large;
+}
+.rev-TimeTicker-value {
+  padding: $global-padding-small 0;
+  text-align: center;
+}
+.rev-TimeTicker-divider {
+  display: block;
+  text-align: center;
+  width: $size-tiny;
+}
