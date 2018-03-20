@@ -44,6 +44,8 @@ const DateInputBlock = ({
         type={goodDateInput ? 'date' : 'text'}
         name={goodDateInput ? name : null}
         defaultValue={formattedValue}
+/*         have a placeholder to avoid empty box on Firefox  */
+        placeholder={dateFormat ? dateFormat : 'mm/dd/yyyy'}
       />
       {goodDateInput ? null : (
         <Input
