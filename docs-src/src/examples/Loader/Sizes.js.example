@@ -1,0 +1,7 @@
+<Row largeUp={5} flex spaced style={{alignItems: "center"}}>
+  <Loader small />
+  <Loader medium />
+  <Loader large />
+  <Loader huge />
+  <Loader size="15rem" />
+</Row>
