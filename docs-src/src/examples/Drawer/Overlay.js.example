@@ -1,5 +1,6 @@
 <div className="rev-ContentWrapper ExampleDrawerContainer">
   <Drawer
+    open
     collapsible
     overlay
     expanderChildren="+"

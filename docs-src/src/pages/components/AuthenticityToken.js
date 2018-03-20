@@ -1,8 +1,8 @@
 
 import React, {Component} from 'react'
-import Form from 'possum/lib/Form'
-import Button from 'possum/lib/Button'
-import AuthenticityTokenProvider from 'possum/lib/AuthenticityTokenProvider'
+import Form from 'awesome-possum/lib/Form'
+import Button from 'awesome-possum/lib/Button'
+import AuthenticityTokenProvider from 'awesome-possum/lib/AuthenticityTokenProvider'
 import ExampleSection from '../../ExampleSection'
 
 const examples = {

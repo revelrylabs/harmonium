@@ -6,7 +6,7 @@ describe('Drawer', () => {
   })
 
   it('can handle boolean props', () => {
-    const expander = shallow(<Drawer left />).find(Expander)
+    const expander = mount(<Drawer left />).find(Expander)
 
     expect(expander.prop('className')).to.contain('rev-Drawer--left')
   })
