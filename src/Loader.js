@@ -60,6 +60,8 @@ export default class Loader extends Component {
 
   /*
    * Resolve class name.
+   * Provided `this.props`, return a `className` that reflects only up to one of
+   * our size-related props, such as `small`, `medium`, `large`, or `huge`.
    **/
   resolveClassNames(props = {}) {
     // Allocate all size-related props except `size`.
