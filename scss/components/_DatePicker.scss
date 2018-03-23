@@ -12,6 +12,22 @@ $calendar-header-height: $size-large !default;
 .rev-DatePicker {
   display: block;
   position: relative;
+/*   this enables the Chrome and Firefox designs to be the same
+ */    
+    ::-moz-placeholder {
+      opacity: 1;
+      color: black;
+    }
+
+    ::-webkit-input-placeholder {
+      opacity: 1;
+      color: black;
+    }
+
+    :-ms-input-placeholder {
+      opacity: 1;
+      color: black;
+    }
 }
 .rev-Calendar {
   @include global-transition;

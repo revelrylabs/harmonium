@@ -43,7 +43,7 @@ use the components in your projects.
 
 We don't just provide JavaScript. We've built a set of SCSS styles for all the
 components. It is in the `scss` directory of the package. You can either copy it
-into your project's SCSS directory, or use a tool like sassy-npm-importer to
+into your project's SCSS directory, or use a tool like [`sassy-npm-importer`](https://github.com/revelrylabs/sassy-npm-importer) to
 import it from the package.
 
 ## Configuration
