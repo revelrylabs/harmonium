@@ -1,7 +1,8 @@
 {
   "plugins": [
-    "react",
-    "jsx-a11y"
+    "jsx-a11y",
+    "prettier",
+    "react"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -10,34 +11,8 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:prettier/recommended",
     "plugin:jsx-a11y/recommended"
   ],
-  "ecmaFeatures": {
-    "arrowFunctions": true,
-    "binaryLiterals": true,
-    "blockBindings": true,
-    "classes": true,
-    "defaultParams": true,
-    "destructuring": true,
-    "forOf": true,
-    "generators": true,
-    "modules": true,
-    "objectLiteralComputedProperties": true,
-    "objectLiteralDuplicateProperties": true,
-    "objectLiteralShorthandMethods": true,
-    "objectLiteralShorthandProperties": true,
-    "octalLiterals": true,
-    "regexUFlag": true,
-    "regexYFlag": true,
-    "restParams": true,
-    "spread": true,
-    "superInFunctions": true,
-    "templateStrings": true,
-    "unicodeCodePointEscapes": true,
-    "globalReturn": true,
-    "jsx": true
-  },
   "rules": {
     "comma-dangle": [2, "always-multiline"],
     "no-cond-assign": [2, "always"],
@@ -218,6 +193,7 @@
     "prefer-spread": 2,
     "prefer-reflect": 0,
     "prefer-template": 2,
+    "prettier/prettier": "error",
     "require-yield": 2,
     "react/display-name": 2,
     "react/jsx-boolean-value": 1,
@@ -234,7 +210,7 @@
     "react/jsx-no-undef": 2,
     "react/jsx-sort-prop-types": 0,
     "react/jsx-sort-props": 0,
-    "react/jsx-space-before-closing": [2, "always"],
+    "react/jsx-tag-spacing": 2,
     "react/jsx-uses-react": 1,
     "react/jsx-uses-vars": 1,
     "react/no-danger": 1,
@@ -252,7 +228,6 @@
     "react/prefer-stateless-function": 0,
     "react/prop-types": 2,
     "react/react-in-jsx-scope": 2,
-    "react/require-extension": 1,
     "react/require-render-return": 2,
     "react/self-closing-comp": 1,
     "react/sort-comp": 1,
