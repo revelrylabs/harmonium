@@ -1,7 +1,8 @@
 {
   "plugins": [
-    "react",
-    "jsx-a11y"
+    "jsx-a11y",
+    "prettier",
+    "react"
   ],
   "parser": "babel-eslint",
   "parserOptions": {
@@ -10,7 +11,6 @@
   },
   "extends": [
     "eslint:recommended",
-    "plugin:prettier/recommended",
     "plugin:jsx-a11y/recommended"
   ],
   "rules": {
@@ -193,6 +193,7 @@
     "prefer-spread": 2,
     "prefer-reflect": 0,
     "prefer-template": 2,
+    "prettier/prettier": "error",
     "require-yield": 2,
     "react/display-name": 2,
     "react/jsx-boolean-value": 1,
