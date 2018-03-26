@@ -6,12 +6,13 @@ import classNames from 'classnames'
 // ["one", "two"] -> {one: true, two: true}
 function activeToObject(active) {
   let obj = {}
-  if(active == null) {
+
+  if (active === null) {
     return obj
   }
-  if(active instanceof Array) {
-    active.forEach((name) => obj[name] = true)
-  } else if (typeof(active) === 'object') {
+  if (active instanceof Array) {
+    active.forEach((name) => (obj[name] = true))
+  } else if (typeof active === 'object') {
     obj = active
   } else {
     obj[active] = true
@@ -21,7 +22,17 @@ function activeToObject(active) {
 
 class AccordionItem extends Component {
   render() {
-    const {children, className, onClick, href, title, active, renderHiddenPanes, contentKey, ...props} = this.props
+    const {
+      children,
+      className,
+      onClick,
+      href,
+      title,
+      active,
+      renderHiddenPanes,
+      contentKey,
+      ...props
+    } = this.props
 
     const liClassName = classNames(className, 'rev-AccordionItem', {
       'rev-AccordionItem--selected': active,
@@ -36,22 +47,21 @@ class AccordionItem extends Component {
     })
 
     if (!active && !renderHiddenPanes)
-      return <li {...props} className={liClassName}>
-        <a className={aClassName} href={href || '#'} onClick={onClick}>{title}</a>
-      </li>
+      return (
+        <li {...props} className={liClassName}>
+          <a className={aClassName} href={href || '#'} onClick={onClick}>
+            {title}
+          </a>
+        </li>
+      )
 
-
-    const div = (
-      <div
-        className={divClassName}
-      >
-        {children}
-      </div>
-    )
+    const div = <div className={divClassName}>{children}</div>
 
     return (
       <li {...props} className={liClassName}>
-        <a className={aClassName} href={href || '#'} onClick={onClick}>{title}</a>
+        <a className={aClassName} href={href || '#'} onClick={onClick}>
+          {title}
+        </a>
         {div}
       </li>
     )
@@ -59,10 +69,9 @@ class AccordionItem extends Component {
 }
 
 export default class Accordion extends Component {
-
   static defaultProps = {
     active: null,
-  };
+  }
 
   render() {
     const {children, className, active, renderHiddenPanes, ...props} = this.props
@@ -71,6 +80,7 @@ export default class Accordion extends Component {
 
     const rewriteChild = (child) => {
       const active = activeMap[child.props.contentKey] || false
+
       return cloneElement(child, {active, renderHiddenPanes})
     }
 
@@ -87,29 +97,30 @@ export default class Accordion extends Component {
 Accordion.Item = AccordionItem
 
 class StatefulAccordion extends Component {
-
   constructor(props) {
     super(props)
     this.state = {
-      active: activeToObject(props.defaultActive)
+      active: activeToObject(props.defaultActive),
     }
   }
 
   setExclusivelyActive = (contentKey) => {
-    if(this.state.active[contentKey]) {
+    if (this.state.active[contentKey]) {
       return
     }
     const active = {}
+
     active[contentKey] = true
     this.setState({active})
-  };
+  }
 
   toggleActiveStatus = (contentKey) => {
     const currentStatus = this.state.active[contentKey]
     const active = {...this.state.active}
+
     active[contentKey] = !this.state.active[contentKey]
     this.setState({active})
-  };
+  }
 
   rewriteChild = (child) => {
     const {multi} = this.props
@@ -117,15 +128,17 @@ class StatefulAccordion extends Component {
     const newOnClick = (e, ...args) => {
       e.preventDefault()
       this[multi ? 'toggleActiveStatus' : 'setExclusivelyActive'](contentKey)
-      if(onClick) {
+      if (onClick) {
         return onClick(e, ...args)
       }
     }
+
     return cloneElement(child, {onClick: newOnClick})
-  };
+  }
 
   render() {
     const {children, defaultActive, multi, ...props} = this.props
+
     return (
       <Accordion {...props} active={this.state.active}>
         {Children.map(children, this.rewriteChild)}
