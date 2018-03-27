@@ -5,7 +5,6 @@ import InputHelpText from './InputHelpText'
 import InputErrors from './InputErrors'
 
 export default class Select extends Component {
-
   static options(options) {
     return options.map(({key, label, value, ...props}) => (
       <option key={key || value} value={value} {...props}>

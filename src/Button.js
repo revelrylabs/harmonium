@@ -28,9 +28,10 @@ export default class Button extends Component {
 
     // Start building the className
     const boolClassNames = []
+
     BOOL_PROPS.forEach((name) => {
-      if(props[name]) {
-        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name] )
+      if (props[name]) {
+        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
       }
       delete props[name]
     })
@@ -48,7 +49,8 @@ export default class Button extends Component {
 
     // Prepend icon if available
     let newChildren = children
-    if(icon) {
+
+    if (icon) {
       newChildren = [
         <Icon className="rev-Button-icon" key="icon" i={icon} />,
         ' ',
@@ -57,10 +59,6 @@ export default class Button extends Component {
     }
 
     // Finish
-    return createElement(
-      component,
-      {...props, className: buttonClassName},
-      newChildren,
-    )
+    return createElement(component, {...props, className: buttonClassName}, newChildren)
   }
 }

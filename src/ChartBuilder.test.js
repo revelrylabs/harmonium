@@ -6,17 +6,16 @@ describe('ChartBuilder', () => {
       <ChartBuilder
         data={{
           labels: ['Red', 'Blue'],
-          datasets: [{
-            label: '#',
-            data: [1,2],
-            backgroundColor: [
-              'red',
-              'blue',
-            ],
-          }]
+          datasets: [
+            {
+              label: '#',
+              data: [1, 2],
+              backgroundColor: ['red', 'blue'],
+            },
+          ],
         }}
-        type='pie'
-        title='Pie Chart'
+        type="pie"
+        title="Pie Chart"
       />
     )
   })

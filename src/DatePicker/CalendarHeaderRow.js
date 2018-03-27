@@ -1,5 +1,5 @@
 /** @jsx createElement */
-import { Duration } from 'luxon'
+import {Duration} from 'luxon'
 import React from 'react'
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
@@ -16,7 +16,7 @@ const CalendarHeaderRow = (props) => {
   return (
     <thead>
       <tr>
-        {[0, 1, 2, 3, 4, 5, 6].map(i => {
+        {[0, 1, 2, 3, 4, 5, 6].map((i) => {
           return (
             <th
               {...props.headerDay}
@@ -24,8 +24,8 @@ const CalendarHeaderRow = (props) => {
               key={`${props.firstDay.toISO()}:${i}`}
             >
               {props.firstDay
-                .plus(Duration.fromObject({ days: i }))
-                .toLocaleString({ weekday: 'narrow' })}
+                .plus(Duration.fromObject({days: i}))
+                .toLocaleString({weekday: 'narrow'})}
             </th>
           )
         })}

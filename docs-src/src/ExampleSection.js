@@ -3,7 +3,7 @@ import {Row, Col} from 'awesome-possum/lib/grid'
 import Playground from 'component-playground'
 
 export default function ExampleSection({title, depth, examples, scope}) {
-  if (typeof examples === "string") {
+  if (typeof examples === 'string') {
     return (
       <div>
         <Playground codeText={examples} scope={scope} />
@@ -12,7 +12,7 @@ export default function ExampleSection({title, depth, examples, scope}) {
   } else {
     const children = []
 
-    for(let title in examples) {
+    for (const title in examples) {
       children.push(
         <ExampleSection
           title={title}

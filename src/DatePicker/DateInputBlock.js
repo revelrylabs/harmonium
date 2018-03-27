@@ -33,7 +33,7 @@ const DateInputBlock = ({
   const createElement = createElementWithOverride.bind(this, overrides)
   const inputClassName = classNames(className, 'rev-DatePicker-input', {
     'is-invalid-input': !!error,
-    'is-invalid': !!error
+    'is-invalid': !!error,
   })
 
   return (
@@ -44,7 +44,7 @@ const DateInputBlock = ({
         type={goodDateInput ? 'date' : 'text'}
         name={goodDateInput ? name : null}
         defaultValue={formattedValue}
-/*         have a placeholder to avoid empty box on Firefox  */
+        /*         have a placeholder to avoid empty box on Firefox  */
         placeholder={dateFormat ? dateFormat : 'mm/dd/yyyy'}
       />
       {goodDateInput ? null : (

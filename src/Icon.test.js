@@ -17,7 +17,11 @@ describe('Icon', () => {
   })
 
   it('should warn if the icon prop is used', () => {
-    const mock = sinon.mock(console).expects('warn').atLeast(1)
+    const mock = sinon
+      .mock(console)
+      .expects('warn')
+      .atLeast(1)
+
     shallow(<Icon icon="home" />)
     mock.verify()
   })

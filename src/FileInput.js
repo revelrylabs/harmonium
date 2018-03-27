@@ -8,25 +8,24 @@ import InputErrors from './InputErrors'
 import InputHelpText from './InputHelpText'
 
 export default class FileInput extends Component {
-
   static defaultProps = {
     button: 'Choose File',
     placeholder: 'No file chosen',
-  };
+  }
 
   state = {
     filePath: null,
-  };
+  }
 
   onChange = (e, ...rest) => {
     const filePath = e.currentTarget.value.substring('C:\\fakepath\\'.length)
 
     this.setState({filePath})
 
-    if(this.props.onChange) {
+    if (this.props.onChange) {
       return this.props.onChange(e, ...rest)
     }
-  };
+  }
 
   render() {
     const {button, className, error, placeholder, onChange, ...props} = this.props
@@ -39,12 +38,15 @@ export default class FileInput extends Component {
     return (
       <InputGroup className={inputGroupClassName}>
         <InputGroup.Field>
-          <InputGroup.Label className="rev-FileInput-label">{filePath || placeholder}</InputGroup.Label>
+          <InputGroup.Label className="rev-FileInput-label">
+            {filePath || placeholder}
+          </InputGroup.Label>
         </InputGroup.Field>
         <InputGroup.Button>
           <Button tag="label" className="rev-FileInput-button">
             {button}
-            <input {...props} type="file" className="ShowForSR" onChange={this.onChange} />
+            <input {...props} type="file" className="ShowForSR"
+onChange={this.onChange} />
           </Button>
         </InputGroup.Button>
       </InputGroup>

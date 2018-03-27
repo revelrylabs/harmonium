@@ -1,4 +1,4 @@
-import Drawer, { Expander } from './Drawer'
+import Drawer, {Expander} from './Drawer'
 
 describe('Drawer', () => {
   it('should render', () => {
@@ -15,6 +15,7 @@ describe('Drawer', () => {
     const drawer = mount(<Drawer left />)
     const expander = drawer.find(Expander)
     const closer = expander.find('.rev-Drawer-closer')
+
     closer.simulate('click')
 
     expect(expander.find('.rev-Drawer').prop('className')).to.not.contain('rev-Drawer--open')

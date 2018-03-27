@@ -6,7 +6,6 @@ import InputHelpText from './InputHelpText'
 import InputErrors from './InputErrors'
 
 export default class Input extends Component {
-
   static defaultProps = {
     type: 'text',
   }
@@ -17,9 +16,8 @@ export default class Input extends Component {
       'is-invalid-input': !!error,
       'is-invalid': !!error,
     })
-    return (
-      <input className={inputClassName} {...props} ref={inputRef} />
-    )
+
+    return <input className={inputClassName} {...props} ref={inputRef} />
   }
 }
 

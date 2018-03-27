@@ -21,7 +21,8 @@ const PARENT_CLASS_NAMES = {
 const PARENT_PROP_TYPES = {
   children: PropTypes.node,
 }
-Object.keys(PARENT_CLASS_NAMES).forEach(key => PARENT_PROP_TYPES[key] = PropTypes.bool)
+
+Object.keys(PARENT_CLASS_NAMES).forEach((key) => PARENT_PROP_TYPES[key] = PropTypes.bool)
 
 export default class MediaObject extends Component {
   static propTypes = PARENT_PROP_TYPES
@@ -32,7 +33,8 @@ export default class MediaObject extends Component {
 
     // Start building the className
     const classNameList = []
-    Object.keys(PARENT_CLASS_NAMES).forEach( (name) => {
+
+    Object.keys(PARENT_CLASS_NAMES).forEach((name) => {
       if (props[name]) {
         classNameList.push(PARENT_CLASS_NAMES[name])
       }
@@ -40,11 +42,18 @@ export default class MediaObject extends Component {
     })
 
     // Finish building the className
-    const mediaObjectClassNames = classNames(classNameList, 'media-object', 'rev-MediaObject', className)
+    const mediaObjectClassNames = classNames(
+      classNameList,
+      'media-object',
+      'rev-MediaObject',
+      className
+    )
 
-    return <div {...props} className={mediaObjectClassNames}>
-      {this.props.children}
-    </div>
+    return (
+      <div {...props} className={mediaObjectClassNames}>
+        {this.props.children}
+      </div>
+    )
   }
 }
 
@@ -64,7 +73,8 @@ const SECTION_CLASS_NAMES = {
 const SECTION_PROP_TYPES = {
   children: PropTypes.node,
 }
-Object.keys(SECTION_CLASS_NAMES).forEach(key => SECTION_PROP_TYPES[key] = PropTypes.bool)
+
+Object.keys(SECTION_CLASS_NAMES).forEach((key) => SECTION_PROP_TYPES[key] = PropTypes.bool)
 
 class MediaObjectSection extends Component {
   static propTypes = SECTION_PROP_TYPES
@@ -75,7 +85,8 @@ class MediaObjectSection extends Component {
 
     // Start building the className
     const classNameList = []
-    Object.keys(SECTION_CLASS_NAMES).forEach( (name) => {
+
+    Object.keys(SECTION_CLASS_NAMES).forEach((name) => {
       if (props[name]) {
         classNameList.push(SECTION_CLASS_NAMES[name])
       }
@@ -83,11 +94,17 @@ class MediaObjectSection extends Component {
     })
 
     // Finish building the className
-    const sectionClassNames = classNames(classNameList, 'media-object-section', 'rev-MediaObject-section', className)
-    
-    return <div {...props} className={sectionClassNames}>
-      {children}
-    </div>
+    const sectionClassNames = classNames(
+      classNameList,
+      'media-object-section',
+      'rev-MediaObject-section',
+      className
+
+    return (
+      <div {...props} className={sectionClassNames}>
+        {children}
+      </div>
+    )
   }
 }
 MediaObject.Section = MediaObjectSection

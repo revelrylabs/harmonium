@@ -20,7 +20,9 @@ describe('FileInput', () => {
     const spy = sinon.spy()
     const input = mount(<FileInput onChange={spy} />)
 
-    input.find('input').simulate('change', {currentTarget: {value: 'C:\\fakepath\\snack-falcon.jpg'}})
+    input
+      .find('input')
+      .simulate('change', {currentTarget: {value: 'C:\\fakepath\\snack-falcon.jpg'}})
 
     expect(spy.called).to.eq(true)
   })
@@ -28,7 +30,9 @@ describe('FileInput', () => {
   it('can handle changes with onChange handler', () => {
     const input = mount(<FileInput />)
 
-    input.find('input').simulate('change', {currentTarget: {value: 'C:\\fakepath\\snack-falcon.jpg'}})
+    input
+      .find('input')
+      .simulate('change', {currentTarget: {value: 'C:\\fakepath\\snack-falcon.jpg'}})
   })
 })
 

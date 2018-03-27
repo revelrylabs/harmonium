@@ -1,9 +1,9 @@
 /** @jsx createElement */
 
-import React, { createElement } from 'react'
+import React, {createElement} from 'react'
 import Card from '../Card'
 import TimeTicker from './TimeTicker'
-import { DateTime, Duration } from 'luxon'
+import {DateTime, Duration} from 'luxon'
 
 /**
  * A component containing the tickers of a time picker.
@@ -29,7 +29,7 @@ export default class TimeContainer extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      time: this.getLuxonDateTime(this.props.selectedTime)
+      time: this.getLuxonDateTime(this.props.selectedTime),
     }
   }
 
@@ -41,7 +41,7 @@ export default class TimeContainer extends React.Component {
    */
   componentWillReceiveProps(nextProps) {
     if (nextProps.selectedTime != this.props.selectedTime) {
-      this.setState({ time: this.getLuxonDateTime(nextProps.selectedTime) })
+      this.setState({time: this.getLuxonDateTime(nextProps.selectedTime)})
     }
   }
 
@@ -70,7 +70,7 @@ export default class TimeContainer extends React.Component {
    * @returns {string} formatted value as a string
    */
   getFormattedUnit(unit) {
-    let value;
+    let value
 
     if (unit === 'hour' && !this.props.use24hr) {
       value = this.state.time[unit] % 12 ? this.state.time[unit] % 12 : 12
@@ -95,13 +95,14 @@ export default class TimeContainer extends React.Component {
     event.preventDefault()
 
     const durationObject = {}
+
     durationObject[unit] = n
     const newTime = this.state.time.plus(Duration.fromObject(durationObject))
 
     this.props.updateTime(newTime.toISOTime())
 
     this.setState({
-      time: newTime
+      time: newTime,
     })
 
     if (this.props.refocusOnClick) {
@@ -122,7 +123,9 @@ export default class TimeContainer extends React.Component {
     } = this.props
 
     return (
-      <div className={`rev-TimeContainer ${overlay ? 'rev-TimeContainer--overlay' : ''} ${className}`}>
+      <div
+        className={`rev-TimeContainer ${overlay ? 'rev-TimeContainer--overlay' : ''} ${className}`}
+      >
         <Card>
           <Card.Header>
             <span className="rev-TimeContainer-header">Time Picker</span>
@@ -139,7 +142,7 @@ export default class TimeContainer extends React.Component {
               onIncrement={this.incrementUnit.bind(this, 1, 'minutes')}
               onDecrement={this.incrementUnit.bind(this, -1, 'minutes')}
             />
-            {showSeconds ? (<span className="rev-TimeTicker-divider">:</span>) : null}
+            {showSeconds ? <span className="rev-TimeTicker-divider">:</span> : null}
             {showSeconds ? (
               <TimeTicker
                 value={this.getFormattedUnit('second')}

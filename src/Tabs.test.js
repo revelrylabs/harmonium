@@ -3,7 +3,11 @@ import sinon from 'sinon'
 
 describe('Tabs', () => {
   it('should render without throwing', () => {
-    shallow(<Tabs><Tabs.Item contentKey={1} title="One" /></Tabs>)
+    shallow(
+      <Tabs>
+        <Tabs.Item contentKey={1} title="One" />
+      </Tabs>
+    )
   })
 
   it('should add className to child', () => {
@@ -14,7 +18,9 @@ describe('Tabs', () => {
       <Tabs className={testClassName}>
         <Tabs.Item contentKey={1} title="One" />
       </Tabs>
-    ).first().prop('className')
+    )
+      .first()
+      .prop('className')
 
     expect(childClassName).to.contain(inherentClassName)
     expect(childClassName).to.contain(testClassName)

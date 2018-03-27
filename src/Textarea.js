@@ -6,7 +6,6 @@ import InputHelpText from './InputHelpText'
 import InputErrors from './InputErrors'
 
 export default class Textarea extends Component {
-
   static defaultProps = {
     type: 'text',
   }
@@ -17,9 +16,8 @@ export default class Textarea extends Component {
       'is-invalid-input': !!error,
       'is-invalid': !!error,
     })
-    return (
-      <textarea className={inputClassName} {...props} />
-    )
+
+    return <textarea className={inputClassName} {...props} />
   }
 }
 

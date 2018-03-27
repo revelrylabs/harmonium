@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import _ from 'underscore'
 
 export default class NumberFormatter extends React.Component {
-
   static get propTypes() {
     return {
       value: PropTypes.number.isRequired,

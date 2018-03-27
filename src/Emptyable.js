@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default class Emptyable extends React.Component {
-
   static get propTypes() {
     return {
       componentClass: PropTypes.node,
@@ -18,12 +17,9 @@ export default class Emptyable extends React.Component {
 
   render() {
     const {children, componentClass, emptyState, ...props} = this.props
-    if(children) {
-      return React.createElement(
-        componentClass,
-        {...props},
-        children
-      )
+
+    if (children) {
+      return React.createElement(componentClass, {...props}, children)
     }
     return emptyState
   }

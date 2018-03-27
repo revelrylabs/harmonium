@@ -24,13 +24,14 @@ export default class Menu extends Component {
     const {children, className, ...props} = this.props
 
     const boolClassNames = []
+
     BOOL_PROPS.forEach((name) => {
-      if(props[name]) {
+      if (props[name]) {
         boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
       }
       delete props[name]
     })
-    const newClassName = classNames(className,'rev-Menu', boolClassNames)
+    const newClassName = classNames(className, 'rev-Menu', boolClassNames)
 
     return (
       <ul {...props} className={newClassName}>
@@ -44,7 +45,7 @@ export class MenuItem extends Component {
   render() {
     const {children, className, text, divider, active, ...props} = this.props
 
-    const newClassName = classNames(`rev-Menu-item ${className||''}`, {
+    const newClassName = classNames(`rev-Menu-item ${className || ''}`, {
       'rev-Menu-item--divider': divider,
       'rev-Menu-item--text': text,
       'rev-Menu-item--selected': active,

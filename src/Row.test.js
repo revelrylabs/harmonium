@@ -25,7 +25,7 @@ describe('Row', () => {
       largeUp: 'rev-Row--largeUp1',
     }
 
-    for (let propName in cases) {
+    for (const propName in cases) {
       const classPattern = cases[propName]
       const component = shallow(<Row {...{[propName]: 1}} />)
 

@@ -6,7 +6,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 export default class Tokenizer extends React.Component {
-
   static get propTypes() {
     return {
       placeholder: PropTypes.string,
@@ -24,7 +23,6 @@ export default class Tokenizer extends React.Component {
       getOptionComponent: PropTypes.func,
       getTokenComponent: PropTypes.func,
       getInputName: PropTypes.func,
-
     }
   }
 
@@ -119,7 +117,7 @@ export default class Tokenizer extends React.Component {
 
   // Renders a list only if it has items
   renderTokens() {
-    if(!this.state.selectedItems.length > 0) {
+    if (!this.state.selectedItems.length > 0) {
       return null
     }
     return (
@@ -131,7 +129,7 @@ export default class Tokenizer extends React.Component {
 
   // Renders a list only if it has items
   renderOptions() {
-    if(!this.state.optionItems.length > 0) {
+    if (!this.state.optionItems.length > 0) {
       return null
     }
     return (
@@ -155,7 +153,8 @@ export default class Tokenizer extends React.Component {
             onKeyDown={this.onKeyDown.bind(this)}
             onKeyUp={this.onKeyUp.bind(this)}
             onBlur={this.onBlur.bind(this)}
-            onFocus={this.onFocus.bind(this)} />
+            onFocus={this.onFocus.bind(this)}
+          />
           {this.props.children}
         </div>
         {this.renderOptions()}
@@ -174,17 +173,15 @@ export default class Tokenizer extends React.Component {
   }
 
   onKeyUp(e) {
-    if(this.isSelectKey(e)) {
+    if (this.isSelectKey(e)) {
       // Select the first item on special keypresses
-      if(this.state.optionItems.length > 0) {
+      if (this.state.optionItems.length > 0) {
         this.onSelect(this.state.optionItems[0])
       }
-    }
-    else if(e.keyCode == KEY_ESC) {
+    } else if (e.keyCode == KEY_ESC) {
       // Esc to make the option go away
       this.getInput().blur()
-    }
-    else {
+    } else {
       this.fetchOptions()
     }
 
@@ -194,7 +191,7 @@ export default class Tokenizer extends React.Component {
   }
 
   onBlur() {
-    if(this.props.leaveOpen) {
+    if (this.props.leaveOpen) {
       return
     }
     // If you don't delay this a little you can't click any of the options
@@ -207,7 +204,7 @@ export default class Tokenizer extends React.Component {
   }
 
   clearOptions() {
-    if(this.xhr != null) {
+    if (this.xhr != null) {
       this.xhr.abort()
     }
     this.setState({optionItems: []})
@@ -221,11 +218,11 @@ export default class Tokenizer extends React.Component {
   }
 
   fetchOptions() {
-    if(this.getInput().value == '') {
+    if (this.getInput().value == '') {
       this.clearOptions()
-    }
-    else {
-      let queryData = {}
+    } else {
+      const queryData = {}
+
       queryData[this.props.queryParam] = this.getInput().value
       this.xhr = $.get(this.props.remoteOptionsUrl, queryData)
       this.xhr.done(this.setOptions.bind(this))
@@ -234,6 +231,7 @@ export default class Tokenizer extends React.Component {
 
   onSelect(item) {
     let items = this.state.selectedItems
+
     items.push(item)
     items = _.uniq(items, null, this.getItemValue.bind(this))
     input = this.getInput()
@@ -245,7 +243,11 @@ export default class Tokenizer extends React.Component {
   }
 
   onRemove(item) {
-    const items = _.reject(this.state.selectedItems, (x) => this.getItemValue(x) == this.getItemValue(item))
+    const items = _.reject(
+      this.state.selectedItems,
+      (x) => this.getItemValue(x) == this.getItemValue(item)
+    )
+
     this.setState({selectedItems: items})
     return false
   }

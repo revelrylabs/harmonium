@@ -9,7 +9,9 @@ describe('Social', () => {
     const inherentClassName = 'social'
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Social className={testClassName} type={Social.types.FACEBOOK} url="https://revelry.co" />)
+    const childClassName = shallow(
+      <Social className={testClassName} type={Social.types.FACEBOOK} url="https://revelry.co" />
+    )
       .first()
       .prop('className')
 
@@ -18,11 +20,14 @@ describe('Social', () => {
   })
 
   it('should render the right link', () => {
-      const tweetLink = "https://twitter.com/intent/tweet?url=http%3A%2F%2Frevelry.co&text=Check%20this%20out!"
-      
-      const renderedLink = shallow(<Social type={Social.types.TWITTER} url="http://revelry.co" />).first().prop('href')
+    const tweetLink =
+      'https://twitter.com/intent/tweet?url=http%3A%2F%2Frevelry.co&text=Check%20this%20out!'
 
-      expect(renderedLink).to.equal(tweetLink)
+    const renderedLink = shallow(<Social type={Social.types.TWITTER} url="http://revelry.co" />)
+      .first()
+      .prop('href')
+
+    expect(renderedLink).to.equal(tweetLink)
   })
 
   it('can handle every type', () => {
@@ -39,7 +44,7 @@ describe('Social', () => {
       TWITTER: 'twitter',
     }
 
-    for (let service in Social.types) {
+    for (const service in Social.types) {
       const social = shallow(<Social type={Social.types[service]} url="http://example.com" />)
 
       expect(social.find('a').prop('href')).to.contain(PATTERNS[service])

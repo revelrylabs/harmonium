@@ -11,8 +11,11 @@ const examples = {
 
 export default class TopBarExamplePage extends Component {
   render() {
-    return <div>
-      <ExampleSection title="TopBars" examples={examples} depth={1} scope={scope} />
-    </div>
+    return (
+      <div>
+        <ExampleSection title="TopBars" examples={examples} depth={1}
+scope={scope} />
+      </div>
+    )
   }
 }

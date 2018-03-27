@@ -64,18 +64,21 @@ export default class Col extends Component {
     const {children, className, ...props} = this.props
 
     const boolClassNames = []
+
     BOOL_PROPS.forEach((name) => {
-      if(props[name]) {
-        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name] )
+      if (props[name]) {
+        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
       }
       delete props[name]
     })
 
     const numberClassNames = []
+
     NUMBER_PROPS.forEach((name) => {
       const value = props[name]
       const fn = NUMBER_PROPS_TO_CLASS_NAMES[name]
-      if(value != null) {
+
+      if (value != null) {
         numberClassNames.push(fn(value))
       }
       delete props[name]
@@ -86,7 +89,7 @@ export default class Col extends Component {
       'columns',
       'rev-Col',
       boolClassNames,
-      numberClassNames,
+      numberClassNames
     )
 
     return (
@@ -95,5 +98,4 @@ export default class Col extends Component {
       </div>
     )
   }
-
 }

@@ -10,6 +10,7 @@ import configMapping from '../Utilities/configMapping'
  */
 function calculateMonthClass(date, currentMonth) {
   const modifier = date.toFormat('yyyy-MM') == currentMonth ? 'thisMonth' : 'otherMonth'
+
   return `rev-Calendar-body-bodyCell--${modifier}`
 }
 
@@ -23,6 +24,7 @@ function calculateMonthClass(date, currentMonth) {
  */
 function calculateSelectionClass(isSelectable, date, selectedDate) {
   const selectable = isSelectable(date)
+
   if (!selectable) {
     return 'rev-Calendar-body-bodyCell--unselectable'
   } else if (selectedDate && date.toISODate() == selectedDate) {
@@ -44,7 +46,7 @@ function calculateHighlightClass(date, highlights) {
     configMapping(
       highlights || {},
       date,
-      date => date.toISODate(),
+      (date) => date.toISODate(),
       'rev-Calendar-body-bodyCell--highlighted'
     ) || ''
   )
@@ -60,8 +62,9 @@ function calculateHighlightClass(date, highlights) {
  */
 function dayClickHandler(isSelectable, date, dateChanger) {
   const selectable = isSelectable(date)
+
   if (selectable) {
-    return _e => dateChanger(date.toISODate())
+    return (_e) => dateChanger(date.toISODate())
   }
   return null
 }
@@ -86,6 +89,7 @@ const CalendarDay = ({
   const selectionClass = calculateSelectionClass(isSelectable, date, selectedDate)
   const highlightClass = calculateHighlightClass(date, highlights)
   const selectable = isSelectable(date)
+
   return (
     <td className={`rev-Calendar-body-bodyCell ${monthClass} ${selectionClass} ${highlightClass}`}>
       <button
@@ -94,11 +98,11 @@ const CalendarDay = ({
         aria-label={date.toLocaleString({
           year: 'numeric',
           month: 'long',
-          day: 'numeric'
+          day: 'numeric',
         })}
         disabled={!selectable}
       >
-        {date.toLocaleString({ day: 'numeric' })}
+        {date.toLocaleString({day: 'numeric'})}
       </button>
     </td>
   )

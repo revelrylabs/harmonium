@@ -1,4 +1,4 @@
-import StatelessDrawer, { Expander } from './StatelessDrawer'
+import StatelessDrawer, {Expander} from './StatelessDrawer'
 import sinon from 'sinon'
 
 describe('StatelessDrawer', () => {
@@ -14,9 +14,7 @@ describe('StatelessDrawer', () => {
 
   it('handles close clicks', () => {
     const spy = sinon.spy()
-    const drawer = mount(
-      <StatelessDrawer open close={spy} />
-    )
+    const drawer = mount(<StatelessDrawer open close={spy} />)
 
     drawer.find('.rev-Drawer-closer').simulate('click')
 
@@ -25,9 +23,7 @@ describe('StatelessDrawer', () => {
 
   it('handles expand clicks', () => {
     const spy = sinon.spy()
-    const drawer = mount(
-      <StatelessDrawer expand={spy} />
-    )
+    const drawer = mount(<StatelessDrawer expand={spy} />)
 
     drawer.find('.rev-Drawer-expander').simulate('click')
 
@@ -40,12 +36,12 @@ describe('StatelessDrawer', () => {
 
     expect(expander.find('.rev-Drawer').prop('className')).to.not.contain('rev-Drawer--open')
 
-    drawer.setProps({ open: true })
+    drawer.setProps({open: true})
     drawer.update()
 
     expect(drawer.find('.rev-Drawer').prop('className')).to.contain('rev-Drawer--open')
 
-    drawer.setProps({ open: false })
+    drawer.setProps({open: false})
     drawer.update()
 
     expect(expander.find('.rev-Drawer').prop('className')).to.not.contain('rev-Drawer--open')

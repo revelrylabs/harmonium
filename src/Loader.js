@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 // import classNames from 'classnames'
-import { defaultTo, gt, has, reduce, without } from 'lodash'
+import {defaultTo, gt, has, reduce, without} from 'lodash'
 
 const PROP_TYPES = {
   borderWidth: PropTypes.string,
@@ -13,7 +13,7 @@ const PROP_TYPES = {
   medium: PropTypes.bool,
   secondaryColor: PropTypes.string,
   size: PropTypes.string,
-  small: PropTypes.bool
+  small: PropTypes.bool,
 }
 
 /*
@@ -80,15 +80,15 @@ export default class Loader extends Component {
       borderTopColor: props.color,
       borderWidth: props.borderWidth,
       height: props.size,
-      width: props.size
+      width: props.size,
     }
     const overrides = props.style || {}
 
-    return { ...styles, ...overrides }
+    return {...styles, ...overrides}
   }
 
   render() {
-    const { className, ...props } = this.props
+    const {className, ...props} = this.props
 
     this.ensureNoConflicts(props)
 

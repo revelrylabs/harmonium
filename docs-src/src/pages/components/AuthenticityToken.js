@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react'
 import Form from 'awesome-possum/lib/Form'
 import Button from 'awesome-possum/lib/Button'
@@ -9,12 +8,15 @@ const examples = {
   'Authenticity Token Provider': require('raw!../../examples/AuthenticityTokenProvider.js.example'),
 }
 
-const scope = {React: React, Form: Form, Button: Button, AuthenticityTokenProvider: AuthenticityTokenProvider}
+const scope = {React, Form, Button, AuthenticityTokenProvider}
 
 export default class AuthenticityTokenExamplePage extends Component {
   render() {
-    return <div className="rev-Row rev-Row--collapse">
-      <ExampleSection title="Authenticity Tokens" examples={examples} depth={1} scope={scope} />
-    </div>
+    return (
+      <div className="rev-Row rev-Row--collapse">
+        <ExampleSection title="Authenticity Tokens" examples={examples} depth={1}
+scope={scope} />
+      </div>
+    )
   }
 }

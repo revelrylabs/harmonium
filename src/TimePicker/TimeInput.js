@@ -1,7 +1,7 @@
 /** @jsx createElement */
 
 import classNames from 'classnames'
-import React, { createElement } from 'react'
+import React, {createElement} from 'react'
 import Input from '../Input'
 
 /**
@@ -20,7 +20,7 @@ const TimeInput = ({
 }) => {
   const inputClassName = classNames(className, 'rev-TimePicker-input', {
     'is-invalid-input': !!error,
-    'is-invalid': !!error
+    'is-invalid': !!error,
   })
 
   return (
@@ -29,7 +29,7 @@ const TimeInput = ({
         {...props}
         className={className}
         step={showSeconds ? '1' : null}
-        type='time'
+        type="time"
         name={useGoodTimeInput ? name : null}
         defaultValue={formattedValue}
       />

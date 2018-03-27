@@ -36,16 +36,18 @@ describe('Col', () => {
       largeOrder: 'large-order',
     }
 
-    for (let key in propToClass) {
+    for (const key in propToClass) {
       const value = propToClass[key]
       const props = {[key]: 1}
       const col = shallow(<Col {...props} />)
+
       expect(col.prop('className')).to.contain(value)
     }
   })
 
   it('handles boolean props', () => {
     const col = shallow(<Col smallCentered />)
+
     expect(col.prop('className')).to.contain('small-centered')
   })
 })

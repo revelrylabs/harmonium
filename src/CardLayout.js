@@ -15,14 +15,15 @@ export default class CardLayout extends Component {
 
     // Start building the className
     const boolClassNames = []
+
     BOOL_PROPS.forEach((name) => {
-      if(props[name]) {
-        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name] )
+      if (props[name]) {
+        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
       }
       delete props[name]
     })
 
-    const divClassName = classNames(className, 'rev-CardLayout', boolClassNames,)
+    const divClassName = classNames(className, 'rev-CardLayout', boolClassNames)
 
     return (
       <div {...props} className={divClassName}>
@@ -36,6 +37,7 @@ export class CardLayoutBar extends Component {
   render() {
     const {className, children, ...props} = this.props
     const divClassName = classNames(className, 'rev-CardLayout-bar')
+
     return (
       <div {...props} className={divClassName}>
         {children}
@@ -49,6 +51,7 @@ export class CardLayoutFill extends Component {
   render() {
     const {className, children, ...props} = this.props
     const divClassName = classNames(className, 'rev-CardLayout-fill')
+
     return (
       <div {...props} className={divClassName}>
         {children}

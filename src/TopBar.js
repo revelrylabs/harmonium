@@ -18,18 +18,18 @@ export default class TopBar extends Component {
   render() {
     const {className, children, ...props} = this.props
     const propClassNames = []
+
     BOOL_PROPS.forEach((name) => {
-      if(props[name]) {
+      if (props[name]) {
         propClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
       }
       delete props[name]
     })
     const newClassName = classNames(className, 'rev-TopBar', propClassNames)
+
     return (
       <div {...props} className={newClassName}>
-        <nav role="navigation">
-          {children}
-        </nav>
+        <nav role="navigation">{children}</nav>
       </div>
     )
   }
@@ -39,6 +39,7 @@ class TopBarItem extends Component {
   render() {
     const {className, children, ...props} = this.props
     const newClassName = classNames(className, 'rev-TopBar-item')
+
     return (
       <div {...props} className={newClassName}>
         {children}

@@ -1,7 +1,7 @@
 /** @jsx createElement */
 
 import classNames from 'classnames'
-import React, { createElement } from 'react'
+import React, {createElement} from 'react'
 import Button from '../Button'
 
 /**
@@ -10,10 +10,10 @@ import Button from '../Button'
  * @param {object} props - the props of the TimeTicker
  */
 
- // TODO: Generalize this to a general incrementor/decrementor
- // component that can cycle through a range of numbers or an enum
+// TODO: Generalize this to a general incrementor/decrementor
+// component that can cycle through a range of numbers or an enum
 
- const TimeTicker = ({
+const TimeTicker = ({
   className,
   previousLabel,
   nextLabel,
@@ -25,16 +25,11 @@ import Button from '../Button'
 }) => {
   return (
     <div {...props} className={`rev-TimeTicker ${className}`}>
-      <Button
-        onClick={onIncrement}
-        className="rev-TimeTicker-button rev-TimeTicker-button--next"
-      >
+      <Button onClick={onIncrement} className="rev-TimeTicker-button rev-TimeTicker-button--next">
         {nextLabel}
       </Button>
 
-      <div className="rev-TimeTicker-value">
-        {value}
-      </div>
+      <div className="rev-TimeTicker-value">{value}</div>
 
       <Button
         onClick={onDecrement}

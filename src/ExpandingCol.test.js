@@ -3,17 +3,17 @@ import {ExpandingCol, ExpandingColStateContainer} from './ExpandingCol'
 
 describe('ExpandingCol', () => {
   it('should render closed with is-closed', () => {
-    let classes = shallow(
-      <ExpandingCol>Test</ExpandingCol>
-    ).first().prop('className')
+    const classes = shallow(<ExpandingCol>Test</ExpandingCol>)
+      .first()
+      .prop('className')
 
     expect(classes).to.contain('is-closed')
   })
 
   it('should render open with is-open', () => {
-    let classes = shallow(
-      <ExpandingCol open>Test</ExpandingCol>
-    ).first().prop('className')
+    const classes = shallow(<ExpandingCol open>Test</ExpandingCol>)
+      .first()
+      .prop('className')
 
     expect(classes).to.contain('is-open')
   })
@@ -25,10 +25,8 @@ describe('ExpandingColStateContainer', () => {
   })
 
   it('should be openable and closeable', () => {
-    let container = mount(
-      <ExpandingColStateContainer>Test</ExpandingColStateContainer>
-    )
-    let expander = container.find('.rev-ExpandingCol-expander').first()
+    const container = mount(<ExpandingColStateContainer>Test</ExpandingColStateContainer>)
+    const expander = container.find('.rev-ExpandingCol-expander').first()
 
     expander.simulate('click')
 

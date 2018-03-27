@@ -4,7 +4,6 @@ import classNames from 'classnames'
 import Icon from './Icon'
 
 export default class StatelessModal extends Component {
-
   static propTypes = {
     isOpen: PropTypes.bool,
     onBackgroundClick: PropTypes.func,
@@ -15,26 +14,25 @@ export default class StatelessModal extends Component {
   }
 
   onBackgroundClick = (e) => {
-    if(this.props.onBackgroundClick) {
+    if (this.props.onBackgroundClick) {
       this.props.onBackgroundClick(e)
     }
   }
 
   render() {
-    let className = classNames(this.props.className, {
+    const className = classNames(this.props.className, {
       'rev-Modal': true,
     })
 
-    if(this.props.isOpen) {
-      return <div className={className}>
-        <div className="rev-Modal-background" onClick={this.onBackgroundClick} />
-        <div className="rev-Modal-content">
-          {this.props.children}
+    if (this.props.isOpen) {
+      return (
+        <div className={className}>
+          <div className="rev-Modal-background" onClick={this.onBackgroundClick} />
+          <div className="rev-Modal-content">{this.props.children}</div>
         </div>
-      </div>
+      )
     }
 
     return null
   }
-
 }

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 export default class InputLabel extends Component {
-
   render() {
     const {error, className, children, ...props} = this.props
 

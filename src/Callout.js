@@ -15,8 +15,9 @@ export default class Callout extends React.Component {
     const {className, children, ...props} = this.props
 
     const boolClassNames = []
+
     BOOL_PROPS.forEach((name) => {
-      if(props[name]) {
+      if (props[name]) {
         boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
       }
       delete props[name]
