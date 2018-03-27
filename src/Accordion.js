@@ -93,15 +93,15 @@ export default class Accordion extends Component {
   }
 
   rewriteChild = (child) => {
-    const {renderHiddenPanes} = this.props
-    const active = activeMap[child.props.contentKey] || false
+    const {active, renderHiddenPanes} = this.props
+    const activeMap = activeToObject(active)
+    const mappedActive = activeMap[child.props.contentKey] || false
 
-    return cloneElement(child, {active, renderHiddenPanes})
+    return cloneElement(child, {mappedActive, renderHiddenPanes})
   }
 
   render() {
-    const {children, className, active, renderHiddenPanes, ...props} = this.props
-    const activeMap = activeToObject(active)
+    const {children, className, ...props} = this.props
     const ulClassName = classNames(className, 'rev-Accordion')
 
     return (
@@ -115,6 +115,10 @@ export default class Accordion extends Component {
 Accordion.Item = AccordionItem
 
 class StatefulAccordion extends Component {
+  static propTypes = {
+    defaultActive: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  }
+
   constructor(props) {
     super(props)
     this.state = {
