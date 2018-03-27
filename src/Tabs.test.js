@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow, mount} from 'enzyme'
 import Tabs from './Tabs'
 import sinon from 'sinon'
 
@@ -48,7 +50,13 @@ describe('StatefulTabs', () => {
     const spy = sinon.spy()
     const stateful = shallow(
       <Tabs.Stateful defaultActive={1}>
-        <div className="StatefulTabExample" onClick={spy} />
+        <div
+          className="StatefulTabExample"
+          role="button"
+          onClick={spy}
+          onKeyPress={spy}
+          tabIndex={0}
+        />
       </Tabs.Stateful>
     )
 

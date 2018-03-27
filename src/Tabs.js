@@ -1,7 +1,15 @@
 import React, {Children, cloneElement, Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 class TabsTitle extends Component {
+  static propTypes = {
+    onClick: PropTypes.func,
+    href: PropTypes.string,
+    title: PropTypes.string,
+    active: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+  }
+
   render() {
     const {onClick, href, title, active} = this.props
     const className = classNames('rev-TabsTitle', {
@@ -10,12 +18,7 @@ class TabsTitle extends Component {
 
     return (
       <li className={className}>
-        <a
-          className="rev-TabsTitle-link"
-          href={href || '#'}
-          onClick={onClick}
-          aria-selected={active}
-        >
+        <a className="rev-TabsTitle-link" href={href || '#'} onClick={onClick}>
           {title}
         </a>
       </li>
@@ -24,19 +27,28 @@ class TabsTitle extends Component {
 }
 
 class TabsPanel extends Component {
+  static propTypes = {
+    active: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    renderHiddenTabs: PropTypes.bool,
+    children: PropTypes.node,
+  }
+
   render() {
     const {children, active, renderHiddenTabs} = this.props
 
     const className = classNames('rev-TabsItem-panel--selected', 'rev-TabsItem-panel')
 
     if (renderHiddenTabs) {
-      if (!active)
-        {return <div style={{display: "none"}} className={className}>
-          {children}
-        </div>}
+      if (!active) {
+        return (
+          <div style={{display: 'none'}} className={className}>
+            {children}
+          </div>
         )
-    } else if (!active)
-        return null
+      }
+    } else if (!active) {
+      return null
+    }
 
     return (
       <div style={{display: 'block'}} className={className}>
@@ -47,6 +59,10 @@ class TabsPanel extends Component {
 }
 
 class TabsItem extends Component {
+  static propTypes = {
+    renderTitle: PropTypes.bool,
+  }
+
   render() {
     const {renderTitle, ...props} = this.props
 
@@ -55,6 +71,13 @@ class TabsItem extends Component {
 }
 
 export default class Tabs extends Component {
+  static propTypes = {
+    active: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    renderHiddenTabs: PropTypes.bool,
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {children, className, active, renderHiddenTabs} = this.props
 
@@ -85,6 +108,11 @@ export default class Tabs extends Component {
 }
 
 class StatefulTabs extends Component {
+  static propTypes = {
+    defaultActive: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    children: PropTypes.node,
+  }
+
   constructor(props) {
     super(props)
     this.state = {
@@ -104,6 +132,7 @@ class StatefulTabs extends Component {
       if (onClick) {
         return onClick(e, ...args)
       }
+      return null
     }
 
     return cloneElement(child, {onClick: newOnClick})
@@ -114,7 +143,7 @@ class StatefulTabs extends Component {
     const {children, ...props} = this.props
 
     return (
-      <Tabs {...props} active={this.state.active}>
+      <Tabs {...props} active={active}>
         {Children.map(children, this.rewriteChild)}
       </Tabs>
     )

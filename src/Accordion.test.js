@@ -1,5 +1,7 @@
-import Accordion from './Accordion'
+import React from 'react'
 import sinon from 'sinon'
+import {shallow, mount} from 'enzyme'
+import Accordion from './Accordion'
 
 describe('Accordion', () => {
   it('should render without throwing', () => {

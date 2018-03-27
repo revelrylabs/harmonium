@@ -1,4 +1,4 @@
-import React, {Component, Children, cloneElement} from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import InputLabel from './InputLabel'
 import classNames from 'classnames'
@@ -6,6 +6,11 @@ import InputHelpText from './InputHelpText'
 import InputErrors from './InputErrors'
 
 export default class Textarea extends Component {
+  static propTypes = {
+    error: PropTypes.string,
+    className: PropTypes.string,
+  }
+
   static defaultProps = {
     type: 'text',
   }
@@ -22,6 +27,13 @@ export default class Textarea extends Component {
 }
 
 class TextareaStack extends Component {
+  static propTypes = {
+    error: PropTypes.string,
+    help: PropTypes.string,
+    label: PropTypes.string,
+    className: PropTypes.string,
+  }
+
   render() {
     const {error, help, className, label, ...props} = this.props
 

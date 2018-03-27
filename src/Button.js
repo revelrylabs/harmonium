@@ -1,4 +1,5 @@
 import React, {Component, Children, createElement} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Icon from './Icon'
 
@@ -22,6 +23,13 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 export default class Button extends Component {
+  static propTypes = {
+    tag: PropTypes.string,
+    icon: PropTypes.string,
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     // Extract props that will not pass through.
     const {className, children, tag, icon, ...props} = this.props

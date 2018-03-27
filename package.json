@@ -25,6 +25,7 @@
     "express": "^4.15.3",
     "foundation-sites": "^6.3.1",
     "jquery": "^3.2.1",
+    "lodash": "^4.17.5",
     "luxon": "^0.3.1",
     "node-dir": "^0.1.17",
     "node-sass": "^4.5.3",
@@ -88,6 +89,7 @@
     "mocha": "^3.4.2",
     "nyc": "^11.4.1",
     "prettier": "^1.10.2",
+    "prettier-eslint": "^8.8.1",
     "react-test-renderer": ">=15.0.0",
     "sinon": "^2.3.8",
     "timekeeper": "^2.0.0"

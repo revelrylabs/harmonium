@@ -1,6 +1,7 @@
+import React from 'react'
+import {shallow} from 'enzyme'
 import Calendar from './Calendar'
 import {DateTime, Duration} from 'luxon'
-import sinon from 'sinon'
 
 describe('Calendar', () => {
   it('should render without throwing', () => {

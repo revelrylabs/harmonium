@@ -118,6 +118,14 @@ export default class ChartBuilder extends Component {
     }
   }
 
+  componentDidMount() {
+    this.createChart()
+  }
+
+  componentWillUnmount() {
+    this.destroyChart()
+  }
+
   get ctx() {
     return this.canvas.getContext('2d')
   }
@@ -149,14 +157,6 @@ export default class ChartBuilder extends Component {
 
   destroyChart() {
     this._chart.destroy()
-  }
-
-  componentDidMount() {
-    this.createChart()
-  }
-
-  componentWillUnmount() {
-    this.destroyChart()
   }
 
   render() {

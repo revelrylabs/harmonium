@@ -6,6 +6,7 @@ export default class Modal extends Component {
   static propTypes = {
     isOpen: PropTypes.bool,
     onBackgroundClick: PropTypes.func,
+    children: PropTypes.node,
   }
 
   constructor(props) {

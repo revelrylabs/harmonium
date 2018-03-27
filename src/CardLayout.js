@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
@@ -10,6 +11,11 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 export default class CardLayout extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
 
@@ -34,6 +40,11 @@ export default class CardLayout extends Component {
 }
 
 export class CardLayoutBar extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
     const divClassName = classNames(className, 'rev-CardLayout-bar')
@@ -48,6 +59,11 @@ export class CardLayoutBar extends Component {
 CardLayout.Bar = CardLayoutBar
 
 export class CardLayoutFill extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
     const divClassName = classNames(className, 'rev-CardLayout-fill')

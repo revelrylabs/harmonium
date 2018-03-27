@@ -1,4 +1,5 @@
-import React from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import configMapping from '../Utilities/configMapping'
 
 /**
@@ -9,7 +10,7 @@ import configMapping from '../Utilities/configMapping'
  * @returns {string} the className
  */
 function calculateMonthClass(date, currentMonth) {
-  const modifier = date.toFormat('yyyy-MM') == currentMonth ? 'thisMonth' : 'otherMonth'
+  const modifier = date.toFormat('yyyy-MM') === currentMonth ? 'thisMonth' : 'otherMonth'
 
   return `rev-Calendar-body-bodyCell--${modifier}`
 }
@@ -27,7 +28,7 @@ function calculateSelectionClass(isSelectable, date, selectedDate) {
 
   if (!selectable) {
     return 'rev-Calendar-body-bodyCell--unselectable'
-  } else if (selectedDate && date.toISODate() == selectedDate) {
+  } else if (selectedDate && date.toISODate() === selectedDate) {
     return 'rev-Calendar-body-bodyCell--selected'
   }
   return ''
@@ -46,7 +47,7 @@ function calculateHighlightClass(date, highlights) {
     configMapping(
       highlights || {},
       date,
-      (date) => date.toISODate(),
+      (dateArg) => dateArg.toISODate(),
       'rev-Calendar-body-bodyCell--highlighted'
     ) || ''
   )
@@ -64,7 +65,7 @@ function dayClickHandler(isSelectable, date, dateChanger) {
   const selectable = isSelectable(date)
 
   if (selectable) {
-    return (_e) => dateChanger(date.toISODate())
+    return () => dateChanger(date.toISODate())
   }
   return null
 }
@@ -75,37 +76,51 @@ function dayClickHandler(isSelectable, date, dateChanger) {
  * date format, unselectable date format, highlighted date format, etc).
  * @param {object} props the props of the day component
  */
-const CalendarDay = ({
-  currentMonth,
-  date,
-  dateChanger,
-  highlights,
-  isSelectable,
-  overrides,
-  selectedDate,
-  ...props
-}) => {
-  const monthClass = calculateMonthClass(date, currentMonth)
-  const selectionClass = calculateSelectionClass(isSelectable, date, selectedDate)
-  const highlightClass = calculateHighlightClass(date, highlights)
-  const selectable = isSelectable(date)
+class CalendarDay extends Component {
+  static propTypes = {
+    currentMonth: PropTypes.string,
+    date: PropTypes.object,
+    dateChanger: PropTypes.func,
+    highlights: PropTypes.object,
+    isSelectable: PropTypes.bool,
+    selectedDate: PropTypes.string,
+    children: PropTypes.node,
+  }
 
-  return (
-    <td className={`rev-Calendar-body-bodyCell ${monthClass} ${selectionClass} ${highlightClass}`}>
-      <button
-        {...props}
-        onClick={dayClickHandler(isSelectable, date, dateChanger)}
-        aria-label={date.toLocaleString({
-          year: 'numeric',
-          month: 'long',
-          day: 'numeric',
-        })}
-        disabled={!selectable}
+  render() {
+    const {
+      currentMonth,
+      date,
+      dateChanger,
+      highlights,
+      isSelectable,
+      selectedDate,
+      ...props
+    } = this.props
+    const monthClass = calculateMonthClass(date, currentMonth)
+    const selectionClass = calculateSelectionClass(isSelectable, date, selectedDate)
+    const highlightClass = calculateHighlightClass(date, highlights)
+    const selectable = isSelectable(date)
+
+    return (
+      <td
+        className={`rev-Calendar-body-bodyCell ${monthClass} ${selectionClass} ${highlightClass}`}
       >
-        {date.toLocaleString({day: 'numeric'})}
-      </button>
-    </td>
-  )
+        <button
+          {...props}
+          onClick={dayClickHandler(isSelectable, date, dateChanger)}
+          aria-label={date.toLocaleString({
+            year: 'numeric',
+            month: 'long',
+            day: 'numeric',
+          })}
+          disabled={!selectable}
+        >
+          {date.toLocaleString({day: 'numeric'})}
+        </button>
+      </td>
+    )
+  }
 }
 
 export default CalendarDay

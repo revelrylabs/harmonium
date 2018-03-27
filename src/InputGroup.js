@@ -6,6 +6,11 @@ import InputHelpText from './InputHelpText'
 import InputErrors from './InputErrors'
 
 export default class InputGroup extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
 
@@ -18,6 +23,11 @@ export default class InputGroup extends Component {
 }
 
 class InputGroupLabel extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
 
@@ -30,6 +40,11 @@ class InputGroupLabel extends Component {
 }
 
 class InputGroupButton extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
 
@@ -45,6 +60,11 @@ class InputGroupButton extends Component {
 }
 
 class InputGroupField extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {children, className} = this.props
 
@@ -55,6 +75,13 @@ class InputGroupField extends Component {
 }
 
 class InputGroupStack extends Component {
+  static propTypes = {
+    error: PropTypes.string,
+    help: PropTypes.string,
+    label: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {children, error, help, label, ...props} = this.props
 

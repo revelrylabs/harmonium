@@ -14,10 +14,10 @@ function useGoodTimeInput() {
   if (typeof window === 'undefined') {
     return true
   } else {
-    const el = document.createElement('input')
+    const element = document.createElement('input')
 
-    el.type = 'time'
-    return el.type === 'time'
+    element.type = 'time'
+    return element.type === 'time'
   }
 }
 
@@ -131,9 +131,10 @@ class TimePicker extends React.Component {
   get timeFormat() {
     // TODO: detect locale default format string and use that instead of
     //   hardcoded 'HH:mm'
-    return this.useGoodTimeInput ?
-      this.props.showSeconds ? 'HH:mm:ss' : 'HH:mm'
-      this.props.showSeconds ? 'hh:mm:ss a' : 'hh:mm a'
+    if (this.useGoodTimeInput) {
+      return this.props.showSeconds ? 'HH:mm:ss' : 'HH:mm'
+    }
+    return this.props.showSeconds ? 'hh:mm:ss a' : 'hh:mm a'
   }
 
   /**
@@ -218,7 +219,7 @@ class TimePicker extends React.Component {
    * @return {boolean} - true if on iOS or Android
    */
   useNativePicker() {
-    return typeof navigator !== 'undefined' && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+    return typeof navigator !== 'undefined' && (/Android|iPhone|iPad|iPod/i).test(navigator.userAgent)
   }
 
   /**
@@ -257,17 +258,7 @@ class TimePicker extends React.Component {
   }
 
   render() {
-    const {
-      label,
-      error,
-      help,
-      isOpen,
-      use24hr,
-      showSeconds,
-      usePickerOnMobile,
-      overlay,
-      ...props
-    } = this.props
+    const {label, error, help, use24hr, showSeconds, overlay, ...props} = this.props
 
     const nativeClass = this.useNativePicker() ? 'rev-TimePicker--native' : 'rev-TimePicker--custom'
 
@@ -276,6 +267,8 @@ class TimePicker extends React.Component {
         className={`rev-TimePicker rev-InputLabel ${nativeClass}`}
         onMouseOver={this.mouseIn.bind(this)}
         onMouseOut={this.mouseOut.bind(this)}
+        onFocus={this.onFocus.bind(this)}
+        onBlur={this.onBlur.bind(this)}
       >
         {label}
         <TimeInput
@@ -315,6 +308,12 @@ TimePicker.propTypes = {
   use24hr: PropTypes.bool,
   showSeconds: PropTypes.bool,
   isOpen: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  usePickerOnMobile: PropTypes.bool,
+  overlay: PropTypes.bool,
 }
 
 TimePicker.TimeInput = TimeInput

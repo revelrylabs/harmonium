@@ -1,17 +1,33 @@
 /** @jsx createElement */
-
-import Card from '../Card'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import {DateTime, Duration} from 'luxon'
-import React from 'react'
 import CalendarHeaderRow from './CalendarHeaderRow'
 import CalendarWeekRow from './CalendarWeekRow'
+import Card from '../Card'
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
 /**
  * A component representing a Calendar for a given focus month (& including the
  * leading days of the first week and trailing days of the last week).
  */
-export default class Calendar extends React.Component {
+export default class Calendar extends Component {
+  static propTypes = {
+    selectedDate: PropTypes.string,
+    focuser: PropTypes.func,
+    isSelectable: PropTypes.func,
+    dateChanger: PropTypes.func,
+    overrides: PropTypes.object,
+    week: PropTypes.any,
+    overlay: PropTypes.bool,
+    highlights: PropTypes.any,
+    headerDay: PropTypes.any,
+    day: PropTypes.any,
+    nextLabel: PropTypes.node,
+    previousLabel: PropTypes.node,
+    className: PropTypes.string,
+  }
+
   /**
    * The default values for props of this component
    * @return {object} the default value object
@@ -48,7 +64,7 @@ export default class Calendar extends React.Component {
    * @param {*} nextProps
    */
   componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedDate != this.props.selectedDate) {
+    if (nextProps.selectedDate !== this.props.selectedDate) {
       this.setState({date: this.asLuxon(nextProps.selectedDate)})
     }
   }
@@ -110,10 +126,10 @@ export default class Calendar extends React.Component {
    * @param {Event} event - the event that caused this handler to be invoked
    *   (e.g. the click event from the next or previous button on the calendar)
    */
-  addMonth(n, event) {
+  addMonth(num, event) {
     event.preventDefault()
     this.setState({
-      date: this.startOfMonth().plus(Duration.fromObject({month: n})),
+      date: this.startOfMonth().plus(Duration.fromObject({month: num})),
     })
     if (this.props.focuser) {
       this.props.focuser()
@@ -126,7 +142,6 @@ export default class Calendar extends React.Component {
       week,
       overrides,
       day,
-      focuser,
       headerDay,
       isSelectable,
       dateChanger,

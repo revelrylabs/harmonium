@@ -1,5 +1,4 @@
 /** @jsx createElement */
-
 import React, {createElement} from 'react'
 import Card from '../Card'
 import TimeTicker from './TimeTicker'
@@ -14,8 +13,6 @@ export default class TimeContainer extends React.Component {
    * @return {object} the default value object
    */
   static get defaultProps() {
-    const createElement = React.createElement
-
     return {
       refocusOnClick: () => null,
       updateTime: () => null,
@@ -40,7 +37,7 @@ export default class TimeContainer extends React.Component {
    * @param {*} nextProps
    */
   componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedTime != this.props.selectedTime) {
+    if (nextProps.selectedTime !== this.props.selectedTime) {
       this.setState({time: this.getLuxonDateTime(nextProps.selectedTime)})
     }
   }
@@ -91,12 +88,12 @@ export default class TimeContainer extends React.Component {
    * @param {Event} event - the event that caused this handler to be invoked
    *   (e.g. the click event from the next or previous button on a ticker)
    */
-  incrementUnit(n, unit, event) {
+  incrementUnit(num, unit, event) {
     event.preventDefault()
 
     const durationObject = {}
 
-    durationObject[unit] = n
+    durationObject[unit] = num
     const newTime = this.state.time.plus(Duration.fromObject(durationObject))
 
     this.props.updateTime(newTime.toISOTime())
@@ -111,16 +108,7 @@ export default class TimeContainer extends React.Component {
   }
 
   render() {
-    const {
-      className,
-      selectedTime,
-      updateTime,
-      refocusOnClick,
-      use24hr,
-      showSeconds,
-      overlay,
-      ...props
-    } = this.props
+    const {className, use24hr, showSeconds, overlay} = this.props
 
     return (
       <div

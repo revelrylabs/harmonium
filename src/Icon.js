@@ -1,7 +1,15 @@
+/* eslint-disable no-console */
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 export default class Icon extends Component {
+  static propTypes = {
+    i: PropTypes.string,
+    icon: PropTypes.string,
+    className: PropTypes.string,
+  }
+
   render() {
     const {className, i, icon, ...props} = this.props
 

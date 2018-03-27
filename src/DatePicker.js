@@ -2,6 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
+import {uniqueId} from 'lodash'
 import Calendar from './DatePicker/Calendar'
 import DateInputBlock from './DatePicker/DateInputBlock'
 import InputHelpText from './InputHelpText'
@@ -17,11 +18,11 @@ function goodDateInput() {
   if (typeof window === 'undefined') {
     return true
   } else {
-    const el = document.createElement('input')
+    const element = document.createElement('input')
 
-    el.type = 'date'
-    el.value = '!)'
-    return el.value == ''
+    element.type = 'date'
+    element.value = '!)'
+    return element.value === ''
   }
 }
 
@@ -33,7 +34,7 @@ function goodDateInput() {
  * @return {boolean} true is date type inputs are well supported, false otherwise
  */
 const isFirefox = () => {
-  return /Firefox/i.test(navigator.userAgent)
+  return (/Firefox/i).test(navigator.userAgent)
 }
 
 /** A DatePicker component containing inputs and a calendar. */
@@ -43,8 +44,6 @@ class UncontrolledDatePicker extends React.Component {
    * @return {object} the default value object
    */
   static get defaultProps() {
-    const createElement = React.createElement
-
     return {
       isSelectable: () => true,
     }
@@ -197,7 +196,7 @@ class UncontrolledDatePicker extends React.Component {
    * @return {boolean} - true if on iOS or Android
    */
   useNativePicker() {
-    return typeof navigator !== 'undefined' && /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+    return typeof navigator !== 'undefined' && (/Android|iPhone|iPad|iPod/i).test(navigator.userAgent)
   }
 
   /**
@@ -277,7 +276,6 @@ class UncontrolledDatePicker extends React.Component {
       help,
       label,
       highlights,
-      isOpen,
       overrides,
       isSelectable,
       calendar,
@@ -287,20 +285,23 @@ class UncontrolledDatePicker extends React.Component {
       overlay,
       ...props
     } = this.props
-
     const createElement = createElementWithOverride.bind(this, overrides)
-
     const nativeClass = this.useNativePicker() ? 'rev-DatePicker--native' : 'rev-DatePicker--custom'
+    const inputId = uniqueId('DateInputBlock:')
 
     return (
       <label
+        htmlFor={inputId}
         className={`rev-DatePicker rev-InputLabel ${nativeClass}`}
         onMouseOver={this.mouseIn.bind(this)}
         onMouseOut={this.mouseOut.bind(this)}
+        onFocus={this.focus.bind(this)}
+        onBlur={this.blur.bind(this)}
       >
         {label}
         <DateInputBlock
           {...props}
+          id={inputId}
           error={error}
           isoValue={this.state.isoValue}
           formattedValue={this.state.formattedValue}

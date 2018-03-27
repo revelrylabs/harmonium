@@ -30,7 +30,7 @@ class AccordionItem extends Component {
     renderHiddenPanes: PropTypes.bool,
     contentKey: PropTypes.string,
     className: PropTypes.string,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+    children: PropTypes.node,
   }
 
   render() {
@@ -85,7 +85,7 @@ export default class Accordion extends Component {
     active: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
     renderHiddenPanes: PropTypes.bool,
     className: PropTypes.string,
-    children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
+    children: PropTypes.node,
   }
 
   static defaultProps = {
@@ -117,6 +117,8 @@ Accordion.Item = AccordionItem
 class StatefulAccordion extends Component {
   static propTypes = {
     defaultActive: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    multi: PropTypes.bool,
+    children: PropTypes.node,
   }
 
   constructor(props) {
@@ -140,7 +142,7 @@ class StatefulAccordion extends Component {
     const currentStatus = this.state.active[contentKey]
     const active = {...this.state.active}
 
-    active[contentKey] = !this.state.active[contentKey]
+    active[contentKey] = !currentStatus
     this.setState({active})
   }
 
@@ -153,13 +155,14 @@ class StatefulAccordion extends Component {
       if (onClick) {
         return onClick(e, ...args)
       }
+      return null
     }
 
     return cloneElement(child, {onClick: newOnClick})
   }
 
   render() {
-    const {children, defaultActive, multi, ...props} = this.props
+    const {children, ...props} = this.props
 
     return (
       <Accordion {...props} active={this.state.active}>

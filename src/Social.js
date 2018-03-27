@@ -1,4 +1,4 @@
-import React, {Component, Children, createElement} from 'react'
+import {Component, createElement} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
@@ -24,6 +24,9 @@ export default class Social extends Component {
     type: PropTypes.func.isRequired,
     url: PropTypes.string.isRequired,
     message: PropTypes.string,
+    componentClass: PropTypes.string,
+    className: PropTypes.string,
+    children: PropTypes.node,
   }
 
   static defaultProps = {
@@ -39,7 +42,7 @@ export default class Social extends Component {
 
   render() {
     // Extract props that will not pass through.
-    const {className, componentClass, url, message, children, ...props} = this.props
+    const {className, componentClass, children, ...props} = this.props
 
     const componentClassName = classNames(className, 'social')
 

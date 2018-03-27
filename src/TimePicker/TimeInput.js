@@ -1,49 +1,56 @@
 /** @jsx createElement */
-
-import classNames from 'classnames'
-import React, {createElement} from 'react'
+import {Component, createElement} from 'react'
+import PropTypes from 'prop-types'
 import Input from '../Input'
 
 /**
  * A component which contains the input for a TimePicker.
  * @param {object} props - the props of the TimeInput
  */
-const TimeInput = ({
-  className,
-  error,
-  useGoodTimeInput,
-  showSeconds,
-  formattedValue,
-  isoValue,
-  generation,
-  ...props
-}) => {
-  const inputClassName = classNames(className, 'rev-TimePicker-input', {
-    'is-invalid-input': !!error,
-    'is-invalid': !!error,
-  })
+class TimeInput extends Component {
+  static propTypes = {
+    error: PropTypes.string,
+    useGoodTimeInput: PropTypes.bool,
+    showSeconds: PropTypes.bool,
+    formattedValue: PropTypes.string,
+    isoValue: PropTypes.string,
+    generation: PropTypes.string,
+    className: PropTypes.string,
+  }
 
-  return (
-    <div>
-      <Input
-        {...props}
-        className={className}
-        step={showSeconds ? '1' : null}
-        type="time"
-        name={useGoodTimeInput ? name : null}
-        defaultValue={formattedValue}
-      />
-      {useGoodTimeInput ? null : (
+  render() {
+    const {
+      className,
+      useGoodTimeInput,
+      showSeconds,
+      formattedValue,
+      isoValue,
+      generation,
+      ...props
+    } = this.props
+
+    return (
+      <div>
         <Input
-          type="hidden"
-          name={name}
-          key={`${generation}:trueInput`}
-          value={isoValue || ''}
-          readOnly
+          {...props}
+          className={className}
+          step={showSeconds ? '1' : null}
+          type="time"
+          name={useGoodTimeInput ? name : null}
+          defaultValue={formattedValue}
         />
-      )}
-    </div>
-  )
+        {useGoodTimeInput ? null : (
+          <Input
+            type="hidden"
+            name={name}
+            key={`${generation}:trueInput`}
+            value={isoValue || ''}
+            readOnly
+          />
+        )}
+      </div>
+    )
+  }
 }
 
 export default TimeInput

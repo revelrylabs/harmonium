@@ -2,14 +2,17 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import InputLabel from './InputLabel'
-import InputHelpText from './InputHelpText'
-import InputErrors from './InputErrors'
 import CheckableFieldset from './CheckableFieldset'
 
 export default class Radio extends Component {
+  static propTypes = {
+    error: PropTypes.string,
+    label: PropTypes.string,
+    className: PropTypes.string,
+  }
 
   render() {
-    const {error, className, label, children, ...props} = this.props
+    const {error, className, label, ...props} = this.props
 
     const labelClassName = classNames(className, 'rev-Radio', {
       'is-invalid': !!error,
@@ -30,6 +33,19 @@ export default class Radio extends Component {
 }
 
 class RadioFieldset extends Component {
+  static propTypes = {
+    options: PropTypes.array.isRequired,
+    name: PropTypes.string,
+    value: PropTypes.any,
+    defaultValue: PropTypes.any,
+    label: PropTypes.string,
+    help: PropTypes.string,
+    error: PropTypes.string,
+    onChange: PropTypes.func,
+    readOnly: PropTypes.bool,
+    className: PropTypes.string,
+  }
+
   render() {
     const {
       className,
@@ -42,11 +58,11 @@ class RadioFieldset extends Component {
       error,
       onChange,
       readOnly,
-      ...rest,
+      ...rest
     } = this.props
 
-    const isControlled = value != null
-    const hasDefault = defaultValue != null
+    const isControlled = value !== null
+    const hasDefault = defaultValue !== null
 
     const radios = options.map((option) => {
       const props = {
@@ -55,20 +71,21 @@ class RadioFieldset extends Component {
         onChange,
         readOnly,
         label: option.label,
-        key: option.key || option.value,
         disabled: option.disabled,
       }
 
       props.value = option.value
 
-      if(isControlled) {
-        props.checked = value == option.value
+      if (isControlled) {
+        props.checked = value === option.value
       }
-      if(hasDefault) {
-        props.defaultChecked = defaultValue == option.value
+      if (hasDefault) {
+        props.defaultChecked = defaultValue === option.value
       }
 
-      return <Radio {...props} className="rev-RadioFieldset-radio" />
+      return (
+        <Radio key={option.key || option.value} className="rev-RadioFieldset-radio" {...props} />
+      )
     })
 
     const fieldsetClassName = classNames(className, 'rev-RadioFieldset')

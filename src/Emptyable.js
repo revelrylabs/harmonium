@@ -6,6 +6,7 @@ export default class Emptyable extends React.Component {
     return {
       componentClass: PropTypes.node,
       emptyState: PropTypes.element.isRequired,
+      children: PropTypes.node,
     }
   }
 

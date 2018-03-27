@@ -25,7 +25,7 @@ export default function configMapping(mapping, key, keyTransformer, trueValue) {
   if (mapping.call) {
     const mappedValue = mapping(key)
 
-    return mappedValue == true ? trueValue : mappedValue
+    return mappedValue === true ? trueValue : mappedValue
   } else if (mapping.length && typeof mapping.length === 'number') {
     return mapping.indexOf(keyTransformer(key)) > -1 ? trueValue : null
   } else {

@@ -4,6 +4,7 @@ import classNames from 'classnames'
 
 export default class InputErrors extends Component {
   static propTypes = {
+    className: PropTypes.string,
     children: PropTypes.node,
   }
 

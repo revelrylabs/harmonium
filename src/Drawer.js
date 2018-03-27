@@ -19,12 +19,11 @@ const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 export default class Drawer extends Component {
   static propTypes = {
     open: PropTypes.bool,
-    close: PropTypes.func,
-    expand: PropTypes.func,
     children: PropTypes.node,
     className: PropTypes.string,
     closerChildren: PropTypes.node,
     expanderChildren: PropTypes.node,
+    expanderClassName: PropTypes.string,
     expanderComponentClass: PropTypes.string,
   }
 

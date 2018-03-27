@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow} from 'enzyme'
 import Social from './Social'
 
 describe('Social', () => {
@@ -45,9 +47,11 @@ describe('Social', () => {
     }
 
     for (const service in Social.types) {
-      const social = shallow(<Social type={Social.types[service]} url="http://example.com" />)
+      if (Object.prototype.hasOwnProperty.call(Social.types, service)) {
+        const social = shallow(<Social type={Social.types[service]} url="http://example.com" />)
 
-      expect(social.find('a').prop('href')).to.contain(PATTERNS[service])
+        expect(social.find('a').prop('href')).to.contain(PATTERNS[service])
+      }
     }
   })
 })

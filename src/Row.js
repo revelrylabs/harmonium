@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
@@ -44,22 +45,26 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   middle: ['rev-Row--middle'],
   bottom: ['rev-Row--bottom'],
   stretch: ['rev-Row--stretch'],
-  flex: ['rev-Row--flex'],
 }
 
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 const NUMBER_PROPS_TO_CLASS_NAMES = {
-  smallUp: (x) => [`rev-Row--smallUp${x}`],
-  mediumUp: (x) => [`rev-Row--mediumUp${x}`],
-  largeUp: (x) => [`rev-Row--largeUp${x}`],
-  xlargeUp: (x) => [`rev-Row--xlargeUp${x}`],
-  xxlargeUp: (x) => [`rev-Row--xxlargeUp${x}`],
+  smallUp: (arg) => [`rev-Row--smallUp${arg}`],
+  mediumUp: (arg) => [`rev-Row--mediumUp${arg}`],
+  largeUp: (arg) => [`rev-Row--largeUp${arg}`],
+  xlargeUp: (arg) => [`rev-Row--xlargeUp${arg}`],
+  xxlargeUp: (arg) => [`rev-Row--xxlargeUp${arg}`],
 }
 
 const NUMBER_PROPS = Object.keys(NUMBER_PROPS_TO_CLASS_NAMES)
 
-export default class Row extends React.Component {
+export default class Row extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {children, className, ...props} = this.props
 
@@ -76,10 +81,10 @@ export default class Row extends React.Component {
 
     NUMBER_PROPS.forEach((name) => {
       const value = props[name]
-      const fn = NUMBER_PROPS_TO_CLASS_NAMES[name]
+      const func = NUMBER_PROPS_TO_CLASS_NAMES[name]
 
-      if (value != null) {
-        numberClassNames.push(fn(value))
+      if (value !== null) {
+        numberClassNames.push(func(value))
       }
       delete props[name]
     })

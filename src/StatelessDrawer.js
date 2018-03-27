@@ -61,9 +61,9 @@ export default class StatelessDrawer extends React.Component {
         open={this.props.open}
         className={newClassName}
         closer={
-          <a className="rev-Drawer-closer" onClick={this.close}>
+          <button className="rev-Drawer-closer" onClick={this.close}>
             {this.props.closerChildren}
-          </a>
+          </button>
         }
       >
         {React.createElement(

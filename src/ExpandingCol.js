@@ -1,6 +1,6 @@
 import React, {cloneElement} from 'react'
 import PropTypes from 'prop-types'
-import {Row, Col} from './grid'
+import {Col} from './grid'
 import Button from './Button'
 
 // An expanding column that manages its own state. This is to be used in
@@ -74,6 +74,7 @@ export default class ExpandingCol extends React.Component {
     children: PropTypes.node,
     className: PropTypes.string,
     closer: PropTypes.node,
+    expander: PropTypes.node,
     open: PropTypes.bool,
   }
 

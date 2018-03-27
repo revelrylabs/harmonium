@@ -1,6 +1,7 @@
+import React from 'react'
+import {shallow, mount} from 'enzyme'
 import TimeContainer from './TimeContainer'
 import {DateTime, Duration} from 'luxon'
-import sinon from 'sinon'
 import timekeeper from 'timekeeper'
 
 describe('TimeContainer', () => {

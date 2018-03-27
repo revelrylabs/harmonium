@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const PROP_TYPES = {
+  className: PropTypes.string,
   children: PropTypes.node,
 }
 

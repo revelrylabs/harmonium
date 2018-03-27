@@ -1,9 +1,10 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import {reject, uniq, contains} from 'underscore'
+
 const KEY_TAB = 9
 const KEY_ENTER = 13
 const KEY_ESC = 27
-
-import React from 'react'
-import PropTypes from 'prop-types'
 
 export default class Tokenizer extends React.Component {
   static get propTypes() {
@@ -23,6 +24,11 @@ export default class Tokenizer extends React.Component {
       getOptionComponent: PropTypes.func,
       getTokenComponent: PropTypes.func,
       getInputName: PropTypes.func,
+      name: PropTypes.string,
+      defaultValue: PropTypes.any,
+      type: PropTypes.string,
+      className: PropTypes.string,
+      children: PropTypes.node,
     }
   }
 
@@ -54,7 +60,7 @@ export default class Tokenizer extends React.Component {
 
   // Default is item.id
   getItemValue(item) {
-    return (this.props.getItemValue || ((item) => item.id))(item)
+    return (this.props.getItemValue || ((itemArg) => itemArg.id))(item)
   }
 
   getSelectedValues() {
@@ -87,13 +93,9 @@ export default class Tokenizer extends React.Component {
           value={this.getItemValue(item)}
           readOnly
         />
-        <a
-          className={this.props.removeButtonClassName}
-          href="#"
-          onClick={() => this.onRemove(item)}
-        >
+        <button className={this.props.removeButtonClassName} onClick={() => this.onRemove(item)}>
           Remove
-        </a>
+        </button>
       </li>
     )
   }
@@ -139,6 +141,98 @@ export default class Tokenizer extends React.Component {
     )
   }
 
+  isSelectKey(e) {
+    return e.keyCode === KEY_TAB || e.keyCode === KEY_ENTER
+  }
+
+  onKeyDown(e) {
+    // prevent blur, form submit, etc.
+    // unless there's no text in the box, in which case we don't worry about it
+    return this.state.optionItems.length === 0 || !this.isSelectKey(e)
+  }
+
+  onKeyUp(e) {
+    if (this.isSelectKey(e)) {
+      // Select the first item on special keypresses
+      if (this.state.optionItems.length > 0) {
+        this.onSelect(this.state.optionItems[0])
+      }
+    } else if (e.keyCode === KEY_ESC) {
+      // Esc to make the option go away
+      this.getInput().blur()
+    } else {
+      this.fetchOptions()
+    }
+
+    this.setState({
+      ignoreKeyUp: false,
+    })
+  }
+
+  onBlur() {
+    const clearOptions = () => this.setState({optionItems: []})
+
+    if (this.props.leaveOpen) {
+      return
+    }
+    // If you don't delay this a little you can't click any of the options
+    setTimeout(clearOptions, 200)
+  }
+
+  onFocus() {
+    this.fetchOptions()
+  }
+
+  clearOptions() {
+    if (this.xhr !== null) {
+      this.xhr.abort()
+    }
+    this.setState({optionItems: []})
+  }
+
+  setOptions(items) {
+    const rejectItem = (item) => contains(this.getSelectedValues(), this.getItemValue(item))
+
+    this.setState({
+      optionItems: reject(items, rejectItem),
+    })
+  }
+
+  fetchOptions() {
+    if (this.getInput().value === '') {
+      this.clearOptions()
+    } else {
+      const queryData = {}
+
+      queryData[this.props.queryParam] = this.getInput().value
+      this.xhr = $.get(this.props.remoteOptionsUrl, queryData)
+      this.xhr.done(this.setOptions.bind(this))
+    }
+  }
+
+  onSelect(item) {
+    let items = this.state.selectedItems
+    const input = this.getInput()
+
+    items.push(item)
+    items = uniq(items, null, this.getItemValue.bind(this))
+    input.value = ''
+    input.focus()
+    this.clearOptions()
+    this.setState({selectedItems: items})
+    return false
+  }
+
+  onRemove(item) {
+    const items = reject(
+      this.state.selectedItems,
+      (arg) => this.getItemValue(arg) === this.getItemValue(item)
+    )
+
+    this.setState({selectedItems: items})
+    return false
+  }
+
   render() {
     return (
       <div>
@@ -160,95 +254,5 @@ export default class Tokenizer extends React.Component {
         {this.renderOptions()}
       </div>
     )
-  }
-
-  isSelectKey(e) {
-    return e.keyCode == KEY_TAB || e.keyCode == KEY_ENTER
-  }
-
-  onKeyDown(e) {
-    // prevent blur, form submit, etc.
-    // unless there's no text in the box, in which case we don't worry about it
-    return this.state.optionItems.length == 0 || !this.isSelectKey(e)
-  }
-
-  onKeyUp(e) {
-    if (this.isSelectKey(e)) {
-      // Select the first item on special keypresses
-      if (this.state.optionItems.length > 0) {
-        this.onSelect(this.state.optionItems[0])
-      }
-    } else if (e.keyCode == KEY_ESC) {
-      // Esc to make the option go away
-      this.getInput().blur()
-    } else {
-      this.fetchOptions()
-    }
-
-    this.setState({
-      ignoreKeyUp: false,
-    })
-  }
-
-  onBlur() {
-    if (this.props.leaveOpen) {
-      return
-    }
-    // If you don't delay this a little you can't click any of the options
-    clearOptions = () => this.setState({optionItems: []})
-    setTimeout(clearOptions, 200)
-  }
-
-  onFocus() {
-    this.fetchOptions()
-  }
-
-  clearOptions() {
-    if (this.xhr != null) {
-      this.xhr.abort()
-    }
-    this.setState({optionItems: []})
-  }
-
-  setOptions(items) {
-    rejectItem = (item) => _.contains(this.getSelectedValues(), this.getItemValue(item))
-    this.setState({
-      optionItems: _.reject(items, rejectItem),
-    })
-  }
-
-  fetchOptions() {
-    if (this.getInput().value == '') {
-      this.clearOptions()
-    } else {
-      const queryData = {}
-
-      queryData[this.props.queryParam] = this.getInput().value
-      this.xhr = $.get(this.props.remoteOptionsUrl, queryData)
-      this.xhr.done(this.setOptions.bind(this))
-    }
-  }
-
-  onSelect(item) {
-    let items = this.state.selectedItems
-
-    items.push(item)
-    items = _.uniq(items, null, this.getItemValue.bind(this))
-    input = this.getInput()
-    input.value = ''
-    input.focus()
-    this.clearOptions()
-    this.setState({selectedItems: items})
-    return false
-  }
-
-  onRemove(item) {
-    const items = _.reject(
-      this.state.selectedItems,
-      (x) => this.getItemValue(x) == this.getItemValue(item)
-    )
-
-    this.setState({selectedItems: items})
-    return false
   }
 }

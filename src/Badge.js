@@ -15,6 +15,8 @@ const PROP_NAME_TO_CLASS_NAME = {
 const PROP_NAMES = Object.keys(PROP_NAME_TO_CLASS_NAME)
 const PROP_TYPES = {
   icon: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node,
 }
 
 PROP_NAMES.forEach((key) => (PROP_TYPES[key] = PropTypes.bool))

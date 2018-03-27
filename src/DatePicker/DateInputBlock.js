@@ -1,7 +1,7 @@
 /** @jsx createElement */
-
+import {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import React from 'react'
 import Input from '../Input'
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
@@ -18,46 +18,61 @@ import createElementWithOverride from '../Utilities/createElementWithOverride'
  * the client, whether date inputs are well supported on the client or not.
  * @param {object} props - the props of the DateInputBlock
  */
-const DateInputBlock = ({
-  error,
-  className,
-  goodDateInput,
-  generation,
-  overrides,
-  dateFormat,
-  isoValue,
-  formattedValue,
-  name,
-  ...props
-}) => {
-  const createElement = createElementWithOverride.bind(this, overrides)
-  const inputClassName = classNames(className, 'rev-DatePicker-input', {
-    'is-invalid-input': !!error,
-    'is-invalid': !!error,
-  })
+class DateInputBlock extends Component {
+  static propTypes = {
+    error: PropTypes.string,
+    goodDateInput: PropTypes.bool,
+    generation: PropTypes.string,
+    overrides: PropTypes.object,
+    dateFormat: PropTypes.string,
+    isoValue: PropTypes.string,
+    formattedValue: PropTypes.string,
+    name: PropTypes.string,
+    className: PropTypes.string,
+  }
 
-  return (
-    <div>
-      <Input
-        {...props}
-        className={inputClassName}
-        type={goodDateInput ? 'date' : 'text'}
-        name={goodDateInput ? name : null}
-        defaultValue={formattedValue}
-        /*         have a placeholder to avoid empty box on Firefox  */
-        placeholder={dateFormat ? dateFormat : 'mm/dd/yyyy'}
-      />
-      {goodDateInput ? null : (
+  render() {
+    const {
+      error,
+      className,
+      goodDateInput,
+      generation,
+      overrides,
+      dateFormat,
+      isoValue,
+      formattedValue,
+      name,
+      ...props
+    } = this.props
+    const createElement = createElementWithOverride.bind(this, overrides)
+    const inputClassName = classNames(className, 'rev-DatePicker-input', {
+      'is-invalid-input': !!error,
+      'is-invalid': !!error,
+    })
+
+    return (
+      <div>
         <Input
-          type="hidden"
-          name={name}
-          key={`${generation}:trueInput`}
-          value={isoValue || ''}
-          readOnly
+          {...props}
+          className={inputClassName}
+          type={goodDateInput ? 'date' : 'text'}
+          name={goodDateInput ? name : null}
+          defaultValue={formattedValue}
+          /*         have a placeholder to avoid empty box on Firefox  */
+          placeholder={dateFormat ? dateFormat : 'mm/dd/yyyy'}
         />
-      )}
-    </div>
-  )
+        {goodDateInput ? null : (
+          <Input
+            type="hidden"
+            name={name}
+            key={`${generation}:trueInput`}
+            value={isoValue || ''}
+            readOnly
+          />
+        )}
+      </div>
+    )
+  }
 }
 
 export default DateInputBlock

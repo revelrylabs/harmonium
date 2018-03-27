@@ -41,6 +41,7 @@ const CLASS_NAMES = {
 }
 
 const PROP_TYPES = {
+  className: PropTypes.string,
   children: PropTypes.node,
 }
 

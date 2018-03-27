@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
@@ -15,6 +16,11 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 export default class TopBar extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
     const propClassNames = []
@@ -29,13 +35,18 @@ export default class TopBar extends Component {
 
     return (
       <div {...props} className={newClassName}>
-        <nav role="navigation">{children}</nav>
+        <nav>{children}</nav>
       </div>
     )
   }
 }
 
 class TopBarItem extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
     const newClassName = classNames(className, 'rev-TopBar-item')

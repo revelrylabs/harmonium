@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow, mount} from 'enzyme'
 import StatelessDrawer, {Expander} from './StatelessDrawer'
 import sinon from 'sinon'
 

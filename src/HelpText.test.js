@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow} from 'enzyme'
 import HelpText from './HelpText'
 
 describe('HelpText', () => {

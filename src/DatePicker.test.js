@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow, mount} from 'enzyme'
 import Calendar from './DatePicker/Calendar'
 import DatePicker from './DatePicker'
 import Input from './Input'
@@ -92,7 +94,7 @@ describe('DatePicker', () => {
         defaultValue="2018-03-12"
         isOpen
         onChange={spy}
-        isSelectable={(date) => date.day != 1}
+        isSelectable={(date) => date.day !== 1}
       />
     )
 
@@ -126,7 +128,7 @@ describe('DatePicker', () => {
     const input = mount(
       <DatePicker
         defaultValue="2018-03-12"
-        highlights={(date) => (date.day % 2 == 0 ? '__TEST__' : '')}
+        highlights={(date) => (date.day % 2 === 0 ? '__TEST__' : '')}
         isOpen
       />
     )
@@ -136,7 +138,7 @@ describe('DatePicker', () => {
 
   it('handles a highlight function (that returns a class)', () => {
     const input = mount(
-      <DatePicker defaultValue="2018-03-12" highlights={(date) => date.day % 2 == 0} isOpen />
+      <DatePicker defaultValue="2018-03-12" highlights={(date) => date.day % 2 === 0} isOpen />
     )
 
     expect(input.find('.rev-Calendar-body-bodyCell--highlighted').exists()).to.equal(true)

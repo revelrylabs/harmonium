@@ -18,7 +18,6 @@ export default class Pagination extends Component {
     onPageClick: PropTypes.func.isRequired,
     previousPageContent: PropTypes.node,
     href: PropTypes.func,
-    showFirstLast: PropTypes.bool,
     totalPages: PropTypes.number.isRequired,
   }
 
@@ -56,7 +55,7 @@ export default class Pagination extends Component {
         <span className="ShowForSR"> page</span>
       </span>
     ),
-    href: (page) => '#',
+    href: () => '#',
     showFirstLast: true,
   }
 
@@ -116,7 +115,7 @@ export default class Pagination extends Component {
         return (
           <li key={page} className="rev-Pagination-number rev-Pagination-number--selected">
             <span className="ShowForSR">{currentPageText}</span>
-            <a>{page}</a>
+            <span>{page}</span>
           </li>
         )
       } else {

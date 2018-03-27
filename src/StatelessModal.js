@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import Icon from './Icon'
 
 export default class StatelessModal extends Component {
   static propTypes = {
     isOpen: PropTypes.bool,
     onBackgroundClick: PropTypes.func,
+    className: PropTypes.string,
+    children: PropTypes.node,
   }
 
   static defaultProps = {
@@ -27,7 +28,13 @@ export default class StatelessModal extends Component {
     if (this.props.isOpen) {
       return (
         <div className={className}>
-          <div className="rev-Modal-background" onClick={this.onBackgroundClick} />
+          <div
+            role="button"
+            className="rev-Modal-background"
+            onClick={this.onBackgroundClick}
+            onKeyPress={this.onBackgroundClick}
+            tabIndex={0}
+          />
           <div className="rev-Modal-content">{this.props.children}</div>
         </div>
       )
