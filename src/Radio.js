@@ -6,7 +6,7 @@ import CheckableFieldset from './CheckableFieldset'
 
 export default class Radio extends Component {
   static propTypes = {
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     label: PropTypes.string,
     className: PropTypes.string,
   }
@@ -40,7 +40,7 @@ class RadioFieldset extends Component {
     defaultValue: PropTypes.any,
     label: PropTypes.string,
     help: PropTypes.string,
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     onChange: PropTypes.func,
     readOnly: PropTypes.bool,
     className: PropTypes.string,
@@ -76,15 +76,19 @@ class RadioFieldset extends Component {
 
       props.value = option.value
 
-      if (isControlled) {
+      if (isControlled && option.value) {
         props.checked = value === option.value
       }
-      if (hasDefault) {
-        props.defaultChecked = defaultValue === option.value
+      if (hasDefault && option.defaultValue) {
+        props.defaultChecked = defaultValue === option.defaultValue
       }
 
       return (
-        <Radio key={option.key || option.value} className="rev-RadioFieldset-radio" {...props} />
+        <Radio
+          key={option.key || option.value}
+          className="rev-RadioFieldset-radio"
+          {...props}
+        />
       )
     })
 

@@ -7,7 +7,7 @@ import InputErrors from './InputErrors'
 
 export default class Textarea extends Component {
   static propTypes = {
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     className: PropTypes.string,
   }
 
@@ -28,7 +28,7 @@ export default class Textarea extends Component {
 
 class TextareaStack extends Component {
   static propTypes = {
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     help: PropTypes.string,
     label: PropTypes.string,
     className: PropTypes.string,

@@ -10,7 +10,7 @@ import InputHelpText from './InputHelpText'
 export default class FileInput extends Component {
   static propTypes = {
     button: PropTypes.string,
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     placeholder: PropTypes.string,
     onChange: PropTypes.func,
     className: PropTypes.string,
@@ -55,7 +55,9 @@ export default class FileInput extends Component {
           <Button tag="label" className="rev-FileInput-button">
             {button}
             <input
-              type="file" className="ShowForSR" onChange={this.onChange}
+              type="file"
+              className="ShowForSR"
+              onChange={this.onChange}
               {...props}
             />
           </Button>
@@ -67,7 +69,7 @@ export default class FileInput extends Component {
 
 class FileInputStack extends Component {
   static propTypes = {
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     help: PropTypes.string,
     label: PropTypes.string,
     className: PropTypes.string,

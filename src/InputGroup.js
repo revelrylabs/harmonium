@@ -15,7 +15,10 @@ export default class InputGroup extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <div {...props} className={classNames(className, 'input-group', 'rev-InputGroup')}>
+      <div
+        {...props}
+        className={classNames(className, 'input-group', 'rev-InputGroup')}
+      >
         {children}
       </div>
     )
@@ -32,7 +35,10 @@ class InputGroupLabel extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <span {...props} className={classNames(className, 'rev-InputGroup-label')}>
+      <span
+        {...props}
+        className={classNames(className, 'rev-InputGroup-label')}
+      >
         {children}
       </span>
     )
@@ -51,7 +57,11 @@ class InputGroupButton extends Component {
     return (
       <div
         {...props}
-        className={classNames(className, 'input-group-button', 'rev-InputGroup-button')}
+        className={classNames(
+          className,
+          'input-group-button',
+          'rev-InputGroup-button'
+        )}
       >
         {children}
       </div>
@@ -76,7 +86,7 @@ class InputGroupField extends Component {
 
 class InputGroupStack extends Component {
   static propTypes = {
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     help: PropTypes.string,
     label: PropTypes.string,
     children: PropTypes.node,

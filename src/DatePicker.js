@@ -2,7 +2,7 @@
 
 import React from 'react'
 import PropTypes from 'prop-types'
-import {uniqueId} from 'lodash'
+import {uniqueId, omit} from 'lodash'
 import Calendar from './DatePicker/Calendar'
 import DateInputBlock from './DatePicker/DateInputBlock'
 import InputHelpText from './InputHelpText'
@@ -288,6 +288,7 @@ class UncontrolledDatePicker extends React.Component {
     const createElement = createElementWithOverride.bind(this, overrides)
     const nativeClass = this.useNativePicker() ? 'rev-DatePicker--native' : 'rev-DatePicker--custom'
     const inputId = uniqueId('DateInputBlock:')
+    const dateInputBlockProps = omit(props, 'isOpen')
 
     return (
       <label
@@ -300,7 +301,7 @@ class UncontrolledDatePicker extends React.Component {
       >
         {label}
         <DateInputBlock
-          {...props}
+          {...dateInputBlockProps}
           id={inputId}
           error={error}
           isoValue={this.state.isoValue}

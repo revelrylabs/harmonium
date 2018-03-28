@@ -1,5 +1,6 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
+import {omit} from 'lodash'
 import configMapping from '../Utilities/configMapping'
 
 /**
@@ -10,7 +11,8 @@ import configMapping from '../Utilities/configMapping'
  * @returns {string} the className
  */
 function calculateMonthClass(date, currentMonth) {
-  const modifier = date.toFormat('yyyy-MM') === currentMonth ? 'thisMonth' : 'otherMonth'
+  const modifier =
+    date.toFormat('yyyy-MM') === currentMonth ? 'thisMonth' : 'otherMonth'
 
   return `rev-Calendar-body-bodyCell--${modifier}`
 }
@@ -81,8 +83,12 @@ class CalendarDay extends Component {
     currentMonth: PropTypes.string,
     date: PropTypes.object,
     dateChanger: PropTypes.func,
-    highlights: PropTypes.object,
-    isSelectable: PropTypes.bool,
+    highlights: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.func,
+      PropTypes.object,
+    ]),
+    isSelectable: PropTypes.func,
     selectedDate: PropTypes.string,
     children: PropTypes.node,
   }
@@ -98,16 +104,21 @@ class CalendarDay extends Component {
       ...props
     } = this.props
     const monthClass = calculateMonthClass(date, currentMonth)
-    const selectionClass = calculateSelectionClass(isSelectable, date, selectedDate)
+    const selectionClass = calculateSelectionClass(
+      isSelectable,
+      date,
+      selectedDate
+    )
     const highlightClass = calculateHighlightClass(date, highlights)
     const selectable = isSelectable(date)
+    const buttonProps = omit(props, 'overrides')
 
     return (
       <td
         className={`rev-Calendar-body-bodyCell ${monthClass} ${selectionClass} ${highlightClass}`}
       >
         <button
-          {...props}
+          {...buttonProps}
           onClick={dayClickHandler(isSelectable, date, dateChanger)}
           aria-label={date.toLocaleString({
             year: 'numeric',

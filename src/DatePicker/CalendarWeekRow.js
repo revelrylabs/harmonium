@@ -13,7 +13,11 @@ class CalendarWeekRow extends Component {
   static propTypes = {
     currentMonth: PropTypes.string,
     dateChanger: PropTypes.func,
-    highlights: PropTypes.object,
+    highlights: PropTypes.oneOfType([
+      PropTypes.array,
+      PropTypes.func,
+      PropTypes.object,
+    ]),
     isSelectable: PropTypes.func,
     overrides: PropTypes.object,
     selectedDate: PropTypes.any,

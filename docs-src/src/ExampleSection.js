@@ -12,16 +12,18 @@ export default function ExampleSection({title, depth, examples, scope}) {
   } else {
     const children = []
 
-    for (const title in examples) {
-      children.push(
-        <ExampleSection
-          title={title}
-          examples={examples[title]}
-          depth={depth + 1}
-          scope={scope}
-          key={title}
-        />
-      )
+    for (const examplesTitle in examples) {
+      if (Object.prototype.hasOwnProperty.call(examples, examplesTitle)) {
+        children.push(
+          <ExampleSection
+            title={examplesTitle}
+            examples={examples[examplesTitle]}
+            depth={depth + 1}
+            scope={scope}
+            key={examplesTitle}
+          />
+        )
+      }
     }
 
     return (

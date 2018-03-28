@@ -4,7 +4,7 @@ import classNames from 'classnames'
 
 export default class InputLabel extends Component {
   static propTypes = {
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     inputId: PropTypes.string,
     className: PropTypes.string,
     children: PropTypes.node,

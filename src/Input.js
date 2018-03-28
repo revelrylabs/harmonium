@@ -8,8 +8,8 @@ import InputErrors from './InputErrors'
 
 export default class Input extends Component {
   static propTypes = {
-    error: PropTypes.string,
-    inputRef: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    inputRef: PropTypes.func,
     id: PropTypes.string,
     className: PropTypes.string,
   }
@@ -36,7 +36,7 @@ export default class Input extends Component {
 
 class InputStack extends Component {
   static propTypes = {
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     help: PropTypes.string,
     label: PropTypes.string,
     className: PropTypes.string,

@@ -8,7 +8,7 @@ export default class CheckableFieldset extends Component {
   static propTypes = {
     label: PropTypes.string,
     help: PropTypes.string,
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     className: PropTypes.string,
     children: PropTypes.node,
   }
@@ -16,9 +16,14 @@ export default class CheckableFieldset extends Component {
   render() {
     const {label, className, children, help, error, ...props} = this.props
 
-    const fieldsetClassName = classNames(className, 'fieldset', 'rev-CheckableFieldset', {
-      'is-invalid-fieldset': !!error,
-    })
+    const fieldsetClassName = classNames(
+      className,
+      'fieldset',
+      'rev-CheckableFieldset',
+      {
+        'is-invalid-fieldset': !!error,
+      }
+    )
 
     const legendClassName = classNames({
       'is-invalid-label': !!error,

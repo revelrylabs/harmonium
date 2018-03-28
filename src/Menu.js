@@ -49,9 +49,9 @@ export default class Menu extends Component {
 
 export class MenuItem extends Component {
   static propTypes = {
-    text: PropTypes.string,
-    divider: PropTypes.string,
-    active: PropTypes.string,
+    text: PropTypes.bool,
+    divider: PropTypes.bool,
+    active: PropTypes.bool,
     className: PropTypes.string,
     children: PropTypes.node,
   }

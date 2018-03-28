@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {omit} from 'lodash'
 import TimeInput from './TimePicker/TimeInput'
 import TimeContainer from './TimePicker/TimeContainer'
 import InputHelpText from './InputHelpText'
@@ -258,9 +259,17 @@ class TimePicker extends React.Component {
   }
 
   render() {
-    const {label, error, help, use24hr, showSeconds, overlay, ...props} = this.props
-
+    const {
+      label,
+      error,
+      help,
+      use24hr,
+      showSeconds,
+      overlay,
+      ...props
+    } = this.props
     const nativeClass = this.useNativePicker() ? 'rev-TimePicker--native' : 'rev-TimePicker--custom'
+    const timeInputProps = omit(props, 'isOpen')
 
     return (
       <label
@@ -272,7 +281,7 @@ class TimePicker extends React.Component {
       >
         {label}
         <TimeInput
-          {...props}
+          {...timeInputProps}
           error={error}
           onFocus={this.onFocus.bind(this)}
           onBlur={this.onBlur.bind(this)}

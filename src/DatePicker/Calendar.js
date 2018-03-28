@@ -2,6 +2,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {DateTime, Duration} from 'luxon'
+import {omit} from 'lodash'
 import CalendarHeaderRow from './CalendarHeaderRow'
 import CalendarWeekRow from './CalendarWeekRow'
 import Card from '../Card'
@@ -153,11 +154,14 @@ export default class Calendar extends Component {
       ...props
     } = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
+    const divProps = omit(props, 'focuser')
 
     return (
       <div
-        {...props}
-        className={`rev-Calendar ${overlay ? 'rev-Calendar--overlay' : ''} ${className}`}
+        {...divProps}
+        className={`rev-Calendar ${
+          overlay ? 'rev-Calendar--overlay' : ''
+        } ${className}`}
       >
         <Card>
           <Card.Header className="rev-Calendar-header">

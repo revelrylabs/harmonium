@@ -7,8 +7,8 @@ import InputErrors from './InputErrors'
 
 export default class Select extends Component {
   static propTypes = {
-    options: PropTypes.node,
-    error: PropTypes.string,
+    options: PropTypes.array,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     className: PropTypes.string,
     children: PropTypes.node,
   }
@@ -42,7 +42,7 @@ class SelectStack extends Component {
   static propTypes = {
     label: PropTypes.string,
     help: PropTypes.string,
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     className: PropTypes.string,
     children: PropTypes.node,
   }

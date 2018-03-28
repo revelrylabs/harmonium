@@ -1,2 +1,2 @@
-export const Row = require('./Row')
-export const Col = require('./Col')
+export Row from './Row'
+export Col from './Col'

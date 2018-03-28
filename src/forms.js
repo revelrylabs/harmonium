@@ -1,14 +1,14 @@
-export const Form = require('./Form')
-export const AuthenticityTokenProvider = require('./AuthenticityTokenProvider')
-export const AuthenticityToken = require('./AuthenticityToken')
-export const InputLabel = require('./InputLabel')
-export const InputHelpText = require('./InputHelpText')
-export const InputErrors = require('./InputErrors')
-export const Input = require('./Input')
-export const InputGroup = require('./InputGroup')
-export const Textarea = require('./Textarea')
-export const Radio = require('./Radio')
-export const Checkbox = require('./Checkbox')
-export const Select = require('./Select')
-export const Option = require('./Option')
-export const FileInput = require('./FileInput')
+export Form from './Form'
+export AuthenticityTokenProvider from './AuthenticityTokenProvider'
+export AuthenticityToken from './AuthenticityToken'
+export InputLabel from './InputLabel'
+export InputHelpText from './InputHelpText'
+export InputErrors from './InputErrors'
+export Input from './Input'
+export InputGroup from './InputGroup'
+export Textarea from './Textarea'
+export Radio from './Radio'
+export Checkbox from './Checkbox'
+export Select from './Select'
+export Option from './Option'
+export FileInput from './FileInput'

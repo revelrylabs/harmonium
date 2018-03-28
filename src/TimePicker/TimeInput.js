@@ -9,12 +9,12 @@ import Input from '../Input'
  */
 class TimeInput extends Component {
   static propTypes = {
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     useGoodTimeInput: PropTypes.bool,
     showSeconds: PropTypes.bool,
     formattedValue: PropTypes.string,
     isoValue: PropTypes.string,
-    generation: PropTypes.string,
+    generation: PropTypes.number,
     className: PropTypes.string,
   }
 

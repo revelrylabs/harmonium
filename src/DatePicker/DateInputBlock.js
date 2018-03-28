@@ -20,9 +20,9 @@ import createElementWithOverride from '../Utilities/createElementWithOverride'
  */
 class DateInputBlock extends Component {
   static propTypes = {
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     goodDateInput: PropTypes.bool,
-    generation: PropTypes.string,
+    generation: PropTypes.number,
     overrides: PropTypes.object,
     dateFormat: PropTypes.string,
     isoValue: PropTypes.string,

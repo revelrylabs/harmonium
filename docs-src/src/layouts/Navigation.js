@@ -1,13 +1,18 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import Menu from 'awesome-possum/lib/Menu'
-import Card from 'awesome-possum/lib/Card'
 import Drawer from 'awesome-possum/lib/Drawer'
 import packageInfo from '../../../package.json'
 
 export default function Navigation() {
   return (
-    <Drawer fixed expanderChildren="+" closerChildren="+" className="DocsSiteNav" left>
+    <Drawer
+      fixed
+      expanderChildren="+"
+      closerChildren="+"
+      className="DocsSiteNav"
+      left
+    >
       <nav>
         <Link className="rev-Brand Show--mediumUp" to="/">
           <h1>Possum</h1>
@@ -172,7 +177,9 @@ export default function Navigation() {
             <Link to="/components/AuthenticityToken/">Authenticity Token</Link>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/BrowserSupportWarning/">Browser Support Warning</Link>
+            <Link to="/components/BrowserSupportWarning/">
+              Browser Support Warning
+            </Link>
           </Menu.Item>
           <Menu.Item>
             <Link to="/components/HelpText/">Help Text</Link>

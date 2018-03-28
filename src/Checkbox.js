@@ -13,7 +13,7 @@ const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 export default class Checkbox extends Component {
   static propTypes = {
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     label: PropTypes.string,
     className: PropTypes.string,
   }
@@ -31,9 +31,14 @@ export default class Checkbox extends Component {
       delete props[name]
     })
 
-    const labelClassName = classNames(className, 'rev-Checkbox', boolClassNames, {
-      'is-invalid': !!error,
-    })
+    const labelClassName = classNames(
+      className,
+      'rev-Checkbox',
+      boolClassNames,
+      {
+        'is-invalid': !!error,
+      }
+    )
 
     const inputClassName = classNames('rev-Checkbox-input', {
       'is-invalid-input': !!error,
@@ -57,7 +62,7 @@ class CheckboxFieldset extends Component {
     defaultValue: PropTypes.any,
     label: PropTypes.string,
     help: PropTypes.string,
-    error: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
     onChange: PropTypes.func,
     readOnly: PropTypes.bool,
     className: PropTypes.string,
@@ -105,8 +110,8 @@ class CheckboxFieldset extends Component {
         props.checked = !!valueLookup[option.value]
       }
       if (hasDefault) {
-        props.defaultValue = option.value
-        props.defaultChecked = !!defaultValueLookup[option.value]
+        props.defaultValue = option.defaultValue
+        props.defaultChecked = !!defaultValueLookup[option.defaultValue]
       }
       return (
         <Checkbox
