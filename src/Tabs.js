@@ -7,7 +7,7 @@ class TabsTitle extends Component {
     onClick: PropTypes.func,
     href: PropTypes.string,
     title: PropTypes.string,
-    active: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    active: PropTypes.bool,
   }
 
   render() {
@@ -28,7 +28,7 @@ class TabsTitle extends Component {
 
 class TabsPanel extends Component {
   static propTypes = {
-    active: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    active: PropTypes.bool,
     renderHiddenTabs: PropTypes.bool,
     children: PropTypes.node,
   }
@@ -36,7 +36,10 @@ class TabsPanel extends Component {
   render() {
     const {children, active, renderHiddenTabs} = this.props
 
-    const className = classNames('rev-TabsItem-panel--selected', 'rev-TabsItem-panel')
+    const className = classNames(
+      'rev-TabsItem-panel--selected',
+      'rev-TabsItem-panel'
+    )
 
     if (renderHiddenTabs) {
       if (!active) {
@@ -72,7 +75,11 @@ class TabsItem extends Component {
 
 export default class Tabs extends Component {
   static propTypes = {
-    active: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    active: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.array,
+      PropTypes.object,
+    ]),
     renderHiddenTabs: PropTypes.bool,
     className: PropTypes.string,
     children: PropTypes.node,
@@ -86,7 +93,10 @@ export default class Tabs extends Component {
       activeKey = activeKey || child.props.contentKey // default to first child
       const {contentKey} = child.props
 
-      return cloneElement(child, {active: activeKey === contentKey, renderHiddenTabs})
+      return cloneElement(child, {
+        active: activeKey === contentKey,
+        renderHiddenTabs,
+      })
     }
 
     const rewriteItemToTitle = (item) => {
@@ -109,14 +119,16 @@ export default class Tabs extends Component {
 
 class StatefulTabs extends Component {
   static propTypes = {
-    defaultActive: PropTypes.oneOfType([PropTypes.object, PropTypes.array]),
+    defaultActive: PropTypes.number,
     children: PropTypes.node,
   }
 
   constructor(props) {
     super(props)
     this.state = {
-      active: props.defaultActive || Children.toArray(props.children)[0].props.contentKey,
+      active:
+        props.defaultActive ||
+        Children.toArray(props.children)[0].props.contentKey,
     }
   }
 

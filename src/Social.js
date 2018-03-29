@@ -1,6 +1,7 @@
 import {Component, createElement} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import {omit} from 'lodash'
 
 const URL_FUNCTIONS = {
   BUFFER: (url, text) => `https://buffer.com/add?text=${text}&url=${url}`,
@@ -8,13 +9,15 @@ const URL_FUNCTIONS = {
   EMAIL: (url, text) => `mailto:?subject=${text}&body=${url}`,
   FACEBOOK: (url) => `https://www.facebook.com/sharer/sharer.php?u=${url}`,
   GOOGLE_PLUS: (url) => `https://plus.google.com/share?url=${url}`,
-  LINKEDIN: (url, text) => `https://www.linkedin.com/shareArticle?url=${url}&title=${text}`,
+  LINKEDIN: (url, text) =>
+    `https://www.linkedin.com/shareArticle?url=${url}&title=${text}`,
   PINTEREST: (url, text) =>
     `https://pinterest.com/pin/create/bookmarklet/?url=${url}&description=${text}`,
   REDDIT: (url, text) => `https://reddit.com/submit?url=${url}&title=${text}`,
   TUMBLR: (url, text) =>
     `https://www.tumblr.com/widgets/share/tool?canonicalUrl=${url}&caption=${text}`,
-  TWITTER: (url, text) => `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
+  TWITTER: (url, text) =>
+    `https://twitter.com/intent/tweet?url=${url}&text=${text}`,
 }
 
 export default class Social extends Component {
@@ -24,7 +27,7 @@ export default class Social extends Component {
     type: PropTypes.func.isRequired,
     url: PropTypes.string.isRequired,
     message: PropTypes.string,
-    componentClass: PropTypes.string,
+    componentClass: PropTypes.oneOfType([PropTypes.string, PropTypes.func]),
     className: PropTypes.string,
     children: PropTypes.node,
   }
@@ -43,11 +46,10 @@ export default class Social extends Component {
   render() {
     // Extract props that will not pass through.
     const {className, componentClass, children, ...props} = this.props
-
     const componentClassName = classNames(className, 'social')
-
+    const omittedProps = omit(props, ['url', 'message'])
     const componentProps = {
-      ...props,
+      ...omittedProps,
       href: this.href,
       rel: 'noopener noreferrer',
       target: '_blank',

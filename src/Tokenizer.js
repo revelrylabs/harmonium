@@ -85,7 +85,10 @@ export default class Tokenizer extends React.Component {
   // List item that contains @getTokenComponent(item) and a remove button
   renderToken(item) {
     return (
-      <li className={this.props.tokenClassName} key={`token-${this.getItemValue(item)}`}>
+      <li
+        className={this.props.tokenClassName}
+        key={`token-${this.getItemValue(item)}`}
+      >
         {this.getTokenComponent(item)}
         <input
           type="hidden"
@@ -93,7 +96,10 @@ export default class Tokenizer extends React.Component {
           value={this.getItemValue(item)}
           readOnly
         />
-        <button className={this.props.removeButtonClassName} onClick={() => this.onRemove(item)}>
+        <button
+          className={this.props.removeButtonClassName}
+          onClick={() => this.onRemove(item)}
+        >
           Remove
         </button>
       </li>
@@ -101,11 +107,12 @@ export default class Tokenizer extends React.Component {
   }
 
   getInput() {
-    return this.refs.input.getDOMNode()
+    return this.refs.input.getDOMNode() // eslint-disable-line react/no-string-refs
   }
 
   // List item that contains @getOptionComponent(item)
   renderOption(item) {
+    /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
     return (
       <li
         className={this.props.optionClassName}
@@ -115,6 +122,7 @@ export default class Tokenizer extends React.Component {
         {this.getOptionComponent(item)}
       </li>
     )
+    /* eslint-enable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
   }
 
   // Renders a list only if it has items
@@ -191,7 +199,8 @@ export default class Tokenizer extends React.Component {
   }
 
   setOptions(items) {
-    const rejectItem = (item) => contains(this.getSelectedValues(), this.getItemValue(item))
+    const rejectItem = (item) =>
+      contains(this.getSelectedValues(), this.getItemValue(item))
 
     this.setState({
       optionItems: reject(items, rejectItem),
@@ -239,7 +248,7 @@ export default class Tokenizer extends React.Component {
         {this.renderTokens()}
         <div className={this.props.className}>
           <input
-            ref="input"
+            ref="input" // eslint-disable-line react/no-string-refs
             type={this.props.type || 'text'}
             className={this.props.inputClassName}
             placeholder={this.props.placeholder}

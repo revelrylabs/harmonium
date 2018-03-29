@@ -83,8 +83,8 @@ class CheckboxFieldset extends Component {
       ...rest
     } = this.props
 
-    const isControlled = value !== null
-    const hasDefault = defaultValue !== null
+    const isControlled = !!value
+    const hasDefault = !!defaultValue
 
     const valueArray = value || []
     const defaultValueArray = defaultValue || []

@@ -61,8 +61,8 @@ class RadioFieldset extends Component {
       ...rest
     } = this.props
 
-    const isControlled = value !== null
-    const hasDefault = defaultValue !== null
+    const isControlled = !!value
+    const hasDefault = !!defaultValue
 
     const radios = options.map((option) => {
       const props = {
@@ -76,10 +76,10 @@ class RadioFieldset extends Component {
 
       props.value = option.value
 
-      if (isControlled && option.value) {
+      if (isControlled) {
         props.checked = value === option.value
       }
-      if (hasDefault && option.defaultValue) {
+      if (hasDefault) {
         props.defaultChecked = defaultValue === option.defaultValue
       }
 

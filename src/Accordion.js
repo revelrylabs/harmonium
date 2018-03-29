@@ -1,6 +1,7 @@
 import React, {Children, cloneElement, Component} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import {omit} from 'lodash'
 
 // Converts string or array of strings to string-to-bool object mapping
 // "one" -> {one: true}
@@ -26,9 +27,13 @@ class AccordionItem extends Component {
     onClick: PropTypes.func,
     href: PropTypes.string,
     title: PropTypes.string,
-    active: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    active: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.array,
+      PropTypes.object,
+    ]),
     renderHiddenPanes: PropTypes.bool,
-    contentKey: PropTypes.string,
+    contentKey: PropTypes.number,
     className: PropTypes.string,
     children: PropTypes.node,
   }
@@ -44,22 +49,20 @@ class AccordionItem extends Component {
       renderHiddenPanes,
       ...props
     } = this.props
-
     const liClassName = classNames(className, 'rev-AccordionItem', {
       'rev-AccordionItem--selected': active,
     })
-
     const aClassName = classNames('rev-AccordionItem-title', {
       'rev-AccordionItem-title--selected': active,
     })
-
     const divClassName = classNames('rev-AccordionItem-content', {
       'rev-AccordionItem-content--selected': active,
     })
+    const liProps = omit(props, ['contentKey', 'mappedActive'])
 
     if (!active && !renderHiddenPanes) {
       return (
-        <li {...props} className={liClassName}>
+        <li {...liProps} className={liClassName}>
           <a className={aClassName} href={href || '#'} onClick={onClick}>
             {title}
           </a>
@@ -70,7 +73,7 @@ class AccordionItem extends Component {
     const div = <div className={divClassName}>{children}</div>
 
     return (
-      <li {...props} className={liClassName}>
+      <li {...liProps} className={liClassName}>
         <a className={aClassName} href={href || '#'} onClick={onClick}>
           {title}
         </a>
@@ -82,7 +85,11 @@ class AccordionItem extends Component {
 
 export default class Accordion extends Component {
   static propTypes = {
-    active: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    active: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.array,
+      PropTypes.object,
+    ]),
     renderHiddenPanes: PropTypes.bool,
     className: PropTypes.string,
     children: PropTypes.node,
@@ -97,15 +104,16 @@ export default class Accordion extends Component {
     const activeMap = activeToObject(active)
     const mappedActive = activeMap[child.props.contentKey] || false
 
-    return cloneElement(child, {mappedActive, renderHiddenPanes})
+    return cloneElement(child, {active: mappedActive, renderHiddenPanes})
   }
 
   render() {
     const {children, className, ...props} = this.props
     const ulClassName = classNames(className, 'rev-Accordion')
+    const ulProps = omit(props, ['active', 'defaultActive', 'multi'])
 
     return (
-      <ul {...props} className={ulClassName}>
+      <ul {...ulProps} className={ulClassName}>
         {Children.map(children, this.rewriteChild)}
       </ul>
     )
@@ -116,7 +124,7 @@ Accordion.Item = AccordionItem
 
 class StatefulAccordion extends Component {
   static propTypes = {
-    defaultActive: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+    defaultActive: PropTypes.number,
     multi: PropTypes.bool,
     children: PropTypes.node,
   }

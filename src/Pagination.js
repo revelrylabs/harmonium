@@ -40,7 +40,8 @@ export default class Pagination extends Component {
       </span>
     ),
     maxViewPages: 5,
-    mobilePageListText: (currentPage, totalPages) => `Page ${currentPage} of ${totalPages}`,
+    mobilePageListText: (currentPage, totalPages) =>
+      `Page ${currentPage} of ${totalPages}`,
     nextPageContent: (
       <span>
         Next
@@ -113,9 +114,14 @@ export default class Pagination extends Component {
 
       if (page === currentPage) {
         return (
-          <li key={page} className="rev-Pagination-number rev-Pagination-number--selected">
+          <li
+            key={page}
+            className="rev-Pagination-number rev-Pagination-number--selected"
+          >
             <span className="ShowForSR">{currentPageText}</span>
-            <span>{page}</span>
+            {/* eslint-disable jsx-a11y/anchor-is-valid */}
+            <a>{page}</a>
+            {/* eslint-enable jsx-a11y/anchor-is-valid */}
           </li>
         )
       } else {
@@ -160,21 +166,33 @@ export default class Pagination extends Component {
     } = this.props
     const {beginArrows, endArrows, start, end} = this.getAttributes()
     const beginArrowsClass = this.getArrowClass(beginArrows, currentPage === 1)
-    const endArrowsClass = this.getArrowClass(endArrows, currentPage === totalPages)
+    const endArrowsClass = this.getArrowClass(
+      endArrows,
+      currentPage === totalPages
+    )
 
     if (totalPages === 1) {
       return null
     } else {
       return (
-        <div className={classNames('rev-PaginationWrapper', this.props.className)}>
-          <ul className="rev-Pagination" role="navigation" aria-label="Pagination">
+        <div
+          className={classNames('rev-PaginationWrapper', this.props.className)}
+        >
+          <ul
+            className="rev-Pagination"
+            role="navigation"
+            aria-label="Pagination"
+          >
             <li className={beginArrowsClass}>
               <a href={href(1)} onClick={this.createClickHandler(1)}>
                 {firstPageContent}
               </a>
             </li>
             <li className={beginArrowsClass}>
-              <a href={href(currentPage - 1)} onClick={this.createClickHandler(currentPage - 1)}>
+              <a
+                href={href(currentPage - 1)}
+                onClick={this.createClickHandler(currentPage - 1)}
+              >
                 {previousPageContent}
               </a>
             </li>
@@ -196,18 +214,26 @@ export default class Pagination extends Component {
               ...
             </li>
             <li className={endArrowsClass}>
-              <a href={href(currentPage + 1)} onClick={this.createClickHandler(currentPage + 1)}>
+              <a
+                href={href(currentPage + 1)}
+                onClick={this.createClickHandler(currentPage + 1)}
+              >
                 {nextPageContent}
               </a>
             </li>
             <li className={endArrowsClass}>
-              <a href={href(totalPages)} onClick={this.createClickHandler(totalPages)}>
+              <a
+                href={href(totalPages)}
+                onClick={this.createClickHandler(totalPages)}
+              >
                 {lastPageContent}
               </a>
             </li>
           </ul>
           <div className="rev-PaginationWrapper-pageList">
-            <span className="Small">( {mobilePageListText(currentPage, totalPages)} )</span>
+            <span className="Small">
+              ( {mobilePageListText(currentPage, totalPages)} )
+            </span>
           </div>
         </div>
       )

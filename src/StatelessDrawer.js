@@ -61,9 +61,11 @@ export default class StatelessDrawer extends React.Component {
         open={this.props.open}
         className={newClassName}
         closer={
-          <button className="rev-Drawer-closer" onClick={this.close}>
+          /* eslint-disable jsx-a11y/anchor-is-valid, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
+          <a className="rev-Drawer-closer" onClick={this.close}>
             {this.props.closerChildren}
-          </button>
+          </a>
+          /* eslint-enable jsx-a11y/anchor-is-valid, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
         }
       >
         {React.createElement(
