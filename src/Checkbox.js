@@ -111,7 +111,7 @@ class CheckboxFieldset extends Component {
       }
       if (hasDefault) {
         props.defaultValue = option.defaultValue
-        props.defaultChecked = !!defaultValueLookup[option.defaultValue]
+        props.defaultChecked = !!defaultValueLookup[option.value]
       }
       return (
         <Checkbox

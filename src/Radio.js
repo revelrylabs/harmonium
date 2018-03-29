@@ -80,7 +80,7 @@ class RadioFieldset extends Component {
         props.checked = value === option.value
       }
       if (hasDefault) {
-        props.defaultChecked = defaultValue === option.defaultValue
+        props.defaultChecked = defaultValue === option.value
       }
 
       return (
