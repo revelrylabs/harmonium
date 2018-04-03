@@ -71,14 +71,18 @@ class StatefulSticky extends Component {
     const stickyContent = this.stickyContent
     const contentTop = stickyContent.getBoundingClientRect().top
     const contentBottom = contentTop + stickyContent.offsetHeight
+
     const stickyContainer = this.stickyContainer
     const containerTop = stickyContainer.getBoundingClientRect().top
     const containerBottom = containerTop + stickyContainer.offsetHeight
+
+    const stickyStartPoint = this.props.offset ? containerTop + this.parsePxValue(this.props.offset)
+                                               : containerTop
     const stickyStopPoint = containerBottom - stickyContent.offsetHeight
 
-    if (containerTop <= 0 && stickyStopPoint > 0) {
-      const sideBorders = parseInt(this.stickyContainer.style.borderRightWidth.replace('px', ''))
-                        + parseInt(this.stickyContainer.style.borderLeftWidth.replace('px', ''))
+    if (stickyStartPoint <= 0 && stickyStopPoint > 0) {
+      const sideBorders = this.parsePxValue(this.stickyContainer.style.borderRightWidth)
+                        + this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
 
       // this is to force the fixed div holding the sticky content
       // to not break out of the sticky container since fixed
@@ -106,8 +110,17 @@ class StatefulSticky extends Component {
     window.addEventListener('scroll', this.setContentState.bind(this))
   }
 
+  parsePxValue(value) {
+    return parseInt(value.replace('px', ''))
+  }
+
   render() {
-    const {children, className, ...props} = this.props
+    const {
+      children,
+      className,
+      offset,
+      ...props
+    } = this.props
 
     return (
       <Sticky
