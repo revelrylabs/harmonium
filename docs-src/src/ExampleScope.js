@@ -33,6 +33,7 @@ import InputGroup from 'awesome-possum/lib/InputGroup'
 import InputHelpText from 'awesome-possum/lib/InputHelpText'
 import InputLabel from 'awesome-possum/lib/InputLabel'
 import Lipsum from 'awesome-possum/lib/Lipsum'
+import Loader from 'awesome-possum/lib/Loader'
 import MediaObject from 'awesome-possum/lib/MediaObject'
 import Menu from 'awesome-possum/lib/Menu'
 import Modal from 'awesome-possum/lib/Modal'
@@ -92,6 +93,7 @@ export default {
   InputHelpText: InputHelpText,
   InputLabel: InputLabel,
   Lipsum: Lipsum,
+  Loader: Loader,
   MediaObject: MediaObject,
   Menu: Menu,
   Modal: Modal,

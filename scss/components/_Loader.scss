@@ -1,0 +1,46 @@
+.rev-Loader {
+  // The `animation` attribute enables the `border` we will create to forever
+  // spin, abiding intervals of two seconds.
+  animation: spin 2s linear infinite;
+  // The `border` property specifies the size and color of our `<Loader />`.
+  // border: 16px solid #f3f3f3; // Light grey
+  border: 16px solid $lighter-gray; // Light grey
+  // border-top: 16px solid #3498db; // Blue
+  border-top: 16px solid $brand; // Blue
+  // The `border-radius` property transforms our `<Loader />` into a circle.
+  border-radius: 50%;
+  // The size of our `<Loader />` is specified by way of the `width` and
+  // `height` properties.
+  height: 120px;
+  width: 120px;
+
+  &--small {
+    border-width: 2px;
+    height: 17px;
+    width: 17px;
+  }
+  &--medium {
+    border-width: 4px;
+    height: 32px;
+    width: 32px;
+  }
+  &--large {
+    border-width: 12px;
+    height: 88px;
+    width: 88px;
+  }
+  &--huge {
+    border-width: 16px;
+    height: 120px;
+    width: 120px;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

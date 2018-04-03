@@ -24,7 +24,7 @@
     "develop": "gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write 'src/**/*.js'",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "cache:rebuild": "rm node_modules/awesome-possum || yarn cache clean && yarn install --force",
+    "cache:rebuild": "rm -r node_modules || rm -r package-lock.json || yarn cache clean && yarn install --force",
     "postinstall": "ln -s ../.. node_modules/awesome-possum"
   },
   "devDependencies": {
