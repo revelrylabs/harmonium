@@ -5,6 +5,7 @@ import scope from '../../ExampleScope'
 const examples = {
   'Stateless': require('raw!../../examples/Sticky/Stateless.js.example'),
   'Stateful': require('raw!../../examples/Sticky/Stateful.js.example'),
+  'With Offset': require('raw!../../examples/Sticky/Offset.js.example'),
 }
 
 export default class StickyExamplePage extends Component {
