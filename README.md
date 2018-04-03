@@ -21,9 +21,9 @@ npm install --save awesome-possum
 You can import components and use components from the toolkit like:
 
 ```jsx
-import Col from 'possum/lib/Col'
-import Row from 'possum/lib/Row'
-import Callout from 'possum/lib/Callout'
+import Col from 'awesome-possum/lib/Col'
+import Row from 'awesome-possum/lib/Row'
+import Callout from 'awesome-possum/lib/Callout'
 
 function Hello() {
   return (
@@ -43,7 +43,7 @@ use the components in your projects.
 
 We don't just provide JavaScript. We've built a set of SCSS styles for all the
 components. It is in the `scss` directory of the package. You can either copy it
-into your project's SCSS directory, or use a tool like sassy-npm-importer to
+into your project's SCSS directory, or use a tool like [`sassy-npm-importer`](https://github.com/revelrylabs/sassy-npm-importer) to
 import it from the package.
 
 ## Configuration

@@ -24,6 +24,17 @@ function goodDateInput() {
   }
 }
 
+/**
+ * Return true if Firefox browser
+ * Date type inputs are supported on Firefox but not possible to 
+ * prevent the native calendar popup dialog, resulting in two calendars
+ * showing. Need to default to type text input.
+ * @return {boolean} true is date type inputs are well supported, false otherwise
+ */
+const isFirefox = () => {
+  return /Firefox/i.test(navigator.userAgent);
+}
+
 /** A DatePicker component containing inputs and a calendar. */
 class UncontrolledDatePicker extends React.Component {
   /**
@@ -48,7 +59,7 @@ class UncontrolledDatePicker extends React.Component {
     super(props)
     // On platforms with poor date input support, or when non-standard format is
     // specified, we have to fall back to a text type input
-    this.goodDateInput = goodDateInput() && !this.props.dateFormat
+    this.goodDateInput = goodDateInput() && !this.props.dateFormat && !isFirefox()
     this.state = {
       isOpen: this.props.isOpen || false,
       focused: false,
