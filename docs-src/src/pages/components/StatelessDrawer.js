@@ -10,8 +10,12 @@ export default class StatelessDrawerExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="StatelessDrawer" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="StatelessDrawer"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

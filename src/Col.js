@@ -41,7 +41,10 @@ const NUMBER_PROPS_TO_CLASS_NAMES = {
   xxlarge: (arg) => [`xxlarge-${arg}`, `rev-Col--xxlarge${arg}`],
 
   smallOffset: (arg) => [`small-offset-${arg}`, `rev-Col--smallOffset${arg}`],
-  mediumOffset: (arg) => [`medium-offset-${arg}`, `rev-Col--mediumOffset${arg}`],
+  mediumOffset: (arg) => [
+    `medium-offset-${arg}`,
+    `rev-Col--mediumOffset${arg}`,
+  ],
   largeOffset: (arg) => [`large-offset-${arg}`, `rev-Col--largeOffset${arg}`],
 
   smallPush: (arg) => [`small-push-${arg}`, `rev-Col--smallPush${arg}`],

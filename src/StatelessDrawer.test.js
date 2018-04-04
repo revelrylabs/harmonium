@@ -36,23 +36,31 @@ describe('StatelessDrawer', () => {
     const drawer = mount(<StatelessDrawer left />)
     const expander = drawer.find(Expander)
 
-    expect(expander.find('.rev-Drawer').prop('className')).to.not.contain('rev-Drawer--open')
+    expect(expander.find('.rev-Drawer').prop('className')).to.not.contain(
+      'rev-Drawer--open'
+    )
 
     drawer.setProps({open: true})
     drawer.update()
 
-    expect(drawer.find('.rev-Drawer').prop('className')).to.contain('rev-Drawer--open')
+    expect(drawer.find('.rev-Drawer').prop('className')).to.contain(
+      'rev-Drawer--open'
+    )
 
     drawer.setProps({open: false})
     drawer.update()
 
-    expect(expander.find('.rev-Drawer').prop('className')).to.not.contain('rev-Drawer--open')
+    expect(expander.find('.rev-Drawer').prop('className')).to.not.contain(
+      'rev-Drawer--open'
+    )
   })
 
   it('should add className to child', () => {
     const testClassName = '__TEST__'
 
-    const input = shallow(<StatelessDrawer className={testClassName} />).find(`.${testClassName}`)
+    const input = shallow(<StatelessDrawer className={testClassName} />).find(
+      `.${testClassName}`
+    )
 
     expect(input.exists()).to.equal(true)
   })

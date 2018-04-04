@@ -14,8 +14,12 @@ export default class LoaderExamplePage extends Component {
   render() {
     return (
       <div className="rev-Row rev-Row--collapse">
-        <ExampleSection title="Loader" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Loader"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

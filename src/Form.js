@@ -39,7 +39,9 @@ export default class Form extends Component {
     return (
       <form {...props} className={formClassName} method={actualMethod}>
         <AuthenticityToken />
-        {overrideMethod && <input type="hidden" name={methodOverrideInputName} value={method} />}
+        {overrideMethod && (
+          <input type="hidden" name={methodOverrideInputName} value={method} />
+        )}
         {children}
       </form>
     )

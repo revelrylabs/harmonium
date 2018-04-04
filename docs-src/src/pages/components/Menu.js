@@ -13,8 +13,12 @@ export default class MenuExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Menus" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Menus"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

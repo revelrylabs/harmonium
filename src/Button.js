@@ -48,9 +48,14 @@ export default class Button extends Component {
     const {disabled, href} = props
 
     // Finish building the classNAme
-    const buttonClassName = classNames(className, 'rev-Button', boolClassNames, {
-      disabled,
-    })
+    const buttonClassName = classNames(
+      className,
+      'rev-Button',
+      boolClassNames,
+      {
+        disabled,
+      }
+    )
 
     // Modify underlying tag to suit props.
     const component = tag || (href ? 'a' : 'button')
@@ -67,6 +72,10 @@ export default class Button extends Component {
     }
 
     // Finish
-    return createElement(component, {...props, className: buttonClassName}, newChildren)
+    return createElement(
+      component,
+      {...props, className: buttonClassName},
+      newChildren
+    )
   }
 }

@@ -13,7 +13,9 @@ describe('TimePicker', () => {
   it('should add className to child', () => {
     const testClassName = '__TEST__'
 
-    const input = shallow(<TimePicker className={testClassName} />).find(`.${testClassName}`)
+    const input = shallow(<TimePicker className={testClassName} />).find(
+      `.${testClassName}`
+    )
 
     expect(input.exists()).to.equal(true)
   })
@@ -53,7 +55,9 @@ describe('TimePicker', () => {
 
   it('should translate clicks on ticker buttons into changes', () => {
     const spy = sinon.spy()
-    const input = mount(<TimePicker defaultValue="12:00" isOpen onChange={spy} />)
+    const input = mount(
+      <TimePicker defaultValue="12:00" isOpen onChange={spy} />
+    )
 
     input
       .find('.rev-TimeTicker')
@@ -82,7 +86,9 @@ describe('TimePicker', () => {
       .simulate('focus')
     input.update()
 
-    expect(input.find(TimeContainer).prop('className')).to.contain('rev-TimeContainer--open')
+    expect(input.find(TimeContainer).prop('className')).to.contain(
+      'rev-TimeContainer--open'
+    )
     expect(focusSpy.called).to.equal(true)
     expect(blurSpy.called).to.equal(false)
 
@@ -92,7 +98,9 @@ describe('TimePicker', () => {
       .simulate('blur')
     input.update()
 
-    expect(input.find(TimeContainer).prop('className')).to.contain('rev-TimeContainer--closed')
+    expect(input.find(TimeContainer).prop('className')).to.contain(
+      'rev-TimeContainer--closed'
+    )
     expect(blurSpy.called).to.equal(true)
   })
 
@@ -104,10 +112,14 @@ describe('TimePicker', () => {
     input.find('input').simulate('blur')
     input.update()
 
-    expect(input.find(TimeContainer).prop('className')).to.contain('rev-TimeContainer--open')
+    expect(input.find(TimeContainer).prop('className')).to.contain(
+      'rev-TimeContainer--open'
+    )
 
     input.find('label').simulate('mouseOut')
     input.update()
-    expect(input.find(TimeContainer).prop('className')).to.contain('rev-TimeContainer--closed')
+    expect(input.find(TimeContainer).prop('className')).to.contain(
+      'rev-TimeContainer--closed'
+    )
   })
 })

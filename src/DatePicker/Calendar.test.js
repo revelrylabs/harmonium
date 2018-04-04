@@ -15,7 +15,9 @@ describe('Calendar', () => {
       year: 'numeric',
     })
 
-    expect(calendar.find('.rev-Calendar-header-label').text()).to.contain(monthString)
+    expect(calendar.find('.rev-Calendar-header-label').text()).to.contain(
+      monthString
+    )
   })
 
   it('treats invalid dates as today', () => {
@@ -25,7 +27,9 @@ describe('Calendar', () => {
       year: 'numeric',
     })
 
-    expect(calendar.find('.rev-Calendar-header-label').text()).to.contain(monthString)
+    expect(calendar.find('.rev-Calendar-header-label').text()).to.contain(
+      monthString
+    )
   })
 
   it('can advance a month backward', () => {
@@ -38,7 +42,9 @@ describe('Calendar', () => {
       .minus(Duration.fromObject({month: 1}))
       .toLocaleString({month: 'short', year: 'numeric'})
 
-    expect(calendar.find('.rev-Calendar-header-label').text()).to.contain(monthString)
+    expect(calendar.find('.rev-Calendar-header-label').text()).to.contain(
+      monthString
+    )
   })
 
   it('can advance a month forward', () => {
@@ -52,6 +58,8 @@ describe('Calendar', () => {
       .plus(Duration.fromObject({month: 1}))
       .toLocaleString({month: 'short', year: 'numeric'})
 
-    expect(calendar.find('.rev-Calendar-header-label').text()).to.contain(monthString)
+    expect(calendar.find('.rev-Calendar-header-label').text()).to.contain(
+      monthString
+    )
   })
 })

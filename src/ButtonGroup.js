@@ -39,7 +39,11 @@ export default class ButtonGroup extends React.Component {
       delete props[name]
     })
 
-    const divClassName = classNames(className, 'rev-ButtonGroup', boolClassNames)
+    const divClassName = classNames(
+      className,
+      'rev-ButtonGroup',
+      boolClassNames
+    )
 
     return (
       <div {...props} className={divClassName}>

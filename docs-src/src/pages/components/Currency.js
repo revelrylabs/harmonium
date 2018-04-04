@@ -10,8 +10,12 @@ export default class CurrencyExamplePage extends Component {
   render() {
     return (
       <div className="rev-Row rev-Row--collapse">
-        <ExampleSection title="Currency" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Currency"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

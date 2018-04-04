@@ -12,8 +12,12 @@ export default class ModalExamplePage extends Component {
     return (
       <div className="playgroundPreview--FakeViewportContainer">
         <div>
-          <ExampleSection title="Modals" examples={examples} depth={1}
-scope={scope} />
+          <ExampleSection
+            title="Modals"
+            examples={examples}
+            depth={1}
+            scope={scope}
+          />
         </div>
       </div>
     )

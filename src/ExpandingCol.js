@@ -79,11 +79,21 @@ export default class ExpandingCol extends React.Component {
   }
 
   render() {
-    const {children, closer, expander, open, className, ...remainingProps} = this.props
+    const {
+      children,
+      closer,
+      expander,
+      open,
+      className,
+      ...remainingProps
+    } = this.props
     const openClass = open ? 'is-open' : 'is-closed'
 
     return (
-      <Col {...remainingProps} className={`rev-ExpandingCol-pane ${className} ${openClass}`}>
+      <Col
+        {...remainingProps}
+        className={`rev-ExpandingCol-pane ${className} ${openClass}`}
+      >
         {open ? closer : expander}
         <div className="rev-ExpandingCol-pane-content">{children}</div>
       </Col>

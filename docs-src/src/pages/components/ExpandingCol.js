@@ -11,8 +11,12 @@ export default class ExpandingColExamplePage extends Component {
   render() {
     return (
       <div className="Columns">
-        <ExampleSection title="Expanding Columns" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Expanding Columns"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

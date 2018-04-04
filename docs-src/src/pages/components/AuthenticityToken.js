@@ -14,8 +14,12 @@ export default class AuthenticityTokenExamplePage extends Component {
   render() {
     return (
       <div className="rev-Row rev-Row--collapse">
-        <ExampleSection title="Authenticity Tokens" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Authenticity Tokens"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

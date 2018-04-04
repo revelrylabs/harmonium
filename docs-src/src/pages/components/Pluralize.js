@@ -10,8 +10,12 @@ export default class PluralizeExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Pluralize" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Pluralize"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

@@ -12,8 +12,12 @@ export default class InputExamplePage extends Component {
   render() {
     return (
       <div className="rev-Row rev-Row--collapse">
-        <ExampleSection title="Inputs" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Inputs"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

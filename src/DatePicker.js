@@ -59,7 +59,8 @@ class UncontrolledDatePicker extends React.Component {
     super(props)
     // On platforms with poor date input support, or when non-standard format is
     // specified, we have to fall back to a text type input
-    this.goodDateInput = goodDateInput() && !this.props.dateFormat && !isFirefox()
+    this.goodDateInput =
+      goodDateInput() && !this.props.dateFormat && !isFirefox()
     this.state = {
       isOpen: this.props.isOpen || false,
       focused: false,
@@ -128,7 +129,10 @@ class UncontrolledDatePicker extends React.Component {
    */
   onChange(event) {
     // Take whatever format the input gave us, and turn it into an ISO date string
-    const asISO = DateTime.fromFormat(event.target.value, this.dateFormat).toISODate()
+    const asISO = DateTime.fromFormat(
+      event.target.value,
+      this.dateFormat
+    ).toISODate()
 
     if (this.props.onChange) {
       // Call into an onChange we got as props
@@ -149,7 +153,9 @@ class UncontrolledDatePicker extends React.Component {
   get dateFormat() {
     // TODO: detect locale default format string and use that instead of
     //   hardcoded 'MM/dd/yyyy'
-    return this.goodDateInput ? 'yyyy-MM-dd' : this.props.dateFormat || 'MM/dd/yyyy'
+    return this.goodDateInput ?
+      'yyyy-MM-dd' :
+      this.props.dateFormat || 'MM/dd/yyyy'
   }
 
   /**
@@ -196,7 +202,10 @@ class UncontrolledDatePicker extends React.Component {
    * @return {boolean} - true if on iOS or Android
    */
   useNativePicker() {
-    return typeof navigator !== 'undefined' && (/Android|iPhone|iPad|iPod/i).test(navigator.userAgent)
+    return (
+      typeof navigator !== 'undefined' &&
+      (/Android|iPhone|iPad|iPod/i).test(navigator.userAgent)
+    )
   }
 
   /**
@@ -286,7 +295,9 @@ class UncontrolledDatePicker extends React.Component {
       ...props
     } = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
-    const nativeClass = this.useNativePicker() ? 'rev-DatePicker--native' : 'rev-DatePicker--custom'
+    const nativeClass = this.useNativePicker() ?
+      'rev-DatePicker--native' :
+      'rev-DatePicker--custom'
     const inputId = uniqueId('DateInputBlock:')
     const dateInputBlockProps = omit(props, 'isOpen')
 
@@ -328,7 +339,9 @@ class UncontrolledDatePicker extends React.Component {
           {...calendar}
           day={day}
           headerDay={headerDay}
-          className={this.calendarOpened ? 'rev-Calendar--open' : 'rev-Calendar--closed'}
+          className={
+            this.calendarOpened ? 'rev-Calendar--open' : 'rev-Calendar--closed'
+          }
         />
       </label>
     )

@@ -10,8 +10,12 @@ export default class ProgressExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Progress" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Progress"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

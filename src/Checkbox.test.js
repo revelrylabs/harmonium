@@ -38,7 +38,9 @@ describe('Checkbox.Fieldset', () => {
   })
 
   it('handles the controlled case', () => {
-    const fieldset = shallow(<Checkbox.Fieldset options={options} value={['L']} />)
+    const fieldset = shallow(
+      <Checkbox.Fieldset options={options} value={['L']} />
+    )
 
     expect(
       fieldset
@@ -49,7 +51,9 @@ describe('Checkbox.Fieldset', () => {
   })
 
   it('handles default values', () => {
-    const fieldset = shallow(<Checkbox.Fieldset options={options} defaultValue={['L']} />)
+    const fieldset = shallow(
+      <Checkbox.Fieldset options={options} defaultValue={['L']} />
+    )
 
     expect(
       fieldset

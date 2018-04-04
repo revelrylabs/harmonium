@@ -12,8 +12,12 @@ export default class DrawerExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Drawer" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Drawer"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

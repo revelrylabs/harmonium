@@ -17,8 +17,12 @@ export default class TimePickerExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Time Picker" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Time Picker"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

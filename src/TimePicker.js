@@ -112,7 +112,10 @@ class TimePicker extends React.Component {
    */
   onChange(event) {
     // Take whatever format the input gave us, and turn it into an ISO time string
-    const asISO = DateTime.fromFormat(event.target.value, this.timeFormat).toISOTime()
+    const asISO = DateTime.fromFormat(
+      event.target.value,
+      this.timeFormat
+    ).toISOTime()
 
     if (this.props.onChange) {
       // Call into an onChange we got as props
@@ -220,7 +223,10 @@ class TimePicker extends React.Component {
    * @return {boolean} - true if on iOS or Android
    */
   useNativePicker() {
-    return typeof navigator !== 'undefined' && (/Android|iPhone|iPad|iPod/i).test(navigator.userAgent)
+    return (
+      typeof navigator !== 'undefined' &&
+      (/Android|iPhone|iPad|iPod/i).test(navigator.userAgent)
+    )
   }
 
   /**
@@ -268,7 +274,9 @@ class TimePicker extends React.Component {
       overlay,
       ...props
     } = this.props
-    const nativeClass = this.useNativePicker() ? 'rev-TimePicker--native' : 'rev-TimePicker--custom'
+    const nativeClass = this.useNativePicker() ?
+      'rev-TimePicker--native' :
+      'rev-TimePicker--custom'
     const timeInputProps = omit(props, 'isOpen')
 
     return (
@@ -296,7 +304,11 @@ class TimePicker extends React.Component {
         <InputErrors>{error}</InputErrors>
         <TimeContainer
           {...props}
-          className={this.isContainerOpen ? 'rev-TimeContainer--open' : 'rev-TimeContainer--closed'}
+          className={
+            this.isContainerOpen ?
+              'rev-TimeContainer--open' :
+              'rev-TimeContainer--closed'
+          }
           selectedTime={this.state.isoValue}
           updateTime={this.updateTime.bind(this)}
           refocusOnClick={this.refocusOnClick.bind(this)}

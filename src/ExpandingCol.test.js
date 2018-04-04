@@ -27,7 +27,9 @@ describe('ExpandingColStateContainer', () => {
   })
 
   it('should be openable and closeable', () => {
-    const container = mount(<ExpandingColStateContainer>Test</ExpandingColStateContainer>)
+    const container = mount(
+      <ExpandingColStateContainer>Test</ExpandingColStateContainer>
+    )
     const expander = container.find('.rev-ExpandingCol-expander').first()
 
     expander.simulate('click')

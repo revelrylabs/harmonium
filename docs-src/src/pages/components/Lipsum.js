@@ -10,8 +10,12 @@ export default class LipsumExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Lipsum" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Lipsum"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }
