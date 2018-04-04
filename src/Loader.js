@@ -1,6 +1,19 @@
-import React, {Component} from 'react'
-// import classNames from 'classnames'
-import {omit, gt, has, reduce, without} from 'lodash'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import { omit, defaultTo, gt, has, reduce, without } from 'lodash'
+
+const PROP_TYPES = {
+  borderWidth: PropTypes.string,
+  children: PropTypes.element,
+  color: PropTypes.string,
+  duration: PropTypes.string,
+  huge: PropTypes.bool,
+  large: PropTypes.bool,
+  medium: PropTypes.bool,
+  secondaryColor: PropTypes.string,
+  size: PropTypes.string,
+  small: PropTypes.bool
+}
 
 /*
  * Size-related props.
@@ -43,11 +56,13 @@ export default class Loader extends Component {
     }
   }
 
-  // omitUndefinedProps(obj = {}) {
-  //   return reduce(obj, (acc, curr) => isUndefined(curr) ? omit(obj, curr)), {})
-  // }
-
+  /*
+   * Resolve class name.
+   * Provided `this.props`, return a `className` that reflects only up to one of
+   * our size-related props, such as `small`, `medium`, `large`, or `huge`.
+   **/
   resolveClassNames(props = {}) {
+    // Allocate all size-related props except `size`.
     const classes = without(sizeRelatedProps, 'size')
 
     return reduce(
@@ -57,6 +72,11 @@ export default class Loader extends Component {
     )
   }
 
+  /*
+   * Resolve styles.
+   * Provided `this.props`, return a consolidated `styles` object, using
+   * `this.props.style` as overrides.
+   **/
   resolveStyles(props = {}) {
     const styles = {
       animationDuration: props.duration,
