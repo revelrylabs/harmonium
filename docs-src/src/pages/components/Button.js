@@ -15,8 +15,12 @@ export default class ButtonExamplePage extends Component {
   render() {
     return (
       <div className="rev-Row rev-Row--collapse">
-        <ExampleSection title="Buttons" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Buttons"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

@@ -15,6 +15,12 @@ export default class AuthenticityToken extends Component {
       return null
     }
 
-    return <input type="hidden" name={authenticityTokenName} value={authenticityTokenValue} />
+    return (
+      <input
+        type="hidden"
+        name={authenticityTokenName}
+        value={authenticityTokenValue}
+      />
+    )
   }
 }

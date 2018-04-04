@@ -14,7 +14,9 @@ export default class BrowserSupportWarning extends Component {
   checkIsSupported = () => {
     const {minVersions} = this.props
     const userAgent =
-      this.props.userAgent || (typeof window !== 'undefined' && window.navigator.userAgent) || null
+      this.props.userAgent ||
+      (typeof window !== 'undefined' && window.navigator.userAgent) ||
+      null
 
     return userAgent ? bowser.check(minVersions, this.userAgent) : true
   }

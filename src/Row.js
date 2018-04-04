@@ -89,7 +89,12 @@ export default class Row extends Component {
       delete props[name]
     })
 
-    const divClassName = classNames(className, 'rev-Row', boolClassNames, numberClassNames)
+    const divClassName = classNames(
+      className,
+      'rev-Row',
+      boolClassNames,
+      numberClassNames
+    )
 
     return (
       <div {...props} className={divClassName}>

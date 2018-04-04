@@ -28,7 +28,11 @@ class CardHeader extends Component {
   render() {
     const {className, children} = this.props
 
-    return <CardLayout.Bar className={`rev-Card-header ${className}`}>{children}</CardLayout.Bar>
+    return (
+      <CardLayout.Bar className={`rev-Card-header ${className}`}>
+        {children}
+      </CardLayout.Bar>
+    )
   }
 }
 Card.Header = CardHeader
@@ -42,7 +46,11 @@ class CardFooter extends Component {
   render() {
     const {className, children} = this.props
 
-    return <CardLayout.Bar className={`rev-Card-footer ${className}`}>{children}</CardLayout.Bar>
+    return (
+      <CardLayout.Bar className={`rev-Card-footer ${className}`}>
+        {children}
+      </CardLayout.Bar>
+    )
   }
 }
 Card.Footer = CardFooter
@@ -56,7 +64,11 @@ class CardBody extends Component {
   render() {
     const {className, children} = this.props
 
-    return <CardLayout.Bar className={`rev-Card-body ${className}`}>{children}</CardLayout.Bar>
+    return (
+      <CardLayout.Bar className={`rev-Card-body ${className}`}>
+        {children}
+      </CardLayout.Bar>
+    )
   }
 }
 Card.Body = CardBody

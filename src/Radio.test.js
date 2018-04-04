@@ -28,7 +28,9 @@ describe('Radio.Fieldset', () => {
   it('should add className to child', () => {
     const testClassName = '__TEST__'
 
-    const childClassName = shallow(<Radio.Fieldset className={testClassName} options={options} />)
+    const childClassName = shallow(
+      <Radio.Fieldset className={testClassName} options={options} />
+    )
       .first()
       .prop('className')
 
@@ -36,7 +38,9 @@ describe('Radio.Fieldset', () => {
   })
 
   it('can handle the controlled case', () => {
-    const radioFieldset = shallow(<Radio.Fieldset value="L" options={options} />)
+    const radioFieldset = shallow(
+      <Radio.Fieldset value="L" options={options} />
+    )
 
     expect(
       radioFieldset
@@ -47,7 +51,9 @@ describe('Radio.Fieldset', () => {
   })
 
   it('can handle default values', () => {
-    const radioFieldset = shallow(<Radio.Fieldset defaultValue="L" options={options} />)
+    const radioFieldset = shallow(
+      <Radio.Fieldset defaultValue="L" options={options} />
+    )
 
     expect(
       radioFieldset

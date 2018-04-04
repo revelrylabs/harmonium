@@ -10,8 +10,12 @@ export default class NumberFormatterExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Number Formatting" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Number Formatting"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

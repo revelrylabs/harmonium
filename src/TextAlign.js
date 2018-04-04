@@ -55,6 +55,8 @@ export default class TextAlign extends Component {
         classNamesList.push(className)
       }
     })
-    return cloneElement(this.props.children, {className: classNames(classNamesList)})
+    return cloneElement(this.props.children, {
+      className: classNames(classNamesList),
+    })
   }
 }

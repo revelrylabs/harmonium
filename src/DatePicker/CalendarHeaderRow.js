@@ -32,7 +32,9 @@ class CalendarHeaderRow extends Component {
                 className="rev-Calendar-body-headerCell"
                 key={`${firstDay.toISO()}:${i}`}
               >
-                {firstDay.plus(Duration.fromObject({days: i})).toLocaleString({weekday: 'narrow'})}
+                {firstDay
+                  .plus(Duration.fromObject({days: i}))
+                  .toLocaleString({weekday: 'narrow'})}
               </th>
             )
           })}

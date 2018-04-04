@@ -11,8 +11,12 @@ export default class InputGroupExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Input Groups" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Input Groups"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

@@ -60,7 +60,9 @@ describe('StatefulTabs', () => {
       </Tabs.Stateful>
     )
 
-    stateful.find('.StatefulTabExample').simulate('click', {preventDefault: () => {}})
+    stateful
+      .find('.StatefulTabExample')
+      .simulate('click', {preventDefault: () => {}})
 
     expect(spy.called).to.eq(true)
   })

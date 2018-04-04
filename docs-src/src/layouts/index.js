@@ -17,7 +17,8 @@ const TemplateWrapper = ({children}) => (
       meta={[
         {
           name: 'description',
-          content: 'An opinionated React component framework for teams that move fast.',
+          content:
+            'An opinionated React component framework for teams that move fast.',
         },
         {name: 'keywords', content: 'React, JavaScript, SCSS, CSS, HTML, Web'},
       ]}

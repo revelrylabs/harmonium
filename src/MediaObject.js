@@ -22,7 +22,9 @@ const PARENT_PROP_TYPES = {
   children: PropTypes.node,
 }
 
-Object.keys(PARENT_CLASS_NAMES).forEach((key) => (PARENT_PROP_TYPES[key] = PropTypes.bool))
+Object.keys(PARENT_CLASS_NAMES).forEach(
+  (key) => (PARENT_PROP_TYPES[key] = PropTypes.bool)
+)
 
 export default class MediaObject extends Component {
   static propTypes = PARENT_PROP_TYPES

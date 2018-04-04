@@ -24,8 +24,12 @@ export default class DatePickerExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Date Picker" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Date Picker"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

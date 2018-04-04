@@ -5,7 +5,7 @@ docs/**/*
 !docs/.keep
 npm-debug.log
 /.nyc_output/*
-/coverage/*
+coverage/**/*
 docs-src/package-lock.json
 docs-src/yarn.lock
 package-lock.json

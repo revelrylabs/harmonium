@@ -12,7 +12,11 @@ describe('Social', () => {
     const testClassName = '__TEST__'
 
     const childClassName = shallow(
-      <Social className={testClassName} type={Social.types.FACEBOOK} url="https://revelry.co" />
+      <Social
+        className={testClassName}
+        type={Social.types.FACEBOOK}
+        url="https://revelry.co"
+      />
     )
       .first()
       .prop('className')
@@ -25,7 +29,9 @@ describe('Social', () => {
     const tweetLink =
       'https://twitter.com/intent/tweet?url=http%3A%2F%2Frevelry.co&text=Check%20this%20out!'
 
-    const renderedLink = shallow(<Social type={Social.types.TWITTER} url="http://revelry.co" />)
+    const renderedLink = shallow(
+      <Social type={Social.types.TWITTER} url="http://revelry.co" />
+    )
       .first()
       .prop('href')
 
@@ -48,7 +54,9 @@ describe('Social', () => {
 
     for (const service in Social.types) {
       if (Object.prototype.hasOwnProperty.call(Social.types, service)) {
-        const social = shallow(<Social type={Social.types[service]} url="http://example.com" />)
+        const social = shallow(
+          <Social type={Social.types[service]} url="http://example.com" />
+        )
 
         expect(social.find('a').prop('href')).to.contain(PATTERNS[service])
       }

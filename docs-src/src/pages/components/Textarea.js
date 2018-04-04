@@ -10,8 +10,12 @@ export default class TextareaExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Textareas" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Textareas"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

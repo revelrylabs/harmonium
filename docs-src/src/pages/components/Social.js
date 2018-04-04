@@ -11,8 +11,12 @@ export default class SocialExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Social" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Social"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }

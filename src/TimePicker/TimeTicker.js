@@ -41,7 +41,10 @@ class TimeTicker extends Component {
 
     return (
       <div {...props} className={`rev-TimeTicker ${className}`}>
-        <Button onClick={onIncrement} className="rev-TimeTicker-button rev-TimeTicker-button--next">
+        <Button
+          onClick={onIncrement}
+          className="rev-TimeTicker-button rev-TimeTicker-button--next"
+        >
           {nextLabel}
         </Button>
 

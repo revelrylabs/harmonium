@@ -112,7 +112,9 @@ export default class TimeContainer extends React.Component {
 
     return (
       <div
-        className={`rev-TimeContainer ${overlay ? 'rev-TimeContainer--overlay' : ''} ${className}`}
+        className={`rev-TimeContainer ${
+          overlay ? 'rev-TimeContainer--overlay' : ''
+        } ${className}`}
       >
         <Card>
           <Card.Header>
@@ -130,7 +132,9 @@ export default class TimeContainer extends React.Component {
               onIncrement={this.incrementUnit.bind(this, 1, 'minutes')}
               onDecrement={this.incrementUnit.bind(this, -1, 'minutes')}
             />
-            {showSeconds ? <span className="rev-TimeTicker-divider">:</span> : null}
+            {showSeconds ? (
+              <span className="rev-TimeTicker-divider">:</span>
+            ) : null}
             {showSeconds ? (
               <TimeTicker
                 value={this.getFormattedUnit('second')}

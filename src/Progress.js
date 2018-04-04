@@ -39,12 +39,19 @@ export default class Progress extends Component {
       delete props[name]
     })
 
-    const divClassName = classNames(className, 'progress', 'rev-Progress', boolClassNames)
+    const divClassName = classNames(
+      className,
+      'progress',
+      'rev-Progress',
+      boolClassNames
+    )
 
     const ratio = Math.min(1, (value - min) / (max - min))
     const width = `${ratio * 100}%`
 
-    const text = children ? <div className="rev-Progress-text">{children}</div> : null
+    const text = children ? (
+      <div className="rev-Progress-text">{children}</div>
+    ) : null
 
     return (
       <div {...props} className={divClassName}>

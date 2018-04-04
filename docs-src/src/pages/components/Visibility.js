@@ -10,8 +10,12 @@ export default class VisibilityExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection title="Visibility" examples={examples} depth={1}
-scope={scope} />
+        <ExampleSection
+          title="Visibility"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
       </div>
     )
   }
