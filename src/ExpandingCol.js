@@ -1,6 +1,6 @@
 import React, {cloneElement} from 'react'
 import PropTypes from 'prop-types'
-import {Row, Col} from './grid'
+import {Col} from './grid'
 import Button from './Button'
 
 // An expanding column that manages its own state. This is to be used in
@@ -19,8 +19,16 @@ export class ExpandingColStateContainer extends React.Component {
     // intentionally blank to override the 'expanderless' class of the stateless
     // version of the component
     className: '',
-    closer: <Button className="rev-ExpandingCol-closer rev-Button rev-Button--small rev-Button--secondary">-</Button>,
-    expander: <Button className="rev-ExpandingCol-expander rev-Button rev-Button--small rev-Button--secondary">+</Button>,
+    closer: (
+      <Button className="rev-ExpandingCol-closer rev-Button rev-Button--small rev-Button--secondary">
+        -
+      </Button>
+    ),
+    expander: (
+      <Button className="rev-ExpandingCol-expander rev-Button rev-Button--small rev-Button--secondary">
+        +
+      </Button>
+    ),
   }
 
   constructor(props) {
@@ -42,8 +50,10 @@ export class ExpandingColStateContainer extends React.Component {
   // we clone the closer and expander so that we can accept them as props
   // from up the tree but still inject our onClick handlers for open/close
   render() {
-    let {children, closer, expander, ...remainingProps} = this.props
-    return <ExpandingCol
+    const {children, closer, expander, ...remainingProps} = this.props
+
+    return (
+      <ExpandingCol
         open={this.state.open}
         closer={cloneElement(closer, {onClick: this.closePane})}
         expander={cloneElement(expander, {onClick: this.expandPane})}
@@ -51,6 +61,7 @@ export class ExpandingColStateContainer extends React.Component {
       >
         {children}
       </ExpandingCol>
+    )
   }
 }
 
@@ -63,22 +74,18 @@ export default class ExpandingCol extends React.Component {
     children: PropTypes.node,
     className: PropTypes.string,
     closer: PropTypes.node,
+    expander: PropTypes.node,
     open: PropTypes.bool,
   }
 
   render() {
-    let {children, closer, expander, open, className, ...remainingProps} = this.props
-    let openClass = open ? 'is-open' : 'is-closed'
+    const {children, closer, expander, open, className, ...remainingProps} = this.props
+    const openClass = open ? 'is-open' : 'is-closed'
 
     return (
-      <Col
-        {...remainingProps}
-        className={`rev-ExpandingCol-pane ${className} ${openClass}`}
-      >
+      <Col {...remainingProps} className={`rev-ExpandingCol-pane ${className} ${openClass}`}>
         {open ? closer : expander}
-        <div className="rev-ExpandingCol-pane-content">
-          {children}
-        </div>
+        <div className="rev-ExpandingCol-pane-content">{children}</div>
       </Col>
     )
   }

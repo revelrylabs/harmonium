@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow, mount} from 'enzyme'
 import Calendar from './DatePicker/Calendar'
 import DatePicker from './DatePicker'
 import Input from './Input'
@@ -18,7 +20,8 @@ describe('DatePicker', () => {
 
   it('should handle external date changes', () => {
     const input = mount(<DatePicker defaultValue="2018-03-12" />)
-    input.setProps({ defaultValue: '2018-08-05' })
+
+    input.setProps({defaultValue: '2018-08-05'})
     input.update()
 
     expect(input.find(Input).prop('defaultValue')).to.equal('2018-08-05')
@@ -27,7 +30,8 @@ describe('DatePicker', () => {
   it('should handle external date changes', () => {
     const spy = sinon.spy()
     const input = mount(<DatePicker defaultValue="2018-03-12" onChange={spy} />)
-    input.find('input').simulate('change', { target: { value: '2018-08-05' } })
+
+    input.find('input').simulate('change', {target: {value: '2018-08-05'}})
     input.update()
 
     expect(input.find(Input).prop('defaultValue')).to.equal('2018-08-05')
@@ -37,6 +41,7 @@ describe('DatePicker', () => {
   it('should translate clicks on calendar cells into changes', () => {
     const spy = sinon.spy()
     const input = mount(<DatePicker defaultValue="2018-03-12" isOpen onChange={spy} />)
+
     input
       .find('.rev-Calendar-body-bodyCell')
       .find('button')
@@ -52,6 +57,7 @@ describe('DatePicker', () => {
     const blurSpy = sinon.spy()
 
     const input = mount(<DatePicker onBlur={blurSpy} onFocus={focusSpy} />)
+
     input.find('input').simulate('focus')
     input.update()
 
@@ -68,6 +74,7 @@ describe('DatePicker', () => {
 
   it('keeps the calendar open when you do not have focus, but the mouse is over', () => {
     const input = mount(<DatePicker />)
+
     input.find('input').simulate('focus')
     input.find('label').simulate('mouseOver')
     input.find('input').simulate('blur')
@@ -87,7 +94,7 @@ describe('DatePicker', () => {
         defaultValue="2018-03-12"
         isOpen
         onChange={spy}
-        isSelectable={date => date.day != 1}
+        isSelectable={(date) => date.day !== 1}
       />
     )
 
@@ -111,7 +118,7 @@ describe('DatePicker', () => {
 
   it('handles a hash of highlights', () => {
     const input = mount(
-      <DatePicker defaultValue="2018-03-12" highlights={{ '2018-03-15': '__TEST__' }} isOpen />
+      <DatePicker defaultValue="2018-03-12" highlights={{'2018-03-15': '__TEST__'}} isOpen />
     )
 
     expect(input.find('.__TEST__').exists()).to.equal(true)
@@ -121,7 +128,7 @@ describe('DatePicker', () => {
     const input = mount(
       <DatePicker
         defaultValue="2018-03-12"
-        highlights={date => (date.day % 2 == 0 ? '__TEST__' : '')}
+        highlights={(date) => (date.day % 2 === 0 ? '__TEST__' : '')}
         isOpen
       />
     )
@@ -131,7 +138,7 @@ describe('DatePicker', () => {
 
   it('handles a highlight function (that returns a class)', () => {
     const input = mount(
-      <DatePicker defaultValue="2018-03-12" highlights={date => date.day % 2 == 0} isOpen />
+      <DatePicker defaultValue="2018-03-12" highlights={(date) => date.day % 2 === 0} isOpen />
     )
 
     expect(input.find('.rev-Calendar-body-bodyCell--highlighted').exists()).to.equal(true)
@@ -140,7 +147,7 @@ describe('DatePicker', () => {
   it('does overrides', () => {
     const overrideComponent = () => <span>AVeryUniqueString</span>
     const input = mount(
-      <DatePicker overrides={{ [DatePicker.Calendar]: overrideComponent }} isOpen />
+      <DatePicker overrides={{[DatePicker.Calendar]: overrideComponent}} isOpen />
     )
 
     expect(input.text()).to.contain('AVeryUniqueString')

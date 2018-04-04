@@ -25,6 +25,7 @@
     "express": "^4.15.3",
     "foundation-sites": "^6.3.1",
     "jquery": "^3.2.1",
+    "lodash": "^4.17.5",
     "luxon": "^0.3.1",
     "node-dir": "^0.1.17",
     "node-sass": "^4.5.3",
@@ -47,7 +48,8 @@
     "docs": "node scripts/docs.js",
     "web": "static-server docs -p $PORT",
     "dev": "gulp",
-    "prepublish": "npm run clean && npm run babel"
+    "prepublish": "npm run clean && npm run babel",
+    "fix": "eslint --fix src/** docs-src/src/**"
   },
   "keywords": [],
   "author": {
@@ -71,18 +73,24 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "babel-eslint": "^8.2.2",
     "babel-plugin-istanbul": "^4.1.4",
     "chai": "^3.5.0",
     "enzyme": ">=2.8.2",
     "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-plugin-babel": "^4.1.2",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.5.0",
+    "eslint-plugin-react": "^7.7.0",
     "gulp": "^3.9.1",
     "gulp-webserver": "^0.9.1",
     "jsdom": "^11.0.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^3.4.2",
     "nyc": "^11.4.1",
-    "prettier": "^1.10.2",
+    "prettier": "^1.11.1",
+    "prettier-eslint": "^8.8.1",
     "react-test-renderer": ">=15.0.0",
     "sinon": "^2.3.8",
     "timekeeper": "^2.0.0"

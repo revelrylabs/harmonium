@@ -1,10 +1,11 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {omit} from 'lodash'
 import TimeInput from './TimePicker/TimeInput'
 import TimeContainer from './TimePicker/TimeContainer'
 import InputHelpText from './InputHelpText'
 import InputErrors from './InputErrors'
-import { DateTime } from 'luxon'
+import {DateTime} from 'luxon'
 
 /**
  * Determines if time type inputs are well supported on this platform
@@ -14,9 +15,10 @@ function useGoodTimeInput() {
   if (typeof window === 'undefined') {
     return true
   } else {
-    const el = document.createElement('input')
-    el.type = 'time'
-    return el.type === 'time'
+    const element = document.createElement('input')
+
+    element.type = 'time'
+    return element.type === 'time'
   }
 }
 
@@ -53,7 +55,7 @@ class TimePicker extends React.Component {
       // Generation exists to force the inputs in the component to accept the
       // new value when we click a ticker
       generation: 0,
-      mousedIn: false
+      mousedIn: false,
     }
   }
 
@@ -87,7 +89,7 @@ class TimePicker extends React.Component {
   valuesFromIso(iso) {
     return {
       isoValue: iso,
-      formattedValue: this.isoToFormatted(iso)
+      formattedValue: this.isoToFormatted(iso),
     }
   }
 
@@ -130,8 +132,10 @@ class TimePicker extends React.Component {
   get timeFormat() {
     // TODO: detect locale default format string and use that instead of
     //   hardcoded 'HH:mm'
-    return this.useGoodTimeInput ? this.props.showSeconds ? 'HH:mm:ss' : 'HH:mm'
-                                 : this.props.showSeconds ? 'hh:mm:ss a' : 'hh:mm a'
+    if (this.useGoodTimeInput) {
+      return this.props.showSeconds ? 'HH:mm:ss' : 'HH:mm'
+    }
+    return this.props.showSeconds ? 'hh:mm:ss a' : 'hh:mm a'
   }
 
   /**
@@ -166,6 +170,7 @@ class TimePicker extends React.Component {
    */
   fireChangeHandler() {
     const event = new Event('change')
+
     this.nativeInput.dispatchEvent(event)
     this.onChange(event)
   }
@@ -180,7 +185,7 @@ class TimePicker extends React.Component {
       this.props.onFocus(event)
     }
 
-    this.setState({ focused: true, isOpen: true })
+    this.setState({focused: true, isOpen: true})
   }
 
   /**
@@ -193,7 +198,7 @@ class TimePicker extends React.Component {
       this.props.onBlur(event)
     }
 
-    this.setState({ focused: false, isOpen: this.state.mousedIn })
+    this.setState({focused: false, isOpen: this.state.mousedIn})
   }
 
   /**
@@ -215,8 +220,7 @@ class TimePicker extends React.Component {
    * @return {boolean} - true if on iOS or Android
    */
   useNativePicker() {
-    return typeof navigator !== 'undefined' &&
-           /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+    return typeof navigator !== 'undefined' && (/Android|iPhone|iPad|iPod/i).test(navigator.userAgent)
   }
 
   /**
@@ -225,7 +229,7 @@ class TimePicker extends React.Component {
    * click the container buttons.
    */
   mouseIn() {
-    this.setState({ mousedIn: true })
+    this.setState({mousedIn: true})
   }
 
   /**
@@ -234,7 +238,7 @@ class TimePicker extends React.Component {
    * focus has moved to the next element.
    */
   mouseOut() {
-    this.setState({ mousedIn: false, isOpen: this.state.focused })
+    this.setState({mousedIn: false, isOpen: this.state.focused})
   }
 
   /**
@@ -247,9 +251,11 @@ class TimePicker extends React.Component {
    * @returns {boolean} - true if the time container is open
    */
   get isContainerOpen() {
-    return (this.state.isOpen || this.props.isOpen) &&
-           !this.props.disabled &&
-           (!this.useNativePicker() || this.props.usePickerOnMobile)
+    return (
+      (this.state.isOpen || this.props.isOpen) &&
+      !this.props.disabled &&
+      (!this.useNativePicker() || this.props.usePickerOnMobile)
+    )
   }
 
   render() {
@@ -257,25 +263,25 @@ class TimePicker extends React.Component {
       label,
       error,
       help,
-      isOpen,
       use24hr,
       showSeconds,
-      usePickerOnMobile,
       overlay,
       ...props
     } = this.props
-
     const nativeClass = this.useNativePicker() ? 'rev-TimePicker--native' : 'rev-TimePicker--custom'
+    const timeInputProps = omit(props, 'isOpen')
 
     return (
       <label
         className={`rev-TimePicker rev-InputLabel ${nativeClass}`}
         onMouseOver={this.mouseIn.bind(this)}
         onMouseOut={this.mouseOut.bind(this)}
+        onFocus={this.onFocus.bind(this)}
+        onBlur={this.onBlur.bind(this)}
       >
         {label}
         <TimeInput
-          {...props}
+          {...timeInputProps}
           error={error}
           onFocus={this.onFocus.bind(this)}
           onBlur={this.onBlur.bind(this)}
@@ -284,7 +290,7 @@ class TimePicker extends React.Component {
           showSeconds={showSeconds}
           formattedValue={this.state.formattedValue}
           generation={this.state.generation}
-          inputRef={input => (this.nativeInput = input)}
+          inputRef={(input) => (this.nativeInput = input)}
         />
         <InputHelpText>{help}</InputHelpText>
         <InputErrors>{error}</InputErrors>
@@ -311,9 +317,15 @@ TimePicker.propTypes = {
   use24hr: PropTypes.bool,
   showSeconds: PropTypes.bool,
   isOpen: PropTypes.bool,
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  onFocus: PropTypes.func,
+  onBlur: PropTypes.func,
+  usePickerOnMobile: PropTypes.bool,
+  overlay: PropTypes.bool,
 }
 
 TimePicker.TimeInput = TimeInput
 TimePicker.TimeContainer = TimeContainer
-export { TimeInput, TimeContainer }
+export {TimeInput, TimeContainer}
 export default TimePicker

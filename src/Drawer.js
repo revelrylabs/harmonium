@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import StatelessDrawer from './StatelessDrawer'
@@ -17,15 +17,13 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 export default class Drawer extends Component {
-
   static propTypes = {
     open: PropTypes.bool,
-    close: PropTypes.func,
-    expand: PropTypes.func,
     children: PropTypes.node,
     className: PropTypes.string,
     closerChildren: PropTypes.node,
     expanderChildren: PropTypes.node,
+    expanderClassName: PropTypes.string,
     expanderComponentClass: PropTypes.string,
   }
 
@@ -45,35 +43,38 @@ export default class Drawer extends Component {
   }
 
   expandDrawer = () => {
-    this.setState({ open: true })
+    this.setState({open: true})
   }
 
   closeDrawer = () => {
-    this.setState({ open: false })
+    this.setState({open: false})
   }
 
   render() {
-    const { open } = this.state
+    const {open} = this.state
     const propClassNames = BOOL_PROPS.reduce((acc, key) => {
       const value = BOOL_PROPS_TO_CLASS_NAMES[key]
+
       acc[value] = this.props[key]
       return acc
     }, {})
     const newClassName = classNames(this.props.className, propClassNames)
 
-    return <StatelessDrawer
-      open={open}
-      className={newClassName}
-      close={this.closeDrawer}
-      expand={this.expandDrawer}
-      expanderComponentClass={this.props.expanderComponentClass}
-      expanderClassName={this.props.expanderClassName}
-      expanderChildren={this.props.expanderChildren}
-      closerChildren={this.props.closerChildren}
-    >
-      {this.props.children}
-    </StatelessDrawer>
+    return (
+      <StatelessDrawer
+        open={open}
+        className={newClassName}
+        close={this.closeDrawer}
+        expand={this.expandDrawer}
+        expanderComponentClass={this.props.expanderComponentClass}
+        expanderClassName={this.props.expanderClassName}
+        expanderChildren={this.props.expanderChildren}
+        closerChildren={this.props.closerChildren}
+      >
+        {this.props.children}
+      </StatelessDrawer>
+    )
   }
 }
 
-export { Drawer, Expander }
+export {Drawer, Expander}

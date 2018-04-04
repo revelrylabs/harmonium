@@ -1,5 +1,5 @@
 <div className="ColumnExamples">
-  <Row flex left>
+  <Row flex>
     <Col small={4}>Aligned to</Col>
     <Col small={4}>the left</Col>
   </Row>

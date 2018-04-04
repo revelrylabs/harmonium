@@ -1,9 +1,15 @@
+import React from 'react'
+import {shallow, mount} from 'enzyme'
 import Tabs from './Tabs'
 import sinon from 'sinon'
 
 describe('Tabs', () => {
   it('should render without throwing', () => {
-    shallow(<Tabs><Tabs.Item contentKey={1} title="One" /></Tabs>)
+    shallow(
+      <Tabs>
+        <Tabs.Item contentKey={1} title="One" />
+      </Tabs>
+    )
   })
 
   it('should add className to child', () => {
@@ -14,7 +20,9 @@ describe('Tabs', () => {
       <Tabs className={testClassName}>
         <Tabs.Item contentKey={1} title="One" />
       </Tabs>
-    ).first().prop('className')
+    )
+      .first()
+      .prop('className')
 
     expect(childClassName).to.contain(inherentClassName)
     expect(childClassName).to.contain(testClassName)
@@ -42,7 +50,13 @@ describe('StatefulTabs', () => {
     const spy = sinon.spy()
     const stateful = shallow(
       <Tabs.Stateful defaultActive={1}>
-        <div className="StatefulTabExample" onClick={spy} />
+        <div
+          className="StatefulTabExample"
+          role="button"
+          onClick={spy}
+          onKeyPress={spy}
+          tabIndex={0}
+        />
       </Tabs.Stateful>
     )
 

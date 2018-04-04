@@ -3,13 +3,16 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 
 const examples = {
-  'TextAlign': require('raw!../../examples/TextAlign.js.example')
+  TextAlign: require('raw!../../examples/TextAlign.js.example'),
 }
 
 export default class TextAlignExamplePage extends Component {
   render() {
-    return <div>
-      <ExampleSection title="Text Alignment" examples={examples} depth={1} scope={scope} />
-    </div>
+    return (
+      <div>
+        <ExampleSection title="Text Alignment" examples={examples} depth={1}
+scope={scope} />
+      </div>
+    )
   }
 }

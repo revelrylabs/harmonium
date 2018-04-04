@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow} from 'enzyme'
 import Checkbox from './Checkbox'
 
 describe('Checkbox', () => {
@@ -17,10 +19,7 @@ describe('Checkbox', () => {
 })
 
 describe('Checkbox.Fieldset', () => {
-  const options = [
-    {label: 'Left', value: 'L'},
-    {label: 'Right', value: 'R'},
-  ]
+  const options = [{label: 'Left', value: 'L'}, {label: 'Right', value: 'R'}]
 
   it('should render without throwing', () => {
     shallow(<Checkbox.Fieldset options={options} />)
@@ -39,18 +38,24 @@ describe('Checkbox.Fieldset', () => {
   })
 
   it('handles the controlled case', () => {
-    const fieldset = shallow(
-      <Checkbox.Fieldset options={options} value={["L"]} />
-    )
+    const fieldset = shallow(<Checkbox.Fieldset options={options} value={['L']} />)
 
-    expect(fieldset.children().first().prop('checked')).to.eq(true)
+    expect(
+      fieldset
+        .children()
+        .first()
+        .prop('checked')
+    ).to.eq(true)
   })
 
   it('handles default values', () => {
-    const fieldset = shallow(
-      <Checkbox.Fieldset options={options} defaultValue={["L"]} />
-    )
+    const fieldset = shallow(<Checkbox.Fieldset options={options} defaultValue={['L']} />)
 
-    expect(fieldset.children().first().prop('defaultChecked')).to.eq(true)
+    expect(
+      fieldset
+        .children()
+        .first()
+        .prop('defaultChecked')
+    ).to.eq(true)
   })
 })

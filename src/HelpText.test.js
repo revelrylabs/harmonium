@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow} from 'enzyme'
 import HelpText from './HelpText'
 
 describe('HelpText', () => {
@@ -6,7 +8,11 @@ describe('HelpText', () => {
   })
 
   it('returns children when present', () => {
-    const component = shallow(<HelpText><span>test</span></HelpText>)
+    const component = shallow(
+      <HelpText>
+        <span>test</span>
+      </HelpText>
+    )
 
     expect(component.find('span')).to.have.length(1)
   })

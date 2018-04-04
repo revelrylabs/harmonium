@@ -10,8 +10,11 @@ const examples = {
 
 export default class SelectExamplePage extends Component {
   render() {
-    return <div>
-      <ExampleSection title="Selects" examples={examples} depth={1} scope={scope} />
-    </div>
+    return (
+      <div>
+        <ExampleSection title="Selects" examples={examples} depth={1}
+scope={scope} />
+      </div>
+    )
   }
 }

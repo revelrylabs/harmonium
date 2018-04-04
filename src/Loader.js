@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { defaultTo, gt, has, reduce, without } from 'lodash'
+import { omit, defaultTo, gt, has, reduce, without } from 'lodash'
 
 const PROP_TYPES = {
   borderWidth: PropTypes.string,
@@ -30,8 +30,6 @@ function inc(num = 0) {
 }
 
 export default class Loader extends Component {
-  static propTypes = PROP_TYPES
-
   /*
    * Sum properties in object.
    * Provided a list of attributes, and provided an object, returns an integer
@@ -52,7 +50,7 @@ export default class Loader extends Component {
     if (gt(sum, 1)) {
       throw Error(
         `You have specified more than one of the following size-related props:
-        small, medium, large, huge, size. Only one of these props may be 
+        small, medium, large, huge, size. Only one of these props may be
         specified per each component instance.`
       )
     }
@@ -86,15 +84,15 @@ export default class Loader extends Component {
       borderTopColor: props.color,
       borderWidth: props.borderWidth,
       height: props.size,
-      width: props.size
+      width: props.size,
     }
     const overrides = props.style || {}
 
-    return { ...styles, ...overrides }
+    return {...styles, ...overrides}
   }
 
   render() {
-    const { className, ...props } = this.props
+    const props = omit(this.props, 'className')
 
     this.ensureNoConflicts(props)
 

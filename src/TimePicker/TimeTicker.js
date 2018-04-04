@@ -1,7 +1,6 @@
 /** @jsx createElement */
-
-import classNames from 'classnames'
-import React, { createElement } from 'react'
+import {Component, createElement} from 'react'
+import PropTypes from 'prop-types'
 import Button from '../Button'
 
 /**
@@ -10,45 +9,53 @@ import Button from '../Button'
  * @param {object} props - the props of the TimeTicker
  */
 
- // TODO: Generalize this to a general incrementor/decrementor
- // component that can cycle through a range of numbers or an enum
+// TODO: Generalize this to a general incrementor/decrementor
+// component that can cycle through a range of numbers or an enum
 
- const TimeTicker = ({
-  className,
-  previousLabel,
-  nextLabel,
-  value,
-  onIncrement,
-  onDecrement,
-  refocusOnClick,
-  ...props
-}) => {
-  return (
-    <div {...props} className={`rev-TimeTicker ${className}`}>
-      <Button
-        onClick={onIncrement}
-        className="rev-TimeTicker-button rev-TimeTicker-button--next"
-      >
-        {nextLabel}
-      </Button>
+class TimeTicker extends Component {
+  static propTypes = {
+    previousLabel: PropTypes.node,
+    nextLabel: PropTypes.node,
+    value: PropTypes.any,
+    onIncrement: PropTypes.func,
+    onDecrement: PropTypes.func,
+    refocusOnClick: PropTypes.bool,
+    className: PropTypes.string,
+  }
 
-      <div className="rev-TimeTicker-value">
-        {value}
+  static defaultProps = {
+    previousLabel: <span>&#709;</span>,
+    nextLabel: <span>&#708;</span>,
+  }
+
+  render() {
+    const {
+      className,
+      previousLabel,
+      nextLabel,
+      value,
+      onIncrement,
+      onDecrement,
+      ...props
+    } = this.props
+
+    return (
+      <div {...props} className={`rev-TimeTicker ${className}`}>
+        <Button onClick={onIncrement} className="rev-TimeTicker-button rev-TimeTicker-button--next">
+          {nextLabel}
+        </Button>
+
+        <div className="rev-TimeTicker-value">{value}</div>
+
+        <Button
+          onClick={onDecrement}
+          className="rev-TimeTicker-button rev-TimeTicker-button--previous"
+        >
+          {previousLabel}
+        </Button>
       </div>
-
-      <Button
-        onClick={onDecrement}
-        className="rev-TimeTicker-button rev-TimeTicker-button--previous"
-      >
-        {previousLabel}
-      </Button>
-    </div>
-  )
-}
-
-TimeTicker.defaultProps = {
-  previousLabel: <span>&#709;</span>,
-  nextLabel: <span>&#708;</span>,
+    )
+  }
 }
 
 export default TimeTicker

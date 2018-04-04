@@ -118,6 +118,14 @@ export default class ChartBuilder extends Component {
     }
   }
 
+  componentDidMount() {
+    this.createChart()
+  }
+
+  componentWillUnmount() {
+    this.destroyChart()
+  }
+
   get ctx() {
     return this.canvas.getContext('2d')
   }
@@ -137,36 +145,28 @@ export default class ChartBuilder extends Component {
   }
 
   createChart() {
-    if(this._chart) {
+    if (this._chart) {
       throw new Error('`createChart` may only be called once.`')
     }
-    this._chart = new Chart(
-      this.ctx,
-      {
-        type: this.props.type,
-        data: this.props.data,
-        options: this.options
-      }
-    )
+    this._chart = new Chart(this.ctx, {
+      type: this.props.type,
+      data: this.props.data,
+      options: this.options,
+    })
   }
 
   destroyChart() {
     this._chart.destroy()
   }
 
-  componentDidMount() {
-    this.createChart()
-  }
-
-  componentWillUnmount() {
-    this.destroyChart()
-  }
-
   render() {
     return (
       <div>
         <h3 className="ChartTitle">{this.props.title}</h3>
-        <canvas ref={(self) => { this.canvas = self }}
+        <canvas
+          ref={(self) => {
+            this.canvas = self
+          }}
           width={this.props.width}
           height={this.props.height}
         />
