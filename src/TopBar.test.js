@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow} from 'enzyme'
 import TopBar from './TopBar'
 
 describe('TopBar', () => {
@@ -19,8 +21,10 @@ describe('TopBar', () => {
 
   it('handles boolean styling props', () => {
     const topBar = shallow(<TopBar breakpointMedium />)
-    console.log(topBar.debug())
-    expect(topBar.prop('className')).to.contain('rev-TopBar-breakpoint--mediumDown')
+
+    expect(topBar.prop('className')).to.contain(
+      'rev-TopBar-breakpoint--mediumDown'
+    )
   })
 })
 

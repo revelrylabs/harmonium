@@ -1,6 +1,7 @@
 /** @jsx createElement */
-import { Duration } from 'luxon'
-import React from 'react'
+import {Duration} from 'luxon'
+import {Component} from 'react'
+import PropTypes from 'prop-types'
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
 /**
@@ -10,28 +11,37 @@ import createElementWithOverride from '../Utilities/createElementWithOverride'
  * days (we always use Sunday), we might in the future. This setup allows us to
  * do that by passing a different .firstDay prop.
  */
-const CalendarHeaderRow = (props) => {
-  const createElement = createElementWithOverride.bind(this, props.overrides)
+class CalendarHeaderRow extends Component {
+  static propTypes = {
+    overrides: PropTypes.object,
+    headerDay: PropTypes.any,
+    firstDay: PropTypes.any,
+  }
 
-  return (
-    <thead>
-      <tr>
-        {[0, 1, 2, 3, 4, 5, 6].map(i => {
-          return (
-            <th
-              {...props.headerDay}
-              className="rev-Calendar-body-headerCell"
-              key={`${props.firstDay.toISO()}:${i}`}
-            >
-              {props.firstDay
-                .plus(Duration.fromObject({ days: i }))
-                .toLocaleString({ weekday: 'narrow' })}
-            </th>
-          )
-        })}
-      </tr>
-    </thead>
-  )
+  render() {
+    const {headerDay, overrides, firstDay} = this.props
+    const createElement = createElementWithOverride.bind(this, overrides)
+
+    return (
+      <thead>
+        <tr>
+          {[0, 1, 2, 3, 4, 5, 6].map((i) => {
+            return (
+              <th
+                {...headerDay}
+                className="rev-Calendar-body-headerCell"
+                key={`${firstDay.toISO()}:${i}`}
+              >
+                {firstDay
+                  .plus(Duration.fromObject({days: i}))
+                  .toLocaleString({weekday: 'narrow'})}
+              </th>
+            )
+          })}
+        </tr>
+      </thead>
+    )
+  }
 }
 
 export default CalendarHeaderRow

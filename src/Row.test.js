@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow} from 'enzyme'
 import Row from './Row'
 
 describe('Row', () => {
@@ -25,11 +27,13 @@ describe('Row', () => {
       largeUp: 'rev-Row--largeUp1',
     }
 
-    for (let propName in cases) {
-      const classPattern = cases[propName]
-      const component = shallow(<Row {...{[propName]: 1}} />)
+    for (const propName in cases) {
+      if (Object.prototype.hasOwnProperty.call(cases, propName)) {
+        const classPattern = cases[propName]
+        const component = shallow(<Row {...{[propName]: 1}} />)
 
-      expect(component.prop('className')).to.contain(classPattern)
+        expect(component.prop('className')).to.contain(classPattern)
+      }
     }
   })
 

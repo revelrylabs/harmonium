@@ -1,4 +1,5 @@
 import React, {Component, Children, createElement} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Icon from './Icon'
 
@@ -22,15 +23,23 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 export default class Button extends Component {
+  static propTypes = {
+    tag: PropTypes.string,
+    icon: PropTypes.string,
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     // Extract props that will not pass through.
     const {className, children, tag, icon, ...props} = this.props
 
     // Start building the className
     const boolClassNames = []
+
     BOOL_PROPS.forEach((name) => {
-      if(props[name]) {
-        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name] )
+      if (props[name]) {
+        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
       }
       delete props[name]
     })
@@ -39,16 +48,22 @@ export default class Button extends Component {
     const {disabled, href} = props
 
     // Finish building the classNAme
-    const buttonClassName = classNames(className, 'rev-Button', boolClassNames, {
-      disabled,
-    })
+    const buttonClassName = classNames(
+      className,
+      'rev-Button',
+      boolClassNames,
+      {
+        disabled,
+      }
+    )
 
     // Modify underlying tag to suit props.
     const component = tag || (href ? 'a' : 'button')
 
     // Prepend icon if available
     let newChildren = children
-    if(icon) {
+
+    if (icon) {
       newChildren = [
         <Icon className="rev-Button-icon" key="icon" i={icon} />,
         ' ',
@@ -60,7 +75,7 @@ export default class Button extends Component {
     return createElement(
       component,
       {...props, className: buttonClassName},
-      newChildren,
+      newChildren
     )
   }
 }

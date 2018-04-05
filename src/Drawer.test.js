@@ -1,4 +1,6 @@
-import Drawer, { Expander } from './Drawer'
+import React from 'react'
+import {shallow, mount} from 'enzyme'
+import Drawer, {Expander} from './Drawer'
 
 describe('Drawer', () => {
   it('should render', () => {
@@ -15,20 +17,27 @@ describe('Drawer', () => {
     const drawer = mount(<Drawer left />)
     const expander = drawer.find(Expander)
     const closer = expander.find('.rev-Drawer-closer')
+
     closer.simulate('click')
 
-    expect(expander.find('.rev-Drawer').prop('className')).to.not.contain('rev-Drawer--open')
+    expect(expander.find('.rev-Drawer').prop('className')).to.not.contain(
+      'rev-Drawer--open'
+    )
 
     expander.find('.rev-Drawer-expander').simulate('click')
     drawer.update()
 
-    expect(drawer.find('.rev-Drawer').prop('className')).to.contain('rev-Drawer--open')
+    expect(drawer.find('.rev-Drawer').prop('className')).to.contain(
+      'rev-Drawer--open'
+    )
   })
 
   it('should add className to child', () => {
     const testClassName = '__TEST__'
 
-    const input = shallow(<Drawer className={testClassName} />).find(`.${testClassName}`)
+    const input = shallow(<Drawer className={testClassName} />).find(
+      `.${testClassName}`
+    )
 
     expect(input.exists()).to.equal(true)
   })

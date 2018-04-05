@@ -6,10 +6,19 @@ import InputHelpText from './InputHelpText'
 import InputErrors from './InputErrors'
 
 export default class InputGroup extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
+
     return (
-      <div {...props} className={classNames(className, 'input-group', 'rev-InputGroup')}>
+      <div
+        {...props}
+        className={classNames(className, 'input-group', 'rev-InputGroup')}
+      >
         {children}
       </div>
     )
@@ -17,10 +26,19 @@ export default class InputGroup extends Component {
 }
 
 class InputGroupLabel extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
+
     return (
-      <span {...props} className={classNames(className, 'rev-InputGroup-label')}>
+      <span
+        {...props}
+        className={classNames(className, 'rev-InputGroup-label')}
+      >
         {children}
       </span>
     )
@@ -28,10 +46,23 @@ class InputGroupLabel extends Component {
 }
 
 class InputGroupButton extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
+
     return (
-      <div {...props} className={classNames(className, 'input-group-button', 'rev-InputGroup-button')}>
+      <div
+        {...props}
+        className={classNames(
+          className,
+          'input-group-button',
+          'rev-InputGroup-button'
+        )}
+      >
         {children}
       </div>
     )
@@ -39,25 +70,35 @@ class InputGroupButton extends Component {
 }
 
 class InputGroupField extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {children, className} = this.props
-    return cloneElement(
-      Children.only(children),
-      {className: classNames(className, 'rev-InputGroup-field')},
-    )
+
+    return cloneElement(Children.only(children), {
+      className: classNames(className, 'rev-InputGroup-field'),
+    })
   }
 }
 
 class InputGroupStack extends Component {
+  static propTypes = {
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    help: PropTypes.string,
+    label: PropTypes.string,
+    children: PropTypes.node,
+  }
 
   render() {
     const {children, error, help, label, ...props} = this.props
+
     return (
       <InputLabel {...props} error={error}>
         {label}
-        <InputGroup>
-          {children}
-        </InputGroup>
+        <InputGroup>{children}</InputGroup>
         <InputHelpText>{help}</InputHelpText>
         <InputErrors>{error}</InputErrors>
       </InputLabel>

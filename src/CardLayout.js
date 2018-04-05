@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
@@ -10,19 +11,25 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 export default class CardLayout extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
 
     // Start building the className
     const boolClassNames = []
+
     BOOL_PROPS.forEach((name) => {
-      if(props[name]) {
-        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name] )
+      if (props[name]) {
+        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
       }
       delete props[name]
     })
 
-    const divClassName = classNames(className, 'rev-CardLayout', boolClassNames,)
+    const divClassName = classNames(className, 'rev-CardLayout', boolClassNames)
 
     return (
       <div {...props} className={divClassName}>
@@ -33,9 +40,15 @@ export default class CardLayout extends Component {
 }
 
 export class CardLayoutBar extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
     const divClassName = classNames(className, 'rev-CardLayout-bar')
+
     return (
       <div {...props} className={divClassName}>
         {children}
@@ -46,9 +59,15 @@ export class CardLayoutBar extends Component {
 CardLayout.Bar = CardLayoutBar
 
 export class CardLayoutFill extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {className, children, ...props} = this.props
     const divClassName = classNames(className, 'rev-CardLayout-fill')
+
     return (
       <div {...props} className={divClassName}>
         {children}

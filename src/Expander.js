@@ -2,12 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 
 const Expander = (props) => {
-  return <div className={`rev-Drawer ${props.open ? 'rev-Drawer--open' : ''} ${props.className}`}>
-    {props.closer}
-    <div className="rev-Drawer-contents">
-      {props.children}
+  return (
+    <div
+      className={`rev-Drawer ${props.open ? 'rev-Drawer--open' : ''} ${
+        props.className
+      }`}
+    >
+      {props.closer}
+      <div className="rev-Drawer-contents">{props.children}</div>
     </div>
-  </div>
+  )
 }
 
 Expander.defaultProps = {

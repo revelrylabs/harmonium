@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow} from 'enzyme'
 import StatelessModal from './StatelessModal'
 import sinon from 'sinon'
 

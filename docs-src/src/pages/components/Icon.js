@@ -3,14 +3,21 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 
 const examples = {
-  'Basic': require('raw!../../examples/Icon/Basic.js.example'),
-  'Foundation': require('raw!../../examples/Icon/Foundation.js.example')
+  Basic: require('raw!../../examples/Icon/Basic.js.example'),
+  Foundation: require('raw!../../examples/Icon/Foundation.js.example'),
 }
 
 export default class IconExamplePage extends Component {
   render() {
-    return <div className="rev-Row rev-Row--collapse">
-      <ExampleSection title="Icons" examples={examples} depth={1} scope={scope} />
-    </div>
+    return (
+      <div className="rev-Row rev-Row--collapse">
+        <ExampleSection
+          title="Icons"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
+      </div>
+    )
   }
 }

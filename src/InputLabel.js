@@ -3,9 +3,15 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 export default class InputLabel extends Component {
+  static propTypes = {
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    inputId: PropTypes.string,
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
 
   render() {
-    const {error, className, children, ...props} = this.props
+    const {error, className, children, inputId, ...props} = this.props
 
     const labelClassName = classNames(className, 'rev-InputLabel', {
       'is-invalid-label': !!error,
@@ -13,7 +19,7 @@ export default class InputLabel extends Component {
     })
 
     return (
-      <label className={labelClassName} {...props}>
+      <label htmlFor={inputId} className={labelClassName} {...props}>
         {children}
       </label>
     )

@@ -9,8 +9,15 @@ const examples = {
 
 export default class BrowserSupportWarningExamplePage extends Component {
   render() {
-    return <div className="rev-Row rev-Row--collapse">
-      <ExampleSection title="Browser Support Warnings" examples={examples} depth={1} scope={scope} />
-    </div>
+    return (
+      <div className="rev-Row rev-Row--collapse">
+        <ExampleSection
+          title="Browser Support Warnings"
+          examples={examples}
+          depth={1}
+          scope={scope}
+        />
+      </div>
+    )
   }
 }
