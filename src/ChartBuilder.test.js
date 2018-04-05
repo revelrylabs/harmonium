@@ -1,3 +1,5 @@
+import React from 'react'
+import {mount} from 'enzyme'
 import ChartBuilder from './ChartBuilder.js'
 
 describe('ChartBuilder', () => {
@@ -6,17 +8,16 @@ describe('ChartBuilder', () => {
       <ChartBuilder
         data={{
           labels: ['Red', 'Blue'],
-          datasets: [{
-            label: '#',
-            data: [1,2],
-            backgroundColor: [
-              'red',
-              'blue',
-            ],
-          }]
+          datasets: [
+            {
+              label: '#',
+              data: [1, 2],
+              backgroundColor: ['red', 'blue'],
+            },
+          ],
         }}
-        type='pie'
-        title='Pie Chart'
+        type="pie"
+        title="Pie Chart"
       />
     )
   })

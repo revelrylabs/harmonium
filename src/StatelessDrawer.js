@@ -50,29 +50,36 @@ export default class StatelessDrawer extends React.Component {
   render() {
     const propClassNames = BOOL_PROPS.reduce((acc, key) => {
       const value = BOOL_PROPS_TO_CLASS_NAMES[key]
+
       acc[value] = this.props[key]
       return acc
     }, {})
     const newClassName = classNames(this.props.className, propClassNames)
 
-    return <Expander
-      open={this.props.open}
-      className={newClassName}
-      closer={<a className="rev-Drawer-closer" onClick={this.close}>{this.props.closerChildren}</a>}
-    >
-      {
-        React.createElement(
+    return (
+      <Expander
+        open={this.props.open}
+        className={newClassName}
+        closer={
+          /* eslint-disable jsx-a11y/anchor-is-valid, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
+          <a className="rev-Drawer-closer" onClick={this.close}>
+            {this.props.closerChildren}
+          </a>
+          /* eslint-enable jsx-a11y/anchor-is-valid, jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
+        }
+      >
+        {React.createElement(
           this.props.expanderComponentClass,
           {
-            className: `rev-Drawer-expander`,
+            className: 'rev-Drawer-expander',
             onClick: this.expand,
           },
-          this.props.expanderChildren,
-        )
-      }
-      {this.props.children}
-    </Expander>
+          this.props.expanderChildren
+        )}
+        {this.props.children}
+      </Expander>
+    )
   }
 }
 
-export { Expander }
+export {Expander}

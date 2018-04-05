@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow} from 'enzyme'
 import Col from './Col'
 
 describe('Col', () => {
@@ -36,16 +38,20 @@ describe('Col', () => {
       largeOrder: 'large-order',
     }
 
-    for (let key in propToClass) {
-      const value = propToClass[key]
-      const props = {[key]: 1}
-      const col = shallow(<Col {...props} />)
-      expect(col.prop('className')).to.contain(value)
+    for (const key in propToClass) {
+      if (Object.prototype.hasOwnProperty.call(propToClass, key)) {
+        const value = propToClass[key]
+        const props = {[key]: 1}
+        const col = shallow(<Col {...props} />)
+
+        expect(col.prop('className')).to.contain(value)
+      }
     }
   })
 
   it('handles boolean props', () => {
     const col = shallow(<Col smallCentered />)
+
     expect(col.prop('className')).to.contain('small-centered')
   })
 })

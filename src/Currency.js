@@ -2,7 +2,6 @@ import React from 'react'
 import NumberFormatter from './NumberFormatter'
 
 export default class Currency extends React.Component {
-
   static get propTypes() {
     return NumberFormatter.propTypes
   }

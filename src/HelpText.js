@@ -3,9 +3,9 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 export default class HelpText extends Component {
-
   static propTypes = {
-    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]).isRequired,
+    children: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
+      .isRequired,
     className: PropTypes.string,
   }
 

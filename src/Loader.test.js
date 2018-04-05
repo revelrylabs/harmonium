@@ -1,3 +1,5 @@
+import React from 'react'
+import {shallow, mount} from 'enzyme'
 import Loader from './Loader'
 
 const props = {}
@@ -55,7 +57,7 @@ describe('Loader', () => {
 
   it('throws an error if more than one size-related prop is specified', () => {
     // Construct props wherein more than one size attribute is specified.
-    const customProps = { ...props, small: true, medium: true }
+    const customProps = {...props, small: true, medium: true}
 
     expect(() => shallow(<Loader {...customProps} />)).to.throw()
   })

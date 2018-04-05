@@ -1,13 +1,14 @@
 /** @jsx createElement */
 
 import React from 'react'
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'
+import {uniqueId, omit} from 'lodash'
 import Calendar from './DatePicker/Calendar'
 import DateInputBlock from './DatePicker/DateInputBlock'
 import InputHelpText from './InputHelpText'
 import InputErrors from './InputErrors'
 import createElementWithOverride from './Utilities/createElementWithOverride'
-import { DateTime } from 'luxon'
+import {DateTime} from 'luxon'
 
 /**
  * Return true if date type inputs are well supported on this platform
@@ -17,22 +18,23 @@ function goodDateInput() {
   if (typeof window === 'undefined') {
     return true
   } else {
-    const el = document.createElement('input')
-    el.type = 'date'
-    el.value = '!)'
-    return el.value == ''
+    const element = document.createElement('input')
+
+    element.type = 'date'
+    element.value = '!)'
+    return element.value === ''
   }
 }
 
 /**
  * Return true if Firefox browser
- * Date type inputs are supported on Firefox but not possible to 
+ * Date type inputs are supported on Firefox but not possible to
  * prevent the native calendar popup dialog, resulting in two calendars
  * showing. Need to default to type text input.
  * @return {boolean} true is date type inputs are well supported, false otherwise
  */
 const isFirefox = () => {
-  return /Firefox/i.test(navigator.userAgent);
+  return (/Firefox/i).test(navigator.userAgent)
 }
 
 /** A DatePicker component containing inputs and a calendar. */
@@ -42,10 +44,8 @@ class UncontrolledDatePicker extends React.Component {
    * @return {object} the default value object
    */
   static get defaultProps() {
-    const createElement = React.createElement
-
     return {
-      isSelectable: () => true
+      isSelectable: () => true,
     }
   }
 
@@ -59,7 +59,8 @@ class UncontrolledDatePicker extends React.Component {
     super(props)
     // On platforms with poor date input support, or when non-standard format is
     // specified, we have to fall back to a text type input
-    this.goodDateInput = goodDateInput() && !this.props.dateFormat && !isFirefox()
+    this.goodDateInput =
+      goodDateInput() && !this.props.dateFormat && !isFirefox()
     this.state = {
       isOpen: this.props.isOpen || false,
       focused: false,
@@ -71,7 +72,7 @@ class UncontrolledDatePicker extends React.Component {
       // Generation exists to force the inputs in the component to accept the
       // new value when we click the calendar
       generation: 0,
-      mousedIn: false
+      mousedIn: false,
     }
   }
 
@@ -105,7 +106,7 @@ class UncontrolledDatePicker extends React.Component {
   valuesFromIso(iso) {
     return {
       isoValue: iso,
-      formattedValue: this.isoToFormatted(iso)
+      formattedValue: this.isoToFormatted(iso),
     }
   }
 
@@ -128,7 +129,10 @@ class UncontrolledDatePicker extends React.Component {
    */
   onChange(event) {
     // Take whatever format the input gave us, and turn it into an ISO date string
-    const asISO = DateTime.fromFormat(event.target.value, this.dateFormat).toISODate()
+    const asISO = DateTime.fromFormat(
+      event.target.value,
+      this.dateFormat
+    ).toISODate()
 
     if (this.props.onChange) {
       // Call into an onChange we got as props
@@ -149,7 +153,9 @@ class UncontrolledDatePicker extends React.Component {
   get dateFormat() {
     // TODO: detect locale default format string and use that instead of
     //   hardcoded 'MM/dd/yyyy'
-    return this.goodDateInput ? 'yyyy-MM-dd' : this.props.dateFormat || 'MM/dd/yyyy'
+    return this.goodDateInput ?
+      'yyyy-MM-dd' :
+      this.props.dateFormat || 'MM/dd/yyyy'
   }
 
   /**
@@ -183,6 +189,7 @@ class UncontrolledDatePicker extends React.Component {
    */
   fireChangeHandler() {
     const event = new Event('change')
+
     this.nativeInput.dispatchEvent(event)
     this.onChange(event)
   }
@@ -195,8 +202,10 @@ class UncontrolledDatePicker extends React.Component {
    * @return {boolean} - true if on iOS or Android
    */
   useNativePicker() {
-    return typeof navigator !== 'undefined' &&
-           /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
+    return (
+      typeof navigator !== 'undefined' &&
+      (/Android|iPhone|iPad|iPod/i).test(navigator.userAgent)
+    )
   }
 
   /**
@@ -205,7 +214,7 @@ class UncontrolledDatePicker extends React.Component {
    * click the calendar buttons.
    */
   mouseIn() {
-    this.setState({ mousedIn: true })
+    this.setState({mousedIn: true})
   }
 
   /**
@@ -214,7 +223,7 @@ class UncontrolledDatePicker extends React.Component {
    * focus has moved to the next element.
    */
   mouseOut() {
-    this.setState({ mousedIn: false, isOpen: this.state.focused })
+    this.setState({mousedIn: false, isOpen: this.state.focused})
   }
 
   /**
@@ -226,7 +235,7 @@ class UncontrolledDatePicker extends React.Component {
     if (this.props.onFocus) {
       this.props.onFocus(event)
     }
-    this.setState({ focused: true, isOpen: true })
+    this.setState({focused: true, isOpen: true})
   }
 
   /**
@@ -238,7 +247,7 @@ class UncontrolledDatePicker extends React.Component {
     if (this.props.onBlur) {
       this.props.onBlur(event)
     }
-    this.setState({ focused: false, isOpen: this.state.mousedIn })
+    this.setState({focused: false, isOpen: this.state.mousedIn})
   }
 
   /**
@@ -263,18 +272,19 @@ class UncontrolledDatePicker extends React.Component {
    * @returns {boolean} - true if the calendar should be open
    */
   get calendarOpened() {
-    return (this.state.isOpen || this.props.isOpen) &&
-           !this.props.disabled &&
-           (!this.useNativePicker() || this.props.useCalendarOnMobile)
+    return (
+      (this.state.isOpen || this.props.isOpen) &&
+      !this.props.disabled &&
+      (!this.useNativePicker() || this.props.useCalendarOnMobile)
+    )
   }
 
   render() {
-    let {
+    const {
       error,
       help,
       label,
       highlights,
-      isOpen,
       overrides,
       isSelectable,
       calendar,
@@ -284,20 +294,26 @@ class UncontrolledDatePicker extends React.Component {
       overlay,
       ...props
     } = this.props
-
     const createElement = createElementWithOverride.bind(this, overrides)
-
-    const nativeClass = this.useNativePicker() ? 'rev-DatePicker--native' : 'rev-DatePicker--custom'
+    const nativeClass = this.useNativePicker() ?
+      'rev-DatePicker--native' :
+      'rev-DatePicker--custom'
+    const inputId = uniqueId('DateInputBlock:')
+    const dateInputBlockProps = omit(props, 'isOpen')
 
     return (
       <label
+        htmlFor={inputId}
         className={`rev-DatePicker rev-InputLabel ${nativeClass}`}
         onMouseOver={this.mouseIn.bind(this)}
         onMouseOut={this.mouseOut.bind(this)}
+        onFocus={this.focus.bind(this)}
+        onBlur={this.blur.bind(this)}
       >
         {label}
         <DateInputBlock
-          {...props}
+          {...dateInputBlockProps}
+          id={inputId}
           error={error}
           isoValue={this.state.isoValue}
           formattedValue={this.state.formattedValue}
@@ -306,7 +322,7 @@ class UncontrolledDatePicker extends React.Component {
           onBlur={this.blur.bind(this)}
           onChange={this.onChange.bind(this)}
           generation={this.state.generation}
-          inputRef={input => (this.nativeInput = input)}
+          inputRef={(input) => (this.nativeInput = input)}
           overrides={overrides}
         />
         <InputHelpText>{help}</InputHelpText>
@@ -323,7 +339,9 @@ class UncontrolledDatePicker extends React.Component {
           {...calendar}
           day={day}
           headerDay={headerDay}
-          className={this.calendarOpened ? 'rev-Calendar--open' : 'rev-Calendar--closed'}
+          className={
+            this.calendarOpened ? 'rev-Calendar--open' : 'rev-Calendar--closed'
+          }
         />
       </label>
     )
@@ -341,10 +359,7 @@ UncontrolledDatePicker.propTypes = {
   ]),
   isOpen: PropTypes.bool,
   overrides: PropTypes.objectOf(
-    PropTypes.oneOfType([
-      PropTypes.func,
-      PropTypes.instanceOf(React.Component),
-    ]),
+    PropTypes.oneOfType([PropTypes.func, PropTypes.instanceOf(React.Component)])
   ),
   isSelectable: PropTypes.func,
   calendar: PropTypes.object,
@@ -356,5 +371,5 @@ UncontrolledDatePicker.propTypes = {
 
 UncontrolledDatePicker.DateInputBlock = DateInputBlock
 UncontrolledDatePicker.Calendar = Calendar
-export {Calendar, DateInputBlock};
+export {Calendar, DateInputBlock}
 export default UncontrolledDatePicker

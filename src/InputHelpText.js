@@ -4,7 +4,6 @@ import classNames from 'classnames'
 import HelpText from './HelpText'
 
 export default class InputHelpText extends Component {
-
   static propTypes = {
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node]),
     className: PropTypes.string,
@@ -19,6 +18,10 @@ export default class InputHelpText extends Component {
 
     const newClassName = classNames(className, 'rev-InputHelpText')
 
-    return <HelpText className={newClassName} {...props}>{children}</HelpText>
+    return (
+      <HelpText className={newClassName} {...props}>
+        {children}
+      </HelpText>
+    )
   }
 }

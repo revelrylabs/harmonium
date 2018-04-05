@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import Row from './Row'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
   smallCentered: ['small-centered', 'rev-Col--smallCentered'],
@@ -34,49 +34,60 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 const NUMBER_PROPS_TO_CLASS_NAMES = {
-  small: (x) => [`small-${x}`, `rev-Col--small${x}`],
-  medium: (x) => [`medium-${x}`, `rev-Col--medium${x}`],
-  large: (x) => [`large-${x}`, `rev-Col--large${x}`],
-  xlarge: (x) => [`xlarge-${x}`, `rev-Col--xlarge${x}`],
-  xxlarge: (x) => [`xxlarge-${x}`, `rev-Col--xxlarge${x}`],
+  small: (arg) => [`small-${arg}`, `rev-Col--small${arg}`],
+  medium: (arg) => [`medium-${arg}`, `rev-Col--medium${arg}`],
+  large: (arg) => [`large-${arg}`, `rev-Col--large${arg}`],
+  xlarge: (arg) => [`xlarge-${arg}`, `rev-Col--xlarge${arg}`],
+  xxlarge: (arg) => [`xxlarge-${arg}`, `rev-Col--xxlarge${arg}`],
 
-  smallOffset: (x) => [`small-offset-${x}`, `rev-Col--smallOffset${x}`],
-  mediumOffset: (x) => [`medium-offset-${x}`, `rev-Col--mediumOffset${x}`],
-  largeOffset: (x) => [`large-offset-${x}`, `rev-Col--largeOffset${x}`],
+  smallOffset: (arg) => [`small-offset-${arg}`, `rev-Col--smallOffset${arg}`],
+  mediumOffset: (arg) => [
+    `medium-offset-${arg}`,
+    `rev-Col--mediumOffset${arg}`,
+  ],
+  largeOffset: (arg) => [`large-offset-${arg}`, `rev-Col--largeOffset${arg}`],
 
-  smallPush: (x) => [`small-push-${x}`, `rev-Col--smallPush${x}`],
-  mediumPush: (x) => [`medium-push-${x}`, `rev-Col--mediumPush${x}`],
-  largePush: (x) => [`large-push-${x}`, `rev-Col--largePush${x}`],
+  smallPush: (arg) => [`small-push-${arg}`, `rev-Col--smallPush${arg}`],
+  mediumPush: (arg) => [`medium-push-${arg}`, `rev-Col--mediumPush${arg}`],
+  largePush: (arg) => [`large-push-${arg}`, `rev-Col--largePush${arg}`],
 
-  smallPull: (x) => [`small-pull-${x}`, `rev-Col--smallPull${x}`],
-  mediumPull: (x) => [`medium-pull-${x}`, `rev-Col--mediumPull${x}`],
-  largePull: (x) => [`large-pull-${x}`, `rev-Col--largePull${x}`],
+  smallPull: (arg) => [`small-pull-${arg}`, `rev-Col--smallPull${arg}`],
+  mediumPull: (arg) => [`medium-pull-${arg}`, `rev-Col--mediumPull${arg}`],
+  largePull: (arg) => [`large-pull-${arg}`, `rev-Col--largePull${arg}`],
 
-  smallOrder: (x) => [`small-order-${x}`, `rev-Col--smallOrder${x}`],
-  mediumOrder: (x) => [`medium-order-${x}`, `rev-Col--mediumOrder${x}`],
-  largeOrder: (x) => [`large-order-${x}`, `rev-Col--largeOrder${x}`],
+  smallOrder: (arg) => [`small-order-${arg}`, `rev-Col--smallOrder${arg}`],
+  mediumOrder: (arg) => [`medium-order-${arg}`, `rev-Col--mediumOrder${arg}`],
+  largeOrder: (arg) => [`large-order-${arg}`, `rev-Col--largeOrder${arg}`],
 }
 
 const NUMBER_PROPS = Object.keys(NUMBER_PROPS_TO_CLASS_NAMES)
 
 export default class Col extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
   render() {
     const {children, className, ...props} = this.props
 
     const boolClassNames = []
+
     BOOL_PROPS.forEach((name) => {
-      if(props[name]) {
-        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name] )
+      if (props[name]) {
+        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
       }
       delete props[name]
     })
 
     const numberClassNames = []
+
     NUMBER_PROPS.forEach((name) => {
       const value = props[name]
-      const fn = NUMBER_PROPS_TO_CLASS_NAMES[name]
-      if(value != null) {
-        numberClassNames.push(fn(value))
+      const func = NUMBER_PROPS_TO_CLASS_NAMES[name]
+
+      if (value !== null) {
+        numberClassNames.push(func(value))
       }
       delete props[name]
     })
@@ -86,7 +97,7 @@ export default class Col extends Component {
       'columns',
       'rev-Col',
       boolClassNames,
-      numberClassNames,
+      numberClassNames
     )
 
     return (
@@ -95,5 +106,4 @@ export default class Col extends Component {
       </div>
     )
   }
-
 }

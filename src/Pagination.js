@@ -4,7 +4,6 @@ import classNames from 'classnames'
 
 // TODO: once icons are added to this repo, enable them here.
 export default class Pagination extends Component {
-
   static propTypes = {
     anchorAriaLabel: PropTypes.func,
     className: PropTypes.string,
@@ -19,9 +18,8 @@ export default class Pagination extends Component {
     onPageClick: PropTypes.func.isRequired,
     previousPageContent: PropTypes.node,
     href: PropTypes.func,
-    showFirstLast: PropTypes.bool,
     totalPages: PropTypes.number.isRequired,
-  };
+  }
 
   static defaultProps = {
     anchorAriaLabel: (page) => `Page ${page}`,
@@ -42,9 +40,8 @@ export default class Pagination extends Component {
       </span>
     ),
     maxViewPages: 5,
-    mobilePageListText: (currentPage, totalPages) => (
-      `Page ${currentPage} of ${totalPages}`
-    ),
+    mobilePageListText: (currentPage, totalPages) =>
+      `Page ${currentPage} of ${totalPages}`,
     nextPageContent: (
       <span>
         Next
@@ -59,37 +56,36 @@ export default class Pagination extends Component {
         <span className="ShowForSR"> page</span>
       </span>
     ),
-    href: (page) => '#',
+    href: () => '#',
     showFirstLast: true,
   }
 
   getAttributes() {
     const {currentPage, totalPages, maxViewPages} = this.props
-    let attributes = {beginArrows: false, endArrows: false}
+    const attributes = {beginArrows: false, endArrows: false}
 
     if (totalPages <= maxViewPages) {
       attributes.start = 1
       attributes.end = totalPages
+    } else if (currentPage <= Math.ceil(maxViewPages / 2)) {
+      // Left end
+      attributes.start = 1
+      attributes.end = maxViewPages
+      attributes.endArrows = true
+    } else if (currentPage > totalPages - Math.ceil(maxViewPages / 2)) {
+      // Right end
+      attributes.start = totalPages - (maxViewPages - 1)
+      attributes.end = totalPages
+      attributes.beginArrows = true
     } else {
-      if (currentPage <= Math.ceil(maxViewPages / 2)) {
-        // Left end
-        attributes.start = 1
-        attributes.end = maxViewPages
-        attributes.endArrows = true
-      } else if (currentPage > totalPages - Math.ceil(maxViewPages / 2)) {
-        // Right end
-        attributes.start = totalPages - (maxViewPages - 1)
-        attributes.end = totalPages
-        attributes.beginArrows = true
-      } else {
-        // Middle
-        const buffer = Math.floor( (maxViewPages - 2) / 2)
-        const unevenAmount = (maxViewPages - 2) % 2
-        attributes.start = currentPage - (buffer + unevenAmount)
-        attributes.end = currentPage + buffer
-        attributes.beginArrows = true
-        attributes.endArrows = true
-      }
+      // Middle
+      const buffer = Math.floor((maxViewPages - 2) / 2)
+      const unevenAmount = (maxViewPages - 2) % 2
+
+      attributes.start = currentPage - (buffer + unevenAmount)
+      attributes.end = currentPage + buffer
+      attributes.beginArrows = true
+      attributes.endArrows = true
     }
 
     return attributes
@@ -113,32 +109,35 @@ export default class Pagination extends Component {
     const baseRange = Array.from(Array(end - start + 1).keys())
     const {currentPage, href, currentPageText, anchorAriaLabel} = this.props
 
-    return (
-      baseRange.map( (e) => {
-        const page = e + start
+    return baseRange.map((e) => {
+      const page = e + start
 
-        if (page === currentPage) {
-          return (
-            <li key={page} className="rev-Pagination-number rev-Pagination-number--selected">
-              <span className="ShowForSR">{currentPageText}</span>
-              <a>{page}</a>
-            </li>
-          )
-        } else {
-          return (
-            <li key={page} className="rev-Pagination-number">
-              <a
-                href={href(page)}
-                onClick={this.createClickHandler(page)}
-                aria-label={anchorAriaLabel(page)}
-              >
-                {page}
-              </a>
-            </li>
-          )
-        }
-      })
-    )
+      if (page === currentPage) {
+        return (
+          <li
+            key={page}
+            className="rev-Pagination-number rev-Pagination-number--selected"
+          >
+            <span className="ShowForSR">{currentPageText}</span>
+            {/* eslint-disable jsx-a11y/anchor-is-valid */}
+            <a>{page}</a>
+            {/* eslint-enable jsx-a11y/anchor-is-valid */}
+          </li>
+        )
+      } else {
+        return (
+          <li key={page} className="rev-Pagination-number">
+            <a
+              href={href(page)}
+              onClick={this.createClickHandler(page)}
+              aria-label={anchorAriaLabel(page)}
+            >
+              {page}
+            </a>
+          </li>
+        )
+      }
+    })
   }
 
   createClickHandler(pageNumber) {
@@ -167,13 +166,18 @@ export default class Pagination extends Component {
     } = this.props
     const {beginArrows, endArrows, start, end} = this.getAttributes()
     const beginArrowsClass = this.getArrowClass(beginArrows, currentPage === 1)
-    const endArrowsClass = this.getArrowClass(endArrows, currentPage === totalPages)
+    const endArrowsClass = this.getArrowClass(
+      endArrows,
+      currentPage === totalPages
+    )
 
     if (totalPages === 1) {
       return null
     } else {
       return (
-        <div className={classNames('rev-PaginationWrapper', this.props.className)}>
+        <div
+          className={classNames('rev-PaginationWrapper', this.props.className)}
+        >
           <ul
             className="rev-Pagination"
             role="navigation"
@@ -192,11 +196,21 @@ export default class Pagination extends Component {
                 {previousPageContent}
               </a>
             </li>
-            <li className={classNames('rev-Pagination-dots', beginArrows ? '' : 'rev-Pagination-dots--hidden')}>
+            <li
+              className={classNames(
+                'rev-Pagination-dots',
+                beginArrows ? '' : 'rev-Pagination-dots--hidden'
+              )}
+            >
               ...
             </li>
             {this.numberLinks(start, end)}
-            <li className={classNames('rev-Pagination-dots', endArrows ? '' : 'rev-Pagination-dots--hidden')}>
+            <li
+              className={classNames(
+                'rev-Pagination-dots',
+                endArrows ? '' : 'rev-Pagination-dots--hidden'
+              )}
+            >
               ...
             </li>
             <li className={endArrowsClass}>
@@ -217,7 +231,9 @@ export default class Pagination extends Component {
             </li>
           </ul>
           <div className="rev-PaginationWrapper-pageList">
-            <span className="Small">( {mobilePageListText(currentPage, totalPages)} )</span>
+            <span className="Small">
+              ( {mobilePageListText(currentPage, totalPages)} )
+            </span>
           </div>
         </div>
       )

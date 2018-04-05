@@ -1,14 +1,29 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import InputLabel from './InputLabel'
 import InputHelpText from './InputHelpText'
 import InputErrors from './InputErrors'
 
 export default class CheckableFieldset extends Component {
-  render() {
-    const {label, className, children, help, error, name, value, defaultValue, options, ...props} = this.props
+  static propTypes = {
+    label: PropTypes.string,
+    help: PropTypes.string,
+    error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
 
-    const fieldsetClassName = classNames(className, 'fieldset', 'rev-CheckableFieldset', {'is-invalid-fieldset': !!error})
+  render() {
+    const {label, className, children, help, error, ...props} = this.props
+
+    const fieldsetClassName = classNames(
+      className,
+      'fieldset',
+      'rev-CheckableFieldset',
+      {
+        'is-invalid-fieldset': !!error,
+      }
+    )
 
     const legendClassName = classNames({
       'is-invalid-label': !!error,

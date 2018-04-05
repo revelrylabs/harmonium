@@ -1,12 +1,12 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import {reject, uniq, contains} from 'underscore'
+
 const KEY_TAB = 9
 const KEY_ENTER = 13
 const KEY_ESC = 27
 
-import React from 'react'
-import PropTypes from 'prop-types'
-
 export default class Tokenizer extends React.Component {
-
   static get propTypes() {
     return {
       placeholder: PropTypes.string,
@@ -24,7 +24,11 @@ export default class Tokenizer extends React.Component {
       getOptionComponent: PropTypes.func,
       getTokenComponent: PropTypes.func,
       getInputName: PropTypes.func,
-
+      name: PropTypes.string,
+      defaultValue: PropTypes.any,
+      type: PropTypes.string,
+      className: PropTypes.string,
+      children: PropTypes.node,
     }
   }
 
@@ -56,7 +60,7 @@ export default class Tokenizer extends React.Component {
 
   // Default is item.id
   getItemValue(item) {
-    return (this.props.getItemValue || ((item) => item.id))(item)
+    return (this.props.getItemValue || ((itemArg) => itemArg.id))(item)
   }
 
   getSelectedValues() {
@@ -81,7 +85,10 @@ export default class Tokenizer extends React.Component {
   // List item that contains @getTokenComponent(item) and a remove button
   renderToken(item) {
     return (
-      <li className={this.props.tokenClassName} key={`token-${this.getItemValue(item)}`}>
+      <li
+        className={this.props.tokenClassName}
+        key={`token-${this.getItemValue(item)}`}
+      >
         {this.getTokenComponent(item)}
         <input
           type="hidden"
@@ -89,23 +96,23 @@ export default class Tokenizer extends React.Component {
           value={this.getItemValue(item)}
           readOnly
         />
-        <a
+        <button
           className={this.props.removeButtonClassName}
-          href="#"
           onClick={() => this.onRemove(item)}
         >
           Remove
-        </a>
+        </button>
       </li>
     )
   }
 
   getInput() {
-    return this.refs.input.getDOMNode()
+    return this.refs.input.getDOMNode() // eslint-disable-line react/no-string-refs
   }
 
   // List item that contains @getOptionComponent(item)
   renderOption(item) {
+    /* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
     return (
       <li
         className={this.props.optionClassName}
@@ -115,11 +122,12 @@ export default class Tokenizer extends React.Component {
         {this.getOptionComponent(item)}
       </li>
     )
+    /* eslint-enable jsx-a11y/click-events-have-key-events, jsx-a11y/no-noninteractive-element-interactions */
   }
 
   // Renders a list only if it has items
   renderTokens() {
-    if(!this.state.selectedItems.length > 0) {
+    if (!this.state.selectedItems.length > 0) {
       return null
     }
     return (
@@ -131,7 +139,7 @@ export default class Tokenizer extends React.Component {
 
   // Renders a list only if it has items
   renderOptions() {
-    if(!this.state.optionItems.length > 0) {
+    if (!this.state.optionItems.length > 0) {
       return null
     }
     return (
@@ -141,50 +149,26 @@ export default class Tokenizer extends React.Component {
     )
   }
 
-  render() {
-    return (
-      <div>
-        {this.renderTokens()}
-        <div className={this.props.className}>
-          <input
-            ref="input"
-            type={this.props.type || 'text'}
-            className={this.props.inputClassName}
-            placeholder={this.props.placeholder}
-            defaultValue={this.props.defaultValue}
-            onKeyDown={this.onKeyDown.bind(this)}
-            onKeyUp={this.onKeyUp.bind(this)}
-            onBlur={this.onBlur.bind(this)}
-            onFocus={this.onFocus.bind(this)} />
-          {this.props.children}
-        </div>
-        {this.renderOptions()}
-      </div>
-    )
-  }
-
   isSelectKey(e) {
-    return e.keyCode == KEY_TAB || e.keyCode == KEY_ENTER
+    return e.keyCode === KEY_TAB || e.keyCode === KEY_ENTER
   }
 
   onKeyDown(e) {
     // prevent blur, form submit, etc.
     // unless there's no text in the box, in which case we don't worry about it
-    return this.state.optionItems.length == 0 || !this.isSelectKey(e)
+    return this.state.optionItems.length === 0 || !this.isSelectKey(e)
   }
 
   onKeyUp(e) {
-    if(this.isSelectKey(e)) {
+    if (this.isSelectKey(e)) {
       // Select the first item on special keypresses
-      if(this.state.optionItems.length > 0) {
+      if (this.state.optionItems.length > 0) {
         this.onSelect(this.state.optionItems[0])
       }
-    }
-    else if(e.keyCode == KEY_ESC) {
+    } else if (e.keyCode === KEY_ESC) {
       // Esc to make the option go away
       this.getInput().blur()
-    }
-    else {
+    } else {
       this.fetchOptions()
     }
 
@@ -194,11 +178,12 @@ export default class Tokenizer extends React.Component {
   }
 
   onBlur() {
-    if(this.props.leaveOpen) {
+    const clearOptions = () => this.setState({optionItems: []})
+
+    if (this.props.leaveOpen) {
       return
     }
     // If you don't delay this a little you can't click any of the options
-    clearOptions = () => this.setState({optionItems: []})
     setTimeout(clearOptions, 200)
   }
 
@@ -207,25 +192,27 @@ export default class Tokenizer extends React.Component {
   }
 
   clearOptions() {
-    if(this.xhr != null) {
+    if (this.xhr !== null) {
       this.xhr.abort()
     }
     this.setState({optionItems: []})
   }
 
   setOptions(items) {
-    rejectItem = (item) => _.contains(this.getSelectedValues(), this.getItemValue(item))
+    const rejectItem = (item) =>
+      contains(this.getSelectedValues(), this.getItemValue(item))
+
     this.setState({
-      optionItems: _.reject(items, rejectItem),
+      optionItems: reject(items, rejectItem),
     })
   }
 
   fetchOptions() {
-    if(this.getInput().value == '') {
+    if (this.getInput().value === '') {
       this.clearOptions()
-    }
-    else {
-      let queryData = {}
+    } else {
+      const queryData = {}
+
       queryData[this.props.queryParam] = this.getInput().value
       this.xhr = $.get(this.props.remoteOptionsUrl, queryData)
       this.xhr.done(this.setOptions.bind(this))
@@ -234,9 +221,10 @@ export default class Tokenizer extends React.Component {
 
   onSelect(item) {
     let items = this.state.selectedItems
+    const input = this.getInput()
+
     items.push(item)
-    items = _.uniq(items, null, this.getItemValue.bind(this))
-    input = this.getInput()
+    items = uniq(items, null, this.getItemValue.bind(this))
     input.value = ''
     input.focus()
     this.clearOptions()
@@ -245,8 +233,35 @@ export default class Tokenizer extends React.Component {
   }
 
   onRemove(item) {
-    const items = _.reject(this.state.selectedItems, (x) => this.getItemValue(x) == this.getItemValue(item))
+    const items = reject(
+      this.state.selectedItems,
+      (arg) => this.getItemValue(arg) === this.getItemValue(item)
+    )
+
     this.setState({selectedItems: items})
     return false
+  }
+
+  render() {
+    return (
+      <div>
+        {this.renderTokens()}
+        <div className={this.props.className}>
+          <input
+            ref="input" // eslint-disable-line react/no-string-refs
+            type={this.props.type || 'text'}
+            className={this.props.inputClassName}
+            placeholder={this.props.placeholder}
+            defaultValue={this.props.defaultValue}
+            onKeyDown={this.onKeyDown.bind(this)}
+            onKeyUp={this.onKeyUp.bind(this)}
+            onBlur={this.onBlur.bind(this)}
+            onFocus={this.onFocus.bind(this)}
+          />
+          {this.props.children}
+        </div>
+        {this.renderOptions()}
+      </div>
+    )
   }
 }

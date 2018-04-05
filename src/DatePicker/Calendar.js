@@ -1,17 +1,34 @@
 /** @jsx createElement */
-
-import Card from '../Card'
-import { DateTime, Duration } from 'luxon'
-import React from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import {DateTime, Duration} from 'luxon'
+import {omit} from 'lodash'
 import CalendarHeaderRow from './CalendarHeaderRow'
 import CalendarWeekRow from './CalendarWeekRow'
+import Card from '../Card'
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
 /**
  * A component representing a Calendar for a given focus month (& including the
  * leading days of the first week and trailing days of the last week).
  */
-export default class Calendar extends React.Component {
+export default class Calendar extends Component {
+  static propTypes = {
+    selectedDate: PropTypes.string,
+    focuser: PropTypes.func,
+    isSelectable: PropTypes.func,
+    dateChanger: PropTypes.func,
+    overrides: PropTypes.object,
+    week: PropTypes.any,
+    overlay: PropTypes.bool,
+    highlights: PropTypes.any,
+    headerDay: PropTypes.any,
+    day: PropTypes.any,
+    nextLabel: PropTypes.node,
+    previousLabel: PropTypes.node,
+    className: PropTypes.string,
+  }
+
   /**
    * The default values for props of this component
    * @return {object} the default value object
@@ -24,7 +41,7 @@ export default class Calendar extends React.Component {
       previousLabel: <span>&lsaquo;</span>,
       dateChanger: () => null,
       focuser: () => null,
-      isSelectable: () => true
+      isSelectable: () => true,
     }
   }
 
@@ -36,7 +53,7 @@ export default class Calendar extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      date: this.asLuxon(this.props.selectedDate)
+      date: this.asLuxon(this.props.selectedDate),
     }
   }
 
@@ -48,8 +65,8 @@ export default class Calendar extends React.Component {
    * @param {*} nextProps
    */
   componentWillReceiveProps(nextProps) {
-    if (nextProps.selectedDate != this.props.selectedDate) {
-      this.setState({ date: this.asLuxon(nextProps.selectedDate) })
+    if (nextProps.selectedDate !== this.props.selectedDate) {
+      this.setState({date: this.asLuxon(nextProps.selectedDate)})
     }
   }
 
@@ -65,6 +82,7 @@ export default class Calendar extends React.Component {
     }
 
     const luxon = DateTime.fromISO(date)
+
     if (luxon.invalid) {
       return DateTime.local()
     }
@@ -92,7 +110,8 @@ export default class Calendar extends React.Component {
    */
   startOfWeekOfStartOfMonth() {
     const weekday = this.startOfMonth().weekday % 7
-    return this.startOfMonth().minus(Duration.fromObject({ days: weekday }))
+
+    return this.startOfMonth().minus(Duration.fromObject({days: weekday}))
   }
 
   /**
@@ -108,10 +127,10 @@ export default class Calendar extends React.Component {
    * @param {Event} event - the event that caused this handler to be invoked
    *   (e.g. the click event from the next or previous button on the calendar)
    */
-  addMonth(n, event) {
+  addMonth(num, event) {
     event.preventDefault()
     this.setState({
-      date: this.startOfMonth().plus(Duration.fromObject({ month: n }))
+      date: this.startOfMonth().plus(Duration.fromObject({month: num})),
     })
     if (this.props.focuser) {
       this.props.focuser()
@@ -124,7 +143,6 @@ export default class Calendar extends React.Component {
       week,
       overrides,
       day,
-      focuser,
       headerDay,
       isSelectable,
       dateChanger,
@@ -136,9 +154,15 @@ export default class Calendar extends React.Component {
       ...props
     } = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
+    const divProps = omit(props, 'focuser')
 
     return (
-      <div {...props} className={`rev-Calendar ${overlay ? 'rev-Calendar--overlay' : ''} ${className}`}>
+      <div
+        {...divProps}
+        className={`rev-Calendar ${
+          overlay ? 'rev-Calendar--overlay' : ''
+        } ${className}`}
+      >
         <Card>
           <Card.Header className="rev-Calendar-header">
             <button
@@ -151,7 +175,7 @@ export default class Calendar extends React.Component {
             <span className="rev-Calendar-header-label">
               {this.state.date.toLocaleString({
                 month: 'short',
-                year: 'numeric'
+                year: 'numeric',
               })}
             </span>
             <button
@@ -169,12 +193,12 @@ export default class Calendar extends React.Component {
               headerDay={headerDay}
             />
             <tbody>
-              {[0, 7, 14, 21, 28].map(i => {
+              {[0, 7, 14, 21, 28].map((i) => {
                 return (
                   <CalendarWeekRow
                     {...week}
                     day={day}
-                    firstDay={this.startOfWeekOfStartOfMonth().plus({ days: i })}
+                    firstDay={this.startOfWeekOfStartOfMonth().plus({days: i})}
                     currentMonth={this.state.date.toFormat('yyyy-MM')}
                     isSelectable={isSelectable}
                     dateChanger={dateChanger}

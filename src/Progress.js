@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
@@ -13,27 +14,40 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 export default class Progress extends Component {
+  static propTypes = {
+    min: PropTypes.number,
+    max: PropTypes.number,
+    value: PropTypes.number,
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
 
   static defaultProps = {
     min: 0,
     max: 100,
-  };
+  }
 
   render() {
     const {className, children, min, max, value, ...props} = this.props
 
     const boolClassNames = []
+
     BOOL_PROPS.forEach((name) => {
-      if(props[name]) {
-        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name] )
+      if (props[name]) {
+        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
       }
       delete props[name]
     })
 
-    const divClassName = classNames(className, 'progress', 'rev-Progress', boolClassNames)
+    const divClassName = classNames(
+      className,
+      'progress',
+      'rev-Progress',
+      boolClassNames
+    )
 
     const ratio = Math.min(1, (value - min) / (max - min))
-    const width = `${ratio*100}%`
+    const width = `${ratio * 100}%`
 
     const text = children ? (
       <div className="rev-Progress-text">{children}</div>
