@@ -6,11 +6,17 @@ const StickyContent = ({
   className,
   isStuck,
   isAnchored,
+  stickToBottom,
   setRef,
   ...props
 }) => {
-  const stickyClass = isStuck ? 'rev-Sticky-content--stuck'
-                              : isAnchored ? 'rev-Sticky-content--anchored' : ''
+  const stickyClass = isStuck
+                        ? stickToBottom
+                          ? 'rev-Sticky-content--stuck-bottom'
+                          : 'rev-Sticky-content--stuck-top'
+                        : isAnchored
+                          ? 'rev-Sticky-content--anchored'
+                          : ''
   const itemClassName = classNames(className, 'rev-Sticky-content', stickyClass)
 
   return (
@@ -30,6 +36,7 @@ class Sticky extends Component {
       setContentRef,
       isStuck,
       isAnchored,
+      stickToBottom,
       ...props
     } = this.props
 
@@ -41,6 +48,7 @@ class Sticky extends Component {
           className={contentClassName}
           isAnchored={isAnchored}
           isStuck={isStuck}
+          stickToBottom={stickToBottom}
           setRef={setContentRef}
         >
           {children}
@@ -68,19 +76,32 @@ class StatefulSticky extends Component {
   }
 
   setContentState() {
-    const stickyContent = this.stickyContent
-    const contentTop = stickyContent.getBoundingClientRect().top
-    const contentBottom = stickyContent.getBoundingClientRect().bottom
+    const contentTop = this.stickyContent.getBoundingClientRect().top
+    const contentBottom = this.stickyContent.getBoundingClientRect().bottom
 
-    const stickyContainer = this.stickyContainer
-    const containerTop = stickyContainer.getBoundingClientRect().top
-    const containerBottom = stickyContainer.getBoundingClientRect().bottom
+    const containerTop = this.stickyContainer.getBoundingClientRect().top
+    const containerBottom = this.stickyContainer.getBoundingClientRect().bottom
 
-    const stickyStartPoint = this.props.offset ? containerTop + this.parsePxValue(this.props.offset)
-                                               : containerTop
-    const stickyStopPoint = containerBottom - stickyContent.offsetHeight
+    let stickyStart, stickyStop, stickyFlag, anchorFlag
 
-    if (stickyStartPoint <= 0 && stickyStopPoint > 0) {
+    if (this.props.stickToBottom) {
+      stickyStart = this.props.offset
+                  ? containerBottom - this.parsePxValue(this.props.offset)
+                                    - window.innerHeight
+                  : containerBottom - window.innerHeight
+      stickyStop = containerTop + this.stickyContent.offsetHeight - window.innerHeight
+      stickyFlag = stickyStart >= 0 && stickyStop <= 0
+      anchorFlag = stickyStart <= 0
+    } else {
+      stickyStart = this.props.offset
+                              ? containerTop + this.parsePxValue(this.props.offset)
+                              : containerTop
+      stickyStop = containerBottom - this.stickyContent.offsetHeight
+      stickyFlag = stickyStart <= 0  && stickyStop >= 0
+      anchorFlag = stickyStop <= 0
+    }
+
+    if (stickyFlag) {
       const sideBorders = this.parsePxValue(this.stickyContainer.style.borderRightWidth)
                         + this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
 
@@ -93,7 +114,7 @@ class StatefulSticky extends Component {
         isStuck: true,
         isAnchored: false
       })
-    } else if (stickyStopPoint <= 0) {
+    } else if (anchorFlag) {
       this.setState({
         isStuck: false,
         isAnchored: true
@@ -119,6 +140,7 @@ class StatefulSticky extends Component {
       children,
       className,
       offset,
+      stickToBottom,
       ...props
     } = this.props
 
@@ -128,6 +150,7 @@ class StatefulSticky extends Component {
         setContentRef={this.setContentRef.bind(this)}
         isStuck={this.state.isStuck}
         isAnchored={this.state.isAnchored}
+        stickToBottom={stickToBottom}
         {...props}
       >
         {children}

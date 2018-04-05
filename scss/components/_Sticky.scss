@@ -14,21 +14,26 @@ $sticky-content-bkgd: $white 0 !default;
   position: relative;
 }
 
-.rev-Sticky-content-wrapper {
-  position: absolute;
-  width: 100%;
-}
-
 .rev-Sticky-content {
   background: $sticky-content-bkgd;
 }
 
-.rev-Sticky-content--stuck {
+.rev-Sticky-content--stuck-top {
   position: fixed;
   top: 0;
+}
+
+.rev-Sticky-content--stuck-bottom {
+  position: fixed;
+  bottom: 0;
 }
 
 .rev-Sticky-content--anchored {
   position: absolute;
   bottom: 0;
+}
+
+.rev-Sticky-content--anchored-top {
+  position: absolute;
+  top: 0;
 }
