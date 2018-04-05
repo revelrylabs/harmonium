@@ -12,3 +12,4 @@ deploy:
     repo: revelrylabs/possum
     tags: true
     node: '8'
+  skip_cleanup: true
