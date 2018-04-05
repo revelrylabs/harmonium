@@ -1,4 +1,4 @@
-<Sticky.Stateful offset="100px" style={{border: '1px solid black', paddingBottom: '1000px', margin: '0 auto 750px'}}>
+<Sticky.Stateful offset="100px" style={{border: '1px solid black', paddingBottom: '1000px'}}>
   <span>
     This is an example of a stateful Sticky.
     Borders provide visual clarity to see exactly when this sticks/unsticks.
