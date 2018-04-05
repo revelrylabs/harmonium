@@ -70,11 +70,11 @@ class StatefulSticky extends Component {
   setContentState() {
     const stickyContent = this.stickyContent
     const contentTop = stickyContent.getBoundingClientRect().top
-    const contentBottom = contentTop + stickyContent.offsetHeight
+    const contentBottom = stickyContent.getBoundingClientRect().bottom
 
     const stickyContainer = this.stickyContainer
     const containerTop = stickyContainer.getBoundingClientRect().top
-    const containerBottom = containerTop + stickyContainer.offsetHeight
+    const containerBottom = stickyContainer.getBoundingClientRect().bottom
 
     const stickyStartPoint = this.props.offset ? containerTop + this.parsePxValue(this.props.offset)
                                                : containerTop
