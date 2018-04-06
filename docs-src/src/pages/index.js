@@ -17,9 +17,9 @@ const IndexPage = () => (
     </p>
     <p>
       Possum was built by Revelry Labs. We&apos;ve been doing React since the
-      earliest version was in beta. We&apos;ve built dozens of React apps and we&apos;ve
-      learned what works and what doesn&apos;t. And our focus is on shipping gold
-      fast. So we never want to solve the same problem twice.
+      earliest version was in beta. We&apos;ve built dozens of React apps and
+      we&apos;ve learned what works and what doesn&apos;t. And our focus is on
+      shipping gold fast. So we never want to solve the same problem twice.
     </p>
     <h2>Installation</h2>
     <pre>
@@ -31,10 +31,10 @@ const IndexPage = () => (
     </p>
     <h2>SCSS</h2>
     <p>
-      We don&apos;t just provide JavaScript. We&apos;ve built a set of SCSS styles for all
-      the components. It is in the <code>scss</code> directory of the package.
-      You can either copy it into your project&apos;s SCSS directory, or use a tool
-      like{' '}
+      We don&apos;t just provide JavaScript. We&apos;ve built a set of SCSS
+      styles for all the components. It is in the <code>scss</code> directory of
+      the package. You can either copy it into your project&apos;s SCSS
+      directory, or use a tool like{' '}
       <a href="https://www.npmjs.com/package/sassy-npm-importer">
         sassy-npm-importer
       </a>{' '}
