@@ -205,6 +205,14 @@ export default function Navigation() {
             <Link to="/components/Lipsum/">Lorem Ipsum</Link>
           </Menu.Item>
         </Menu>
+        <Menu vertical>
+          <Menu.Item text>
+            <h5>Map</h5>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Map/MapComponent/">MapComponent</Link>
+          </Menu.Item>
+        </Menu>
       </nav>
     </Drawer>
   )

@@ -36,6 +36,9 @@ import Lipsum from 'awesome-possum/lib/Lipsum'
 import Loader from 'awesome-possum/lib/Loader'
 import MediaObject from 'awesome-possum/lib/MediaObject'
 import Menu from 'awesome-possum/lib/Menu'
+import MapComponent from 'awesome-possum/lib/Map/MapComponent'
+import InfoWindow from 'awesome-possum/lib/Map/InfoWindow'
+import Marker from 'awesome-possum/lib/Map/Marker'
 import Modal from 'awesome-possum/lib/Modal'
 import NumberFormatter from 'awesome-possum/lib/NumberFormatter'
 import Option from 'awesome-possum/lib/Option'
@@ -87,6 +90,7 @@ export default {
   HelpText,
   I18n,
   Icon,
+  InfoWindow,
   Input,
   InputErrors,
   InputGroup,
@@ -96,6 +100,8 @@ export default {
   Loader,
   MediaObject,
   Menu,
+  MapComponent,
+  Marker,
   Modal,
   NumberFormatter,
   Option,

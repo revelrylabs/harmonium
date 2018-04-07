@@ -1,6 +1,6 @@
 import {Component} from 'react'
 import PropTypes from 'prop-types'
-import {camelize} from './Utils'
+import {camelize} from './Utilities/Utils'
 
 /* See Documentation
 https://developers.google.com/maps/documentation/javascript/markers */
