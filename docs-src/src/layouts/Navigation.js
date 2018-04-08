@@ -210,7 +210,20 @@ export default function Navigation() {
             <h5>Map</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Map/MapComponent/">MapComponent</Link>
+            <Link to="/components/Map/DefaultMap/">Default Map Component</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Map/HybridMap/">Hybrid Map</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Map/DesignedSilverMap/">
+              Designed Silver Map
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Map/DesignedRetroMap/">
+              Designed Retro Map
+            </Link>
           </Menu.Item>
         </Menu>
       </nav>

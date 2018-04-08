@@ -1,5 +1,5 @@
 React.createElement(
-class MapExample extends Component {
+class DefaultMapExample extends Component {
     state = {
     showingInfoWindow: false,
     selectedPlace: {},
@@ -26,11 +26,9 @@ class MapExample extends Component {
   render() {
     return (
       <div>
-        <h1> Map Example 1 </h1>
         <MapComponent
           apiKey={'AIzaSyDxBUGwd5pLLXciCWvYmdi63XQ9-HdAKrs'}
-          zoom={12}
-          center={'City Park, New Orleans, LA'}
+          center={'New Orleans Museum of Art, New Orleans, LA'}
           onClick={this.onMapClicked}
         >
           <Marker
@@ -40,7 +38,7 @@ class MapExample extends Component {
             onClick={this.onMarkerClick}
           />
           <Marker
-            position={'City Park, New Orleans, LA'}
+            position={'New Orleans Museum of Art, New Orleans, LA'}
             name={'City Park'}
             onClick={this.onMarkerClick}
           />
