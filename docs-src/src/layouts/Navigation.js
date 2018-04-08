@@ -217,7 +217,7 @@ export default function Navigation() {
           </Menu.Item>
           <Menu.Item>
             <Link to="/components/Map/DesignedSilverMap/">
-              Designed Silver Map
+              Small Designed Silver Map
             </Link>
           </Menu.Item>
           <Menu.Item>
