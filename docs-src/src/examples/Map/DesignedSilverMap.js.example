@@ -188,7 +188,7 @@ class DesignedSilverMapExample extends Component {
       <div>
         <MapComponent
           small
-          apiKey={'AIzaSyDxBUGwd5pLLXciCWvYmdi63XQ9-HdAKrs'}
+          apiKey={['your MAP_API_KEY']}
           center={'200 Saint Charles Avenue, New Orleans, LA'}
           styles={styleSilver}
           onClick={this.onMapClicked}

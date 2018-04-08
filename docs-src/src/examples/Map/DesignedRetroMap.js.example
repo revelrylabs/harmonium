@@ -242,7 +242,7 @@ class DesignedRetroMapExample extends Component {
     return (
       <div>
         <MapComponent
-          apiKey={'AIzaSyDxBUGwd5pLLXciCWvYmdi63XQ9-HdAKrs'}
+          apiKey={['your MAP_API_KEY']}
           zoom={14}
           center={{lat: 40.7485722, lng: -74.0068633}}
           style={{

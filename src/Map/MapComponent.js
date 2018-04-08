@@ -50,7 +50,8 @@ export default class MapComponent extends Component {
     })
   }
 
-  initMap = async() => {
+  initMap = async () => {
+    // this is added for the examples pruposes
     const apiKey = typeof this.props.apiKey === 'string' ? this.props.apiKey : process.env.GATSBY_apiKey
 
     await loadJS(`https://maps.googleapis.com/maps/api/js?key=${apiKey}`)
