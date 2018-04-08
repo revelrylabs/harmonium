@@ -36,7 +36,7 @@ class MapExample extends Component {
           <Marker
             position={'4200 Canal Street, New Orleans, LA'}
             name={'RevelryLab'}
-            icon={{url: './app/components/map-comp/assets/RevMarker.png'}}
+            icon={{url: 'https://picsum.photos/25?image=1080'}}
             onClick={this.onMarkerClick}
           />
           <Marker
