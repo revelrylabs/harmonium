@@ -27,7 +27,7 @@ class DefaultMapExample extends Component {
     return (
       <div>
         <MapComponent
-          apiKey={'AIzaSyDxBUGwd5pLLXciCWvYmdi63XQ9-HdAKrs'}
+          apiKey={['your MAP_API_KEY']}
           center={'New Orleans Museum of Art, New Orleans, LA'}
           onClick={this.onMapClicked}
         >
