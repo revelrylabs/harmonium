@@ -1,14 +1,20 @@
 import PropTypes from 'prop-types'
-import React, {Component, Children} from 'react'
+import React from 'react'
 import Helmet from 'react-helmet'
 
 const Headers = ({children, extraKeywords, metaDescription, title}) => {
   const keywordString = extraKeywords ? `, ${extraKeywords}` : ''
+  let extendedTitle = `${title} | Possum | React Components for Teams That Move Fast`
+
+  if (extendedTitle.length >= 70) {
+    // Trim title down if it is over 70 characters for better display & indexing
+    extendedTitle = `${title} | Possum | React Components`
+  }
 
   return (
     <div>
       <Helmet
-        title={`${title} | Possum | React Components for Teams That Move Fast`}
+        title={extendedTitle}
         meta={[
           {
             name: 'description',
