@@ -185,6 +185,9 @@ export default function Navigation() {
             <Link to="/components/HelpText/">Help Text</Link>
           </Menu.Item>
           <Menu.Item>
+            <Link to="/components/Loader/">Loader</Link>
+          </Menu.Item>
+          <Menu.Item>
             <Link to="/components/Progress/">Progress</Link>
           </Menu.Item>
           <Menu.Item>
