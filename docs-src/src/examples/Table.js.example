@@ -1,12 +1,4 @@
 <div>
-  <Textarea placeholder="Not a stack" />
-  <Textarea placeholder="Has an error" error />
-  <Textarea.Stack label="Is a stack" />
-  <Textarea.Stack label="Has help text" help="Help text!" />
-  <Textarea.Stack label="Has an error" error="Error text" />
-  <Textarea.Stack 
-    label="Has both" 
-    help="Help text!" 
-    error="Error text" 
-  />
+  <Table className={tableClassName} error={error}>
+  </Table>
 </div>
