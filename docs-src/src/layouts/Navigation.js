@@ -154,6 +154,9 @@ export default function Navigation() {
           <Menu.Item>
             <Link to="/components/Tabs/">Tabs</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Table/">Table</Link>
+          </Menu.Item>
         </Menu>
         <Menu vertical>
           <Menu.Item text>
