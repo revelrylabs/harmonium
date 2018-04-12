@@ -7,6 +7,7 @@
     "url": "https://github.com/revelrylabs/possum.git"
   },
   "dependencies": {
+    "bowser": "^1.9.3",
     "breakpoint-sass": "^2.7.1",
     "chart.js": "^2.7.1",
     "classnames": "^2.2.5",
@@ -18,9 +19,7 @@
     "prop-types": "^15.5.7",
     "react": ">=15.3.0",
     "react-dom": ">=15.3.0",
-    "sassy-npm-importer": "^2.1.0",
-    "underscore": "^1.8.3",
-    "underscore.string": "^3.3.4"
+    "sassy-npm-importer": "^2.1.0"
   },
   "scripts": {
     "clean": "rm -rf lib/",

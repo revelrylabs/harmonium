@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {omit} from 'underscore'
+import {omit} from 'lodash'
 
 export default class NumberFormatter extends React.Component {
   static get propTypes() {
