@@ -10,3 +10,5 @@ docs-src/package-lock.json
 docs-src/yarn.lock
 package-lock.json
 yarn.lock
+api.json
+/api
