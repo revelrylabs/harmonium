@@ -40,12 +40,8 @@ class Table extends Component {
     const labelClassName = classNames(className, 'rev-TableStack')
 
     return (
-      <InputLabel className={labelClassName} error={error}>
-        {label}
-        <Textarea {...props} error={error} />
-        <InputHelpText>{help}</InputHelpText>
-        <InputErrors>{error}</InputErrors>
-      </InputLabel>
+      <Table className={tableClassName} error={error}>
+      </Table>
     )
   }
 }
