@@ -4,26 +4,28 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Textarea: require('raw!../../examples/Textarea.js.example'),
+  Table: require('raw!../../examples/Table.js.example'),
 }
 
-export default class TextareaExamplePage extends Component {
+export default class TableExamplePage extends Component {
   render() {
     return (
       <div>
         <Headers
-          title="Textarea"
+          title="Tables"
           metaDescription={
-            'The textarea component renders a textarea input. It behaves in the ' +
-            'same way as the Input component, so the two can be used ' +
-            'interchangeably for different types of input with few changes.'
+            'The Table component can be built out in two ways: ' +
+            '1. A table component that actually uses the <table> tags. ' +
+            '2. A table component that mimics a table, but uses Rows and Cols (or listed items). ' +
+            'Both are shown below. '
           }
-          extraKeywords="Component, Textarea, Input, Forms"
+          extraKeywords="Component, Table"
         >
           <p>
-            The textarea component renders a textarea input. It behaves in the
-            same way as the Input component, so the two can be used
-            interchangeably for different types of input with few changes.
+            The Table component can be built out in two ways:<br />
+            1. A table component that actually uses the table tags.<br />
+            2. A table component that mimics a table, but uses Rows and Cols (or listed items).<br />
+            Both are shown below.
           </p>
         </Headers>
         <ExampleSection
