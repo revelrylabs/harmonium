@@ -13,9 +13,9 @@ export default class Table extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <TableLayout {...props} className={`rev-Table ${className}`}>
+      <Table {...props} className={`rev-Table ${className}`}>
         {children}
-      </TableLayout>
+      </Table>
     )
   }
 }
@@ -30,7 +30,7 @@ class TableBody extends Component {
     const {className, children} = this.props
 
     return (
-      <TableLayout.Bar className={`rev-Card-body ${className}`}>
+      <TableLayout.Bar className={`rev-Table-body ${className}`}>
         {children}
       </TableLayout.Bar>
     )

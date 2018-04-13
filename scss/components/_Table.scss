@@ -1,71 +1,91 @@
-$card-bkgd: $white !default;
-$card-border-color: $divider-color !default;
-$card-border-size: 1px !default;
-$card-border-style: solid !default;
-$card-border: $card-border-size $card-border-style $card-border-color !default;
-$card-padding: 0 !default;
-$card-radius: $global-radius !default;
-$card-header-background: $white !default;
-$card-footer-background: $white !default;
+$table-background: $white;
+$table-border: 1px solid $gray;
+$table-header-background: $white;
+$table-height: 25rem;
 
-.rev-Card,
-.rev-CardLayout {
-  @include typography-contained;
-  background-color: $card-bkgd;
-  border: $card-border;
-  border-radius: $card-radius;
-  margin-bottom: $global-vertical-space;
-  .rev-Row {
-    padding-left: $global-padding-small;
-    padding-right: $global-padding-small;
+.rev-Table {
+  background-color: $table-background;
+  border: $table-border;
+  .u-empty-table {
+    padding: $global-padding;
   }
-  .rev-Col {
-    @include image-contained;
+}
+.rev-Table-header {
+  background-color: $gray;
+  color: $white;
+  padding: $global-padding-small 0;
+  p {
+    font-size: $global-font-size-small;
+    font-weight: $global-weight-bold;
+    padding: 0;
   }
-  &.rev-Card--primary {
-    border: 0;
-    box-shadow: $global-box-shadow;
-  }
-  &.rev-Card--secondary {
-    background: transparent;
-    border: 1px solid $divider-color;
-  }
-  &.rev-Card--small {
-    .rev-Row {
-      padding-left: $global-padding-tiny;
-      padding-right: $global-padding-tiny;
-    }
-    .rev-Col {
-      padding-left: $global-padding-tiny;
-      padding-right: $global-padding-tiny;
-    }
-    p:first-child {
-      margin-top: $global-padding-small;
-    }
-    p:last-child {
-      margin-bottom: $global-padding-small;
+}
+.rev-Table-arrows {
+  @include flex(flex-start, row, space-between);
+  div {
+    line-height: 0;
+    // @include breakpoint($small $medium) {
+    //   display: none;
+    // }
+    i {
+      display: block;
+      font-size: $global-font-size-small;
     }
   }
 }
-
-.rev-Card-slice,
-.rev-CardLayout-bar,
-.rev-Card-header,
-.rev-Card-footer {
-  padding: $card-padding;
-
+.rev-Table-body {
+  // @include breakpoint($small $medium) {
+  //   @include scrollable-vertical($table-height);
+  // }
+  // @include breakpoint($medium) {
+  //   max-height: 100%;
+  //   overflow-y: visible;
+  // }
+  font-size: $global-font-size-small;
+  i {
+    font-size: $global-font-size;
+  }
+  p {
+    padding-bottom: 0;
+  }
+  .rev-Table-row {
+    border-bottom: $table-border;
+    padding: $global-padding-small 0;
+    &.Small {
+      padding: $global-padding 0;
+      p {
+        padding-bottom: $global-padding-tiny;
+      }
+    }
+    li {
+      list-style-type: none;
+    }
+    // &.is-highlighted {
+    //   background-color: $table-highlight-color;
+    // }
+  }
+  .rev-Table-smallHeader {
+    font-size: $global-font-size;
+    font-weight: $global-weight-bold;
+  }
+  .rev-Table-smallSubtitle {
+    font-size: $global-font-size-small;
+    font-weight: $global-weight-bold;
+  }
+  .rev-Table-smallBody {
+    a,
+    p {
+      display: block;
+    }
+  }
 }
-.rev-Card-header {
-  @include button-contained;
-  background-color: $card-header-background;
-  border-bottom: 1px solid $divider-color;
-}
-.rev-Card-body,
-.rev-CardLayout-fill {
-
-}
-.rev-Card-footer {
-  @include button-contained;
-  background-color: $card-footer-background;
-  border-top: 1px solid $divider-color;
+.rev-Table-link {
+  // @include flex(flex-end, row, flex-end);
+  padding-bottom: $global-padding-small;
+  .rev-icon {
+    color: $brand;
+    font-size: $global-font-size;
+    padding-right: $global-padding-tiny - 0.2rem;
+    vertical-align: middle;
+  }
 }
