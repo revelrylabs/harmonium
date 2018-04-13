@@ -152,6 +152,9 @@ export default function Navigation() {
             <Link to="/components/Modal/">Modal</Link>
           </Menu.Item>
           <Menu.Item>
+            <Link to="/components/Sticky/">Sticky</Link>
+          </Menu.Item>
+          <Menu.Item>
             <Link to="/components/Tabs/">Tabs</Link>
           </Menu.Item>
         </Menu>

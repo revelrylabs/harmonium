@@ -48,6 +48,7 @@ import Select from 'awesome-possum/lib/Select'
 import Social from 'awesome-possum/lib/Social'
 import StatelessDrawer from 'awesome-possum/lib/StatelessDrawer'
 import StatelessModal from 'awesome-possum/lib/StatelessModal'
+import Sticky from 'awesome-possum/lib/Sticky'
 import Tabs from 'awesome-possum/lib/Tabs'
 import TextAlign from 'awesome-possum/lib/TextAlign'
 import Textarea from 'awesome-possum/lib/Textarea'
@@ -108,6 +109,7 @@ export default {
   Social,
   StatelessDrawer,
   StatelessModal,
+  Sticky,
   Tabs,
   TextAlign,
   Textarea,
