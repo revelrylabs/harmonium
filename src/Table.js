@@ -18,3 +18,21 @@ export default class Table extends React.Component {
     )
   }
 }
+
+class TableHeader extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  render() {
+    const {className, children} = this.props
+
+    return (
+      <div className={`rev-Table-header ${className}`}>
+        {children}
+      </div>
+    )
+  }
+}
+Table.Header = TableHeader

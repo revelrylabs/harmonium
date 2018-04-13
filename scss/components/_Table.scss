@@ -6,6 +6,10 @@ $table-height: 25rem;
 .rev-Table {
   background-color: $table-background;
   border: $table-border;
+  p {
+    font-size: $global-font-size-small;
+    padding: 0;
+  }
   .u-empty-table {
     padding: $global-padding;
   }
@@ -20,27 +24,14 @@ $table-height: 25rem;
     padding: 0;
   }
 }
-.rev-Table-arrows {
-  @include flex(flex-start, row, space-between);
-  div {
-    line-height: 0;
-    // @include breakpoint($small $medium) {
-    //   display: none;
-    // }
-    i {
-      display: block;
-      font-size: $global-font-size-small;
-    }
-  }
-}
 .rev-Table-body {
-  // @include breakpoint($small $medium) {
-  //   @include scrollable-vertical($table-height);
-  // }
-  // @include breakpoint($medium) {
-  //   max-height: 100%;
-  //   overflow-y: visible;
-  // }
+  @include breakpoint(medium-down) {
+    // @include scrollable-vertical($table-height);
+  }
+  @include breakpoint(medium) {
+    max-height: 100%;
+    overflow-y: visible;
+  }
   font-size: $global-font-size-small;
   i {
     font-size: $global-font-size;
@@ -60,9 +51,9 @@ $table-height: 25rem;
     li {
       list-style-type: none;
     }
-    // &.is-highlighted {
-    //   background-color: $table-highlight-color;
-    // }
+    &.is-highlighted {
+      background-color: $gray;
+    }
   }
   .rev-Table-smallHeader {
     font-size: $global-font-size;
@@ -80,7 +71,7 @@ $table-height: 25rem;
   }
 }
 .rev-Table-link {
-  // @include flex(flex-end, row, flex-end);
+  @include flex(flex-end, row, flex-end);
   padding-bottom: $global-padding-small;
   .rev-icon {
     color: $brand;
