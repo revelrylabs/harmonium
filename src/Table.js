@@ -1,9 +1,8 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
-import TableLayout from './TableLayout'
 
-export default class Table extends Component {
+export default class Table extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -13,27 +12,9 @@ export default class Table extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <Table {...props} className={`rev-Table ${className}`}>
+      <div {...props} className={`rev-Table ${className}`}>
         {children}
-      </Table>
+      </div>
     )
   }
 }
-
-class TableBody extends Component {
-  static propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.node,
-  }
-
-  render() {
-    const {className, children} = this.props
-
-    return (
-      <TableLayout.Bar className={`rev-Table-body ${className}`}>
-        {children}
-      </TableLayout.Bar>
-    )
-  }
-}
-Table.Body = TableBody
