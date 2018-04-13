@@ -27,9 +27,6 @@ class StatelessDrawerExample extends Component {
               <span>This is a drawer that is collapsible and it overlays page content.</span>
             </Menu.Item>
             <Menu.Item>
-              <a href='#'>one</a>
-            </Menu.Item>
-            <Menu.Item>
               <a href='#about' onClick={(_e) => this.closeDrawer()}>About Item 1</a>
             </Menu.Item>
             <Menu.Item>
@@ -40,14 +37,10 @@ class StatelessDrawerExample extends Component {
         <main className='rev-Content'>
           <p><Lipsum /></p>
           <p><Lipsum /></p>
-          <p><Lipsum /></p>
-          <p id='about'>About Item 1</p>
-          <p><Lipsum /></p>
+          <p style={{fontWeight: 'bold'}} id='about'>About Item 1</p>
           <p><Lipsum /></p>
           <p><Lipsum /></p>
-          <p id='about2'>About Item 2</p>
-          <p><Lipsum /></p>
-          <p><Lipsum /></p>
+          <p style={{fontWeight: 'bold'}} id='about2'>About Item 2</p>
           <p><Lipsum /></p>
         </main>
       </div>

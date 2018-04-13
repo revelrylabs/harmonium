@@ -1,10 +1,30 @@
-<div className="FakeViewportContainer">
-  <StatelessModal isOpen={true}>
-    <Row>
-      <Col>
-        <h2>Stateless Modal Example</h2>
-        <p>Modal content goes here...</p>
-      </Col>
-    </Row>
-  </StatelessModal>
-</div>
+React.createElement(
+class StatelessModalExample extends Component {
+  state = { isOpen: true };
+
+  openModal = () => {
+    this.setState({ isOpen: true })
+  }
+
+  closeModal = () => {
+    this.setState({ isOpen: false })
+  }
+
+  render() {
+    return (
+      <div>
+        <Button style={{backgroundColor: 'black'}} onClick={() => this.openModal()}>Open Modal</Button>
+        <StatelessModal isOpen={this.state.isOpen} onBackgroundClick={() => this.closeModal()}>
+          <h1>Modal Example</h1>
+          <p>Click the background or the close button to dismiss it</p>  
+          <CloseButton 
+          aria-label="Close Callout" 
+          style={{marginBottom: '15px', marginRight: '15px'}} 
+          onClick={() => this.closeModal()}>&times;</CloseButton
+          >
+        </StatelessModal>  
+      </div>
+    )
+  }
+}
+)
