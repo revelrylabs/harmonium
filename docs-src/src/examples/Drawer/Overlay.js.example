@@ -25,9 +25,6 @@
       <Menu.Item>
         <a href="#">five</a>
       </Menu.Item>
-      <Menu.Item>
-        <a href="#">six</a>
-      </Menu.Item>
     </Menu>
   </Drawer>
   <main className="rev-Content">
