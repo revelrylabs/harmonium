@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {reject, uniq, contains} from 'underscore'
+import {reject, uniq, includes} from 'lodash'
 
 const KEY_TAB = 9
 const KEY_ENTER = 13
@@ -200,7 +200,7 @@ export default class Tokenizer extends React.Component {
 
   setOptions(items) {
     const rejectItem = (item) =>
-      contains(this.getSelectedValues(), this.getItemValue(item))
+      includes(this.getSelectedValues(), this.getItemValue(item))
 
     this.setState({
       optionItems: reject(items, rejectItem),
