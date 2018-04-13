@@ -3,5 +3,13 @@
     <h3>Tables</h3>
   </Col>
   <Table>
+    <h2>This is a table.</h2>
+    <Table.Body>
+      <Row>
+        <Col>
+          <p>Default Card</p>
+        </Col>
+      </Row>
+    </Table.Body>
   </Table>
 </Row>
