@@ -211,6 +211,27 @@ export default function Navigation() {
             <Link to="/components/Lipsum/">Lorem Ipsum</Link>
           </Menu.Item>
         </Menu>
+        <Menu vertical>
+          <Menu.Item text>
+            <h5>Map</h5>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Map/DefaultMap/">Default Map Component</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Map/HybridMap/">Hybrid Map</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Map/DesignedSilverMap/">
+              Small Designed Silver Map
+            </Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Map/DesignedRetroMap/">
+              Designed Retro Map
+            </Link>
+          </Menu.Item>
+        </Menu>
       </nav>
     </Drawer>
   )
