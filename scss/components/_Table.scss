@@ -1,11 +1,12 @@
 $table-background: $white;
-$table-border: 1px solid $gray;
+$table-border: 1px solid $divider-color;
 $table-header-background: $white;
 $table-height: 25rem;
 
 .rev-Table {
   background-color: $table-background;
   border: $table-border;
+  margin: $global-margin 0;
   p {
     font-size: $global-font-size-small;
     padding: 0;
@@ -21,6 +22,7 @@ $table-height: 25rem;
   p {
     font-size: $global-font-size-small;
     font-weight: $global-weight-bold;
+    margin-bottom: 0;
     padding: 0;
   }
 }

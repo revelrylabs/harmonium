@@ -3,23 +3,23 @@
     <h3>Tables</h3>
   </Col>
   <Col>
-    <Table.Header>
-      <Row>
-        <Col medium={3}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={3}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={3}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={3}>
-          <p>Table Row text</p>
-        </Col>
-      </Row>
-    </Table.Header>
     <Table>
+      <Table.Header>
+        <Row>
+          <Col medium={3}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={3}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={3}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={3}>
+            <p>Table Row text</p>
+          </Col>
+        </Row>
+      </Table.Header>
       <Row>
         <Col medium={3}>
           <p>Table Row text</p>
