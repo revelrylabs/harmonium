@@ -1,0 +1,71 @@
+$card-bkgd: $white !default;
+$card-border-color: $divider-color !default;
+$card-border-size: 1px !default;
+$card-border-style: solid !default;
+$card-border: $card-border-size $card-border-style $card-border-color !default;
+$card-padding: 0 !default;
+$card-radius: $global-radius !default;
+$card-header-background: $white !default;
+$card-footer-background: $white !default;
+
+.rev-Card,
+.rev-CardLayout {
+  @include typography-contained;
+  background-color: $card-bkgd;
+  border: $card-border;
+  border-radius: $card-radius;
+  margin-bottom: $global-vertical-space;
+  .rev-Row {
+    padding-left: $global-padding-small;
+    padding-right: $global-padding-small;
+  }
+  .rev-Col {
+    @include image-contained;
+  }
+  &.rev-Card--primary {
+    border: 0;
+    box-shadow: $global-box-shadow;
+  }
+  &.rev-Card--secondary {
+    background: transparent;
+    border: 1px solid $divider-color;
+  }
+  &.rev-Card--small {
+    .rev-Row {
+      padding-left: $global-padding-tiny;
+      padding-right: $global-padding-tiny;
+    }
+    .rev-Col {
+      padding-left: $global-padding-tiny;
+      padding-right: $global-padding-tiny;
+    }
+    p:first-child {
+      margin-top: $global-padding-small;
+    }
+    p:last-child {
+      margin-bottom: $global-padding-small;
+    }
+  }
+}
+
+.rev-Card-slice,
+.rev-CardLayout-bar,
+.rev-Card-header,
+.rev-Card-footer {
+  padding: $card-padding;
+
+}
+.rev-Card-header {
+  @include button-contained;
+  background-color: $card-header-background;
+  border-bottom: 1px solid $divider-color;
+}
+.rev-Card-body,
+.rev-CardLayout-fill {
+
+}
+.rev-Card-footer {
+  @include button-contained;
+  background-color: $card-footer-background;
+  border-top: 1px solid $divider-color;
+}

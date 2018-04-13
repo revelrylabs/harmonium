@@ -1,4 +1,7 @@
-<div>
-  <Table className={tableClassName} error={error}>
+<Row>
+  <Col>
+    <h3>Tables</h3>
+  </Col>
+  <Table>
   </Table>
-</div>
+</Row>
