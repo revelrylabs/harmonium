@@ -12,3 +12,4 @@ package-lock.json
 yarn.lock
 api.json
 /api
+.idea
