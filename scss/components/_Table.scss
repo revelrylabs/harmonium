@@ -18,25 +18,28 @@ $table-height: 25rem;
   }
 }
 .rev-Table-header {
-  background-color: $gray;
+  background-color: $brand;
   color: $white;
   padding: $global-padding-small 0;
+  @include breakpoint(medium-down) {
+    display: none;
+  }
   p {
     font-size: $global-font-size-small;
-    font-weight: $global-weight-bold;
     margin-bottom: 0;
     margin-top: 0;
     padding: 0;
   }
 }
 .rev-Table-body {
+  @include vertical-scroll-container(250px);
   @include breakpoint(medium-down) {
-    // @include scrollable-vertical($table-height);
+    @include vertical-scroll-container(350px);
   }
-  @include breakpoint(medium) {
-    max-height: 100%;
-    overflow-y: visible;
-  }
+  // @include breakpoint(medium) {
+  //   max-height: 100%;
+  //   overflow-y: visible;
+  // }
   font-size: $global-font-size-small;
   i {
     font-size: $global-font-size;
@@ -47,6 +50,9 @@ $table-height: 25rem;
   .rev-Table-row {
     border-bottom: $table-border;
     padding: $global-padding-small 0;
+    &:last-child {
+      border-bottom: 0;
+    }
     &.Small {
       padding: $global-padding 0;
       p {
@@ -62,10 +68,6 @@ $table-height: 25rem;
   }
   .rev-Table-smallHeader {
     font-size: $global-font-size;
-    font-weight: $global-weight-bold;
-  }
-  .rev-Table-smallSubtitle {
-    font-size: $global-font-size-small;
     font-weight: $global-weight-bold;
   }
   .rev-Table-smallBody {
