@@ -4,11 +4,19 @@
 .u-hide {
   display: none;
 }
-@include breakpoint(medium-down) {
+@include breakpoint(small-only) {
   .u-hidden--smallOnly {
     visibility: hidden;
   }
   .u-hide--smallOnly {
+    display: none;
+  }
+}
+@include breakpoint(medium-down) {
+  .u-hidden--mediumDown {
+    visibility: hidden;
+  }
+  .u-hide--mediumDown {
     display: none;
   }
 }

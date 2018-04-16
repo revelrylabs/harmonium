@@ -21,9 +21,9 @@ $table-height: 25rem;
   background-color: $brand;
   color: $white;
   padding: $global-padding-small 0;
-  @include breakpoint(medium-down) {
-    display: none;
-  }
+  // @include breakpoint(medium-down) {
+  //   display: none;
+  // }
   p {
     font-size: $global-font-size-small;
     margin-bottom: 0;
