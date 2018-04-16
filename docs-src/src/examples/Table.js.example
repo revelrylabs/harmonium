@@ -7,65 +7,67 @@
       <Table.Header>
         <Row>
           <Col medium={2}>
-            <p>Table Row Header</p>
+            <p>Column Header</p>
           </Col>
           <Col medium={2}>
-            <p>Table Row Header</p>
+            <p>Column Header</p>
           </Col>
           <Col medium={2}>
-            <p>Table Row Header</p>
+            <p>Column Header</p>
           </Col>
           <Col medium={2}>
-            <p>Table Row Header</p>
+            <p>Column Header</p>
           </Col>
           <Col medium={2}>
-            <p>Table Row Header</p>
+            <p>Column Header</p>
           </Col>
           <Col medium={2}>
-            <p>Table Row Header</p>
+            <p>Column Header</p>
           </Col>
         </Row>
       </Table.Header>
-      <Row>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-      </Row>
-      <Row>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-        <Col medium={2}>
-          <p>Table Row text</p>
-        </Col>
-      </Row>
+      <Table.Body>
+        <Row>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+        </Row>
+        <Row>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row text</p>
+          </Col>
+        </Row>
+      </Table.Body>  
     </Table>
   </Col>
 </Row>
