@@ -1,0 +1,46 @@
+.u-hidden {
+  visibility: hidden;
+}
+.u-hide {
+  display: none;
+}
+@include breakpoint(medium-down) {
+  .u-hidden--smallOnly {
+    visibility: hidden;
+  }
+  .u-hide--smallOnly {
+    display: none;
+  }
+}
+@include breakpoint(medium) {
+  .u-hidden--mediumUp {
+    visibility: hidden;
+  }
+  .u-hide--mediumUp {
+    display: none;
+  }
+}
+@include breakpoint(large) {
+  .u-hidden--largeUp {
+    visibility: hidden;
+  }
+  .u-hide--largeUp {
+    display: none;
+  }
+}
+@include breakpoint(xlarge) {
+  .u-hidden--xlargeUp {
+    visibility: hidden;
+  }
+  .u-hide--xlargeUp {
+    display: none;
+  }
+}
+@include breakpoint(xxlarge) {
+  .u-hidden--xxlargeUp {
+    visibility: hidden;
+  }
+  .u-hide--xxlargeUp {
+    display: none;
+  }
+}
