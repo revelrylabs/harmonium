@@ -49,10 +49,29 @@ class TableBody extends Component {
     const {className, children} = this.props
 
     return (
-      <div className={`rev-Table-header ${className}`}>
+      <div className={`rev-Table-body ${className}`}>
         {children}
       </div>
     )
   }
 }
 Table.Body = TableBody
+
+
+class TableRow extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  render() {
+    const {className, children} = this.props
+
+    return (
+      <div className={`rev-Table-row rev-Row ${className}`}>
+        {children}
+      </div>
+    )
+  }
+}
+Table.Row = TableRow

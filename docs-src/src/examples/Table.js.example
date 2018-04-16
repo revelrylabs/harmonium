@@ -27,7 +27,7 @@
         </Row>
       </Table.Header>
       <Table.Body>
-        <Row>
+        <Table.Row>
           <Col medium={2}>
             <p>Table Row text</p>
           </Col>
@@ -46,8 +46,8 @@
           <Col medium={2}>
             <p>Table Row text</p>
           </Col>
-        </Row>
-        <Row>
+        </Table.Row>
+        <Table.Row>
           <Col medium={2}>
             <p>Table Row text</p>
           </Col>
@@ -66,8 +66,8 @@
           <Col medium={2}>
             <p>Table Row text</p>
           </Col>
-        </Row>
-      </Table.Body>  
+        </Table.Row>
+      </Table.Body>
     </Table>
   </Col>
 </Row>
