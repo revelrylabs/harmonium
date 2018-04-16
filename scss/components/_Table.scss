@@ -21,9 +21,6 @@ $table-height: 25rem;
   background-color: $brand;
   color: $white;
   padding: $global-padding-small 0;
-  // @include breakpoint(medium-down) {
-  //   display: none;
-  // }
   p {
     font-size: $global-font-size-small;
     margin-bottom: 0;
@@ -57,6 +54,12 @@ $table-height: 25rem;
       padding: $global-padding 0;
       p {
         padding-bottom: $global-padding-tiny;
+      }
+    }
+    span {
+      font-weight: $global-weight-bold;
+      @include breakpoint(medium) {
+        display: none;
       }
     }
     li {

@@ -27,10 +27,10 @@ class TableHeader extends Component {
   }
 
   render() {
-    const {className, children} = this.props
+    const {className, children, ...props} = this.props
 
     return (
-      <div className={`rev-Table-header className={`u-hide--mediumDown ${className}`}}>
+      <div {...props} className={`rev-Table-header u-hide--mediumDown ${className}`}>
         {children}
       </div>
     )
