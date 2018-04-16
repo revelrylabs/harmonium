@@ -6,45 +6,63 @@
     <Table>
       <Table.Header>
         <Row>
-          <Col medium={3}>
-            <p>Table Row text</p>
+          <Col medium={2}>
+            <p>Table Row Header</p>
           </Col>
-          <Col medium={3}>
-            <p>Table Row text</p>
+          <Col medium={2}>
+            <p>Table Row Header</p>
           </Col>
-          <Col medium={3}>
-            <p>Table Row text</p>
+          <Col medium={2}>
+            <p>Table Row Header</p>
           </Col>
-          <Col medium={3}>
-            <p>Table Row text</p>
+          <Col medium={2}>
+            <p>Table Row Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Table Row Header</p>
           </Col>
         </Row>
       </Table.Header>
       <Row>
-        <Col medium={3}>
+        <Col medium={2}>
           <p>Table Row text</p>
         </Col>
-        <Col medium={3}>
+        <Col medium={2}>
           <p>Table Row text</p>
         </Col>
-        <Col medium={3}>
+        <Col medium={2}>
           <p>Table Row text</p>
         </Col>
-        <Col medium={3}>
+        <Col medium={2}>
+          <p>Table Row text</p>
+        </Col>
+        <Col medium={2}>
+          <p>Table Row text</p>
+        </Col>
+        <Col medium={2}>
           <p>Table Row text</p>
         </Col>
       </Row>
       <Row>
-        <Col medium={3}>
+        <Col medium={2}>
           <p>Table Row text</p>
         </Col>
-        <Col medium={3}>
+        <Col medium={2}>
           <p>Table Row text</p>
         </Col>
-        <Col medium={3}>
+        <Col medium={2}>
           <p>Table Row text</p>
         </Col>
-        <Col medium={3}>
+        <Col medium={2}>
+          <p>Table Row text</p>
+        </Col>
+        <Col medium={2}>
+          <p>Table Row text</p>
+        </Col>
+        <Col medium={2}>
           <p>Table Row text</p>
         </Col>
       </Row>

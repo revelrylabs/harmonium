@@ -10,6 +10,8 @@ $table-height: 25rem;
   p {
     font-size: $global-font-size-small;
     padding: 0;
+    margin-bottom: $global-margin-small;
+    margin-top: $global-margin-small;
   }
   .u-empty-table {
     padding: $global-padding;
@@ -23,6 +25,7 @@ $table-height: 25rem;
     font-size: $global-font-size-small;
     font-weight: $global-weight-bold;
     margin-bottom: 0;
+    margin-top: 0;
     padding: 0;
   }
 }
