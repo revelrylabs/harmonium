@@ -4,7 +4,7 @@
   </Col>
   <Col>
     <TableCols>
-      <Table.Header>
+      <TableCols.Header>
         <Row>
           <Col medium={2}>
             <p>Column Header</p>
@@ -25,16 +25,16 @@
             <p>Column Header</p>
           </Col>
         </Row>
-      </Table.Header>
-      <Table.HeaderSmall>
+      </TableCols.Header>
+      <TableCols.HeaderSmall>
         <Row>
           <Col medium={2}>
             <p>Small Table Header</p>
           </Col>
         </Row>
-      </Table.HeaderSmall>
-      <Table.Body>
-        <Table.Row>
+      </TableCols.HeaderSmall>
+      <TableCols.Body>
+        <TableCols.Row>
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
@@ -53,8 +53,8 @@
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
-        </Table.Row>
-        <Table.Row>
+        </TableCols.Row>
+        <TableCols.Row>
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
@@ -73,8 +73,8 @@
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
-        </Table.Row>
-        <Table.Row>
+        </TableCols.Row>
+        <TableCols.Row>
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
@@ -93,8 +93,8 @@
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
-        </Table.Row>
-        <Table.Row>
+        </TableCols.Row>
+        <TableCols.Row>
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
@@ -113,8 +113,8 @@
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
-        </Table.Row>
-        <Table.Row>
+        </TableCols.Row>
+        <TableCols.Row>
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
@@ -133,8 +133,8 @@
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
-        </Table.Row>
-      </Table.Body>
+        </TableCols.Row>
+      </TableCols.Body>
     </TableCols>
   </Col>
 </Row>

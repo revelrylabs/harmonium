@@ -20,7 +20,7 @@ export default class TableCols extends React.Component {
 }
 
 
-class TableHeader extends Component {
+class TableColsHeader extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -36,10 +36,10 @@ class TableHeader extends Component {
     )
   }
 }
-Table.Header = TableHeader
+TableCols.Header = TableColsHeader
 
 
-class TableHeaderSmall extends Component {
+class TableColsHeaderSmall extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -55,10 +55,10 @@ class TableHeaderSmall extends Component {
     )
   }
 }
-Table.HeaderSmall = TableHeaderSmall
+TableCols.HeaderSmall = TableColsHeaderSmall
 
 
-class TableBody extends Component {
+class TableColsBody extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -74,10 +74,10 @@ class TableBody extends Component {
     )
   }
 }
-Table.Body = TableBody
+TableCols.Body = TableColsBody
 
 
-class TableRow extends Component {
+class TableColsRow extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -93,4 +93,4 @@ class TableRow extends Component {
     )
   }
 }
-Table.Row = TableRow
+TableCols.Row = TableColsRow
