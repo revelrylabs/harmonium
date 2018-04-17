@@ -1,7 +1,5 @@
 <TopBar center>
-  <TopBar.Item>
-    <a href="#" className="rev-Brand">LOGO</a>
-  </TopBar.Item>
+  <Brand linkPath="/" imagePath="https://logo.clearbit.com/revelry.co?s=128" altTag="logo alt tag" />
   <TopBar.Item>
     <Menu horizontalLeft>
       <Menu.Item><a href="#">One</a></Menu.Item>
