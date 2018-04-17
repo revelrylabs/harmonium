@@ -26,6 +26,13 @@
           </Col>
         </Row>
       </Table.Header>
+      <Table.HeaderSmall>
+        <Row>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+        </Row>
+      </Table.HeaderSmall>
       <Table.Body>
         <Table.Row>
           <Col medium={2}>

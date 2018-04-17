@@ -30,13 +30,32 @@ class TableHeader extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <div {...props} className={`rev-Table-header u-hide--mediumDown ${className}`}>
+      <div {...props} className={`rev-Table-header Hide--mediumDown ${className}`}>
         {children}
       </div>
     )
   }
 }
 Table.Header = TableHeader
+
+
+class TableHeaderSmall extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  render() {
+    const {className, children, ...props} = this.props
+
+    return (
+      <div {...props} className={`rev-Table-header Hide--mediumUp ${className}`}>
+        {children}
+      </div>
+    )
+  }
+}
+Table.HeaderSmall = TableHeaderSmall
 
 
 class TableBody extends Component {
