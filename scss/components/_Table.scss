@@ -26,8 +26,10 @@ $table-height: 25rem;
     margin-top: 0;
     padding: 0;
   }
-  td {
+  th {
     font-size: $global-font-size-small;
+    font-weight: $global-weight-normal;
+    text-align: left;
   }
 }
 tbody,
@@ -37,9 +39,10 @@ thead {
   }
 }
 .rev-Table-body {
-  display: block;
   font-size: $global-font-size-small;
   &.rev-Table--scroll {
+    min-width: 100%;
+    width: auto;
     @include vertical-scroll-container(250px);
     @include breakpoint(medium-down) {
       @include vertical-scroll-container(350px);
@@ -68,6 +71,7 @@ thead {
 th,
 td {
   padding: $global-padding-small $global-padding-small;
+  white-space: nowrap;
   @include breakpoint(medium) {
     padding: $global-padding-small $global-padding;
   }

@@ -9,21 +9,21 @@
           <Table.Header>
             Table Header
           </Table.Header>
-          <Table.Data>
+          <Table.Header>
             Table Header
-          </Table.Data>
-          <Table.Data>
+          </Table.Header>
+          <Table.Header>
             Table Header
-          </Table.Data>
-          <Table.Data>
+          </Table.Header>
+          <Table.Header>
             Table Header
-          </Table.Data>
-          <Table.Data>
+          </Table.Header>
+          <Table.Header>
             Table Header
-          </Table.Data>
-          <Table.Data>
+          </Table.Header>
+          <Table.Header>
             Table Header
-          </Table.Data>
+          </Table.Header>
         </Table.Row>
       </Table.Head>
       <Table.HeadSmall>

@@ -30,7 +30,7 @@ class TableHead extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <thead {...props} className={`rev-Table-header Hide--mediumDown ${className}`}>
+      <thead {...props} className={`rev-Table-head Hide--mediumDown ${className}`}>
         {children}
       </thead>
     )
@@ -67,7 +67,7 @@ class TableHeader extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <th {...props} className={`rev-Table-head Hide--mediumDown ${className}`}>
+      <th {...props} className={`rev-Table-header Hide--mediumDown ${className}`}>
         {children}
       </th>
     )
@@ -105,7 +105,7 @@ class TableRow extends Component {
     const {className, children} = this.props
 
     return (
-      <tr className={`rev-Table-row rev-Row ${className}`}>
+      <tr className={`rev-Table-row ${className}`}>
         {children}
       </tr>
     )
