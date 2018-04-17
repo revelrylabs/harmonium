@@ -68,7 +68,7 @@ class TableColsBody extends Component {
     const {className, children} = this.props
 
     return (
-      <div className={`rev-Table-body ${className}`}>
+      <div className={`rev-Table-body rev-Table--scroll ${className}`}>
         {children}
       </div>
     )

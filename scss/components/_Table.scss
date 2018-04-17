@@ -3,20 +3,21 @@ $table-border: 1px solid $divider-color;
 $table-header-background: $white;
 $table-height: 25rem;
 
+table,
 .rev-Table {
   background-color: $table-background;
+  border-collapse: collapse;
   border: $table-border;
   margin: $global-margin 0;
+  width: 100%;
   p {
     font-size: $global-font-size-small;
     padding: 0;
     margin-bottom: $global-margin-small;
     margin-top: $global-margin-small;
   }
-  .u-empty-table {
-    padding: $global-padding;
-  }
 }
+thead,
 .rev-Table-header {
   background-color: $brand;
   color: $white;
@@ -28,33 +29,26 @@ $table-height: 25rem;
     padding: 0;
   }
 }
+thead {
+  .rev-Row {
+    padding: $global-padding-small 0;
+  }
+}
+tbody,
 .rev-Table-body {
-  @include vertical-scroll-container(250px);
-  @include breakpoint(medium-down) {
-    @include vertical-scroll-container(350px);
-  }
-  // @include breakpoint(medium) {
-  //   max-height: 100%;
-  //   overflow-y: visible;
-  // }
+  display: block;
   font-size: $global-font-size-small;
-  i {
-    font-size: $global-font-size;
-  }
-  p {
-    padding-bottom: 0;
+  &.rev-Table--scroll {
+    @include vertical-scroll-container(250px);
+    @include breakpoint(medium-down) {
+      @include vertical-scroll-container(350px);
+    }
   }
   .rev-Table-row {
     border-bottom: $table-border;
     padding: $global-padding-small 0;
     &:last-child {
       border-bottom: 0;
-    }
-    &.Small {
-      padding: $global-padding 0;
-      p {
-        padding-bottom: $global-padding-tiny;
-      }
     }
     span {
       font-weight: $global-weight-bold;
@@ -64,19 +58,6 @@ $table-height: 25rem;
     }
     li {
       list-style-type: none;
-    }
-    &.is-highlighted {
-      background-color: $gray;
-    }
-  }
-  .rev-Table-smallHeader {
-    font-size: $global-font-size;
-    font-weight: $global-weight-bold;
-  }
-  .rev-Table-smallBody {
-    a,
-    p {
-      display: block;
     }
   }
 }
