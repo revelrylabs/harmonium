@@ -12,9 +12,9 @@ export default class Table extends React.Component {
     const {className, children, ...props} = this.props
 
     return (
-      <div {...props} className={`rev-Table ${className}`}>
+      <table {...props} className={`rev-Table ${className}`}>
         {children}
-      </div>
+      </table>
     )
   }
 }
@@ -30,9 +30,9 @@ class TableHeader extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <div {...props} className={`rev-Table-header Hide--mediumDown ${className}`}>
+      <thead {...props} className={`rev-Table-header Hide--mediumDown ${className}`}>
         {children}
-      </div>
+      </thead>
     )
   }
 }
@@ -49,9 +49,9 @@ class TableHeaderSmall extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <div {...props} className={`rev-Table-header Hide--mediumUp ${className}`}>
+      <thead {...props} className={`rev-Table-header Hide--mediumUp ${className}`}>
         {children}
-      </div>
+      </thead>
     )
   }
 }
@@ -68,9 +68,9 @@ class TableBody extends Component {
     const {className, children} = this.props
 
     return (
-      <div className={`rev-Table-body ${className}`}>
+      <tbody className={`rev-Table-body ${className}`}>
         {children}
-      </div>
+      </tbody>
     )
   }
 }
@@ -87,9 +87,9 @@ class TableRow extends Component {
     const {className, children} = this.props
 
     return (
-      <div className={`rev-Table-row rev-Row ${className}`}>
+      <tr className={`rev-Table-row rev-Row ${className}`}>
         {children}
-      </div>
+      </tr>
     )
   }
 }
