@@ -1,0 +1,96 @@
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
+import classNames from 'classnames'
+
+export default class TableCols extends React.Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  render() {
+    const {className, children, ...props} = this.props
+
+    return (
+      <div {...props} className={`rev-Table ${className}`}>
+        {children}
+      </div>
+    )
+  }
+}
+
+
+class TableHeader extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  render() {
+    const {className, children, ...props} = this.props
+
+    return (
+      <div {...props} className={`rev-Table-header Hide--mediumDown ${className}`}>
+        {children}
+      </div>
+    )
+  }
+}
+Table.Header = TableHeader
+
+
+class TableHeaderSmall extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  render() {
+    const {className, children, ...props} = this.props
+
+    return (
+      <div {...props} className={`rev-Table-header Hide--mediumUp ${className}`}>
+        {children}
+      </div>
+    )
+  }
+}
+Table.HeaderSmall = TableHeaderSmall
+
+
+class TableBody extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  render() {
+    const {className, children} = this.props
+
+    return (
+      <div className={`rev-Table-body ${className}`}>
+        {children}
+      </div>
+    )
+  }
+}
+Table.Body = TableBody
+
+
+class TableRow extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  render() {
+    const {className, children} = this.props
+
+    return (
+      <div className={`rev-Table-row rev-Row ${className}`}>
+        {children}
+      </div>
+    )
+  }
+}
+Table.Row = TableRow
