@@ -44,11 +44,17 @@ tbody,
       @include vertical-scroll-container(350px);
     }
   }
+  &.rev-Table--striped {
+    @include striped-table;
+  }
   .rev-Table-row {
     border-bottom: $table-border;
     padding: $global-padding-small 0;
     &:last-child {
       border-bottom: 0;
+    }
+    td {
+      
     }
     span {
       font-weight: $global-weight-bold;
@@ -61,13 +67,13 @@ tbody,
     }
   }
 }
-.rev-Table-link {
-  @include flex(flex-end, row, flex-end);
-  padding-bottom: $global-padding-small;
-  .rev-icon {
-    color: $brand;
-    font-size: $global-font-size;
-    padding-right: $global-padding-tiny - 0.2rem;
-    vertical-align: middle;
-  }
-}
+// .rev-Table-link {
+//   @include flex(flex-end, row, flex-end);
+//   padding-bottom: $global-padding-small;
+//   .rev-icon {
+//     color: $brand;
+//     font-size: $global-font-size;
+//     padding-right: $global-padding-tiny - 0.2rem;
+//     vertical-align: middle;
+//   }
+// }

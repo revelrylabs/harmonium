@@ -35,9 +35,9 @@
       </Table.HeaderSmall>
       <Table.Body>
         <Table.Row>
-          <Col medium={2}>
+          <Table.Data>
             <p><span>Column Header:</span> Table Row text</p>
-          </Col>
+          </Table.Data>
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>

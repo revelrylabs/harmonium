@@ -1,0 +1,12 @@
+@mixin striped-table ($odd: $white, $even: $disabled) {
+  tr:nth-child(odd) {
+    td {
+      background-color: $odd;
+    }
+  }
+  tr:nth-child(even) {
+    td {
+      background-color: $even;
+    }
+  }
+}

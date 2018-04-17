@@ -68,7 +68,7 @@ class TableBody extends Component {
     const {className, children} = this.props
 
     return (
-      <tbody className={`rev-Table-body rev-Table--scroll ${className}`}>
+      <tbody className={`rev-Table-body rev-Table--scroll rev-Table--striped ${className}`}>
         {children}
       </tbody>
     )
@@ -94,3 +94,22 @@ class TableRow extends Component {
   }
 }
 Table.Row = TableRow
+
+
+class TableData extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  render() {
+    const {className, children} = this.props
+
+    return (
+      <td className={`rev-Table-Data ${className}`}>
+        {children}
+      </td>
+    )
+  }
+}
+Table.Data = TableData
