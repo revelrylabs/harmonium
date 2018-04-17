@@ -15,6 +15,16 @@ $table-height: 25rem;
     margin-bottom: $global-margin-small;
     margin-top: $global-margin-small;
   }
+  th,
+  td {
+    padding: $global-padding-small $global-padding-small;
+    @include breakpoint(medium) {
+      padding: $global-padding-small $global-padding;
+    }
+    @include breakpoint(medium-down) {
+      display: block;
+    }
+  }
 }
 .rev-Table-head {
   background-color: $brand;
@@ -68,22 +78,3 @@ thead {
     list-style-type: none;
   }
 }
-th,
-td {
-  padding: $global-padding-small $global-padding-small;
-  white-space: nowrap;
-  @include breakpoint(medium) {
-    padding: $global-padding-small $global-padding;
-  }
-}
-
-// .rev-Table-link {
-//   @include flex(flex-end, row, flex-end);
-//   padding-bottom: $global-padding-small;
-//   .rev-icon {
-//     color: $brand;
-//     font-size: $global-font-size;
-//     padding-right: $global-padding-tiny - 0.2rem;
-//     vertical-align: middle;
-//   }
-// }

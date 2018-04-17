@@ -92,46 +92,6 @@
             <span>Column Header:</span> Table Row text
           </Table.Data>
         </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-        </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <span>Column Header:</span> Table Row text
-          </Table.Data>
-        </Table.Row>
       </Table.Body>
     </Table>
   </Col>
