@@ -3,7 +3,7 @@
     <h3>Table with Cols</h3>
   </Col>
   <Col>
-    <Table>
+    <TableCols>
       <Table.Header>
         <Row>
           <Col medium={2}>
@@ -135,6 +135,6 @@
           </Col>
         </Table.Row>
       </Table.Body>
-    </Table>
+    </TableCols>
   </Col>
 </Row>
