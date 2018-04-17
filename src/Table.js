@@ -20,7 +20,7 @@ export default class Table extends React.Component {
 }
 
 
-class TableHeader extends Component {
+class TableHead extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -36,10 +36,9 @@ class TableHeader extends Component {
     )
   }
 }
-Table.Header = TableHeader
+Table.Head = TableHead
 
-
-class TableHeaderSmall extends Component {
+class TableHeadSmall extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -49,13 +48,32 @@ class TableHeaderSmall extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <thead {...props} className={`rev-Table-header Hide--mediumUp ${className}`}>
+      <thead {...props} className={`rev-Table-head Hide--mediumUp ${className}`}>
         {children}
       </thead>
     )
   }
 }
-Table.HeaderSmall = TableHeaderSmall
+Table.HeadSmall = TableHeadSmall
+
+
+class TableHeader extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  render() {
+    const {className, children, ...props} = this.props
+
+    return (
+      <th {...props} className={`rev-Table-head Hide--mediumDown ${className}`}>
+        {children}
+      </th>
+    )
+  }
+}
+Table.Header = TableHeader
 
 
 class TableBody extends Component {
