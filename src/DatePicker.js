@@ -299,7 +299,8 @@ class UncontrolledDatePicker extends React.Component {
   handleClickOutsideCalendar(event) {
     console.log(this.calendar)
     if (!this.calendar.contains(event.target)) {
-      console.log('Outside')
+      console.log('Outside!')
+      this.setState({focused: false, isOpen: false})
     }
   }
 

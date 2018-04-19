@@ -14,7 +14,7 @@ export default class CardLayout extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
-    getCalendarRef: PropTypes.getCalendarRef,
+    getCalendarRef: PropTypes.func,
   }
 
   render() {
