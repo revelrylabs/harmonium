@@ -14,13 +14,18 @@ export default class CardLayout extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
+    getCalendarRef: PropTypes.getCalendarRef,
   }
 
   render() {
-    const {className, children, ...props} = this.props
+    const {className, children, getCalendarRef, ...props} = this.props
 
     // Start building the className
     const boolClassNames = []
+
+    if (this.calendar) {
+      getCalendarRef(this.calendar)
+    }
 
     BOOL_PROPS.forEach((name) => {
       if (props[name]) {
@@ -32,7 +37,11 @@ export default class CardLayout extends Component {
     const divClassName = classNames(className, 'rev-CardLayout', boolClassNames)
 
     return (
-      <div {...props} className={divClassName}>
+      <div
+        {...props}
+        className={divClassName}
+        ref={(self) => (this.calendar = self)}
+      >
         {children}
       </div>
     )

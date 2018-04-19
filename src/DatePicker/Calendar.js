@@ -27,6 +27,7 @@ export default class Calendar extends Component {
     nextLabel: PropTypes.node,
     previousLabel: PropTypes.node,
     className: PropTypes.string,
+    getCalendarRef: PropTypes.func,
   }
 
   /**
@@ -154,6 +155,7 @@ export default class Calendar extends Component {
       nextLabel,
       previousLabel,
       overlay,
+      getCalendarRef,
       ...props
     } = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
@@ -166,7 +168,7 @@ export default class Calendar extends Component {
           overlay ? 'rev-Calendar--overlay' : ''
         } ${className}`}
       >
-        <Card>
+        <Card getCalendarRef={getCalendarRef}>
           <Card.Header className="rev-Calendar-header">
             <button
               onClick={this.addMonth.bind(this, -1)}
