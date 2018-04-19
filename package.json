@@ -51,6 +51,7 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@semantic-release/git": "^4.0.1",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^8.2.2",
     "babel-plugin-istanbul": "^4.1.4",
@@ -108,5 +109,23 @@
         ]
       }
     }
+  },
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json"
+        ],
+        "message": "chore(release): Bump version to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ]
   }
 }
