@@ -3,6 +3,7 @@ import Accordion from 'awesome-possum/lib/Accordion'
 import AuthenticityToken from 'awesome-possum/lib/AuthenticityToken'
 import AuthenticityTokenProvider from 'awesome-possum/lib/AuthenticityTokenProvider'
 import Badge from 'awesome-possum/lib/Badge'
+import Brand from 'awesome-possum/lib/Brand'
 import BrowserSupportWarning from 'awesome-possum/lib/BrowserSupportWarning'
 import Button from 'awesome-possum/lib/Button'
 import ButtonGroup from 'awesome-possum/lib/ButtonGroup'
@@ -36,6 +37,9 @@ import Lipsum from 'awesome-possum/lib/Lipsum'
 import Loader from 'awesome-possum/lib/Loader'
 import MediaObject from 'awesome-possum/lib/MediaObject'
 import Menu from 'awesome-possum/lib/Menu'
+import MapComponent from 'awesome-possum/lib/Map/MapComponent'
+import InfoWindow from 'awesome-possum/lib/Map/InfoWindow'
+import Marker from 'awesome-possum/lib/Map/Marker'
 import Modal from 'awesome-possum/lib/Modal'
 import NumberFormatter from 'awesome-possum/lib/NumberFormatter'
 import Option from 'awesome-possum/lib/Option'
@@ -48,6 +52,7 @@ import Select from 'awesome-possum/lib/Select'
 import Social from 'awesome-possum/lib/Social'
 import StatelessDrawer from 'awesome-possum/lib/StatelessDrawer'
 import StatelessModal from 'awesome-possum/lib/StatelessModal'
+import Sticky from 'awesome-possum/lib/Sticky'
 import Tabs from 'awesome-possum/lib/Tabs'
 import TextAlign from 'awesome-possum/lib/TextAlign'
 import Textarea from 'awesome-possum/lib/Textarea'
@@ -63,6 +68,7 @@ export default {
   AuthenticityToken,
   AuthenticityTokenProvider,
   Badge,
+  Brand,
   BrowserSupportWarning,
   Button,
   ButtonGroup,
@@ -87,6 +93,7 @@ export default {
   HelpText,
   I18n,
   Icon,
+  InfoWindow,
   Input,
   InputErrors,
   InputGroup,
@@ -96,6 +103,8 @@ export default {
   Loader,
   MediaObject,
   Menu,
+  MapComponent,
+  Marker,
   Modal,
   NumberFormatter,
   Option,
@@ -108,6 +117,7 @@ export default {
   Social,
   StatelessDrawer,
   StatelessModal,
+  Sticky,
   Tabs,
   TextAlign,
   Textarea,

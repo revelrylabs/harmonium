@@ -10,10 +10,10 @@ import packageInfo from '../../../package.json'
 
 import './index.scss'
 
-const TemplateWrapper = ({children}) => (
+const TemplateWrapper = ({children, location}) => (
   <div>
     <Helmet
-      title="React Components for Teams That Move Fast | Possum"
+      title="Possum | React Components for Teams That Move Fast"
       meta={[
         {
           name: 'description',
@@ -30,6 +30,10 @@ const TemplateWrapper = ({children}) => (
       <link
         rel="stylesheet"
         href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"
+      />
+      <link
+        rel="canonical"
+        href={`https://possum.revelry.co${location.pathname}`}
       />
     </Helmet>
     <TopBar fixed className="Show--smallOnly">

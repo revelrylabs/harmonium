@@ -2,10 +2,10 @@
   // The `animation` attribute enables the `border` we will create to forever
   // spin, abiding intervals of two seconds.
   animation: spin 2s linear infinite;
-  // The `border` property specifies the size and color of our `<Loader />`.
-  // border: 16px solid #f3f3f3; // Light grey
+  // The `border` property specifies the size and `secondaryColor` prop of our
+  // `<Loader />`.
   border: 16px solid $lighter-gray; // Light grey
-  // border-top: 16px solid #3498db; // Blue
+  // The `border-top` property specifies the `color` prop of our `<Loader />`.
   border-top: 16px solid $brand; // Blue
   // The `border-radius` property transforms our `<Loader />` into a circle.
   border-radius: 50%;

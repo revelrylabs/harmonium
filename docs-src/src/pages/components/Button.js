@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
+import Headers from '../../Headers'
 
 const examples = {
   "Sizes": require('raw!../../examples/Button/Sizes.js.example'),
@@ -15,8 +16,21 @@ export default class ButtonExamplePage extends Component {
   render() {
     return (
       <div className="rev-Row rev-Row--collapse">
-        <ExampleSection
+        <Headers
           title="Buttons"
+          metaDescription={
+            'Possum provides semantic button components for a variety of uses, ' +
+            'in differing styles and sizes.'
+          }
+          extraKeywords="Component, Buttons, Forms"
+        >
+          <p>
+            Possum provides semantic button components for a variety of uses,
+            in differing styles and sizes.
+          </p>
+        </Headers>
+        <ExampleSection
+          title="Examples"
           examples={examples}
           depth={1}
           scope={scope}

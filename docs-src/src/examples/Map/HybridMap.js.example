@@ -1,0 +1,69 @@
+React.createElement(
+class HybridMapExample extends Component {
+  state = {
+    showingInfoWindow: false,
+    selectedPlace: {},
+    activeMarker: null,
+  }
+
+  onMapClicked = () => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: {},
+      })
+    }
+  }
+
+  onMarkerClick = (props, marker) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true,
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <MapComponent
+          apiKey={['your MAP_API_KEY']}
+          center={'200 Saint Charles Avenue, New Orleans, LA'}
+          mapTypeId={'hybrid'}
+          zoom={16}
+          style={{
+            width: '48vw',
+            height: '45vh',
+          }}
+          onClick={this.onMapClicked}
+        >
+          <Marker
+            position={'200 Saint Charles Avenue, New Orleans, LA'}
+            name={'St Charles'}
+            title={'Marker num 1'}
+            label={'M1'}
+            draggable
+            onClick={this.onMarkerClick}
+          />
+          <Marker
+            position={'901 Poydras Avenue, New Orleans, LA'}
+            name={'Poydras bulding'}
+            title={'Marker num 2'}
+            label={'M2'}
+            draggable
+            onClick={this.onMarkerClick}
+          />
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+            content={`<div>
+              <p>${this.state.selectedPlace.name}</p>
+              </div>`}
+          />
+        </MapComponent>
+      </div>
+    )
+  }
+
+}
+)

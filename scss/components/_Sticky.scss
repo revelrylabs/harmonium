@@ -1,0 +1,39 @@
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$sticky-margin: $global-margin-large !default;
+$sticky-container-bkgd: $white 0 !default;
+$sticky-container-padding: $global-padding-larger 0 !default;
+$sticky-content-bkgd: $white 0 !default;
+
+.rev-Sticky {
+  background: $sticky-container-bkgd;
+  margin-bottom: $sticky-margin;
+  margin-top: $sticky-margin;
+  padding: 0 $sticky-container-padding $sticky-container-padding;
+  position: relative;
+}
+
+.rev-Sticky-content {
+  background: $sticky-content-bkgd;
+}
+
+.rev-Sticky-content--stuck-top {
+  position: fixed;
+  top: 0;
+}
+
+.rev-Sticky-content--stuck-bottom {
+  position: fixed;
+  bottom: 0;
+}
+
+.rev-Sticky-content--anchored {
+  position: absolute;
+  bottom: 0;
+}
+
+.rev-Sticky-content--anchored-top {
+  position: absolute;
+  top: 0;
+}

@@ -1,0 +1,58 @@
+React.createElement(
+class DefaultMapExample extends Component {
+    state = {
+    showingInfoWindow: false,
+    selectedPlace: {},
+    activeMarker: null,
+  }
+
+  onMapClicked = () => {
+    if (this.state.showingInfoWindow) {
+      this.setState({
+        showingInfoWindow: false,
+        activeMarker: {},
+      })
+    }
+  }
+
+  onMarkerClick = (props, marker) => {
+    this.setState({
+      selectedPlace: props,
+      activeMarker: marker,
+      showingInfoWindow: true,
+    })
+  }
+
+  render() {
+    return (
+      <div>
+        <MapComponent
+          apiKey={['your MAP_API_KEY']}
+          center={'New Orleans Museum of Art, New Orleans, LA'}
+          onClick={this.onMapClicked}
+        >
+          <Marker
+            position={'4200 Canal Street, New Orleans, LA'}
+            name={'RevelryLab'}
+            icon={{url: 'https://picsum.photos/25?image=1080'}}
+            onClick={this.onMarkerClick}
+          />
+          <Marker
+            position={'New Orleans Museum of Art, New Orleans, LA'}
+            name={'City Park'}
+            onClick={this.onMarkerClick}
+          />
+          <InfoWindow
+            marker={this.state.activeMarker}
+            visible={this.state.showingInfoWindow}
+            content={`<div>
+              <p>${this.state.selectedPlace.name}</p>
+              </div>`}
+          />
+        </MapComponent>
+      </div>
+    )
+  }
+
+}
+)
