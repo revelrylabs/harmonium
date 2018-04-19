@@ -17,3 +17,6 @@ deploy:
     skip_cleanup: true
     script:
       - npx semantic-release
+    on:
+      repo: revelrylabs/possum
+      node: '8'
