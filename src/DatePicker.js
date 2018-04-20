@@ -301,13 +301,11 @@ class UncontrolledDatePicker extends React.Component {
 
   onOutsideClick(event) {
     if (!this.calendar.contains(event.target) && this.state.isOpen) {
+      console.log('Outside!')
       event.preventDefault()
       event.stopPropagation()
-      console.log('Outside!')
-      return new Promise((resolve) => {
-        this.blur(event)
-        resolve()
-      }).then(() => this.mouseOut())
+      this.blur(event)
+      this.mouseOut()
     }
   }
 
