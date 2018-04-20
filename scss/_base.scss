@@ -13,7 +13,8 @@ html {
 body {
   background: $body-bkgd;
   color: $body-font-color;
-  font-size: 1.6rem;
+  font-family: $body-font-family;
+  font-size: $global-font-size;
   line-height: $global-lineheight;
 }
 .row .row {
