@@ -245,7 +245,6 @@ class UncontrolledDatePicker extends React.Component {
     if (this.props.onFocus) {
       this.props.onFocus(event)
     }
-    console.log('focusing')
     this.setState({focused: true, isOpen: true})
   }
 
@@ -259,7 +258,6 @@ class UncontrolledDatePicker extends React.Component {
     if (this.props.onBlur) {
       this.props.onBlur(event)
     }
-    console.log('blurring')
     this.setState({focused: false, isOpen: this.state.mousedIn})
   }
 
@@ -272,7 +270,6 @@ class UncontrolledDatePicker extends React.Component {
     if (this.nativeInput) {
       this.nativeInput.focus()
     }
-    console.log('refocusing')
     this.focus()
   }
 
@@ -301,9 +298,7 @@ class UncontrolledDatePicker extends React.Component {
 
   onOutsideClick(event) {
     if (!this.calendar.contains(event.target) && this.state.isOpen) {
-      console.log('Outside!')
       event.preventDefault()
-      event.stopPropagation()
       this.blur(event)
       this.mouseOut()
     }
@@ -331,15 +326,13 @@ class UncontrolledDatePicker extends React.Component {
     const inputId = uniqueId('DateInputBlock:')
     const dateInputBlockProps = omit(props, 'isOpen')
 
-    console.log('is it open?', this.state.isOpen)
-
     return (
       <label
         htmlFor={inputId}
         className={`rev-DatePicker rev-InputLabel ${nativeClass}`}
         onMouseOver={this.mouseIn.bind(this)}
         onMouseOut={this.mouseOut.bind(this)}
-        onFocus={console.log('onFocus in label') || this.focus.bind(this)}
+        onFocus={this.focus.bind(this)}
         onBlur={this.blur.bind(this)}
         ref={(self) => (this.label = self)}
       >
@@ -351,9 +344,7 @@ class UncontrolledDatePicker extends React.Component {
           isoValue={this.state.isoValue}
           formattedValue={this.state.formattedValue}
           goodDateInput={this.goodDateInput}
-          onFocus={
-            console.log('onFocus in DateInputBlock') || this.focus.bind(this)
-          }
+          onFocus={this.focus.bind(this)}
           onBlur={this.blur.bind(this)}
           onChange={this.onChange.bind(this)}
           generation={this.state.generation}
