@@ -245,12 +245,6 @@ class UncontrolledDatePicker extends React.Component {
     if (this.props.onFocus) {
       this.props.onFocus(event)
     }
-
-    if (!this.calendar.contains(event.target) && this.state.isOpen) {
-      console.log('Outside!')
-      this.setState({focused: false, isOpen: false, mouseIn: false})
-      return
-    }
     console.log('focusing')
     this.setState({focused: true, isOpen: true})
   }
@@ -305,6 +299,18 @@ class UncontrolledDatePicker extends React.Component {
     this.calendar = ref
   }
 
+  onOutsideClick(event) {
+    if (!this.calendar.contains(event.target) && this.state.isOpen) {
+      event.preventDefault()
+      event.stopPropagation()
+      console.log('Outside!')
+      return new Promise((resolve) => {
+        this.blur(event)
+        resolve()
+      }).then(() => this.mouseOut())
+    }
+  }
+
   render() {
     const {
       error,
@@ -337,6 +343,7 @@ class UncontrolledDatePicker extends React.Component {
         onMouseOut={this.mouseOut.bind(this)}
         onFocus={console.log('onFocus in label') || this.focus.bind(this)}
         onBlur={this.blur.bind(this)}
+        ref={(self) => (this.label = self)}
       >
         {label}
         <DateInputBlock
@@ -358,7 +365,7 @@ class UncontrolledDatePicker extends React.Component {
         <InputHelpText>{help}</InputHelpText>
         <InputErrors>{error}</InputErrors>
         <Calendar
-          onClick={this.focus.bind(this)}
+          onClick={this.onOutsideClick.bind(this)}
           selectedDate={this.state.isoValue}
           dateChanger={this.dateChanger.bind(this)}
           focuser={this.refocus.bind(this)}
