@@ -31,6 +31,7 @@ class DateInputBlock extends Component {
     className: PropTypes.string,
   }
 
+  /* eslint complexity: [2, 6] */
   render() {
     const {
       error,

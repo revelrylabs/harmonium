@@ -292,6 +292,28 @@ class UncontrolledDatePicker extends React.Component {
     )
   }
 
+  /**
+   * Get the underlying node for the Calendar component
+   * @param {Object} ref - the calendar node
+   * @return {void}
+   */
+  getCalendarRef(ref) {
+    this.calendar = ref
+  }
+
+  /**
+   * Get the underlying node for the Calendar component
+   * @param {Object} event - the event object
+   * @return {void}
+   */
+  onOutsideClick(event) {
+    if (!this.calendar.contains(event.target) && this.state.isOpen) {
+      event.preventDefault()
+      this.blur(event)
+      this.mouseOut()
+    }
+  }
+
   render() {
     const {
       error,
@@ -322,6 +344,7 @@ class UncontrolledDatePicker extends React.Component {
         onMouseOut={this.mouseOut.bind(this)}
         onFocus={this.focus.bind(this)}
         onBlur={this.blur.bind(this)}
+        ref={(self) => (this.label = self)}
       >
         {label}
         <DateInputBlock
@@ -341,6 +364,7 @@ class UncontrolledDatePicker extends React.Component {
         <InputHelpText>{help}</InputHelpText>
         <InputErrors>{error}</InputErrors>
         <Calendar
+          onClick={this.onOutsideClick.bind(this)}
           selectedDate={this.state.isoValue}
           dateChanger={this.dateChanger.bind(this)}
           focuser={this.refocus.bind(this)}
@@ -355,6 +379,7 @@ class UncontrolledDatePicker extends React.Component {
           className={
             this.calendarOpened ? 'rev-Calendar--open' : 'rev-Calendar--closed'
           }
+          getCalendarRef={this.getCalendarRef.bind(this)}
         />
       </label>
     )
