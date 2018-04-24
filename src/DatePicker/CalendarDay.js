@@ -24,7 +24,10 @@ function calculateMonthClass(date, currentMonth) {
  *   selectable
  * @param {DateTime} date - a Luxon DateTime for the date in question
  * @param {string} selectedDate - an iso string of the selected date
+ * @return {string} - a class to use for styling
  */
+
+/* eslint complexity: [2, 4] */
 function calculateSelectionClass(isSelectable, date, selectedDate) {
   const selectable = isSelectable(date)
 
@@ -43,6 +46,7 @@ function calculateSelectionClass(isSelectable, date, selectedDate) {
  * @param {object|Array|Function} highlights a mapping between dates and
  *   highlight classes. If an array, gives a standard --highlighted modifier to
  *   a found date cell.
+ * @return {string} - a class to use for styling
  */
 function calculateHighlightClass(date, highlights) {
   return (
@@ -62,6 +66,8 @@ function calculateHighlightClass(date, highlights) {
  * @param {Function} isSelectable returns true if the date is selectable
  * @param {DateTime} date the date in question
  * @param {Function} dateChanger the handler to invoke if the cell is selectable
+ * @return {(Function| null)} - if the cell is selectable, invoke the
+ * dateChanger that was passed in. If not, do nothing
  */
 function dayClickHandler(isSelectable, date, dateChanger) {
   const selectable = isSelectable(date)
