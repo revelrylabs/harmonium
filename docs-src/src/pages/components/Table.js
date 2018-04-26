@@ -14,18 +14,12 @@ export default class TableExamplePage extends Component {
         <Headers
           title="Tables"
           metaDescription={
-            'The Table component can be built out in two ways: ' +
-            '1. A table component that actually uses the <table> tags. ' +
-            '2. A table component that mimics a table, but uses Rows and Cols (or listed items). ' +
-            'Both are shown below. '
+            'The Table component can be built out using the <table> tags. ' +
+            'This shows the basic structure of a table, and more will be added in the future. '
           }
           extraKeywords="Component, Table"
         >
-          <p>
-            The Table component can be built out in two ways:<br />
-            1. A table component that actually uses the table tags.<br />
-            2. A table component that mimics a table, but uses Rows and Cols (or listed items).<br />
-            Both are shown below.
+          <p>The Table component can be built out using the table tags. This shows the basic structure of a table, and more will be added in the future.
           </p>
         </Headers>
         <ExampleSection
