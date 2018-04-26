@@ -27,6 +27,7 @@ export default class Calendar extends Component {
     nextLabel: PropTypes.node,
     previousLabel: PropTypes.node,
     className: PropTypes.string,
+    getCalendarRef: PropTypes.func,
   }
 
   /**
@@ -48,7 +49,7 @@ export default class Calendar extends Component {
   /**
    * Creates a Calendar. Sets state.date to a Luxon DateTime based on the
    * selectedDate prop.
-   * @param {*} props
+   * @param {*} props - the props
    */
   constructor(props) {
     super(props)
@@ -62,7 +63,8 @@ export default class Calendar extends Component {
    * `selectedDate` prop from up the hierarchy, set state.date to a new Luxon
    * DateTime appropriately (in order to force the calendar to focus on the new
    * date).
-   * @param {*} nextProps
+   * @param {*} nextProps - the next props
+   * @return {void}
    */
   componentWillReceiveProps(nextProps) {
     if (nextProps.selectedDate !== this.props.selectedDate) {
@@ -75,6 +77,7 @@ export default class Calendar extends Component {
    * or invalid (e.g. 2018-06-66), return the local current date instead.
    * @param {string} date - the date to convert, as either an iso date, or a
    *   blank / null
+   * @return {DateTime} - a local DateTime
    */
   asLuxon(date) {
     if (!date) {
@@ -123,9 +126,10 @@ export default class Calendar extends Component {
    *
    * This function does not change the date in the input (only calendar display,
    * so we can get away with using the first of the month like this.
-   * @param {int} n
+   * @param {int} num - the number of months to move the focus month
    * @param {Event} event - the event that caused this handler to be invoked
    *   (e.g. the click event from the next or previous button on the calendar)
+   * @return {void}
    */
   addMonth(num, event) {
     event.preventDefault()
@@ -151,6 +155,7 @@ export default class Calendar extends Component {
       nextLabel,
       previousLabel,
       overlay,
+      getCalendarRef,
       ...props
     } = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
@@ -163,7 +168,7 @@ export default class Calendar extends Component {
           overlay ? 'rev-Calendar--overlay' : ''
         } ${className}`}
       >
-        <Card>
+        <Card getCalendarRef={getCalendarRef}>
           <Card.Header className="rev-Calendar-header">
             <button
               onClick={this.addMonth.bind(this, -1)}

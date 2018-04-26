@@ -3,6 +3,7 @@ import Accordion from 'awesome-possum/lib/Accordion'
 import AuthenticityToken from 'awesome-possum/lib/AuthenticityToken'
 import AuthenticityTokenProvider from 'awesome-possum/lib/AuthenticityTokenProvider'
 import Badge from 'awesome-possum/lib/Badge'
+import Brand from 'awesome-possum/lib/Brand'
 import BrowserSupportWarning from 'awesome-possum/lib/BrowserSupportWarning'
 import Button from 'awesome-possum/lib/Button'
 import ButtonGroup from 'awesome-possum/lib/ButtonGroup'
@@ -69,6 +70,7 @@ export default {
   AuthenticityToken,
   AuthenticityTokenProvider,
   Badge,
+  Brand,
   BrowserSupportWarning,
   Button,
   ButtonGroup,

@@ -7,15 +7,26 @@ export default class Brand extends Component {
     children: PropTypes.oneOfType([PropTypes.string, PropTypes.node])
       .isRequired,
     className: PropTypes.string,
+    imagePath: PropTypes.string,
+    altTag: PropTypes.string,
+    linkPath: PropTypes.string,
   }
 
   render() {
-    const {className, children, ...props} = this.props
+    const {
+      className,
+      children,
+      imagePath,
+      altTag,
+      linkPath,
+      ...props
+    } = this.props
 
     const newClassName = classNames(className, 'rev-Brand')
 
     return (
-      <a href="/" className={newClassName} {...props}>
+      <a href={linkPath} className={newClassName} {...props}>
+        <img className="ref-Brand-img" src={imagePath} alt={altTag} />
         {children}
       </a>
     )

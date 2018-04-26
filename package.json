@@ -1,6 +1,6 @@
 {
   "name": "awesome-possum",
-  "version": "3.4.7",
+  "version": "3.5.2",
   "description": "An opinionated React component framework for teams that move fast.",
   "repository": {
     "type": "git",
@@ -51,6 +51,9 @@
   ],
   "license": "MIT",
   "devDependencies": {
+    "@semantic-release/changelog": "^2.0.1",
+    "@semantic-release/git": "^4.0.1",
+    "@semantic-release/npm": "^3.2.4",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^8.2.2",
     "babel-plugin-istanbul": "^4.1.4",
@@ -79,6 +82,7 @@
     "prettier": "^1.11.1",
     "prettier-eslint": "^8.8.1",
     "react-test-renderer": ">=15.0.0",
+    "semantic-release": "^15.1.7",
     "sinon": "^2.3.8",
     "timekeeper": "^2.0.0"
   },
@@ -107,5 +111,23 @@
         ]
       }
     }
+  },
+  "release": {
+    "verifyConditions": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      "@semantic-release/git"
+    ],
+    "prepare": [
+      "@semantic-release/changelog",
+      "@semantic-release/npm",
+      {
+        "path": "@semantic-release/git",
+        "assets": [
+          "package.json"
+        ],
+        "message": "chore(release): Bump version to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
+      }
+    ]
   }
 }
