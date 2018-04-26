@@ -5,7 +5,6 @@ import Headers from '../../Headers'
 
 const examples = {
   Table: require('raw!../../examples/Table.js.example'),
-  TableCols: require('raw!../../examples/TableCols.js.example'),
 }
 
 export default class TableExamplePage extends Component {

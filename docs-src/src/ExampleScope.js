@@ -55,7 +55,6 @@ import StatelessModal from 'awesome-possum/lib/StatelessModal'
 import Sticky from 'awesome-possum/lib/Sticky'
 import Tabs from 'awesome-possum/lib/Tabs'
 import Table from 'awesome-possum/lib/Table'
-import TableCols from 'awesome-possum/lib/TableCols'
 import TextAlign from 'awesome-possum/lib/TextAlign'
 import Textarea from 'awesome-possum/lib/Textarea'
 import TimePicker from 'awesome-possum/lib/TimePicker'
@@ -122,7 +121,6 @@ export default {
   Sticky,
   Tabs,
   Table,
-  TableCols,
   TextAlign,
   Textarea,
   TimePicker,
