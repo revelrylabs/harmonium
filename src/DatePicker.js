@@ -128,7 +128,7 @@ class UncontrolledDatePicker extends React.Component {
   /**
    * Process change events from the input by updating the isoValue & formattedValue
    * of this component. Will call down to an onChange handler passed in.
-   * @param {Event} event - the change event fired from the input
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
    * @return {void}
    */
   onChange(event) {
@@ -237,7 +237,7 @@ class UncontrolledDatePicker extends React.Component {
   /**
    * Mark the input as in focus. Used to determine whether the calendar should
    * be open or not.
-   * @param {Event} event - the focus event
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
    * @return {void}
    *
    */
@@ -251,7 +251,7 @@ class UncontrolledDatePicker extends React.Component {
   /**
    * Mark the input as out of focus. Used to determine whether the calendar should
    * be open or not.
-   * @param {Event} event - the focus event
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
    * @return {void}
    */
   blur(event) {
@@ -302,12 +302,16 @@ class UncontrolledDatePicker extends React.Component {
   }
 
   /**
-   * Get the underlying node for the Calendar component
-   * @param {Object} event - the event object
+   * Allow Datepicker to close on outside click
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
    * @return {void}
    */
   onOutsideClick(event) {
-    if (!this.calendar.contains(event.target) && this.state.isOpen) {
+    if (
+      this.state.isOpen &&
+      this.calendar &&
+      !this.calendar.contains(event.target)
+    ) {
       event.preventDefault()
       this.blur(event)
       this.mouseOut()
