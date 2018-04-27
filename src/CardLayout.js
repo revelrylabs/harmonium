@@ -23,7 +23,7 @@ export default class CardLayout extends Component {
     // Start building the className
     const boolClassNames = []
 
-    if (this.calendar) {
+    if (getCalendarRef && this.calendar) {
       getCalendarRef(this.calendar)
     }
 
