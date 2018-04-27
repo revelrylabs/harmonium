@@ -7,7 +7,7 @@ const examples = {
   DataGrid: require('raw!../../examples/DataGrid.js.example'),
 }
 
-export default class TableExamplePage extends Component {
+export default class DataGridExamplePage extends Component {
   render() {
     return (
       <div>

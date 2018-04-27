@@ -4,7 +4,7 @@
   </Col>
   <Col>
     <DataGrid>
-      <TableCols.Header>
+      <DataGrid.Header>
         <Row>
           <Col medium={2}>
             <p>Column Header</p>
@@ -25,16 +25,16 @@
             <p>Column Header</p>
           </Col>
         </Row>
-      </TableCols.Header>
-      <TableCols.HeaderSmall>
+      </DataGrid.Header>
+      <DataGrid.HeaderSmall>
         <Row>
           <Col medium={2}>
             <p>Small Table Header</p>
           </Col>
         </Row>
-      </TableCols.HeaderSmall>
-      <TableCols.Body>
-        <TableCols.Row>
+      </DataGrid.HeaderSmall>
+      <DataGrid.Body>
+        <DataGrid.Row>
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
@@ -53,8 +53,8 @@
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
-        </TableCols.Row>
-        <TableCols.Row>
+        </DataGrid.Row>
+        <DataGrid.Row>
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
@@ -73,8 +73,8 @@
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
-        </TableCols.Row>
-        <TableCols.Row>
+        </DataGrid.Row>
+        <DataGrid.Row>
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
@@ -93,8 +93,8 @@
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
-        </TableCols.Row>
-        <TableCols.Row>
+        </DataGrid.Row>
+        <DataGrid.Row>
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
@@ -113,8 +113,8 @@
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
-        </TableCols.Row>
-        <TableCols.Row>
+        </DataGrid.Row>
+        <DataGrid.Row>
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
@@ -133,8 +133,8 @@
           <Col medium={2}>
             <p><span>Column Header:</span> Table Row text</p>
           </Col>
-        </TableCols.Row>
-      </TableCols.Body>
+        </DataGrid.Row>
+      </DataGrid.Body>
     </DataGrid>
   </Col>
 </Row>

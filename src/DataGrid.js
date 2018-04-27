@@ -20,7 +20,7 @@ export default class DataGrid extends React.Component {
 }
 
 
-class TableColsHeader extends Component {
+class DataGridHeader extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -36,10 +36,10 @@ class TableColsHeader extends Component {
     )
   }
 }
-TableCols.Header = TableColsHeader
+DataGrid.Header = DataGridHeader
 
 
-class TableColsHeaderSmall extends Component {
+class DataGridHeaderSmall extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -55,10 +55,10 @@ class TableColsHeaderSmall extends Component {
     )
   }
 }
-TableCols.HeaderSmall = TableColsHeaderSmall
+DataGrid.HeaderSmall = DataGridHeaderSmall
 
 
-class TableColsBody extends Component {
+class DataGridBody extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -74,10 +74,10 @@ class TableColsBody extends Component {
     )
   }
 }
-TableCols.Body = TableColsBody
+DataGrid.Body = DataGridBody
 
 
-class TableColsRow extends Component {
+class DataGridRow extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -93,4 +93,4 @@ class TableColsRow extends Component {
     )
   }
 }
-TableCols.Row = TableColsRow
+DataGrid.Row = DataGridRow
