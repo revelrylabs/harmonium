@@ -16,6 +16,7 @@ import Checkbox from 'awesome-possum/lib/Checkbox'
 import CloseButton from 'awesome-possum/lib/CloseButton'
 import Col from 'awesome-possum/lib/Col'
 import Currency from 'awesome-possum/lib/Currency'
+import DataGrid from 'awesome-possum/lib/DataGrid'
 import DatePicker from 'awesome-possum/lib/DatePicker'
 import Drawer from 'awesome-possum/lib/Drawer'
 import Emptyable from 'awesome-possum/lib/Emptyable'
@@ -82,6 +83,7 @@ export default {
   CloseButton,
   Col,
   Currency,
+  DataGrid,
   DatePicker,
   Drawer,
   Emptyable,

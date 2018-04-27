@@ -1,0 +1,140 @@
+<Row>
+  <Col>
+    <h3>Table with Cols</h3>
+  </Col>
+  <Col>
+    <DataGrid>
+      <TableCols.Header>
+        <Row>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+        </Row>
+      </TableCols.Header>
+      <TableCols.HeaderSmall>
+        <Row>
+          <Col medium={2}>
+            <p>Small Table Header</p>
+          </Col>
+        </Row>
+      </TableCols.HeaderSmall>
+      <TableCols.Body>
+        <TableCols.Row>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+        </TableCols.Row>
+        <TableCols.Row>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+        </TableCols.Row>
+        <TableCols.Row>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+        </TableCols.Row>
+        <TableCols.Row>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+        </TableCols.Row>
+        <TableCols.Row>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> Table Row text</p>
+          </Col>
+        </TableCols.Row>
+      </TableCols.Body>
+    </DataGrid>
+  </Col>
+</Row>
