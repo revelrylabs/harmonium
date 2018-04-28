@@ -20,7 +20,9 @@
  * transform to the key first (typically used to flatten complex objects into
  * simple strings for object lookup)
  * @param {*} trueValue - value to return if the mapping lookup is true
+ * @return {(?bool|string)} - value can be null, bool, or a classname
  */
+/* eslint complexity: [2, 6] */
 export default function configMapping(mapping, key, keyTransformer, trueValue) {
   if (mapping.call) {
     const mappedValue = mapping(key)
