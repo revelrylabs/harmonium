@@ -3,61 +3,77 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
-  smallCentered: ['small-centered', 'rev-Col--smallCentered'],
-  mediumCentered: ['medium-centered', 'rev-Col--mediumCentered'],
-  largeCentered: ['large-centered', 'rev-Col--largeCentered'],
+  // props for float grid
+  smallCentered: ['rev-Col--smallCentered'],
+  mediumCentered: ['rev-Col--mediumCentered'],
+  largeCentered: ['rev-Col--largeCentered'],
+  xlargeCentered: ['rev-Col--xlargeCentered'],
+  xxlargeCentered: ['rev-Col--xxlargeCentered'],
 
-  smallUncentered: ['small-uncentered', 'rev-Col--smallUncentered'],
-  mediumUncentered: ['medium-uncentered', 'rev-Col--mediumUncentered'],
-  largeUncentered: ['large-uncentered', 'rev-Col--largeUncentered'],
+  smallUncentered: ['rev-Col--smallUncentered'],
+  mediumUncentered: ['rev-Col--mediumUncentered'],
+  largeUncentered: ['rev-Col--largeUncentered'],
+  xlargeUncentered: ['rev-Col--xlargeUncentered'],
+  xxlargeUncentered: ['rev-Col--xxlargeUncentered'],
 
-  mediumExpand: ['medium-expand', 'rev-Col--mediumExpand'],
-  largeExpand: ['large-expand', 'rev-Col--largeExpand'],
+  end: ['rev-Col--end'],
 
-  end: ['end', 'rev-Col--end'],
+  // padding props for float or flex grid
+  collapse: ['rev-Col--collapse'],
+  mediumCollapse: ['rev-Col--mediumCollapse'],
+  largeCollapse: ['rev-Col--largeCollapse'],
+  xlargeCollapse: ['rev-Col--xlargeCollapse'],
+  xxlargeCollapse: ['rev-Col--xxlargeCollapse'],
 
-  expanded: ['expanded', 'rev-Col--expanded'],
+  uncollapse: ['rev-Col--uncollapse'],
+  mediumUncollapse: ['rev-Col--mediumUncollapse'],
+  largeUncollapse: ['rev-Col--largeUncollapse'],
+  xlargeUncollapse: ['rev-Col--xlargeUncollapse'],
+  xxlargeUncollapse: ['rev-Col--xxlargeUncollapse'],
 
-  shrink: ['shrink', 'rev-Col--shrink'],
+  // width props for flex grid
+  shrink: ['rev-Col--shrink'],
 
-  left: ['align-self-left', 'rev-Col--left'],
-  right: ['align-self-right', 'rev-Col--right'],
-  center: ['align-self-center', 'rev-Col--center'],
-  justify: ['align-self-justify', 'rev-Col--justify'],
-  spaced: ['align-self-spaced', 'rev-Col--spaced'],
-  top: ['align-self-top', 'rev-Col--top'],
-  middle: ['align-self-middle', 'rev-Col--middle'],
-  bottom: ['align-self-bottom', 'rev-Col--bottom'],
-  stretch: ['align-self-stretch', 'rev-Col--stretch'],
+  // align-self props for flex grid
+  alignStart: ['rev-Col--alignStart'],
+  alignEnd: ['rev-Col--alignEnd'],
+  alignCenter: ['rev-Col--alignCenter'],
+  alignBaseline: ['rev-Col--alignBaseline'],
+  alignStretch: ['rev-Col--alignStretch'],
 }
 
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
 const NUMBER_PROPS_TO_CLASS_NAMES = {
-  small: (arg) => [`small-${arg}`, `rev-Col--small${arg}`],
-  medium: (arg) => [`medium-${arg}`, `rev-Col--medium${arg}`],
-  large: (arg) => [`large-${arg}`, `rev-Col--large${arg}`],
-  xlarge: (arg) => [`xlarge-${arg}`, `rev-Col--xlarge${arg}`],
-  xxlarge: (arg) => [`xxlarge-${arg}`, `rev-Col--xxlarge${arg}`],
+  small: (arg) => [`rev-Col--small${arg}`],
+  medium: (arg) => [`rev-Col--medium${arg}`],
+  large: (arg) => [`rev-Col--large${arg}`],
+  xlarge: (arg) => [`rev-Col--xlarge${arg}`],
+  xxlarge: (arg) => [`rev-Col--xxlarge${arg}`],
 
-  smallOffset: (arg) => [`small-offset-${arg}`, `rev-Col--smallOffset${arg}`],
-  mediumOffset: (arg) => [
-    `medium-offset-${arg}`,
-    `rev-Col--mediumOffset${arg}`,
-  ],
-  largeOffset: (arg) => [`large-offset-${arg}`, `rev-Col--largeOffset${arg}`],
+  smallOffset: (arg) => [`rev-Col--smallOffset${arg}`],
+  mediumOffset: (arg) => [`rev-Col--mediumOffset${arg}`,],
+  largeOffset: (arg) => [`rev-Col--largeOffset${arg}`],
+  xlargeOffset: (arg) => [`rev-Col--xlargeOffset${arg}`],
+  xxlargeOffset: (arg) => [`rev-Col--xxlargeOffset${arg}`],
 
-  smallPush: (arg) => [`small-push-${arg}`, `rev-Col--smallPush${arg}`],
-  mediumPush: (arg) => [`medium-push-${arg}`, `rev-Col--mediumPush${arg}`],
-  largePush: (arg) => [`large-push-${arg}`, `rev-Col--largePush${arg}`],
+  smallPush: (arg) => [`rev-Col--smallPush${arg}`],
+  mediumPush: (arg) => [`rev-Col--mediumPush${arg}`],
+  largePush: (arg) => [`rev-Col--largePush${arg}`],
+  xlargePush: (arg) => [`rev-Col--xlargePush${arg}`],
+  xxlargePush: (arg) => [`rev-Col--xxlargePush${arg}`],
 
-  smallPull: (arg) => [`small-pull-${arg}`, `rev-Col--smallPull${arg}`],
-  mediumPull: (arg) => [`medium-pull-${arg}`, `rev-Col--mediumPull${arg}`],
-  largePull: (arg) => [`large-pull-${arg}`, `rev-Col--largePull${arg}`],
+  smallPull: (arg) => [`rev-Col--smallPull${arg}`],
+  mediumPull: (arg) => [`rev-Col--mediumPull${arg}`],
+  largePull: (arg) => [`rev-Col--largePull${arg}`],
+  xlargePull: (arg) => [`rev-Col--xlargePull${arg}`],
+  xxlargePull: (arg) => [`rev-Col--xxlargePull${arg}`],
 
-  smallOrder: (arg) => [`small-order-${arg}`, `rev-Col--smallOrder${arg}`],
-  mediumOrder: (arg) => [`medium-order-${arg}`, `rev-Col--mediumOrder${arg}`],
-  largeOrder: (arg) => [`large-order-${arg}`, `rev-Col--largeOrder${arg}`],
+  smallOrder: (arg) => [`rev-Col--smallOrder${arg}`],
+  mediumOrder: (arg) => [`rev-Col--mediumOrder${arg}`],
+  largeOrder: (arg) => [`rev-Col--largeOrder${arg}`],
+  xlargeOrder: (arg) => [`rev-Col--xlargeOrder${arg}`],
+  xxlargeOrder: (arg) => [`rev-Col--xxlargeOrder${arg}`],
 }
 
 const NUMBER_PROPS = Object.keys(NUMBER_PROPS_TO_CLASS_NAMES)
@@ -94,7 +110,6 @@ export default class Col extends Component {
 
     const divClassName = classNames(
       className,
-      'columns',
       'rev-Col',
       boolClassNames,
       numberClassNames
