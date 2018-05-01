@@ -5,7 +5,19 @@
   border-color: mix($alert, $white, 33%);
   color: mix($alert, $white, 33%);
 }
-
+.rev-Brand {
+  padding: $global-padding-large $global-padding $global-padding;
+  img {
+    height: auto;
+    margin-bottom: $global-padding-small;
+    width: 100%
+  }
+  small {
+    color: $white-60;
+    font-size: $global-font-size;
+    font-weight: normal;
+  }
+}
 // TYPOGRAPHY
 h5, h6 {
   font-weight: normal;
@@ -159,11 +171,6 @@ h5, h6 {
   .rev-TopBar.Show--smallOnly {
     background: $body-font-color;
     border: 0;
-    .rev-Brand {
-      @include flex(baseline, row, flex-start, nowrap);
-      height: $topbar-height;
-      padding: 0;
-    }
     h1 {
       color: $white;
       font-size: $global-font-size-large;
@@ -213,18 +220,6 @@ h5, h6 {
     background: linear-gradient(to bottom, $brand-purple 0%,$brand 100%);
     color: $white;
     padding-bottom: $global-padding-larger;
-  }
-  .rev-Brand {
-    color: $white;
-    padding:  0 $global-padding;
-    h1 {
-      margin-bottom: 0;
-    }
-    small {
-      color: $white-60;
-      font-size: $global-font-size;
-      font-weight: normal;
-    }
   }
   .rev-Menu-item--text {
     color: $white-60;
