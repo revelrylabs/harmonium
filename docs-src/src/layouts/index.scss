@@ -9,16 +9,16 @@
 
 // TYPOGRAPHY
 
-// Proxima Nova Headers for Docs only
+// Proxima Nova Headers for docs only
 h1,
 h2,
 h3,
 h4 {
-  font-family: 'proxima-nova', 'Open Sans', Arial, sans-serif;
+  font-family: 'proxima-nova', $global-sans-serif-font;
   font-weight: 500;
 }
 h1 {
-  font-weight: 700;
+  font-weight: 900;
 }
 
 h1 h5,
