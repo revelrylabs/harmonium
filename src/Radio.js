@@ -63,7 +63,7 @@ class RadioFieldset extends Component {
 
     const isControlled = !!value
     const hasDefault = !!defaultValue
-
+    /* eslint complexity: [2, 4] */
     const radios = options.map((option) => {
       const props = {
         name,

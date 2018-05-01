@@ -10,7 +10,7 @@ export default class BrowserSupportWarning extends Component {
     className: PropTypes.string,
     children: PropTypes.node,
   }
-
+  /* eslint complexity: [2, 5] */
   checkIsSupported = () => {
     const {minVersions} = this.props
     const userAgent =
