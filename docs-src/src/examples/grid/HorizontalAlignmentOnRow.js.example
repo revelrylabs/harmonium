@@ -1,21 +1,21 @@
 <div className="ColumnExamples">
-  <Row flex left>
+  <Row flex justifyStart>
     <Col small={4}>Aligned to</Col>
     <Col small={4}>the left</Col>
   </Row>
-  <Row flex right>
+  <Row flex justifyEnd>
     <Col small={4}>Aligned to</Col>
     <Col small={4}>the right</Col>
   </Row>
-  <Row flex center>
+  <Row flex justifyCenter>
     <Col small={4}>Aligned to</Col>
     <Col small={4}>the middle</Col>
   </Row>
-  <Row flex justify>
+  <Row flex justifySpaceBetween>
     <Col small={4}>Aligned to</Col>
     <Col small={4}>the edges</Col>
   </Row>
-  <Row flex spaced>
+  <Row flex justifySpaceAround>
     <Col small={4}>Aligned to</Col>
     <Col small={4}>the space around</Col>
   </Row>
