@@ -26,6 +26,7 @@ class TimeInput extends Component {
       formattedValue,
       isoValue,
       generation,
+      name,
       ...props
     } = this.props
 
