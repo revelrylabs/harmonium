@@ -24,17 +24,17 @@ $breakpoints: (
   xlarge-down: ((max-width: $xlarge)),
   xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge)),
   xxlarge: (min-width: $xxlarge),
-  global-width: (min-width: $global-width),
+  global-width: (min-width: $global-width)
 );
 @import '../mixins/media-queries';
-
 
 // IMPORT FONTS HERE
 
 // Global Fonts
 $global-monospace-font: 'Montserrat', sans-serif !default;
 $global-serif-font: 'Georgia', serif !default;
-$global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !default;
+$global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial,
+  'Lucida Grande', sans-serif !default;
 
 // we use the global-font-sizes for typographic utilities
 // AND to determine vertical spacing
@@ -67,10 +67,10 @@ $grid-columns: 12 !default;
 // Spacing
 $global-vertical-space: $global-font-size * $global-lineheight !default; // 24px
 $global-horizontal-space: $global-vertical-space !default; // 24px
-$base-size: .8rem !default;
+$base-size: 0.8rem !default;
 
 // Global Padding
-$global-padding-tiny: $global-vertical-space / 4 !default;  // 6px
+$global-padding-tiny: $global-vertical-space / 4 !default; // 6px
 $global-padding-small: $global-vertical-space / 2 !default; // 12px
 $global-padding: $global-vertical-space !default; // 24px
 $global-padding-large: $global-vertical-space * 2 !default; // 48px
@@ -104,8 +104,8 @@ $header-font-family: $global-sans-serif-font !default;
 $header-font-style: normal !default;
 $header-font-weight: $global-weight-normal !default;
 
+// Subheader
 $subheader-color: $header-color !default;
-$header-font-family: $global-sans-serif-font !default;
 $subheader-font-weight: $global-weight-normal !default;
 
 // Paragraph Vars
