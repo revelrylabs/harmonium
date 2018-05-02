@@ -1,20 +1,30 @@
 <div>
   <Row flex className="ColumnExamples">
-    <Col bottom small={6}>Align bottom</Col>
+    <Col alignStart small={6}>Align-self start</Col>
     <Col small={6}>
       <Lipsum />
     </Col>
   </Row>
-
   <Row flex className="ColumnExamples">
-    <Col middle small={6}>Align middle</Col>
+    <Col alignEnd small={6}>Align-self end</Col>
     <Col small={6}>
       <Lipsum />
     </Col>
   </Row>
-
   <Row flex className="ColumnExamples">
-    <Col top small={6}>Align top</Col>
+    <Col alignCenter small={6}>Align-self center</Col>
+    <Col small={6}>
+      <Lipsum />
+    </Col>
+  </Row>
+  <Row flex className="ColumnExamples">
+    <Col alignStretch small={6}>Align-self stretch</Col>
+    <Col small={6}>
+      <Lipsum />
+    </Col>
+  </Row>
+  <Row flex className="ColumnExamples">
+    <Col alignBaseline small={6}>Align-self baseline</Col>
     <Col small={6}>
       <Lipsum />
     </Col>
