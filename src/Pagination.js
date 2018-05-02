@@ -59,7 +59,7 @@ export default class Pagination extends Component {
     href: () => '#',
     showFirstLast: true,
   }
-
+  /* eslint complexity: [2, 4] */
   getAttributes() {
     const {currentPage, totalPages, maxViewPages} = this.props
     const attributes = {beginArrows: false, endArrows: false}
@@ -90,7 +90,7 @@ export default class Pagination extends Component {
 
     return attributes
   }
-
+  /* eslint complexity: [2, 7] */
   getArrowClass(relevant, samePage) {
     const {hideArrows} = this.props
 

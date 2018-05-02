@@ -39,7 +39,7 @@ class TimePicker extends React.Component {
   /**
    * Create a time picker. Determines if we can use browser native time type input
    * or if we need to fall back to a text type input (based on support).
-   * @param {object} props
+   * @param {object} props - the props
    */
   constructor(props) {
     super(props)
@@ -63,7 +63,8 @@ class TimePicker extends React.Component {
    * Handle updated props from up the chain. In particular, if we receive a new
    * time from up the hierarchy, we want to reset the inputs and the tickers to
    * that value.
-   * @param {object} nextProps
+   * @param {object} nextProps - the nextProps
+   * @return {void}
    */
   componentWillReceiveProps(nextProps) {
     this.setState(this.valuesFromProps(nextProps))
@@ -73,7 +74,7 @@ class TimePicker extends React.Component {
    * Find the time value from the props, and convert it to two values-- an iso
    * time and a 'local' format time version (so we can deal with poorly formatted
    * text inputs intelligently).
-   * @param {object} props
+   * @param {object} props - the props
    * @return {object} an object with two keys: isoValue & formattedValue
    */
   valuesFromProps(props) {
@@ -109,6 +110,7 @@ class TimePicker extends React.Component {
    * Process change events from the input by updating the isoValue & formattedValue
    * of this component. Will call down to an onChange handler passed in.
    * @param {Event} event - the change event fired from the input
+   * @return {void}
    */
   onChange(event) {
     // Take whatever format the input gave us, and turn it into an ISO time string
@@ -132,6 +134,7 @@ class TimePicker extends React.Component {
    * to text field due to bad support, this will be 'hh:mm a' (or 'hh:mm:ss a' if seconds are to be shown).
    * @return {string} the time format in use by the component
    */
+  /* eslint complexity: [2, 4] */
   get timeFormat() {
     // TODO: detect locale default format string and use that instead of
     //   hardcoded 'HH:mm'
@@ -145,6 +148,7 @@ class TimePicker extends React.Component {
    * Invoked by a time ticker to tell the time picker to update the inputs (onClick
    * of the ticker buttons).
    * @param {string} time - the new time, in the format hh:mm
+   * @return {void}
    */
   updateTime(time) {
     // Update isoValue & formattedValue based on the time value (which is an iso
@@ -170,6 +174,7 @@ class TimePicker extends React.Component {
    * Create a synthetic change event and send it into the change handlers as if
    * the user had typed the new value. This makes typed input and time ticker button
    * clicks fire off the same handlers.
+   * @return {void}
    */
   fireChangeHandler() {
     const event = new Event('change')
@@ -182,6 +187,7 @@ class TimePicker extends React.Component {
    * Mark the input as in focus. Used to determine whether the time ticker container should
    * be open.
    * @param {Event} event - the focus event
+   * @return {void}
    */
   onFocus(event) {
     if (this.props.onFocus) {
@@ -195,6 +201,7 @@ class TimePicker extends React.Component {
    * Mark the input as out of focus. Used to determine whether the time ticker container should
    * be closed.
    * @param {Event} event - the blur event
+   * @return {void}
    */
   onBlur(event) {
     if (this.props.onBlur) {
@@ -207,6 +214,7 @@ class TimePicker extends React.Component {
   /**
    * Force the input back into focus. Used when time ticker buttons are clicked, so
    * that the input stays in focus and we don't close the container.
+   * @return {void}
    */
   refocusOnClick() {
     if (this.nativeInput) {
@@ -225,7 +233,7 @@ class TimePicker extends React.Component {
   useNativePicker() {
     return (
       typeof navigator !== 'undefined' &&
-      (/Android|iPhone|iPad|iPod/i).test(navigator.userAgent)
+      /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
     )
   }
 
@@ -233,6 +241,7 @@ class TimePicker extends React.Component {
    * Track when the mouse cursor is over the component, so that we can not
    * immediately close the container when we lose focus-- which happens if you
    * click the container buttons.
+   * @return {void}
    */
   mouseIn() {
     this.setState({mousedIn: true})
@@ -242,6 +251,7 @@ class TimePicker extends React.Component {
    * Track when the mouse is no longer over the component, which means that it
    * is safe to close the container if we lose focus, for example, because the
    * focus has moved to the next element.
+   * @return {void}
    */
   mouseOut() {
     this.setState({mousedIn: false, isOpen: this.state.focused})
@@ -256,6 +266,7 @@ class TimePicker extends React.Component {
    *   input)
    * @returns {boolean} - true if the time container is open
    */
+  /* eslint complexity: [2, 5] */
   get isContainerOpen() {
     return (
       (this.state.isOpen || this.props.isOpen) &&
@@ -274,9 +285,9 @@ class TimePicker extends React.Component {
       overlay,
       ...props
     } = this.props
-    const nativeClass = this.useNativePicker() ?
-      'rev-TimePicker--native' :
-      'rev-TimePicker--custom'
+    const nativeClass = this.useNativePicker()
+      ? 'rev-TimePicker--native'
+      : 'rev-TimePicker--custom'
     const timeInputProps = omit(props, 'isOpen')
 
     return (
@@ -305,9 +316,9 @@ class TimePicker extends React.Component {
         <TimeContainer
           {...props}
           className={
-            this.isContainerOpen ?
-              'rev-TimeContainer--open' :
-              'rev-TimeContainer--closed'
+            this.isContainerOpen
+              ? 'rev-TimeContainer--open'
+              : 'rev-TimeContainer--closed'
           }
           selectedTime={this.state.isoValue}
           updateTime={this.updateTime.bind(this)}

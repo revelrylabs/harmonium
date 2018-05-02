@@ -1,6 +1,7 @@
-import React, {cloneElement, Component, Children} from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 import classNames from 'classnames'
-
+/* eslint complexity: [2, 4] */
 const StickyContent = ({
   children,
   className,
@@ -10,13 +11,14 @@ const StickyContent = ({
   setRef,
   ...props
 }) => {
+  /* eslint-disable no-nested-ternary */
   const stickyClass = isStuck
-                        ? stickToBottom
-                          ? 'rev-Sticky-content--stuck-bottom'
-                          : 'rev-Sticky-content--stuck-top'
-                        : isAnchored
-                          ? 'rev-Sticky-content--anchored'
-                          : ''
+    ? stickToBottom
+      ? 'rev-Sticky-content--stuck-bottom'
+      : 'rev-Sticky-content--stuck-top'
+    : isAnchored
+      ? 'rev-Sticky-content--anchored'
+      : ''
   const itemClassName = classNames(className, 'rev-Sticky-content', stickyClass)
 
   return (
@@ -26,7 +28,27 @@ const StickyContent = ({
   )
 }
 
+StickyContent.propTypes = {
+  children: PropTypes.node,
+  className: PropTypes.string,
+  isStuck: PropTypes.bool,
+  isAnchored: PropTypes.bool,
+  stickToBottom: PropTypes.bool,
+  setRef: PropTypes.func,
+}
+
 class Sticky extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+    contentClassName: PropTypes.string,
+    isStuck: PropTypes.bool,
+    isAnchored: PropTypes.bool,
+    stickToBottom: PropTypes.bool,
+    setRef: PropTypes.func,
+    setContentRef: PropTypes.func,
+  }
+
   render() {
     const {
       children,
@@ -59,23 +81,30 @@ class Sticky extends Component {
 }
 
 class StatefulSticky extends Component {
+  static propTypes = {
+    isOpen: PropTypes.bool,
+    onBackgroundClick: PropTypes.func,
+    className: PropTypes.string,
+    children: PropTypes.node,
+    stickToBottom: PropTypes.bool,
+    offset: PropTypes.bool,
+  }
+
   constructor(props) {
     super(props)
     this.state = {
       isStuck: false,
-      isAnchored: false
+      isAnchored: false,
     }
   }
 
-  setContainerRef(container) {
-    this.stickyContainer = container
+  componentDidMount() {
+    window.addEventListener('scroll', this.setContentState.bind(this))
   }
 
-  setContentRef(content) {
-    this.stickyContent = content
-  }
-
+  /* eslint complexity: [2, 8] */
   setContentState() {
+    /* eslint-disable no-unused-vars */
     const contentTop = this.stickyContent.getBoundingClientRect().top
     const contentBottom = this.stickyContent.getBoundingClientRect().bottom
 
@@ -86,63 +115,66 @@ class StatefulSticky extends Component {
 
     if (this.props.stickToBottom) {
       stickyStart = this.props.offset
-                  ? containerBottom - this.parsePxValue(this.props.offset)
-                                    - window.innerHeight
-                  : containerBottom - window.innerHeight
-      stickyStop = containerTop + this.stickyContent.offsetHeight - window.innerHeight
+        ? containerBottom -
+          this.parsePxValue(this.props.offset) -
+          window.innerHeight
+        : containerBottom - window.innerHeight
+      stickyStop =
+        containerTop + this.stickyContent.offsetHeight - window.innerHeight
       stickyFlag = stickyStart >= 0 && stickyStop <= 0
       anchorFlag = stickyStart <= 0
     } else {
       stickyStart = this.props.offset
-                              ? containerTop + this.parsePxValue(this.props.offset)
-                              : containerTop
+        ? containerTop + this.parsePxValue(this.props.offset)
+        : containerTop
       stickyStop = containerBottom - this.stickyContent.offsetHeight
-      stickyFlag = stickyStart <= 0  && stickyStop >= 0
+      stickyFlag = stickyStart <= 0 && stickyStop >= 0
       anchorFlag = stickyStop <= 0
     }
 
     if (stickyFlag) {
-      const sideBorders = this.parsePxValue(this.stickyContainer.style.borderRightWidth)
-                        + this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
+      const sideBorders =
+        this.parsePxValue(this.stickyContainer.style.borderRightWidth) +
+        this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
 
       // this is to force the fixed div holding the sticky content
       // to not break out of the sticky container since fixed
       // positioning breaks elements out of document flow
-      this.stickyContent.style.width = (this.stickyContainer.offsetWidth - sideBorders).toString() + 'px'
+      this.stickyContent.style.width = `${(
+        this.stickyContainer.offsetWidth - sideBorders
+      ).toString()}px`
 
       this.setState({
         isStuck: true,
-        isAnchored: false
+        isAnchored: false,
       })
     } else if (anchorFlag) {
       this.setState({
         isStuck: false,
-        isAnchored: true
+        isAnchored: true,
       })
     } else {
       this.setState({
         isStuck: false,
-        isAnchored: false
+        isAnchored: false,
       })
     }
   }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.setContentState.bind(this))
+  parsePxValue(value) {
+    return parseInt(value.replace('px', ''), 10)
   }
 
-  parsePxValue(value) {
-    return parseInt(value.replace('px', ''))
+  setContainerRef(container) {
+    this.stickyContainer = container
+  }
+
+  setContentRef(content) {
+    this.stickyContent = content
   }
 
   render() {
-    const {
-      children,
-      className,
-      offset,
-      stickToBottom,
-      ...props
-    } = this.props
+    const {children, className, offset, stickToBottom, ...props} = this.props
 
     return (
       <Sticky

@@ -103,7 +103,7 @@
     "no-octal-escape": 2,
     "no-octal": 2,
     "no-param-reassign": 0,
-    "no-process-env": 2,
+    "no-process-env": 0,
     "no-proto": 2,
     "no-redeclare": 2,
     "no-return-assign": 2,
@@ -293,7 +293,7 @@
       "always"
     ],
     "space-before-function-paren": [
-      2,
+      0,
       "never"
     ],
     "space-in-parens": [
