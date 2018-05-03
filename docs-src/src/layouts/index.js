@@ -13,7 +13,7 @@ import './index.scss'
 const TemplateWrapper = ({children, location}) => (
   <div>
     <Helmet
-      title="Possum | React Components for Teams That Move Fast"
+      title="Harmonium | React Components for Teams That Move Fast"
       meta={[
         {
           name: 'description',
@@ -23,6 +23,13 @@ const TemplateWrapper = ({children, location}) => (
         {name: 'keywords', content: 'React, JavaScript, SCSS, CSS, HTML, Web'},
       ]}
     >
+      <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16.png" />
+      <link rel="manifest" href="/images/site.webmanifest" />
+      <link rel="mask-icon" href="/images/safari-pinned-tab.svg" color="#6422EB" />
+      <meta name="msapplication-TileColor" content="#6422EB" />
+      <meta name="theme-color" content="#6422EB" />
       <link
         rel="stylesheet"
         href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"
@@ -38,7 +45,7 @@ const TemplateWrapper = ({children, location}) => (
     </Helmet>
     <TopBar fixed className="Show--smallOnly">
       <Link className="rev-Brand" to="/">
-        <h1>Possum</h1>
+        <h1>Harmonium</h1>
         <small>Version {packageInfo.version}</small>
       </Link>
     </TopBar>

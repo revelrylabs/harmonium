@@ -6,17 +6,17 @@ import HelpText from 'awesome-possum/lib/HelpText'
 
 const IndexPage = () => (
   <div>
-    <h1>Possum</h1>
+    <h1>Harmonium</h1>
 
     <p>
-      Possum is a framework of React components optimized for teams that want to
+      Harmonium is a framework of React components optimized for teams that want to
       ship apps fast. It is a curated list of components that work together and
       have cohesive styles. One of our design goals is that you never have to
       research and handpick component packages. Whatever you need is already
       here.
     </p>
     <p>
-      Possum was built by Revelry Labs. We&apos;ve been doing React since the
+      Harmonium was built by Revelry Labs. We&apos;ve been doing React since the
       earliest version was in beta. We&apos;ve built dozens of React apps and
       we&apos;ve learned what works and what doesn&apos;t. And our focus is on
       shipping gold fast. So we never want to solve the same problem twice.
