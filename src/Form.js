@@ -18,7 +18,7 @@ export default class Form extends Component {
     methodOverrideInputName: '_method',
     method: 'post',
   }
-
+  /* eslint complexity: [2, 4] */
   render() {
     const {
       className,

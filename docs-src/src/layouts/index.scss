@@ -1,4 +1,5 @@
 @import '../../../scss/app';
+@import url('https://use.typekit.net/qqm8vsn.css');
 
 @mixin alert-color-stack {
   background-color: $alert;
@@ -19,7 +20,18 @@
   }
 }
 // TYPOGRAPHY
-h5, h6 {
+
+// Proxima Nova Headers for docs only
+h1,h2,h3,h4 {
+  font-family: 'proxima-nova', $global-sans-serif-font;
+  font-weight: 500;
+}
+h1 {
+  font-weight: 900;
+}
+
+h1 h5,
+h6 {
   font-weight: normal;
   letter-spacing: 1px;
   margin: $global-padding-large 0 0;
@@ -75,56 +87,57 @@ h5, h6 {
 .ColumnExamples {
   &.rev-Row,
   .rev-Row {
-    margin-bottom: $global-vertical-space;
+    margin-bottom: $global-margin;
     .rev-Row {
       margin-bottom: 0;
     }
   }
   .rev-Col {
+    // bottom and top padding for demo purposes only
+    padding-bottom: $global-padding;
+    padding-top: $global-padding;
     text-align: center;
-    background-clip: content-box;
-    position: relative;
     // All of this is a way to put an outline-esque border on the left and
     // right edge without taking up space (doing it this way, because outline
     // can't be applied to only left and right).
     // If we just put left and right borders, it can cause weird overflows
     // and wrapping with the grid, which is bad for a grid demo page
     &:before {
-      // Needs content to be placed in DOM
-      content: ' ';
+      // Mark left and right edges
+      border-left: 2px dotted $gray;
+      border-right: 2px dotted $gray;
       // Position to be the same size and location as the column
       bottom: 0;
-      left: 0;
+      // Needs content to be placed in DOM
+      content: ' ';
+      left: -1px;
       position: absolute;
-      right: 0;
+      right: -1px;
       top: 0;
-      // Mark left and right edges
-      border-left: 1px dashed $gray;
-      border-right: 1px dashed $gray;
     }
   }
   // Throw some grayscale colors on the grid columns to show what space they
   // occupy
-  .columns:nth-child(6n + 1) {
-    @include color-stack($gray);
+  .rev-Col:nth-child(6n + 1) {
+    @include color-stack($lightest-gray);
   }
-  .columns:nth-child(6n + 2) {
-    @include color-stack($black);
-  }
-  .columns:nth-child(6n + 3) {
-    @include color-stack($darker-gray);
-  }
-  .columns:nth-child(6n + 4) {
-    @include color-stack($dark-gray);
-  }
-  .columns:nth-child(6n + 5) {
-    @include color-stack($light-gray);
-  }
-  .columns:nth-child(6n + 6) {
+  .rev-Col:nth-child(6n + 2) {
     @include color-stack($lighter-gray);
   }
+  .rev-Col:nth-child(6n + 3) {
+    @include color-stack($light-gray);
+  }
+  .rev-Col:nth-child(6n + 4) {
+    @include color-stack($gray);
+  }
+  .rev-Col:nth-child(6n + 5) {
+    @include color-stack($dark-gray);
+  }
+  .rev-Col:nth-child(6n + 6) {
+    @include color-stack($darker-gray);
+  }
   // For nesting example, show the extents of the nested row
-  .columns .row {
+  .rev-Col .rev-Row {
     outline: 1px solid $white;
   }
   // removing the bkgd on Block Grid so that kitty images look better
@@ -144,7 +157,7 @@ h5, h6 {
 }
 // Color Swatches
 .ExampleSwatches {
-  @include aspect-ratio(1,1);
+  @include aspect-ratio(1, 1);
   @include color-management;
 }
 // Buttons
@@ -217,7 +230,7 @@ h5, h6 {
   }
   .rev-Drawer-contents {
     background: $brand;
-    background: linear-gradient(to bottom, $brand-purple 0%,$brand 100%);
+    background: linear-gradient(to bottom, $brand-purple 0%, $brand 100%);
     color: $white;
     padding-bottom: $global-padding-larger;
   }

@@ -94,7 +94,7 @@ class CheckboxFieldset extends Component {
 
     valueArray.forEach((val) => (valueLookup[val] = true))
     defaultValueArray.forEach((val) => (defaultValueLookup[val] = true))
-
+    /* eslint complexity: [2, 4] */
     const checkboxes = options.map((option) => {
       const props = {
         name,

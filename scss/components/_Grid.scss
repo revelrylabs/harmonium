@@ -1,4 +1,4 @@
-// ROWS
+// ROWS (float and flex)
 .rev-Row {
   display: block;
   margin-left: 0;
@@ -12,21 +12,7 @@
     clear: both;
     display: table;
   }
-  &.rev-Row--flex,
-  &.rev-Row--smallFlex, {
-    display: flex;
-    flex-flow: row wrap;
-    .rev-Col {
-      flex: 1 1 0px;
-    }
-    .shrink {
-      flex: 0 0 auto;
-    }
-  }
-  &.rev-Row--unflex,
-  &.rev-Row--smallUnflex {
-    display: block;
-  }
+  // Collapse padding on direct child cols
   &.rev-Row--collapse,
   &.rev-Row--smallCollapse {
     > .rev-Col {
@@ -34,6 +20,7 @@
       padding-right: 0;
     }
   }
+  // Reset padding on direct child cols
   &.rev-Row--uncollapse,
   &.rev-Row--smallUncollapse {
     > .rev-Col {
@@ -41,16 +28,7 @@
       padding-right: $grid-column-padding;
     }
   }
-  &.rev-Row--right {
-    justify-content: flex-end;
-  }
   @include breakpoint(medium)  {
-    &.rev-Row--mediumFlex {
-      display: flex;
-    }
-    &.rev-Row--mediumUnflex {
-      display: block;
-    }
     &.rev-Row--mediumCollapse {
       > .rev-Col {
         padding-left: 0;
@@ -65,12 +43,6 @@
     }
   }
   @include breakpoint(large)  {
-    &.rev-Row--largeFlex {
-      display: flex;
-    }
-    &.rev-Row--largeUnflex {
-      display: block;
-    }
     &.rev-Row--largeCollapse {
       > .rev-Col {
         padding-left: 0;
@@ -85,12 +57,6 @@
     }
   }
   @include breakpoint(xlarge)  {
-    &.rev-Row--xlargeFlex {
-      display: flex;
-    }
-    &.rev-Row--xlargeUnflex {
-      display: block;
-    }
     &.rev-Row--xlargeCollapse {
       > .rev-Col {
         padding-left: 0;
@@ -105,12 +71,6 @@
     }
   }
   @include breakpoint(xxlarge)  {
-    &.rev-Row--xxlargeFlex {
-      display: flex;
-    }
-    &.rev-Row--xxlargeUnflex {
-      display: block;
-    }
     &.rev-Row--xxlargeCollapse {
       > .rev-Col {
         padding-left: 0;
@@ -126,25 +86,31 @@
   }
 }
 
-// COLUMNS
+// COLUMNS (float and flex)
 .rev-Col {
-  flex-grow: 1;
-  flex-shrink: 0;
-  float: left;
   padding: 0 $grid-column-padding;
   position: relative;
   width: 100%;
-  &.rev-Col--end {
-    float: right;
-  }
+  // Collapse padding on cols
   &.rev-Col--collapse {
     padding-left: 0;
     padding-right: 0;
   }
+  // Reset padding on cols
   &.rev-Col--uncollapse {
     padding: 0 $grid-column-padding;
   }
+  @for $i from 1 through $grid-columns {
+    &.rev-Col--small#{$i} {
+      width: 100% / $grid-columns * $i;
+    }
+  }
   @include breakpoint(medium) {
+    @for $i from 1 through $grid-columns {
+      &.rev-Col--medium#{$i} {
+        width: 100% / $grid-columns * $i;
+      }
+    }
     &.rev-Col--mediumCollapse {
       padding-left: 0;
       padding-right: 0;
@@ -154,6 +120,11 @@
     }
   }
   @include breakpoint(large) {
+    @for $i from 1 through $grid-columns {
+      &.rev-Col--large#{$i} {
+        width: 100% / $grid-columns * $i;
+      }
+    }
     &.rev-Col--largeCollapse {
       padding-left: 0;
       padding-right: 0;
@@ -163,6 +134,11 @@
     }
   }
   @include breakpoint(xlarge) {
+    @for $i from 1 through $grid-columns {
+      &.rev-Col--xlarge#{$i} {
+        width: 100% / $grid-columns * $i;
+      }
+    }
     &.rev-Col--xlargeCollapse {
       padding-left: 0;
       padding-right: 0;
@@ -172,6 +148,11 @@
     }
   }
   @include breakpoint(xxlarge) {
+    @for $i from 1 through $grid-columns {
+      &.rev-Col--xxlarge#{$i} {
+        width: 100% / $grid-columns * $i;
+      }
+    }
     &.rev-Col--xxlargeCollapse {
       padding-left: 0;
       padding-right: 0;
@@ -179,135 +160,5 @@
     &.rev-Col--xxlargeUncollapse {
       padding: 0 $grid-column-padding;
     }
-  }
-}
-.rev-Col--centered,
-.rev-Col--smallCentered {
-  float: none;
-  margin-left: auto;
-  margin-right: auto;
-}
-.rev-Col--Uncentered,
-.rev-Col--smallUncentered {
-  float: left;
-}
-.rev-Col--bottom {
-  align-self: flex-end;
-}
-.rev-Col--middle {
-  align-self: center;
-}
-.rev-Col--top {
-  align-self: flex-start;
-}
-
-@for $i from 1 through $grid-columns {
-  .rev-Col--small#{$i} {
-    width: 100% / $grid-columns * $i;
-  }
-  .rev-Col--smallOffset#{$i} {
-    left: 100% / $grid-columns * $i;
-  }
-  .rev-Col--smallPush#{$i} {
-    @include rev-Col-push($i);
-  }
-  .rev-Col--smallPull#{$i} {
-    @include rev-Col-pull($i);
-  }
-}
-@include breakpoint(medium)  {
-  @for $i from 1 through $grid-columns {
-    .rev-Col--medium#{$i} {
-      width: 100% / $grid-columns * $i;
-    }
-    .rev-Col--mediumOffset#{$i} {
-      left: 100% / $grid-columns * $i;
-    }
-    .rev-Col--mediumPush#{$i} {
-      @include rev-Col-push($i);
-    }
-    .rev-Col--mediumPull#{$i} {
-      @include rev-Col-pull($i);
-    }
-  }
-  .rev-Col--mediumCentered {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .rev-Col--mediumUncentered {
-    float: left;
-  }
-}
-@include breakpoint(large)  {
-  @for $i from 1 through $grid-columns {
-    .rev-Col--large#{$i} {
-      width: 100% / $grid-columns * $i;
-    }
-    .rev-Col--largeOffset#{$i} {
-      left: 100% / $grid-columns * $i;
-    }
-    .rev-Col--largePush#{$i} {
-      @include rev-Col-push($i);
-    }
-    .rev-Col--largePull#{$i} {
-      @include rev-Col-pull($i);
-    }
-  }
-  .rev-Col--largeCentered {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .rev-Col--largeUncentered {
-    float: left;
-  }
-}
-@include breakpoint(xlarge) {
-  @for $i from 1 through $grid-columns {
-    .rev-Col--xlarge#{$i} {
-      width: 100% / $grid-columns * $i;
-    }
-    .rev-Col--xlargeOffset#{$i} {
-      left: 100% / $grid-columns * $i;
-    }
-    .rev-Col--xlargePush#{$i} {
-      @include rev-Col-push($i);
-    }
-    .rev-Col--xlargePull#{$i} {
-      @include rev-Col-pull($i);
-    }
-  }
-  .rev-Col--xlargeCentered {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .rev-Col--xlargeUncentered {
-    float: left;
-  }
-}
-@include breakpoint(xxlarge)  {
-  @for $i from 1 through $grid-columns {
-    .rev-Col--xxlarge#{$i} {
-      width: 100% / $grid-columns * $i;
-    }
-    .rev-Col--xxlargeOffset#{$i} {
-      left: 100% / $grid-columns * $i;
-    }
-    .rev-Col--xxlargePush#{$i} {
-      @include rev-Col-push($i);
-    }
-    .rev-Col--xxlargePull#{$i} {
-      @include rev-Col-pull($i);
-    }
-  }
-  .rev-Col--xxlargeCentered {
-    float: none;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .rev-Col--xxlargeUncentered {
-    float: left;
   }
 }

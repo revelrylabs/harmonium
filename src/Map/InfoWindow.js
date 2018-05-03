@@ -2,6 +2,7 @@ import {Component} from 'react'
 import PropTypes from 'prop-types'
 
 export default class InfoWindow extends Component {
+  /* eslint complexity: [2, 5] */
   componentDidUpdate(prevProps) {
     const {visible, marker, map} = this.props
 

@@ -1,5 +1,6 @@
 <div>
-  <h3>default to first tab</h3>
+  <h3>Stateless Tabs</h3>
+  <h4>Default to first tab</h4>
   <Tabs>
     <Tabs.Item contentKey={1} title="One">
       <Row>
@@ -16,7 +17,7 @@
       </Row>
     </Tabs.Item>
   </Tabs>
-  <h3>explicitly set active to 2</h3>
+  <h4>Explicitly set active to 2</h4>
   <Tabs active={2}>
     <Tabs.Item contentKey={1} title="One">
       <Row>

@@ -1,0 +1,115 @@
+// COLUMNS
+.rev-Col {
+  float: left;
+  padding: 0 $grid-column-padding;
+  position: relative;
+  width: 100%;
+  &.rev-Col--centered,
+  &.rev-Col--smallCentered {
+    float: none;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  &.rev-Col--Uncentered,
+  &.rev-Col--smallUncentered {
+    float: left;
+  }
+  &.rev-Col--end {
+    float: right;
+  }
+  @for $i from 1 through $grid-columns {
+    &.rev-Col--smallOffset#{$i} {
+      left: 100% / $grid-columns * $i;
+    }
+    &.rev-Col--smallPush#{$i} {
+      @include rev-Col-push($i);
+    }
+    &.rev-Col--smallPull#{$i} {
+      @include rev-Col-pull($i);
+    }
+  }
+  @include breakpoint(medium) {
+    @for $i from 1 through $grid-columns {
+      &.rev-Col--mediumOffset#{$i} {
+        left: 100% / $grid-columns * $i;
+      }
+      &.rev-Col--mediumPush#{$i} {
+        @include rev-Col-push($i);
+      }
+      &.rev-Col--mediumPull#{$i} {
+        @include rev-Col-pull($i);
+      }
+    }
+    .rev-Col--mediumCentered {
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .rev-Col--mediumUncentered {
+      float: left;
+    }
+  }
+  @include breakpoint(large) {
+    @for $i from 1 through $grid-columns {
+      &.rev-Col--largeOffset#{$i} {
+        left: 100% / $grid-columns * $i;
+      }
+      &.rev-Col--largePush#{$i} {
+        @include rev-Col-push($i);
+      }
+      &.rev-Col--largePull#{$i} {
+        @include rev-Col-pull($i);
+      }
+    }
+    &.rev-Col--largeCentered {
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &.rev-Col--largeUncentered {
+      float: left;
+    }
+  }
+  @include breakpoint(xlarge) {
+    @for $i from 1 through $grid-columns {
+      &.rev-Col--xlargeOffset#{$i} {
+        left: 100% / $grid-columns * $i;
+      }
+      &.rev-Col--xlargePush#{$i} {
+        @include rev-Col-push($i);
+      }
+      &.rev-Col--xlargePull#{$i} {
+        @include rev-Col-pull($i);
+      }
+    }
+    &.rev-Col--xlargeCentered {
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &.rev-Col--xlargeUncentered {
+      float: left;
+    }
+  }
+  @include breakpoint(xxlarge) {
+    @for $i from 1 through $grid-columns {
+      &.rev-Col--xxlargeOffset#{$i} {
+        left: 100% / $grid-columns * $i;
+      }
+      &.rev-Col--xxlargePush#{$i} {
+        @include rev-Col-push($i);
+      }
+      &.rev-Col--xxlargePull#{$i} {
+        @include rev-Col-pull($i);
+      }
+    }
+    &.rev-Col--xxlargeCentered {
+      float: none;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    &.rev-Col--xxlargeUncentered {
+      float: left;
+    }
+  }
+}
