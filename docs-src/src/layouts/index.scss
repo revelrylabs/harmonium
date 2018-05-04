@@ -230,7 +230,7 @@ h6 {
   }
   .rev-Drawer-contents {
     background: $brand;
-    background: linear-gradient(to bottom, $brand-purple 0%, $brand 100%);
+    background: linear-gradient(to bottom, $brand 0%, $brand-secondary 100%);
     color: $white;
     padding-bottom: $global-padding-larger;
   }
