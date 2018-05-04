@@ -1,18 +1,18 @@
 // Button Vars
-$button-bkgd: $brand;
-$button-border: 0;
-$button-color: $white;
-$button-bkgd-hover: darken($brand, 5%);
-$button-color-hover: $white;
-$button-bkgd-active: darken($brand, 10%);
-$button-color-active: $white;
-$button-radius: $global-radius;
+$button-bkgd: $brand !default;
+$button-border: 0 !default;
+$button-color: $white !default;
+$button-bkgd-hover: darken($brand, 5%) !default;
+$button-color-hover: $white !default;
+$button-bkgd-active: darken($brand, 10%) !default;
+$button-color-active: $white !default;
+$button-radius: $global-radius !default;
 
 // CLOSE BUTTON
-$closebutton-color: $darker-gray;
-$closebutton-color-hover: $black;
-$closebutton-lineheight: $global-lineheight;
-$closebutton-size: $global-font-size;
+$closebutton-color: $darker-gray !default;
+$closebutton-color-hover: $black !default;
+$closebutton-lineheight: $global-lineheight !default;
+$closebutton-size: $global-font-size !default;
 
 @mixin button-contained {
   .rev-Button {

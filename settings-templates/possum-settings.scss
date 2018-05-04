@@ -121,6 +121,22 @@ $anchor-color-inverse: $body-bkgd;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 
+// BUTTONS
+$button-bkgd: $brand;
+$button-border: 0;
+$button-color: $white;
+$button-bkgd-hover: darken($brand, 5%);
+$button-color-hover: $white;
+$button-bkgd-active: darken($brand, 10%);
+$button-color-active: $white;
+$button-radius: $global-radius;
+
+// CLOSE BUTTON
+$closebutton-color: $darker-gray;
+$closebutton-color-hover: $black;
+$closebutton-lineheight: $global-lineheight;
+$closebutton-size: $global-font-size;
+
 // HR Vars
 $hr-width: $global-width;
 $hr-border: 1px solid $divider-color;
@@ -309,11 +325,6 @@ $time-picker-header-bkgd: $time-picker-bkgd;
 
 //# Badges
 $badge-size: $size-default;
-
-//# Close Buttons
-$close-bkgd: $body-font-color;
-$close-color: $body-bkgd;
-$close-size: $size-default;
 
 //## UTILITIES -----------------------------
 
