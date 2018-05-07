@@ -161,7 +161,8 @@ class TimePicker extends React.Component {
     // It also sets us up to fire off a synthetic change event that looks just
     // like change event from a typed input (so external change handlers are
     // properly) invoked
-    this.nativeInput.value = this.isoToFormatted(time)
+    const nativeInputValueSetter = Object.getOwnPropertyDescriptor(window.HTMLInputElement.prototype, "value").set;
+    nativeInputValueSetter.call(this.nativeInput, this.isoToFormatted(time));
 
     this.fireChangeHandler()
 
@@ -177,7 +178,7 @@ class TimePicker extends React.Component {
    * @return {void}
    */
   fireChangeHandler() {
-    const event = new Event('change')
+    const event = new Event('change', {bubbles: true, cancelable: false})
 
     this.nativeInput.dispatchEvent(event)
     this.onChange(event)
