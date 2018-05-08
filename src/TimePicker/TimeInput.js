@@ -27,7 +27,6 @@ class TimeInput extends Component {
       isoValue,
       generation,
       name,
-      inputRef,
       ...props
     } = this.props
 
@@ -36,7 +35,6 @@ class TimeInput extends Component {
         <Input
           {...props}
           className={className}
-          inputRef={inputRef}
           step={showSeconds ? '1' : null}
           type="time"
           name={useGoodTimeInput ? name : null}
@@ -46,7 +44,6 @@ class TimeInput extends Component {
           <Input
             type="hidden"
             name={name}
-            inputRef={}
             key={`${generation}:trueInput`}
             value={isoValue || ''}
             readOnly
