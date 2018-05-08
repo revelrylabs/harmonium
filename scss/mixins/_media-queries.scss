@@ -68,6 +68,9 @@ $devices: (
     }
   }
 }
+//@include device(device-name-here) {
+//  styles go here
+//}
 @mixin device($size) {
   @each $item, $value in $devices {
     @if $item == $size {

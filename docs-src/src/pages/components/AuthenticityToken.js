@@ -19,14 +19,14 @@ export default class AuthenticityTokenExamplePage extends Component {
           title="Authenticity Token"
           metaDescription={
             'Authenticity Tokens are used with many web frameworks to prevent ' +
-            'CSRF attacks. Possum provides a component that simplifies passing ' +
+            'CSRF attacks. Harmonium provides a component that simplifies passing ' +
             'CSRF tokens down the hierarchy to forms.'
           }
           extraKeywords="Component, Authenticity Token, CSRF"
         >
           <p>
             Authenticity Tokens are used with many web frameworks to prevent
-            CSRF attacks. Possum provides a component that simplifies passing
+            CSRF attacks. Harmonium provides a component that simplifies passing
             CSRF tokens down the hierarchy to forms.
           </p>
         </Headers>

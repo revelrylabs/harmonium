@@ -14,7 +14,7 @@ export default class VisibilityExamplePage extends Component {
         <Headers
           title="Visibility"
           metaDescription={
-            'Possum includes several visibility utility components. These ' +
+            'Harmonium includes several visibility utility components. These ' +
             'components are used to control the visibility of their children in ' +
             'different situations. For example, contents can be made invisible ' +
             'at specific breakpoints.'
@@ -22,7 +22,7 @@ export default class VisibilityExamplePage extends Component {
           extraKeywords="Component, Visibility, Utility"
         >
           <p>
-            Possum includes several visibility utility components. These
+            Harmonium includes several visibility utility components. These
             components are used to control the visibility of their children in
             different situations. For example, contents can be made invisible
             at specific breakpoints.

@@ -15,12 +15,12 @@ export default class CheckboxExamplePage extends Component {
         <Headers
           title="Checkbox"
           metaDescription={
-            'Possum provides checkboxes and checkbox groups for use in forms.'
+            'Harmonium provides checkboxes and checkbox groups for use in forms.'
           }
           extraKeywords="Component, Checkbox, Form"
         >
           <p>
-            Possum provides checkboxes and checkbox groups for use in forms. Use
+            Harmonium provides checkboxes and checkbox groups for use in forms. Use
             a checkbox when the user needs to make one or more 'yes or no'
             selections. Checkboxes should generally not be used as a substitute
             for buttons-- they should not usually have immediate automatic
