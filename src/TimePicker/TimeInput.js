@@ -39,20 +39,19 @@ class TimeInput extends Component {
           inputRef={inputRef}
           step={showSeconds ? '1' : null}
           type="time"
-          name={name}
-          // name={useGoodTimeInput ? name : null}
+          name={useGoodTimeInput ? name : null}
           defaultValue={formattedValue}
         />
-        {/* {useGoodTimeInput ? null : (
+        {useGoodTimeInput ? null : (
           <Input
             type="hidden"
             name={name}
-            inputRef={inputRef}
+            inputRef={}
             key={`${generation}:trueInput`}
             value={isoValue || ''}
             readOnly
           />
-        )} */}
+        )}
       </div>
     )
   }
