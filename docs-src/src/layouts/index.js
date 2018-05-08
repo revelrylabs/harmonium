@@ -32,12 +32,12 @@ const TemplateWrapper = ({children, location}) => (
       <meta name="msapplication-TileColor" content="#6422EB" />
       <meta name="theme-color" content="#6422EB" />
       // OG META
-      <meta property="og:image" content="/og-image.jpg">
-      <meta property="og:image:width" content="279">
-      <meta property="og:image:height" content="279">
-      <meta property="og:title" content="Harmonium">
-      <meta property="og:description" content="React components for teams that move fast.">
-      <meta property="og:url" content="https://possum.revelry.co/">
+      <meta property="og:image" content="/og-image.jpg" />
+      <meta property="og:image:width" content="279" />
+      <meta property="og:image:height" content="279" />
+      <meta property="og:title" content="Harmonium" />
+      <meta property="og:description" content="React components for teams that move fast." />
+      <meta property="og:url" content="https://possum.revelry.co/" />
       // STYLES
       <link
         rel="stylesheet"
@@ -54,7 +54,7 @@ const TemplateWrapper = ({children, location}) => (
     </Helmet>
     <TopBar fixed className="Show--smallOnly">
       <Link className="rev-Brand Show--smallOnly" to="/">
-        <img src="/images/harmonium-logo.png"/>
+        <img src="/images/harmonium-logo.png" alt="Harmonium"/>
         <small>Version {packageInfo.version}</small>
       </Link>
     </TopBar>
