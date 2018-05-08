@@ -60,12 +60,13 @@ class DateInputBlock extends Component {
           {...props}
           className={inputClassName}
           type={goodDateInput ? 'date' : 'text'}
-          name={goodDateInput ? name : null}
+          // name={goodDateInput ? name : null}
+          name={name}
           defaultValue={formattedValue}
           /*         have a placeholder to avoid empty box on Firefox  */
           placeholder={dateFormat ? dateFormat : 'mm/dd/yyyy'}
         />
-        {goodDateInput ? null : (
+        {/* {goodDateInput ? null : (
           <Input
             type="hidden"
             name={name}
@@ -73,7 +74,7 @@ class DateInputBlock extends Component {
             value={isoValue || ''}
             readOnly
           />
-        )}
+        )} */}
       </div>
     )
   }
