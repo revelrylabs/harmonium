@@ -15,7 +15,7 @@ export default function Navigation() {
     >
       <nav>
         <Link className="rev-Brand Show--mediumUp" to="/">
-          <img src="/images/harmonium-logo-white.png"/>
+          <img src="/images/harmonium-logo-white.png" alt="Harmonium"/>
           <small>Version {packageInfo.version}</small>
         </Link>
         <Menu className="FixedDrawerLinks">
