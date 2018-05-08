@@ -179,7 +179,7 @@ h6 {
 .rev-Brand {
   @include flex(center, row, center, nowrap);
   height: 48px;
-  padding: $global-padding-tiny;
+  padding: $global-padding-tiny $global-padding-small;
   position: relative;
   @include breakpoint(medium) {
     margin: $global-margin-large 0 $global-margin;
