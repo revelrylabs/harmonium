@@ -203,12 +203,17 @@ h6 {
     position: absolute;
   }
 }
+.rev-Brand-symbol {
+  margin: $global-margin-large auto $global-margin;
+  max-width: 20rem;
+}
 
 // Topbar Small Only
 @include breakpoint(small-only) {
   .rev-TopBar.Show--smallOnly {
     box-shadow: 0 0 3px 0 $black-20;
     border: 0;
+    margin-bottom: $global-margin;
     small {
       color: $white-60;
       font-size: $global-font-size-small;

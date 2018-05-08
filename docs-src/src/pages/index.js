@@ -6,11 +6,9 @@ import HelpText from 'awesome-possum/lib/HelpText'
 
 const IndexPage = () => (
   <Row>
-    <Col medium={3} mediumCentered>
-      <img className="ResponsiveImage" src="/images/harmonium-symbol.png" alt="Harmonium"/>
-    </Col>
     <Col>
       <p className="Lead">
+        <img className="ResponsiveImage Show--mediumUp rev-Brand-symbol" src="/images/harmonium-symbol.png" alt="Harmonium"/>
         Harmonium is a framework of React components optimized for teams that want to
         ship apps fast. It is a curated list of components that work together and
         have cohesive styles. One of our design goals is that you never have to

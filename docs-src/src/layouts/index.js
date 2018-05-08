@@ -52,7 +52,7 @@ const TemplateWrapper = ({children, location}) => (
         href={`https://possum.revelry.co${location.pathname}`}
       />
     </Helmet>
-    <TopBar fixed className="Show--smallOnly">
+    <TopBar className="Show--smallOnly">
       <Link className="rev-Brand Show--smallOnly" to="/">
         <img src="/images/harmonium-logo.png" alt="Harmonium"/>
         <small>Version {packageInfo.version}</small>
