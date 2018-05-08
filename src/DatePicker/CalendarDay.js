@@ -72,6 +72,7 @@ function calculateHighlightClass(date, highlights) {
 function dayClickHandler(isSelectable, date, dateChanger) {
   const selectable = isSelectable(date)
 
+
   if (selectable) {
     return (event) => {
       event.preventDefault()
