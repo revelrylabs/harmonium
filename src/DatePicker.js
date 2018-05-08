@@ -20,9 +20,8 @@ function goodDateInput() {
   } else {
     const element = document.createElement('input')
 
-    element.type = 'date'
-    element.value = '!)'
-    return element.value === ''
+    element.setAttribute('type', 'date')
+    return element.type === 'date'
   }
 }
 
