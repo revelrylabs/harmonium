@@ -51,6 +51,9 @@ class DateInputBlock extends Component {
       'is-invalid': !!error,
     })
 
+    // console.log(formattedValue)
+    // console.log(isoValue)
+
     return (
       <div>
         <Input
