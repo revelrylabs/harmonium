@@ -20,7 +20,7 @@ $modal-content-padding: $global-padding !default;
 }
 
 .rev-Modal {
-  @include flex(center, row, center, nowrap);
+  @include flex(center, row, center, nowrap); //@include fade-in;
   z-index: $above-everything;
 }
 
@@ -36,16 +36,22 @@ $modal-content-padding: $global-padding !default;
   padding: $modal-content-padding;
   position: relative;
   width: 90%;
-}
-
-.rev-Modal-close {
-  font-size: $global-font-size-large;
-  position: absolute;
-  right: $global-padding;
-  top: $global-padding;
-  &:hover,
-  &:active,
-  &:focus {
-    text-decoration: none;
+  ;
+  .rev-CloseButton {
+    position: absolute;
+    top: 15px;
+    right: 0;
+    z-index: $above-everything + 1;
+    cursor: pointer;
+    transition: opacity .15s;
+    opacity: 1;
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+    &:hover {
+      opacity: .75;
+    }
   }
 }
