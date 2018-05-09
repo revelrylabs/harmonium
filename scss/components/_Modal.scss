@@ -36,6 +36,7 @@ $modal-content-padding: $global-padding !default;
   padding: $modal-content-padding;
   position: relative;
   width: 90%;
+  border-radius: $global-radius;
   ;
   .rev-CloseButton {
     position: absolute;
