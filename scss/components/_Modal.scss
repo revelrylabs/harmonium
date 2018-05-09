@@ -42,8 +42,8 @@ $modal-content-padding: $global-padding !default;
   border-radius: $global-radius;
   .rev-CloseButton {
     position: absolute;
-    top: 15px;
-    right: 0;
+    top: 10px;
+    right: 10px;
     z-index: $above-everything + 1;
     cursor: pointer;
     @include opacity-transition;

@@ -19,7 +19,6 @@ class StatelessModalExample extends Component {
           <p>Click the background or the close button to dismiss it</p>  
           <CloseButton 
           aria-label="Close Callout" 
-          style={{marginBottom: '15px', marginRight: '15px'}} 
           onClick={() => this.closeModal()}>&times;</CloseButton
           >
         </StatelessModal>  
