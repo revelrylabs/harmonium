@@ -1,10 +1,10 @@
-# Possum
+# Harmonium
 
 [![NPM Version][npm-badge]][npm-url]
 [![Travis Build Status][travis-badge]][travis-url]
 [![Dependency Status](https://dependencyci.com/github/revelrylabs/possum/badge)](https://dependencyci.com/github/revelrylabs/possum)
 
-Possum is a framework of React components optimized for teams that want to ship apps fast. It is a curated list of components that work together and have cohesive styles. One of our design goals is that you never have to research and handpick component packages. Whatever you need is already here.
+Harmonium is a framework of React components optimized for teams that want to ship apps fast. It is a curated list of components that work together and have cohesive styles. One of our design goals is that you never have to research and handpick component packages. Whatever you need is already here.
 
 A gallery of components is at https://possum.revelry.co.
 

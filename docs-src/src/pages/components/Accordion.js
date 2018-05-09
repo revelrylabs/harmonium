@@ -27,14 +27,14 @@ export default class AccordionExamplePage extends Component {
           title="Accordions"
           metaDescription={
             'Accordions are components with multiple sections that can be ' +
-            'hidden or revealed. In Possum, they come in stateful ' +
+            'hidden or revealed. In Harmonium, they come in stateful ' +
             '(self-managed) and stateless (parent-managed) types.'
           }
           extraKeywords="Component, Accordion, Expander"
         >
           <p>
             Accordions are components with multiple sections that can be
-            hidden or revealed. In Possum, they come in stateful
+            hidden or revealed. In Harmonium, they come in stateful
             (self-managed) and stateless (parent-managed) types.
           </p>
           <p>

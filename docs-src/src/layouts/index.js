@@ -13,7 +13,7 @@ import './index.scss'
 const TemplateWrapper = ({children, location}) => (
   <div>
     <Helmet
-      title="Possum | React Components for Teams That Move Fast"
+      title="Harmonium | React Components for Teams That Move Fast"
       meta={[
         {
           name: 'description',
@@ -23,6 +23,22 @@ const TemplateWrapper = ({children, location}) => (
         {name: 'keywords', content: 'React, JavaScript, SCSS, CSS, HTML, Web'},
       ]}
     >
+      // FAVICONS
+      <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+      <link rel="manifest" href="/site.webmanifest" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#6422EB" />
+      <meta name="msapplication-TileColor" content="#6422EB" />
+      <meta name="theme-color" content="#6422EB" />
+      // OG META
+      <meta property="og:image" content="/og-image.jpg" />
+      <meta property="og:image:width" content="279" />
+      <meta property="og:image:height" content="279" />
+      <meta property="og:title" content="Harmonium" />
+      <meta property="og:description" content="React components for teams that move fast." />
+      <meta property="og:url" content="https://possum.revelry.co/" />
+      // STYLES
       <link
         rel="stylesheet"
         href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/codemirror.min.css"
@@ -36,9 +52,9 @@ const TemplateWrapper = ({children, location}) => (
         href={`https://possum.revelry.co${location.pathname}`}
       />
     </Helmet>
-    <TopBar fixed className="Show--smallOnly">
-      <Link className="rev-Brand" to="/">
-        <h1>Possum</h1>
+    <TopBar className="Show--smallOnly">
+      <Link className="rev-Brand Show--smallOnly" to="/">
+        <img src="/images/harmonium-logo.png" alt="Harmonium"/>
         <small>Version {packageInfo.version}</small>
       </Link>
     </TopBar>
