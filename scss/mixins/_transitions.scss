@@ -4,3 +4,10 @@
   transition-property: $property;
   transition-timing-function: linear;
 }
+
+@mixin opacity-transition($property: opacity, $delay: 0, $duration: 0.15s) {
+  transition-delay: $delay;
+  transition-duration: $duration;
+  transition-property: $property;
+  transition-timing-function: linear;
+}

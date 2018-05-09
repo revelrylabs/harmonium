@@ -43,7 +43,7 @@ $modal-content-padding: $global-padding !default;
     right: 0;
     z-index: $above-everything + 1;
     cursor: pointer;
-    transition: opacity .15s;
+    @include opacity-transition;
     opacity: 1;
     &:hover,
     &:active,
