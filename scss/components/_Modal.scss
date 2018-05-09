@@ -33,23 +33,22 @@ $modal-content-padding: $global-padding !default;
 
 .rev-Modal-content {
   background: $modal-content-bkgd;
+  border-radius: $global-radius;
   box-shadow: $global-box-shadow;
   color: $modal-content-color;
   max-width: $global-width;
   padding: $modal-content-padding;
   position: relative;
   width: 90%;
-  border-radius: $global-radius;
   .rev-CloseButton {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    z-index: $above-everything + 1;
     cursor: pointer;
-    @include opacity-transition;
     opacity: 1;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    z-index: $above-everything;
+    @include opacity-transition;
     @include reduce-flicker;
-
     &:hover,
     &:active,
     &:focus {
