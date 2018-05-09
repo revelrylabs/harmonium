@@ -105,6 +105,12 @@ $calendar-header-height: $size-large !default;
   padding-top: calc((#{100% / 7}) / 2);
   position: relative;
   width: calc(100% / 7);
+  &:hover{
+    background-color:lighten($brand, 40);
+  }
+  &:active{
+    @extend .rev-Calendar-body-bodyCell--selected
+  }
   & > button {
     appearance: none;
     -webkit-appearance: none;
@@ -116,6 +122,7 @@ $calendar-header-height: $size-large !default;
     position: absolute;
     top: 0;
     width: 100%;
+    cursor: pointer;
   }
 }
 .rev-Calendar-body-headerCell {
@@ -133,17 +140,21 @@ $calendar-header-height: $size-large !default;
 .rev-Calendar-body-bodyCell--otherMonth {
   color: $light-gray;
 }
-.rev-Calendar-body-bodyCell--thisMonth {
+// .rev-Calendar-body-bodyCell--thisMonth {
+// }
 
-}
-.rev-Calendar-body-bodyCell--selected.rev-Calendar-body-bodyCell--selected {
+.rev-Calendar-body-bodyCell--selected {
   background-color: $brand;
   color: $white;
+  &:hover{
+    background-color: $brand;
+    color: $white;
+  }
 }
+
 .rev-Calendar-body-bodyCell--unselectable {
   color: $lighter-gray;
 }
-
 
 .rev-Calendar-body-bodyCell--highlighted {
   color: $success;
