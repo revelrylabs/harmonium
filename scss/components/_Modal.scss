@@ -17,10 +17,13 @@ $modal-content-padding: $global-padding !default;
   position: fixed;
   right: 0;
   top: 0;
+  @include opacity-transition;
+  @include fade-in;
 }
 
 .rev-Modal {
-  @include flex(center, row, center, nowrap); //@include fade-in;
+  @include flex(center, row, center, nowrap); 
+  //@include fade-in;
   z-index: $above-everything;
 }
 
@@ -37,7 +40,6 @@ $modal-content-padding: $global-padding !default;
   position: relative;
   width: 90%;
   border-radius: $global-radius;
-  ;
   .rev-CloseButton {
     position: absolute;
     top: 15px;
@@ -46,13 +48,15 @@ $modal-content-padding: $global-padding !default;
     cursor: pointer;
     @include opacity-transition;
     opacity: 1;
+    @include reduce-flicker;
+
     &:hover,
     &:active,
     &:focus {
       text-decoration: none;
     }
     &:hover {
-      opacity: .75;
+      opacity: .8;
     }
   }
 }
