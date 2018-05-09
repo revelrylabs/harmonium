@@ -7,8 +7,7 @@ $modal-content-border-size: 1px !default;
 $modal-content-border-color: $divider-color !default;
 $modal-content-box-shadow: $global-box-shadow !default;
 $modal-content-color: $body-font-color !default;
-$modal-content-padding: 0 !default;
-
+$modal-content-padding: $global-padding !default;
 .rev-Modal,
 .rev-Modal-background {
   background: $modal-bkgd;
@@ -19,13 +18,16 @@ $modal-content-padding: 0 !default;
   right: 0;
   top: 0;
 }
+
 .rev-Modal {
   @include flex(center, row, center, nowrap);
   z-index: $above-everything;
 }
+
 .rev-Modal-background {
   background: $modal-bkgd;
 }
+
 .rev-Modal-content {
   background: $modal-content-bkgd;
   box-shadow: $global-box-shadow;
