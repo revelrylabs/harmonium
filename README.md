@@ -13,7 +13,7 @@ A gallery of components is at https://possum.revelry.co.
 To install the toolkit for use in your project:
 
 ```sh
-npm install --save awesome-possum
+npm install --save harmonium
 ```
 
 ## Usage
@@ -21,9 +21,9 @@ npm install --save awesome-possum
 You can import components and use components from the toolkit like:
 
 ```jsx
-import Col from 'awesome-possum/lib/Col'
-import Row from 'awesome-possum/lib/Row'
-import Callout from 'awesome-possum/lib/Callout'
+import Col from 'harmonium/lib/Col'
+import Row from 'harmonium/lib/Row'
+import Callout from 'harmonium/lib/Callout'
 
 function Hello() {
   return (
@@ -61,7 +61,7 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/revelr
 Everyone is welcome to participate in the project. We expect contributors to
 adhere the Contributor Covenant Code of Conduct (see [CODE_OF_CONDUCT.md](https://github.com/revelrylabs/possum/blob/master/CODE_OF_CONDUCT.md)).
 
-[npm-badge]: https://img.shields.io/npm/v/awesome-possum.svg
-[npm-url]: https://www.npmjs.com/package/awesome-possum
-[travis-badge]: https://img.shields.io/travis/revelrylabs/possum.svg
-[travis-url]: https://travis-ci.org/revelrylabs/possum
+[npm-badge]: https://img.shields.io/npm/v/harmonium.svg
+[npm-url]: https://www.npmjs.com/package/harmonium
+[travis-badge]: https://img.shields.io/travis/revelrylabs/harmonium.svg
+[travis-url]: https://travis-ci.org/revelrylabs/harmonium
