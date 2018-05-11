@@ -1,6 +1,6 @@
 {
   "name": "harmonium",
-  "version": "3.5.5",
+  "version": "4.0.0",
   "description": "An opinionated React component framework for teams that move fast.",
   "repository": {
     "type": "git",
