@@ -4,7 +4,7 @@
   "description": "An opinionated React component framework for teams that move fast.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/revelrylabs/possum.git"
+    "url": "https://github.com/revelrylabs/harmonium.git"
   },
   "dependencies": {
     "bowser": "^1.9.3",
