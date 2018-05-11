@@ -1,7 +1,7 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Menu from 'awesome-possum/lib/Menu'
-import Drawer from 'awesome-possum/lib/Drawer'
+import Menu from 'harmonium/lib/Menu'
+import Drawer from 'harmonium/lib/Drawer'
 import packageInfo from '../../../package.json'
 
 export default function Navigation() {
@@ -20,10 +20,10 @@ export default function Navigation() {
         </Link>
         <Menu className="FixedDrawerLinks">
           <Menu.Item>
-            <a href="https://github.com/revelrylabs/possum">GitHub</a>
+            <a href="https://github.com/revelrylabs/harmonium">GitHub</a>
           </Menu.Item>
           <Menu.Item>
-            <a href="https://www.npmjs.com/package/awesome-possum">NPM</a>
+            <a href="https://www.npmjs.com/package/harmonium">NPM</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>

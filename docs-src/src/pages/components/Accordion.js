@@ -1,6 +1,6 @@
 import React, {Component, Children} from 'react'
-import Accordion from 'awesome-possum/lib/Accordion'
-import Callout from 'awesome-possum/lib/Callout'
+import Accordion from 'harmonium/lib/Accordion'
+import Callout from 'harmonium/lib/Callout'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
