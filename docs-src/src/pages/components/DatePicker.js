@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
+import Headers from '../../Headers'
 
 const examples = {
   'Without Props': require('raw!../../examples/DatePicker/Basic.js.example'),
@@ -24,8 +25,22 @@ export default class DatePickerExamplePage extends Component {
   render() {
     return (
       <div>
-        <ExampleSection
+        <Headers
           title="Date Picker"
+          metaDescription={
+            'The date picker component allows users to select a date from a calendar.'
+          }
+          extraKeywords="Component, Date Picker, Forms"
+        >
+          <p>
+            The date picker component allows users to select a date from a
+            calendar. It is very flexible. It has many options to allow different
+            modes of date selection, and different behavior. For example, you can
+            highlight or filter dates arbitrarily.
+          </p>
+        </Headers>
+        <ExampleSection
+          title="Examples"
           examples={examples}
           depth={1}
           scope={scope}

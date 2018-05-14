@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
+import Headers from '../../Headers'
 
 const examples = {
   "Basic": require('raw!../../examples/Input/Basic.js.example'),
@@ -12,8 +13,23 @@ export default class InputExamplePage extends Component {
   render() {
     return (
       <div className="rev-Row rev-Row--collapse">
+        <Headers
+          title="Input"
+          metaDescription={
+            'The Input component makes a form input. It supports a variety of ' +
+            'configurations, including stacked inputs, with and without labels, ' +
+            'with and without help text, etc.'
+          }
+          extraKeywords="Component, Input, Forms"
+        >
+          <p>
+            The Input component makes a form input. It supports a variety of
+            configurations, including stacked inputs, with and without labels,
+            with and without help text, etc.
+          </p>
+        </Headers>
         <ExampleSection
-          title="Inputs"
+          title="Examples"
           examples={examples}
           depth={1}
           scope={scope}

@@ -1,9 +1,19 @@
 import React from 'react'
+import Headers from '../Headers'
 
 const NotFoundPage = () => (
   <div>
-    <h1>NOT FOUND</h1>
-    <p>You just hit a route that doesn&#39;t exist... the sadness.</p>
+    <Headers
+      title="Not Found"
+      metaDescription={
+        'There is no such page!'
+      }
+      extraKeywords="404"
+    >
+      <p>
+        There is no such page.
+      </p>
+    </Headers>
   </div>
 )
 

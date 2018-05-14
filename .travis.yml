@@ -5,11 +5,18 @@ node_js:
 before_deploy:
   - npm install
 deploy:
-  provider: npm
-  email: $NPM_EMAIL
-  api_key: $NPM_TOKEN
-  on:
-    repo: revelrylabs/possum
-    tags: true
-    node: '8'
-  skip_cleanup: true
+  - provider: npm
+    email: $NPM_EMAIL
+    api_key: $NPM_TOKEN
+    on:
+      repo: revelrylabs/possum
+      tags: true
+      node: '8'
+    skip_cleanup: true
+  - provider: script
+    skip_cleanup: true
+    script:
+      - npx semantic-release
+    on:
+      repo: revelrylabs/possum
+      node: '8'

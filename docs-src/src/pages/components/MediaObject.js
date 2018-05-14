@@ -1,2 +1,39 @@
-        <ExampleSection title="Media Objects" examples={examples} depth={1}
-scope={scope} />
+import React, {Component} from 'react'
+import ExampleSection from '../../ExampleSection'
+import scope from '../../ExampleScope'
+import Headers from '../../Headers'
+
+const examples = {
+  'Basic': require('raw!../../examples/MediaObject/Basic.js.example'),
+  'Stack': require('raw!../../examples/MediaObject/Stack.js.example'),
+  'SectionAlignment': require('raw!../../examples/MediaObject/SectionAlignment.js.example'),
+  'Nested': require('raw!../../examples/MediaObject/Nested.js.example'),
+}
+
+export default class MediaObjectExamplePage extends Component {
+  render() {
+    return <div>
+      <Headers
+        title="Media Object"
+        metaDescription={
+          'The MediaObject component contains one or more images, videos, or ' +
+          'blocks of text and places them into a layout and/or aspect ratio.'
+        }
+        extraKeywords="Component, Media, Image, Video, Aspect Ratio"
+      >
+        <p>
+          The MediaObject component contains one or more images, videos, or
+          blocks of text and places them into a layout and/or aspect ratio. For
+          example, the elements of the MediaObject can be stacked at certain
+          breakpoints, or all top aligned. An image can be made to stretch.
+        </p>
+      </Headers>
+      <ExampleSection
+        title="Examples"
+        examples={examples}
+        depth={1}
+        scope={scope}
+      />
+    </div>
+  }
+}

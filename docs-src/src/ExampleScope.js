@@ -3,6 +3,7 @@ import Accordion from 'awesome-possum/lib/Accordion'
 import AuthenticityToken from 'awesome-possum/lib/AuthenticityToken'
 import AuthenticityTokenProvider from 'awesome-possum/lib/AuthenticityTokenProvider'
 import Badge from 'awesome-possum/lib/Badge'
+import Brand from 'awesome-possum/lib/Brand'
 import BrowserSupportWarning from 'awesome-possum/lib/BrowserSupportWarning'
 import Button from 'awesome-possum/lib/Button'
 import ButtonGroup from 'awesome-possum/lib/ButtonGroup'
@@ -36,6 +37,9 @@ import Lipsum from 'awesome-possum/lib/Lipsum'
 import Loader from 'awesome-possum/lib/Loader'
 import MediaObject from 'awesome-possum/lib/MediaObject'
 import Menu from 'awesome-possum/lib/Menu'
+import MapComponent from 'awesome-possum/lib/Map/MapComponent'
+import InfoWindow from 'awesome-possum/lib/Map/InfoWindow'
+import Marker from 'awesome-possum/lib/Map/Marker'
 import Modal from 'awesome-possum/lib/Modal'
 import NumberFormatter from 'awesome-possum/lib/NumberFormatter'
 import Option from 'awesome-possum/lib/Option'
@@ -64,6 +68,7 @@ export default {
   AuthenticityToken,
   AuthenticityTokenProvider,
   Badge,
+  Brand,
   BrowserSupportWarning,
   Button,
   ButtonGroup,
@@ -88,6 +93,7 @@ export default {
   HelpText,
   I18n,
   Icon,
+  InfoWindow,
   Input,
   InputErrors,
   InputGroup,
@@ -97,6 +103,8 @@ export default {
   Loader,
   MediaObject,
   Menu,
+  MapComponent,
+  Marker,
   Modal,
   NumberFormatter,
   Option,

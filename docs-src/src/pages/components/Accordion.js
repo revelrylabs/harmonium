@@ -1,8 +1,9 @@
-import React, {Component} from 'react'
+import React, {Component, Children} from 'react'
 import Accordion from 'awesome-possum/lib/Accordion'
 import Callout from 'awesome-possum/lib/Callout'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
+import Headers from '../../Headers'
 
 const examples = {
   stateless: {
@@ -22,8 +23,27 @@ export default class AccordionExamplePage extends Component {
   render() {
     return (
       <div className="rev-Row rev-Row--collapse">
-        <ExampleSection
+        <Headers
           title="Accordions"
+          metaDescription={
+            'Accordions are components with multiple sections that can be ' +
+            'hidden or revealed. In Possum, they come in stateful ' +
+            '(self-managed) and stateless (parent-managed) types.'
+          }
+          extraKeywords="Component, Accordion, Expander"
+        >
+          <p>
+            Accordions are components with multiple sections that can be
+            hidden or revealed. In Possum, they come in stateful
+            (self-managed) and stateless (parent-managed) types.
+          </p>
+          <p>
+            With stateless accordions, you must specify which section(s) are open
+            using props. With stateful accordions, the interaction is built-in.
+          </p>
+        </Headers>
+        <ExampleSection
+          title="Examples"
           examples={examples}
           depth={1}
           scope={scope}

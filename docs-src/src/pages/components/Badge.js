@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import Badge from 'awesome-possum/lib/Badge'
+import Headers from '../../Headers'
 
 const examples = {
   Badges: require('raw!../../examples/Badge.js.example'),
@@ -12,8 +13,21 @@ export default class BadgeExamplePage extends Component {
   render() {
     return (
       <div className="rev-Row rev-Row--collapse">
-        <ExampleSection
+        <Headers
           title="Badges"
+          metaDescription={
+            'Badges are small UI accents that provide status or numerical ' +
+            'feedback, for example, unread message counts.'
+          }
+          extraKeywords="Component, Badge, Badges, Unread, Status"
+        >
+          <p>
+            Badges are small UI accents that provide status or numerical
+            feedback, for example, unread message counts.
+          </p>
+        </Headers>
+        <ExampleSection
+          title="Examples"
           examples={examples}
           depth={1}
           scope={scope}

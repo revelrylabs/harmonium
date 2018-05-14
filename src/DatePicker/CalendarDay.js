@@ -67,7 +67,10 @@ function dayClickHandler(isSelectable, date, dateChanger) {
   const selectable = isSelectable(date)
 
   if (selectable) {
-    return () => dateChanger(date.toISODate())
+    return (event) => {
+      event.preventDefault()
+      dateChanger(date.toISODate())
+    }
   }
   return null
 }

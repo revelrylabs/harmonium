@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
+import Headers from '../../Headers'
 
 const examples = {
   'Without Props': require('raw!../../examples/TimePicker/Basic.js.example'),
@@ -17,8 +18,24 @@ export default class TimePickerExamplePage extends Component {
   render() {
     return (
       <div>
+        <Headers
+          title="Time picker"
+          metaDescription={
+            'The time picker component allows the user to select a time, with ' +
+            'formatting and validation. It also permits the selection of times ' +
+            'using a set of buttons.'
+          }
+          extraKeywords="Component, Time picker, Time Input, Input, Forms"
+        >
+          <p>
+            The time picker component allows the user to select a time, with
+            formatting and validation. It also permits the selection of times
+            using a set of buttons. It supports a similar set of options as
+            DatePicker and Input.
+          </p>
+        </Headers>
         <ExampleSection
-          title="Time Picker"
+          title="Examples"
           examples={examples}
           depth={1}
           scope={scope}
