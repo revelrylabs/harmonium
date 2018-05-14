@@ -1,6 +1,9 @@
 import React, {cloneElement, Component, Children} from 'react'
 import classNames from 'classnames'
 
+/**
+ * A component encapsulating the children of the Sticky container to
+ * keep track of the current state of sticky behavior. */
 const StickyContent = ({
   children,
   className,
@@ -26,6 +29,9 @@ const StickyContent = ({
   )
 }
 
+/**
+ * A stateless Sticky container commponent that allows a user to plug-and-play
+ * custom defined behavior if desired. */
 class Sticky extends Component {
   render() {
     const {
@@ -58,6 +64,9 @@ class Sticky extends Component {
   }
 }
 
+/**
+ * A Sticky container commponent that allows its children to stick to the top of
+ * the window as the user scrolls down the document. */
 class StatefulSticky extends Component {
   constructor(props) {
     super(props)
@@ -131,6 +140,8 @@ class StatefulSticky extends Component {
     window.addEventListener('scroll', this.setContentState.bind(this))
   }
 
+  // takes in a string value of a quantity in px, i.e. the string '18px'
+  // and removes the 'px' and returns the parsed integer
   parsePxValue(value) {
     return parseInt(value.replace('px', ''))
   }
