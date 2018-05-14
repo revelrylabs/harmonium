@@ -19,7 +19,20 @@ $modal-content-padding: $global-padding !default;
   @include opacity-transition;
   @include fade-in;
   z-index: $above-everything;
+  // so we can move the modal out of the way so that it doesn't intercept
+  // clicks while closed
+  transition: left 0.15s ease-in 0.15s;
 }
+.rev-Modal--closed.rev-Modal--closed {
+  opacity: 0;
+  // so we can move the modal out of the way so that it doesn't intercept
+  // clicks while closed
+  right: 9999vw;
+}
+.rev-Modal--open {
+  opacity: 1;
+}
+
 
 .rev-Modal,
 .rev-Modal-background {
