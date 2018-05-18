@@ -1,8 +1,8 @@
 import React from 'react'
-import {Row, Col} from 'awesome-possum/lib/grid'
-import Card from 'awesome-possum/lib/Card'
-import Menu from 'awesome-possum/lib/Menu'
-import HelpText from 'awesome-possum/lib/HelpText'
+import {Row, Col} from 'harmonium/lib/grid'
+import Card from 'harmonium/lib/Card'
+import Menu from 'harmonium/lib/Menu'
+import HelpText from 'harmonium/lib/HelpText'
 
 const IndexPage = () => (
   <Row>
@@ -23,7 +23,7 @@ const IndexPage = () => (
       </p>
       <h2>Installation</h2>
       <pre>
-        <code>npm install --save awesome-possum</code>
+        <code>npm install --save harmonium</code>
       </pre>
       <p>
         You can now import the components and start using them. See the component

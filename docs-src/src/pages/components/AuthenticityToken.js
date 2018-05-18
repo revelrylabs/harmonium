@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import Form from 'awesome-possum/lib/Form'
-import Button from 'awesome-possum/lib/Button'
-import AuthenticityTokenProvider from 'awesome-possum/lib/AuthenticityTokenProvider'
+import Form from 'harmonium/lib/Form'
+import Button from 'harmonium/lib/Button'
+import AuthenticityTokenProvider from 'harmonium/lib/AuthenticityTokenProvider'
 import ExampleSection from '../../ExampleSection'
 import Headers from '../../Headers'
 
