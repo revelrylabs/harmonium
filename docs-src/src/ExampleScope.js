@@ -54,6 +54,7 @@ import StatelessDrawer from 'harmonium/lib/StatelessDrawer'
 import StatelessModal from 'harmonium/lib/StatelessModal'
 import Sticky from 'harmonium/lib/Sticky'
 import Tabs from 'harmonium/lib/Tabs'
+import Table from 'awesome-possum/lib/Table'
 import TextAlign from 'harmonium/lib/TextAlign'
 import Textarea from 'harmonium/lib/Textarea'
 import TimePicker from 'harmonium/lib/TimePicker'
@@ -119,6 +120,7 @@ export default {
   StatelessModal,
   Sticky,
   Tabs,
+  Table,
   TextAlign,
   Textarea,
   TimePicker,
