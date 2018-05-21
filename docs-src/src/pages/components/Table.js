@@ -12,14 +12,15 @@ export default class TableExamplePage extends Component {
     return (
       <div>
         <Headers
-          title="Tables"
+          title="Table"
           metaDescription={
             'The Table component can be built out using the <table> tags. ' +
-            'This shows the basic structure of a table, and more will be added in the future. '
+            'Stripes can be added by using the `rev-Table--striped` className. ' +
+            'Row styles such as Stripes help the user visualize data. '
           }
           extraKeywords="Component, Table"
         >
-          <p>The Table component can be built out using the table tags. This shows the basic structure of a table, and more will be added in the future.
+          <p>The Table component can be built out using the table tags. This shows the basic structure of a table. Stripes can be added by using the `rev-Table--striped` className. Row styles such as Stripes help the user visualize data.
           </p>
         </Headers>
         <ExampleSection

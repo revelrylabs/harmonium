@@ -16,6 +16,7 @@ import Checkbox from 'harmonium/lib/Checkbox'
 import CloseButton from 'harmonium/lib/CloseButton'
 import Col from 'harmonium/lib/Col'
 import Currency from 'harmonium/lib/Currency'
+import DataGrid from 'awesome-possum/lib/DataGrid'
 import DatePicker from 'harmonium/lib/DatePicker'
 import Drawer from 'harmonium/lib/Drawer'
 import Emptyable from 'harmonium/lib/Emptyable'
@@ -82,6 +83,7 @@ export default {
   CloseButton,
   Col,
   Currency,
+  DataGrid,
   DatePicker,
   Drawer,
   Emptyable,

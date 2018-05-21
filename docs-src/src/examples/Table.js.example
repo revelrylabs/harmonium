@@ -1,8 +1,5 @@
 <Row>
   <Col>
-    <h3>Table</h3>
-  </Col>
-  <Col>
     <Table>
       <Table.Head>
         <Table.Row>
