@@ -20,7 +20,7 @@ export default class CalloutExamplePage extends Component {
         >
           <p>
             A callout is a small message designed to highlight a message to the
-            user. Possum has a variety of semantic callout components. The type
+            user. Harmonium has a variety of semantic callout components. The type
             of callout you use should be determined by the nature of the message.
             Use primary for informational messages, success for success messages,
             etc.

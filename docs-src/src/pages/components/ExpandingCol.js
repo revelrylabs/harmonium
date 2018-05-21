@@ -16,13 +16,13 @@ export default class ExpandingColExamplePage extends Component {
           title="Expanding Column"
           metaDescription={
             'An ExpandingCol is a column that can expand or collapse ' +
-            'when a user interacts with an Exapnder button.'
+            'when a user interacts with an Expander button.'
           }
           extraKeywords="Component, Expander, Grid"
         >
           <p>
             An ExpandingCol is a column that can expand or collapse when a user
-            interacts with an Exapnder button. It is similar to an expanding
+            interacts with an Expander button. It is similar to an expanding
             drawer component, but may be better in situations where it is
             directly alongside other grid column components.
           </p>

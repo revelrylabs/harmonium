@@ -20,9 +20,8 @@ function goodDateInput() {
   } else {
     const element = document.createElement('input')
 
-    element.type = 'date'
-    element.value = '!)'
-    return element.value === ''
+    element.setAttribute('type', 'date')
+    return element.type === 'date'
   }
 }
 
@@ -171,20 +170,26 @@ class UncontrolledDatePicker extends React.Component {
   dateChanger(date) {
     // Update isoValue & formattedValue based on the date value (which is an iso
     // date)
-    this.setState(this.valuesFromIso(date))
-    // Update the native input value with the formatted version of the new date
-    // (this prevents the native input value from sticking with a hand-typed
-    // input value after the button is clicked in certain situations)
-    // It also sets us up to fire off a synthetic change event that looks just
-    // like change event from a typed input (so external change handlers are
-    // properly) invoked
-    this.nativeInput.value = this.isoToFormatted(date)
+    this.setState(this.valuesFromIso(date), () => {
+      // Update the native input value with the formatted version of the new date
+      // (this prevents the native input value from sticking with a hand-typed
+      // input value after the button is clicked in certain situations)
+      // It also sets us up to fire off a synthetic change event that looks just
+      // like change event from a typed input (so external change handlers are
+      // properly) invoked
+      const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+        window.HTMLInputElement.prototype,
+        'value'
+      ).set
 
-    this.fireChangeHandler()
+      nativeInputValueSetter.call(this.nativeInput, this.isoToFormatted(date))
 
-    // Force the input to be focused again (so that we don't immediately close
-    // the calendar because the button click makes us not focused on the input)
-    this.refocus()
+      this.fireChangeHandler()
+
+      // Force the input to be focused again (so that we don't immediately close
+      // the calendar because the button click makes us not focused on the input)
+      this.refocus()
+    });
   }
 
   /**
@@ -194,7 +199,7 @@ class UncontrolledDatePicker extends React.Component {
    * @return {void}
    */
   fireChangeHandler() {
-    const event = new Event('change')
+    const event = new Event('change', {bubbles: true, cancelable: false})
 
     this.nativeInput.dispatchEvent(event)
     this.onChange(event)
