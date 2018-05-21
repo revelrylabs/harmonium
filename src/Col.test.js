@@ -8,7 +8,7 @@ describe('Col', () => {
   })
 
   it('should add className to child', () => {
-    const inherentClassName = 'columns'
+    const inherentClassName = 'rev-Col'
     const testClassName = '__TEST__'
 
     const childClassName = shallow(<Col className={testClassName} />)
@@ -21,21 +21,21 @@ describe('Col', () => {
 
   it('handles column number props', () => {
     const propToClass = {
-      small: 'small',
-      medium: 'medium',
-      large: 'large',
-      smallOffset: 'small-offset',
-      mediumOffset: 'medium-offset',
-      largeOffset: 'large-offset',
-      smallPush: 'small-push',
-      mediumPush: 'medium-push',
-      largePush: 'large-push',
-      smallPull: 'small-pull',
-      mediumPull: 'medium-pull',
-      largePull: 'large-pull',
-      smallOrder: 'small-order',
-      mediumOrder: 'medium-order',
-      largeOrder: 'large-order',
+      small: 'rev-Col--small',
+      medium: 'rev-Col--medium',
+      large: 'rev-Col--large',
+      smallOffset: 'rev-Col--smallOffset',
+      mediumOffset: ' rev-Col--mediumOffset',
+      largeOffset: 'rev-Col--largeOffset',
+      smallPush: 'rev-Col--smallPush',
+      mediumPush: 'rev-Col--mediumPush',
+      largePush: 'rev-Col--largePush',
+      smallPull: 'rev-Col--smallPull',
+      mediumPull: 'rev-Col--mediumPull',
+      largePull: 'rev-Col--largePull',
+      smallOrder: 'rev-Col--smallOrder',
+      mediumOrder: 'rev-Col--mediumOrder',
+      largeOrder: 'rev-Col--largeOrder',
     }
 
     for (const key in propToClass) {
@@ -52,6 +52,6 @@ describe('Col', () => {
   it('handles boolean props', () => {
     const col = shallow(<Col smallCentered />)
 
-    expect(col.prop('className')).to.contain('small-centered')
+    expect(col.prop('className')).to.contain('rev-Col--smallCentered')
   })
 })

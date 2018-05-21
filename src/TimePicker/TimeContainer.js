@@ -21,7 +21,7 @@ export default class TimeContainer extends React.Component {
 
   /**
    * Creates a container for the time tickers. Sets state.time to the input's current value
-   * @param {object} props
+   * @param {object} props the props
    */
   constructor(props) {
     super(props)
@@ -34,7 +34,8 @@ export default class TimeContainer extends React.Component {
    * Update state when props change. In particular, if we receive a different
    * `selectedTime` prop from up the hierarchy, set state.time to a new Luxon
    * DateTime appropriately (in order to force the tickers to the new time)
-   * @param {*} nextProps
+   * @param {*} nextProps the nextProps
+   * @return {void}
    */
   componentWillReceiveProps(nextProps) {
     if (nextProps.selectedTime !== this.props.selectedTime) {
@@ -47,6 +48,7 @@ export default class TimeContainer extends React.Component {
    * or invalid (e.g. 11 : 17), return the local current time instead.
    * @param {string} time - the time to convert, as either an iso time, or a
    *   blank / null
+   * @return {object} - the DateTime object
    */
   getLuxonDateTime(time) {
     if (!time) {
@@ -66,6 +68,7 @@ export default class TimeContainer extends React.Component {
    * @param {string} unit - the unit to be incremented (i.e. hour or minute)
    * @returns {string} formatted value as a string
    */
+  /* eslint complexity: [2, 5] */
   getFormattedUnit(unit) {
     let value
 
@@ -83,10 +86,11 @@ export default class TimeContainer extends React.Component {
    * Increment the inputted unit by the inputted amount, n
    *
    * This function does not change the time in the input (only container display)
-   * @param {int} n - the amount to increment the unit by
+   * @param {int} num - the amount to increment the unit by
    * @param {int} unit - the unit to be incremented (i.e. hour or minute)
    * @param {Event} event - the event that caused this handler to be invoked
    *   (e.g. the click event from the next or previous button on a ticker)
+   * @return {void}
    */
   incrementUnit(num, unit, event) {
     event.preventDefault()
@@ -106,7 +110,7 @@ export default class TimeContainer extends React.Component {
       this.props.refocusOnClick()
     }
   }
-
+  /* eslint complexity: [2, 6] */
   render() {
     const {className, use24hr, showSeconds, overlay} = this.props
 

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
+  // zeros out padding on direct child cols
   collapse: ['rev-Row--collapse'],
   smallCollapse: ['rev-Row--smallCollapse'],
   mediumCollapse: ['rev-Row--mediumCollapse'],
@@ -10,6 +11,7 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   xlargeCollapse: ['rev-Row--xlargeCollapse'],
   xxlargeCollapse: ['rev-Row--xxlargeCollapse'],
 
+  // resets padding on direct child cols
   uncollapse: ['rev-Row--uncollapse'],
   smallUncollapse: ['rev-Row--smallUncollapse'],
   mediumUncollapse: ['rev-Row--mediumUncollapse'],
@@ -31,20 +33,20 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   xlargeUnflex: ['rev-Row--xlargeUnflex'],
   xxlargeUnflex: ['rev-Row--xxlargeUnflex'],
 
-  smallUnstack: ['rev-Row--smallUnstack'],
-  mediumUnstack: ['rev-Row--mediumUnstack'],
-  largeUnstack: ['rev-Row--largeUnstack'],
-  xlargeUnstack: ['rev-Row--xlargeUnstack'],
-  xxlargeUnstack: ['rev-Row--xxlargeUnstack'],
+  // flex grid props affecting child cols
+  directionCol: ['rev-Row--directionCol'],
 
-  right: ['rev-Row--right'],
-  center: ['rev-Row--center'],
-  justify: ['rev-Row--justify'],
-  spaced: ['rev-Row--spaced'],
-  top: ['rev-Row--top'],
-  middle: ['rev-Row--middle'],
-  bottom: ['rev-Row--bottom'],
-  stretch: ['rev-Row--stretch'],
+  justifyStart: ['rev-Row--justifyStart'],
+  justifyEnd: ['rev-Row--justifyEnd'],
+  justifyCenter: ['rev-Row--justifyCenter'],
+  justifySpaceAround: ['rev-Row--justifySpaceAround'],
+  justifySpaceBetween: ['rev-Row--justifySpaceBetween'],
+
+  alignStart: ['rev-Row--alignStart'],
+  alignEnd: ['rev-Row--alignEnd'],
+  alignCenter: ['rev-Row--alignCenter'],
+  alignBaseline: ['rev-Row--alignBaseline'],
+  alignStretch: ['rev-Row--alignStretch'],
 }
 
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)

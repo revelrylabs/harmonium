@@ -19,6 +19,9 @@
     flex: 1;
   }
 }
+@mixin flexDirectionCol {
+  @include flexProps($flex-direction: column);
+}
 @mixin flexJustifyStart {
   @include flexProps($wrap: wrap);
 }

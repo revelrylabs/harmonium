@@ -1,9 +1,10 @@
+import React from 'react'
 import MapComponent from './MapComponent'
 import {MAP_API_KEY} from './Utilities/config'
 
 describe('MapComponent', () => {
   it('should render a map with the appropriate design', () => {
-    const wrapper = shallow(
+    shallow(
       <MapComponent
         apiKey={MAP_API_KEY}
         small

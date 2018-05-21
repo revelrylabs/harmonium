@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import { omit, defaultTo, gt, has, reduce, without } from 'lodash'
+import {omit, gt, has, reduce, without} from 'lodash'
 
+/* eslint-disable no-unused-vars */
 const PROP_TYPES = {
   borderWidth: PropTypes.string,
   children: PropTypes.element,
@@ -12,7 +13,7 @@ const PROP_TYPES = {
   medium: PropTypes.bool,
   secondaryColor: PropTypes.string,
   size: PropTypes.string,
-  small: PropTypes.bool
+  small: PropTypes.bool,
 }
 
 /*
