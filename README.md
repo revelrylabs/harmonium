@@ -1,4 +1,4 @@
-# Harmonium
+<img src="docs-src/static/images/harmonium-logo.png" width="400px"/>
 
 [![NPM Version][npm-badge]][npm-url]
 [![Travis Build Status][travis-badge]][travis-url]

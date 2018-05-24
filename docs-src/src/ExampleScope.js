@@ -16,6 +16,7 @@ import Checkbox from 'harmonium/lib/Checkbox'
 import CloseButton from 'harmonium/lib/CloseButton'
 import Col from 'harmonium/lib/Col'
 import Currency from 'harmonium/lib/Currency'
+import DataGrid from 'awesome-possum/lib/DataGrid'
 import DatePicker from 'harmonium/lib/DatePicker'
 import Drawer from 'harmonium/lib/Drawer'
 import Emptyable from 'harmonium/lib/Emptyable'
@@ -54,6 +55,7 @@ import StatelessDrawer from 'harmonium/lib/StatelessDrawer'
 import StatelessModal from 'harmonium/lib/StatelessModal'
 import Sticky from 'harmonium/lib/Sticky'
 import Tabs from 'harmonium/lib/Tabs'
+import Table from 'awesome-possum/lib/Table'
 import TextAlign from 'harmonium/lib/TextAlign'
 import Textarea from 'harmonium/lib/Textarea'
 import TimePicker from 'harmonium/lib/TimePicker'
@@ -81,6 +83,7 @@ export default {
   CloseButton,
   Col,
   Currency,
+  DataGrid,
   DatePicker,
   Drawer,
   Emptyable,
@@ -119,6 +122,7 @@ export default {
   StatelessModal,
   Sticky,
   Tabs,
+  Table,
   TextAlign,
   Textarea,
   TimePicker,
