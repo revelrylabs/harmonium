@@ -73,7 +73,7 @@ class Sticky extends Component {
  * bottom of the viewport as the user scrolls up the document.
  * 
  * The component also supports an offset prop. This prop is currently meant to be a 
- * an amount in px, i.e. offset="50px". In the default orientation, the offset will 
+ * an amount in px, e.g. offset="50px". In the default orientation, the offset will 
  * prevent the sticking from occurring until the user scrolls past the offset amount 
  * down from the top of the container. With the stickToBottom prop, the offset will 
  * prevent the sticking from occurring until the user scrolls past the offset amount 
@@ -90,14 +90,24 @@ class StatefulSticky extends Component {
     }
   }
 
+  /**
+   * Used to bind a ref to the container part of the sticky container system.
+   */
   setContainerRef(container) {
     this.stickyContainer = container
   }
 
+  /**
+   * Used to bind a ref to the content, i.e. the children, part of the sticky container system.
+   */
   setContentRef(content) {
     this.stickyContent = content
   }
 
+  /**
+   * Determine the state of whether the content should be stuck, anchored to the stopping 
+   * point of the sticky behavior (e.g. the bottom of the container), or neither.
+   */
   setContentState() {
     const contentTop = this.stickyContent.getBoundingClientRect().top
     const contentBottom = this.stickyContent.getBoundingClientRect().bottom
@@ -150,12 +160,20 @@ class StatefulSticky extends Component {
     }
   }
 
+  /**
+   * Set the function that determines state as the window scroll event when
+   * the component mounts.
+   */
   componentDidMount() {
     window.addEventListener('scroll', this.setContentState.bind(this))
   }
 
-  // takes in a string value of a quantity in px, i.e. the string '18px'
-  // and removes the 'px' and returns the parsed integer
+  /**
+   * Convert a string value of a quantity in px to an integer of the numeric 
+   * value of the quantity. For example, passing in the string '18px' will return 
+   * the integer 18.
+   * @param {string} value the value in px to convert
+   */
   parsePxValue(value) {
     return parseInt(value.replace('px', ''))
   }
