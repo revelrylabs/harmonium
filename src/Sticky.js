@@ -3,7 +3,8 @@ import classNames from 'classnames'
 
 /**
  * A component encapsulating the children of the Sticky container to
- * keep track of the current state of sticky behavior. */
+ * keep track of the current state of sticky behavior. 
+ */
 const StickyContent = ({
   children,
   className,
@@ -31,7 +32,8 @@ const StickyContent = ({
 
 /**
  * A stateless Sticky container commponent that allows a user to plug-and-play
- * custom defined behavior if desired. */
+ * custom defined behavior if desired.
+ */
 class Sticky extends Component {
   render() {
     const {
@@ -66,7 +68,8 @@ class Sticky extends Component {
 
 /**
  * A Sticky container commponent that allows its children to stick to the top of
- * the window as the user scrolls down the document. */
+ * the window as the user scrolls down the document.
+ */
 class StatefulSticky extends Component {
   constructor(props) {
     super(props)
