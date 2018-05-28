@@ -67,8 +67,19 @@ class Sticky extends Component {
 }
 
 /**
- * A Sticky container commponent that allows its children to stick to the top of
- * the window as the user scrolls down the document.
+ * A Sticky container component that allows its children to stick to the top of
+ * the viewport as the user scrolls down the document. Passing in the stickToBottom 
+ * prop will reverse the orientation, sticking the container's children to the 
+ * bottom of the viewport as the user scrolls up the document.
+ * 
+ * The component also supports an offset prop. This prop is currently meant to be a 
+ * an amount in px, i.e. offset="50px". In the default orientation, the offset will 
+ * prevent the sticking from occurring until the user scrolls past the offset amount 
+ * down from the top of the container. With the stickToBottom prop, the offset will 
+ * prevent the sticking from occurring until the user scrolls past the offset amount 
+ * up from the bottom of the container. This prop may eventually be reworked to
+ * use the positions of elements for explicitly customizable starting/stopping points
+ * or perhaps allow both of these forms of offset.
  */
 class StatefulSticky extends Component {
   constructor(props) {
