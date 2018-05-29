@@ -30,7 +30,7 @@ export default class gridExamplePage extends Component {
         <Headers
           title="Grid"
           metaDescription={
-            'Possum includes a very flexible grid system that allows you to ' +
+            'Harmonium includes a very flexible grid system that allows you to ' +
             'build any required layout.'
           }
           extraKeywords="Component, Grid, Layout, Rows, Columns"

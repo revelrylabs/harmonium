@@ -29,7 +29,7 @@ export default class Button extends Component {
     className: PropTypes.string,
     children: PropTypes.node,
   }
-
+  /* eslint complexity: [2, 4] */
   render() {
     // Extract props that will not pass through.
     const {className, children, tag, icon, ...props} = this.props

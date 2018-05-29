@@ -1,53 +1,24 @@
-// Justify Content
-.rev-Row--end {
-  @include flexJustifyEnd;
-}
-.rev-Row--center {
-  @include flexJustifyCenter;
-}
-.rev-Row--spaced,
-.rev-Row--spaceAround {
-  @include flexJustifySpaceAround;
-}
-.rev-Row--justify,
-.rev-Row--spaceBetween {
-  @include flexJustifySpaceBetween;
-}
-// Align Items
-.rev-Row--top {
-  @include flexAlignStart;
-}
-.rev-Row--middle {
-  @include flexAlignCenter;
-}
-.rev-Row--bottom {
-  @include flexAlignEnd;
-}
-.rev-Row--stretch {
-  @include flexAlignStretch;
-}
-.rev-Row--baseline {
-  @include flexAlignBaseline;
-}
 // Align Self
-.rev-Col {
+.rev-Row--flex .rev-Col {
+  flex-grow: 1;
+  flex-shrink: 0;
   &.rev-Col--shrink {
     flex: 0 0 auto;
     width: auto;
   }
-  &.rev-Col--end {
-    align-self: flex-end;
-  }
-  &.rev-Col--center {
-    align-self: center;
-  }
-  &.rev-Col--start {
+  &.rev-Col--alignStart {
     align-self: flex-start;
   }
-  &.rev-Col--baseline {
+  &.rev-Col--alignEnd {
+    align-self: flex-end;
+  }
+  &.rev-Col--alignCenter {
+    align-self: center;
+  }
+  &.rev-Col--alignBaseline {
     align-self: baseline;
   }
-  &.rev-Col--stretch {
+  &.rev-Col--alignStretch {
     align-self: stretch;
   }
 }

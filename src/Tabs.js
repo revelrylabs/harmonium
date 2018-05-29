@@ -32,7 +32,7 @@ class TabsPanel extends Component {
     renderHiddenTabs: PropTypes.bool,
     children: PropTypes.node,
   }
-
+  /* eslint complexity: [2, 4] */
   render() {
     const {children, active, renderHiddenTabs} = this.props
 

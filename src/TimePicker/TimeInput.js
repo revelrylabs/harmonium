@@ -17,7 +17,7 @@ class TimeInput extends Component {
     generation: PropTypes.number,
     className: PropTypes.string,
   }
-
+  /* eslint complexity: [2, 5] */
   render() {
     const {
       className,
@@ -26,6 +26,7 @@ class TimeInput extends Component {
       formattedValue,
       isoValue,
       generation,
+      name,
       ...props
     } = this.props
 
