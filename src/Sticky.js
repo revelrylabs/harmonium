@@ -142,9 +142,7 @@ class StatefulSticky extends Component {
    */
   componentDidMount() {
     window.addEventListener('scroll', this.setContentState.bind(this))
-    window.addEventListener('resize', this.stickyContent.style.width = `${(
-      this.stickyContainer.offsetWidth - sideBorders
-    ).toString()}px`)
+    window.addEventListener('resize', this.setContentWidth)
 
     this.placeholder.style.width = this.stickyContent.style.width
     this.placeholder.style.height = this.stickyContent.style.height
@@ -185,17 +183,18 @@ class StatefulSticky extends Component {
     }
 
     if (stickyFlag) {
-      const sideBorders =
-        this.parsePxValue(this.stickyContainer.style.borderRightWidth) +
-        this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
+      // const sideBorders =
+      //   this.parsePxValue(this.stickyContainer.style.borderRightWidth) +
+      //   this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
 
       // this is to force the fixed div holding the sticky content
       // to not break out of the sticky container since fixed
       // positioning breaks elements out of document flow
       this.placeholder.style.display = 'block'
-      this.stickyContent.style.width = `${(
-        this.stickyContainer.offsetWidth - sideBorders
-      ).toString()}px`
+      this.setContentWidth()
+      // this.stickyContent.style.width = `${(
+      //   this.stickyContainer.offsetWidth - sideBorders
+      // ).toString()}px`
 
       this.setState({
         isStuck: true,
@@ -222,6 +221,16 @@ class StatefulSticky extends Component {
    */
   parsePxValue(value) {
     return parseInt(value.replace('px', ''), 10)
+  }
+
+  setContentWidth() {
+    const sideBorders =
+        this.parsePxValue(this.stickyContainer.style.borderRightWidth) +
+        this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
+
+    this.stickyContent.style.width = `${(
+      this.stickyContainer.offsetWidth - sideBorders
+    ).toString()}px`
   }
 
   render() {
