@@ -111,7 +111,7 @@ class StatefulSticky extends Component {
     className: PropTypes.string,
     children: PropTypes.node,
     stickToBottom: PropTypes.bool,
-    offset: PropTypes.bool,
+    offset: PropTypes.string,
   }
 
   constructor(props) {
