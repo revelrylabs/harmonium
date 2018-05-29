@@ -142,6 +142,9 @@ class StatefulSticky extends Component {
    */
   componentDidMount() {
     window.addEventListener('scroll', this.setContentState.bind(this))
+    window.addEventListener('resize', this.stickyContent.style.width = `${(
+      this.stickyContainer.offsetWidth - sideBorders
+    ).toString()}px`)
 
     this.placeholder.style.width = this.stickyContent.style.width
     this.placeholder.style.height = this.stickyContent.style.height
