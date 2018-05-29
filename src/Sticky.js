@@ -1,7 +1,12 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+
 /* eslint complexity: [2, 4] */
+/**
+ * A component encapsulating the children of the Sticky container to
+ * keep track of the current state of sticky behavior. 
+ */
 const StickyContent = ({
   children,
   className,
@@ -37,6 +42,10 @@ StickyContent.propTypes = {
   setRef: PropTypes.func,
 }
 
+/**
+ * A stateless Sticky container commponent that allows a user to plug-and-play
+ * custom defined behavior if desired.
+ */
 class Sticky extends Component {
   static propTypes = {
     className: PropTypes.string,
@@ -80,6 +89,21 @@ class Sticky extends Component {
   }
 }
 
+/**
+ * A Sticky container component that allows its children to stick to the top of
+ * the viewport as the user scrolls down the document. Passing in the stickToBottom 
+ * prop will reverse the orientation, sticking the container's children to the 
+ * bottom of the viewport as the user scrolls up the document.
+ * 
+ * The component also supports an offset prop. This prop is currently meant to be a 
+ * an amount in px, e.g. offset="50px". In the default orientation, the offset will 
+ * prevent the sticking from occurring until the user scrolls past the offset amount 
+ * down from the top of the container. With the stickToBottom prop, the offset will 
+ * prevent the sticking from occurring until the user scrolls past the offset amount 
+ * up from the bottom of the container. This prop may eventually be reworked to
+ * use the positions of elements for explicitly customizable starting/stopping points
+ * or perhaps allow both of these forms of offset.
+ */
 class StatefulSticky extends Component {
   static propTypes = {
     isOpen: PropTypes.bool,
@@ -98,11 +122,33 @@ class StatefulSticky extends Component {
     }
   }
 
+  /**
+   * Used to bind a ref to the container part of the sticky container system.
+   */
+  setContainerRef(container) {
+    this.stickyContainer = container
+  }
+
+  /**
+   * Used to bind a ref to the content, i.e. the children, part of the sticky container system.
+   */
+  setContentRef(content) {
+    this.stickyContent = content
+  }
+
+  /**
+   * Set the function that determines state as the window scroll event when
+   * the component mounts.
+   */
   componentDidMount() {
     window.addEventListener('scroll', this.setContentState.bind(this))
   }
 
   /* eslint complexity: [2, 8] */
+  /**
+   * Determine the state of whether the content should be stuck, anchored to the stopping 
+   * point of the sticky behavior (e.g. the bottom of the container), or neither.
+   */
   setContentState() {
     /* eslint-disable no-unused-vars */
     const contentTop = this.stickyContent.getBoundingClientRect().top
@@ -136,7 +182,7 @@ class StatefulSticky extends Component {
       const sideBorders =
         this.parsePxValue(this.stickyContainer.style.borderRightWidth) +
         this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
-
+      
       // this is to force the fixed div holding the sticky content
       // to not break out of the sticky container since fixed
       // positioning breaks elements out of document flow
@@ -161,16 +207,14 @@ class StatefulSticky extends Component {
     }
   }
 
+  /**
+   * Convert a string value of a quantity in px to an integer of the numeric 
+   * value of the quantity. For example, passing in the string '18px' will return 
+   * the integer 18.
+   * @param {string} value the value in px to convert
+   */
   parsePxValue(value) {
     return parseInt(value.replace('px', ''), 10)
-  }
-
-  setContainerRef(container) {
-    this.stickyContainer = container
-  }
-
-  setContentRef(content) {
-    this.stickyContent = content
   }
 
   render() {
