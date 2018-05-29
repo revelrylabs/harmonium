@@ -1,10 +1,10 @@
 {
-  "name": "awesome-possum",
-  "version": "3.5.2",
+  "name": "harmonium",
+  "version": "4.0.1",
   "description": "An opinionated React component framework for teams that move fast.",
   "repository": {
     "type": "git",
-    "url": "https://github.com/revelrylabs/possum.git"
+    "url": "https://github.com/revelrylabs/harmonium.git"
   },
   "dependencies": {
     "bowser": "^1.9.3",
@@ -73,11 +73,12 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-react": "^7.7.0",
+    "graceful-readlink": "^1.0.1",
     "gulp": "^3.9.1",
     "gulp-webserver": "^0.9.1",
     "jsdom": "^11.0.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^3.4.2",
+    "mocha": "^3.5.3",
     "nyc": "^11.4.1",
     "prettier": "^1.11.1",
     "prettier-eslint": "^8.8.1",

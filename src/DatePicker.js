@@ -20,9 +20,8 @@ function goodDateInput() {
   } else {
     const element = document.createElement('input')
 
-    element.type = 'date'
-    element.value = '!)'
-    return element.value === ''
+    element.setAttribute('type', 'date')
+    return element.type === 'date'
   }
 }
 
@@ -33,8 +32,9 @@ function goodDateInput() {
  * showing. Need to default to type text input.
  * @return {boolean} true is date type inputs are well supported, false otherwise
  */
+
 const isFirefox = () => {
-  return (/Firefox/i).test(navigator.userAgent)
+  return /Firefox/i.test(navigator.userAgent)
 }
 
 /** A DatePicker component containing inputs and a calendar. */
@@ -53,8 +53,9 @@ class UncontrolledDatePicker extends React.Component {
    * Create a datepicker. Determines if we can use browser native date type input
    * or if we need to fall back to a text type input (based on support and if a
    * non-standard format is specified.)
-   * @param {object} props
+   * @param {object} props - the props
    */
+  /* eslint complexity: [2, 4] */
   constructor(props) {
     super(props)
     // On platforms with poor date input support, or when non-standard format is
@@ -80,7 +81,8 @@ class UncontrolledDatePicker extends React.Component {
    * Handle updated props from up the chain. In particular, if we receive a new
    * date from up the hierarchy, we want to reset the inputs and the calendar to
    * that value.
-   * @param {object} nextProps
+   * @param {object} nextProps - the next props
+   * @return {void}
    */
   componentWillReceiveProps(nextProps) {
     this.setState(this.valuesFromProps(nextProps))
@@ -90,7 +92,7 @@ class UncontrolledDatePicker extends React.Component {
    * Find the date value from the props, and convert it to two values-- an iso
    * date and a 'local' format date version (so we can deal with poorly formatted
    * text inputs intelligently).
-   * @param {object} props
+   * @param {object} props - the props
    * @return {object} an object with two keys: isoValue & formattedValue
    */
   valuesFromProps(props) {
@@ -125,7 +127,8 @@ class UncontrolledDatePicker extends React.Component {
   /**
    * Process change events from the input by updating the isoValue & formattedValue
    * of this component. Will call down to an onChange handler passed in.
-   * @param {Event} event - the change event fired from the input
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @return {void}
    */
   onChange(event) {
     // Take whatever format the input gave us, and turn it into an ISO date string
@@ -153,42 +156,50 @@ class UncontrolledDatePicker extends React.Component {
   get dateFormat() {
     // TODO: detect locale default format string and use that instead of
     //   hardcoded 'MM/dd/yyyy'
-    return this.goodDateInput ?
-      'yyyy-MM-dd' :
-      this.props.dateFormat || 'MM/dd/yyyy'
+    return this.goodDateInput
+      ? 'yyyy-MM-dd'
+      : this.props.dateFormat || 'MM/dd/yyyy'
   }
 
   /**
    * Invoked by the calendar to tell the date picker to update the inputs (onClick
    * of the calendar buttons).
    * @param {string} date - the new date, in the format yyyy-MM-dd
+   * @return {void}
    */
   dateChanger(date) {
     // Update isoValue & formattedValue based on the date value (which is an iso
     // date)
-    this.setState(this.valuesFromIso(date))
-    // Update the native input value with the formatted version of the new date
-    // (this prevents the native input value from sticking with a hand-typed
-    // input value after the button is clicked in certain situations)
-    // It also sets us up to fire off a synthetic change event that looks just
-    // like change event from a typed input (so external change handlers are
-    // properly) invoked
-    this.nativeInput.value = this.isoToFormatted(date)
+    this.setState(this.valuesFromIso(date), () => {
+      // Update the native input value with the formatted version of the new date
+      // (this prevents the native input value from sticking with a hand-typed
+      // input value after the button is clicked in certain situations)
+      // It also sets us up to fire off a synthetic change event that looks just
+      // like change event from a typed input (so external change handlers are
+      // properly) invoked
+      const nativeInputValueSetter = Object.getOwnPropertyDescriptor(
+        window.HTMLInputElement.prototype,
+        'value'
+      ).set
 
-    this.fireChangeHandler()
+      nativeInputValueSetter.call(this.nativeInput, this.isoToFormatted(date))
 
-    // Force the input to be focused again (so that we don't immediately close
-    // the calendar because the button click makes us not focused on the input)
-    this.refocus()
+      this.fireChangeHandler()
+
+      // Force the input to be focused again (so that we don't immediately close
+      // the calendar because the button click makes us not focused on the input)
+      this.refocus()
+    });
   }
 
   /**
    * Create a synthetic change event and send it into the change handlers as if
    * the user had typed the new value. This makes typed input and calendar button
    * clicks fire off the same handlers.
+   * @return {void}
    */
   fireChangeHandler() {
-    const event = new Event('change')
+    const event = new Event('change', {bubbles: true, cancelable: false})
 
     this.nativeInput.dispatchEvent(event)
     this.onChange(event)
@@ -204,7 +215,7 @@ class UncontrolledDatePicker extends React.Component {
   useNativePicker() {
     return (
       typeof navigator !== 'undefined' &&
-      (/Android|iPhone|iPad|iPod/i).test(navigator.userAgent)
+      /Android|iPhone|iPad|iPod/i.test(navigator.userAgent)
     )
   }
 
@@ -212,6 +223,7 @@ class UncontrolledDatePicker extends React.Component {
    * Track when the mouse cursor is over the component, so that we can not
    * immediately close the calendar when we lose focus-- which happens if you
    * click the calendar buttons.
+   * @return {void}
    */
   mouseIn() {
     this.setState({mousedIn: true})
@@ -221,6 +233,7 @@ class UncontrolledDatePicker extends React.Component {
    * Track when the mouse is no longer over the component, which means that it
    * is safe to close the calendar if we lose focus, for example, because the
    * focus has moved to the next element.
+   * @return {void}
    */
   mouseOut() {
     this.setState({mousedIn: false, isOpen: this.state.focused})
@@ -229,7 +242,9 @@ class UncontrolledDatePicker extends React.Component {
   /**
    * Mark the input as in focus. Used to determine whether the calendar should
    * be open or not.
-   * @param {Event} event - the focus event
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @return {void}
+   *
    */
   focus(event) {
     if (this.props.onFocus) {
@@ -241,7 +256,8 @@ class UncontrolledDatePicker extends React.Component {
   /**
    * Mark the input as out of focus. Used to determine whether the calendar should
    * be open or not.
-   * @param {Event} event - the focus event
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @return {void}
    */
   blur(event) {
     if (this.props.onBlur) {
@@ -253,6 +269,7 @@ class UncontrolledDatePicker extends React.Component {
   /**
    * Force the input back into focus. Used when calendar buttons are clicked, so
    * that the input stays in focus and we don't close the calendar.
+   * @return {void}
    */
   refocus() {
     if (this.nativeInput) {
@@ -271,12 +288,39 @@ class UncontrolledDatePicker extends React.Component {
    *   input)
    * @returns {boolean} - true if the calendar should be open
    */
+  /* eslint complexity: [2, 5] */
   get calendarOpened() {
     return (
       (this.state.isOpen || this.props.isOpen) &&
       !this.props.disabled &&
       (!this.useNativePicker() || this.props.useCalendarOnMobile)
     )
+  }
+
+  /**
+   * Get the underlying node for the Calendar component
+   * @param {Object} ref - the calendar node
+   * @return {void}
+   */
+  getCalendarRef(ref) {
+    this.calendar = ref
+  }
+
+  /**
+   * Allow Datepicker to close on outside click
+   * @param {SyntheticEvent} event - React's original SyntheticEvent.
+   * @return {void}
+   */
+  onOutsideClick(event) {
+    if (
+      this.state.isOpen &&
+      this.calendar &&
+      !this.calendar.contains(event.target)
+    ) {
+      event.preventDefault()
+      this.blur(event)
+      this.mouseOut()
+    }
   }
 
   render() {
@@ -295,9 +339,9 @@ class UncontrolledDatePicker extends React.Component {
       ...props
     } = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
-    const nativeClass = this.useNativePicker() ?
-      'rev-DatePicker--native' :
-      'rev-DatePicker--custom'
+    const nativeClass = this.useNativePicker()
+      ? 'rev-DatePicker--native'
+      : 'rev-DatePicker--custom'
     const inputId = uniqueId('DateInputBlock:')
     const dateInputBlockProps = omit(props, 'isOpen')
 
@@ -309,6 +353,7 @@ class UncontrolledDatePicker extends React.Component {
         onMouseOut={this.mouseOut.bind(this)}
         onFocus={this.focus.bind(this)}
         onBlur={this.blur.bind(this)}
+        ref={(self) => (this.label = self)}
       >
         {label}
         <DateInputBlock
@@ -328,6 +373,7 @@ class UncontrolledDatePicker extends React.Component {
         <InputHelpText>{help}</InputHelpText>
         <InputErrors>{error}</InputErrors>
         <Calendar
+          onClick={this.onOutsideClick.bind(this)}
           selectedDate={this.state.isoValue}
           dateChanger={this.dateChanger.bind(this)}
           focuser={this.refocus.bind(this)}
@@ -342,6 +388,7 @@ class UncontrolledDatePicker extends React.Component {
           className={
             this.calendarOpened ? 'rev-Calendar--open' : 'rev-Calendar--closed'
           }
+          getCalendarRef={this.getCalendarRef.bind(this)}
         />
       </label>
     )

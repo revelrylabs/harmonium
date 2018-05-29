@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
-import Form from 'awesome-possum/lib/Form'
-import Button from 'awesome-possum/lib/Button'
-import AuthenticityTokenProvider from 'awesome-possum/lib/AuthenticityTokenProvider'
+import Form from 'harmonium/lib/Form'
+import Button from 'harmonium/lib/Button'
+import AuthenticityTokenProvider from 'harmonium/lib/AuthenticityTokenProvider'
 import ExampleSection from '../../ExampleSection'
 import Headers from '../../Headers'
 
@@ -19,14 +19,14 @@ export default class AuthenticityTokenExamplePage extends Component {
           title="Authenticity Token"
           metaDescription={
             'Authenticity Tokens are used with many web frameworks to prevent ' +
-            'CSRF attacks. Possum provides a component that simplifies passing ' +
+            'CSRF attacks. Harmonium provides a component that simplifies passing ' +
             'CSRF tokens down the hierarchy to forms.'
           }
           extraKeywords="Component, Authenticity Token, CSRF"
         >
           <p>
             Authenticity Tokens are used with many web frameworks to prevent
-            CSRF attacks. Possum provides a component that simplifies passing
+            CSRF attacks. Harmonium provides a component that simplifies passing
             CSRF tokens down the hierarchy to forms.
           </p>
         </Headers>

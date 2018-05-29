@@ -158,7 +158,7 @@ export default class Tokenizer extends React.Component {
     // unless there's no text in the box, in which case we don't worry about it
     return this.state.optionItems.length === 0 || !this.isSelectKey(e)
   }
-
+  /* eslint complexity: [2, 4] */
   onKeyUp(e) {
     if (this.isSelectKey(e)) {
       // Select the first item on special keypresses

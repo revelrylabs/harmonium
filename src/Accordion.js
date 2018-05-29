@@ -6,6 +6,7 @@ import {omit} from 'lodash'
 // Converts string or array of strings to string-to-bool object mapping
 // "one" -> {one: true}
 // ["one", "two"] -> {one: true, two: true}
+/* eslint complexity: [2, 4] */
 function activeToObject(active) {
   let obj = {}
 
@@ -37,7 +38,7 @@ class AccordionItem extends Component {
     className: PropTypes.string,
     children: PropTypes.node,
   }
-
+  /* eslint complexity: [2, 5] */
   render() {
     const {
       children,

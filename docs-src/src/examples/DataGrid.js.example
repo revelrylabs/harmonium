@@ -1,0 +1,137 @@
+<Row>
+  <Col>
+    <DataGrid>
+      <DataGrid.Header>
+        <Row>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+          <Col medium={2}>
+            <p>Column Header</p>
+          </Col>
+        </Row>
+      </DataGrid.Header>
+      <DataGrid.HeaderSmall>
+        <Row>
+          <Col medium={2}>
+            <p>Small DataGrid Header</p>
+          </Col>
+        </Row>
+      </DataGrid.HeaderSmall>
+      <DataGrid.Body>
+        <DataGrid.Row>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+          <Col medium={2}>
+            <p><span>Column Header:</span> DataGrid text</p>
+          </Col>
+        </DataGrid.Row>
+      </DataGrid.Body>
+    </DataGrid>
+  </Col>
+</Row>

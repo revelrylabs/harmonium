@@ -1,24 +1,36 @@
 <div className="ColumnExamples">
-  <Row middle flex>
-    <Col small={6}>I&apos;m in the middle!</Col>
+  <Row alignStart flex>
+    <Col small={6}>Columns aligned flex-start</Col>
     <Col small={6}>
       <Lipsum />
     </Col>
   </Row>
-  <Row top flex>
-    <Col small={6}>These columns align to the top.</Col>
+  <Row alignEnd flex>
+    <Col small={6}>Columns aligned flex-end</Col>
     <Col small={6}>
       <Lipsum />
     </Col>
   </Row>
-  <Row bottom flex>
-    <Col small={6}>bottom</Col>
+  <Row alignCenter flex>
+    <Col small={6}>Columns aligned center</Col>
+    <Col small={6}>
+      <Lipsum />
+    </Col>
+  </Row>
+  <Row alignStretch flex>
+    <Col small={6}>Columns aligned stretch</Col>
+    <Col small={6}>
+      <Lipsum />
+    </Col>
+  </Row>
+  <Row alignBaseline flex>
+    <Col small={6}><h4>Columns aligned baseline</h4></Col>
     <Col small={6}>
       <Lipsum />
     </Col>
   </Row>
   <Row flex>
-    <Col small={6}>unspecified simply fills all vertical space</Col>
+    <Col small={6}>Unspecified columns fill vertical space</Col>
     <Col small={6}>
       <Lipsum />
     </Col>

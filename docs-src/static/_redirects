@@ -1,0 +1,5 @@
+# Redirect possum urls to corresponding harmonium URLs-- * -> :splat in the URL
+# pattern, and 302 indicates a 302 redirect. The ! after 302 indicates redirect
+# even if there is a matching page (i.e. doesn't have to be a 404 to redirect).
+http://possum.revelry.co/* https://harmonium.revelry.co/:splat 302!
+https://possum.revelry.co/* https://harmonium.revelry.co/:splat 302!

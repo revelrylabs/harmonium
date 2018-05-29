@@ -103,7 +103,7 @@
     "no-octal-escape": 2,
     "no-octal": 2,
     "no-param-reassign": 0,
-    "no-process-env": 2,
+    "no-process-env": 0,
     "no-proto": 2,
     "no-redeclare": 2,
     "no-return-assign": 2,
@@ -274,10 +274,7 @@
     "no-unneeded-ternary": 2,
     "one-var": 0,
     "operator-assignment": 0,
-    "operator-linebreak": [
-      2,
-      "after"
-    ],
+    "operator-linebreak": 0,
     "padded-blocks": 0,
     "quote-props": [
       2,
@@ -296,7 +293,7 @@
       "always"
     ],
     "space-before-function-paren": [
-      2,
+      0,
       "never"
     ],
     "space-in-parens": [
@@ -315,7 +312,7 @@
       2,
       "always"
     ],
-    "wrap-regex": 2,
+    "wrap-regex": 0,
     "arrow-parens": 2,
     "arrow-spacing": [
       2,

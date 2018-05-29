@@ -1,6 +1,6 @@
 import React, {Component, Children} from 'react'
-import Accordion from 'awesome-possum/lib/Accordion'
-import Callout from 'awesome-possum/lib/Callout'
+import Accordion from 'harmonium/lib/Accordion'
+import Callout from 'harmonium/lib/Callout'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
@@ -27,14 +27,14 @@ export default class AccordionExamplePage extends Component {
           title="Accordions"
           metaDescription={
             'Accordions are components with multiple sections that can be ' +
-            'hidden or revealed. In Possum, they come in stateful ' +
+            'hidden or revealed. In Harmonium, they come in stateful ' +
             '(self-managed) and stateless (parent-managed) types.'
           }
           extraKeywords="Component, Accordion, Expander"
         >
           <p>
             Accordions are components with multiple sections that can be
-            hidden or revealed. In Possum, they come in stateful
+            hidden or revealed. In Harmonium, they come in stateful
             (self-managed) and stateless (parent-managed) types.
           </p>
           <p>

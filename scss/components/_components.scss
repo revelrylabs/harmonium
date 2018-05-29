@@ -1,7 +1,9 @@
 //GRIDS
 @import 'Grid';
 @import 'BlockGrid';
-@import 'FlexGrid';
+@import 'FlexRows';
+@import 'FlexCols';
+@import 'FloatCols';
 @import 'Expander';
 
 // LAYOUT ELEMENTS
@@ -21,6 +23,7 @@
 @import 'Card';
 @import 'CardLayout';
 @import 'Sticky';
+@import 'Table';
 
 // FORMS
 @import 'Forms';
