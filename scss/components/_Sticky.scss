@@ -14,6 +14,10 @@ $sticky-content-bkgd: $white 0 !default;
   position: relative;
 }
 
+.rev-Sticky-placeholder {
+  display: none;
+}
+
 .rev-Sticky-content {
   background: $sticky-content-bkgd;
 }

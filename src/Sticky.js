@@ -141,6 +141,7 @@ class StatefulSticky extends Component {
       // this is to force the fixed div holding the sticky content
       // to not break out of the sticky container since fixed
       // positioning breaks elements out of document flow
+      this.placeholder.style.display = 'block'
       this.stickyContent.style.width = (this.stickyContainer.offsetWidth - sideBorders).toString() + 'px'
 
       this.setState({
@@ -166,6 +167,9 @@ class StatefulSticky extends Component {
    */
   componentDidMount() {
     window.addEventListener('scroll', this.setContentState.bind(this))
+
+    this.placeholder.style.width = this.stickyContent.style.width
+    this.placeholder.style.height = this.stickyContent.style.height
   }
 
   /**
@@ -196,6 +200,7 @@ class StatefulSticky extends Component {
         stickToBottom={stickToBottom}
         {...props}
       >
+        <div ref={placeholder => this.placeholder = placeholder} className="rev-Sticky-placeholder"></div>
         {children}
       </Sticky>
     )
