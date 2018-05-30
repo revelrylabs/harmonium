@@ -183,18 +183,12 @@ class StatefulSticky extends Component {
     }
 
     if (stickyFlag) {
-      // const sideBorders =
-      //   this.parsePxValue(this.stickyContainer.style.borderRightWidth) +
-      //   this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
 
       // this is to force the fixed div holding the sticky content
       // to not break out of the sticky container since fixed
       // positioning breaks elements out of document flow
       this.placeholder.style.display = 'block'
       this.setContentWidth()
-      // this.stickyContent.style.width = `${(
-      //   this.stickyContainer.offsetWidth - sideBorders
-      // ).toString()}px`
 
       this.setState({
         isStuck: true,
@@ -218,6 +212,7 @@ class StatefulSticky extends Component {
    * value of the quantity. For example, passing in the string '18px' will return 
    * the integer 18.
    * @param {string} value the value in px to convert
+   * @return {int} the parsed px value as an integer
    */
   parsePxValue(value) {
     return parseInt(value.replace('px', ''), 10)
