@@ -13,7 +13,11 @@ export default class DesignedSilverMapExamplePage extends Component {
       <div>
         <Headers
           title="Small Designed Silver Map Component"
-          metaDescription={'This is a Map Component'}
+          metaDescription={
+            'This is a Small Designed Silver Map Component, we have passed' +
+            '"small" as a prop to the Map component. There is a small, medium and' +
+            'large props.'
+          }
           extraKeywords="Map"
         >
           <p>

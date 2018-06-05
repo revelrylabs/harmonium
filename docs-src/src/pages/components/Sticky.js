@@ -21,8 +21,7 @@ export default class StickyExamplePage extends Component {
             'The Sticky component is a container that "sticks" to an edge of the ' +
             'browser window as it is scrolled. It is typically used for navigation ' +
             'elements or important messages that should remain in sight as the user ' +
-            'scrolls. It should be used sparingly only when the contents are ' +
-            'important, because it takes up space and distracts the user.'
+            'scrolls.'
           }
           extraKeywords="Component, Sticky, Layout, Navigation"
         >
