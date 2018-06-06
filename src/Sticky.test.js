@@ -29,7 +29,7 @@ describe('Sticky', () => {
 
 describe('Sticky.Stateful', () => {
   it('should render without throwing', () => {
-    shallow(
+    mount(
       <Sticky.Stateful>
         <span>test</span>
       </Sticky.Stateful>
