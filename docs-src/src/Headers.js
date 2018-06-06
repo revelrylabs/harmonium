@@ -6,9 +6,12 @@ const Headers = ({children, extraKeywords, metaDescription, title}) => {
   const keywordString = extraKeywords ? `, ${extraKeywords}` : ''
   let extendedTitle = `${title} | Harmonium | React Components for Teams That Move Fast`
 
-  if (extendedTitle.length >= 70) {
-    // Trim title down if it is over 70 characters for better display & indexing
+  if (extendedTitle.length >= 60) {
+    // Trim title down if it is over 60 characters for better display & indexing
     extendedTitle = `${title} | Harmonium | React Components`
+    if (extendedTitle.length >= 60) {
+      extendedTitle = `${title} | Harmonium`
+    }
   }
 
   return (
