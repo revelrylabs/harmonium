@@ -35,6 +35,9 @@ const IndexPage = () => (
       />
     </Helmet>
     <Col>
+      <h1 className="ShowForSR">
+        Hello Harmonium&mdash; The React Framework for Shipping Fast
+      </h1>
       <p className="Lead">
         <img
           className="ResponsiveImage Show--mediumUp rev-Brand-symbol"
