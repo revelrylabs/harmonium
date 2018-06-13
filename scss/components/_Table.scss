@@ -1,7 +1,9 @@
-$table-background: $white;
-$table-border: 1px solid $divider-color;
-$table-header-background: $white;
-$table-height: 25rem;
+$table-background: $white !default;
+$table-color: $body-font-color !default;
+$table-border: 1px solid $divider-color !default;
+$table-header-background: $body-font-color !default;
+$table-header-color: $white !default;
+$table-stripe-background: $lightest-gray !default;
 
 .rev-Table {
   background-color: $table-background;
@@ -17,6 +19,7 @@ $table-height: 25rem;
   }
   th,
   td {
+    color: $table-color;
     padding: $global-padding-small $global-padding-small;
     @include breakpoint(medium) {
       padding: $global-padding-small $global-padding;
@@ -27,8 +30,8 @@ $table-height: 25rem;
   }
 }
 .rev-Table-head {
-  background-color: $brand;
-  color: $white;
+  background-color: $table-header-background;
+  color: $table-header-color;
   padding: $global-padding-small 0;
   p {
     font-size: $global-font-size-small;
@@ -37,6 +40,7 @@ $table-height: 25rem;
     padding: 0;
   }
   th {
+    color: $table-header-color;
     font-size: $global-font-size-small;
     font-weight: $global-weight-normal;
     text-align: left;
@@ -59,7 +63,9 @@ thead {
     }
   }
   &.rev-Table--striped {
-    @include striped-table;
+    tr {
+      @include even-odd-stripes($table-background, $table-stripe-background);
+    }
   }
 }
 .rev-Table-row {

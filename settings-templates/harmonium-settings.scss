@@ -113,7 +113,7 @@ $paragraph-lineheight: $global-lineheight;
 $paragraph-margin-bottom: $global-vertical-space;
 $paragraph-text-rendering: optimizeLegibility;
 
-// Anchor Vars
+// ANCHORS
 $anchor-color: $primary;
 $anchor-color-hover: darken($primary, 10%);
 $anchor-color-active: darken($primary, 15%);
@@ -301,6 +301,15 @@ $input-color-focus: $input-color;
 $input-font-size: $global-font-size;
 $label-color: $body-font-color;
 $label-font-size: $global-font-size;
+
+//## TABLES -----------------------------
+
+$table-background: $white;
+$table-color: $body-font-color;
+$table-border: 1px solid $divider-color;
+$table-header-background: $body-font-color;
+$table-header-color: $white;
+$table-stripe-background: $lightest-gray;
 
 //## PICKERS -----------------------------
 
