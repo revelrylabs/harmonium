@@ -1,136 +1,165 @@
 <Row>
   <Col>
-    <DataGrid>
+    <DataGrid className="rev-DataGrid--striped">
       <DataGrid.Header>
         <Row>
           <Col medium={2}>
-            <p>Column Header</p>
+            <span>Column Header</span>
           </Col>
           <Col medium={2}>
-            <p>Column Header</p>
+            <span>Column Header</span>
           </Col>
           <Col medium={2}>
-            <p>Column Header</p>
+            <span>Column Header</span>
           </Col>
           <Col medium={2}>
-            <p>Column Header</p>
+            <span>Column Header</span>
           </Col>
           <Col medium={2}>
-            <p>Column Header</p>
+            <span>Column Header</span>
           </Col>
           <Col medium={2}>
-            <p>Column Header</p>
+            <span>Column Header</span>
           </Col>
         </Row>
       </DataGrid.Header>
       <DataGrid.HeaderSmall>
         <Row>
           <Col medium={2}>
-            <p>Small DataGrid Header</p>
+            <span>Small DataGrid Header</span>
           </Col>
         </Row>
       </DataGrid.HeaderSmall>
       <DataGrid.Body>
-        <DataGrid.Row>
+        <Row>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span> <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
-        </DataGrid.Row>
-        <DataGrid.Row>
+        </Row>
+        <Row>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
-          </Col>
-          <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
-          </Col>
-          <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
-          </Col>
-        </DataGrid.Row>
-        <DataGrid.Row>
-          <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
+          </Col>
+        </Row>
+        <Row>
+          <Col medium={2}>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
-          </Col>
-        </DataGrid.Row>
-        <DataGrid.Row>
-          <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
+          </Col>
+        </Row>
+        <Row>
+          <Col medium={2}>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
-          </Col>
-        </DataGrid.Row>
-        <DataGrid.Row>
-          <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
+          </Col>
+        </Row>
+        <Row>
+          <Col medium={2}>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
           <Col medium={2}>
-            <p><span>Column Header:</span> DataGrid text</p>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
           </Col>
-        </DataGrid.Row>
+          <Col medium={2}>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
+          </Col>
+          <Col medium={2}>
+            <span className="rev-DataGrid-columnHeader--small">Column Header:</span>
+            <span>DataGrid text</span>
+          </Col>
+        </Row>
       </DataGrid.Body>
     </DataGrid>
   </Col>

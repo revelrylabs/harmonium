@@ -12,7 +12,7 @@ export default class DataGrid extends React.Component {
     const {className, children, ...props} = this.props
 
     return (
-      <div {...props} className={`rev-Table ${className}`}>
+      <div {...props} className={`rev-DataGrid ${className}`}>
         {children}
       </div>
     )
@@ -30,7 +30,7 @@ class DataGridHeader extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <div {...props} className={`rev-Table-head Hide--mediumDown ${className}`}>
+      <div {...props} className={`rev-DataGrid-head Hide--mediumDown ${className}`}>
         {children}
       </div>
     )
@@ -49,7 +49,7 @@ class DataGridHeaderSmall extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <div {...props} className={`rev-Table-head Hide--mediumUp ${className}`}>
+      <div {...props} className={`rev-DataGrid-head Hide--mediumUp ${className}`}>
         {children}
       </div>
     )
@@ -68,29 +68,10 @@ class DataGridBody extends Component {
     const {className, children} = this.props
 
     return (
-      <div className={`rev-Table-body rev-Table--scroll ${className}`}>
+      <div className={`rev-DataGrid-body rev-DataGrid--scroll ${className}`}>
         {children}
       </div>
     )
   }
 }
 DataGrid.Body = DataGridBody
-
-
-class DataGridRow extends Component {
-  static propTypes = {
-    className: PropTypes.string,
-    children: PropTypes.node,
-  }
-
-  render() {
-    const {className, children} = this.props
-
-    return (
-      <div className={`rev-Table-row rev-Row ${className}`}>
-        {children}
-      </div>
-    )
-  }
-}
-DataGrid.Row = DataGridRow
