@@ -311,6 +311,16 @@ $table-header-background: $body-font-color;
 $table-header-color: $white;
 $table-stripe-background: $lightest-gray;
 
+//## DATA GRIDS -----------------------------
+
+$data-grid-background: $white;
+$data-grid-color: $body-font-color;
+$data-grid-border: 1px solid $divider-color;
+$data-grid-header-background: $body-font-color;
+$data-grid-header-color: $white;
+$data-grid-stripe-background: $lightest-gray;
+$data-grid-scroll-height: 25rem;
+
 //## PICKERS -----------------------------
 
 //# Calendar
