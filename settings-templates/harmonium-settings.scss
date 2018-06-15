@@ -247,6 +247,20 @@ $pagination-link-color-active: null;
 $pagination-link-bkgd-selected: null;
 $pagination-link-color-selected: null;
 
+//# Breadcrumbs
+$breadcrumb-font-size: $global-font-size-smaller;
+$breadcrumb-selected-color: $body-font-color;
+$breadcrumb-color: $anchor-color;
+$breadcrumb-color-hover: $anchor-color-hover;
+$breadcrumb-color-active: $anchor-color-active;
+$breadcrumb-text-transform: uppercase;
+$breadcrumb-separator-family: $body-font-family; // In case you want to use an icon as the separator
+$breadcrumb-separator: '/';
+$breadcrumb-separator-color: $light-gray;
+$breadcrumb-margin: $global-margin 0;
+$breadcrumb-item-margin: 0 $global-margin-small;
+$breadcrumb-item-padding: 0;
+
 //## STATEFUL COMPONENTS -----------------------------
 
 //# Accordions

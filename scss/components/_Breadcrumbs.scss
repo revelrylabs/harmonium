@@ -1,0 +1,54 @@
+$breadcrumb-font-size: $global-font-size-smaller !default;
+$breadcrumb-selected-color: $body-font-color !default;
+$breadcrumb-color: $anchor-color !default;
+$breadcrumb-color-hover: $anchor-color-hover !default;
+$breadcrumb-color-active: $anchor-color-active !default;
+$breadcrumb-text-transform: uppercase !default;
+$breadcrumb-separator-family: $body-font-family !default; // In case you want to use an icon as the separator
+$breadcrumb-separator: '/' !default;
+$breadcrumb-separator-color: $light-gray !default;
+$breadcrumb-margin: $global-margin 0 !default;
+$breadcrumb-item-margin: 0 $global-margin-small !default;
+$breadcrumb-item-padding: 0 !default;
+
+.Breadcrumbs {
+  font-size: $breadcrumb-font-size;
+  list-style: none;
+  margin: $breadcrumb-margin;
+  &--center {
+    @include flex(center, row, center, wrap);    
+  }
+  &--justified {
+    @include flex(center, row, space-between, wrap);
+  }
+  &--right {
+    text-align: right;
+  }
+}
+.Breadcrumbs-item {
+  display: inline-block;
+  padding: $breadcrumb-item-padding;
+  text-transform: $breadcrumb-text-transform;
+  &--selected {
+    color: $breadcrumb-selected-color;
+  }
+  a:not(.Breadcrumbs-item--selected) & {
+    color: $breadcrumb-color;
+    &:hover,
+    &:focus {
+      color: $breadcrumb-color-hover;
+    }
+    &:active {
+      color: $breadcrumb-color-active;      
+    }
+  }
+  &:not(:last-child):after {
+    color: $breadcrumb-separator-color;
+    content: $breadcrumb-separator;
+    font-family: $breadcrumb-separator-family;
+    margin: $breadcrumb-item-margin;
+  }
+}
+.Breadcrumbs-item--disabled a {
+  @include disabled;
+}
