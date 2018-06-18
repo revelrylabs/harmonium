@@ -4,7 +4,28 @@ $table-border: 1px solid $divider-color !default;
 $table-header-background: $body-font-color !default;
 $table-header-color: $white !default;
 $table-stripe-background: $lightest-gray !default;
+$table-fixed-header-height: $size-large !default;
+$table-scroll-max-height: 50px !default;
 
+.rev-TableContainer {
+  &--striped {
+    .rev-Table-body {
+      tr {
+        @include even-odd-stripes($table-background, $table-stripe-background);
+      }
+    }
+  }
+  &.rev-Table--horizontalScroll {
+    @include horizontal-scroll-container;
+    .rev-Table {
+      min-width: 100%;
+      width: auto;
+    }
+    th {
+      white-space: nowrap;
+    }
+  }
+}
 .rev-Table {
   background-color: $table-background;
   border-collapse: collapse;
@@ -32,7 +53,7 @@ $table-stripe-background: $lightest-gray !default;
 .rev-Table-head {
   background-color: $table-header-background;
   color: $table-header-color;
-  padding: $global-padding-small 0;
+  padding: 0;
   p {
     font-size: $global-font-size-small;
     margin-bottom: 0;
@@ -54,19 +75,6 @@ thead {
 }
 .rev-Table-body {
   font-size: $global-font-size-small;
-  &.rev-Table--scroll {
-    min-width: 100%;
-    width: auto;
-    @include vertical-scroll-container(250px);
-    @include breakpoint(medium-down) {
-      @include vertical-scroll-container(350px);
-    }
-  }
-  &.rev-Table--striped {
-    tr {
-      @include even-odd-stripes($table-background, $table-stripe-background);
-    }
-  }
 }
 .rev-Table-row {
   border-bottom: $table-border;

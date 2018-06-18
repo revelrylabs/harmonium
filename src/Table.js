@@ -2,6 +2,12 @@ import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
+const BOOL_PROPS_TO_CLASS_NAMES = {
+  striped: 'rev-Table--striped',
+  horizontalScroll: 'rev-Table--horizontalScroll',
+}
+const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
+
 export default class Table extends React.Component {
   static propTypes = {
     className: PropTypes.string,
@@ -10,11 +16,23 @@ export default class Table extends React.Component {
 
   render() {
     const {className, children, ...props} = this.props
+    const propClassNames = []
+
+    BOOL_PROPS.forEach((name) => {
+      if (props[name]) {
+        propClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
+      }
+      delete props[name]
+    })
+
+    const newClassName = classNames(className, 'rev-TableContainer', propClassNames)
 
     return (
-      <table {...props} className={`rev-Table ${className}`}>
-        {children}
-      </table>
+      <div {...props} className={newClassName}>
+        <table className="rev-Table">
+          {children}
+        </table>
+      </div>
     )
   }
 }
@@ -30,7 +48,7 @@ class TableHead extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <thead {...props} className={`rev-Table-head Hide--mediumDown ${className}`}>
+      <thead {...props} className={`rev-Table-head ${className}`}>
         {children}
       </thead>
     )
@@ -48,7 +66,7 @@ class TableHeadSmall extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <thead {...props} className={`rev-Table-head Hide--mediumUp ${className}`}>
+      <thead {...props} className={`rev-Table-head ${className}`}>
         {children}
       </thead>
     )
@@ -67,7 +85,7 @@ class TableHeader extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <th {...props} className={`rev-Table-header Hide--mediumDown ${className}`}>
+      <th {...props} className={`rev-Table-header ${className}`}>
         {children}
       </th>
     )
@@ -86,7 +104,7 @@ class TableBody extends Component {
     const {className, children} = this.props
 
     return (
-      <tbody className={`rev-Table-body rev-Table--scroll rev-Table--striped ${className}`}>
+      <tbody className={`rev-Table-body ${className}`}>
         {children}
       </tbody>
     )
