@@ -120,6 +120,9 @@ export default function Navigation() {
           <Menu.Item>
             <Link to="/components/StatelessDrawer/">StatelessDrawer</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Breadcrumbs/">Breadcrumbs</Link>
+          </Menu.Item>
         </Menu>
         <Menu vertical>
           <Menu.Item text>
