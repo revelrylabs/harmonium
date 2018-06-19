@@ -5,6 +5,15 @@
         Table Header
       </Table.Header>
       <Table.Header>
+        Table Headers Dictate Col Width
+      </Table.Header>
+      <Table.Header>
+        Really Long Table Header Means a Really Wide Column
+      </Table.Header>
+      <Table.Header>
+        Table Header
+      </Table.Header>
+      <Table.Header>
         Table Header
       </Table.Header>
       <Table.Header>
@@ -41,17 +50,6 @@
       <Table.Data>
         Table Row text
       </Table.Data>
-    </Table.Row>
-    <Table.Row>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
       <Table.Data>
         Table Row text
       </Table.Data>
@@ -63,6 +61,44 @@
       </Table.Data>
     </Table.Row>
     <Table.Row>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
+    </Table.Row>
+    <Table.Row>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
+      <Table.Data>
+        Table Row text
+      </Table.Data>
       <Table.Data>
         Table Row text
       </Table.Data>
