@@ -51,19 +51,58 @@ h6 {
   flex-wrap: wrap;
   margin-bottom: $global-margin-large;
 }
-.playgroundCode {
-  margin-bottom: $global-vertical-space;
+.playgroundToggleCodeBar {
   order: 1;
-  width: 100%;
 }
+.playgroundToggleCodeLink {
+  @include flex(center, row, flex-start, nowrap);
+  color: $anchor-color;
+  cursor: pointer;
+  position: relative;
+  &:hover {
+    color: $anchor-color-hover;
+  }
+  &:active,
+  &:focus {
+    color: $anchor-color-active;
+  }
+  &:after {
+    content: 'code snippet';
+    padding-left: $global-padding-tiny;
+  }
+  &:before {
+    content: '+';
+    font-weight: bold;
+    padding-right: $global-padding-tiny;
+  }
+}
+.playgroundCode {
+  @include global-transition;
+  @include vertical-scroll-container(150px);
+  display: block;
+  order: 2;
+  width: 100%;
+  &.expandedCode {
+    max-height: 100%;
+    + .playgroundToggleCodeBar {
+      .playgroundToggleCodeLink {
+        &:before {
+          content: '-';
+        }
+      }
+    }
+  }
+}
+
 .playgroundError {
+  @include alert-color-stack;
+  @include panel($padded: true);
   font-family: monospace;
   overflow-x: scroll;
   white-space: pre-wrap;
-  @include panel($padded: true);
-  @include alert-color-stack;
 }
 .playgroundPreview {
+  display: block;
   order: 0;
   width: 100%;
 }

@@ -7,7 +7,6 @@
   @include horizontal-scroll-container;
 }
 @mixin vertical-scroll-container($height: 500px) {
-  height: $height;
   max-height: $height;
   overflow-y: scroll;
 }
