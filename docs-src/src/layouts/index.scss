@@ -52,12 +52,18 @@ h6 {
   margin-bottom: $global-margin-large;
 }
 .playgroundToggleCodeBar {
+  margin-bottom: -1px;
   order: 1;
 }
 .playgroundToggleCodeLink {
   @include flex(center, row, flex-start, nowrap);
+  background: $lightest-gray;
+  border: 1px solid $lighter-gray;
+  border-bottom: 1px solid $lightest-gray;
+  border-radius: $global-radius $global-radius 0 0;
   color: $anchor-color;
   cursor: pointer;
+  padding: $global-padding-tiny $global-padding-small;
   position: relative;
   &:hover {
     color: $anchor-color-hover;
@@ -77,13 +83,22 @@ h6 {
   }
 }
 .playgroundCode {
-  @include global-transition;
-  @include vertical-scroll-container(150px);
+  background: $lightest-gray;
+  border: 1px solid $lighter-gray;
+  border-radius: 0 $global-radius $global-radius $global-radius;
   display: block;
   order: 2;
+  padding: $global-padding-small;
   width: 100%;
+  .CodeMirror {
+    @include global-transition;
+    @include vertical-scroll-container(150px);
+    border-radius: $global-radius
+  }
   &.expandedCode {
-    max-height: 100%;
+    .CodeMirror {
+      max-height: 100%;
+    }
     + .playgroundToggleCodeBar {
       .playgroundToggleCodeLink {
         &:before {

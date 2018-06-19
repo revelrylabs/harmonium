@@ -6,7 +6,7 @@ export default function ExampleSection({title, depth, examples, scope}) {
   if (typeof examples === 'string') {
     return (
       <div>
-        <Playground collapsableCode={true} codeText={examples} scope={scope} />
+        <Playground theme="lucario" collapsableCode={true} codeText={examples} scope={scope} />
       </div>
     )
   } else {

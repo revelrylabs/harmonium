@@ -35,7 +35,7 @@ const Headers = ({children, extraKeywords, metaDescription, title}) => {
         />
         <link
           rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"
+          href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/theme/lucario.min.css"
         />
       </Helmet>
       <h1>{title}</h1>
