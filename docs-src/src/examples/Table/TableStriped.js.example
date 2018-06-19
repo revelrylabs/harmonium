@@ -1,0 +1,67 @@
+<Table striped>
+  <Table.Head>
+    <Table.Row>
+      <Table.Header>
+        Table Header
+      </Table.Header>
+      <Table.Header>
+        Table Header
+      </Table.Header>
+      <Table.Header>
+        Table Header
+      </Table.Header>
+      <Table.Header>
+        Table Header
+      </Table.Header>
+    </Table.Row>
+  </Table.Head>
+  <Table.HeadStacked>
+    <Table.Header>
+      Small Table Header
+    </Table.Header>
+  </Table.HeadStacked>
+  <Table.Body>
+    <Table.Row>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+    </Table.Row>
+    <Table.Row>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+    </Table.Row>
+    <Table.Row>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+      <Table.Data>
+        <span>Column Header:</span> Table Row text
+      </Table.Data>
+    </Table.Row>
+  </Table.Body>
+</Table>

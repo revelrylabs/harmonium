@@ -3,11 +3,35 @@ $table-color: $body-font-color !default;
 $table-border: 1px solid $divider-color !default;
 $table-header-background: $body-font-color !default;
 $table-header-color: $white !default;
+//responsive tables
+$table-breakpoint: medium;
+//striped tables
 $table-stripe-background: $lightest-gray !default;
+//verticalScroll tables
 $table-fixed-header-height: $size-large !default;
 $table-scroll-max-height: 50px !default;
 
 .rev-TableContainer {
+  @include horizontal-scroll-container;
+  margin: $global-margin 0;
+}
+
+.rev-Table {
+  background-color: $table-background;
+  border-collapse: collapse;
+  border: $table-border;
+  margin: 0;
+  width: 100%;
+  th,
+  td {
+    color: $table-color;
+    display: block;
+    padding: $global-padding-small $global-padding-small;
+    @include breakpoint($table-breakpoint) {
+      display: table-cell;
+    }
+  }
+  // STRIPED TABLES
   &--striped {
     .rev-Table-body {
       tr {
@@ -15,62 +39,41 @@ $table-scroll-max-height: 50px !default;
       }
     }
   }
-  &.rev-Table--horizontalScroll {
-    @include horizontal-scroll-container;
-    .rev-Table {
-      min-width: 100%;
-      width: auto;
+  // HORIZONTAL SCROLLING TABLES
+  &--horizontalScroll {
+    min-width: 100%;
+    width: auto;
+    .rev-Table-head {
+      display: table-header-group;
+    }
+    td,
+    th {
+      display: table-cell;
     }
     th {
       white-space: nowrap;
     }
   }
 }
-.rev-Table {
-  background-color: $table-background;
-  border-collapse: collapse;
-  border: $table-border;
-  margin: $global-margin 0;
-  width: 100%;
-  p {
-    font-size: $global-font-size-small;
-    padding: 0;
-    margin-bottom: $global-margin-small;
-    margin-top: $global-margin-small;
-  }
-  th,
-  td {
-    color: $table-color;
-    padding: $global-padding-small $global-padding-small;
-    @include breakpoint(medium) {
-      padding: $global-padding-small $global-padding;
-    }
-    @include breakpoint(medium-down) {
-      display: block;
-    }
-  }
-}
 .rev-Table-head {
   background-color: $table-header-background;
   color: $table-header-color;
+  display: none;
   padding: 0;
-  p {
-    font-size: $global-font-size-small;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding: 0;
+  @include breakpoint($table-breakpoint) {
+    display: table-header-group;
+  }
+  &--stacked {
+    display: table-header-group;
+    @include breakpoint($table-breakpoint) {
+      display: none;
+    }
   }
   th {
     color: $table-header-color;
     font-size: $global-font-size-small;
     font-weight: $global-weight-normal;
     text-align: left;
-  }
-}
-tbody,
-thead {
-  .rev-Table-row {
-    padding: 0;
   }
 }
 .rev-Table-body {
@@ -81,14 +84,5 @@ thead {
   padding: $global-padding-small 0;
   &:last-child {
     border-bottom: 0;
-  }
-  span {
-    font-weight: $global-weight-bold;
-    @include breakpoint(medium) {
-      display: none;
-    }
-  }
-  li {
-    list-style-type: none;
   }
 }

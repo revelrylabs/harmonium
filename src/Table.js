@@ -25,11 +25,11 @@ export default class Table extends React.Component {
       delete props[name]
     })
 
-    const newClassName = classNames(className, 'rev-TableContainer', propClassNames)
+    const newClassName = classNames(className, 'rev-Table', propClassNames)
 
     return (
-      <div {...props} className={newClassName}>
-        <table className="rev-Table">
+      <div className="rev-TableContainer">
+        <table {...props} className={newClassName}>
           {children}
         </table>
       </div>
@@ -56,7 +56,7 @@ class TableHead extends Component {
 }
 Table.Head = TableHead
 
-class TableHeadSmall extends Component {
+class TableHeadStacked extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -66,13 +66,13 @@ class TableHeadSmall extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <thead {...props} className={`rev-Table-head ${className}`}>
+      <thead {...props} className={`rev-Table-head rev-Table-head--stacked ${className}`}>
         {children}
       </thead>
     )
   }
 }
-Table.HeadSmall = TableHeadSmall
+Table.HeadStacked = TableHeadStacked
 
 
 class TableHeader extends Component {

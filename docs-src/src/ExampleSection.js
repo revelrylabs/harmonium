@@ -16,9 +16,7 @@ export default function ExampleSection({title, depth, examples, scope}) {
       if (Object.prototype.hasOwnProperty.call(examples, examplesTitle)) {
         children.push(
           <ExampleSection
-            title={examplesTitle}
             examples={examples[examplesTitle]}
-            depth={depth + 1}
             scope={scope}
             key={examplesTitle}
           />
@@ -29,7 +27,7 @@ export default function ExampleSection({title, depth, examples, scope}) {
     return (
       <Row collapse>
         <Col>
-          {React.createElement(`h${Math.min(6, depth + 1)}`, {}, title)}
+          {React.createElement}
           {children}
         </Col>
       </Row>
