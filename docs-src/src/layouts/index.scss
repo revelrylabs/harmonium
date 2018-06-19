@@ -90,13 +90,13 @@ h6 {
   order: 2;
   padding: $global-padding-small;
   width: 100%;
-  .CodeMirror {
+  .ReactCodeMirror {
     @include global-transition;
     @include vertical-scroll-container(150px);
     border-radius: $global-radius
   }
   &.expandedCode {
-    .CodeMirror {
+    .ReactCodeMirror {
       max-height: 100%;
     }
     + .playgroundToggleCodeBar {
