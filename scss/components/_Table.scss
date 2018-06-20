@@ -4,7 +4,7 @@ $table-border: 1px solid $divider-color !default;
 $table-header-background: $body-font-color !default;
 $table-header-color: $white !default;
 //responsive tables
-$table-breakpoint: medium;
+$table-breakpoint: medium !default;
 //striped tables
 $table-stripe-background: $lightest-gray !default;
 //verticalScroll tables
@@ -45,29 +45,6 @@ $table-scroll-max-height: 50px !default;
     color: $table-color;
     padding: $global-padding-small $global-padding-small;
   }
-  // STRIPED TABLES
-  &--striped {
-    .rev-Table-body {
-      tr {
-        @include even-odd-stripes($table-background, $table-stripe-background);
-      }
-    }
-  }
-  // HORIZONTAL SCROLLING TABLES
-  &--horizontalScroll {
-    min-width: 100%;
-    width: auto;
-    .rev-Table-head {
-      display: table-header-group;
-    }
-    td,
-    th {
-      display: table-cell;
-    }
-    th {
-      white-space: nowrap;
-    }
-  }
   //stacked for all screens
   &--stacked {
     @include stacked-table;
@@ -93,7 +70,31 @@ $table-scroll-max-height: 50px !default;
       @include stacked-table;
     }
   }
+  // STRIPED TABLES
+  &--striped {
+    .rev-Table-body {
+      tr {
+        @include even-odd-stripes($table-background, $table-stripe-background);
+      }
+    }
+  }
+  // HORIZONTAL SCROLLING TABLES
+  &--horizontalScroll {
+    min-width: 100%;
+    width: auto;
+    .rev-Table-head {
+      display: table-header-group;
+    }
+    td,
+    th {
+      display: table-cell;
+    }
+    th {
+      white-space: nowrap;
+    }
+  }
 }
+
 .rev-Table-head {
   background-color: $table-header-background;
   color: $table-header-color;
