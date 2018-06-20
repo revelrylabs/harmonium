@@ -7,9 +7,6 @@ $table-header-color: $white !default;
 $table-breakpoint: medium !default;
 //striped tables
 $table-stripe-background: $lightest-gray !default;
-//verticalScroll tables
-$table-fixed-header-height: $size-large !default;
-$table-scroll-max-height: 50px !default;
 
 @mixin stacked-table {
   th,

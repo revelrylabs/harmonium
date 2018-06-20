@@ -309,6 +309,9 @@ $table-color: $body-font-color;
 $table-border: 1px solid $divider-color;
 $table-header-background: $body-font-color;
 $table-header-color: $white;
+//responsive table breakpoint
+$table-breakpoint: medium;
+//striped tables
 $table-stripe-background: $lightest-gray;
 
 //## DATA GRIDS -----------------------------
