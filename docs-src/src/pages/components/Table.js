@@ -14,7 +14,7 @@ export default class TableExamplePage extends Component {
     return (
       <div>
         <Headers
-          title="Table"
+          title="Tables"
           metaDescription={
             'Used for tabular data, our Table component consists of ' +
             'semantic table markup and has multiple display variations.'

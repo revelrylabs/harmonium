@@ -1,122 +1,128 @@
-<Table horizontalScroll>
-  <Table.Head>
-    <Table.Row>
-      <Table.Header>
-        Table Header
-      </Table.Header>
-      <Table.Header>
-        Table Headers Dictate Col Width
-      </Table.Header>
-      <Table.Header>
-        Really Long Table Header Means a Really Wide Column
-      </Table.Header>
-      <Table.Header>
-        Table Header
-      </Table.Header>
-      <Table.Header>
-        Table Header
-      </Table.Header>
-      <Table.Header>
-        Table Header
-      </Table.Header>
-      <Table.Header>
-        Table Header
-      </Table.Header>
-      <Table.Header>
-        Table Header
-      </Table.Header>
-      <Table.Header>
-        Table Header
-      </Table.Header>
-    </Table.Row>
-  </Table.Head>
-  <Table.Body>
-    <Table.Row>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-    </Table.Row>
-    <Table.Row>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-    </Table.Row>
-    <Table.Row>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-      <Table.Data>
-        Table Row text
-      </Table.Data>
-    </Table.Row>
-  </Table.Body>
-</Table>
+<Row>
+  <Col>
+    <h3>Horizontally Scrolling Table</h3>
+    <p>For tables with large amounts of information, the horizontalScroll prop can be added to preserve the width of your column headers, allowing the table to scroll horizontally within it's container.</p>
+    <Table horizontalScroll>
+      <Table.Head>
+        <Table.Row>
+          <Table.Header>
+            Table Header
+          </Table.Header>
+          <Table.Header>
+            Table Headers Dictate Col Width
+          </Table.Header>
+          <Table.Header>
+            Really Long Table Header Means a Really Wide Column
+          </Table.Header>
+          <Table.Header>
+            Table Header
+          </Table.Header>
+          <Table.Header>
+            Table Header
+          </Table.Header>
+          <Table.Header>
+            Table Header
+          </Table.Header>
+          <Table.Header>
+            Table Header
+          </Table.Header>
+          <Table.Header>
+            Table Header
+          </Table.Header>
+          <Table.Header>
+            Table Header
+          </Table.Header>
+        </Table.Row>
+      </Table.Head>
+      <Table.Body>
+        <Table.Row>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+          <Table.Data>
+            Table Row text
+          </Table.Data>
+        </Table.Row>
+      </Table.Body>
+    </Table>
+  </Col>
+</Row>

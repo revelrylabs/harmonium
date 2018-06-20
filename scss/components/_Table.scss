@@ -11,6 +11,24 @@ $table-stripe-background: $lightest-gray !default;
 $table-fixed-header-height: $size-large !default;
 $table-scroll-max-height: 50px !default;
 
+@mixin stacked-table {
+  th,
+  td {
+    display: block;
+  }
+  .rev-Table-head {
+    display: none;
+    //Small Screen Table Head Row
+    &--stacked {
+      display: block;
+    }
+  }
+  //Inline Table Headers
+  .rev-Table-header--stacked {
+    display: block;
+  }
+}
+
 .rev-TableContainer {
   @include horizontal-scroll-container;
   margin: $global-margin 0;
@@ -25,11 +43,7 @@ $table-scroll-max-height: 50px !default;
   th,
   td {
     color: $table-color;
-    display: block;
     padding: $global-padding-small $global-padding-small;
-    @include breakpoint($table-breakpoint) {
-      display: table-cell;
-    }
   }
   // STRIPED TABLES
   &--striped {
@@ -54,20 +68,39 @@ $table-scroll-max-height: 50px !default;
       white-space: nowrap;
     }
   }
+  //stacked for all screens
+  &--stacked {
+    @include stacked-table;
+  }
+  //stackForSmall (default)
+  @include breakpoint(medium-down) {
+    @include stacked-table;
+  }
+  &--stackForSmall {
+    @include breakpoint(medium-down) {
+      @include stacked-table;
+    }
+  }
+  //stackForMedium
+  &--stackForMedium {
+    @include breakpoint(large-down) {
+      @include stacked-table;
+    }
+  }
+  //stackForLarge
+  &--stackForLarge {
+    @include breakpoint(xlarge-down) {
+      @include stacked-table;
+    }
+  }
 }
 .rev-Table-head {
   background-color: $table-header-background;
   color: $table-header-color;
-  display: none;
   padding: 0;
-  @include breakpoint($table-breakpoint) {
-    display: table-header-group;
-  }
+  //Small Screen Table Head Row
   &--stacked {
-    display: table-header-group;
-    @include breakpoint($table-breakpoint) {
-      display: none;
-    }
+    display: none;
   }
   th {
     color: $table-header-color;
@@ -84,5 +117,12 @@ $table-scroll-max-height: 50px !default;
   padding: $global-padding-small 0;
   &:last-child {
     border-bottom: 0;
+  }
+}
+.rev-Table-header {
+  //Inline Table Headers
+  &--stacked {
+    display: none;
+    font-weight: $global-weight-bold;
   }
 }

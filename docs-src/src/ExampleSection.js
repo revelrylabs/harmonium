@@ -5,9 +5,7 @@ import Playground from 'component-playground'
 export default function ExampleSection({title, depth, examples, scope}) {
   if (typeof examples === 'string') {
     return (
-      <div>
-        <Playground theme="lucario" collapsableCode={true} codeText={examples} scope={scope} />
-      </div>
+      <Playground theme="lucario" collapsableCode={true} codeText={examples} scope={scope} />
     )
   } else {
     const children = []
@@ -27,7 +25,6 @@ export default function ExampleSection({title, depth, examples, scope}) {
     return (
       <Row collapse>
         <Col>
-          {React.createElement}
           {children}
         </Col>
       </Row>

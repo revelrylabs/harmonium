@@ -5,6 +5,10 @@ import classNames from 'classnames'
 const BOOL_PROPS_TO_CLASS_NAMES = {
   striped: 'rev-Table--striped',
   horizontalScroll: 'rev-Table--horizontalScroll',
+  stacked: 'rev-Table--stacked',
+  stackForSmall: 'rev-Table--stackForSmall',
+  stackForMedium: 'rev-Table--stackForMedium',
+  stackForLarge: 'rev-Table--stackForLarge',
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
@@ -92,6 +96,25 @@ class TableHeader extends Component {
   }
 }
 Table.Header = TableHeader
+
+
+class TableHeaderStacked extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
+
+  render() {
+    const {className, children, ...props} = this.props
+
+    return (
+      <span {...props} className={`rev-Table-header rev-Table-header--stacked ${className}`}>
+        {children}
+      </span>
+    )
+  }
+}
+Table.HeaderStacked = TableHeaderStacked
 
 
 class TableBody extends Component {

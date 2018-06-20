@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import Helmet from 'react-helmet'
+import {Row, Col} from 'harmonium/lib/grid'
 
 const Headers = ({children, extraKeywords, metaDescription, title}) => {
   const keywordString = extraKeywords ? `, ${extraKeywords}` : ''
@@ -38,8 +39,12 @@ const Headers = ({children, extraKeywords, metaDescription, title}) => {
           href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/theme/lucario.min.css"
         />
       </Helmet>
-      <h1>{title}</h1>
-      {children}
+      <Row>
+        <Col>
+          <h1>{title}</h1>
+          {children}
+        </Col>
+      </Row>
     </div>
   )
 }

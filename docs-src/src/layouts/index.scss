@@ -52,7 +52,7 @@ h6 {
   margin-bottom: $global-margin-large;
 }
 .playgroundToggleCodeBar {
-  margin-bottom: -1px;
+  margin: 0 $global-padding-small -1px;
   order: 1;
 }
 .playgroundToggleCodeLink {
@@ -88,12 +88,13 @@ h6 {
   border-radius: 0 $global-radius $global-radius $global-radius;
   display: block;
   order: 2;
+  margin: 0 $global-padding-small;
   padding: $global-padding-small;
   width: 100%;
   .ReactCodeMirror {
     @include global-transition;
     @include vertical-scroll-container(150px);
-    border-radius: $global-radius
+    border-radius: $global-radius;
   }
   &.expandedCode {
     .ReactCodeMirror {

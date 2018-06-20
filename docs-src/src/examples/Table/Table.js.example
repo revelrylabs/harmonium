@@ -1,67 +1,75 @@
-<Table>
-  <Table.Head>
-    <Table.Row>
-      <Table.Header>
-        Table Header
-      </Table.Header>
-      <Table.Header>
-        Table Header
-      </Table.Header>
-      <Table.Header>
-        Table Header
-      </Table.Header>
-      <Table.Header>
-        Table Header
-      </Table.Header>
-    </Table.Row>
-  </Table.Head>
-  <Table.HeadStacked>
-    <Table.Header>
-      Small Table Header
-    </Table.Header>
-  </Table.HeadStacked>
-  <Table.Body>
-    <Table.Row>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-    </Table.Row>
-    <Table.Row>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-    </Table.Row>
-    <Table.Row>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-      <Table.Data>
-        <span>Column Header:</span> Table Row text
-      </Table.Data>
-    </Table.Row>
-  </Table.Body>
-</Table>
+<Row>
+  <Col>
+    <h3>Default (Responsive) Table</h3>
+    <p>Our default table stacks on small screens. You can adjust this by updating the global $table-breakpoint variable in harmonium-settings or you can add stackFor[Size] props to specific tables.</p>
+    <Table>
+      <Table.Head>
+        <Table.Row>
+          <Table.Header>
+            Table Header
+          </Table.Header>
+          <Table.Header>
+            Table Header
+          </Table.Header>
+          <Table.Header>
+            Table Header
+          </Table.Header>
+          <Table.Header>
+            Table Header
+          </Table.Header>
+        </Table.Row>
+      </Table.Head>
+      <Table.HeadStacked>
+        <Table.Row>
+          <Table.Header>
+            Stacked (Responsive) Table Header
+          </Table.Header>
+        </Table.Row>
+      </Table.HeadStacked>
+      <Table.Body>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+          </Table.Data>
+        </Table.Row>
+      </Table.Body>
+    </Table>
+  </Col>
+</Row>
