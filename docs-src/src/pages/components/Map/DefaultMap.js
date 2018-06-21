@@ -13,7 +13,11 @@ export default class DefaultMapExamplePage extends Component {
       <div>
         <Headers
           title="Default Map Component"
-          metaDescription={'This is a Map Component'}
+          metaDescription={
+            'This is a Default Map Component, no zoom or styles have been given' +
+            'as props. An address (a string) has been provided as the center' +
+            'props rather than an object with latitude and longitude.'
+          }
           extraKeywords="Map"
         >
           <p>

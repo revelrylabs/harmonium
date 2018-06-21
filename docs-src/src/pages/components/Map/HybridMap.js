@@ -13,7 +13,11 @@ export default class HybridMapExamplePage extends Component {
       <div>
         <Headers
           title="Hybrid Map Component"
-          metaDescription={'This is a Map Component'}
+          metaDescription={
+            'This is an Hybrid Map Component, a zoom and style have been given as' +
+            'props. An address (a string) has been provided as the center props' +
+            'rather than an object with latitude and longitude.'
+          }
           extraKeywords="Map"
         >
           <p>

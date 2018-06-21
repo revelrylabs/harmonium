@@ -1,0 +1,80 @@
+$table-background: $white;
+$table-border: 1px solid $divider-color;
+$table-header-background: $white;
+$table-height: 25rem;
+
+.rev-Table {
+  background-color: $table-background;
+  border-collapse: collapse;
+  border: $table-border;
+  margin: $global-margin 0;
+  width: 100%;
+  p {
+    font-size: $global-font-size-small;
+    padding: 0;
+    margin-bottom: $global-margin-small;
+    margin-top: $global-margin-small;
+  }
+  th,
+  td {
+    padding: $global-padding-small $global-padding-small;
+    @include breakpoint(medium) {
+      padding: $global-padding-small $global-padding;
+    }
+    @include breakpoint(medium-down) {
+      display: block;
+    }
+  }
+}
+.rev-Table-head {
+  background-color: $brand;
+  color: $white;
+  padding: $global-padding-small 0;
+  p {
+    font-size: $global-font-size-small;
+    margin-bottom: 0;
+    margin-top: 0;
+    padding: 0;
+  }
+  th {
+    font-size: $global-font-size-small;
+    font-weight: $global-weight-normal;
+    text-align: left;
+  }
+}
+tbody,
+thead {
+  .rev-Table-row {
+    padding: 0;
+  }
+}
+.rev-Table-body {
+  font-size: $global-font-size-small;
+  &.rev-Table--scroll {
+    min-width: 100%;
+    width: auto;
+    @include vertical-scroll-container(250px);
+    @include breakpoint(medium-down) {
+      @include vertical-scroll-container(350px);
+    }
+  }
+  &.rev-Table--striped {
+    @include striped-table;
+  }
+}
+.rev-Table-row {
+  border-bottom: $table-border;
+  padding: $global-padding-small 0;
+  &:last-child {
+    border-bottom: 0;
+  }
+  span {
+    font-weight: $global-weight-bold;
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+  li {
+    list-style-type: none;
+  }
+}

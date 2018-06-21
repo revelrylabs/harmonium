@@ -13,7 +13,11 @@ export default class DesignedRetroMapExamplePage extends Component {
       <div>
         <Headers
           title="Designed Retro Map Component"
-          metaDescription={'This is a Map Component'}
+          metaDescription={
+            'This is a Designed Retro Map Component, we have passed the' +
+            'RetroStyle as a styles props to Map. A zoom, object center (latitude' +
+            'and longitude) and style have been provided as props.'
+          }
           extraKeywords="Map"
         >
           <p>
