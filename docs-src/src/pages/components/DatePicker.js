@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import DatepickerVars from './DatepickerTables/DatepickerVars'
+import DatepickerProps from './DatepickerTables/DatepickerProps'
 
 const examples = {
   'Without Props': require('raw!../../examples/DatePicker/Basic.js.example'),
@@ -45,6 +47,10 @@ export default class DatePickerExamplePage extends Component {
           depth={1}
           scope={scope}
         />
+        <h3>Variables:</h3>
+        <DatepickerVars />
+        <h3>Properties:</h3>
+        <DatepickerProps />
       </div>
     )
   }
