@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import InputGroupProps from './InputGroupTables/InputGroupProps'
 
 const examples = {
   Standalone: require('raw!../../examples/InputGroup/Standalone.js.example'),
@@ -34,6 +35,8 @@ export default class InputGroupExamplePage extends Component {
           depth={1}
           scope={scope}
         />
+        <h3>Properties:</h3>
+        <InputGroupProps />
       </div>
     )
   }
