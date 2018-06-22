@@ -1,12 +1,17 @@
-<Checkbox.Fieldset
-  name="with_help"
-  options={[
-    {label: 'North', value: 'N'},
-    {label: 'South', value: 'S'},
-    {label: 'East disabled', value: 'E', disabled: true},
-    {label: 'West', value: 'W'},
-  ]}
-  label="Has help text and error"
-  help="This is the help text."
-  error="This is the error."
-/>
+<div>
+  <Col>
+    <h3>Checkbox Fieldset</h3>
+  </Col>
+  <Checkbox.Fieldset
+    name="with_help"
+    options={[
+      {label: 'North', value: 'N'},
+      {label: 'South', value: 'S'},
+      {label: 'East disabled', value: 'E', disabled: true},
+      {label: 'West', value: 'W'},
+    ]}
+    label="Has help text and error"
+    help="This is the help text."
+    error="This is the error."
+  />
+</div>

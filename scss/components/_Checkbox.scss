@@ -23,6 +23,18 @@
       @include disabled;
     }
   }
+  &--stackedForMedium {
+    @include breakpoint(medium-down) {
+      display: block;
+      margin-right: 0;
+    }
+  }
+  &--stackedForSmall {
+    @include breakpoint(small-only) {
+      display: block;
+      margin-right: 0;
+    }
+  }
 }
 .rev-Checkbox-label {
   @extend .rev-LabelText;

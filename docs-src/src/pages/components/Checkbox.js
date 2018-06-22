@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
+import CheckboxProps from './CheckboxTables/CheckboxProps'
 import Headers from '../../Headers'
 
 const examples = {
@@ -34,6 +35,8 @@ export default class CheckboxExamplePage extends Component {
           depth={1}
           scope={scope}
         />
+        <h3>Properties:</h3>
+        <CheckboxProps />
       </div>
     )
   }
