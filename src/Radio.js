@@ -4,6 +4,13 @@ import classNames from 'classnames'
 import InputLabel from './InputLabel'
 import CheckableFieldset from './CheckableFieldset'
 
+const BOOL_PROPS_TO_CLASS_NAMES = {
+  stacked: ['rev-Radio--stacked'],
+  stackedForSmall: ['rev-Radio--stackedForSmall'],
+  stackedForMedium: ['rev-Radio--stackedForMedium'],
+}
+const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
+
 export default class Radio extends Component {
   static propTypes = {
     error: PropTypes.oneOfType([PropTypes.bool, PropTypes.string]),
@@ -14,9 +21,24 @@ export default class Radio extends Component {
   render() {
     const {error, className, label, ...props} = this.props
 
-    const labelClassName = classNames(className, 'rev-Radio', {
-      'is-invalid': !!error,
+    // Start building the className
+    const boolClassNames = []
+
+    BOOL_PROPS.forEach((name) => {
+      if (props[name]) {
+        boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
+      }
+      delete props[name]
     })
+
+    const labelClassName = classNames(
+      className, 
+      'rev-Radio', 
+      boolClassNames, 
+      {
+        'is-invalid': !!error,
+      }
+    )
 
     const inputClassName = classNames('rev-Radio-input', {
       'is-invalid-input': !!error,

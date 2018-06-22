@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import RadioProps from './RadioTables/RadioProps'
+
 
 const examples = {
   Singular: require('raw!../../examples/Radio/Singular.js.example'),
@@ -36,6 +38,8 @@ export default class RadioExamplePage extends Component {
           depth={1}
           scope={scope}
         />
+        <h3>Properties:</h3>
+        <RadioProps />
       </div>
     )
   }

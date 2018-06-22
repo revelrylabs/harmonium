@@ -5,4 +5,16 @@
   <div>
     <Radio name="singular" defaultValue="3" label="Has error" error />
   </div>
+  <div>
+    <h3>Inline Radios</h3>
+    <Radio name="singular" defaultValue="1" label="One" />
+    <Radio name="singular" defaultValue="2" label="Two" />
+    <Radio name="singular" defaultValue="3" label="Three" />    
+  </div>
+  <div>
+    <h3>Stacked Radios</h3>
+    <Radio name="singular" stacked defaultValue="1" label="One" />
+    <Radio name="singular" stacked defaultValue="2" label="Two" />
+    <Radio name="singular" stacked defaultValue="3" label="Three" />    
+  </div>
 </div>
