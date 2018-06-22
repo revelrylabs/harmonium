@@ -1,6 +1,8 @@
 import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
+import InputVars from './InputTables/InputVars'
+import InputProps from './InputTables/InputProps'
 import Headers from '../../Headers'
 
 const examples = {
@@ -34,6 +36,10 @@ export default class InputExamplePage extends Component {
           depth={1}
           scope={scope}
         />
+        <h3>Variables:</h3>
+        <InputVars />
+        <h3>Properties:</h3>
+        <InputProps />
       </div>
     )
   }
