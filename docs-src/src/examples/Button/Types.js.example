@@ -1,5 +1,8 @@
 <Row className="ExampleButtons">
   <Col>
+    <h3>Button Types</h3>  
+  </Col>
+  <Col>
     <Button>Default</Button>
     <Button primary>Primary</Button>
     <Button secondary>Secondary</Button>

@@ -32,6 +32,11 @@ h6 {
   margin: $global-padding 0 0;
   text-transform: uppercase;
 }
+code {
+  background: darken($lightest-gray, 1%);
+  border: 1px solid $black-03;
+  padding: 0 5px;
+}
 .CodeMirror.CodeMirror {
   height: auto;
 }
