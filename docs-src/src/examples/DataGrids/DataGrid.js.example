@@ -6,63 +6,63 @@
     <DataGrid>
       <DataGrid.HeaderRow>
         <DataGrid.HeaderCol medium={4}>
-          <strong>Column Header</strong>
+          <strong>Lorem Ipsum Dolor</strong>
         </DataGrid.HeaderCol>
         <DataGrid.HeaderCol medium={4}>
-          <strong>Column Header</strong>
+          <strong>Sit Amet</strong>
         </DataGrid.HeaderCol>
         <DataGrid.HeaderCol medium={4}>
-          <strong>Column Header</strong>
+          <strong>Consectetur Adipiscing</strong>
         </DataGrid.HeaderCol>
       </DataGrid.HeaderRow>
 
       <DataGrid.HeaderRowStacked>
         <DataGrid.HeaderCol>
-          <strong>Column Header</strong>
+          <strong>Lorem Ipsum</strong>
         </DataGrid.HeaderCol>
       </DataGrid.HeaderRowStacked>
 
       <DataGrid.Body>
         <DataGrid.Row>
           <DataGrid.Col medium={4}>
-            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
-            DataGrid text text here
+            <DataGrid.HeaderInline>Lorem Ipsum Dolor:</DataGrid.HeaderInline>
+            Ut enim ad minim veniam
           </DataGrid.Col>
           <DataGrid.Col medium={4}>
-            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
-            DataGrid text longer
+            <DataGrid.HeaderInline>Sit Amet:</DataGrid.HeaderInline>
+            Duis aute irure dolor in reprehenderit
           </DataGrid.Col>
           <DataGrid.Col medium={4}>
-            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
-            DataGrid text longer long
-          </DataGrid.Col>
-        </DataGrid.Row>
-        <DataGrid.Row>
-          <DataGrid.Col medium={4}>
-            <DataGrid.HeaderInline>Column:</DataGrid.HeaderInline>
-            DataGrid text longer long long here
-          </DataGrid.Col>
-          <DataGrid.Col medium={4}>
-            <DataGrid.HeaderInline>Column Header Longer Text:</DataGrid.HeaderInline>
-            DataGrid text longer long long text here
-          </DataGrid.Col>
-          <DataGrid.Col medium={4}>
-            <DataGrid.HeaderInline>Column Header Header Head Head:</DataGrid.HeaderInline>
-            DataGrid text longer long long long text here
+            <DataGrid.HeaderInline>Consectetur Adipiscing:</DataGrid.HeaderInline>
+            Quis nostrud exercitation
           </DataGrid.Col>
         </DataGrid.Row>
         <DataGrid.Row>
           <DataGrid.Col medium={4}>
-            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
-            DataGrid text longer long long long text here
+            <DataGrid.HeaderInline>Lorem Ipsum Dolor:</DataGrid.HeaderInline>
+            Laboris nisi ut
           </DataGrid.Col>
           <DataGrid.Col medium={4}>
-            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
-            DataGrid text longer long long long text here
+            <DataGrid.HeaderInline>Sit Amet:</DataGrid.HeaderInline>
+            Aliquip ex ea commodo consequat
           </DataGrid.Col>
           <DataGrid.Col medium={4}>
-            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
-            DataGrid text longer long long long text here
+            <DataGrid.HeaderInline>Consectetur Adipiscing:</DataGrid.HeaderInline>
+            Excepteur sint occaecat
+          </DataGrid.Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Lorem Ipsum Dolor:</DataGrid.HeaderInline>
+            Cupidatat non proident
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Sit Amet:</DataGrid.HeaderInline>
+            Sunt in culpa qui officia
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Consectetur Adipiscing:</DataGrid.HeaderInline>
+            Deserunt mollit anim id est laborum
           </DataGrid.Col>
         </DataGrid.Row>
       </DataGrid.Body>
