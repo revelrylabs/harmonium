@@ -16,8 +16,7 @@ export default class DataGridExamplePage extends Component {
         <Headers
           title="DataGrid"
           metaDescription={
-            'The DataGrid component mimics a Table, but instead, uses Rows and Cols as its structure.' +
-            'It provides an easy way to visualize data with its fixed Header and inline-scrolling. '
+            'The DataGrid component mimics a Table, but instead, uses a float grid with Rows and Cols as its structure.'
           }
           extraKeywords="Component, DataGrid"
         >
