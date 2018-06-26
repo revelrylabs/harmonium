@@ -1,70 +1,86 @@
 <Row>
   <Col>
     <h3>Striped Table</h3>
-    <p>The striped prop can be added to give a more clear delineation between table rows, using :even :odd background colors. Stripe color can be adjusted using the $table-stripe-background variable in harmonium-settings.</p>
+    <p>The striped prop can be added to give a more clear delineation between table rows, using alternating background colors. Stripe color can be adjusted using the <code>$table-stripe-background</code> variable in harmonium-settings.</p>
     <Table striped>
       <Table.Head>
         <Table.Row>
           <Table.Header>
-            Table Header
+            Lorem Ipsum
           </Table.Header>
           <Table.Header>
-            Table Header
+            Dolor Sit Amet
           </Table.Header>
           <Table.Header>
-            Table Header
+            Consectetur Adipiscing
           </Table.Header>
           <Table.Header>
-            Table Header
+            Elit Sed Do Eiusmod
           </Table.Header>
         </Table.Row>
       </Table.Head>
+
       <Table.HeadStacked>
-        <Table.Header>
-          Stacked (Responsive) Table Header
-        </Table.Header>
+        <Table.Row>
+          <Table.Header>
+            Lorem Ipsum
+          </Table.Header>
+        </Table.Row>
       </Table.HeadStacked>
+
       <Table.Body>
         <Table.Row>
           <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+            <Table.HeaderInline>Lorem Ipsum:</Table.HeaderInline>
+            Ut enim ad minim veniam, quis nostrud exercitation
           </Table.Data>
           <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+            <Table.HeaderInline>Dolor Sit Amet:</Table.HeaderInline>
+            Ullamco laboris nisi ut aliquip
           </Table.Data>
           <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+            <Table.HeaderInline>Consectur Adipiscing:</Table.HeaderInline>
+            Commodo consequat duis aute irure dolor
           </Table.Data>
           <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
-          </Table.Data>
-        </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
-          </Table.Data>
-          <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+            <Table.HeaderInline>Elit Sed Do Eiusmod:</Table.HeaderInline>
+             In reprehenderit in voluptate velit esse cillum
           </Table.Data>
         </Table.Row>
         <Table.Row>
           <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+            <Table.HeaderInline>Lorem Ipsum:</Table.HeaderInline>
+            Dolore eu fugiat nulla pariatur
           </Table.Data>
           <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+            <Table.HeaderInline>Dolor Sit Amet:</Table.HeaderInline>
+            Excepteur sint occaecat cupidatat non proident
           </Table.Data>
           <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+            <Table.HeaderInline>Consectur Adipiscing:</Table.HeaderInline>
+            Sunt in culpa qui officia
           </Table.Data>
           <Table.Data>
-            <Table.HeaderStacked>Column Header:</Table.HeaderStacked> Table Row text
+            <Table.HeaderInline>Elit Sed Do Eiusmod:</Table.HeaderInline>
+            Deserunt mollit anim id est laborum
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Lorem Ipsum:</Table.HeaderInline>
+            Sed ut perspiciatis unde omnis iste
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Dolor Sit Amet:</Table.HeaderInline>
+            Natus error sit voluptatem accusantium
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Consectur Adipiscing:</Table.HeaderInline>
+            Doloremque laudantium totam rem aperiam
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Elit Sed Do Eiusmod:</Table.HeaderInline>
+            Eaque ipsa quae ab illo inventore
           </Table.Data>
         </Table.Row>
       </Table.Body>

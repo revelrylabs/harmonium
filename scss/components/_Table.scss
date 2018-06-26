@@ -9,9 +9,11 @@ $table-breakpoint: medium !default;
 $table-stripe-background: $lightest-gray !default;
 
 @mixin stacked-table {
-  th,
-  td {
+  th {
     display: block;
+  }
+  td {
+    @include flex(flex-start, row, flex-start, nowrap);
   }
   .rev-Table-head {
     display: none;
@@ -21,8 +23,10 @@ $table-stripe-background: $lightest-gray !default;
     }
   }
   //Inline Table Headers
-  .rev-Table-header--stacked {
+  .rev-Table-header--inline {
     display: block;
+    font-weight: $global-weight-bold;
+    padding-right: $global-padding-small;
   }
 }
 
@@ -41,6 +45,7 @@ $table-stripe-background: $lightest-gray !default;
   td {
     color: $table-color;
     padding: $global-padding-small $global-padding-small;
+    vertical-align: top;
   }
   //stacked for all screens
   &--stacked {
@@ -119,7 +124,7 @@ $table-stripe-background: $lightest-gray !default;
 }
 .rev-Table-header {
   //Inline Table Headers
-  &--stacked {
+  &--inline {
     display: none;
     font-weight: $global-weight-bold;
   }
