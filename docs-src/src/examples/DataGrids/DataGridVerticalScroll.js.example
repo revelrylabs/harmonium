@@ -1,0 +1,126 @@
+<Row>
+  <Col>
+    <h3>Vertically Scrolling DataGrid</h3>
+    <p>For DataGrids with large amounts of information, the verticalScroll prop can be added allowing the rows to scroll while the headers stay fixed. Adjust the height of the DataGrid container by updating the <code>$data-grid-scroll-height</code> variable in harmonium-settings.</p>
+    <DataGrid verticalScroll>
+      <DataGrid.HeaderRow>
+        <DataGrid.HeaderCol medium={4}>
+          <strong>Column Header</strong>
+        </DataGrid.HeaderCol>
+        <DataGrid.HeaderCol medium={4}>
+          <strong>Column Header</strong>
+        </DataGrid.HeaderCol>
+        <DataGrid.HeaderCol medium={4}>
+          <strong>Column Header</strong>
+        </DataGrid.HeaderCol>
+      </DataGrid.HeaderRow>
+
+      <DataGrid.HeaderRowStacked>
+        <DataGrid.HeaderCol medium={4}>
+          <strong>Column Header</strong>
+        </DataGrid.HeaderCol>
+      </DataGrid.HeaderRowStacked>
+
+      <DataGrid.Body>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+        </DataGrid.Row>
+      </DataGrid.Body>
+    </DataGrid>
+  </Col>
+</Row>

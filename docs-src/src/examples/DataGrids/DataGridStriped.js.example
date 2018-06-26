@@ -1,0 +1,71 @@
+<Row>
+  <Col>
+    <h3>Striped DataGrid</h3>
+    <p>The striped prop can be added to give a more clear delineation between DataGrid rows, using alternating background colors. Stripe color can be adjusted using the <code>$data-grid-stripe-background</code> variable in harmonium-settings.</p>
+
+    <DataGrid striped>
+      <DataGrid.HeaderRow>
+        <DataGrid.HeaderCol medium={4}>
+          <strong>Column Header</strong>
+        </DataGrid.HeaderCol>
+        <DataGrid.HeaderCol medium={4}>
+          <strong>Column Header</strong>
+        </DataGrid.HeaderCol>
+        <DataGrid.HeaderCol medium={4}>
+          <strong>Column Header</strong>
+        </DataGrid.HeaderCol>
+      </DataGrid.HeaderRow>
+
+      <DataGrid.HeaderRowStacked>
+        <DataGrid.HeaderCol>
+          <strong>Column Header</strong>
+        </DataGrid.HeaderCol>
+      </DataGrid.HeaderRowStacked>
+
+      <DataGrid.Body>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Column Header:</DataGrid.HeaderInline>
+            DataGrid text
+          </DataGrid.Col>
+        </DataGrid.Row>
+      </DataGrid.Body>
+    </DataGrid>
+  </Col>
+</Row>
