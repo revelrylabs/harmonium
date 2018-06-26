@@ -20,6 +20,7 @@ $data-grid-scroll-height: 15rem !default;
   }
   .rev-DataGrid-col {
     @include flex(flex-start, row, flex-start, nowrap);
+    width: 100%;
   }
 }
 
