@@ -97,8 +97,7 @@ class TableHeader extends Component {
 }
 Table.Header = TableHeader
 
-
-class TableHeaderStacked extends Component {
+class TableHeaderInline extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
@@ -108,14 +107,13 @@ class TableHeaderStacked extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <span {...props} className={`rev-Table-header rev-Table-header--stacked ${className}`}>
+      <span {...props} className={`rev-Table-header rev-Table-header--inline ${className}`}>
         {children}
       </span>
     )
   }
 }
-Table.HeaderStacked = TableHeaderStacked
-
+Table.HeaderInline = TableHeaderInline
 
 class TableBody extends Component {
   static propTypes = {
