@@ -74,7 +74,8 @@ h2 {
   line-height: $global-vertical-space * 2;
 }
 h3 {
-  line-height: $global-vertical-space * 1.5;
+  line-height: $global-lineheight;
+  margin: $global-margin-small 0;
 }
 h4, h5, h6 {
   line-height: $global-lineheight;

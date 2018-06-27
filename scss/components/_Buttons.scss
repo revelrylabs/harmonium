@@ -37,7 +37,7 @@ $closebutton-size: $global-font-size !default;
   font-size: $global-font-size;
   font-weight: normal;
   line-height: $base-lineheight;
-  margin: 0 auto $global-vertical-space;
+  margin: 0 0 $global-vertical-space;
   padding: $global-padding-small $global-padding;
   &:hover,
   &:active,

@@ -1,0 +1,8 @@
+@mixin even-odd-stripes ($odd: $white, $even: $lightest-gray) {
+  &:nth-child(odd) {
+    background-color: $odd;
+  }
+  &:nth-child(even) {
+    background-color: $even;
+  }
+}

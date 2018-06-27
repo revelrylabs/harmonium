@@ -30,7 +30,6 @@ export default class ButtonExamplePage extends Component {
           </p>
         </Headers>
         <ExampleSection
-          title="Examples"
           examples={examples}
           depth={1}
           scope={scope}
