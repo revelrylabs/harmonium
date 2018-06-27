@@ -7,32 +7,7 @@ $modal-content-border-size: 1px !default;
 $modal-content-border-color: $divider-color !default;
 $modal-content-box-shadow: $global-box-shadow !default;
 $modal-content-color: $body-font-color !default;
-$modal-content-padding: $global-padding !default;
-.rev-Modal-background {
-  background: $modal-bkgd;
-  position: relative;
-}
-
-.rev-Modal {
-  position: fixed;
-  @include flex(center, row, center, nowrap);
-  @include opacity-transition;
-  @include fade-in;
-  z-index: $above-everything;
-  // so we can move the modal out of the way so that it doesn't intercept
-  // clicks while closed
-  transition: left 0.15s ease-in 0.15s;
-}
-.rev-Modal--closed.rev-Modal--closed {
-  opacity: 0;
-  // so we can move the modal out of the way so that it doesn't intercept
-  // clicks while closed
-  right: 9999vw;
-}
-.rev-Modal--open {
-  opacity: 1;
-}
-
+$modal-content-padding: 0 !default;
 
 .rev-Modal,
 .rev-Modal-background {
@@ -43,6 +18,22 @@ $modal-content-padding: $global-padding !default;
   top: 0;
 }
 
+.rev-Modal {
+  position: fixed;
+  @include flex(center, row, center, nowrap);
+  @include global-transition(opacity);
+  z-index: $above-everything;
+  &.rev-Modal--closed {
+    opacity: 0;
+    // so we can move the modal out of the way so that it doesn't intercept
+    // clicks while closed
+    right: 9999vw;
+  }
+  &.rev-Modal--open {
+    opacity: 1;
+  }
+}
+
 .rev-Modal-background {
   background: $modal-bkgd;
   position: absolute
@@ -50,30 +41,11 @@ $modal-content-padding: $global-padding !default;
 
 .rev-Modal-content {
   background: $modal-content-bkgd;
-  border-radius: $global-radius;
+  border-radius: $card-radius;
   box-shadow: $global-box-shadow;
   color: $modal-content-color;
   max-width: $global-width;
   padding: $modal-content-padding;
   position: relative;
   width: 90%;
-  z-index: 100;
-  .rev-CloseButton {
-    cursor: pointer;
-    opacity: 1;
-    position: absolute;
-    right: 10px;
-    top: 10px;
-    z-index: $above-everything;
-    @include opacity-transition;
-    @include reduce-flicker;
-    &:hover,
-    &:active,
-    &:focus {
-      text-decoration: none;
-    }
-    &:hover {
-      opacity: .8;
-    }
-  }
 }

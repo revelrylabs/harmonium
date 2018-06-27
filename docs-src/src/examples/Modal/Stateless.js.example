@@ -15,13 +15,18 @@ class StatelessModalExample extends Component {
       <div>
         <Button style={{backgroundColor: 'black'}} onClick={() => this.openModal()}>Open Modal</Button>
         <StatelessModal isOpen={this.state.isOpen} onBackgroundClick={() => this.closeModal()}>
-          <h1>Modal Example</h1>
-          <p>Click the background or the close button to dismiss it</p>  
-          <CloseButton 
-          aria-label="Close Callout" 
+          <Row>
+            <Col>
+              <h1>Modal Example</h1>
+              <p>Click the background or the close button to dismiss the modal.</p>
+            </Col>
+          </Row>
+          <CloseButton
+          absolute
+          aria-label="Close Callout"
           onClick={() => this.closeModal()}>&times;</CloseButton
           >
-        </StatelessModal>  
+        </StatelessModal>
       </div>
     )
   }
