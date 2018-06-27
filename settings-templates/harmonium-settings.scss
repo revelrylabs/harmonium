@@ -132,10 +132,14 @@ $button-color-active: $white;
 $button-radius: $global-radius;
 
 // CLOSE BUTTON
-$closebutton-color: $darker-gray;
-$closebutton-color-hover: $black;
-$closebutton-lineheight: $global-lineheight;
-$closebutton-size: $global-font-size;
+$closebutton-bkgd: $darker-gray;
+$closebutton-color: $white;
+$closebutton-bkgd-hover: $black;
+$closebutton-color-hover: $white;
+$closebutton-bkgd-active: $black;
+$closebutton-color-active: $white;
+$closebutton-radius: $global-rounded;
+$closebutton-size: $size-large;
 
 // HR Vars
 $hr-width: $global-width;
