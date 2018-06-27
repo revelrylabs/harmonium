@@ -19,18 +19,17 @@ export default class ButtonExamplePage extends Component {
         <Headers
           title="Buttons"
           metaDescription={
-            'Possum provides semantic button components for a variety of uses, ' +
+            'Harmonium provides semantic button components for a variety of uses, ' +
             'in differing styles and sizes.'
           }
           extraKeywords="Component, Buttons, Forms"
         >
           <p>
-            Possum provides semantic button components for a variety of uses,
+            Harmonium provides semantic button components for a variety of uses,
             in differing styles and sizes.
           </p>
         </Headers>
         <ExampleSection
-          title="Examples"
           examples={examples}
           depth={1}
           scope={scope}

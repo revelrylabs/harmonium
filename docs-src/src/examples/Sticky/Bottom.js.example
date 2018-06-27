@@ -1,6 +1,6 @@
 <Sticky.Stateful stickToBottom style={{border: '1px solid black', paddingBottom: '1000px'}}>
   <span>
-    This is an example of a stateful Sticky.
-    Borders provide visual clarity to see exactly when this sticks/unsticks.
+    This is an example of a stateful Sticky that sticks to the bottom.
+    This is done by passing the stickToBottom prop into the component.
   </span>
 </Sticky.Stateful>

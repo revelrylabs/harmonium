@@ -40,7 +40,7 @@ exports.modifyWebpackConfig = ({ config, stage }) => {
 
 module.exports = {
   siteMetadata: {
-    title: 'React Components for Teams That Move Fast | Possum',
+    title: 'React Components for Teams That Move Fast | Harmonium',
   },
   plugins: [
     'gatsby-plugin-react-helmet',

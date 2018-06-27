@@ -38,9 +38,9 @@ $global-font-size: 1.6rem;
 $global-font-size-tiny: $global-font-size * 0.5;
 $global-font-size-smaller: $global-font-size * 0.75;
 $global-font-size-small: $global-font-size * 0.875;
-$global-font-size-medium: $global-font-size * 1.5;
-$global-font-size-large: $global-font-size * 2;
-$global-font-size-larger: $global-font-size * 2.5;
+$global-font-size-medium: $global-font-size * 1;
+$global-font-size-large: $global-font-size * 1.5;
+$global-font-size-larger: $global-font-size * 2;
 $global-font-size-largest: $global-font-size * 3;
 
 // Headers (rems or unit-less values only!)
@@ -113,13 +113,29 @@ $paragraph-lineheight: $global-lineheight;
 $paragraph-margin-bottom: $global-vertical-space;
 $paragraph-text-rendering: optimizeLegibility;
 
-// Anchor Vars
+// ANCHORS
 $anchor-color: $primary;
 $anchor-color-hover: darken($primary, 10%);
 $anchor-color-active: darken($primary, 15%);
 $anchor-color-inverse: $body-bkgd;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
+
+// BUTTONS
+$button-bkgd: $brand;
+$button-border: 0;
+$button-color: $white;
+$button-bkgd-hover: darken($brand, 5%);
+$button-color-hover: $white;
+$button-bkgd-active: darken($brand, 10%);
+$button-color-active: $white;
+$button-radius: $global-radius;
+
+// CLOSE BUTTON
+$closebutton-color: $darker-gray;
+$closebutton-color-hover: $black;
+$closebutton-lineheight: $global-lineheight;
+$closebutton-size: $global-font-size;
 
 // HR Vars
 $hr-width: $global-width;
@@ -231,6 +247,20 @@ $pagination-link-color-active: null;
 $pagination-link-bkgd-selected: null;
 $pagination-link-color-selected: null;
 
+//# Breadcrumbs
+$breadcrumb-font-size: $global-font-size-smaller;
+$breadcrumb-selected-color: $body-font-color;
+$breadcrumb-color: $anchor-color;
+$breadcrumb-color-hover: $anchor-color-hover;
+$breadcrumb-color-active: $anchor-color-active;
+$breadcrumb-text-transform: uppercase;
+$breadcrumb-separator-family: $body-font-family; // In case you want to use an icon as the separator
+$breadcrumb-separator: '/';
+$breadcrumb-separator-color: $light-gray;
+$breadcrumb-margin: $global-margin 0;
+$breadcrumb-item-margin: 0 $global-margin-small;
+$breadcrumb-item-padding: 0;
+
 //## STATEFUL COMPONENTS -----------------------------
 
 //# Accordions
@@ -286,6 +316,28 @@ $input-font-size: $global-font-size;
 $label-color: $body-font-color;
 $label-font-size: $global-font-size;
 
+//## TABLES -----------------------------
+
+$table-background: $white;
+$table-color: $body-font-color;
+$table-border: 1px solid $divider-color;
+$table-header-background: $body-font-color;
+$table-header-color: $white;
+//responsive table breakpoint
+$table-breakpoint: medium;
+//striped tables
+$table-stripe-background: $lightest-gray;
+
+//## DATA GRIDS -----------------------------
+
+$data-grid-background: $white;
+$data-grid-color: $body-font-color;
+$data-grid-border: 1px solid $divider-color;
+$data-grid-header-background: $body-font-color;
+$data-grid-header-color: $white;
+$data-grid-stripe-background: $lightest-gray;
+$data-grid-scroll-height: 25rem;
+
 //## PICKERS -----------------------------
 
 //# Calendar
@@ -309,11 +361,6 @@ $time-picker-header-bkgd: $time-picker-bkgd;
 
 //# Badges
 $badge-size: $size-default;
-
-//# Close Buttons
-$close-bkgd: $body-font-color;
-$close-color: $body-bkgd;
-$close-size: $size-default;
 
 //## UTILITIES -----------------------------
 

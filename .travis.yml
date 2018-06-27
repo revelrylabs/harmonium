@@ -9,7 +9,7 @@ deploy:
     email: $NPM_EMAIL
     api_key: $NPM_TOKEN
     on:
-      repo: revelrylabs/possum
+      repo: revelrylabs/harmonium
       tags: true
       node: '8'
     skip_cleanup: true
@@ -18,5 +18,5 @@ deploy:
     script:
       - npx semantic-release
     on:
-      repo: revelrylabs/possum
+      repo: revelrylabs/harmonium
       node: '8'

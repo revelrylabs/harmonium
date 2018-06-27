@@ -13,3 +13,4 @@ yarn.lock
 api.json
 /api
 .idea
+/sass-test/*.css

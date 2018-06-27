@@ -41,6 +41,17 @@
     display: block;
   }
 }
+@include breakpoint(medium-down)  {
+  .Hidden--mediumDown {
+    visibility: hidden;
+  }
+  .Hide--mediumDown {
+    display: none;
+  }
+  .Show--mediumDown {
+    display: block;
+  }
+}
 @include breakpoint(medium-only)  {
   .Hidden--mediumOnly {
     visibility: hidden;

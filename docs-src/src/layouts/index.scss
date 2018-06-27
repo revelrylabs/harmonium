@@ -6,7 +6,6 @@
   border-color: mix($alert, $white, 33%);
   color: mix($alert, $white, 33%);
 }
-
 // TYPOGRAPHY
 
 // Proxima Nova Headers for docs only
@@ -14,15 +13,23 @@ h1,h2,h3,h4 {
   font-family: 'proxima-nova', $global-sans-serif-font;
   font-weight: 500;
 }
+//TODO incorporate this into typography styles
 h1 {
-  font-weight: 900;
+  font-size: 36px;
+  line-height: 48px;
+  margin: 0;
+  padding: $global-padding-large 0 $global-padding-small;
+}
+h2 {
+  font-size: 32px;
+  line-height: 48px;
 }
 
-h1 h5,
+h5,
 h6 {
   font-weight: normal;
   letter-spacing: 1px;
-  margin: $global-padding-large 0 0;
+  margin: $global-padding 0 0;
   text-transform: uppercase;
 }
 .CodeMirror.CodeMirror {
@@ -44,19 +51,74 @@ h6 {
   flex-wrap: wrap;
   margin-bottom: $global-margin-large;
 }
-.playgroundCode {
-  margin-bottom: $global-vertical-space;
+.playgroundToggleCodeBar {
+  margin: 0 $global-padding-small -1px;
   order: 1;
-  width: 100%;
 }
+.playgroundToggleCodeLink {
+  @include flex(center, row, flex-start, nowrap);
+  background: $lightest-gray;
+  border: 1px solid $lighter-gray;
+  border-bottom: 1px solid $lightest-gray;
+  border-radius: $global-radius $global-radius 0 0;
+  color: $anchor-color;
+  cursor: pointer;
+  padding: $global-padding-tiny $global-padding-small;
+  position: relative;
+  &:hover {
+    color: $anchor-color-hover;
+  }
+  &:active,
+  &:focus {
+    color: $anchor-color-active;
+  }
+  &:after {
+    content: 'code snippet';
+    padding-left: $global-padding-tiny;
+  }
+  &:before {
+    content: '+';
+    font-weight: bold;
+    padding-right: $global-padding-tiny;
+  }
+}
+.playgroundCode {
+  background: $lightest-gray;
+  border: 1px solid $lighter-gray;
+  border-radius: 0 $global-radius $global-radius $global-radius;
+  display: block;
+  order: 2;
+  margin: 0 $global-padding-small;
+  padding: $global-padding-small;
+  width: 100%;
+  .ReactCodeMirror {
+    @include global-transition;
+    @include vertical-scroll-container(150px);
+    border-radius: $global-radius;
+  }
+  &.expandedCode {
+    .ReactCodeMirror {
+      max-height: 100%;
+    }
+    + .playgroundToggleCodeBar {
+      .playgroundToggleCodeLink {
+        &:before {
+          content: '-';
+        }
+      }
+    }
+  }
+}
+
 .playgroundError {
+  @include alert-color-stack;
+  @include panel($padded: true);
   font-family: monospace;
   overflow-x: scroll;
   white-space: pre-wrap;
-  @include panel($padded: true);
-  @include alert-color-stack;
 }
 .playgroundPreview {
+  display: block;
   order: 0;
   width: 100%;
 }
@@ -167,23 +229,46 @@ h6 {
 .playground .rev-TopBar {
   margin: 0 0 $global-vertical-space;
 }
+
+// Branding
+.rev-Brand {
+  @include flex(center, row, center, nowrap);
+  height: 48px;
+  padding: $global-padding-tiny $global-padding-small;
+  position: relative;
+  @include breakpoint(medium) {
+    margin: $global-margin-large 0 $global-margin;
+    padding: 0 $global-padding;
+  }
+  img {
+    height: 100%;
+    width: auto;
+    @include breakpoint(medium) {
+      height: auto;
+      margin-bottom: $global-padding-small;
+      width: 100%
+    }
+  }
+  small {
+    bottom: -1.2rem;
+    color: $white-60;
+    font-size: $global-font-size;
+    font-weight: normal;
+    left: $global-padding;
+    position: absolute;
+  }
+}
+.rev-Brand-symbol {
+  margin: $global-margin-large auto $global-margin;
+  max-width: 20rem;
+}
+
 // Topbar Small Only
 @include breakpoint(small-only) {
   .rev-TopBar.Show--smallOnly {
-    background: $body-font-color;
+    box-shadow: 0 0 3px 0 $black-20;
     border: 0;
-    .rev-Brand {
-      @include flex(baseline, row, flex-start, nowrap);
-      height: $topbar-height;
-      padding: 0;
-    }
-    h1 {
-      color: $white;
-      font-size: $global-font-size-large;
-      line-height: $topbar-height;
-      margin: 0;
-      padding: 0 $global-padding-tiny 0 0;
-    }
+    margin-bottom: $global-margin;
     small {
       color: $white-60;
       font-size: $global-font-size-small;
@@ -223,21 +308,9 @@ h6 {
   }
   .rev-Drawer-contents {
     background: $brand;
-    background: linear-gradient(to bottom, $brand-purple 0%, $brand 100%);
+    background: linear-gradient(to bottom, $brand-secondary 0%, $brand 100%);
     color: $white;
     padding-bottom: $global-padding-larger;
-  }
-  .rev-Brand {
-    color: $white;
-    padding: 0 $global-padding;
-    h1 {
-      margin-bottom: 0;
-    }
-    small {
-      color: $white-60;
-      font-size: $global-font-size;
-      font-weight: normal;
-    }
   }
   .rev-Menu-item--text {
     color: $white-60;

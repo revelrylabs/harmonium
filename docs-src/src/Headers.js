@@ -1,14 +1,18 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import Helmet from 'react-helmet'
+import {Row, Col} from 'harmonium/lib/grid'
 
 const Headers = ({children, extraKeywords, metaDescription, title}) => {
   const keywordString = extraKeywords ? `, ${extraKeywords}` : ''
-  let extendedTitle = `${title} | Possum | React Components for Teams That Move Fast`
+  let extendedTitle = `${title} | Harmonium | React Components for Teams That Move Fast`
 
-  if (extendedTitle.length >= 70) {
-    // Trim title down if it is over 70 characters for better display & indexing
-    extendedTitle = `${title} | Possum | React Components`
+  if (extendedTitle.length >= 60) {
+    // Trim title down if it is over 60 characters for better display & indexing
+    extendedTitle = `${title} | Harmonium | React Components`
+    if (extendedTitle.length >= 60) {
+      extendedTitle = `${title} | Harmonium`
+    }
   }
 
   return (
@@ -32,11 +36,15 @@ const Headers = ({children, extraKeywords, metaDescription, title}) => {
         />
         <link
           rel="stylesheet"
-          href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"
+          href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/theme/lucario.min.css"
         />
       </Helmet>
-      <h1>{title}</h1>
-      {children}
+      <Row>
+        <Col>
+          <h1>{title}</h1>
+          {children}
+        </Col>
+      </Row>
     </div>
   )
 }

@@ -74,7 +74,8 @@ h2 {
   line-height: $global-vertical-space * 2;
 }
 h3 {
-  line-height: $global-vertical-space * 1.5;
+  line-height: $global-lineheight;
+  margin: $global-margin-small 0;
 }
 h4, h5, h6 {
   line-height: $global-lineheight;
@@ -88,7 +89,7 @@ h6 {
 
 p {
   margin: 0 0 $global-vertical-space 0;
-  max-width: 40em;
+  max-width: 70rem;
   padding: 0;
 }
 .Lead {
