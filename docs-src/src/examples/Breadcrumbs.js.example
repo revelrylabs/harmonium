@@ -1,0 +1,33 @@
+<div>
+  <h4>Default</h4>
+  <Breadcrumbs>
+    <Breadcrumbs.Item><a href="#">Home</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item><a href="#">Page Two</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item disabled><a href="#">Disabled</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item selected>Selected</Breadcrumbs.Item>    
+  </Breadcrumbs>
+
+  <h4>Centered</h4>
+  <Breadcrumbs center>
+    <Breadcrumbs.Item><a href="#">Home</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item><a href="#">Page Two</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item disabled><a href="#">Disabled</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item selected>Selected</Breadcrumbs.Item>    
+  </Breadcrumbs>
+
+  <h4>Justified</h4>
+  <Breadcrumbs justified>
+    <Breadcrumbs.Item><a href="#">Home</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item><a href="#">Page Two</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item disabled><a href="#">Disabled</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item selected>Selected</Breadcrumbs.Item>    
+  </Breadcrumbs>
+
+  <h4>Right</h4>
+  <Breadcrumbs right>
+    <Breadcrumbs.Item><a href="#">Home</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item><a href="#">Page Two</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item disabled><a href="#">Disabled</a></Breadcrumbs.Item>
+    <Breadcrumbs.Item selected>Selected</Breadcrumbs.Item>    
+  </Breadcrumbs>
+</div>

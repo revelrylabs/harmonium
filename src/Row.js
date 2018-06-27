@@ -85,7 +85,7 @@ export default class Row extends Component {
       const value = props[name]
       const func = NUMBER_PROPS_TO_CLASS_NAMES[name]
 
-      if (value !== null) {
+      if (value != null) {
         numberClassNames.push(func(value))
       }
       delete props[name]

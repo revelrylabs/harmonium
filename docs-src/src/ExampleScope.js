@@ -4,6 +4,7 @@ import AuthenticityToken from 'harmonium/lib/AuthenticityToken'
 import AuthenticityTokenProvider from 'harmonium/lib/AuthenticityTokenProvider'
 import Badge from 'harmonium/lib/Badge'
 import Brand from 'harmonium/lib/Brand'
+import Breadcrumbs from 'harmonium/lib/Breadcrumbs'
 import BrowserSupportWarning from 'harmonium/lib/BrowserSupportWarning'
 import Button from 'harmonium/lib/Button'
 import ButtonGroup from 'harmonium/lib/ButtonGroup'
@@ -71,6 +72,7 @@ export default {
   AuthenticityTokenProvider,
   Badge,
   Brand,
+  Breadcrumbs,
   BrowserSupportWarning,
   Button,
   ButtonGroup,
