@@ -22,9 +22,9 @@ $modal-content-padding: 0 !default;
   position: fixed;
   @include flex(center, row, center, nowrap);
   @include global-transition(opacity);
+  opacity: 0;
   z-index: $above-everything;
   &.rev-Modal--closed {
-    opacity: 0;
     // so we can move the modal out of the way so that it doesn't intercept
     // clicks while closed
     right: 9999vw;
@@ -40,12 +40,17 @@ $modal-content-padding: 0 !default;
 }
 
 .rev-Modal-content {
+  @include global-transition(margin-top);
   background: $modal-content-bkgd;
   border-radius: $card-radius;
   box-shadow: $global-box-shadow;
   color: $modal-content-color;
+  margin-top: $global-padding-large;
   max-width: $global-width;
   padding: $modal-content-padding;
   position: relative;
   width: 90%;
+  .rev-Modal--open & {
+    margin-top: 0;
+  }
 }
