@@ -25,6 +25,15 @@ $breakpoints: (
   global-width: (min-width: $global-width),
 );
 
+// Sizes - made up of vertical spacing multiples
+// common size vars for things like badges
+$size-tiny: 6px;
+$size-small: 12px;
+$size-default: 24px;
+$size-large: 48px;
+$size-larger: 64px;
+$size-largest: 128px;
+
 // IMPORT FONTS HERE
 
 // Global Fonts
@@ -152,15 +161,6 @@ $no-image-blur: blur(0px);
 
 // Disabled
 $disabled-opacity: 0.35;
-
-// Sizes - made up of vertical spacing multiples
-// common size vars for things like badges
-$size-tiny: 6px;
-$size-small: 12px;
-$size-default: 24px;
-$size-large: 48px;
-$size-larger: 64px;
-$size-largest: 128px;
 
 //## Color Mgmt for Navigational Components -----------------------------
 // ex: menus, pagination
