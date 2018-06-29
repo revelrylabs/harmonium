@@ -1,0 +1,71 @@
+<Row>
+  <Col>
+    <h3>Striped DataGrid</h3>
+    <p>The striped prop can be added to give a more clear delineation between DataGrid rows, using alternating background colors. Stripe color can be adjusted using the <code>$data-grid-stripe-background</code> variable in harmonium-settings.</p>
+
+    <DataGrid striped>
+      <DataGrid.HeaderRow>
+        <DataGrid.HeaderCol medium={4}>
+          <strong>Lorem Ipsum Dolor</strong>
+        </DataGrid.HeaderCol>
+        <DataGrid.HeaderCol medium={4}>
+          <strong>Sit Amet</strong>
+        </DataGrid.HeaderCol>
+        <DataGrid.HeaderCol medium={4}>
+          <strong>Consectetur Adipiscing</strong>
+        </DataGrid.HeaderCol>
+      </DataGrid.HeaderRow>
+
+      <DataGrid.HeaderRowStacked>
+        <DataGrid.HeaderCol>
+          <strong>Lorem Ipsum</strong>
+        </DataGrid.HeaderCol>
+      </DataGrid.HeaderRowStacked>
+
+      <DataGrid.Body>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Lorem Ipsum Dolor:</DataGrid.HeaderInline>
+            Ut enim ad minim veniam
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Sit Amet:</DataGrid.HeaderInline>
+            Duis aute irure dolor in reprehenderit
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Consectetur Adipiscing:</DataGrid.HeaderInline>
+            Quis nostrud exercitation
+          </DataGrid.Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Lorem Ipsum Dolor:</DataGrid.HeaderInline>
+            Laboris nisi ut
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Sit Amet:</DataGrid.HeaderInline>
+            Aliquip ex ea commodo consequat
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Consectetur Adipiscing:</DataGrid.HeaderInline>
+            Excepteur sint occaecat
+          </DataGrid.Col>
+        </DataGrid.Row>
+        <DataGrid.Row>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Lorem Ipsum Dolor:</DataGrid.HeaderInline>
+            Cupidatat non proident
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Sit Amet:</DataGrid.HeaderInline>
+            Sunt in culpa qui officia
+          </DataGrid.Col>
+          <DataGrid.Col medium={4}>
+            <DataGrid.HeaderInline>Consectetur Adipiscing:</DataGrid.HeaderInline>
+            Deserunt mollit anim id est laborum
+          </DataGrid.Col>
+        </DataGrid.Row>
+      </DataGrid.Body>
+    </DataGrid>
+  </Col>
+</Row>
