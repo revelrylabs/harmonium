@@ -3,7 +3,7 @@
     <Row>
       <Col>
         <h2>Modal Example</h2>
-        <p>Click the background to dimiss it</p>
+        <p>Click the background to dismiss the modal.</p>
       </Col>
     </Row>
   </Modal>

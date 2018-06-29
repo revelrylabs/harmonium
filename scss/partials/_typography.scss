@@ -25,20 +25,28 @@ $header-font-size-values: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value,
 @for $i from 1 through length($header-font-sizes) {
   #{nth($header-font-sizes, $i)} { //h1
     font-size: nth($header-font-size-values, $i) * 1rem;
-    margin-bottom: $global-vertical-space;
-    margin-top: $global-vertical-space * 2;
+    padding-bottom: $global-vertical-space;
+    padding-top: $global-vertical-space * 2;
+  }
+}
+@mixin header-contained {
+  @for $i from 1 through length($header-font-sizes) {
+    #{nth($header-font-sizes, $i)} {
+      padding-top: $global-vertical-space / 2;
+      padding-bottom: $global-vertical-space / 2;
+    }
   }
 }
 @mixin typography-contained {
   @for $i from 1 through length($header-font-sizes) {
     #{nth($header-font-sizes, $i)} {
-      margin-top: $global-vertical-space / 2;
-      margin-bottom: $global-vertical-space / 2;
+      padding-top: $global-vertical-space / 2;
+      padding-bottom: $global-vertical-space / 2;
     }
   }
   // TODO: better way to include p styles?
   p {
-    margin: $global-vertical-space 0;
+    padding: $global-vertical-space 0;
     + p,
     + h1,
     + h2,
@@ -46,7 +54,7 @@ $header-font-size-values: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value,
     + h4,
     + h5,
     + h6 {
-      margin: 0 0 $global-vertical-space 0;
+      padding: 0 0 $global-vertical-space 0;
     }
   }
 }
@@ -56,7 +64,7 @@ $header-font-size-values: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value,
   font-family: $header-font-family;
   font-style: $header-font-style;
   font-weight: $header-font-weight;
-  padding: 0;
+  margin: 0;
 }
 
 h1,
@@ -75,7 +83,7 @@ h2 {
 }
 h3 {
   line-height: $global-lineheight;
-  margin: $global-margin-small 0;
+  padding: $global-margin-small 0;
 }
 h4, h5, h6 {
   line-height: $global-lineheight;
@@ -88,9 +96,9 @@ h6 {
 }
 
 p {
-  margin: 0 0 $global-vertical-space 0;
+  margin: 0;
   max-width: 70rem;
-  padding: 0;
+  padding: 0 0 $global-vertical-space 0;
 }
 .Lead {
   display: block;

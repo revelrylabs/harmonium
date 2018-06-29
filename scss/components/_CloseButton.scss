@@ -1,16 +1,42 @@
 // default component vars listed at the top of the component stylesheet
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
-$close-bkgd: $body-font-color !default;
-$close-color: $body-bkgd !default;
-$close-size: $size-default !default;
+
+$closebutton-bkgd: $darker-gray !default;
+$closebutton-color: $white !default;
+$closebutton-bkgd-hover: $black !default;
+$closebutton-color-hover: $white !default;
+$closebutton-bkgd-active: $black !default;
+$closebutton-color-active: $white !default;
+$closebutton-radius: $global-rounded !default;
+$closebutton-size: $size-large !default;
 
 .rev-CloseButton {
-  background: $close-bkgd;
+  @include button;
+  @include small-input;
+  background: $closebutton-bkgd;
   border: 0;
-  color: $close-color;
+  border-radius: $closebutton-radius;
+  color: $closebutton-color;
   float: right;
-  line-height: $close-size;
-  min-height: $close-size;
-  min-width: $close-size;
+  line-height: $closebutton-size;
+  margin: $global-padding-small;
+  min-height: $closebutton-size;
+  min-width: $closebutton-size;
+  padding: 0 $global-padding-tiny;
+  &:hover {
+    background: $closebutton-bkgd-hover;
+    color: $closebutton-color-hover;
+  }
+  &:active,
+  &:focus {
+    background: $closebutton-bkgd-active;
+    color: $closebutton-color-active;
+  }
+  &.rev-CloseButton--absolute {
+    margin: 0;
+    position: absolute;
+    right: $global-padding-small;
+    top: $global-padding-small;
+  }
 }
