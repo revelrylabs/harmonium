@@ -1,0 +1,70 @@
+$data-grid-background: $white !default;
+$data-grid-color: $body-font-color !default;
+$data-grid-border: 1px solid $divider-color !default;
+$data-grid-header-background: $body-font-color !default;
+$data-grid-header-color: $white !default;
+$data-grid-stripe-background: $lightest-gray !default;
+$data-grid-scroll-height: 25rem !default;
+
+.rev-DataGrid {
+  background-color: $data-grid-background;
+  border-collapse: collapse;
+  border: $data-grid-border;
+  font-size: $global-font-size-small;
+  margin: $global-margin 0;
+  width: 100%;
+  &--striped {
+    .rev-DataGrid-body {
+      .rev-Row {
+        @include even-odd-stripes($data-grid-background, $data-grid-stripe-background);
+      }
+    }
+  }
+  p {
+    font-size: $global-font-size-small;
+    padding: 0;
+  }
+}
+.rev-DataGrid-head {
+  background-color: $data-grid-header-background;
+  color: $data-grid-header-color;
+  padding: 0;
+  .rev-Col {
+    padding-bottom: $global-padding-small;
+    padding-top: $global-padding-small;
+  }
+  * {
+    margin-bottom: 0;
+    margin-top: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+  }
+}
+.rev-DataGrid-body {
+  &.rev-Table--scroll {
+    min-width: 100%;
+    width: auto;
+    @include vertical-scroll-container($data-grid-scroll-height);
+  }
+  .rev-Row {
+    border-bottom: $data-grid-border;
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+  .rev-Col {
+    padding-bottom: $global-padding-small;
+    padding-top: $global-padding-small;
+    @include breakpoint(medium-down) {
+      @include flex(flex-start, row, flex-start, nowrap);
+    }
+  }
+  // column headers for small screens
+  .rev-DataGrid-columnHeader--small {
+    font-weight: $global-weight-bold;
+    padding-right: $global-padding;
+    @include breakpoint(medium) {
+      display: none;
+    }
+  }
+}

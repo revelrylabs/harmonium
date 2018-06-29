@@ -1,7 +1,7 @@
 // default component vars listed at the top of the component stylesheet
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
-$modal-bkgd: $black-40 !default;
+$modal-bkgd: $black-60 !default;
 $modal-content-bkgd: $white !default;
 $modal-content-border-size: 1px !default;
 $modal-content-border-color: $divider-color !default;
@@ -11,39 +11,46 @@ $modal-content-padding: 0 !default;
 
 .rev-Modal,
 .rev-Modal-background {
-  background: $modal-bkgd;
   bottom: 0;
   left: 0;
   overflow-y: auto;
-  position: fixed;
   right: 0;
   top: 0;
 }
+
 .rev-Modal {
+  position: fixed;
   @include flex(center, row, center, nowrap);
+  @include global-transition(opacity);
+  opacity: 0;
   z-index: $above-everything;
+  &.rev-Modal--closed {
+    // so we can move the modal out of the way so that it doesn't intercept
+    // clicks while closed
+    right: 9999vw;
+  }
+  &.rev-Modal--open {
+    opacity: 1;
+  }
 }
+
 .rev-Modal-background {
   background: $modal-bkgd;
+  position: absolute
 }
+
 .rev-Modal-content {
+  @include global-transition(margin-top);
   background: $modal-content-bkgd;
+  border-radius: $card-radius;
   box-shadow: $global-box-shadow;
   color: $modal-content-color;
+  margin-top: $global-padding-large;
   max-width: $global-width;
   padding: $modal-content-padding;
   position: relative;
   width: 90%;
-}
-
-.rev-Modal-close {
-  font-size: $global-font-size-large;
-  position: absolute;
-  right: $global-padding;
-  top: $global-padding;
-  &:hover,
-  &:active,
-  &:focus {
-    text-decoration: none;
+  .rev-Modal--open & {
+    margin-top: 0;
   }
 }

@@ -23,6 +23,8 @@
 @import 'Callout';
 @import 'Card';
 @import 'CardLayout';
+@import 'DataGrid';
+@import 'Modal'; // requires Card
 @import 'Sticky';
 @import 'Table';
 
@@ -49,7 +51,6 @@
 @import 'Lists';
 @import 'Loader';
 @import 'Menu';
-@import 'Modal';
 @import 'NavigationOutline';
 @import 'Pagination';
 @import 'Progress';

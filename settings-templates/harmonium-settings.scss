@@ -25,6 +25,15 @@ $breakpoints: (
   global-width: (min-width: $global-width),
 );
 
+// Sizes - made up of vertical spacing multiples
+// common size vars for things like badges
+$size-tiny: 6px;
+$size-small: 12px;
+$size-default: 24px;
+$size-large: 48px;
+$size-larger: 64px;
+$size-largest: 128px;
+
 // IMPORT FONTS HERE
 
 // Global Fonts
@@ -38,9 +47,9 @@ $global-font-size: 1.6rem;
 $global-font-size-tiny: $global-font-size * 0.5;
 $global-font-size-smaller: $global-font-size * 0.75;
 $global-font-size-small: $global-font-size * 0.875;
-$global-font-size-medium: $global-font-size * 1.5;
-$global-font-size-large: $global-font-size * 2;
-$global-font-size-larger: $global-font-size * 2.5;
+$global-font-size-medium: $global-font-size * 1;
+$global-font-size-large: $global-font-size * 1.5;
+$global-font-size-larger: $global-font-size * 2;
 $global-font-size-largest: $global-font-size * 3;
 
 // Headers (rems or unit-less values only!)
@@ -113,7 +122,7 @@ $paragraph-lineheight: $global-lineheight;
 $paragraph-margin-bottom: $global-vertical-space;
 $paragraph-text-rendering: optimizeLegibility;
 
-// Anchor Vars
+// ANCHORS
 $anchor-color: $primary;
 $anchor-color-hover: darken($primary, 10%);
 $anchor-color-active: darken($primary, 15%);
@@ -132,10 +141,14 @@ $button-color-active: $white;
 $button-radius: $global-radius;
 
 // CLOSE BUTTON
-$closebutton-color: $darker-gray;
-$closebutton-color-hover: $black;
-$closebutton-lineheight: $global-lineheight;
-$closebutton-size: $global-font-size;
+$closebutton-bkgd: $darker-gray;
+$closebutton-color: $white;
+$closebutton-bkgd-hover: $black;
+$closebutton-color-hover: $white;
+$closebutton-bkgd-active: $black;
+$closebutton-color-active: $white;
+$closebutton-radius: $global-rounded;
+$closebutton-size: $size-large;
 
 // HR Vars
 $hr-width: $global-width;
@@ -148,15 +161,6 @@ $no-image-blur: blur(0px);
 
 // Disabled
 $disabled-opacity: 0.35;
-
-// Sizes - made up of vertical spacing multiples
-// common size vars for things like badges
-$size-tiny: 6px;
-$size-small: 12px;
-$size-default: 24px;
-$size-large: 48px;
-$size-larger: 64px;
-$size-largest: 128px;
 
 //## Color Mgmt for Navigational Components -----------------------------
 // ex: menus, pagination
@@ -315,6 +319,28 @@ $input-color-focus: $input-color;
 $input-font-size: $global-font-size;
 $label-color: $body-font-color;
 $label-font-size: $global-font-size;
+
+//## TABLES -----------------------------
+
+$table-background: $white;
+$table-color: $body-font-color;
+$table-border: 1px solid $divider-color;
+$table-header-background: $body-font-color;
+$table-header-color: $white;
+//responsive table breakpoint
+$table-breakpoint: medium;
+//striped tables
+$table-stripe-background: $lightest-gray;
+
+//## DATA GRIDS -----------------------------
+
+$data-grid-background: $white;
+$data-grid-color: $body-font-color;
+$data-grid-border: 1px solid $divider-color;
+$data-grid-header-background: $body-font-color;
+$data-grid-header-color: $white;
+$data-grid-stripe-background: $lightest-gray;
+$data-grid-scroll-height: 25rem;
 
 //## PICKERS -----------------------------
 
