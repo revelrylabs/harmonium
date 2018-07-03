@@ -24,6 +24,7 @@
 @import 'Card';
 @import 'CardLayout';
 @import 'DataGrid';
+@import 'Modal'; // requires Card
 @import 'Sticky';
 @import 'Table';
 
@@ -44,13 +45,13 @@
 @import 'Accordion';
 @import 'Badge';
 @import 'Brand';
+@import 'Code';
 @import 'Emptyable';
 @import 'GoogleMaps';
 @import 'HelpText';
 @import 'Lists';
 @import 'Loader';
 @import 'Menu';
-@import 'Modal';
 @import 'NavigationOutline';
 @import 'Pagination';
 @import 'Progress';

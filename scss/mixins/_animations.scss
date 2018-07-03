@@ -20,3 +20,7 @@
   -webkit-animation: fade-in 0.5s;
   animation: fade-in 0.5s;
 }
+
+@mixin fade-in{
+  @extend .FadeIn;
+}

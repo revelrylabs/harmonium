@@ -4,7 +4,25 @@ $data-grid-border: 1px solid $divider-color !default;
 $data-grid-header-background: $body-font-color !default;
 $data-grid-header-color: $white !default;
 $data-grid-stripe-background: $lightest-gray !default;
-$data-grid-scroll-height: 25rem !default;
+$data-grid-scroll-height: 15rem !default;
+
+@mixin stacked-data-grid {
+  .rev-DataGrid-headerRow {
+    display: none;
+  }
+  //Small Screen DataGrid Header Row
+  .rev-DataGrid-headerRow--stacked {
+    display: block;
+  }
+  //Inline DataGrid Headers
+  .rev-DataGrid-header--inline {
+    display: block;
+  }
+  .rev-DataGrid-col {
+    @include flex(flex-start, row, flex-start, nowrap);
+    width: 100%;
+  }
+}
 
 .rev-DataGrid {
   background-color: $data-grid-background;
@@ -13,58 +31,73 @@ $data-grid-scroll-height: 25rem !default;
   font-size: $global-font-size-small;
   margin: $global-margin 0;
   width: 100%;
-  &--striped {
-    .rev-DataGrid-body {
-      .rev-Row {
-        @include even-odd-stripes($data-grid-background, $data-grid-stripe-background);
-      }
-    }
+  //stacked for all screens
+  &--stacked {
+    @include stacked-data-grid;
   }
-  p {
-    font-size: $global-font-size-small;
-    padding: 0;
+  //stackForSmall (default)
+  @include breakpoint(medium-down) {
+    @include stacked-data-grid;
   }
-}
-.rev-DataGrid-head {
-  background-color: $data-grid-header-background;
-  color: $data-grid-header-color;
-  padding: 0;
-  .rev-Col {
-    padding-bottom: $global-padding-small;
-    padding-top: $global-padding-small;
-  }
-  * {
-    margin-bottom: 0;
-    margin-top: 0;
-    padding-bottom: 0;
-    padding-top: 0;
-  }
-}
-.rev-DataGrid-body {
-  &.rev-Table--scroll {
-    min-width: 100%;
-    width: auto;
-    @include vertical-scroll-container($data-grid-scroll-height);
-  }
-  .rev-Row {
-    border-bottom: $data-grid-border;
-    &:last-child {
-      border-bottom: 0;
-    }
-  }
-  .rev-Col {
-    padding-bottom: $global-padding-small;
-    padding-top: $global-padding-small;
+  &--stackForSmall {
     @include breakpoint(medium-down) {
-      @include flex(flex-start, row, flex-start, nowrap);
+      @include stacked-data-grid;
     }
   }
-  // column headers for small screens
-  .rev-DataGrid-columnHeader--small {
-    font-weight: $global-weight-bold;
-    padding-right: $global-padding;
-    @include breakpoint(medium) {
-      display: none;
+  //stackForMedium
+  &--stackForMedium {
+    @include breakpoint(large-down) {
+      @include stacked-data-grid;
     }
   }
+  //stackForLarge
+  &--stackForLarge {
+    @include breakpoint(xlarge-down) {
+      @include stacked-data-grid;
+    }
+  }
+  //STRIPED DATA GRIDS
+  &--striped {
+    .rev-DataGrid-row {
+      @include even-odd-stripes($data-grid-background, $data-grid-stripe-background);
+    }
+  }
+  //VERTICAL SCROLLING DATA GRIDS
+  &.rev-DataGrid--verticalScroll {
+    .rev-DataGrid-body {
+      @include vertical-scroll-container($data-grid-scroll-height);
+    }
+  }
+}
+
+.rev-DataGrid-headerRow {
+  background: $data-grid-header-background;
+}
+.rev-DataGrid-headerRow--stacked {
+  display: none;
+}
+.rev-DataGrid-headerCol {
+  color: $data-grid-header-color;
+  padding-bottom: $global-padding-small;
+  padding-top: $global-padding-small;
+}
+
+.rev-DataGrid-body {
+  background: $data-grid-background;
+}
+.rev-DataGrid-row {
+  border-bottom: $data-grid-border;
+  &:last-child {
+    border-bottom: 0;
+  }
+}
+.rev-DataGrid-col {
+  padding-bottom: $global-padding-small;
+  padding-top: $global-padding-small;
+}
+.rev-DataGrid-header--inline {
+  display: none;
+  flex: 0 0 50%; // makes the width of inline headers consistant... 50% too much??
+  font-weight: $global-weight-bold;
+  padding-right: $global-padding-small;
 }

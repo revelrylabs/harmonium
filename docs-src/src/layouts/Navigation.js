@@ -14,7 +14,7 @@ export default function Navigation() {
       left
     >
       <nav>
-        <Link className="rev-Brand Show--mediumUp" to="/">
+        <Link className="rev-Brand Hide--smallOnly" to="/">
           <img src="/images/harmonium-logo-white.png" alt="Harmonium"/>
           <small>Version {packageInfo.version}</small>
         </Link>
