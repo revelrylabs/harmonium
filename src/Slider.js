@@ -1,8 +1,7 @@
-import React from 'react'
-// import PropTypes from 'prop-types'
+import React, {Component} from 'react'
 
-export default class Slider extends React.Component {
+export default class Slider extends Component {
   render() {
-    return <p>This will be a Slider component</p>
+    return <div>THIS IS THE SLIDER</div>
   }
 }

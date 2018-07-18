@@ -51,6 +51,7 @@ import Progress from 'harmonium/lib/Progress'
 import Radio from 'harmonium/lib/Radio'
 import Row from 'harmonium/lib/Row'
 import Select from 'harmonium/lib/Select'
+import Slider from 'harmonium/lib/Slider'
 import Social from 'harmonium/lib/Social'
 import StatelessDrawer from 'harmonium/lib/StatelessDrawer'
 import StatelessModal from 'harmonium/lib/StatelessModal'
@@ -119,6 +120,7 @@ export default {
   Radio,
   Row,
   Select,
+  Slider,
   Social,
   StatelessDrawer,
   StatelessModal,
