@@ -17,98 +17,98 @@ export default function ButtonVars() {
           </Table.Header>
         </Table.Row>
       </Table.Head>
-      <Table.HeadSmall>
+      <Table.HeadStacked>
         <Table.Data>
           Button Vars
         </Table.Data>
-      </Table.HeadSmall>
+      </Table.HeadStacked>
       <Table.Body>
         <Table.Row>
           <Table.Data>
-            <span>Var:</span> <code>$button-bkgd</code>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-bkgd</code>
           </Table.Data>
           <Table.Data>
-            <span>Default Value:</span> <code>$brand</code>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$brand</code>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Default background color for buttons.
-          </Table.Data>
-        </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <span>Var:</span> <code>$button-border</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Default Value:</span> <code>0</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Default border for buttons.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default background color for buttons.
           </Table.Data>
         </Table.Row>
         <Table.Row>
           <Table.Data>
-            <span>Var:</span> <code>$button-color</code>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-border</code>
           </Table.Data>
           <Table.Data>
-            <span>Default Value:</span> <code>$white</code>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>0</code>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Default font color for buttons.
-          </Table.Data>
-        </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <span>Var:</span> <code>$button-bkgd-hover</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Default Value:</span> <code>darken($brand, 5%)</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Default background color for buttons on hover.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default border for buttons.
           </Table.Data>
         </Table.Row>
         <Table.Row>
           <Table.Data>
-            <span>Var:</span> <code>$button-color-hover</code>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-color</code>
           </Table.Data>
           <Table.Data>
-            <span>Default Value:</span> <code>$white</code>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$white</code>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Default font color for buttons on hover.
-          </Table.Data>
-        </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <span>Var:</span> <code>$button-bkgd-active</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Default Value:</span> <code>$darken($brand, 10%)</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Default background color for buttons on active.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default font color for buttons.
           </Table.Data>
         </Table.Row>
         <Table.Row>
           <Table.Data>
-            <span>Var:</span> <code>$button-color-active</code>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-bkgd-hover</code>
           </Table.Data>
           <Table.Data>
-            <span>Default Value:</span> <code>$white</code>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>darken($brand, 5%)</code>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Default font color for buttons on active.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default background color for buttons on hover.
           </Table.Data>
         </Table.Row>
         <Table.Row>
           <Table.Data>
-            <span>Var:</span> <code>$button-radius</code>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-color-hover</code>
           </Table.Data>
           <Table.Data>
-            <span>Default Value:</span> <code>$global-radius</code>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$white</code>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Default border-radius for buttons.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default font color for buttons on hover.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-bkgd-active</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$darken($brand, 10%)</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default background color for buttons on active.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-color-active</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$white</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default font color for buttons on active.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-radius</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$global-radius</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default border-radius for buttons.
           </Table.Data>
         </Table.Row>
       </Table.Body>

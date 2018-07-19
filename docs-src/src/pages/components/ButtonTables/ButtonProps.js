@@ -20,227 +20,227 @@ export default function ButtonProps() {
           </Table.Header>
         </Table.Row>
       </Table.Head>
-      <Table.HeadSmall>
+      <Table.HeadStacked>
         <Table.Data>
           Button Props
         </Table.Data>
-      </Table.HeadSmall>
+      </Table.HeadStacked>
       <Table.Body>
         <Table.Row>
           <Table.Data>
-            <span>Prop:</span> <code>small</code>
+            <Table.HeaderInline>Prop:</Table.HeaderInline> <code>small</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> bool
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
           </Table.Data>
           <Table.Data>
-            <span>Default:</span> false
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for small buttons.
-          </Table.Data>
-        </Table.Row>
-
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>large</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> bool
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span> false
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added for large buttons.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for small buttons.
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>primary</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>large</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> bool
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
           </Table.Data>
           <Table.Data>
-            <span>Default:</span> false
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for primary button styles.
-          </Table.Data>
-        </Table.Row>
-
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>secondary</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> bool
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span> false
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added for secondary (hollow) button styles.
-          </Table.Data>
-        </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>inverted</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> bool
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span> false
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added to invert a buttons background and font color.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for large buttons.
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>success</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>primary</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> bool
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
           </Table.Data>
           <Table.Data>
-            <span>Default:</span> false
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for success button styles.
-          </Table.Data>
-        </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>warning</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> bool
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span> false
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added for warning button styles.
-          </Table.Data>
-        </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>alert</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> bool
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span> false
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added for alert button styles.
-          </Table.Data>
-        </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>disabled</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> bool
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span> false
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added for disabled button styles.
-          </Table.Data>
-        </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>expanded</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> bool
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span> false
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added to expand the button width to 100%.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for primary button styles.
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>href</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>secondary</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> string
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
           </Table.Data>
           <Table.Data>
-            <span>Default:</span> 
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added to button links.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for secondary (hollow) button styles.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>inverted</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added to invert a buttons background and font color.
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>target</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>success</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> enum: <code>_blank</code>, <code>_parent</code>, <code>_self</code>, <code>_top</code>
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
           </Table.Data>
           <Table.Data>
-            <span>Default:</span> 
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added to specify where to open the link.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for success button styles.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>warning</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for warning button styles.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>alert</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for alert button styles.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>disabled</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for disabled button styles.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>expanded</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added to expand the button width to 100%.
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>type</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>href</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> string
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline> 
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added to 
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added to button links.
+          </Table.Data>
+        </Table.Row>
+
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>target</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> enum: <code>_blank</code>, <code>_parent</code>, <code>_self</code>, <code>_top</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline> 
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added to specify where to open the link.
+          </Table.Data>
+        </Table.Row>
+
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>type</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added to 
           </Table.Data>
         </Table.Row>
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>name</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>name</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> string
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added to
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added to
           </Table.Data>
         </Table.Row>
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>value</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>value</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> string
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added to 
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added to 
           </Table.Data>
         </Table.Row>
       </Table.Body>
