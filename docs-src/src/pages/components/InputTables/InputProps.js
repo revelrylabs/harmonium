@@ -20,84 +20,84 @@ export default function InputProps() {
           </Table.Header>
         </Table.Row>
       </Table.Head>
-      <Table.HeadSmall>
+      <Table.HeadStacked>
         <Table.Data>
           Input Props
         </Table.Data>
-      </Table.HeadSmall>
+      </Table.HeadStacked>
       <Table.Body>
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>placeholder</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>placeholder</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> string
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
           </Table.Data>
           <Table.Data>
-            <span>Default:</span> 
+            <Table.HeaderInline>Default:</Table.HeaderInline> 
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop used to display a short hint in the input before the user enters a value.
-          </Table.Data>
-        </Table.Row>
-
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>error</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> bool, string
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span> 
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added for input errors.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop used to display a short hint in the input before the user enters a value.
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>label</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>error</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> string
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool, string
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline> 
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for input label.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for input errors.
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>help</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>label</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> string
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for input help text.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for input label.
+          </Table.Data>
+        </Table.Row>
+
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>help</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for input help text.
           </Table.Data>
         </Table.Row>
         
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>button</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>button</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> string
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for button text on FileInputs.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for button text on FileInputs.
           </Table.Data>
         </Table.Row>
       </Table.Body>
