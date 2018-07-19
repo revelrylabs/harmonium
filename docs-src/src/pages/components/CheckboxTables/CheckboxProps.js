@@ -20,202 +20,202 @@ export default function CheckboxProps() {
           </Table.Header>
         </Table.Row>
       </Table.Head>
-      <Table.HeadSmall>
+      <Table.HeadStacked>
         <Table.Data>
           Checkbox Props
         </Table.Data>
-      </Table.HeadSmall>
+      </Table.HeadStacked>
       <Table.Body>
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>stacked</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>stacked</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> bool
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
           </Table.Data>
           <Table.Data>
-            <span>Default:</span> false
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for stacked checkboxes.
-          </Table.Data>
-        </Table.Row>
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>stackedForSmall</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> bool
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span> false
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added for stacked checkboxes on small screens only.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for stacked checkboxes.
           </Table.Data>
         </Table.Row>
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>stackedForMedium</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>stackedForSmall</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> bool
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
           </Table.Data>
           <Table.Data>
-            <span>Default:</span> false 
+            <Table.HeaderInline>Default:</Table.HeaderInline> false
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for stacked checkboxes on medium screens down.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for stacked checkboxes on small screens only.
           </Table.Data>
         </Table.Row>
-        
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>name</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>stackedForMedium</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> string
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline> false 
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for 
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for stacked checkboxes on medium screens down.
           </Table.Data>
         </Table.Row>
         
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>options</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>name</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> array
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for 
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for 
+          </Table.Data>
+        </Table.Row>
+        
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>options</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> array
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for 
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>value</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>value</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> any
+            <Table.HeaderInline>Type:</Table.HeaderInline> any
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for 
-          </Table.Data>
-        </Table.Row>
-
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>defaultValue</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> any
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span>
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added for 
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for 
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>label</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>defaultValue</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> string
+            <Table.HeaderInline>Type:</Table.HeaderInline> any
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for
-          </Table.Data>
-        </Table.Row>
-
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>help</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> string
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span>
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added for
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for 
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>error</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>label</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> bool, string
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for
-          </Table.Data>
-        </Table.Row>
-
-        <Table.Row>
-          <Table.Data>
-            <span>Name:</span> <code>onChnage</code>
-          </Table.Data>
-          <Table.Data>
-            <span>Type:</span> func
-          </Table.Data>
-          <Table.Data>
-            <span>Default:</span>
-          </Table.Data>
-          <Table.Data>
-            <span>Description:</span> Prop added for
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>readOnly</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>help</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> bool
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for
           </Table.Data>
         </Table.Row>
 
         <Table.Row>
           <Table.Data>
-            <span>Name:</span> <code>className</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>error</code>
           </Table.Data>
           <Table.Data>
-            <span>Type:</span> string
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool, string
           </Table.Data>
           <Table.Data>
-            <span>Default:</span>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
-            <span>Description:</span> Prop added for
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for
+          </Table.Data>
+        </Table.Row>
+
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>onChnage</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> func
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for
+          </Table.Data>
+        </Table.Row>
+
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>readOnly</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for
+          </Table.Data>
+        </Table.Row>
+
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>className</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> string
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Prop added for
           </Table.Data>
         </Table.Row>
       </Table.Body>
