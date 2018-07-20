@@ -30,6 +30,7 @@ If your changes aren't being reflected, try stopping the dev server, running
 * Write an example file like `docs-src/src/examples/my-component.js.example`.
   * The module should have one or more named exports that are React components, defined with ES6 class syntax. (`export class Example1 extends Compnent {}`)
   * Each example will be built into the docs site.
+* Import your component into `docs-src/src/ExampleScope.js`
 * Write a test file like `src/my-component.test.js`.
   * Run tests with `npm test`.
   * See `test-config.js` to see what additional globals are available in tests. (`expect`, `shallow`, `mount`, etc.)
