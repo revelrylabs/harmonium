@@ -38,10 +38,34 @@ If your changes aren't being reflected, try stopping the dev server, running
 
 * Create a new folder in `/docs-src/src/pages/components called ComponentNameTables`
 * Create a new file in that folder called `ComponentNameVars.js`
-* Table details:
-  * **Table Headers:** `Variable Name`, `Default Value`, `Description`
-  * On small screens, there should be a `Table.HeadStacked` that says `ComponentName Vars`
-  * The Table Data should include `<Table.HeaderInline>[Column Header]</Table.HeaderInline>` before the table data so that the headers shows on small screens when the table stacks.
+* Table Markup:
+```
+<Table>
+  <Table.Head>
+    <Table.Row>
+      <Table.Header>Variable Name</Table.Header>
+      <Table.Header>Default Value</Table.Header>
+      <Table.Header>Description</Table.Header>
+    </Table.Row>
+  </Table.Head>
+  <Table.HeadStacked>
+    <Table.Data>[ComponentName] Vars</Table.Data>
+  </Table.HeadStacked>
+  <Table.Body>
+    <Table.Row>
+      <Table.Data>
+        <Table.HeaderInline>Var:</Table.HeaderInline> [Var]
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Default Value:</Table.HeaderInline> [Var Default]
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Description:</Table.HeaderInline> [Var Desc.]
+      </Table.Data>
+    </Table.Row>
+  </Table.Body>
+</Table>
+```
   * Make sure to check the harmonium-settings.scss file for any vars that were not listed at the top of the components stylesheet. 
 * Import the ComponentNameVars file into the main example page: `/docs-src/src/pages/components/ComponentName.js`
 * After the `ExampleSection` include `<h3>Variables:</h3>`
@@ -52,14 +76,37 @@ If your changes aren't being reflected, try stopping the dev server, running
 * If you haven't already, create a new folder in `/docs-src/src/pages/components called ComponentNameTables`
 * Create a new file in the `ComponentNameTables` folder called `ComponentNameProps.js`
 * Table details:
-  * **Table Headers:** `Name`, `Type`, `Default`, `Description`
-  * On small screens, there should be a `Table.HeadStacked` that says `ComponentName Props`
-  * The Table Data should include `<Table.HeaderInline>[Column Header]</Table.HeaderInline>` before the table data so that the header shows on small screens when the table stacks. Example: 
-  ```
-    <Table.Data>
-        <Table.HeaderInline>Name:</Table.HeaderInline> <code>shrink</code>
-    </Table.Data>
-  ```
+```
+<Table>
+  <Table.Head>
+    <Table.Row>
+      <Table.Header>Name</Table.Header>
+      <Table.Header>Type</Table.Header>
+      <Table.Header>Default</Table.Header>
+      <Table.Header>Description</Table.Header>
+    </Table.Row>
+  </Table.Head>
+  <Table.HeadStacked>
+    <Table.Data>[ComponentName] Props</Table.Data>
+  </Table.HeadStacked>
+  <Table.Body>
+    <Table.Row>
+      <Table.Data>
+        <Table.HeaderInline>Name:</Table.HeaderInline> [prop]
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Type:</Table.HeaderInline> [PropType]
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Default:</Table.HeaderInline> [Prop Default]
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Description:</Table.HeaderInline> [Prop Desc.]
+      </Table.Data>
+    </Table.Row>
+  </Table.Body>
+</Table>
+```
   * Include all possible props (also check the components file to make sure you didnt miss any props that were not listed on the site.)
 * Import the ComponentNameProps file into the main example page: `/docs-src/src/pages/components/ComponentName.js`
 * After the Variables section include `<h3>Properties:</h3>`
