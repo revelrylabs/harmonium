@@ -31,10 +31,13 @@ const IndexPage = () => (
       />
       <link
         rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"
+        href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/theme/lucario.min.css"
       />
     </Helmet>
     <Col>
+      <h1 className="ShowForSR">
+        Hello Harmonium&mdash; The React Framework for Shipping Fast
+      </h1>
       <p className="Lead">
         <img
           className="ResponsiveImage Show--mediumUp rev-Brand-symbol"

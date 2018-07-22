@@ -14,7 +14,7 @@ export default function Navigation() {
       left
     >
       <nav>
-        <Link className="rev-Brand Show--mediumUp" to="/">
+        <Link className="rev-Brand Hide--smallOnly" to="/">
           <img src="/images/harmonium-logo-white.png" alt="Harmonium"/>
           <small>Version {packageInfo.version}</small>
         </Link>
@@ -119,6 +119,9 @@ export default function Navigation() {
           </Menu.Item>
           <Menu.Item>
             <Link to="/components/StatelessDrawer/">StatelessDrawer</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Breadcrumbs/">Breadcrumbs</Link>
           </Menu.Item>
         </Menu>
         <Menu vertical>

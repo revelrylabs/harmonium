@@ -1,0 +1,126 @@
+<Row>
+  <Col>
+    <h3>Horizontally Scrolling Table</h3>
+    <p>For tables with large amounts of information, the <code>horizontalScroll</code> prop can be added to preserve the width of your column headers, allowing the table to scroll horizontally within it's container.</p>
+    <Table horizontalScroll>
+      <Table.Head>
+        <Table.Row>
+          <Table.Header>
+            Lorem Ipsum Dolor
+          </Table.Header>
+          <Table.Header>
+            Dolor Sit Amet
+          </Table.Header>
+          <Table.Header>
+            Consectetur Adipiscing
+          </Table.Header>
+          <Table.Header>
+            Elit Sed Do Eiusmod
+          </Table.Header>
+          <Table.Header>
+            Nemo Enim Ipsam Voluptatem
+          </Table.Header>
+          <Table.Header>
+            Quia Voluptas Sit Aspernatur Aut Odit Aut Fugit
+          </Table.Header>
+          <Table.Header>
+            Sed Quia Consequatar
+          </Table.Header>
+        </Table.Row>
+      </Table.Head>
+
+      <Table.Body>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Lorem Ipsum Dolor:</Table.HeaderInline>
+            Ut enim ad minim veniam, quis nostrud exercitation
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Dolor Sit Amet:</Table.HeaderInline>
+            Ullamco laboris nisi ut aliquip
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Consectur Adipiscing:</Table.HeaderInline>
+            Commodo consequat duis aute irure dolor
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Elit Sed Do Eiusmod:</Table.HeaderInline>
+             In reprehenderit in voluptate velit esse cillum
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Nemo Enim Ipsum Voluptatum:</Table.HeaderInline>
+            Ullamco laboris nisi ut aliquip
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Quis Voluptas Sit Aspurnatur Aut Odit Aut Fugit:</Table.HeaderInline>
+            Commodo consequat duis aute irure dolor
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Sed Quia Consequatar:</Table.HeaderInline>
+             In reprehenderit in voluptate velit esse cillum
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Lorem Ipsum Dolor:</Table.HeaderInline>
+            Dolore eu fugiat nulla pariatur
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Dolor Sit Amet:</Table.HeaderInline>
+            Excepteur sint occaecat cupidatat non proident
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Consectur Adipiscing:</Table.HeaderInline>
+            Sunt in culpa qui officia
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Elit Sed Do Eiusmod:</Table.HeaderInline>
+            Deserunt mollit anim id est laborum
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Nemo Enim Ipsum Voluptatum:</Table.HeaderInline>
+            Excepteur sint occaecat cupidatat non proident
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Quis Voluptas Sit Aspurnatur Aut Odit Aut Fugit:</Table.HeaderInline>
+            Sunt in culpa qui officia
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Sed Quia Consequatar:</Table.HeaderInline>
+            Deserunt mollit anim id est laborum
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Lorem Ipsum Dolor:</Table.HeaderInline>
+            Sed ut perspiciatis unde omnis iste
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Dolor Sit Amet:</Table.HeaderInline>
+            Natus error sit voluptatem accusantium
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Consectur Adipiscing:</Table.HeaderInline>
+            Doloremque laudantium totam rem aperiam
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Elit Sed Do Eiusmod:</Table.HeaderInline>
+            Eaque ipsa quae ab illo inventore
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Nemo Enim Ipsum Voluptatum:</Table.HeaderInline>
+            Natus error sit voluptatem accusantium
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Quis Voluptas Sit Aspurnatur Aut Odit Aut Fugit:</Table.HeaderInline>
+            Doloremque laudantium totam rem aperiam
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Sed Quia Consequatar:</Table.HeaderInline>
+            Eaque ipsa quae ab illo inventore
+          </Table.Data>
+        </Table.Row>
+      </Table.Body>
+    </Table>
+  </Col>
+</Row>

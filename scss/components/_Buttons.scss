@@ -8,12 +8,6 @@ $button-bkgd-active: darken($brand, 10%) !default;
 $button-color-active: $white !default;
 $button-radius: $global-radius !default;
 
-// CLOSE BUTTON
-$closebutton-color: $darker-gray !default;
-$closebutton-color-hover: $black !default;
-$closebutton-lineheight: $global-lineheight !default;
-$closebutton-size: $global-font-size !default;
-
 @mixin button-contained {
   .rev-Button {
     margin: $global-vertical-space / 2 auto;
@@ -37,7 +31,7 @@ $closebutton-size: $global-font-size !default;
   font-size: $global-font-size;
   font-weight: normal;
   line-height: $base-lineheight;
-  margin: 0 auto $global-vertical-space;
+  margin: 0 0 $global-vertical-space;
   padding: $global-padding-small $global-padding;
   &:hover,
   &:active,
@@ -158,13 +152,5 @@ $closebutton-size: $global-font-size !default;
       border: 0;
       border-radius: 0 $global-radius $global-radius 0;
     }
-  }
-}
-%close-button {
-  background: $closebutton-color;
-  &:hover,
-  &:active,
-  &:focus {
-    background: $closebutton-color-hover;
   }
 }

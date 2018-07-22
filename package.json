@@ -1,6 +1,6 @@
 {
   "name": "harmonium",
-  "version": "4.0.2",
+  "version": "4.1.2",
   "description": "An opinionated React component framework for teams that move fast.",
   "repository": {
     "type": "git",
@@ -9,13 +9,12 @@
   "dependencies": {
     "bowser": "^1.9.3",
     "breakpoint-sass": "^2.7.1",
-    "chart.js": "^2.7.1",
+    "chart.js": "^2.7.2",
     "classnames": "^2.2.5",
     "foundation-sites": "^6.3.1",
     "jquery": "^3.2.1",
     "lodash": "^4.17.5",
     "luxon": "^0.3.1",
-    "node-sass": "^4.5.3",
     "prop-types": "^15.5.7",
     "react": ">=15.3.0",
     "react-dom": ">=15.3.0",
@@ -26,8 +25,9 @@
     "babel": "node_modules/.bin/babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel",
     "prepare": "npm run clean && npm run babel",
-    "test": "NODE_ENV=test nyc mocha './src/**/*.test.js' --opts ./mocha.opts && nyc report --reporter=html",
-    "fix": "./node_modules/.bin/eslint --fix src/** docs-src/src/**"
+    "test": "NODE_ENV=test nyc mocha './src/**/*.test.js' --opts ./mocha.opts && nyc report --reporter=html && npm run sass-test",
+    "fix": "./node_modules/.bin/eslint --fix src/** docs-src/src/**",
+    "sass-test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css"
   },
   "keywords": [],
   "author": {
@@ -74,18 +74,18 @@
     "eslint-plugin-prettier": "^2.5.0",
     "eslint-plugin-react": "^7.7.0",
     "graceful-readlink": "^1.0.1",
-    "gulp": "^3.9.1",
-    "gulp-webserver": "^0.9.1",
+    "gulp": "^4.0.0",
     "jsdom": "^11.0.0",
     "jsdom-global": "^3.0.2",
-    "mocha": "^3.5.3",
-    "nyc": "^11.4.1",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.0",
     "prettier": "^1.11.1",
     "prettier-eslint": "^8.8.1",
     "react-test-renderer": ">=15.0.0",
     "semantic-release": "^15.1.7",
     "sinon": "^2.3.8",
-    "timekeeper": "^2.0.0"
+    "timekeeper": "^2.0.0",
+    "node-sass": "^4.9.2"
   },
   "nyc": {
     "require": [

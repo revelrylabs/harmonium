@@ -26,7 +26,7 @@
     display: block;
   }
 }
-@inclue breakpoint(large) {
+@include breakpoint(large) {
   .rev-Row--largeFlex {
     display: flex;
   }
@@ -42,7 +42,7 @@
     display: block;
   }
 }
-@inlcude breakpoint(xxlarge){
+@include breakpoint(xxlarge){
   .rev-Row--xxlargeFlex {
     display: flex;
   }
