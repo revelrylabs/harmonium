@@ -125,6 +125,19 @@ class StatefulSticky extends Component {
   }
 
   /**
+   * Set the function that determines state as the window scroll event when
+   * the component mounts.
+   * @return {void}
+   */
+  componentDidMount() {
+    window.addEventListener('scroll', this.setContentState.bind(this))
+    window.addEventListener('resize', this.setContentWidth)
+
+    this.placeholder.style.width = this.stickyContent.style.width
+    this.placeholder.style.height = this.stickyContent.style.height
+  }
+
+  /**
    * Used to bind a ref to the container part of the sticky container system.
    * @param {string} container the container element
    * @return {void}
@@ -142,19 +155,6 @@ class StatefulSticky extends Component {
     this.stickyContent = content
   }
 
-  /**
-   * Set the function that determines state as the window scroll event when
-   * the component mounts.
-   * @return {void}
-   */
-  componentDidMount() {
-    window.addEventListener('scroll', this.setContentState.bind(this))
-    window.addEventListener('resize', this.setContentWidth)
-
-    this.placeholder.style.width = this.stickyContent.style.width
-    this.placeholder.style.height = this.stickyContent.style.height
-  }
-
   /* eslint complexity: [2, 8] */
   /**
    * Determine the state of whether the content should be stuck, anchored to the stopping
@@ -162,10 +162,6 @@ class StatefulSticky extends Component {
    * @return {void}
    */
   setContentState() {
-    /* eslint-disable no-unused-vars */
-    const contentTop = this.stickyContent.getBoundingClientRect().top
-    const contentBottom = this.stickyContent.getBoundingClientRect().bottom
-
     const containerTop = this.stickyContainer.getBoundingClientRect().top
     const containerBottom = this.stickyContainer.getBoundingClientRect().bottom
 
@@ -227,8 +223,8 @@ class StatefulSticky extends Component {
 
   setContentWidth() {
     const sideBorders =
-        this.parsePxValue(this.stickyContainer.style.borderRightWidth) +
-        this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
+      this.parsePxValue(this.stickyContainer.style.borderRightWidth) +
+      this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
 
     this.stickyContent.style.width = `${(
       this.stickyContainer.offsetWidth - sideBorders
@@ -247,7 +243,10 @@ class StatefulSticky extends Component {
         stickToBottom={stickToBottom}
         {...props}
       >
-        <div ref={(placeholder) => (this.placeholder = placeholder)} className="rev-Sticky-placeholder"></div>
+        <div
+          ref={(placeholder) => (this.placeholder = placeholder)}
+          className="rev-Sticky-placeholder"
+        />
         {children}
       </Sticky>
     )
