@@ -232,7 +232,7 @@ class StatefulSticky extends Component {
   }
 
   render() {
-    const {children, className, offset, stickToBottom, ...props} = this.props
+    const {children, stickToBottom, ...props} = this.props
 
     return (
       <Sticky
