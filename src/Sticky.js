@@ -221,6 +221,10 @@ class StatefulSticky extends Component {
     return parseInt(value.replace('px', ''), 10)
   }
 
+  /**
+   * Set the width of the content block.
+   * @return {void}
+   */
   setContentWidth() {
     const sideBorders =
       this.parsePxValue(this.stickyContainer.style.borderRightWidth) +
