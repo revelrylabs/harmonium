@@ -1,38 +1,67 @@
-import React, {Component} from 'react'
+import React from 'react'
 
-export default class Slider extends Component {
+let sliderAmount = 20;
+const sliderMin = 0;
+const sliderMax = 100;
+
+class Slider extends React.Component {
+ 
+  sliderInput = React.createRef();
+  sliderRange = React.createRef();
+
+  sliderChange = (event) => {
+    let sliderAmount = this.sliderRange.current.value;
+    const input = document.getElementById('Slider-input');
+    input.value = sliderAmount;
+    //console.log(this.sliderRange.current.value);
+  }
+
+  inputChange = (event) => {
+    let inputAmount = this.sliderInput.current.value;
+    const input = document.getElementById('Slider-input');
+    const slider = document.getElementById('Slider');
+    slider.value = inputAmount;
+    if (inputAmount > sliderMax) {
+      slider.value = sliderMax;
+      input.value = sliderMax;
+    }
+    if (inputAmount < sliderMin) {
+      slider.value = sliderMin;
+      input.value = sliderMin;
+    }
+    //console.log(this.sliderInput.current.value);
+  }
+
+
 
   render() {
 
-    const slider = document.getElementById('Slider');
-    const output = document.getElementById('demo');
-
-    console.log("object");
-
-    //output.innerHTML = slider.value; // Display the default slider value
-
-
-    // Update the current slider value (each time you drag the slider handle)
-    // slider.oninput = function() {
-    //   output.innerHTML = this.value;
-    // }
 
     return (
-      <div>
-        <div className="Slider-container">
-          <input
-            type="range"
-            min="1"
-            max="100"
-            value="50"
-            className="Slider"
-            id="Slider"
-          />
-          <p>
-            Value: <span id="demo">1</span>
-          </p>
-        </div>
-      </div>
+      
+      <div className='Slider-container'>
+        <input
+          className='Slider'
+          id='Slider'
+          min={sliderMin}
+          max={sliderMax}
+          type='range'
+          defaultValue={sliderAmount}
+          onChange={this.sliderChange}
+          // onInput={this.sliderChange}
+          ref={this.sliderRange}      
+        />
+        <input
+          type='text'
+          id='Slider-input'
+          defaultValue={sliderAmount}
+          ref={this.sliderInput}
+          onInput={this.inputChange} 
+        />
+      </div>  
     )
   }
 }
+
+export default Slider
+
