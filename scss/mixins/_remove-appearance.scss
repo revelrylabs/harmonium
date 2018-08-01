@@ -1,0 +1,8 @@
+// remove initial styles from chrome & safari
+@mixin remove-appearance {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+  outline: none;
+}

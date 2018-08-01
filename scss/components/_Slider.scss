@@ -1,149 +1,113 @@
-
-$slider-height: 3px;
-$slider-thumb-width:16px;
+$slider-height: 50px;
+$slider-track-height: 3px;
+$slider-track-padding-right: $global-padding;
+$slider-track-color: $light-gray;
+$slider-input-height: 25px;
+$slider-input-width: 80px;
+$slider-thumb-width: 16px;
 $slider-thumb-height: 16px;
 $slider-border-radius: 50%;
-$slider-track-color: lime;
-$slider-thumb-background: red;
-$slider-progress-color: gold;
+$slider-thumb-background: $primary;
+$slider-progress-color: $primary;
 
 .Slider {
   display: flex;
-  line-height: 0;
-  margin: $global-padding-large 0;
-  padding: 0;
-  width: 100%;
-
-&-range-container {
-  height: 25px;
-  line-height: 0;
-  margin-right: 20px;
-  position: relative;
-  width: 100%;
-}
-
-// &-progress {
-//   background-color: $primary;
-//   display: block;
-//   display: none;
-//   height: 2px;
-//   left: 0;
-//   position: absolute;
-//   top: 3px;
-//   /* TODO Bring into react */
-//   width: calc(25% + 10px);
-// }
-
-&-input { 
-  width: 75px;
-  text-align: right;
-}
-
-&-range {
-  position: relative;
-  // TODO include mixin
-  //@include remove-webkit;
-  -webkit-appearance: none;
-  width: 100%;
-  outline: none;
   align-items: center;
-  appearance: none;
-  background: none;
-  cursor: pointer;
-  display: flex;
-  height: 100%;
-  min-height: 50px;
-  overflow: hidden;
-}
-&-range:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-&-range::-webkit-slider-runnable-track {
-  background: $slider-track-color;
-  content: '';
-  height: $slider-height;
-  pointer-events: none;
-}
-
-&-range::-webkit-slider-thumb {
-  -webkit-appearance: none;
-  background: $primary;
-  border-radius: 10px;
-  border: 0;
-  cursor: pointer;
-  height: $slider-thumb-height;
-  margin-top: -6px;
-  width:  $slider-thumb-width;
-}
-
-&-range::range-progress {
-  background: red;
-  height: 2px;
-}
-&-range::-webkit-range-progress {
-  background: red;
-  height: 2px;
-}
-
-&-range::-moz-range-progress {
-  background: red;
-  height: 2px;
-}
-
-
-&-range:focus::-webkit-slider-runnable-track {
-  background: #CCC;
-}
-&-range::-moz-range-track {
-  width: 100%;
-  height: 2px;
-  cursor: pointer;
-  background: #CCC;
-  margin: 0;
-  padding: 0;
   line-height: 0;
-  clear: both;
-}
-
-
-&-range::-moz-range-thumb {
-  border: 0;
-  height: $slider-thumb-height;
-  width: $slider-thumb-width;
-  border-radius: 10px;
-  background: $primary;
-  cursor: pointer;
-  margin-top: -6px;
-}
-&-range::-ms-track {
-  width: 100%;
-  height: 2px;
-  cursor: pointer;
-  background: transparent;
-  border-color: transparent;
-  color: transparent;
-}
-&-range::-ms-fill-lower {
-  background: #CCC;
- }
-&-range::-ms-fill-upper {
-  background: #CCC;
-}
-&-range::-ms-thumb {
-  height: $slider-thumb-height;
-  width: $slider-thumb-width;
-  border-radius: 10px;
-  background: $primary;
-  cursor: pointer;
-  height: 11.4px;
-}
-&-range:focus::-ms-fill-lower {
-  background: #CCC;
-}
-&-range:focus::-ms-fill-upper {
-  background: $primary;
-}
-
+  margin: $global-padding-small;
+  box-sizing: border-box;
+  padding: 0;
+  height: $slider-height;
+  &-range-container {
+    margin-right: $slider-track-padding-right;
+    width: 100%;
+  }
+  &-input {
+    height: $slider-input-height;
+    text-align: right;
+    width: $slider-input-width;
+  }
+  &-range {
+    @include remove-appearance;
+    background: none;
+    cursor: pointer;
+    height: 100%;
+    min-height: $slider-thumb-height + 4px;
+    overflow: hidden;
+    width: 100%;
+  }
+  &-range:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  &-range::-webkit-slider-runnable-track {
+    background: $slider-track-color;
+    content: '';
+    height: $slider-track-height;
+    pointer-events: none;
+  }
+  &-range:focus::-webkit-slider-runnable-track {
+    background: $slider-track-color;
+  }
+  &-range::-moz-range-track {
+    background: $slider-track-color;
+    clear: both;
+    cursor: pointer;
+    height: $slider-track-height;
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+  }
+  &-range::-webkit-slider-thumb {
+    @include remove-appearance;
+    background: $slider-thumb-background;
+    border-radius: $slider-border-radius;
+    cursor: pointer;
+    height: $slider-thumb-height;
+    margin-top: -#{$slider-track-height*2};
+    width: $slider-thumb-width;
+  }
+  // TODO Get working in Chrome, Safari, Edge
+  &-range::-moz-range-progress {
+    background: $slider-progress-color;
+    height: $slider-track-height;
+  }
+  &-range::-moz-range-thumb {
+    border: 0;
+    height: $slider-thumb-height;
+    width: $slider-thumb-width;
+    border-radius: 10px;
+    background: $slider-thumb-background;
+    cursor: pointer;
+    margin-top: -6px;
+  }
+  &-range::-ms-track {
+    width: 100%;
+    height: 2px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+  }
+  &-range::-ms-fill-lower {
+    background: #CCC;
+  }
+  &-range::-ms-fill-upper {
+    background: #CCC;
+  }
+  &-range::-ms-thumb {
+    height: $slider-thumb-height;
+    width: $slider-thumb-width;
+    border-radius: 10px;
+    background: $slider-thumb-background;
+    cursor: pointer;
+    height: 11.4px;
+  }
+  &-range:focus::-ms-fill-lower {
+    background: #CCC;
+  }
+  &-range:focus::-ms-fill-upper {
+    background: $slider-track-color
+  }
 }
