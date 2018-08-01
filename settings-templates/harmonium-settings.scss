@@ -320,6 +320,19 @@ $input-font-size: $global-font-size;
 $label-color: $body-font-color;
 $label-font-size: $global-font-size;
 
+//## Range Slider -----------------------------
+$slider-height: 50px;
+$slider-track-height: 3px;
+$slider-track-padding-right: $global-padding;
+$slider-track-color: $light-gray;
+$slider-input-height: 25px;
+$slider-input-width: 80px;
+$slider-thumb-width: 16px;
+$slider-thumb-height: 16px;
+$slider-border-radius: 50%;
+$slider-thumb-background: $primary;
+$slider-progress-color: $primary;
+
 //## TABLES -----------------------------
 
 $table-background: $white;
