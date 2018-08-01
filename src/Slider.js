@@ -2,12 +2,7 @@ import React from 'react'
 
 class Slider extends React.Component {
 
-  // const { sliderMin, sliderMax } = this.props
 
-
-  sliderInput = React.createRef()
-  sliderRangeRef = React.createRef()
-  sliderProgressRef = React.createRef()
 
   sliderChange = () => {
     const rangeValue = this.sliderRangeRef.current.value
