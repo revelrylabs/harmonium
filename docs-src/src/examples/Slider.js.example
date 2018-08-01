@@ -1,7 +1,7 @@
 <div>
-  <Slider 
+  <Slider
     initialValue={25}
-    sliderMin={0}
-    sliderMax={100}
+    minValue={0}
+    maxValue={100}
   />
 </div>
