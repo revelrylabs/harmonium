@@ -1,3 +1,7 @@
 <div>
-  <Slider />
+  <Slider 
+    initialValue={25}
+    sliderMin={0}
+    sliderMax={100}
+  />
 </div>

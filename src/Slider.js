@@ -1,67 +1,74 @@
 import React from 'react'
 
-let sliderAmount = 20;
-const sliderMin = 0;
-const sliderMax = 100;
-
 class Slider extends React.Component {
- 
-  sliderInput = React.createRef();
-  sliderRange = React.createRef();
 
-  sliderChange = (event) => {
-    let sliderAmount = this.sliderRange.current.value;
-    const input = document.getElementById('Slider-input');
-    input.value = sliderAmount;
-    //console.log(this.sliderRange.current.value);
+  // const { sliderMin, sliderMax } = this.props
+
+
+  sliderInput = React.createRef()
+  sliderRangeRef = React.createRef()
+  sliderProgressRef = React.createRef()
+
+  sliderChange = () => {
+    const rangeValue = this.sliderRangeRef.current.value
+    const input = document.getElementById('Slider-input')
+
+    input.value = rangeValue
   }
 
-  inputChange = (event) => {
-    let inputAmount = this.sliderInput.current.value;
-    const input = document.getElementById('Slider-input');
-    const slider = document.getElementById('Slider');
-    slider.value = inputAmount;
+  inputChange = () => {
+    const inputAmount = this.sliderInput.current.value
+    const input = document.getElementById('Slider-input')
+
+    slider.value = inputAmount
+
+    // TODO grab value from props
+    const sliderMin = 0
+    const sliderMax = 100
+
+    // TODO Refactor
     if (inputAmount > sliderMax) {
-      slider.value = sliderMax;
-      input.value = sliderMax;
+      slider.value = sliderMax
+      input.value = sliderMax
     }
     if (inputAmount < sliderMin) {
-      slider.value = sliderMin;
-      input.value = sliderMin;
+      slider.value = sliderMin
+      input.value = sliderMin
     }
-    //console.log(this.sliderInput.current.value);
   }
 
-
-
   render() {
-
-
     return (
-      
-      <div className='Slider-container'>
+      <div className="Slider Slider-container">
+        <div className="Slider-range-container">
+          <input
+            className="Slider-range"
+            id="Slider-range"
+            min={this.props.sliderMin}
+            max={this.props.sliderMax}
+            type="range"
+            defaultValue={this.props.initialValue}
+            onChange={this.sliderChange}
+            // onInput={this.sliderChange}
+            ref={this.sliderRangeRef}
+          />
+          <span
+            className="Slider-progress"
+            id="Slider-progress"
+            ref={this.sliderProgressRef}
+            // style={{width: this.state.progress}}
+          />
+        </div>
         <input
-          className='Slider'
-          id='Slider'
-          min={sliderMin}
-          max={sliderMax}
-          type='range'
-          defaultValue={sliderAmount}
-          onChange={this.sliderChange}
-          // onInput={this.sliderChange}
-          ref={this.sliderRange}      
-        />
-        <input
-          type='text'
-          id='Slider-input'
-          defaultValue={sliderAmount}
+          type="text"
+          id="Slider-input"
+          defaultValue={this.props.initialValue}
+          onInput={this.inputChange}
           ref={this.sliderInput}
-          onInput={this.inputChange} 
         />
-      </div>  
+      </div>
     )
   }
 }
 
 export default Slider
-
