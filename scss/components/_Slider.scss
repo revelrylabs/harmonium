@@ -1,4 +1,4 @@
-$slider-height: 50px;
+$slider-height: 4px;
 $slider-track-height: 3px;
 $slider-track-padding-right: $global-padding;
 $slider-track-color: $light-gray;
@@ -10,16 +10,31 @@ $slider-border-radius: 50%;
 $slider-thumb-background: $primary;
 $slider-progress-color: $primary;
 
+// Duplicates the shadow to make a fake progress bar
+// TODO refactor into element
+$slider-width-number: 2000;
+$slider-width: #{$slider-width-number}px;
+$shadow-size: -0.4em;
+@function progress-shadow($color, $size) {
+  $val: 5px 0 0 $size $color;
+  @for $i from 6 through $slider-width-number {
+    $val: #{$val}, -#{$i}px 0 0 $size #{$color};
+  }
+  @return $val;
+}
+
+
 .Slider {
   align-items: center;
   box-sizing: border-box;
   display: flex;
-  height: $slider-height;
+  height: auto;
   line-height: 0;
-  margin: $global-padding-small;
+  margin: $global-padding-small 0 300px;
   padding: 0;
   &-range-container {
     margin-right: $slider-track-padding-right;
+    overflow: hidden;
     width: 100%;
   }
   &-input {
@@ -32,7 +47,7 @@ $slider-progress-color: $primary;
     background: none;
     cursor: pointer;
     height: 100%;
-    min-height: $slider-thumb-height + 4px;
+    min-height: $slider-thumb-height + 6px;
     overflow: hidden;
     width: 100%;
   }
@@ -49,6 +64,17 @@ $slider-progress-color: $primary;
   &-range:focus::-webkit-slider-runnable-track {
     background: $slider-track-color;
   }
+  &-range::-webkit-slider-thumb {
+    @include remove-appearance;
+    background: $slider-thumb-background;
+    border-radius: $slider-border-radius;
+    box-shadow: progress-shadow($slider-progress-color, $shadow-size);
+    cursor: pointer;
+    height: $slider-thumb-height;
+    margin-top: -#{(($slider-thumb-height - $slider-track-height) / 2)};
+    width: $slider-thumb-width;
+  }
+
   &-range::-moz-range-track {
     background: $slider-track-color;
     clear: both;
@@ -56,18 +82,15 @@ $slider-progress-color: $primary;
     height: $slider-track-height;
     line-height: 0;
     margin: 0;
+    outline: 0;
     padding: 0;
     width: 100%;
   }
-  &-range::-webkit-slider-thumb {
-    @include remove-appearance;
-    background: $slider-thumb-background;
-    border-radius: $slider-border-radius;
-    cursor: pointer;
-    height: $slider-thumb-height;
-    margin-top: -#{ $slider-track-height * 2};
-    width: $slider-thumb-width;
+  &-range:-moz-focus {
+    box-shadow: none;
+    outline: none;
   }
+
   // TODO Get working in Chrome, Safari, Edge
   &-range:-moz-range-progress {
     background: $slider-progress-color;
