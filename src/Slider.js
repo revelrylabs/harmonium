@@ -1,63 +1,72 @@
-import React from 'react'
+import React, {Component} from 'react'
+import PropTypes from 'prop-types'
 
-class Slider extends React.Component {
+import PropTypes from 'prop-types'
 
-  //sliderInput = React.createRef();
-  //sliderRangeRef = React.createRef();
+class Slider extends Component {
 
-  sliderChange = () => {
-    let rangeValue = this.sliderRangeRef.current.value;
-    const input = document.getElementById('Slider-input');
-    input.value = rangeValue;
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      value: props.initialValue,
+    };
   }
 
-  inputChange = () => {
-    let inputAmount = this.sliderInput.current.value;
-    const input = document.getElementById('Slider-input');
-    const slider = document.getElementById('Slider-range');
-    slider.value = inputAmount;
+  sliderChange = (e) => {
+    this.setState({value: e.target.value});
+  }
 
-    const sliderMin=this.props.minValue
-    const sliderMax=this.props.maxValue
+  inputChange = (e) => {
+    const {min, max} = this.props;
+    const {value} = e.target;
 
-    // TODO Refactor
-    if (inputAmount > sliderMax) {
-      slider.value = sliderMax;
-      input.value = sliderMax;
-    }
-    if (inputAmount < sliderMin) {
-      slider.value = sliderMin;
-      input.value = sliderMin;
+    if (value > max) {
+      this.setState({value: max});
+    } else if (value < min) {
+      this.setState({value: min});
+    } else {
+      this.setState({value});
     }
   }
 
   render() {
+    const {
+      min,
+      max,
+      name,
+    } = this.props;
+    const {value} = this.state;
+
     return (
       <div className='Slider'>
-        <div className="Slider-range-container"> 
+        <div className="Slider-range-container">
           <input
             className='Slider-range'
-            id='Slider-range'
-            min={this.props.sliderMin}
-            max={this.props.sliderMax}
+            min={min}
+            max={max}
             type='range'
-            defaultValue={this.props.initialValue}
-            //onChange={this.sliderChange}
-            //onInput={this.sliderChange}
-            //ref={this.sliderRangeRef}
+            onChange={this.sliderChange}
+            value={value}
           />
-        </div> 
+        </div>
         <input
           type='text'
           className='Slider-input'
-          id='Slider-input'
-          defaultValue={this.props.initialValue}
-          //onInput={this.inputChange} 
-          //ref={this.sliderInput}
+          onChange={this.inputChange}
+          name={name}
+          value={value}
         />
       </div>
     )
   }
 }
+
+Slider.propTypes = {
+  min: PropTypes.number,
+  max: PropTypes.number,
+  initialValue: PropTypes.number,
+  name: PropTypes.string,
+};
 
 export default Slider
