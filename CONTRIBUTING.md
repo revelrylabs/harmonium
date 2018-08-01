@@ -30,18 +30,100 @@ If your changes aren't being reflected, try stopping the dev server, running
 * Write an example file like `docs-src/src/examples/my-component.js.example`.
   * The module should have one or more named exports that are React components, defined with ES6 class syntax. (`export class Example1 extends Compnent {}`)
   * Each example will be built into the docs site.
+* Import your component into `docs-src/src/ExampleScope.js`
 * Write a test file like `src/my-component.test.js`.
   * Run tests with `npm test`.
   * See `test-config.js` to see what additional globals are available in tests. (`expect`, `shallow`, `mount`, etc.)
 
+### Add Vars table at the bottom of the Component's Example Page:
+
+* Create a new folder in `/docs-src/src/pages/components called ComponentNameTables`
+* Create a new file in that folder called `ComponentNameVars.js`
+* Table Markup:
+```
+<Table>
+  <Table.Head>
+    <Table.Row>
+      <Table.Header>Variable Name</Table.Header>
+      <Table.Header>Default Value</Table.Header>
+      <Table.Header>Description</Table.Header>
+    </Table.Row>
+  </Table.Head>
+  <Table.HeadStacked>
+    <Table.Data>[ComponentName] Vars</Table.Data>
+  </Table.HeadStacked>
+  <Table.Body>
+    <Table.Row>
+      <Table.Data>
+        <Table.HeaderInline>Var:</Table.HeaderInline> [Var]
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Default Value:</Table.HeaderInline> [Var Default]
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Description:</Table.HeaderInline> [Var Desc.]
+      </Table.Data>
+    </Table.Row>
+  </Table.Body>
+</Table>
+```
+  * Make sure to check the harmonium-settings.scss file for any vars that were not listed at the top of the components stylesheet. 
+* Import the ComponentNameVars file into the main example page: `/docs-src/src/pages/components/ComponentName.js`
+* After the `ExampleSection` include `<h3>Variables:</h3>`
+* Then call in the table: `<ComponentNameVars />`
+
+### Add Props table at the bottom of the Component's Example Page:
+
+* If you haven't already, create a new folder in `/docs-src/src/pages/components called ComponentNameTables`
+* Create a new file in the `ComponentNameTables` folder called `ComponentNameProps.js`
+* Table details:
+```
+<Table>
+  <Table.Head>
+    <Table.Row>
+      <Table.Header>Name</Table.Header>
+      <Table.Header>Type</Table.Header>
+      <Table.Header>Default</Table.Header>
+      <Table.Header>Description</Table.Header>
+    </Table.Row>
+  </Table.Head>
+  <Table.HeadStacked>
+    <Table.Data>[ComponentName] Props</Table.Data>
+  </Table.HeadStacked>
+  <Table.Body>
+    <Table.Row>
+      <Table.Data>
+        <Table.HeaderInline>Name:</Table.HeaderInline> [prop]
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Type:</Table.HeaderInline> [PropType]
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Default:</Table.HeaderInline> [Prop Default]
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Description:</Table.HeaderInline> [Prop Desc.]
+      </Table.Data>
+    </Table.Row>
+  </Table.Body>
+</Table>
+```
+  * Include all possible props (also check the components file to make sure you didnt miss any props that were not listed on the site.)
+* Import the ComponentNameProps file into the main example page: `/docs-src/src/pages/components/ComponentName.js`
+* After the Variables section include `<h3>Properties:</h3>`
+* Then call in the table: `<ComponentNameProps />`
+
+
 ### Sass
 
-Try as often as possible to rely solely on Foundation Sites styles where available.
-On occasion, however, you will need specific styles for components that go beyond what Foundation offers.
-In this case:
+When creating a new component, new styles will likely be needed. Follow the steps below to ensure you have updated all the necessary files.
 
-* Add an SCSS file like `scss/my-component.scss`
-* Edit `docs-src/src/layouts/index.scss` so that it imports your component's styles.
+* Add an SCSS file like `scss/components/_ComponentName.scss`
+* Update `scss/components/_components.scss` so that it imports your new component's style sheet.
+* New variables should be at the top of the component's style sheet (`_ComponentName.scss`) with `!default` tags.
+* Add all of the new vars to `/harmonium/settings-templates/harmonium-settings.scss` and remove the `!default` tags
+* Update the `/harmonium/settings-templates/settings-templates.zip` file (aka: re-compress the color-palette and harmonium-settings stylesheets and replace the settings-templates.zip).
+
 
 ## Submitting Changes
 
