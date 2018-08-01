@@ -30,7 +30,7 @@ $shadow-size: -0.4em;
   display: flex;
   height: auto;
   line-height: 0;
-  margin: $global-padding-small 0 300px;
+  margin: $global-padding-larger $global-padding-small;
   padding: 0;
   &-range-container {
     margin-right: $slider-track-padding-right;
