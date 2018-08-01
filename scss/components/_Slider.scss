@@ -86,13 +86,12 @@ $shadow-size: -0.4em;
     padding: 0;
     width: 100%;
   }
-  &-range:-moz-focus {
+  &-range::-moz-focus {
     box-shadow: none;
     outline: none;
   }
 
-  // TODO Get working in Chrome, Safari, Edge
-  &-range:-moz-range-progress {
+  &-range::-moz-range-progress {
     background: $slider-progress-color;
     height: $slider-track-height;
   }
@@ -102,7 +101,7 @@ $shadow-size: -0.4em;
     border-radius: $slider-border-radius;
     cursor: pointer;
     height: $slider-thumb-height;
-    margin-top: -#{ $slider-track-height * 2};
+    margin-top: #{ $slider-track-height};
     width: $slider-thumb-width;
   }
   &-range::-ms-track {
@@ -110,7 +109,7 @@ $shadow-size: -0.4em;
     border-color: transparent;
     color: transparent;
     cursor: pointer;
-    height: $slider-thumb-height;
+    height: $slider-track-height;
     width: 100%;
   }
   &-range::-ms-fill-lower {
@@ -124,6 +123,7 @@ $shadow-size: -0.4em;
     border-radius: $slider-border-radius;
     cursor: pointer;
     height: $slider-thumb-height;
+    margin-top: 1px; 
     width: $slider-thumb-width;
   }
   &-range:focus::-ms-fill-lower {
