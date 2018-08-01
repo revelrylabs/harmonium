@@ -1,6 +1,6 @@
 // Safari hack to reduce flicker on transitions
 @mixin reduce-flicker {
-  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
 }
 
 @mixin global-transition($property: all, $delay: 0, $duration: 0.2s) {
