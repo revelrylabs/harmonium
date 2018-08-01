@@ -5,7 +5,7 @@ import Headers from '../../Headers'
 
 const examples = {
   Slider: require('raw!../../examples/Slider.js.example'),
- }
+}
 
 export default class SliderExamplePage extends Component {
   render() {
