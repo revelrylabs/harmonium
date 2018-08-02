@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
-import InputVars from './InputTables/InputVars'
-import InputProps from './InputTables/InputProps'
+import InputVars from './SliderTables/SliderVars'
+import InputProps from './SliderTables/SliderProps'
 
 const examples = {
   Slider: require('raw!../../examples/Slider.js.example'),
@@ -35,10 +35,10 @@ export default class SliderExamplePage extends Component {
           scope={scope}
         />
 
-        <h3>Variables:</h3>
-       <InputVars />
-       <h3>Properties:</h3>
-       <InputProps />
+       <h3>Variables:</h3>
+       <SliderVars />
+        <h3>Properties:</h3>
+       <SliderProps />
 
 
       </div>
