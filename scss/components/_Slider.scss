@@ -4,9 +4,10 @@ $slider-track-padding-right: $global-padding;
 $slider-track-color: $light-gray;
 $slider-input-height: 25px;
 $slider-input-width: 80px;
+$slider-input-margin: 0;
 $slider-thumb-width: 16px;
 $slider-thumb-height: 16px;
-$slider-border-radius: 50%;
+$slider-thumb-border-radius: 50%;
 $slider-thumb-background: $primary;
 $slider-progress-color: $primary;
 
@@ -36,8 +37,10 @@ $shadow-size: -0.4em;
     width: 100%;
   }
   &-input {
+    @include input-style;
     height: $slider-input-height;
-    text-align: right;
+    margin: $slider-input-margin;
+    text-align: center;
     width: $slider-input-width;
   }
   &-range {
@@ -65,7 +68,7 @@ $shadow-size: -0.4em;
   &-range::-webkit-slider-thumb {
     @include remove-appearance;
     background: $slider-thumb-background;
-    border-radius: $slider-border-radius;
+    border-radius: $slider-thumb-border-radius;
     box-shadow: progress-shadow($slider-progress-color, $shadow-size);
     cursor: pointer;
     height: $slider-thumb-height;
@@ -96,7 +99,7 @@ $shadow-size: -0.4em;
   &-range::-moz-range-thumb {
     background: $slider-thumb-background;
     border: 0;
-    border-radius: $slider-border-radius;
+    border-radius: $slider-thumb-border-radius;
     cursor: pointer;
     height: $slider-thumb-height;
     margin-top: #{ $slider-track-height};
@@ -118,7 +121,7 @@ $shadow-size: -0.4em;
   }
   &-range::-ms-thumb {
     background: $slider-thumb-background;
-    border-radius: $slider-border-radius;
+    border-radius: $slider-thumb-border-radius;
     cursor: pointer;
     height: $slider-thumb-height;
     margin-top: 1px; 
