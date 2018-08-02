@@ -2,6 +2,8 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import InputVars from './InputTables/InputVars'
+import InputProps from './InputTables/InputProps'
 
 const examples = {
   Slider: require('raw!../../examples/Slider.js.example'),
@@ -32,6 +34,13 @@ export default class SliderExamplePage extends Component {
           depth={1}
           scope={scope}
         />
+
+        <h3>Variables:</h3>
+       <InputVars />
+       <h3>Properties:</h3>
+       <InputProps />
+
+
       </div>
     )
   }
