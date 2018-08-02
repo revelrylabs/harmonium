@@ -1,4 +1,4 @@
-$slider-height: 4px;
+$slider-height: 40px;
 $slider-track-height: 3px;
 $slider-track-padding-right: $global-padding;
 $slider-track-color: $light-gray;
@@ -124,7 +124,7 @@ $shadow-size: -0.4em;
     border-radius: $slider-thumb-border-radius;
     cursor: pointer;
     height: $slider-thumb-height;
-    margin-top: 1px; 
+    margin-top: 1px;
     width: $slider-thumb-width;
   }
   &-range:focus::-ms-fill-lower {
