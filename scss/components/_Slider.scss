@@ -23,14 +23,12 @@ $shadow-size: -0.4em;
   @return $val;
 }
 
-
-.Slider {
+.rev-Slider {
   align-items: center;
   box-sizing: border-box;
   display: flex;
   height: auto;
   line-height: 0;
-  margin: $global-padding-larger $global-padding-small;
   padding: 0;
   &-range-container {
     margin-right: $slider-track-padding-right;

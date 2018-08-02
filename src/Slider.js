@@ -36,10 +36,10 @@ class Slider extends Component {
     const {value} = this.state
 
     return (
-      <div className="Slider">
-        <div className="Slider-range-container">
+      <div className="rev-Slider">
+        <div className="rev-Slider-range-container">
           <input
-            className="Slider-range"
+            className="rev-Slider-range"
             min={min}
             max={max}
             type="range"
@@ -49,7 +49,7 @@ class Slider extends Component {
         </div>
         <input
           type="text"
-          className="Slider-input"
+          className="rev-Slider-input"
           onChange={this.inputChange}
           name={name}
           value={value}
