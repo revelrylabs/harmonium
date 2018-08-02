@@ -78,6 +78,9 @@ export default function Navigation() {
           <Menu.Item>
             <Link to="/components/TimePicker/">Time Picker</Link>
           </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Slider/">Slider Input</Link>
+          </Menu.Item>
         </Menu>
         <Menu vertical>
           <Menu.Item text>

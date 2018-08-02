@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row, Col} from 'harmonium/lib/grid'
+import {Row, Col} from 'harmonium/lib/Row';
 import Card from 'harmonium/lib/Card'
 import Menu from 'harmonium/lib/Menu'
 import HelpText from 'harmonium/lib/HelpText'
