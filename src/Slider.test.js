@@ -1,9 +1,13 @@
 import React from 'react'
 import Slider from './Slider'
-import {shallow, mount} from 'enzyme'
+import {shallow} from 'enzyme'
 
 describe('Slider', () => {
   it('should render without throwing', () => {
-    shallow(<Slider />)
+    const testClassName = '__TEST__'
+
+    const sliderComp = shallow(<Slider />)
+
+    expect(sliderComp).not.to.throw(testClassName)
   })
 })
