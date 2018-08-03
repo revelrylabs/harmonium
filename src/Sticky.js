@@ -1,119 +1,11 @@
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
-/* eslint complexity: [2, 4] */
-/**
- * A component encapsulating the children of the Sticky container to
- * keep track of the current state of sticky behavior.
- *
- * @return {object} the StickyContent component
- */
-const StickyContent = ({
-  children,
-  className,
-  isStuck,
-  isAnchored,
-  stickToBottom,
-  setRef,
-  ...props
-}) => {
-  /* eslint-disable no-nested-ternary */
-  const stickyClass = isStuck
-    ? stickToBottom
-      ? 'rev-Sticky-content--stuck-bottom'
-      : 'rev-Sticky-content--stuck-top'
-    : isAnchored
-      ? 'rev-Sticky-content--anchored'
-      : ''
-  const itemClassName = classNames(className, 'rev-Sticky-content', stickyClass)
-
-  return (
-    <div ref={setRef} className={itemClassName} {...props}>
-      {children}
-    </div>
-  )
-}
-
-StickyContent.propTypes = {
-  children: PropTypes.node,
-  className: PropTypes.string,
-  isStuck: PropTypes.bool,
-  isAnchored: PropTypes.bool,
-  stickToBottom: PropTypes.bool,
-  setRef: PropTypes.func,
-}
-
-/**
- * A stateless Sticky container commponent that allows a user to plug-and-play
- * custom defined behavior if desired.
- */
 class Sticky extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
-    contentClassName: PropTypes.string,
-    isStuck: PropTypes.bool,
-    isAnchored: PropTypes.bool,
-    stickToBottom: PropTypes.bool,
-    setRef: PropTypes.func,
-    setContentRef: PropTypes.func,
-  }
-
-  render() {
-    const {
-      children,
-      className,
-      contentClassName,
-      setRef,
-      setContentRef,
-      isStuck,
-      isAnchored,
-      stickToBottom,
-      ...props
-    } = this.props
-
-    const containerClassName = classNames(className, 'rev-Sticky')
-
-    return (
-      <div ref={setRef} className={containerClassName} {...props}>
-        <StickyContent
-          className={contentClassName}
-          isAnchored={isAnchored}
-          isStuck={isStuck}
-          stickToBottom={stickToBottom}
-          setRef={setContentRef}
-        >
-          {children}
-        </StickyContent>
-      </div>
-    )
-  }
-}
-
-/**
- * A Sticky container component that allows its children to stick to the top of
- * the viewport as the user scrolls down the document. Passing in the stickToBottom
- * prop will reverse the orientation, sticking the container's children to the
- * bottom of the viewport as the user scrolls up the document.
- *
- * The component also supports an offset prop. This prop is currently meant to be a
- * an amount in px, e.g. offset="50px". In the default orientation, the offset will
- * prevent the sticking from occurring until the user scrolls past the offset amount
- * down from the top of the container. With the stickToBottom prop, the offset will
- * prevent the sticking from occurring until the user scrolls past the offset amount
- * up from the bottom of the container. This prop may eventually be reworked to
- * use the positions of elements for explicitly customizable starting/stopping points
- * or perhaps allow both of these forms of offset.
- */
-class StatefulSticky extends Component {
-  static propTypes = {
-    isOpen: PropTypes.bool,
-    onBackgroundClick: PropTypes.func,
-    className: PropTypes.string,
-    children: PropTypes.node,
-    stickToBottom: PropTypes.bool,
-    offset: PropTypes.string,
   }
 
   constructor(props) {
@@ -122,92 +14,32 @@ class StatefulSticky extends Component {
       isStuck: false,
       isAnchored: false,
     }
+
+    this.setContentState = this.setContentState.bind(this)
+    this.setWidth = this.setWidth.bind(this)
   }
 
   /**
-   * Set the function that determines state as the window scroll event when
-   * the component mounts.
+   * Set the function that determines stickiness as the window scroll event and set
+   * the width setting function on window resize and load when the component mounts.
    * @return {void}
    */
   componentDidMount() {
-    window.addEventListener('scroll', this.setContentState.bind(this))
-    window.addEventListener('resize', this.setContentWidth)
+    window.addEventListener('scroll', this.setContentState)
+    window.addEventListener('resize', this.setWidth)
+    this.setWidth()
 
-    this.placeholder.style.width = this.stickyContent.style.width
-    this.placeholder.style.height = this.stickyContent.style.height
+    this.placeholder.style.width = `${this.sticky.offsetWidth}px`
+    this.placeholder.style.height = `${this.sticky.offsetHeight}px`
   }
 
   /**
-   * Used to bind a ref to the container part of the sticky container system.
-   * @param {string} container the container element
+   * Remove all the event listeners added on mount when the component unmounts.
    * @return {void}
    */
-  setContainerRef(container) {
-    this.stickyContainer = container
-  }
-
-  /**
-   * Used to bind a ref to the content, i.e. the children, part of the sticky container system.
-   * @param {string} content the content element
-   * @return {void}
-   */
-  setContentRef(content) {
-    this.stickyContent = content
-  }
-
-  /* eslint complexity: [2, 8] */
-  /**
-   * Determine the state of whether the content should be stuck, anchored to the stopping
-   * point of the sticky behavior (e.g. the bottom of the container), or neither.
-   * @return {void}
-   */
-  setContentState() {
-    const containerTop = this.stickyContainer.getBoundingClientRect().top
-    const containerBottom = this.stickyContainer.getBoundingClientRect().bottom
-
-    let stickyStart, stickyStop, stickyFlag, anchorFlag
-
-    if (this.props.stickToBottom) {
-      stickyStart = this.props.offset
-        ? containerBottom -
-          this.parsePxValue(this.props.offset) -
-          window.innerHeight
-        : containerBottom - window.innerHeight
-      stickyStop =
-        containerTop + this.stickyContent.offsetHeight - window.innerHeight
-      stickyFlag = stickyStart >= 0 && stickyStop <= 0
-      anchorFlag = stickyStart <= 0
-    } else {
-      stickyStart = this.props.offset
-        ? containerTop + this.parsePxValue(this.props.offset)
-        : containerTop
-      stickyStop = containerBottom - this.stickyContent.offsetHeight
-      stickyFlag = stickyStart <= 0 && stickyStop >= 0
-      anchorFlag = stickyStop <= 0
-    }
-
-    if (stickyFlag) {
-      // this is to force the fixed div holding the sticky content
-      // to not break out of the sticky container since fixed
-      // positioning breaks elements out of document flow
-      this.placeholder.style.display = 'block'
-      this.setContentWidth()
-
-      this.setState({
-        isStuck: true,
-        isAnchored: false,
-      })
-    } else if (anchorFlag) {
-      this.setState({
-        isStuck: false,
-        isAnchored: true,
-      })
-    } else {
-      this.setState({
-        isStuck: false,
-        isAnchored: false,
-      })
-    }
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.setContentState)
+    window.removeEventListener('resize', this.setWidth)
   }
 
   /**
@@ -225,38 +57,112 @@ class StatefulSticky extends Component {
    * Set the width of the content block.
    * @return {void}
    */
-  setContentWidth() {
-    const sideBorders =
-      this.parsePxValue(this.stickyContainer.style.borderRightWidth) +
-      this.parsePxValue(this.stickyContainer.style.borderLeftWidth)
+  setWidth() {
+    const containerStyles = window.getComputedStyle(this.sticky.parentElement)
+    const parentWidth =
+      this.parsePxValue(containerStyles.width) -
+      this.parsePxValue(containerStyles.borderLeft) -
+      this.parsePxValue(containerStyles.borderRight)
 
-    this.stickyContent.style.width = `${(
-      this.stickyContainer.offsetWidth - sideBorders
-    ).toString()}px`
+    this.sticky.style.width = `${parentWidth}px`
+  }
+
+  /* eslint complexity: [2, 8] */
+  /**
+   * Determine the state of whether the content should be stuck, anchored to the stopping
+   * point of the sticky behavior (e.g. the bottom of the container), or neither.
+   * @return {void}
+   */
+  setContentState() {
+    const currentHeight = this.sticky.offsetHeight
+
+    const stickyContainer = this.sticky.parentElement
+    const containerTop = stickyContainer.getBoundingClientRect().top
+    const containerBottom = stickyContainer.getBoundingClientRect().bottom
+
+    const stickyStart = containerTop
+    const stickyStop = containerBottom - currentHeight
+
+    const stickyFlag = stickyStart <= 0 && stickyStop > 0
+    const anchorFlag = stickyStop <= 0
+
+    if (stickyFlag) {
+      this.placeholder.style.display = 'block'
+
+      this.setState({
+        isStuck: true,
+        isAnchored: false,
+      })
+    } else if (anchorFlag) {
+      this.setState({
+        isStuck: false,
+        isAnchored: true,
+      })
+    } else {
+      this.placeholder.style.display = 'none'
+
+      this.setState({
+        isStuck: false,
+        isAnchored: false,
+      })
+    }
   }
 
   render() {
-    const {children, stickToBottom, ...props} = this.props
+    const {children, className, ...props} = this.props
+    /* eslint-disable no-nested-ternary */
+    const stickyClass = this.state.isStuck
+      ? 'rev-Sticky--stuck'
+      : this.state.isAnchored
+        ? 'rev-Sticky--anchored'
+        : ''
+    const stickyClassName = classNames(className, 'rev-Sticky', stickyClass)
 
     return (
-      <Sticky
-        setRef={this.setContainerRef.bind(this)}
-        setContentRef={this.setContentRef.bind(this)}
-        isStuck={this.state.isStuck}
-        isAnchored={this.state.isAnchored}
-        stickToBottom={stickToBottom}
-        {...props}
-      >
+      <Fragment>
         <div
-          ref={(placeholder) => (this.placeholder = placeholder)}
           className="rev-Sticky-placeholder"
+          ref={(placeholder) => {
+            this.placeholder = placeholder
+          }}
         />
-        {children}
-      </Sticky>
+        <div
+          {...props}
+          className={stickyClassName}
+          ref={(sticky) => {
+            this.sticky = sticky
+          }}
+        >
+          {children}
+        </div>
+      </Fragment>
     )
   }
 }
 
-Sticky.Stateful = StatefulSticky
+class StickyContainer extends Component {
+  static propTypes = {
+    className: PropTypes.string,
+    children: PropTypes.node,
+  }
 
+  constructor(props) {
+    super(props)
+  }
+
+  render() {
+    const {children, className, ...props} = this.props
+    const containerClassName = classNames(className, 'rev-Sticky-container')
+
+    return (
+      <div {...props} className={containerClassName}>
+        {children}
+      </div>
+    )
+  }
+}
+
+Sticky.Container = StickyContainer
+
+export {StickyContainer}
 export default Sticky

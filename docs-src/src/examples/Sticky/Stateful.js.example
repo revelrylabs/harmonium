@@ -1,6 +1,8 @@
-<Sticky.Stateful style={{border: '1px solid black', paddingBottom: '1000px'}}>
-  <span>
-    This is an example of a default stateful Sticky.
-    Borders provide visual clarity to see exactly when this sticks/unsticks.
-  </span>
-</Sticky.Stateful>
+<Sticky.Container style={{border: '1px solid black', height: '1000px'}}>
+  <Sticky>
+    <span>
+      This is an example of a default Sticky.
+      Borders provide visual clarity to see exactly when this sticks/unsticks.
+    </span>
+  </Sticky>
+</Sticky.Container>
