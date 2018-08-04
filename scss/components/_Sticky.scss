@@ -17,9 +17,16 @@ $sticky-container-bkgd: $white !default;
   display: none;
 }
 
-.rev-Sticky--stuck {
+.rev-Sticky--stuck-top, .rev-Sticky--stuck-bottom {
   position: fixed;
+}
+
+.rev-Sticky--stuck-top {
   top: 0;
+}
+
+.rev-Sticky--stuck-bottom {
+  bottom: 0;
 }
 
 .rev-Sticky--anchored {

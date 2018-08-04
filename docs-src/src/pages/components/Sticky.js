@@ -5,6 +5,7 @@ import Headers from '../../Headers'
 
 const examples = {
   'No Props': require('raw!../../examples/Sticky/Stateful.js.example'),
+  'Stick to Bottom': require('raw!../../examples/Sticky/Bottom.js.example'),
 }
 
 export default class StickyExamplePage extends Component {

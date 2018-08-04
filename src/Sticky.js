@@ -6,6 +6,7 @@ class Sticky extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
+    stickToBottom: PropTypes.bool,
   }
 
   constructor(props) {
@@ -80,11 +81,21 @@ class Sticky extends Component {
     const containerTop = stickyContainer.getBoundingClientRect().top
     const containerBottom = stickyContainer.getBoundingClientRect().bottom
 
-    const stickyStart = containerTop
-    const stickyStop = containerBottom - currentHeight
+    let stickyFlag, anchorFlag
 
-    const stickyFlag = stickyStart <= 0 && stickyStop > 0
-    const anchorFlag = stickyStop <= 0
+    if (this.props.stickToBottom) {
+      const stickyStart = containerBottom - window.innerHeight
+      const stickyStop = containerTop + currentHeight - window.innerHeight
+
+      stickyFlag = stickyStart > 0 && stickyStop <= 0
+      anchorFlag = stickyStart <= 0
+    } else {
+      const stickyStart = containerTop
+      const stickyStop = containerBottom - currentHeight
+
+      stickyFlag = stickyStart <= 0 && stickyStop > 0
+      anchorFlag = stickyStop <= 0
+    }
 
     if (stickyFlag) {
       this.placeholder.style.display = 'block'
@@ -109,10 +120,12 @@ class Sticky extends Component {
   }
 
   render() {
-    const {children, className, ...props} = this.props
+    const {children, className, stickToBottom, ...props} = this.props
     /* eslint-disable no-nested-ternary */
     const stickyClass = this.state.isStuck
-      ? 'rev-Sticky--stuck'
+      ? stickToBottom
+        ? 'rev-Sticky--stuck-bottom'
+        : 'rev-Sticky--stuck-top'
       : this.state.isAnchored
         ? 'rev-Sticky--anchored'
         : ''
