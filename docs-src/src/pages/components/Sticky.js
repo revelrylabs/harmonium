@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  'No Props': require('raw!../../examples/Sticky/Stateful.js.example'),
+  'No Props': require('raw!../../examples/Sticky/Basic.js.example'),
   'Stick to Bottom': require('raw!../../examples/Sticky/Bottom.js.example'),
 }
 
