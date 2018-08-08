@@ -1,0 +1,19 @@
+<div style={{display: 'flex'}}>
+  <div style={{display: 'flex', flexFlow: 'column', flex: '1', justifyContent: 'space-around'}}>
+    <div id="secondTopAnchor">
+      The bottom of this element is being used as a top anchor.
+    </div>
+
+    <div id="secondBottomAnchor">
+      The bottom of this element is being used as a bottom anchor.
+    </div>
+  </div>
+
+  <Sticky.Container style={{border: '1px solid black', flex: '5', height: '1000px'}}>
+    <Sticky stickToBottom topAnchor="secondTopAnchor:bottom" bottomAnchor="secondBottomAnchor:bottom">
+      <span>
+        This is an example of a Sticky that has anchors and sticks to the bottom.
+      </span>
+    </Sticky>
+  </Sticky.Container>
+</div>

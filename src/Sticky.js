@@ -2,11 +2,17 @@ import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
+/**
+ * A Sticky component that allows its content to stick
+ * to the top or bottom of the window.
+ */
 class Sticky extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
     stickToBottom: PropTypes.bool,
+    topAnchor: PropTypes.string,
+    bottomAnchor: PropTypes.string,
   }
 
   constructor(props) {
@@ -28,7 +34,7 @@ class Sticky extends Component {
   componentDidMount() {
     window.addEventListener('scroll', this.setContentState)
     window.addEventListener('resize', this.setWidth)
-    this.setWidth()
+    window.addEventListener('load', this.setWidth)
 
     this.placeholder.style.width = `${this.sticky.offsetWidth}px`
     this.placeholder.style.height = `${this.sticky.offsetHeight}px`
@@ -41,6 +47,7 @@ class Sticky extends Component {
   componentWillUnmount() {
     window.removeEventListener('scroll', this.setContentState)
     window.removeEventListener('resize', this.setWidth)
+    window.removeEventListener('load', this.setWidth)
   }
 
   /**
@@ -68,6 +75,74 @@ class Sticky extends Component {
     this.sticky.style.width = `${parentWidth}px`
   }
 
+  /**
+   * Takes one of the anchor prop values and determines
+   * whether to anchor to the top or bottom of the element
+   * @param {string} anchor the anchor prop value
+   * @return {string} the parsed anchor point
+   */
+  getAnchor(anchor) {
+    const anchorParts = /(\w+):?(\w*)/.exec(anchor)
+    const anchorEl = document.getElementById(anchorParts[1])
+    let anchorPoint
+
+    if (anchorParts[2] === 'bottom') {
+      anchorPoint = anchorEl.getBoundingClientRect().bottom
+    } else if (anchorParts[2] === 'top' || !anchorParts[2]) {
+      anchorPoint = anchorEl.getBoundingClientRect().top
+    }
+
+    return anchorPoint
+  }
+
+  /**
+   * Determine the points at which the sticky element starts to
+   * stick and stops sticking depending on which props are passed in.
+   * The stickToBottom prop sticks the sticky element to the bottom of the window.
+   * The topAnchor prop changes the starting point for a top-sticking sticky and
+   * the stopping point for a bottom-sticking sticky. The bottomAnchor changes the
+   * stopping point for a top-sticking sticky and the starting point for a
+   * bottom-sticking sticky.
+   * @return {object} the sticky starting and stopping points
+   */
+  setStickyPoints() {
+    const currentHeight = this.sticky.offsetHeight
+
+    const stickyContainer = this.sticky.parentElement
+    const containerTop = stickyContainer.getBoundingClientRect().top
+    const containerBottom = stickyContainer.getBoundingClientRect().bottom
+
+    let stickyStart, stickyStop, topAnchor, bottomAnchor
+
+    if (this.props.topAnchor) {
+      topAnchor = this.getAnchor(this.props.topAnchor)
+    }
+
+    if (this.props.bottomAnchor) {
+      bottomAnchor = this.getAnchor(this.props.bottomAnchor)
+    }
+
+    if (this.props.stickToBottom) {
+      const windowHeight = window.innerHeight
+
+      stickyStart = bottomAnchor ? bottomAnchor : containerBottom
+      stickyStart -= windowHeight
+
+      stickyStop = topAnchor ? topAnchor : containerTop
+      stickyStop = stickyStop + currentHeight - windowHeight
+    } else {
+      stickyStart = topAnchor ? topAnchor : containerTop
+
+      stickyStop = bottomAnchor ? bottomAnchor : containerBottom
+      stickyStop -= currentHeight
+    }
+
+    return {
+      stickyStart,
+      stickyStop,
+    }
+  }
+
   /* eslint complexity: [2, 8] */
   /**
    * Determine the state of whether the content should be stuck, anchored to the stopping
@@ -75,26 +150,15 @@ class Sticky extends Component {
    * @return {void}
    */
   setContentState() {
-    const currentHeight = this.sticky.offsetHeight
-
-    const stickyContainer = this.sticky.parentElement
-    const containerTop = stickyContainer.getBoundingClientRect().top
-    const containerBottom = stickyContainer.getBoundingClientRect().bottom
-
+    const stickyPoints = this.setStickyPoints()
     let stickyFlag, anchorFlag
 
     if (this.props.stickToBottom) {
-      const stickyStart = containerBottom - window.innerHeight
-      const stickyStop = containerTop + currentHeight - window.innerHeight
-
-      stickyFlag = stickyStart > 0 && stickyStop <= 0
-      anchorFlag = stickyStart <= 0
+      stickyFlag = stickyPoints.stickyStart > 0 && stickyPoints.stickyStop <= 0
+      anchorFlag = stickyPoints.stickyStart <= 0
     } else {
-      const stickyStart = containerTop
-      const stickyStop = containerBottom - currentHeight
-
-      stickyFlag = stickyStart <= 0 && stickyStop > 0
-      anchorFlag = stickyStop <= 0
+      stickyFlag = stickyPoints.stickyStart <= 0 && stickyPoints.stickyStop > 0
+      anchorFlag = stickyPoints.stickyStop <= 0
     }
 
     if (stickyFlag) {
@@ -130,6 +194,10 @@ class Sticky extends Component {
         ? 'rev-Sticky--anchored'
         : ''
     const stickyClassName = classNames(className, 'rev-Sticky', stickyClass)
+    const divProps = Object.assign({}, props)
+
+    delete divProps.topAnchor
+    delete divProps.bottomAnchor
 
     return (
       <Fragment>
@@ -140,11 +208,11 @@ class Sticky extends Component {
           }}
         />
         <div
-          {...props}
           className={stickyClassName}
           ref={(sticky) => {
             this.sticky = sticky
           }}
+          {...divProps}
         >
           {children}
         </div>
@@ -153,6 +221,9 @@ class Sticky extends Component {
   }
 }
 
+/**
+ * A StickyContainer component to hold a Sticky element.
+ */
 class StickyContainer extends Component {
   static propTypes = {
     className: PropTypes.string,
