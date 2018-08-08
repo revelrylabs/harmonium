@@ -106,12 +106,6 @@ class Sticky extends Component {
    * @return {object} the sticky starting and stopping points
    */
   setStickyPoints() {
-    const currentHeight = this.sticky.offsetHeight
-
-    const stickyContainer = this.sticky.parentElement
-    const containerTop = stickyContainer.getBoundingClientRect().top
-    const containerBottom = stickyContainer.getBoundingClientRect().bottom
-
     let stickyStart, stickyStop, topAnchor, bottomAnchor
 
     if (this.props.topAnchor) {
@@ -122,19 +116,23 @@ class Sticky extends Component {
       bottomAnchor = this.getAnchor(this.props.bottomAnchor)
     }
 
+    const currentHeight = this.sticky.offsetHeight
+
+    const stickyContainer = this.sticky.parentElement
+    const containerTop = stickyContainer.getBoundingClientRect().top
+    const containerBottom = stickyContainer.getBoundingClientRect().bottom
+
+    const topPoint = topAnchor ? topAnchor : containerTop
+    const bottomPoint = bottomAnchor ? bottomAnchor : containerBottom
+
     if (this.props.stickToBottom) {
       const windowHeight = window.innerHeight
 
-      stickyStart = bottomAnchor ? bottomAnchor : containerBottom
-      stickyStart -= windowHeight
-
-      stickyStop = topAnchor ? topAnchor : containerTop
-      stickyStop = stickyStop + currentHeight - windowHeight
+      stickyStart = bottomPoint - windowHeight
+      stickyStop = topPoint + currentHeight - windowHeight
     } else {
-      stickyStart = topAnchor ? topAnchor : containerTop
-
-      stickyStop = bottomAnchor ? bottomAnchor : containerBottom
-      stickyStop -= currentHeight
+      stickyStart = topPoint
+      stickyStop = bottomPoint - currentHeight
     }
 
     return {
