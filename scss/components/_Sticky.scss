@@ -20,6 +20,9 @@ $sticky-content-bkgd: $white 0 !default;
 
 .rev-Sticky-content {
   background: $sticky-content-bkgd;
+  padding: $global-padding;
+  background-color: $primary;
+  color: #fff;
 }
 
 .rev-Sticky-content--stuck-top {

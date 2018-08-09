@@ -1,7 +1,7 @@
 // ALL VARS ARE WRITTEN AS !DEFAULT HERE SO THAT THEY CAN BE EASILY OVERWRITTEN
 
 // Sizes
-$small: 0px !default;
+$small: 0 !default;
 $medium: 768px !default;
 $large: 1024px !default;
 $xlarge: 1200px !default;
@@ -128,7 +128,7 @@ $hr-margin: $global-padding-large auto !default;
 
 // Image Blur
 $image-blur: blur(8px) !default;
-$no-image-blur: blur(0px) !default;
+$no-image-blur: blur(0) !default;
 
 $disabled-opacity: 0.35 !default;
 
