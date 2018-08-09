@@ -13,6 +13,8 @@ class Sticky extends Component {
     stickToBottom: PropTypes.bool,
     topAnchor: PropTypes.string,
     bottomAnchor: PropTypes.string,
+    topOffset: PropTypes.number,
+    bottomOffset: PropTypes.number,
   }
 
   constructor(props) {
@@ -122,8 +124,16 @@ class Sticky extends Component {
     const containerTop = stickyContainer.getBoundingClientRect().top
     const containerBottom = stickyContainer.getBoundingClientRect().bottom
 
-    const topPoint = topAnchor ? topAnchor : containerTop
-    const bottomPoint = bottomAnchor ? bottomAnchor : containerBottom
+    let topPoint = topAnchor ? topAnchor : containerTop
+    let bottomPoint = bottomAnchor ? bottomAnchor : containerBottom
+
+    if (this.props.topOffset) {
+      topPoint += this.props.topOffset
+    }
+
+    if (this.props.bottomOffset) {
+      bottomPoint += this.props.bottomOffset
+    }
 
     if (this.props.stickToBottom) {
       const windowHeight = window.innerHeight
@@ -196,6 +206,8 @@ class Sticky extends Component {
 
     delete divProps.topAnchor
     delete divProps.bottomAnchor
+    delete divProps.topOffset
+    delete divProps.bottomOffset
 
     return (
       <Fragment>
