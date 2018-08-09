@@ -4,7 +4,7 @@
     implement the common use case of making a sticky nav menu.
   </header>
   <Sticky topAnchor="header:bottom">
-    <nav style={{background: 'blue', color: 'white', width: '100%'}}>
+    <nav style={{width: '100%'}}>
       <ul>
         <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 1</li>
         <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 2</li>
