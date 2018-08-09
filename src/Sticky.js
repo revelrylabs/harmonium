@@ -38,11 +38,6 @@ class Sticky extends Component {
     window.addEventListener('resize', this.setWidth)
     window.addEventListener('load', this.setWidth)
 
-    // use clientWidth here instead of offsetWidth
-    // because this value is used to contain the sticky
-    // element INSIDE of its parents borders
-    this.parentWidth = this.sticky.parentElement.clientWidth
-
     this.placeholder.style.width = `${this.sticky.offsetWidth}px`
     this.placeholder.style.height = `${this.sticky.offsetHeight}px`
   }
@@ -73,7 +68,10 @@ class Sticky extends Component {
    * @return {void}
    */
   setWidth() {
-    this.sticky.style.width = `${this.parentWidth}px`
+    // use clientWidth here instead of offsetWidth
+    // because this value is used to contain the sticky
+    // element INSIDE of its parents borders
+    this.sticky.style.width = `${this.sticky.parentElement.clientWidth}px`
   }
 
   /**
