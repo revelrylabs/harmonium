@@ -1,0 +1,8 @@
+<div>
+  <Slider
+    initialValue={25}
+    min={0}
+    max={100}
+    name='slider'
+  />
+</div>

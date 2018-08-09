@@ -1,5 +1,5 @@
 // Sizes
-$small: 0px;
+$small: 0;
 $medium: 768px;
 $large: 1024px;
 $xlarge: 1200px;
@@ -73,7 +73,7 @@ $grid-columns: 12;
 // Spacing
 $global-vertical-space: $global-font-size * $global-lineheight; // 24px
 $global-horizontal-space: $global-vertical-space; // 24px
-$base-size: .8rem;
+$base-size: 0.8rem;
 
 // Global Padding - made up of vertical spacing multiples
 $global-padding-tiny: $global-vertical-space / 4;  // 6px
@@ -157,7 +157,7 @@ $hr-margin: $global-padding-large auto;
 
 // Image Blur
 $image-blur: blur(8px);
-$no-image-blur: blur(0px);
+$no-image-blur: blur(0);
 
 // Disabled
 $disabled-opacity: 0.35;
@@ -319,6 +319,19 @@ $input-color-focus: $input-color;
 $input-font-size: $global-font-size;
 $label-color: $body-font-color;
 $label-font-size: $global-font-size;
+
+//## Range Slider -----------------------------
+$slider-height: 50px;
+$slider-track-padding-right: $global-padding;
+$slider-track-color: $light-gray;
+$slider-input-height: 25px;
+$slider-input-width: 80px;
+$slider-input-margin: 0;
+$slider-thumb-width: 16px;
+$slider-thumb-height: 16px;
+$slider-thumb-border-radius: 50%;
+$slider-thumb-background: $primary;
+$slider-progress-color: $primary;
 
 //## TABLES -----------------------------
 

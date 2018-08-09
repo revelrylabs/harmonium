@@ -25,7 +25,7 @@ $pagination-link-color-selected: null !default;
   display: inline-block;
   font-size: $global-font-size-small;
   margin: 0 $global-margin-tiny / 4;
-  &--hidden  {
+  &--hidden {
     display: none;
   }
   a {
