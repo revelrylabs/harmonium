@@ -8,6 +8,7 @@ const examples = {
   'Stick to Bottom': require('raw!../../examples/Sticky/Bottom.js.example'),
   'With Anchors': require('raw!../../examples/Sticky/Anchors.js.example'),
   'With Offsets': require('raw!../../examples/Sticky/Offset.js.example'),
+  'Nav': require('raw!../../examples/Sticky/Navigation.js.example'),
 }
 
 export default class StickyExamplePage extends Component {
