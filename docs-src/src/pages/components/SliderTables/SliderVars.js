@@ -26,7 +26,7 @@ export default function InputVars() {
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Description:</Table.HeaderInline> Default height
-            for Slider component container.
+            for slider component container.
           </Table.Data>
         </Table.Row>
 
@@ -41,7 +41,7 @@ export default function InputVars() {
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Description:</Table.HeaderInline> Default height
-            for Slide track.
+            for slider track.
           </Table.Data>
         </Table.Row>
 

@@ -60,7 +60,6 @@ $shadow-size: -0.4em;
     background: $slider-track-color;
     content: '';
     height: $slider-track-height;
-    pointer-events: none;
   }
   &-range:focus::-webkit-slider-runnable-track {
     background: $slider-track-color;
