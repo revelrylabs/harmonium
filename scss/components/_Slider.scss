@@ -12,7 +12,7 @@ $slider-thumb-background: $primary !default;
 $slider-progress-color: $primary !default;
 
 // Duplicates the shadow to make a fake progress bar
-// TODO refactor into element. See GH ticket: #327
+// TODO refactor into element. See Harmonium GH ticket: #327
 $slider-width-number: 2000;
 $slider-width: #{$slider-width-number}px;
 $shadow-size: -0.4em;
