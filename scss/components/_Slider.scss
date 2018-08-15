@@ -1,15 +1,15 @@
-$slider-height: 40px;
-$slider-track-height: 3px;
-$slider-track-padding-right: $global-padding;
-$slider-track-color: $light-gray;
-$slider-input-height: 25px;
-$slider-input-width: 80px;
-$slider-input-margin: 0;
-$slider-thumb-width: 16px;
-$slider-thumb-height: 16px;
-$slider-thumb-border-radius: 50%;
-$slider-thumb-background: $primary;
-$slider-progress-color: $primary;
+$slider-height: 40px !default;
+$slider-track-height: 3px !default;
+$slider-track-padding-right: $global-padding !default;
+$slider-track-color: $light-gray !default;
+$slider-input-height: 25px !default;
+$slider-input-width: 80px !default;
+$slider-input-margin: 0 !default;
+$slider-thumb-width: 16px !default;
+$slider-thumb-height: 16px !default;
+$slider-thumb-border-radius: 50% !default;
+$slider-thumb-background: $primary !default;
+$slider-progress-color: $primary !default;
 
 // Duplicates the shadow to make a fake progress bar
 // TODO refactor into element. See GH ticket: #327
