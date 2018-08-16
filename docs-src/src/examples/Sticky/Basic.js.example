@@ -4,5 +4,9 @@
       This is an example of a default Sticky.
       Borders provide visual clarity to see exactly when this sticks/unsticks.
     </span>
+    <div>
+      Warning: Sticky components MUST be a direct child of a StickyContainer.
+      Nesting it deeper than that will not work.
+    </div>
   </Sticky>
 </Sticky.Container>
