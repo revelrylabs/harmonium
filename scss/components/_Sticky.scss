@@ -18,6 +18,10 @@ $sticky-bkgd: $white 0 !default;
   position: relative;
 }
 
+.rev-Sticky-wrapper {
+  width: 100%;
+}
+
 .rev-Sticky-placeholder {
   display: none;
 }

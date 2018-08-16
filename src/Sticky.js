@@ -117,7 +117,7 @@ class Sticky extends Component {
 
     const currentHeight = this.sticky.offsetHeight
 
-    const stickyContainer = this.sticky.parentElement
+    const stickyContainer = this.sticky.parentElement.parentElement
     const containerTop = stickyContainer.getBoundingClientRect().top
     const containerBottom = stickyContainer.getBoundingClientRect().bottom
 
@@ -207,7 +207,7 @@ class Sticky extends Component {
     delete divProps.bottomOffset
 
     return (
-      <Fragment>
+      <div className="rev-Sticky-wrapper">
         <div
           className="rev-Sticky-placeholder"
           ref={(placeholder) => {
@@ -223,7 +223,7 @@ class Sticky extends Component {
         >
           {children}
         </div>
-      </Fragment>
+      </div>
     )
   }
 }
