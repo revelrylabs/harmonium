@@ -5,6 +5,7 @@ $sticky-container-bkgd: $white 0 !default;
 $sticky-bkgd: $white 0 !default;
 
 .rev-Sticky {
+  position: relative;
   right: auto;
   left: auto;
   background: $sticky-bkgd;
@@ -26,19 +27,6 @@ $sticky-bkgd: $white 0 !default;
   display: none;
 }
 
-.rev-Sticky--stuck-top, .rev-Sticky--stuck-bottom {
+.rev-Sticky--stuck {
   position: fixed;
-}
-
-.rev-Sticky--stuck-top {
-  top: 0;
-}
-
-.rev-Sticky--stuck-bottom {
-  bottom: 0;
-}
-
-.rev-Sticky--anchored {
-  position: absolute;
-  bottom: 0;
 }

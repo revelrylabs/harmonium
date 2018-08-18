@@ -19,10 +19,7 @@ class Sticky extends Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      isStuck: false,
-      isAnchored: false,
-    }
+    this.state = {isStuck: false}
 
     this.setContentState = this.setContentState.bind(this)
     this.setWidth = this.setWidth.bind(this)
@@ -118,6 +115,7 @@ class Sticky extends Component {
     const currentHeight = this.sticky.offsetHeight
 
     const stickyContainer = this.sticky.parentElement.parentElement
+      .parentElement
     const containerTop = stickyContainer.getBoundingClientRect().top
     const containerBottom = stickyContainer.getBoundingClientRect().bottom
 
@@ -167,40 +165,35 @@ class Sticky extends Component {
     }
 
     if (stickyFlag) {
+      if (this.props.stickToBottom) {
+        this.sticky.style.top = 'auto'
+        this.sticky.style.bottom = '0px'
+      } else {
+        this.sticky.style.top = '0px'
+      }
+
       this.placeholder.style.display = 'block'
-
-      this.setState({
-        isStuck: true,
-        isAnchored: false,
-      })
-    } else if (anchorFlag) {
-      this.setState({
-        isStuck: false,
-        isAnchored: true,
-      })
+      this.setState({isStuck: true})
     } else {
-      this.placeholder.style.display = 'none'
+      if (anchorFlag) {
+        this.sticky.style.top = `${this.sticky.parentElement.parentElement
+          .parentElement.clientHeight -
+          this.parsePxValue(this.placeholder.style.height)}px`
+      }
 
-      this.setState({
-        isStuck: false,
-        isAnchored: false,
-      })
+      this.placeholder.style.display = 'none'
+      this.setState({isStuck: false})
     }
   }
 
   render() {
-    const {children, className, stickToBottom, ...props} = this.props
+    const {children, className, ...props} = this.props
     /* eslint-disable no-nested-ternary */
-    const stickyClass = this.state.isStuck
-      ? stickToBottom
-        ? 'rev-Sticky--stuck-bottom'
-        : 'rev-Sticky--stuck-top'
-      : this.state.isAnchored
-        ? 'rev-Sticky--anchored'
-        : ''
+    const stickyClass = this.state.isStuck ? 'rev-Sticky--stuck' : ''
     const stickyClassName = classNames(className, 'rev-Sticky', stickyClass)
     const divProps = Object.assign({}, props)
 
+    delete divProps.stickToBottom
     delete divProps.topAnchor
     delete divProps.bottomAnchor
     delete divProps.topOffset
