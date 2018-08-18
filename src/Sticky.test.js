@@ -16,7 +16,7 @@ describe('Sticky', () => {
     const inherentClassName = 'rev-Sticky'
     const testClassName = '__TEST__'
 
-    const childClassName = mount(
+    const stickyClassName = mount(
       <Sticky.Container>
         <Sticky className={testClassName}>
           <span>test</span>
@@ -24,10 +24,10 @@ describe('Sticky', () => {
       </Sticky.Container>
     )
       .find('div')
-      .at(2)
+      .at(3)
       .prop('className')
 
-    expect(childClassName).to.contain(inherentClassName)
-    expect(childClassName).to.contain(testClassName)
+    expect(stickyClassName).to.contain(inherentClassName)
+    expect(stickyClassName).to.contain(testClassName)
   })
 })
