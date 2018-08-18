@@ -1,4 +1,4 @@
-<div style={{display: 'flex'}}>
+<div style={{display: 'flex', border: '1px solid black', height: '1000px'}}>
   <div style={{display: 'flex', flexFlow: 'column', justifyContent: 'space-around'}}>
     <div id="topAnchor">
       The top of this element is being used as a top anchor.
@@ -9,7 +9,7 @@
     </div>
   </div>
 
-  <Sticky.Container style={{border: '1px solid black', height: '1000px'}}>
+  <Sticky.Container>
     <Sticky topAnchor="topAnchor" bottomAnchor="bottomAnchor:bottom">
       <span>
         This is an example of a Sticky that has anchors. This is done by passing a string

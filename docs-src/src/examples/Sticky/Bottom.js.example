@@ -1,8 +1,10 @@
-<Sticky.Container style={{border: '1px solid black', height: '1000px'}}>
-  <Sticky stickToBottom>
-    <span>
-      This is an example of a Sticky that sticks to the bottom.
-      This is done by passing the stickToBottom prop into the component.
-    </span>
-  </Sticky>
-</Sticky.Container>
+<div style={{border: '1px solid black', height: '1000px'}}>
+  <Sticky.Container>
+    <Sticky stickToBottom>
+      <span>
+        This is an example of a Sticky that sticks to the bottom.
+        This is done by passing the stickToBottom prop into the component.
+      </span>
+    </Sticky>
+  </Sticky.Container>
+</div>
