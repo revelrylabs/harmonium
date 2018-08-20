@@ -1,7 +1,22 @@
-<Sticky.Stateful offset="100px" style={{border: '1px solid black', paddingBottom: '1000px'}}>
-  <span>
-    This is an example of a stateful Sticky with a top offset.
-    The offset in this case will prevent the content from sticking until the top of 
-    the viewport has passed the offset amount of px down from the top of the container.
-  </span>
-</Sticky.Stateful>
+<div style={{display: 'flex', border: '1px solid black', height: '1000px'}}>
+  <div style={{display: 'flex', flexFlow: 'column', justifyContent: 'space-around'}}>
+    <div id="topAnchor3">
+      The top of this element is being used as a top anchor.
+    </div>
+
+    <div id="bottomAnchor3">
+      The bottom of this element is being used as a bottom anchor.
+    </div>
+  </div>
+
+  <Sticky.Container>
+    <Sticky stickToBottom topAnchor="topAnchor3" topOffset={50} bottomAnchor="bottomAnchor3:bottom" bottomOffset={-50}>
+      <span>
+        This is an example of a Sticky that has offsets.
+        This is done by passing a number into the topOffset and/or bottomOffset prop(s).
+        These two props allow you to fine tune sticking/unsticking
+        a distance in px with respect to the anchors.
+      </span>
+    </Sticky>
+  </Sticky.Container>
+</div>

@@ -4,11 +4,11 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  'Stateless': require('raw!../../examples/Sticky/Stateless.js.example'),
-  'Stateful': require('raw!../../examples/Sticky/Stateful.js.example'),
-  'With Offset': require('raw!../../examples/Sticky/Offset.js.example'),
+  'No Props': require('raw!../../examples/Sticky/Basic.js.example'),
   'Stick to Bottom': require('raw!../../examples/Sticky/Bottom.js.example'),
-  'Stick to Bottom with Offset': require('raw!../../examples/Sticky/BottomOffset.js.example'),
+  'With Anchors': require('raw!../../examples/Sticky/Anchors.js.example'),
+  'With Offsets': require('raw!../../examples/Sticky/Offset.js.example'),
+  'Nav': require('raw!../../examples/Sticky/Navigation.js.example'),
 }
 
 export default class StickyExamplePage extends Component {
