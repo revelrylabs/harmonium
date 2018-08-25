@@ -3,5 +3,10 @@
   padding-left: $grid-column-padding;
   padding-right: $grid-column-padding;
   height: 100%;
+}
+
+.rev-Brand-img {
+  height: 100%;
   width: auto;
+  padding: $global-padding-tiny 0;
 }

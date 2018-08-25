@@ -5,31 +5,28 @@ import {shallow} from 'enzyme'
 const props = {}
 
 describe('Brand', () => {
-  it('will shallow render without throwing', () => {
+  it('should render without throwing', () => {
     expect(() => shallow(<Brand {...props} />)).not.to.throw()
   })
 
-  it('will set the src on the img element', () => {
-    const brand = shallow(<Brand imagePath="path/to/image" />)
+  it('should set the "src" attribute on the image element', () => {
+    const path = 'path/to/image'
+    const brand = shallow(<Brand imagePath={path} />)
 
-    expect(brand.find('img').html()).to.equal(
-      '<img class="ref-Brand-img" src="path/to/image"/>'
-    )
+    expect(brand.find('img').getElement().props.src).to.equal(path)
   })
 
-  it('will set the alt tag on the img element', () => {
-    const brand = shallow(<Brand altTag="screen reader text" />)
+  it('should set the "alt" tag on the image element', () => {
+    const altText = 'screen reader text'
+    const brand = shallow(<Brand altTag={altText} />)
 
-    expect(brand.find('img').html()).to.equal(
-      '<img class="ref-Brand-img" alt="screen reader text"/>'
-    )
+    expect(brand.find('img').getElement().props.alt).to.equal(altText)
   })
 
-  it('will set the link url on the anchor element', () => {
-    const brand = shallow(<Brand linkPath="/example" />)
+  it('should set the link on the anchor element', () => {
+    const link = '/some/example/link'
+    const brand = shallow(<Brand linkPath={link} />)
 
-    expect(brand.find('a').html()).to.equal(
-      '<a href="/example" class="rev-Brand"><img class="ref-Brand-img"/></a>'
-    )
+    expect(brand.find('a').getElement().props.href).to.equal(link)
   })
 })
