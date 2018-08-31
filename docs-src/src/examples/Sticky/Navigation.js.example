@@ -10,6 +10,13 @@
           <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 1</li>
           <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 2</li>
           <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 3</li>
+          <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 4</li>
+          <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 5</li>
+          <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 6</li>
+          <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 7</li>
+          <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 8</li>
+          <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 9</li>
+          <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 10</li>
         </ul>
       </nav>
     </Sticky>
