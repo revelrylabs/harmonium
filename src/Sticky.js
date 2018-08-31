@@ -22,7 +22,7 @@ class Sticky extends Component {
     this.state = {isStuck: false}
 
     this.setContentState = this.setContentState.bind(this)
-    this.setWidth = this.setWidth.bind(this)
+    this.setDimensions = this.setDimensions.bind(this)
   }
 
   /**
@@ -32,8 +32,8 @@ class Sticky extends Component {
    */
   componentDidMount() {
     window.addEventListener('scroll', this.setContentState)
-    window.addEventListener('resize', this.setWidth)
-    window.addEventListener('load', this.setWidth)
+    window.addEventListener('resize', this.setDimensions)
+    window.addEventListener('load', this.setDimensions)
 
     this.placeholder.style.width = `${this.sticky.offsetWidth}px`
     this.placeholder.style.height = `${this.sticky.offsetHeight}px`
@@ -45,8 +45,8 @@ class Sticky extends Component {
    */
   componentWillUnmount() {
     window.removeEventListener('scroll', this.setContentState)
-    window.removeEventListener('resize', this.setWidth)
-    window.removeEventListener('load', this.setWidth)
+    window.removeEventListener('resize', this.setDimensions)
+    window.removeEventListener('load', this.setDimensions)
   }
 
   /**
@@ -64,11 +64,16 @@ class Sticky extends Component {
    * Set the width of the content block.
    * @return {void}
    */
-  setWidth() {
+  setDimensions() {
+    // Width
     // use clientWidth here instead of offsetWidth
     // because this value is used to contain the sticky
     // element INSIDE of its parents borders
     this.sticky.style.width = `${this.sticky.parentElement.clientWidth}px`
+
+    // Height
+    // use sticky.offsetHeight so we can afjust the offset on resize
+    this.placeholder.style.height = `${this.sticky.offsetHeight}px`
   }
 
   /**
