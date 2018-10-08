@@ -65,3 +65,7 @@ adhere the Contributor Covenant Code of Conduct (see [CODE_OF_CONDUCT.md](https:
 [npm-url]: https://www.npmjs.com/package/harmonium
 [travis-badge]: https://img.shields.io/travis/revelrylabs/harmonium.svg
 [travis-url]: https://travis-ci.org/revelrylabs/harmonium
+
+## License
+
+See [LICENSE](https://github.com/revelrylabs/harmonium/blob/master/LICENSE) for details.
