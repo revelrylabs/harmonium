@@ -25,7 +25,7 @@
     "babel": "node_modules/.bin/babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel",
     "prepare": "npm run clean && npm run babel",
-    "test": "NODE_ENV=test nyc mocha './src/**/*.test.js' --opts ./mocha.opts && nyc report --reporter=html && npm run sass-test",
+    "test": "bin/test",
     "fix": "./node_modules/.bin/eslint --fix src/** docs-src/src/**",
     "sass-test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css"
   },
@@ -65,6 +65,7 @@
     "babel-register": "^6.24.1",
     "babelify": "^7.3.0",
     "chai": "^3.5.0",
+    "coveralls": "^3.0.2",
     "enzyme": ">=2.8.2",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.19.1",
@@ -78,14 +79,14 @@
     "jsdom": "^11.0.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^5.2.0",
+    "node-sass": "^4.9.2",
     "nyc": "^13.0.0",
     "prettier": "^1.11.1",
     "prettier-eslint": "^8.8.1",
     "react-test-renderer": ">=15.0.0",
     "semantic-release": "^15.1.7",
     "sinon": "^2.3.8",
-    "timekeeper": "^2.0.0",
-    "node-sass": "^4.9.2"
+    "timekeeper": "^2.0.0"
   },
   "nyc": {
     "require": [
