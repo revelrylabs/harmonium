@@ -142,6 +142,7 @@ $button-radius: $global-radius !default;
   }
 }
 .rev-ButtonGroup {
+  font-size: 0;
   .rev-Button {
     border-radius: 0;
     border-right: 1px solid $divider-color;
