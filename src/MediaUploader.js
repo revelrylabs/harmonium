@@ -10,10 +10,10 @@ const SUPPORTED_MEDIA_TYPES = [
   'image/jpeg',
   'image/gif',
   'video/mp4',
-];
-const UPLOAD_PLACEHOLDER = 'Choose file...';
-const SIZE_ERROR_MESSAGE = 'Please choose a smaller image';
-const TYPE_ERROR_MESSAGE = 'Please choose a supported file type';
+]
+const UPLOAD_PLACEHOLDER = 'Choose file...'
+const SIZE_ERROR_MESSAGE = 'Please choose a smaller image'
+const TYPE_ERROR_MESSAGE = 'Please choose a supported file type'
 
 // the enclosing form should have encType="multipart/form-data"
 class MediaUploader extends Component {
@@ -28,26 +28,26 @@ class MediaUploader extends Component {
 
   videoFile(file) {
     if (file.type.slice(0, 5) === 'video') {
-      return true;
+      return true
     }
-    return false;
+    return false
   }
 
   validateFile(file) {
-    const fileSize = file.size / 1024 / 1024; // in MB
-    const invalidSize = fileSize > 5;
+    const fileSize = file.size / 1024 / 1024 // in MB
+    const invalidSize = fileSize > 5
 
     if (invalidSize) {
-      this.setState({errorMessage: SIZE_ERROR_MESSAGE});
-      return false;
+      this.setState({errorMessage: SIZE_ERROR_MESSAGE})
+      return false
     }
 
     if (!includes(SUPPORTED_MEDIA_TYPES, file.type)) {
-      this.setState({errorMessage: TYPE_ERROR_MESSAGE});
-      return false;
+      this.setState({errorMessage: TYPE_ERROR_MESSAGE})
+      return false
     }
 
-    return true;
+    return true
   }
 
   imagePreview() {
@@ -55,23 +55,23 @@ class MediaUploader extends Component {
     const {imagePreviewUrl, file} = this.state
 
     if (file && this.videoFile(file)) {
-      return imagePreviewUrl && (
-        <video
-          controls
-          className={imageClass}
-          alt={file.name}
-          src={imagePreviewUrl}
-        />
-      );
+      return (
+        imagePreviewUrl && (
+          <video
+            controls
+            className={imageClass}
+            alt={file.name}
+            src={imagePreviewUrl}
+          />
+        )
+      )
     }
 
-    return imagePreviewUrl && (
-      <img
-        className={imageClass}
-        alt={file.name}
-        src={imagePreviewUrl}
-      />
-    );
+    return (
+      imagePreviewUrl && (
+        <img className={imageClass} alt={file.name} src={imagePreviewUrl} />
+      )
+    )
   }
 
   updatePreview = (e) => {
@@ -105,7 +105,7 @@ class MediaUploader extends Component {
     }
 
     if (file) {
-      reader.readAsDataURL(file);
+      reader.readAsDataURL(file)
     }
   }
 
@@ -114,11 +114,11 @@ class MediaUploader extends Component {
     const {file, valid, errorMessage} = this.state
 
     return (
-      <div className="EventFormFileInput">
-        <h6 className="rev-InutLabel">{label}</h6>
+      <div className="rev-MediaUploader">
+        <h6 className="rev-InputLabel">{label}</h6>
         {this.imagePreview()}
         <FileInput.Stack
-          label=''
+          label=""
           button={buttonLabel}
           placeholder={file.name || UPLOAD_PLACEHOLDER}
           name={name}
@@ -134,6 +134,7 @@ class MediaUploader extends Component {
 
 MediaUploader.defaultProps = {
   name: 'image',
+  imageClass: 'rev-MediaUploaderPreview',
 }
 
 MediaUploader.propTypes = {

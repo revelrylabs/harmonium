@@ -1,0 +1,21 @@
+.rev-MediaUploader {
+  .rev-HelpText {
+    font-size: $global-font-size-smaller;
+    text-transform: none;
+  }
+  .rev-InputGroup-field.rev-InputGroup-label {
+    box-sizing: border-box;
+    cursor: pointer;
+    text-transform: none;
+  }
+  .rev-Button {
+    box-sizing: border-box;
+    margin: 0;
+  }
+}
+
+// Image preview
+.rev-MediaUploaderPreview {
+  max-width: 15em;
+  padding-bottom: 1.5em;
+}
