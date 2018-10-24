@@ -38,6 +38,7 @@ import InputLabel from 'harmonium/lib/InputLabel'
 import Lipsum from 'harmonium/lib/Lipsum'
 import Loader from 'harmonium/lib/Loader'
 import MediaObject from 'harmonium/lib/MediaObject'
+import MediaUploader from 'harmonium/lib/MediaUploader'
 import Menu from 'harmonium/lib/Menu'
 import MapComponent from 'harmonium/lib/Map/MapComponent'
 import InfoWindow from 'harmonium/lib/Map/InfoWindow'
@@ -108,6 +109,7 @@ export default {
   Lipsum,
   Loader,
   MediaObject,
+  MediaUploader,
   Menu,
   MapComponent,
   Marker,
