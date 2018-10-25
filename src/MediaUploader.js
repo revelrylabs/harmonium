@@ -1,42 +1,8 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import FileInput from './FileInput'
+import utils from './MediaUploader/utils'
 import classNames from 'classnames'
-import {includes} from 'lodash'
-
-function makeS3Request(data, file) {
-  return new Promise((resolve, reject) => {
-    const xhr = new XMLHttpRequest()
-
-    xhr.onreadystatechange = () => {
-      if (xhr.readyState === 4) {
-        if (xhr.status === 200) {
-          resolve(data.url)
-        } else {
-          reject({
-            status: xhr.status,
-            statusText: xhr.statusText,
-          })
-        }
-      }
-    }
-
-    xhr.open('PUT', data.signed_request)
-    xhr.send(file)
-  })
-}
-
-async function uploadFileToS3(file, generatePath) {
-  try {
-    const response = await fetch(generatePath(file))
-    const {data} = await response.json()
-    const url = await makeS3Request(data, file)
-
-    return url
-  } catch (e) {
-    return alert('Could not upload file.')
-  }
-}
 
 class MediaUploader extends Component {
   constructor(props) {
@@ -48,13 +14,7 @@ class MediaUploader extends Component {
     }
   }
 
-  videoFile(file) {
-    if (file.type.slice(0, 5) === 'video') {
-      return true
-    }
-    return false
-  }
-
+  // check file size and type and set the error message accordingly
   validateFile(file) {
     const {
       supportedFileTypes,
@@ -62,15 +22,13 @@ class MediaUploader extends Component {
       maxFileSize,
       maxFileSizeMessage,
     } = this.props
-    const fileSize = file.size / 1024 / 1024 // in MB
-    const invalidSize = fileSize > maxFileSize
 
-    if (invalidSize) {
+    if (utils.isTooBig(file, maxFileSize)) {
       this.setState({errorMessage: maxFileSizeMessage})
       return false
     }
 
-    if (!includes(supportedFileTypes, file.type)) {
+    if (utils.isUnsupportedFileType(file, supportedFileTypes)) {
       this.setState({errorMessage: supportedFileTypesMessage})
       return false
     }
@@ -78,6 +36,8 @@ class MediaUploader extends Component {
     return true
   }
 
+  // check if we have an image or a video
+  // and render the appropriate preview
   renderImageOrVideoPreview() {
     const {imageClassName} = this.props
     const {imagePreviewUrl, file} = this.state
@@ -86,7 +46,7 @@ class MediaUploader extends Component {
       imageClassName
     )
 
-    if (file && this.videoFile(file)) {
+    if (file && utils.isVideoFile(file)) {
       return (
         <video
           controls
@@ -106,6 +66,7 @@ class MediaUploader extends Component {
     )
   }
 
+  // check if we should render the preview
   imagePreview() {
     const {imagePreviewUrl} = this.state
 
@@ -113,16 +74,17 @@ class MediaUploader extends Component {
       return
     }
 
-    this.renderImageOrVideoPreview()
+    return this.renderImageOrVideoPreview()
   }
 
+  // read the new file, validate it, and upload to s3 if enabled
   updatePreview = (e) => {
     const {getS3Path} = this.props
     const reader = new FileReader()
     const input = e.target
     const file = e.target.files[0]
 
-    reader.onloadend = async () => {
+    reader.addEventListener('load', async () => {
       const valid = this.validateFile(file)
 
       if (valid === false) {
@@ -137,7 +99,7 @@ class MediaUploader extends Component {
         let url = reader.result
 
         if (getS3Path) {
-          url = await uploadFileToS3(file, getS3Path)
+          url = await utils.uploadFileToS3(file, getS3Path)
         }
 
         this.setState({
@@ -146,13 +108,15 @@ class MediaUploader extends Component {
           valid,
         })
       }
-    }
+    })
 
     if (file) {
       reader.readAsDataURL(file)
     }
   }
 
+  // use a hidden input when in presigned URL mode
+  // since you can't set file input values programmatically
   s3Input() {
     const {getS3Path, name, defaultPreview, required} = this.props
     const {imagePreviewUrl} = this.state
@@ -170,6 +134,7 @@ class MediaUploader extends Component {
     )
   }
 
+  // when in presigned URL mode, the file input is just there for looks
   getFileInputName() {
     const {getS3Path, name} = this.props
 
