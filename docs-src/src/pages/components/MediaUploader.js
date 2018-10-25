@@ -2,9 +2,11 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import MediaUploaderProps from './MediaUploaderTables/MediaUploaderProps'
 
 const examples = {
-  'Basic': require('raw!../../examples/MediaUploader.js.example'),
+  Basic: require('raw!../../examples/MediaUploader/Basic.js.example'),
+  'Using Presigned URLs': require('raw!../../examples/MediaUploader/S3.js.example'),
 }
 
 export default class MediaUploaderExamplePage extends Component {
@@ -14,12 +16,25 @@ export default class MediaUploaderExamplePage extends Component {
         <Headers
           title="Media Uploader"
           metaDescription={
-            'will go here'
+            ('MediaUploader is a FileInput wrapper with a few extra bells and',
+            'whistles for image and video files. It validates file size, checks',
+            'the file against a configurable list of supported file types, and',
+            'shows a preview of the uploaded image or video. Plus, it supports',
+            'uploading files via presigned URLs.')
           }
           extraKeywords="Component, Media, Image, Video, Form, Input, Upload"
         >
           <p>
-            There will be a description here
+            MediaUploader is a FileInput wrapper with a few extra bells and
+            whistles for image and video files. It validates file size, checks
+            the file against a configurable list of supported file types, and
+            shows a preview of the uploaded image or video. Plus, it supports
+            uploading files via presigned URLs.
+          </p>
+
+          <p>
+            <em>Note:</em> when not making use of the presigned URL upload, the
+            enclosing form must have <code>encType="multipart/form-data"</code>
           </p>
         </Headers>
         <ExampleSection
@@ -28,6 +43,8 @@ export default class MediaUploaderExamplePage extends Component {
           depth={1}
           scope={scope}
         />
+        <h3>Properties:</h3>
+        <MediaUploaderProps />
       </div>
     )
   }

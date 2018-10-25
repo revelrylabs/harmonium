@@ -26,9 +26,9 @@ function makeS3Request(data, file) {
   })
 }
 
-async function uploadFileToS3(file, generateUrl) {
+async function uploadFileToS3(file, generatePath) {
   try {
-    const response = await fetch(generateUrl(file))
+    const response = await fetch(generatePath(file))
     const {data} = await response.json()
     const url = await makeS3Request(data, file)
 
@@ -38,13 +38,12 @@ async function uploadFileToS3(file, generateUrl) {
   }
 }
 
-// the enclosing form should have encType="multipart/form-data"
 class MediaUploader extends Component {
   constructor(props) {
     super(props)
     this.state = {
       file: '',
-      imagePreviewUrl: props.defaultPhoto || '',
+      imagePreviewUrl: props.defaultPreview || '',
       valid: true,
     }
   }
@@ -79,17 +78,13 @@ class MediaUploader extends Component {
     return true
   }
 
-  imagePreview() {
+  renderImageOrVideoPreview() {
     const {imageClassName} = this.props
     const {imagePreviewUrl, file} = this.state
     const previewClassNames = classNames(
       'rev-MediaUploaderPreview',
       imageClassName
     )
-
-    if (!imagePreviewUrl) {
-      return
-    }
 
     if (file && this.videoFile(file)) {
       return (
@@ -111,8 +106,18 @@ class MediaUploader extends Component {
     )
   }
 
+  imagePreview() {
+    const {imagePreviewUrl} = this.state
+
+    if (!imagePreviewUrl) {
+      return
+    }
+
+    this.renderImageOrVideoPreview()
+  }
+
   updatePreview = (e) => {
-    const {generateS3URL} = this.props
+    const {getS3Path} = this.props
     const reader = new FileReader()
     const input = e.target
     const file = e.target.files[0]
@@ -131,9 +136,8 @@ class MediaUploader extends Component {
       } else {
         let url = reader.result
 
-        if (generateS3URL) {
-          url = await uploadFileToS3(file)
-          input.value = url
+        if (getS3Path) {
+          url = await uploadFileToS3(file, getS3Path)
         }
 
         this.setState({
@@ -149,31 +153,53 @@ class MediaUploader extends Component {
     }
   }
 
+  s3Input() {
+    const {getS3Path, name, defaultPreview, required} = this.props
+    const {imagePreviewUrl} = this.state
+
+    return (
+      getS3Path && (
+        <input
+          type="hidden"
+          name={name}
+          value={defaultPreview || imagePreviewUrl}
+          id="s3-input"
+          required={required}
+        />
+      )
+    )
+  }
+
+  getFileInputName() {
+    const {getS3Path, name} = this.props
+
+    return getS3Path ? 'false' : name
+  }
+
+  getRequired() {
+    const {getS3Path, required} = this.props
+
+    return getS3Path ? false : required
+  }
+
   render() {
-    const {
-      buttonLabel,
-      className,
-      helpText,
-      label,
-      name,
-      placeholder,
-      required,
-    } = this.props
+    const {buttonLabel, className, helpText, label, placeholder} = this.props
     const {file, valid, errorMessage} = this.state
 
     return (
       <div className={classNames('rev-MediaUploader', className)}>
         {this.imagePreview()}
+        {this.s3Input()}
         <FileInput.Stack
           label={label}
           button={buttonLabel}
           placeholder={file.name || placeholder}
-          name={name}
+          name={this.getFileInputName()}
           accept="image/*, video/*"
           onChange={this.updatePreview}
           help={helpText}
           error={!valid && errorMessage}
-          required={required}
+          required={this.getRequired()}
         />
       </div>
     )
@@ -182,8 +208,7 @@ class MediaUploader extends Component {
 
 MediaUploader.defaultProps = {
   maxFileSize: 5,
-  maxFileSizeMessage: 'Please choose a smaller image',
-  name: 'image',
+  maxFileSizeMessage: 'Please choose a smaller file',
   placeholder: 'Choose file...',
   supportedFileTypes: [
     'image/png',
@@ -198,8 +223,8 @@ MediaUploader.defaultProps = {
 MediaUploader.propTypes = {
   buttonLabel: PropTypes.string,
   className: PropTypes.string,
-  defaultPhoto: PropTypes.string,
-  generateS3URL: PropTypes.func,
+  defaultPreview: PropTypes.string,
+  getS3Path: PropTypes.func,
   helpText: PropTypes.string,
   imageClassName: PropTypes.string,
   label: PropTypes.string,
@@ -207,7 +232,7 @@ MediaUploader.propTypes = {
   maxFileSizeMessage: PropTypes.string,
   name: PropTypes.string,
   placeholder: PropTypes.string,
-  required: PropTypes.string,
+  required: PropTypes.bool,
   supportedFileTypes: PropTypes.arrayOf(PropTypes.string),
   supportedFileTypesMessage: PropTypes.string,
 }

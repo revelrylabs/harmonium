@@ -1,0 +1,7 @@
+// This example won't actually work since it's not hooked up
+// to a backend. But the getS3Path function should take a file and return
+// an endpoint that generates a presigned URL for the file.
+
+<MediaUploader getS3Path={(file) => {
+  return `/images/sign?file_name=${file.name}`
+}} />
