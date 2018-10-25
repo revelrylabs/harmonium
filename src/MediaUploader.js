@@ -119,14 +119,22 @@ class MediaUploader extends Component {
   // since you can't set file input values programmatically
   s3Input() {
     const {getS3Path, name, defaultPreview, required} = this.props
-    const {imagePreviewUrl} = this.state
+    const {imagePreviewUrl, valid} = this.state
+
+    function getValue() {
+      if (!valid) {
+        return ''
+      }
+
+      return imagePreviewUrl || defaultPreview
+    }
 
     return (
       getS3Path && (
         <input
           type="hidden"
           name={name}
-          value={defaultPreview || imagePreviewUrl}
+          value={getValue()}
           id="s3-input"
           required={required}
         />

@@ -41,6 +41,22 @@ describe('MediaUploader', () => {
     ).to.equal(1)
   })
 
+  it('adjusts appropriately when file is invalid', () => {
+    const wrapper = mount(
+      <MediaUploader getS3Path={() => '/fake/path'} defaultPreview="fake.jpg" />
+    )
+
+    expect(
+      wrapper.find('input[type="hidden"][value="fake.jpg"]').length
+    ).to.equal(1)
+
+    wrapper.setState({
+      valid: false,
+    })
+
+    expect(wrapper.find('input[type="hidden"][value=""]').length).to.equal(1)
+  })
+
   it('can check if a file is a video file', () => {
     expect(mediaUploaderUtils.isVideoFile({type: ''})).to.equal(false)
 
