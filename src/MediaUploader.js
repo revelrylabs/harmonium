@@ -1,19 +1,42 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import FileInput from './FileInput'
+import classNames from 'classnames'
 import {includes} from 'lodash'
 
-// duplicate of server whitelist; would like to consolidate somehow
-const SUPPORTED_MEDIA_TYPES = [
-  'image/png',
-  'image/jpg',
-  'image/jpeg',
-  'image/gif',
-  'video/mp4',
-]
-const UPLOAD_PLACEHOLDER = 'Choose file...'
-const SIZE_ERROR_MESSAGE = 'Please choose a smaller image'
-const TYPE_ERROR_MESSAGE = 'Please choose a supported file type'
+function makeS3Request(data, file) {
+  return new Promise((resolve, reject) => {
+    const xhr = new XMLHttpRequest()
+
+    xhr.onreadystatechange = () => {
+      if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+          resolve(data.url)
+        } else {
+          reject({
+            status: xhr.status,
+            statusText: xhr.statusText,
+          })
+        }
+      }
+    }
+
+    xhr.open('PUT', data.signed_request)
+    xhr.send(file)
+  })
+}
+
+async function uploadFileToS3(file, generateUrl) {
+  try {
+    const response = await fetch(generateUrl(file))
+    const {data} = await response.json()
+    const url = await makeS3Request(data, file)
+
+    return url
+  } catch (e) {
+    return alert('Could not upload file.')
+  }
+}
 
 // the enclosing form should have encType="multipart/form-data"
 class MediaUploader extends Component {
@@ -34,16 +57,22 @@ class MediaUploader extends Component {
   }
 
   validateFile(file) {
+    const {
+      supportedFileTypes,
+      supportedFileTypesMessage,
+      maxFileSize,
+      maxFileSizeMessage,
+    } = this.props
     const fileSize = file.size / 1024 / 1024 // in MB
-    const invalidSize = fileSize > 5
+    const invalidSize = fileSize > maxFileSize
 
     if (invalidSize) {
-      this.setState({errorMessage: SIZE_ERROR_MESSAGE})
+      this.setState({errorMessage: maxFileSizeMessage})
       return false
     }
 
-    if (!includes(SUPPORTED_MEDIA_TYPES, file.type)) {
-      this.setState({errorMessage: TYPE_ERROR_MESSAGE})
+    if (!includes(supportedFileTypes, file.type)) {
+      this.setState({errorMessage: supportedFileTypesMessage})
       return false
     }
 
@@ -51,44 +80,48 @@ class MediaUploader extends Component {
   }
 
   imagePreview() {
-    const {imageClass} = this.props
+    const {imageClassName} = this.props
     const {imagePreviewUrl, file} = this.state
+    const previewClassNames = classNames(
+      'rev-MediaUploaderPreview',
+      imageClassName
+    )
+
+    if (!imagePreviewUrl) {
+      return
+    }
 
     if (file && this.videoFile(file)) {
       return (
-        imagePreviewUrl && (
-          <video
-            controls
-            className={imageClass}
-            alt={file.name}
-            src={imagePreviewUrl}
-          />
-        )
+        <video
+          controls
+          className={previewClassNames}
+          alt={file.name}
+          src={imagePreviewUrl}
+        />
       )
     }
 
     return (
-      imagePreviewUrl && (
-        <img className={imageClass} alt={file.name} src={imagePreviewUrl} />
-      )
+      <img
+        className={previewClassNames}
+        alt={file.name}
+        src={imagePreviewUrl}
+      />
     )
   }
 
   updatePreview = (e) => {
+    const {generateS3URL} = this.props
     const reader = new FileReader()
     const input = e.target
     const file = e.target.files[0]
 
-    reader.onloadend = () => {
+    reader.onloadend = async () => {
       const valid = this.validateFile(file)
 
       if (valid === false) {
-        // manually remove the too-large file and fire the form onChange event
-        // so ValidationForm will kick into gear and disable the submit button
-        const event = new Event('change', {bubbles: true})
-
         input.value = ''
-        input.dispatchEvent(event)
 
         this.setState({
           imagePreviewUrl: '',
@@ -96,8 +129,15 @@ class MediaUploader extends Component {
           valid,
         })
       } else {
+        let url = reader.result
+
+        if (generateS3URL) {
+          url = await uploadFileToS3(file)
+          input.value = url
+        }
+
         this.setState({
-          imagePreviewUrl: reader.result,
+          imagePreviewUrl: url,
           file,
           valid,
         })
@@ -110,22 +150,30 @@ class MediaUploader extends Component {
   }
 
   render() {
-    const {label, buttonLabel, helpText, name} = this.props
+    const {
+      buttonLabel,
+      className,
+      helpText,
+      label,
+      name,
+      placeholder,
+      required,
+    } = this.props
     const {file, valid, errorMessage} = this.state
 
     return (
-      <div className="rev-MediaUploader">
-        <h6 className="rev-InputLabel">{label}</h6>
+      <div className={classNames('rev-MediaUploader', className)}>
         {this.imagePreview()}
         <FileInput.Stack
-          label=""
+          label={label}
           button={buttonLabel}
-          placeholder={file.name || UPLOAD_PLACEHOLDER}
+          placeholder={file.name || placeholder}
           name={name}
           accept="image/*, video/*"
           onChange={this.updatePreview}
           help={helpText}
           error={!valid && errorMessage}
+          required={required}
         />
       </div>
     )
@@ -133,17 +181,35 @@ class MediaUploader extends Component {
 }
 
 MediaUploader.defaultProps = {
+  maxFileSize: 5,
+  maxFileSizeMessage: 'Please choose a smaller image',
   name: 'image',
-  imageClass: 'rev-MediaUploaderPreview',
+  placeholder: 'Choose file...',
+  supportedFileTypes: [
+    'image/png',
+    'image/jpg',
+    'image/jpeg',
+    'image/gif',
+    'video/mp4',
+  ],
+  supportedFileTypesMessage: 'Please choose a supported file type',
 }
 
 MediaUploader.propTypes = {
-  label: PropTypes.string,
   buttonLabel: PropTypes.string,
-  imageClass: PropTypes.string,
+  className: PropTypes.string,
   defaultPhoto: PropTypes.string,
+  generateS3URL: PropTypes.func,
   helpText: PropTypes.string,
+  imageClassName: PropTypes.string,
+  label: PropTypes.string,
+  maxFileSize: PropTypes.number,
+  maxFileSizeMessage: PropTypes.string,
   name: PropTypes.string,
+  placeholder: PropTypes.string,
+  required: PropTypes.string,
+  supportedFileTypes: PropTypes.arrayOf(PropTypes.string),
+  supportedFileTypesMessage: PropTypes.string,
 }
 
 export default MediaUploader
