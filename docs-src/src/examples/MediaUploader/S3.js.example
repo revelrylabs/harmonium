@@ -3,14 +3,14 @@
 // an object that looks like:
 //  {
 //    the presigned url for uploading the file
-//    signed_request: 'https://presigned.s3.url/goes/here',
+//    signedRequestUrl: 'https://presigned.s3.url/goes/here',
 //    the url we can expect for the file once it's uploaded
-//    url: 'https://url.of.the.file/on/s3',
+//    fileUrl: 'https://url.of.the.file/on/s3',
 //  }
 
 <MediaUploader getS3Info={(file) => {
   const response = await fetch(`/images/sign?file_name=${file.name}`)
   const {data} = await response.json()
 
-  return data
+  return { signedRequestUrl: data.signed_request, fileUrl: data.url}
 }} />

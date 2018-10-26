@@ -1,7 +1,7 @@
 import {includes} from 'lodash'
 
 // upload to a presigned s3 url
-function makeS3Request(fileUrl, signedRequest, file) {
+function makeS3Request(fileUrl, signedRequestUrl, file) {
   return new Promise((resolve, reject) => {
     const xhr = new XMLHttpRequest()
 
@@ -18,7 +18,7 @@ function makeS3Request(fileUrl, signedRequest, file) {
       }
     }
 
-    xhr.open('PUT', signedRequest)
+    xhr.open('PUT', signedRequestUrl)
     xhr.send(file)
   })
 }
@@ -27,8 +27,8 @@ function makeS3Request(fileUrl, signedRequest, file) {
 // and call makeS3Request to upload the file
 async function uploadFileToS3(file, getSignedUrl) {
   try {
-    const data = await getSignedUrl(file)
-    const url = await makeS3Request(data.url, data.signed_request, file)
+    const {fileUrl, signedRequestUrl} = await getSignedUrl(file)
+    const url = await makeS3Request(fileUrl, signedRequestUrl, file)
 
     return url
   } catch (e) {
