@@ -1,7 +1,16 @@
 // This example won't actually work since it's not hooked up
-// to a backend. But the getS3Path function should take a file and return
-// an endpoint that generates a presigned URL for the file.
+// to a backend. But the getS3Info function should take a file and return
+// an object that looks like:
+//  {
+//    the presigned url for uploading the file
+//    signed_request: 'https://presigned.s3.url/goes/here',
+//    the url we can expect for the file once it's uploaded
+//    url: 'https://url.of.the.file/on/s3',
+//  }
 
-<MediaUploader getS3Path={(file) => {
-  return `/images/sign?file_name=${file.name}`
+<MediaUploader getS3Info={(file) => {
+  const response = await fetch(`/images/sign?file_name=${file.name}`)
+  const {data} = await response.json()
+
+  return data
 }} />

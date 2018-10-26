@@ -23,11 +23,11 @@ export default function MediaUploaderProps() {
         'the url of the original file if it exists (for populating edit forms)',
     },
     {
-      name: 'getS3Path',
+      name: 'getS3Info',
       type: 'function',
       defaultValue: 'none',
       description:
-        'a function that takes a file and returns a path for generating a signed URL (see example above)',
+        'a function that takes a file and returns an object (see example above)',
     },
     {
       name: 'helpText',

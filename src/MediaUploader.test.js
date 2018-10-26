@@ -30,7 +30,14 @@ describe('MediaUploader', () => {
 
   it('adjusts appropriately when in presigned URL mode', () => {
     const wrapper = mount(
-      <MediaUploader getS3Path={() => '/fake/path'} name="image" required />
+      <MediaUploader
+        getS3Info={() => ({
+          url: '/fake/path',
+          signed_request: 'another/fake/path',
+        })}
+        name="image"
+        required
+      />
     )
 
     expect(
@@ -43,7 +50,13 @@ describe('MediaUploader', () => {
 
   it('adjusts appropriately when file is invalid', () => {
     const wrapper = mount(
-      <MediaUploader getS3Path={() => '/fake/path'} defaultPreview="fake.jpg" />
+      <MediaUploader
+        getS3Info={() => ({
+          url: '/fake/path',
+          signed_request: 'another/fake/path',
+        })}
+        defaultPreview="fake.jpg"
+      />
     )
 
     expect(

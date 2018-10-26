@@ -79,7 +79,7 @@ class MediaUploader extends Component {
 
   // read the new file, validate it, and upload to s3 if enabled
   updatePreview = (e) => {
-    const {getS3Path} = this.props
+    const {getS3Info} = this.props
     const reader = new FileReader()
     const input = e.target
     const file = e.target.files[0]
@@ -98,8 +98,8 @@ class MediaUploader extends Component {
       } else {
         let url = reader.result
 
-        if (getS3Path) {
-          url = await utils.uploadFileToS3(file, getS3Path)
+        if (getS3Info) {
+          url = await utils.uploadFileToS3(file, getS3Info)
         }
 
         this.setState({
@@ -118,7 +118,7 @@ class MediaUploader extends Component {
   // use a hidden input when in presigned URL mode
   // since you can't set file input values programmatically
   s3Input() {
-    const {getS3Path, name, defaultPreview, required} = this.props
+    const {getS3Info, name, defaultPreview, required} = this.props
     const {imagePreviewUrl, valid} = this.state
 
     function getValue() {
@@ -130,7 +130,7 @@ class MediaUploader extends Component {
     }
 
     return (
-      getS3Path && (
+      getS3Info && (
         <input
           type="hidden"
           name={name}
@@ -144,15 +144,15 @@ class MediaUploader extends Component {
 
   // when in presigned URL mode, the file input is just there for looks
   getFileInputName() {
-    const {getS3Path, name} = this.props
+    const {getS3Info, name} = this.props
 
-    return getS3Path ? 'false' : name
+    return getS3Info ? 'false' : name
   }
 
   getRequired() {
-    const {getS3Path, required} = this.props
+    const {getS3Info, required} = this.props
 
-    return getS3Path ? false : required
+    return getS3Info ? false : required
   }
 
   render() {
@@ -197,7 +197,7 @@ MediaUploader.propTypes = {
   buttonLabel: PropTypes.string,
   className: PropTypes.string,
   defaultPreview: PropTypes.string,
-  getS3Path: PropTypes.func,
+  getS3Info: PropTypes.func,
   helpText: PropTypes.string,
   imageClassName: PropTypes.string,
   label: PropTypes.string,
