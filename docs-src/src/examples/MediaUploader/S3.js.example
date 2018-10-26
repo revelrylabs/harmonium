@@ -1,0 +1,16 @@
+// This example won't actually work since it's not hooked up
+// to a backend. But the getS3Info function should take a file and return
+// an object that looks like:
+//  {
+//    the presigned url for uploading the file
+//    signedRequestUrl: 'https://presigned.s3.url/goes/here',
+//    the url we can expect for the file once it's uploaded
+//    fileUrl: 'https://url.of.the.file/on/s3',
+//  }
+
+<MediaUploader getS3Info={(file) => {
+  const response = await fetch(`/images/sign?file_name=${file.name}`)
+  const {data} = await response.json()
+
+  return { signedRequestUrl: data.signed_request, fileUrl: data.url}
+}} />

@@ -67,6 +67,9 @@ export default function Navigation() {
             <Link to="/components/InputGroup/">Input Group</Link>
           </Menu.Item>
           <Menu.Item>
+            <Link to="/components/MediaUploader/">Media Uploader</Link>
+          </Menu.Item>
+          <Menu.Item>
             <Link to="/components/Radio/">Radio Buttons</Link>
           </Menu.Item>
           <Menu.Item>
