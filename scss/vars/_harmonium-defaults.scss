@@ -25,7 +25,7 @@ $breakpoints: (
   xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge - 1)),
   xxlarge: (min-width: $xxlarge),
   global-width: (min-width: $global-width)
-);
+) !default;
 @import '../mixins/media-queries';
 
 // IMPORT FONTS HERE
