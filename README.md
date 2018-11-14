@@ -3,7 +3,7 @@
 [![NPM Version][npm-badge]][npm-url]
 [![Travis Build Status][travis-badge]][travis-url]
 [![Dependency Status](https://dependencyci.com/github/revelrylabs/harmonium/badge)](https://dependencyci.com/github/revelrylabs/harmonium)
-[![Coverage Status](https://coveralls.io/repos/github/revelrylabs/harmonium/badge.svg?branch=master)](https://coveralls.io/github/revelrylabs/harmonium?branch=master)
+[![Coverage Status](https://opencov.prod.revelry.net/projects/8/badge.svg)]
 
 Harmonium is a framework of React components optimized for teams that want to ship apps fast. It is a curated list of components that work together and have cohesive styles. One of our design goals is that you never have to research and handpick component packages. Whatever you need is already here.
 
