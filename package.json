@@ -55,7 +55,7 @@
     "@semantic-release/git": "^4.0.1",
     "@semantic-release/npm": "^3.2.4",
     "babel-cli": "^6.24.1",
-    "babel-eslint": "^8.2.2",
+    "babel-eslint": "^10.0.1",
     "babel-plugin-istanbul": "^4.1.4",
     "babel-plugin-transform-decorators": "^6.24.1",
     "babel-polyfill": "^6.23.0",
