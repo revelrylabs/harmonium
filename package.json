@@ -14,7 +14,7 @@
     "foundation-sites": "^6.3.1",
     "jquery": "^3.2.1",
     "lodash": "^4.17.5",
-    "luxon": "^0.3.1",
+    "luxon": "^1.8.2",
     "prop-types": "^15.5.7",
     "react": ">=15.3.0",
     "react-dom": ">=15.3.0",
