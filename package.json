@@ -18,7 +18,7 @@
     "prop-types": "^15.5.7",
     "react": ">=15.3.0",
     "react-dom": ">=15.3.0",
-    "sassy-npm-importer": "^2.1.0"
+    "sassy-npm-importer": "^3.0.0"
   },
   "scripts": {
     "clean": "rm -rf lib/",
