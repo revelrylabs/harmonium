@@ -231,7 +231,7 @@ h6 {
 }
 
 // Branding
-.rev-Brand {
+.ExampleBrand {
   @include flex(center, row, center, nowrap);
   height: 48px;
   padding: $global-padding-tiny $global-padding-small;

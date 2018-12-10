@@ -52,7 +52,7 @@ const TemplateWrapper = ({children, location}) => (
       />
     </Helmet>
     <TopBar className="Show--smallOnly">
-      <Link className="rev-Brand Show--smallOnly" to="/">
+      <Link className="rev-Brand ExampleBrand Show--smallOnly" to="/">
         <img src="/images/harmonium-logo.png" alt="Harmonium"/>
         <small>Version {packageInfo.version}</small>
       </Link>
