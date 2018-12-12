@@ -168,7 +168,7 @@ class MediaUploader extends Component {
           button={buttonLabel}
           placeholder={file.name || placeholder}
           name={this.getFileInputName()}
-          accept={supportedFileTypes}
+          accept={supportedFileTypes.join()}
           onChange={this.updatePreview}
           help={helpText}
           error={!valid && errorMessage}
