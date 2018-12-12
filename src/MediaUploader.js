@@ -156,7 +156,7 @@ class MediaUploader extends Component {
   }
 
   render() {
-    const { buttonLabel, className, helpText, label, placeholder, supportedFileTypes} = this.props
+    const {buttonLabel, className, helpText, label, placeholder, supportedFileTypes} = this.props
     const {file, valid, errorMessage} = this.state
 
     return (
