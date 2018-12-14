@@ -1,6 +1,5 @@
 import React from 'react'
 import Table from 'harmonium/lib/Table'
-import {Fragment} from 'react'
 
 export default function TopBarProps() {
   const propsArray = [
@@ -8,61 +7,61 @@ export default function TopBarProps() {
       name: <code>scroll</code>,
       type: 'bool',
       defaultValue: 'none',
-      description: <Fragment>Apply to <code>rev-TopBar-item</code> when the container needs to scroll at all screen sizes.</Fragment>,
+      description: <span>Apply to <code>rev-TopBar-item</code> when the container needs to scroll at all screen sizes.</span>,
     },
     {
       name: <code>scrollSmall</code>,
       type: 'bool',
       defaultValue: 'none',
-      description: <Fragment>Apply to <code>rev-TopBar-item</code>. Scrolls at small-only breakpoint.</Fragment>,
+      description: <span>Apply to <code>rev-TopBar-item</code>. Scrolls at small-only breakpoint.</span>,
     },
     {
       name: <code>scrollMedium</code>,
       type: 'bool',
       defaultValue: 'none',
-      description: <Fragment>Apply to <code>rev-TopBar-item</code>. Scrolls at medium breakpoint and up.</Fragment>,
+      description: <span>Apply to <code>rev-TopBar-item</code>. Scrolls at medium breakpoint and up.</span>,
     },
     {
       name: <code>scrollMediumDown</code>,
       type: 'bool',
       defaultValue: 'none',
-      description: <Fragment>Apply to <code>rev-TopBar-item</code>. Scrolls at medium breakpoint and down.</Fragment>,
+      description: <span>Apply to <code>rev-TopBar-item</code>. Scrolls at medium breakpoint and down.</span>,
     },
     {
       name: <code>scrollLarge</code>,
       type: 'bool',
       defaultValue: 'none',
-      description: <Fragment>Apply to <code>rev-TopBar-item</code>. Scrolls at large breakpoint and up.</Fragment>,
+      description: <span>Apply to <code>rev-TopBar-item</code>. Scrolls at large breakpoint and up.</span>,
     },
     {
       name: <code>scrollLargeDown</code>,
       type: 'bool',
       defaultValue: 'none',
-      description: <Fragment>Apply to <code>rev-TopBar-item</code>. Scrolls at large breakpoint and down.</Fragment>,
+      description: <span>Apply to <code>rev-TopBar-item</code>. Scrolls at large breakpoint and down.</span>,
     },
     {
       name: <code>scrollXlarge</code>,
       type: 'bool',
       defaultValue: 'none',
-      description: <Fragment>Apply to <code>rev-TopBar-item</code>. Scrolls at xlarge breakpoint and up.</Fragment>,
+      description: <span>Apply to <code>rev-TopBar-item</code>. Scrolls at xlarge breakpoint and up.</span>,
     },
     {
       name: <code>scrollXlargeDown</code>,
       type: 'bool',
       defaultValue: 'none',
-      description: <Fragment>Apply to <code>rev-TopBar-item</code>. Scrolls at xlarge breakpoint and down.</Fragment>,
+      description: <span>Apply to <code>rev-TopBar-item</code>. Scrolls at xlarge breakpoint and down.</span>,
     },
     {
       name: <code>scrollNav</code>,
       type: 'bool',
       defaultValue: 'none',
-      description: <Fragment>Apply to <code>rev-TopBar-item</code>. If you have updated the <code>$nav</code> breakpoint var so that it is not using the default size, this prop can be used to make the container scrollable at your customized nav breakpoint and up. </Fragment>,
+      description: <span>Apply to <code>rev-TopBar-item</code>. If you have updated the <code>$nav</code> breakpoint var so that it is not using the default size, this prop can be used to make the container scrollable at your customized nav breakpoint and up. </span>,
     },
     {
       name: <code>scrollNavOnly</code>,
       type: 'bool',
       defaultValue: 'none',
-      description: <Fragment>Apply to <code>rev-TopBar-item</code>. Scrolls at nav-only breakpoint.</Fragment>,
+      description: <span>Apply to <code>rev-TopBar-item</code>. Scrolls at nav-only breakpoint.</span>,
     },
     
   ]
@@ -78,7 +77,9 @@ export default function TopBarProps() {
         </Table.Row>
       </Table.Head>
       <Table.HeadStacked>
-        <Table.Data>Media Uploader Props</Table.Data>
+        <Table.Row>
+          <Table.Header>TopBar Props</Table.Header>
+        </Table.Row>
       </Table.HeadStacked>
       <Table.Body>
         {propsArray.map(({name, type, defaultValue, description}, index) => (

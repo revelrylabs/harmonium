@@ -21,9 +21,9 @@ export default function InputProps() {
         </Table.Row>
       </Table.Head>
       <Table.HeadStacked>
-        <Table.Data>
-          Input Props
-        </Table.Data>
+        <Table.Row>
+          <Table.Header>Input Props</Table.Header>
+        </Table.Row>
       </Table.HeadStacked>
       <Table.Body>
         <Table.Row>

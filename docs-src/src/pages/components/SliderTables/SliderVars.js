@@ -12,7 +12,9 @@ export default function InputVars() {
         </Table.Row>
       </Table.Head>
       <Table.HeadStacked>
-        <Table.Data>Input Vars</Table.Data>
+        <Table.Row>
+          <Table.Header>Input Vars</Table.Header>
+        </Table.Row>
       </Table.HeadStacked>
       <Table.Body>
         <Table.Row>
