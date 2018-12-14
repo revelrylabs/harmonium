@@ -2,12 +2,17 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import TopBarProps from './TopBarTables/TopBarProps'
+import {Row, Col} from 'harmonium/lib/grid'
+
+
 
 const examples = {
   'TopBar : Default (Justifed Content)': require('raw!../../examples/TopBar/TopBar.js.example'),
   'TopBar : Centered Content': require('raw!../../examples/TopBar/TopBarCenter.js.example'),
   'TopBar : Left-aligned Content': require('raw!../../examples/TopBar/TopBarLeft.js.example'),
   'TopBar : Right-aligned Content': require('raw!../../examples/TopBar/TopBarRight.js.example'),
+  'TopBar : Item-scroll Content': require('raw!../../examples/TopBar/TopBarItemScroll.js.example'),
 }
 
 export default class TopBarExamplePage extends Component {
@@ -36,6 +41,14 @@ export default class TopBarExamplePage extends Component {
           depth={1}
           scope={scope}
         />
+        <Row>
+          <Col>
+            <h3>Properties:</h3>
+          </Col>
+          <Col>
+            <TopBarProps />
+          </Col>
+        </Row>
       </div>
     )
   }

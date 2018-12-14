@@ -6,6 +6,7 @@ $medium: 768px !default;
 $large: 1024px !default;
 $xlarge: 1200px !default;
 $xxlarge: 1440px !default;
+$nav: $medium !default;
 
 $global-width: 100% !default;
 $grid-row-width: $large !default;
@@ -24,7 +25,9 @@ $breakpoints: (
   xlarge-down: ((max-width: $xlarge)),
   xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge - 1)),
   xxlarge: (min-width: $xxlarge),
-  global-width: (min-width: $global-width)
+  global-width: (min-width: $global-width),
+  nav: (min-width: $nav), // Desktop nav
+  nav-only: ((min-width: $small) and (max-width: $nav - 1)) // Mobile nav
 ) !default;
 
 @import '../mixins/media-queries';
