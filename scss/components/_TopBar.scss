@@ -111,7 +111,6 @@ $scrollBreakpoints: (smallOnly small-only),
   .rev-TopBar-item--scroll--#{nth($breakpoint, 1)} {
     @include breakpoint(#{nth($breakpoint, 2)}) {
       overflow-x: scroll;
-      border: 1px solid $test;
     }
   }
 }
