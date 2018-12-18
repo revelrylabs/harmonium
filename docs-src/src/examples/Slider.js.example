@@ -1,8 +1,9 @@
 <div>
   <Slider
-    initialValue={25}
+    initialValue={50}
     min={0}
     max={100}
-    name='slider'
+    step={1}
+    name='slider' 
   />
 </div>
