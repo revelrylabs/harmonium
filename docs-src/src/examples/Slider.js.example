@@ -1,6 +1,6 @@
 <div>
   <Slider
-    initialValue={50}
+    initialValue={25}
     min={0}
     max={100}
     step={1}
