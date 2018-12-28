@@ -146,7 +146,7 @@ class MediaUploader extends Component {
   getFileInputName() {
     const {getS3Info, name} = this.props
 
-    return getS3Info ? 'false' : name
+    return getS3Info ? '' : name
   }
 
   getRequired() {
