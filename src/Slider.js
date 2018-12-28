@@ -28,11 +28,7 @@ class Slider extends Component {
   }
 
   render() {
-    const {
-      min,
-      max,
-      name,
-    } = this.props
+    const {name, ...rangeInputProps} = this.props
     const {value} = this.state
 
     return (
@@ -40,8 +36,7 @@ class Slider extends Component {
         <div className="rev-Slider-range-container">
           <input
             className="rev-Slider-range"
-            min={min}
-            max={max}
+            {...rangeInputProps}
             type="range"
             onChange={this.sliderChange}
             value={value}
@@ -62,6 +57,7 @@ class Slider extends Component {
 Slider.propTypes = {
   min: PropTypes.number,
   max: PropTypes.number,
+  step: PropTypes.number,
   initialValue: PropTypes.number,
   name: PropTypes.string,
 }
