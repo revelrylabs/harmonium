@@ -41,7 +41,7 @@ describe('MediaUploader', () => {
     )
 
     expect(
-      wrapper.find('input[type="file"][name="false"][required=false]').length
+      wrapper.find('input[type="file"][name=""][required=false]').length
     ).to.equal(1)
     expect(
       wrapper.find('input[type="hidden"][name="image"][required]').length
