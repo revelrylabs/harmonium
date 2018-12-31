@@ -8,6 +8,16 @@ $button-bkgd-active: darken($brand, 10%) !default;
 $button-color-active: $white !default;
 $button-radius: $global-radius !default;
 
+$button-bkgd-secondary: transparent !default;
+$button-box-shadow-secondary: $brand !default;
+$button-color-secondary: $brand !default;
+$button-bkgd-secondary-hover: darken($brand, 5%) !default;
+$button-box-shadow-secondary-hover: darken($brand, 5%) !default;
+$button-color-secondary-hover: $white !default;
+$button-bkgd-secondary-active: darken($brand, 10%) !default;
+$button-box-shadow-secondary-active: darken($brand, 10%) !default;
+$button-color-secondary-active: $white !default;
+
 @mixin button-contained {
   .rev-Button {
     margin: $global-vertical-space / 2 auto;
@@ -137,8 +147,13 @@ $button-radius: $global-radius !default;
   &.rev-Button--collapse {
     margin: 0;
   }
-  &.rev-Button--disabled {
+  &.rev-Button--disabled,
+  &.rev-Button:disabled {
     @include disabled($button-bkgd, $button-color);
+    &.rev-Button--secondary {
+      @include disabled($button-bkgd-secondary, $button-color-secondary);
+      box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
+    }
   }
 }
 .rev-ButtonGroup {
