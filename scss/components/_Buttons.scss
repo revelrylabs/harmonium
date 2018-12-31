@@ -76,19 +76,19 @@ $button-color-secondary-active: $white !default;
     }
   }
   &.rev-Button--secondary {
-    background: transparent;
-    box-shadow: 0 0 0 1px $button-bkgd inset;
-    color: $button-bkgd;
+    background: $button-bkgd-secondary;
+    box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
+    color: $button-color-secondary;
     &:hover {
-      background: $button-bkgd-hover;
-      box-shadow: 0 0 0 1px $button-bkgd-hover inset;
-      color: $button-color-hover;
+      background: $button-bkgd-secondary-hover;
+      box-shadow: 0 0 0 1px $button-bkgd-secondary-hover inset;
+      color: $button-color-secondary-hover;
     }
     &:active,
     &:focus {
-      background: $button-bkgd-active;
-      box-shadow: 0 0 0 1px $button-bkgd-active inset;
-      color: $button-color-active;
+      background: $button-bkgd-secondary-active;
+      box-shadow: 0 0 0 1px $button-bkgd-secondary-active inset;
+      color: $button-color-secondary-active;
     }
   }
   &.rev-Button--inverted {
@@ -147,8 +147,7 @@ $button-color-secondary-active: $white !default;
   &.rev-Button--collapse {
     margin: 0;
   }
-  &.rev-Button--disabled,
-  &.rev-Button:disabled {
+  &.rev-Button--disabled {
     @include disabled($button-bkgd, $button-color);
     &.rev-Button--secondary {
       @include disabled($button-bkgd-secondary, $button-color-secondary);
