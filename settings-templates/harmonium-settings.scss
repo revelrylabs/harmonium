@@ -140,6 +140,16 @@ $button-bkgd-active: darken($brand, 10%);
 $button-color-active: $white;
 $button-radius: $global-radius;
 
+$button-bkgd-secondary: transparent;
+$button-box-shadow-secondary: $brand;
+$button-color-secondary: $brand;
+$button-bkgd-secondary-hover: darken($brand, 5%);
+$button-box-shadow-secondary-hover: darken($brand, 5%);
+$button-color-secondary-hover: $white;
+$button-bkgd-secondary-active: darken($brand, 10%);
+$button-box-shadow-secondary-active: darken($brand, 10%);
+$button-color-secondary-active: $white;
+
 // CLOSE BUTTON
 $closebutton-bkgd: $darker-gray;
 $closebutton-color: $white;
