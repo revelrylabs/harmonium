@@ -7,7 +7,7 @@
     "url": "https://github.com/revelrylabs/harmonium.git"
   },
   "dependencies": {
-    "bowser": "^1.9.3",
+    "bowser": "^2.0.0",
     "breakpoint-sass": "^2.7.1",
     "chart.js": "^2.7.2",
     "classnames": "^2.2.5",
