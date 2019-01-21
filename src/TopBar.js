@@ -45,11 +45,33 @@ class TopBarItem extends Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
+    scroll: PropTypes.bool,
+    scrollSmall: PropTypes.bool,
+    scrollMeidum: PropTypes.bool,
+    scrollLarge: PropTypes.bool,
+    scrollXlarge: PropTypes.bool,
+    scrollMediumDown: PropTypes.bool,
+    scrollLargeDown: PropTypes.bool,
+    scrollXlargeDown: PropTypes.bool,
+    scrollNav: PropTypes.bool,
+    scrollNavOnly: PropTypes.bool,
   }
 
   render() {
-    const {className, children, ...props} = this.props
-    const newClassName = classNames(className, 'rev-TopBar-item')
+    const {className, children, scroll, scrollSmall, scrollMedium, scrollLarge, scrollXlarge, scrollMediumDown, scrollLargeDown, scrollXlargeDown, scrollNav, scrollNavOnly, ...props} = this.props
+    
+    const newClassName = classNames(`rev-TopBar-item ${className || ''}`, {
+      'rev-TopBar-item--scroll': scroll,
+      'rev-TopBar-item--scroll--smallOnly': scrollSmall,
+      'rev-TopBar-item--scroll--medium': scrollMedium,
+      'rev-TopBar-item--scroll--large': scrollLarge,
+      'rev-TopBar-item--scroll--xLarge': scrollXlarge,
+      'rev-TopBar-item--scroll--mediumDown': scrollMediumDown,
+      'rev-TopBar-item--scroll--largeDown': scrollLargeDown,
+      'rev-TopBar-item--scroll--xLargeDown': scrollXlargeDown,
+      'rev-TopBar-item--scroll--nav': scrollNav,
+      'rev-TopBar-item--scroll--navOnly': scrollNavOnly,
+    })
 
     return (
       <div {...props} className={newClassName}>

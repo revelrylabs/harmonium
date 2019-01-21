@@ -4,6 +4,7 @@ $medium: 768px;
 $large: 1024px;
 $xlarge: 1200px;
 $xxlarge: 1440px;
+$nav: $medium;
 
 $global-width: 100%;
 $grid-row-width: $large;
@@ -23,6 +24,8 @@ $breakpoints: (
   xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge - 1)),
   xxlarge: (min-width: $xxlarge),
   global-width: (min-width: $global-width),
+  nav: (min-width: $nav), // Desktop nav
+  nav-only: ((min-width: $small) and (max-width: $nav - 1)), // Mobile nav
 );
 
 // IMPORT FONTS HERE

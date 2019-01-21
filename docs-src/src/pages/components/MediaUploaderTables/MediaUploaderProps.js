@@ -105,7 +105,9 @@ export default function MediaUploaderProps() {
         </Table.Row>
       </Table.Head>
       <Table.HeadStacked>
-        <Table.Data>Media Uploader Props</Table.Data>
+        <Table.Row>
+          <Table.Header>Media Uploader Props</Table.Header>
+        </Table.Row>
       </Table.HeadStacked>
       <Table.Body>
         {propsArray.map(({name, type, defaultValue, description}, index) => (

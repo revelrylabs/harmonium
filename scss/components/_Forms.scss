@@ -12,6 +12,7 @@ $label-font-size: $global-font-size !default;
 @mixin input-style {
   @include global-transition;
   @include placeholder;
+  -webkit-appearance: none; // Fixes the border to show on iOS phones
   background-color: $input-bkgd;
   border: 0;
   border-radius: $input-radius;

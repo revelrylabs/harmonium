@@ -6,14 +6,24 @@ export default function InputProps() {
     <Table>
       <Table.Head>
         <Table.Row>
-          <Table.Header>Name</Table.Header>
-          <Table.Header>Type</Table.Header>
-          <Table.Header>Default</Table.Header>
-          <Table.Header>Description</Table.Header>
+          <Table.Header>
+            Name
+          </Table.Header>
+          <Table.Header>
+            Type
+          </Table.Header>
+          <Table.Header>
+            Default
+          </Table.Header>
+          <Table.Header>
+            Description
+          </Table.Header>
         </Table.Row>
       </Table.Head>
       <Table.HeadStacked>
-        <Table.Data>Input Props</Table.Data>
+        <Table.Row>
+          <Table.Header>Input Props</Table.Header>
+        </Table.Row>
       </Table.HeadStacked>
       <Table.Body>
         <Table.Row>

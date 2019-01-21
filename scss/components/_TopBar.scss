@@ -77,6 +77,7 @@ $topbar-link-bkgd: transparent !default;
   }
   .rev-Menu  {
     background: transparent;
+    overflow: visible; // So that dropdowns can be visible 
     .rev-Menu-item a {
       border-radius: $global-radius;
     }
@@ -90,3 +91,26 @@ $topbar-link-bkgd: transparent !default;
 .rev-TopBar-item--left {
   margin-right: auto;
 }*/
+
+// SCROLLING CONTAINERS WHEN THERES TOO MANY NAV ITEMS 
+.rev-TopBar-item--scroll {
+  overflow-x: scroll;
+}
+
+$scrollBreakpoints: (smallOnly small-only),
+                    (medium medium),
+                    (large large),
+                    (xLarge xlarge),
+                    (mediumDown medium-down),
+                    (largeDown large-down),
+                    (xLargeDown xlarge-down),
+                    (nav nav),
+                    (navOnly nav-only);
+
+@each $breakpoint in $scrollBreakpoints {
+  .rev-TopBar-item--scroll--#{nth($breakpoint, 1)} {
+    @include breakpoint(#{nth($breakpoint, 2)}) {
+      overflow-x: scroll;
+    }
+  }
+}
