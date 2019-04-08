@@ -27,6 +27,7 @@ export default class Select extends Component {
     const inputClassName = classNames(className, 'rev-Select', {
       'is-invalid-input': !!error,
       'is-invalid': !!error,
+      'is-multiple': !!this.props.multiple  // will be used to conditionally disable 'background-image' rule which will hide the 'arrow-down' icon on multi-selects
     })
 
     return (
