@@ -63,7 +63,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.24.1",
     "babel-register": "^6.24.1",
-    "babelify": "^7.3.0",
+    "babelify": "^10.0.0",
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
     "enzyme": ">=2.8.2",
