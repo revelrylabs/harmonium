@@ -5,6 +5,7 @@
 }
 .rev-Content {
   padding: 0 $global-padding;
+  min-width: 0;
   width: 100%;
 }
 .rev-TopBar--fixed ~ .rev-ContentWrapper {

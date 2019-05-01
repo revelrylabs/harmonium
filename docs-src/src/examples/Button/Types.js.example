@@ -19,5 +19,6 @@
     <Button warning>Warning</Button>
     <Button alert>Alert</Button>
     <Button disabled>Disabled</Button>
+    <Button disabled secondary>Disabled Secondary</Button>
   </Col>
 </Row>

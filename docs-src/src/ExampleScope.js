@@ -38,6 +38,7 @@ import InputLabel from 'harmonium/lib/InputLabel'
 import Lipsum from 'harmonium/lib/Lipsum'
 import Loader from 'harmonium/lib/Loader'
 import MediaObject from 'harmonium/lib/MediaObject'
+import MediaUploader from 'harmonium/lib/MediaUploader'
 import Menu from 'harmonium/lib/Menu'
 import MapComponent from 'harmonium/lib/Map/MapComponent'
 import InfoWindow from 'harmonium/lib/Map/InfoWindow'
@@ -51,6 +52,7 @@ import Progress from 'harmonium/lib/Progress'
 import Radio from 'harmonium/lib/Radio'
 import Row from 'harmonium/lib/Row'
 import Select from 'harmonium/lib/Select'
+import Slider from 'harmonium/lib/Slider'
 import Social from 'harmonium/lib/Social'
 import StatelessDrawer from 'harmonium/lib/StatelessDrawer'
 import StatelessModal from 'harmonium/lib/StatelessModal'
@@ -107,6 +109,7 @@ export default {
   Lipsum,
   Loader,
   MediaObject,
+  MediaUploader,
   Menu,
   MapComponent,
   Marker,
@@ -119,6 +122,7 @@ export default {
   Radio,
   Row,
   Select,
+  Slider,
   Social,
   StatelessDrawer,
   StatelessModal,

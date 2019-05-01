@@ -43,6 +43,7 @@ module.exports = {
     title: 'React Components for Teams That Move Fast | Harmonium',
   },
   plugins: [
+    'gatsby-plugin-react-next',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sass',
   ],

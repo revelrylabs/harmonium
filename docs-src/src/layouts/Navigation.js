@@ -14,7 +14,7 @@ export default function Navigation() {
       left
     >
       <nav>
-        <Link className="rev-Brand Show--mediumUp" to="/">
+        <Link className="rev-Brand ExampleBrand Hide--smallOnly" to="/">
           <img src="/images/harmonium-logo-white.png" alt="Harmonium"/>
           <small>Version {packageInfo.version}</small>
         </Link>
@@ -67,6 +67,9 @@ export default function Navigation() {
             <Link to="/components/InputGroup/">Input Group</Link>
           </Menu.Item>
           <Menu.Item>
+            <Link to="/components/MediaUploader/">Media Uploader</Link>
+          </Menu.Item>
+          <Menu.Item>
             <Link to="/components/Radio/">Radio Buttons</Link>
           </Menu.Item>
           <Menu.Item>
@@ -77,6 +80,9 @@ export default function Navigation() {
           </Menu.Item>
           <Menu.Item>
             <Link to="/components/TimePicker/">Time Picker</Link>
+          </Menu.Item>
+          <Menu.Item>
+            <Link to="/components/Slider/">Slider Input</Link>
           </Menu.Item>
         </Menu>
         <Menu vertical>

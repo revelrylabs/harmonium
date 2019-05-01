@@ -1,9 +1,10 @@
 // Sizes
-$small: 0px;
+$small: 0;
 $medium: 768px;
 $large: 1024px;
 $xlarge: 1200px;
 $xxlarge: 1440px;
+$nav: $medium;
 
 $global-width: 100%;
 $grid-row-width: $large;
@@ -11,18 +12,20 @@ $grid-row-width: $large;
 // Breakpoints
 $breakpoints: (
   small: (min-width: $small),
-  small-only: ((min-width: $small) and (max-width: $medium)),
+  small-only: ((min-width: $small) and (max-width: $medium - 1)),
   medium: (min-width: $medium),
-  medium-down: ((max-width: $medium)),
-  medium-only: ((min-width: $medium) and (max-width: $large)),
+  medium-down: ((max-width: $medium - 1)),
+  medium-only: ((min-width: $medium) and (max-width: $large - 1)),
   large: (min-width: $large),
-  large-down: ((max-width: $large)),
-  large-only: ((min-width: $large) and (max-width: $xlarge)),
+  large-down: ((max-width: $large - 1)),
+  large-only: ((min-width: $large) and (max-width: $xlarge - 1)),
   xlarge: (min-width: $xlarge),
-  xlarge-down: ((max-width: $xlarge)),
-  xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge)),
+  xlarge-down: ((max-width: $xlarge - 1)),
+  xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge - 1)),
   xxlarge: (min-width: $xxlarge),
   global-width: (min-width: $global-width),
+  nav: (min-width: $nav), // Desktop nav
+  nav-only: ((min-width: $small) and (max-width: $nav - 1)), // Mobile nav
 );
 
 // IMPORT FONTS HERE
@@ -38,9 +41,9 @@ $global-font-size: 1.6rem;
 $global-font-size-tiny: $global-font-size * 0.5;
 $global-font-size-smaller: $global-font-size * 0.75;
 $global-font-size-small: $global-font-size * 0.875;
-$global-font-size-medium: $global-font-size * 1.5;
-$global-font-size-large: $global-font-size * 2;
-$global-font-size-larger: $global-font-size * 2.5;
+$global-font-size-medium: $global-font-size * 1;
+$global-font-size-large: $global-font-size * 1.5;
+$global-font-size-larger: $global-font-size * 2;
 $global-font-size-largest: $global-font-size * 3;
 
 // Headers (rems or unit-less values only!)
@@ -58,13 +61,22 @@ $global-weight-bold: 700;
 $global-lineheight: 1.5;
 $base-lineheight: $global-lineheight * $global-font-size;
 
+// Sizes - made up of vertical spacing multiples
+// common size vars for things like badges
+$size-tiny: 6px;
+$size-small: 12px;
+$size-default: 24px;
+$size-large: 48px;
+$size-larger: 64px;
+$size-largest: 128px;
+
 // GRID COLS - determines the number of columns in a grid
 $grid-columns: 12;
 
 // Spacing
 $global-vertical-space: $global-font-size * $global-lineheight; // 24px
 $global-horizontal-space: $global-vertical-space; // 24px
-$base-size: .8rem;
+$base-size: 0.8rem;
 
 // Global Padding - made up of vertical spacing multiples
 $global-padding-tiny: $global-vertical-space / 4;  // 6px
@@ -113,7 +125,7 @@ $paragraph-lineheight: $global-lineheight;
 $paragraph-margin-bottom: $global-vertical-space;
 $paragraph-text-rendering: optimizeLegibility;
 
-// Anchor Vars
+// ANCHORS
 $anchor-color: $primary;
 $anchor-color-hover: darken($primary, 10%);
 $anchor-color-active: darken($primary, 15%);
@@ -131,11 +143,25 @@ $button-bkgd-active: darken($brand, 10%);
 $button-color-active: $white;
 $button-radius: $global-radius;
 
+$button-bkgd-secondary: transparent;
+$button-box-shadow-secondary: $brand;
+$button-color-secondary: $brand;
+$button-bkgd-secondary-hover: darken($brand, 5%);
+$button-box-shadow-secondary-hover: darken($brand, 5%);
+$button-color-secondary-hover: $white;
+$button-bkgd-secondary-active: darken($brand, 10%);
+$button-box-shadow-secondary-active: darken($brand, 10%);
+$button-color-secondary-active: $white;
+
 // CLOSE BUTTON
-$closebutton-color: $darker-gray;
-$closebutton-color-hover: $black;
-$closebutton-lineheight: $global-lineheight;
-$closebutton-size: $global-font-size;
+$closebutton-bkgd: $darker-gray;
+$closebutton-color: $white;
+$closebutton-bkgd-hover: $black;
+$closebutton-color-hover: $white;
+$closebutton-bkgd-active: $black;
+$closebutton-color-active: $white;
+$closebutton-radius: $global-rounded;
+$closebutton-size: $size-large;
 
 // HR Vars
 $hr-width: $global-width;
@@ -144,19 +170,10 @@ $hr-margin: $global-padding-large auto;
 
 // Image Blur
 $image-blur: blur(8px);
-$no-image-blur: blur(0px);
+$no-image-blur: blur(0);
 
 // Disabled
 $disabled-opacity: 0.35;
-
-// Sizes - made up of vertical spacing multiples
-// common size vars for things like badges
-$size-tiny: 6px;
-$size-small: 12px;
-$size-default: 24px;
-$size-large: 48px;
-$size-larger: 64px;
-$size-largest: 128px;
 
 //## Color Mgmt for Navigational Components -----------------------------
 // ex: menus, pagination
@@ -315,6 +332,41 @@ $input-color-focus: $input-color;
 $input-font-size: $global-font-size;
 $label-color: $body-font-color;
 $label-font-size: $global-font-size;
+
+//## Range Slider -----------------------------
+$slider-height: 50px;
+$slider-track-padding-right: $global-padding;
+$slider-track-color: $light-gray;
+$slider-input-height: 25px;
+$slider-input-width: 80px;
+$slider-input-margin: 0;
+$slider-thumb-width: 16px;
+$slider-thumb-height: 16px;
+$slider-thumb-border-radius: 50%;
+$slider-thumb-background: $primary;
+$slider-progress-color: $primary;
+
+//## TABLES -----------------------------
+
+$table-background: $white;
+$table-color: $body-font-color;
+$table-border: 1px solid $divider-color;
+$table-header-background: $body-font-color;
+$table-header-color: $white;
+//responsive table breakpoint
+$table-breakpoint: medium;
+//striped tables
+$table-stripe-background: $lightest-gray;
+
+//## DATA GRIDS -----------------------------
+
+$data-grid-background: $white;
+$data-grid-color: $body-font-color;
+$data-grid-border: 1px solid $divider-color;
+$data-grid-header-background: $body-font-color;
+$data-grid-header-color: $white;
+$data-grid-stripe-background: $lightest-gray;
+$data-grid-scroll-height: 15rem;
 
 //## PICKERS -----------------------------
 

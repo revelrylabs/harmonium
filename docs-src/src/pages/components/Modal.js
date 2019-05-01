@@ -25,9 +25,9 @@ export default class ModalExamplePage extends Component {
           <p>
             The Modal component is a dialog with a container (or page) covering
             background. It should be used only in situations when fully
-            interrupting the user flow for with something important is required.
-            You should prefer over methods for presenting information and
-            actions if a full interruption of the user flow is not required.
+            interrupting the user flow for with something important is required.</p>
+          <p><em>You should use other methods for presenting information and
+            actions if a full interruption of the user flow is not required.</em>
           </p>
         </Headers>
         <div>

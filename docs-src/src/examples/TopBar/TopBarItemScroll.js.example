@@ -1,0 +1,34 @@
+<div>
+  <Col>
+    <h3>Scrollable Topbar-item</h3>
+  </Col>
+  <Col>
+    <TopBar>
+      <Brand linkPath="/" imagePath="/images/harmonium-symbol.png" altTag="logo alt tag" />
+      <TopBar.Item scroll>
+        <Menu horizontalLeft>
+          <Menu.Item><a href="#">One</a></Menu.Item>
+          <Menu.Item><a href="#">Two</a></Menu.Item>
+          <Menu.Item><a href="#">Three</a></Menu.Item>
+          <Menu.Item><a href="#">Four</a></Menu.Item>
+          <Menu.Item><a href="#">Five</a></Menu.Item>
+          <Menu.Item><a href="#">Six</a></Menu.Item>
+          <Menu.Item><a href="#">Seven</a></Menu.Item>
+          <Menu.Item><a href="#">Eight</a></Menu.Item>
+          <Menu.Item><a href="#">Nine</a></Menu.Item>
+        </Menu>
+      </TopBar.Item>
+      <TopBar.Item scrollMediumDown>
+        <Form>
+          <InputGroup>
+            <InputGroup.Field>
+              <Input type="text" placeholder="Search" />
+            </InputGroup.Field>
+            <Button>Search</Button>
+          </InputGroup>
+        </Form>
+      </TopBar.Item>
+    </TopBar>
+  </Col>
+
+</div>

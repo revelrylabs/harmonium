@@ -1,0 +1,135 @@
+$slider-height: 40px !default;
+$slider-track-height: 3px !default;
+$slider-track-padding-right: $global-padding !default;
+$slider-track-color: $light-gray !default;
+$slider-input-height: 25px !default;
+$slider-input-width: 80px !default;
+$slider-input-margin: 0 !default;
+$slider-thumb-width: 16px !default;
+$slider-thumb-height: 16px !default;
+$slider-thumb-border-radius: 50% !default;
+$slider-thumb-background: $primary !default;
+$slider-progress-color: $primary !default;
+
+// Duplicates the shadow to make a fake progress bar
+// TODO refactor into element. See Harmonium GH ticket: #327
+$slider-width-number: 2000;
+$slider-width: #{$slider-width-number}px;
+$shadow-size: -0.4em;
+@function progress-shadow($color, $size) {
+  $val: 5px 0 0 $size $color;
+  @for $i from 6 through $slider-width-number {
+    $val: #{$val}, -#{$i}px 0 0 $size #{$color};
+  }
+  @return $val;
+}
+
+.rev-Slider {
+  align-items: center;
+  box-sizing: border-box;
+  display: flex;
+  height: auto;
+  line-height: 0;
+  padding: 0;
+  &-range-container {
+    margin-right: $slider-track-padding-right;
+    overflow: hidden;
+    width: 100%;
+  }
+  &-input {
+    @include input-style;
+    height: $slider-input-height;
+    margin: $slider-input-margin;
+    text-align: center;
+    width: $slider-input-width;
+  }
+  &-range {
+    @include remove-appearance;
+    background: none;
+    cursor: pointer;
+    height: 100%;
+    min-height: $slider-thumb-height + 6px;
+    overflow: hidden;
+    width: 100%;
+  }
+  &-range:focus {
+    box-shadow: none;
+    outline: none;
+  }
+  &-range::-webkit-slider-runnable-track {
+    background: $slider-track-color;
+    content: '';
+    height: $slider-track-height;
+  }
+  &-range:focus::-webkit-slider-runnable-track {
+    background: $slider-track-color;
+  }
+  &-range::-webkit-slider-thumb {
+    @include remove-appearance;
+    background: $slider-thumb-background;
+    border-radius: $slider-thumb-border-radius;
+    box-shadow: progress-shadow($slider-progress-color, $shadow-size);
+    cursor: pointer;
+    height: $slider-thumb-height;
+    margin-top: -#{(($slider-thumb-height - $slider-track-height) / 2)};
+    width: $slider-thumb-width;
+  }
+
+  &-range::-moz-range-track {
+    background: $slider-track-color;
+    clear: both;
+    cursor: pointer;
+    height: $slider-track-height;
+    line-height: 0;
+    margin: 0;
+    outline: 0;
+    padding: 0;
+    width: 100%;
+  }
+  &-range::-moz-focus {
+    box-shadow: none;
+    outline: none;
+  }
+
+  &-range::-moz-range-progress {
+    background: $slider-progress-color;
+    height: $slider-track-height;
+  }
+  &-range::-moz-range-thumb {
+    background: $slider-thumb-background;
+    border: 0;
+    border-radius: $slider-thumb-border-radius;
+    cursor: pointer;
+    height: $slider-thumb-height;
+    margin-top: #{ $slider-track-height};
+    width: $slider-thumb-width;
+  }
+  &-range::-ms-track {
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+    cursor: pointer;
+    height: $slider-track-height;
+    width: 100%;
+  }
+  &-range::-ms-fill-lower {
+    background: $slider-track-color;
+  }
+  &-range::-ms-fill-upper {
+    background: $slider-track-color;
+  }
+  &-range::-ms-thumb {
+    background: $slider-thumb-background;
+    border-radius: $slider-thumb-border-radius;
+    cursor: pointer;
+    height: $slider-thumb-height;
+    margin-top: 1px;
+    width: $slider-thumb-width;
+  }
+  &-range:focus::-ms-fill-lower {
+    background: $slider-thumb-background;
+  }
+  &-range:focus::-ms-fill-upper {
+    background: $slider-track-color;
+  }
+}

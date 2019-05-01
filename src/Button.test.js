@@ -1,5 +1,5 @@
 import React from 'react'
-import {shallow} from 'enzyme'
+import {shallow, mount} from 'enzyme'
 import Button from './Button'
 
 describe('Button', () => {
@@ -23,5 +23,14 @@ describe('Button', () => {
     const button = shallow(<Button secondary />)
 
     expect(button.first().prop('className')).to.contain('secondary')
+  })
+
+  it('should correctly disable a button', () => {
+    const htmlButton = mount(<Button disabled />)
+      .find('button')
+      .first()
+
+    expect(htmlButton.prop('className')).to.contain('disabled')
+    expect(htmlButton.prop('disabled')).to.equal(true)
   })
 })

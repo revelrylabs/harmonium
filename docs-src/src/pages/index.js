@@ -1,5 +1,6 @@
 import React from 'react'
-import {Row, Col} from 'harmonium/lib/grid'
+import Row from 'harmonium/lib/Row';
+import Col from 'harmonium/lib/Col';
 import Card from 'harmonium/lib/Card'
 import Menu from 'harmonium/lib/Menu'
 import HelpText from 'harmonium/lib/HelpText'
@@ -31,7 +32,7 @@ const IndexPage = () => (
       />
       <link
         rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.0.0/theme/monokai.min.css"
+        href="//cdnjs.cloudflare.com/ajax/libs/codemirror/5.38.0/theme/lucario.min.css"
       />
     </Helmet>
     <Col>

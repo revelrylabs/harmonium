@@ -24,12 +24,11 @@ h2 {
   font-size: 32px;
   line-height: 48px;
 }
-
 h5,
 h6 {
   font-weight: normal;
   letter-spacing: 1px;
-  margin: $global-padding 0 0;
+  padding: $global-padding 0 0;
   text-transform: uppercase;
 }
 code {
@@ -56,19 +55,74 @@ code {
   flex-wrap: wrap;
   margin-bottom: $global-margin-large;
 }
-.playgroundCode {
-  margin-bottom: $global-vertical-space;
+.playgroundToggleCodeBar {
+  margin: 0 $global-padding-small -1px;
   order: 1;
-  width: 100%;
 }
+.playgroundToggleCodeLink {
+  @include flex(center, row, flex-start, nowrap);
+  background: $lightest-gray;
+  border: 1px solid $lighter-gray;
+  border-bottom: 1px solid $lightest-gray;
+  border-radius: $global-radius $global-radius 0 0;
+  color: $anchor-color;
+  cursor: pointer;
+  padding: $global-padding-tiny $global-padding-small;
+  position: relative;
+  &:hover {
+    color: $anchor-color-hover;
+  }
+  &:active,
+  &:focus {
+    color: $anchor-color-active;
+  }
+  &:after {
+    content: 'code snippet';
+    padding-left: $global-padding-tiny;
+  }
+  &:before {
+    content: '+';
+    font-weight: bold;
+    padding-right: $global-padding-tiny;
+  }
+}
+.playgroundCode {
+  background: $lightest-gray;
+  border: 1px solid $lighter-gray;
+  border-radius: 0 $global-radius $global-radius $global-radius;
+  display: block;
+  order: 2;
+  margin: 0 $global-padding-small;
+  padding: $global-padding-small;
+  width: 100%;
+  .ReactCodeMirror {
+    @include global-transition;
+    @include vertical-scroll-container(150px);
+    border-radius: $global-radius;
+  }
+  &.expandedCode {
+    .ReactCodeMirror {
+      max-height: 100%;
+    }
+    + .playgroundToggleCodeBar {
+      .playgroundToggleCodeLink {
+        &:before {
+          content: '-';
+        }
+      }
+    }
+  }
+}
+
 .playgroundError {
+  @include alert-color-stack;
+  @include panel($padded: true);
   font-family: monospace;
   overflow-x: scroll;
   white-space: pre-wrap;
-  @include panel($padded: true);
-  @include alert-color-stack;
 }
 .playgroundPreview {
+  display: block;
   order: 0;
   width: 100%;
 }
@@ -77,6 +131,7 @@ code {
     background: url('https://3ulsmb4eg8vz37c0vz2si64j-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/75ff3f3c-4aa5-11e6-9c23-4491699777fe.jpg');
     background-position: center;
     background-size: cover;
+    margin: 0 $global-margin-small $global-margin;
     min-height: 320px;
     min-width: 320px;
     transform: scale(1);
@@ -181,7 +236,7 @@ code {
 }
 
 // Branding
-.rev-Brand {
+.ExampleBrand {
   @include flex(center, row, center, nowrap);
   height: 48px;
   padding: $global-padding-tiny $global-padding-small;
@@ -323,4 +378,9 @@ code {
 .ExampleDrawerContainer {
   min-height: 32rem;
   position: relative;
+}
+
+// SLIDER
+.rev-Slider {
+  margin: $global-padding-larger $global-padding-small;
 }

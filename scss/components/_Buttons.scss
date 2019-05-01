@@ -8,11 +8,15 @@ $button-bkgd-active: darken($brand, 10%) !default;
 $button-color-active: $white !default;
 $button-radius: $global-radius !default;
 
-// CLOSE BUTTON
-$closebutton-color: $darker-gray !default;
-$closebutton-color-hover: $black !default;
-$closebutton-lineheight: $global-lineheight !default;
-$closebutton-size: $global-font-size !default;
+$button-bkgd-secondary: transparent !default;
+$button-box-shadow-secondary: $brand !default;
+$button-color-secondary: $brand !default;
+$button-bkgd-secondary-hover: darken($brand, 5%) !default;
+$button-box-shadow-secondary-hover: darken($brand, 5%) !default;
+$button-color-secondary-hover: $white !default;
+$button-bkgd-secondary-active: darken($brand, 10%) !default;
+$button-box-shadow-secondary-active: darken($brand, 10%) !default;
+$button-color-secondary-active: $white !default;
 
 @mixin button-contained {
   .rev-Button {
@@ -37,7 +41,7 @@ $closebutton-size: $global-font-size !default;
   font-size: $global-font-size;
   font-weight: normal;
   line-height: $base-lineheight;
-  margin: 0 auto $global-vertical-space;
+  margin: 0 0 $global-vertical-space;
   padding: $global-padding-small $global-padding;
   &:hover,
   &:active,
@@ -72,19 +76,19 @@ $closebutton-size: $global-font-size !default;
     }
   }
   &.rev-Button--secondary {
-    background: transparent;
-    box-shadow: 0 0 0 1px $button-bkgd inset;
-    color: $button-bkgd;
+    background: $button-bkgd-secondary;
+    box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
+    color: $button-color-secondary;
     &:hover {
-      background: $button-bkgd-hover;
-      box-shadow: 0 0 0 1px $button-bkgd-hover inset;
-      color: $button-color-hover;
+      background: $button-bkgd-secondary-hover;
+      box-shadow: 0 0 0 1px $button-bkgd-secondary-hover inset;
+      color: $button-color-secondary-hover;
     }
     &:active,
     &:focus {
-      background: $button-bkgd-active;
-      box-shadow: 0 0 0 1px $button-bkgd-active inset;
-      color: $button-color-active;
+      background: $button-bkgd-secondary-active;
+      box-shadow: 0 0 0 1px $button-bkgd-secondary-active inset;
+      color: $button-color-secondary-active;
     }
   }
   &.rev-Button--inverted {
@@ -145,9 +149,14 @@ $closebutton-size: $global-font-size !default;
   }
   &.rev-Button--disabled {
     @include disabled($button-bkgd, $button-color);
+    &.rev-Button--secondary {
+      @include disabled($button-bkgd-secondary, $button-color-secondary);
+      box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
+    }
   }
 }
 .rev-ButtonGroup {
+  font-size: 0;
   .rev-Button {
     border-radius: 0;
     border-right: 1px solid $divider-color;
@@ -158,13 +167,5 @@ $closebutton-size: $global-font-size !default;
       border: 0;
       border-radius: 0 $global-radius $global-radius 0;
     }
-  }
-}
-%close-button {
-  background: $closebutton-color;
-  &:hover,
-  &:active,
-  &:focus {
-    background: $closebutton-color-hover;
   }
 }

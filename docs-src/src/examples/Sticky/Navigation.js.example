@@ -1,0 +1,22 @@
+<div style={{border: '1px solid black', height: '1000px'}}>
+  <Sticky.Container>
+    <header style={{width: '100%', height: '100px'}} id="header">
+      This is a mock header. <br /> This example shows off how one would
+      implement the common use case of making a sticky nav menu.
+    </header>
+    <Sticky topAnchor="header:bottom">
+      <nav style={{width: '100%'}}>
+        <ul>
+          <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 1</li>
+          <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 2</li>
+          <li style={{display: 'inline-block', padding: '0 10px'}}>Nav Item 3</li>
+        </ul>
+      </nav>
+    </Sticky>
+    <div>
+      <p><Lipsum p={1} /></p>
+      <p><Lipsum p={2} /></p>
+      <p><Lipsum p={3} /></p>
+    </div>
+  </Sticky.Container>
+</div>

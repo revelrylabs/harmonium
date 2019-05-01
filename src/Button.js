@@ -41,7 +41,10 @@ export default class Button extends Component {
       if (props[name]) {
         boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
       }
-      delete props[name]
+      // Don't delete classname props if they also need to pass through.
+      if (!['disabled'].includes(name)) {
+        delete props[name]
+      }
     })
 
     // Of the props that WILL pass through, we need to use these.

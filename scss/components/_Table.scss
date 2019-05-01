@@ -1,66 +1,119 @@
-$table-background: $white;
-$table-border: 1px solid $divider-color;
-$table-header-background: $white;
-$table-height: 25rem;
+$table-background: $white !default;
+$table-color: $body-font-color !default;
+$table-border: 1px solid $divider-color !default;
+$table-header-background: $body-font-color !default;
+$table-header-color: $white !default;
+//responsive tables
+$table-breakpoint: medium !default;
+//striped tables
+$table-stripe-background: $lightest-gray !default;
+
+@mixin stacked-table {
+  th {
+    display: block;
+  }
+  td {
+    @include flex(flex-start, row, flex-start, nowrap);
+  }
+  .rev-Table-head {
+    display: none;
+    //Small Screen Table Head Row
+    &--stacked {
+      display: block;
+    }
+  }
+  //Inline Table Headers
+  .rev-Table-header--inline {
+    display: block;
+    font-weight: $global-weight-bold;
+    padding-right: $global-padding-small;
+  }
+}
+
+.rev-TableContainer {
+  @include horizontal-scroll-container;
+  margin: $global-margin 0;
+}
 
 .rev-Table {
   background-color: $table-background;
   border-collapse: collapse;
   border: $table-border;
-  margin: $global-margin 0;
+  margin: 0;
   width: 100%;
-  p {
-    font-size: $global-font-size-small;
-    padding: 0;
-    margin-bottom: $global-margin-small;
-    margin-top: $global-margin-small;
-  }
   th,
   td {
+    color: $table-color;
     padding: $global-padding-small $global-padding-small;
-    @include breakpoint(medium) {
-      padding: $global-padding-small $global-padding;
-    }
+    vertical-align: top;
+  }
+  //stacked for all screens
+  &--stacked {
+    @include stacked-table;
+  }
+  //stackForSmall (default)
+  @include breakpoint(medium-down) {
+    @include stacked-table;
+  }
+  &--stackForSmall {
     @include breakpoint(medium-down) {
-      display: block;
+      @include stacked-table;
+    }
+  }
+  //stackForMedium
+  &--stackForMedium {
+    @include breakpoint(large-down) {
+      @include stacked-table;
+    }
+  }
+  //stackForLarge
+  &--stackForLarge {
+    @include breakpoint(xlarge-down) {
+      @include stacked-table;
+    }
+  }
+  // STRIPED TABLES
+  &--striped {
+    .rev-Table-body {
+      tr {
+        @include even-odd-stripes($table-background, $table-stripe-background);
+      }
+    }
+  }
+  // HORIZONTAL SCROLLING TABLES
+  &--horizontalScroll {
+    min-width: 100%;
+    width: auto;
+    .rev-Table-head {
+      display: table-header-group;
+    }
+    td,
+    th {
+      display: table-cell;
+    }
+    th {
+      white-space: nowrap;
     }
   }
 }
+
 .rev-Table-head {
-  background-color: $brand;
-  color: $white;
-  padding: $global-padding-small 0;
-  p {
-    font-size: $global-font-size-small;
-    margin-bottom: 0;
-    margin-top: 0;
-    padding: 0;
+  background-color: $table-header-background;
+  color: $table-header-color;
+  padding: 0;
+  //Small Screen Table Head Row
+  &--stacked {
+    display: none;
   }
   th {
+    color: $table-header-color;
     font-size: $global-font-size-small;
     font-weight: $global-weight-normal;
     text-align: left;
   }
 }
-tbody,
-thead {
-  .rev-Table-row {
-    padding: 0;
-  }
-}
 .rev-Table-body {
   font-size: $global-font-size-small;
-  &.rev-Table--scroll {
-    min-width: 100%;
-    width: auto;
-    @include vertical-scroll-container(250px);
-    @include breakpoint(medium-down) {
-      @include vertical-scroll-container(350px);
-    }
-  }
-  &.rev-Table--striped {
-    @include striped-table;
-  }
 }
 .rev-Table-row {
   border-bottom: $table-border;
@@ -68,13 +121,11 @@ thead {
   &:last-child {
     border-bottom: 0;
   }
-  span {
+}
+.rev-Table-header {
+  //Inline Table Headers
+  &--inline {
+    display: none;
     font-weight: $global-weight-bold;
-    @include breakpoint(medium) {
-      display: none;
-    }
-  }
-  li {
-    list-style-type: none;
   }
 }

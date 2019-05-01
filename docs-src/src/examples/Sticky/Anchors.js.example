@@ -1,0 +1,23 @@
+<div style={{display: 'flex', border: '1px solid black', height: '1000px'}}>
+  <div style={{display: 'flex', flexFlow: 'column', justifyContent: 'space-around'}}>
+    <div id="topAnchor">
+      The top of this element is being used as a top anchor.
+    </div>
+
+    <div id="bottomAnchor">
+      The bottom of this element is being used as a bottom anchor.
+    </div>
+  </div>
+
+  <Sticky.Container>
+    <Sticky topAnchor="topAnchor" bottomAnchor="bottomAnchor:bottom">
+      <span>
+        This is an example of a Sticky that has anchors. This is done by passing a string
+        containing an element id into the topAnchor and/or bottomAnchor prop(s).
+        The top or bottom of the element can be specified to be used by appending :top
+        or :bottom after the id name in an anchor prop, e.g. "exampleAnchor:bottom". If neither
+        top nor bottom is specified, the anchor will default to the top of the element.
+      </span>
+    </Sticky>
+  </Sticky.Container>
+</div>

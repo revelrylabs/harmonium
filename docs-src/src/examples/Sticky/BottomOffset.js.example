@@ -1,7 +1,0 @@
-<Sticky.Stateful offset="100px" stickToBottom style={{border: '1px solid black', paddingBottom: '1000px'}}>
-  <span>
-    This is an example of a stateful Sticky with a bottom offset.
-    The offset in this case will prevent the content from sticking until the bottom of 
-    the viewport has passed the offset amount of px upwards from the bottom of the container.
-  </span>
-</Sticky.Stateful>

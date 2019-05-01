@@ -23,6 +23,8 @@
 @import 'Callout';
 @import 'Card';
 @import 'CardLayout';
+@import 'DataGrid';
+@import 'Modal'; // requires Card
 @import 'Sticky';
 @import 'Table';
 
@@ -36,20 +38,22 @@
 @import 'Select';
 @import 'Textarea';
 @import 'InputGroup';
+@import 'MediaUploader';
 @import 'FileInput';
 @import 'TimePicker';
+@import 'Slider';
 
 // NON-DEPENDENT COMPONENTS
 @import 'Accordion';
 @import 'Badge';
 @import 'Brand';
+@import 'Code';
 @import 'Emptyable';
 @import 'GoogleMaps';
 @import 'HelpText';
 @import 'Lists';
 @import 'Loader';
 @import 'Menu';
-@import 'Modal';
 @import 'NavigationOutline';
 @import 'Pagination';
 @import 'Progress';
