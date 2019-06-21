@@ -3,6 +3,7 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import ButtonVars from './ButtonTables/ButtonVars'
 import ButtonProps from './ButtonTables/ButtonProps'
+import ButtonGroupProps from './ButtonTables/ButtonGroupProps'
 import Headers from '../../Headers'
 import Table from 'harmonium/lib/Table'
 
@@ -41,6 +42,8 @@ export default class ButtonExamplePage extends Component {
         <ButtonVars />
         <h3>Properties:</h3>
         <ButtonProps />
+        <h3>ButtonGroup Properties:</h3>
+        <ButtonGroupProps />
       </div>
     )
   }

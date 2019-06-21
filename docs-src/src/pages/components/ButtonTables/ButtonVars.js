@@ -86,7 +86,7 @@ export default function ButtonVars() {
             <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$darken($brand, 10%)</code>
           </Table.Data>
           <Table.Data>
-            <Table.HeaderInline>Description:</Table.HeaderInline> Default background color for buttons on active.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default background color for buttons that are active.
           </Table.Data>
         </Table.Row>
         <Table.Row>
@@ -97,7 +97,7 @@ export default function ButtonVars() {
             <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$white</code>
           </Table.Data>
           <Table.Data>
-            <Table.HeaderInline>Description:</Table.HeaderInline> Default font color for buttons on active.
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default font color for buttons that are active.
           </Table.Data>
         </Table.Row>
         <Table.Row>
@@ -109,6 +109,105 @@ export default function ButtonVars() {
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Description:</Table.HeaderInline> Default border-radius for buttons.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-bkgd-secondary</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>transparent</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default background color for secondary buttons.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>button-box-shadow-secondary</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$brand</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default box-shadow for secondary buttons.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-color-secondary</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$brand</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default font color for secondary buttons.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-bkgd-secondary-hover</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>darken($brand, 5%)</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default background color for secondary buttons on hover.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-box-shadow-secondary-hover</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>darken($brand, 5%)</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default box-shadow for secondary buttons on hover.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-color-secondary-hover</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$white</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default font color for secondary buttons on hover.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-bkgd-secondary-active</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>darken($brand, 10%)</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default background color for secondary buttons that are active.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-box-shadow-secondary-active</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>darken($brand, 10%)</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default box-shadow for secondary buttons that are active.
+          </Table.Data>
+        </Table.Row>
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-color-secondary-active</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$white</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline> Default color for secondary buttons that are active.
           </Table.Data>
         </Table.Row>
       </Table.Body>
