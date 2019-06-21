@@ -95,10 +95,12 @@ $button-color-secondary-active: $white !default;
     background: $button-color;
     color: $button-bkgd;
     &:hover,
-    &:active,
     &:focus {
       background: $button-color;
-      color: $button-bkgd;
+      color: $button-bkgd-hover;
+    }
+    &:active {
+      color: $button-bkgd-active;
     }
     &.rev-Button--secondary {
       background: transparent;
