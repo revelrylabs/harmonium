@@ -1,11 +1,13 @@
 /** @jsx createElement */
-import React, {Component, Fragment} from 'react'
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import {DateTime, Duration} from 'luxon'
 import {omit} from 'lodash'
 import CalendarHeaderRow from './CalendarHeaderRow'
 import CalendarWeekRow from './CalendarWeekRow'
 import Card from '../Card'
+import Icon from '../Icon'
+
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
 /**
@@ -28,6 +30,7 @@ export default class Calendar extends Component {
     previousLabel: PropTypes.node,
     className: PropTypes.string,
     getCalendarRef: PropTypes.func,
+    showYearSelection: PropTypes.bool,
   }
 
   /**
@@ -176,6 +179,7 @@ export default class Calendar extends Component {
       previousLabel,
       overlay,
       getCalendarRef,
+      showYearSelection,
       ...props
     } = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
@@ -203,21 +207,21 @@ export default class Calendar extends Component {
                 year: 'numeric',
               })}
             </span>
-            {true && (
-              <Fragment>
+            {showYearSelection && (
+              <div className="rev-Calender-year-selection">
                 <button
                   className="rev-Calendar-year-selection--up"
                   onClick={this.addYear.bind(this, 1)}
                 >
-                  <i className="fi-chevron-up" />
+                  <Icon icon="plus" />
                 </button>
                 <button
-                  className="rev-Calendar-year-selection--up"
+                  className="rev-Calendar-year-selection--down"
                   onClick={this.addYear.bind(this, -1)}
                 >
-                  <i className="fi-chevron-down" />
+                  <Icon icon="minus" />
                 </button>
-              </Fragment>
+              </div>
             )}
             <button
               onClick={this.addMonth.bind(this, 1)}
