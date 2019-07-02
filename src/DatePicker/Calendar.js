@@ -1,5 +1,5 @@
 /** @jsx createElement */
-import React, {Component} from 'react'
+import React, {Component, Fragment} from 'react'
 import PropTypes from 'prop-types'
 import {DateTime, Duration} from 'luxon'
 import {omit} from 'lodash'
@@ -141,6 +141,26 @@ export default class Calendar extends Component {
     }
   }
 
+  /**
+   * Move the focus year up n years (or back |n| years if n is negative).
+   *
+   * This function does not change the date in the input (only calendar display,
+   * so we can get away with using the first of the month like this.
+   * @param {int} num - the number of years to move the focus year
+   * @param {Event} event - the event that caused this handler to be invoked
+   *   (e.g. the click event from the next or previous button on the calendar)
+   * @return {void}
+   */
+  addYear(num, event) {
+    event.preventDefault()
+    this.setState({
+      date: this.startOfMonth().plus(Duration.fromObject({year: num})),
+    })
+    if (this.props.focuser) {
+      this.props.focuser()
+    }
+  }
+
   render() {
     const {
       className,
@@ -183,6 +203,22 @@ export default class Calendar extends Component {
                 year: 'numeric',
               })}
             </span>
+            {true && (
+              <Fragment>
+                <button
+                  className="rev-Calendar-year-selection--up"
+                  onClick={this.addYear.bind(this, 1)}
+                >
+                  <i className="fi-chevron-up" />
+                </button>
+                <button
+                  className="rev-Calendar-year-selection--up"
+                  onClick={this.addYear.bind(this, -1)}
+                >
+                  <i className="fi-chevron-down" />
+                </button>
+              </Fragment>
+            )}
             <button
               onClick={this.addMonth.bind(this, 1)}
               className="rev-Calendar-header-button rev-Calendar-header-button--next"
