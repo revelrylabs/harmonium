@@ -21,9 +21,9 @@ export default function ButtonProps() {
         </Table.Row>
       </Table.Head>
       <Table.HeadStacked>
-        <Table.Data>
-          Button Props
-        </Table.Data>
+        <Table.Row>
+          <Table.Header>Button Props</Table.Header>
+        </Table.Row>
       </Table.HeadStacked>
       <Table.Body>
         <Table.Row>

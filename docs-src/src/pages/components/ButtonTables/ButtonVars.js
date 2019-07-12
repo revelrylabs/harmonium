@@ -17,11 +17,13 @@ export default function ButtonVars() {
           </Table.Header>
         </Table.Row>
       </Table.Head>
+
       <Table.HeadStacked>
-        <Table.Data>
-          Button Vars
-        </Table.Data>
+        <Table.Row>
+          <Table.Header>Button Vars</Table.Header>
+        </Table.Row>
       </Table.HeadStacked>
+
       <Table.Body>
         <Table.Row>
           <Table.Data>
