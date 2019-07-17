@@ -1,5 +1,12 @@
-<ButtonGroup>
-  <Button>One</Button>
-  <Button>Two</Button>
-  <Button>Three</Button>
-</ButtonGroup>
+<div>
+  <Col>
+    <h3>Button Group</h3>
+  </Col>
+  <Col>
+    <ButtonGroup>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+</div>

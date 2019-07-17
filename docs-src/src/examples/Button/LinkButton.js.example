@@ -1,3 +1,12 @@
-<Button href="https://google.com" target="_blank">
-  Google
-</Button>
+<div>
+  <Col>
+    <h3>Link Button</h3>
+    <p>The Link Button component is created for all those times you need a link to be styled like a button. This 
+    component will render out as an <code>{"<a />"}</code> tag.</p>
+  </Col>
+  <Col>
+    <Button href="https://google.com" target="_blank">
+      Google
+    </Button>
+  </Col>
+</div>
