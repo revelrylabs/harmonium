@@ -1,5 +1,89 @@
-<ButtonGroup>
-  <Button>One</Button>
-  <Button>Two</Button>
-  <Button>Three</Button>
-</ButtonGroup>
+<div>
+  <Col>
+    <h3>Button Group</h3>
+  </Col>
+  <Col>
+    <ButtonGroup>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup secondary>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup small>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup large>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup primary>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup inverted>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup success>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup warning>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup alert>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup disabled>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup expanded>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup stackedForSmall>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+</div>
