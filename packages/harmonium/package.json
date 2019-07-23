@@ -1,0 +1,37 @@
+{
+  "name": "harmonium",
+  "version": "4.4.1",
+  "description": "An opinionated ramework for teams that move fast.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/revelrylabs/harmonium.git"
+  },
+  "dependencies": {},
+  "scripts": {
+    "sass-test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css"
+  },
+  "keywords": [],
+  "author": {
+    "name": "Revelry Labs",
+    "email": "support@revelry.co",
+    "url": "https://revelry.co"
+  },
+  "contributors": [
+    {
+      "name": "Joel Wietelmann",
+      "email": "joel@revelry.co"
+    },
+    {
+      "name": "Robert Prehn",
+      "email": "robert@revelry.co"
+    },
+    {
+      "name": "Laura Hill",
+      "email": "laura@revelry.co"
+    }
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "node-sass": "^4.9.2"
+  }
+}
