@@ -1,16 +1,16 @@
 {
   "name": "harmonium-react-docs",
   "description": "Gatsby default starter",
-  "version": "4.4.1",
+  "version": "5.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
-    "harmonium": "^4.4.1",
     "component-playground": "^2.0.0",
     "gatsby": "^1.9.231",
     "gatsby-link": "^1.0.1",
     "gatsby-plugin-react-helmet": "^1.0.1",
     "gatsby-plugin-react-next": "^1.0.9",
     "gatsby-plugin-sass": "^1.0.1",
+    "harmonium": "^5.0.0",
     "raw-loader": "^0.5.1",
     "resolve-cwd": "^2.0.0",
     "yargs-parser": "^9.0.2"

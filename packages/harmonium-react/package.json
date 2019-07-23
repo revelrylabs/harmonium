@@ -1,16 +1,16 @@
 {
   "name": "harmonium-react",
-  "version": "4.4.1",
+  "version": "5.0.0",
   "description": "An opinionated React component framework for teams that move fast.",
   "repository": {
     "type": "git",
     "url": "https://github.com/revelrylabs/harmonium.git"
   },
   "dependencies": {
-    "harmonium": "^4.4.1",
     "bowser": "^2.0.0",
     "chart.js": "^2.7.2",
     "classnames": "^2.2.5",
+    "harmonium": "^5.0.0",
     "jquery": "^3.2.1",
     "lodash": "^4.17.5",
     "luxon": "^1.8.2",
