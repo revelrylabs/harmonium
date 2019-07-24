@@ -7,7 +7,7 @@
     "url": "https://github.com/revelrylabs/harmonium.git"
   },
   "scripts": {
-    "sass-test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css"
+    "test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css"
   },
   "keywords": [],
   "author": {

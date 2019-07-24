@@ -3,10 +3,8 @@
 set -x
 set -e
 
-NODE_ENV=test npx nyc mocha './src/**/*.test.js' --opts ./mocha.opts
-NODE_ENV=test npx nyc report --reporter=html
-npm run sass-test
+npx lerna run test
 
 if [ ${CI} ]; then
-  cat ./coverage/lcov.info | npx coveralls
+  cat ./packages/harmonium-react/coverage/lcov.info | npx coveralls
 fi

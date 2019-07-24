@@ -23,9 +23,8 @@
     "babel": "node_modules/.bin/babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel",
     "prepare": "npm run clean && npm run babel",
-    "test": "bin/test",
-    "fix": "./node_modules/.bin/eslint --fix src/** docs-src/src/**",
-    "sass-test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css"
+    "test": "nyc mocha './src/**/*.test.js' --opts ./mocha.opts && nyc report --reporter=html",
+    "fix": "./node_modules/.bin/eslint --fix src/**"
   },
   "keywords": [],
   "author": {

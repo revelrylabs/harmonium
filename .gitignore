@@ -5,12 +5,12 @@ docs/**/*
 !docs/.keep
 npm-debug.log
 /.nyc_output/*
-coverage/**/*
-docs-src/package-lock.json
-docs-src/yarn.lock
+harmonium-react-docs/package-lock.json
+harmonium-react-docs/yarn.lock
 package-lock.json
 yarn.lock
 api.json
 /api
 .idea
-/sass-test/*.css
+/packages/harmonium/sass-test/*.css
+packages/harmonium-react/coverage/**/*
