@@ -1,6 +1,7 @@
 {
   "name": "harmonium-react-docs",
   "description": "Gatsby default starter",
+  "private": true,
   "version": "5.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {

@@ -4,10 +4,12 @@ node_js:
   - '6'
 before_deploy:
   - npm install
+  - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null
 deploy:
-  - provider: npm
-    email: $NPM_EMAIL
-    api_key: $NPM_TOKEN
+  - provider: script
+    skip_cleanup: true
+    script:
+      - npx lerna publish from-git --yes
     on:
       repo: revelrylabs/harmonium
       tags: true
