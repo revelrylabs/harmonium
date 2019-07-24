@@ -1,14 +1,7 @@
 .node-version
 node_modules/
 lib/
-docs/**/*
-!docs/.keep
-npm-debug.log
 /.nyc_output/*
-harmonium-react-docs/package-lock.json
-harmonium-react-docs/yarn.lock
-package-lock.json
-yarn.lock
 api.json
 /api
 .idea
