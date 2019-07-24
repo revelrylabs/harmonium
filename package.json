@@ -59,7 +59,9 @@
       {
         "path": "@semantic-release/git",
         "assets": [
-          "package.json"
+          "package.json",
+          "lerna.json",
+          "packages/*/package.json"
         ],
         "message": "chore(release): Bump version to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
       }
