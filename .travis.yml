@@ -1,7 +1,6 @@
 language: node_js
 node_js:
   - '8'
-  - '6'
 before_deploy:
   - npm install
   - echo "//registry.npmjs.org/:_authToken=\${NPM_TOKEN}" >> $HOME/.npmrc 2> /dev/null

@@ -1,7 +1,11 @@
 import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
+import ButtonVars from './ButtonTables/ButtonVars'
+import ButtonProps from './ButtonTables/ButtonProps'
+import ButtonGroupProps from './ButtonTables/ButtonGroupProps'
 import Headers from '../../Headers'
+import Table from 'harmonium/lib/Table'
 
 const examples = {
   "Sizes": require('raw!../../examples/Button/Sizes.js.example'),
@@ -34,6 +38,12 @@ export default class ButtonExamplePage extends Component {
           depth={1}
           scope={scope}
         />
+        <h3>Variables:</h3>
+        <ButtonVars />
+        <h3>Properties:</h3>
+        <ButtonProps />
+        <h3>ButtonGroup Properties:</h3>
+        <ButtonGroupProps />
       </div>
     )
   }

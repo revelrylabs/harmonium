@@ -13,7 +13,7 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   success: ['rev-ButtonGroup--success'],
   warning: ['rev-ButtonGroup--warning'],
   alert: ['rev-ButtonGroup--alert'],
-  disabled: ['rev-Button--disabled'],
+  disabled: ['rev-ButtonGroup--disabled'],
 
   expanded: ['rev-ButtonGroup--expanded'],
 
