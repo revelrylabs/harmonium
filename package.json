@@ -1,7 +1,6 @@
 {
   "name": "harmonium",
-  "version": "4.4.1",
-  "description": "An opinionated React component framework for teams that move fast.",
+  "private": true,
   "repository": {
     "type": "git",
     "url": "https://github.com/revelrylabs/harmonium.git"
