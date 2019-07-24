@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Row, Col} from 'harmonium/lib/grid'
+import {Row, Col} from 'harmonium-react/lib/grid'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 

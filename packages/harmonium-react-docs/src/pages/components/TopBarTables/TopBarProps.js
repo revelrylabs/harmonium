@@ -1,5 +1,5 @@
 import React from 'react'
-import Table from 'harmonium/lib/Table'
+import Table from 'harmonium-react/lib/Table'
 
 export default function TopBarProps() {
   const propsArray = [
@@ -63,7 +63,7 @@ export default function TopBarProps() {
       defaultValue: 'none',
       description: <span>Apply to <code>rev-TopBar-item</code>. Scrolls at nav-only breakpoint.</span>,
     },
-    
+
   ]
 
   return (

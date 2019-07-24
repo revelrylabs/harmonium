@@ -1,9 +1,9 @@
 import React from 'react'
-import Row from 'harmonium/lib/Row';
-import Col from 'harmonium/lib/Col';
-import Card from 'harmonium/lib/Card'
-import Menu from 'harmonium/lib/Menu'
-import HelpText from 'harmonium/lib/HelpText'
+import Row from 'harmonium-react/lib/Row';
+import Col from 'harmonium-react/lib/Col';
+import Card from 'harmonium-react/lib/Card'
+import Menu from 'harmonium-react/lib/Menu'
+import HelpText from 'harmonium-react/lib/HelpText'
 import Helmet from 'react-helmet'
 
 const IndexPage = () => (

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Table from 'harmonium/lib/Table'
+import Table from 'harmonium-react/lib/Table'
 
 export default function ButtonVars() {
   return (

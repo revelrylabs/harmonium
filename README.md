@@ -22,9 +22,9 @@ npm install --save harmonium
 You can import components and use components from the toolkit like:
 
 ```jsx
-import Col from 'harmonium/lib/Col'
-import Row from 'harmonium/lib/Row'
-import Callout from 'harmonium/lib/Callout'
+import Col from 'harmonium-react/lib/Col'
+import Row from 'harmonium-react/lib/Row'
+import Callout from 'harmonium-react/lib/Callout'
 
 function Hello() {
   return (

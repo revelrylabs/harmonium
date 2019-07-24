@@ -1,5 +1,5 @@
 import React from 'react'
-import {Row, Col} from 'harmonium/lib/grid'
+import {Row, Col} from 'harmonium-react/lib/grid'
 import Playground from 'component-playground'
 
 export default function ExampleSection({title, depth, examples, scope}) {

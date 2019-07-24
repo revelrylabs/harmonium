@@ -5,7 +5,7 @@ import ButtonVars from './ButtonTables/ButtonVars'
 import ButtonProps from './ButtonTables/ButtonProps'
 import ButtonGroupProps from './ButtonTables/ButtonGroupProps'
 import Headers from '../../Headers'
-import Table from 'harmonium/lib/Table'
+import Table from 'harmonium-react/lib/Table'
 
 const examples = {
   "Sizes": require('raw!../../examples/Button/Sizes.js.example'),

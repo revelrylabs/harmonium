@@ -3,7 +3,7 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 import TopBarProps from './TopBarTables/TopBarProps'
-import {Row, Col} from 'harmonium/lib/grid'
+import {Row, Col} from 'harmonium-react/lib/grid'
 
 
 

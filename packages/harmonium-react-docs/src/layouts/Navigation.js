@@ -1,8 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import Menu from 'harmonium/lib/Menu'
-import Drawer from 'harmonium/lib/Drawer'
-import packageInfo from '../../../package.json'
+import Menu from 'harmonium-react/lib/Menu'
+import Drawer from 'harmonium-react/lib/Drawer'
+import packageInfo from 'harmonium-react/package.json'
 
 export default function Navigation() {
   return (
@@ -15,7 +15,7 @@ export default function Navigation() {
     >
       <nav>
         <Link className="rev-Brand ExampleBrand Hide--smallOnly" to="/">
-          <img src="/images/harmonium-logo-white.png" alt="Harmonium"/>
+          <img src="/images/harmonium-logo-white.png" alt="Harmonium" />
           <small>Version {packageInfo.version}</small>
         </Link>
         <Menu className="FixedDrawerLinks">

@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import React from 'react'
 import Helmet from 'react-helmet'
-import {Row, Col} from 'harmonium/lib/grid'
+import {Row, Col} from 'harmonium-react/lib/grid'
 
 const Headers = ({children, extraKeywords, metaDescription, title}) => {
   const keywordString = extraKeywords ? `, ${extraKeywords}` : ''

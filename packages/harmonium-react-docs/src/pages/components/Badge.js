@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
-import Badge from 'harmonium/lib/Badge'
+import Badge from 'harmonium-react/lib/Badge'
 import Headers from '../../Headers'
 
 const examples = {

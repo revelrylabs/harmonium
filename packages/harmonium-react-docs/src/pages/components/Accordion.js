@@ -1,5 +1,5 @@
 import React, {Component, Children} from 'react'
-import Accordion from 'harmonium/lib/Accordion'
+import Accordion from 'harmonium-react/lib/Accordion'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'

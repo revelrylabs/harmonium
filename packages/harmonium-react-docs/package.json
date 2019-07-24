@@ -11,7 +11,7 @@
     "gatsby-plugin-react-helmet": "^1.0.1",
     "gatsby-plugin-react-next": "^1.0.9",
     "gatsby-plugin-sass": "^1.0.1",
-    "harmonium": "^5.0.0",
+    "harmonium-react": "^5.0.0",
     "raw-loader": "^0.5.1",
     "resolve-cwd": "^2.0.0",
     "yargs-parser": "^9.0.2"
