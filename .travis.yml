@@ -3,6 +3,7 @@ node_js:
   - '8'
 install:
   - npm install
+  - npx lerna bootstrap
 script:
   - npx lerna run test
 before_deploy:
