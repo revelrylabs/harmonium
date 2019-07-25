@@ -15,7 +15,7 @@ deploy:
   - provider: script
     skip_cleanup: true
     script:
-      - npx lerna publish from-git --yes
+      - npx lerna publish --yes
     on:
       repo: revelrylabs/harmonium
       tags: true
