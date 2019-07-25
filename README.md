@@ -14,7 +14,7 @@ A gallery of components is at https://harmonium.revelry.co.
 To install the toolkit for use in your project:
 
 ```sh
-npm install --save harmonium
+npm install --save harmonium-react
 ```
 
 ## Usage
