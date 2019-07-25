@@ -53,7 +53,7 @@
       "@semantic-release/changelog",
       {
         "path": "@semantic-release/exec",
-        "publishCmd": "npx lerna version ${nextRelease.version} --no-git-tag-version"
+        "prepareCmd": "npx lerna version ${nextRelease.version} --no-git-tag-version"
       },
       {
         "path": "@semantic-release/git",
