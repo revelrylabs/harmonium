@@ -4,8 +4,11 @@
   "version": "1.0.0",
   "author": "Kyle Mathews <mathews.kyle@gmail.com>",
   "dependencies": {
+    "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-preset-gatsby": "^0.2.8",
     "component-playground": "^2.0.0",
-    "gatsby": "^1.9.231",
+    "gatsby-cli": "^2.7.26",
     "gatsby-link": "^1.0.1",
     "gatsby-plugin-react-helmet": "^1.0.1",
     "gatsby-plugin-react-next": "^1.0.9",
