@@ -4,9 +4,9 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  "Basic": require('raw!../../examples/Input/Basic.js.example'),
-  "Stack": require('raw!../../examples/Input/Stack.js.example'),
-  'File Input': require('raw!../../examples/Input/FileInput.js.example'),
+  "Basic": require('raw-loader!../../examples/Input/Basic.js.example'),
+  "Stack": require('raw-loader!../../examples/Input/Stack.js.example'),
+  'File Input': require('raw-loader!../../examples/Input/FileInput.js.example'),
 }
 
 export default class InputExamplePage extends Component {

@@ -4,8 +4,8 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Stateful: require('raw!../../examples/ExpandingCol/Stateful.js.example'),
-  Stateless: require('raw!../../examples/ExpandingCol/Stateless.js.example'),
+  Stateful: require('raw-loader!../../examples/ExpandingCol/Stateful.js.example'),
+  Stateless: require('raw-loader!../../examples/ExpandingCol/Stateless.js.example'),
 }
 
 export default class ExpandingColExamplePage extends Component {

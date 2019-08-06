@@ -4,8 +4,8 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Standalone: require('raw!../../examples/InputGroup/Standalone.js.example'),
-  Stack: require('raw!../../examples/InputGroup/Stack.js.example'),
+  Standalone: require('raw-loader!../../examples/InputGroup/Standalone.js.example'),
+  Stack: require('raw-loader!../../examples/InputGroup/Stack.js.example'),
 }
 
 export default class InputGroupExamplePage extends Component {

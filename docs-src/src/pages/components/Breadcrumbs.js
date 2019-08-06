@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Breadcrumbs: require('raw!../../examples/Breadcrumbs.js.example'),
+  Breadcrumbs: require('raw-loader!../../examples/Breadcrumbs.js.example'),
 }
 
 export default class BreadcrumbsExamplePage extends Component {

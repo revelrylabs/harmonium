@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  HelpText: require('raw!../../examples/HelpText.js.example'),
+  HelpText: require('raw-loader!../../examples/HelpText.js.example'),
 }
 
 export default class HelpTextExamplePage extends Component {

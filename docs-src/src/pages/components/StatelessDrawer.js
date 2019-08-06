@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Basic: require('raw!../../examples/StatelessDrawer/Basic.js.example'),
+  Basic: require('raw-loader!../../examples/StatelessDrawer/Basic.js.example'),
 }
 
 export default class StatelessDrawerExamplePage extends Component {

@@ -4,9 +4,9 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  'Table : Default (Responsive)': require('raw!../../examples/Table/Table.js.example'),
-  'Table : Striped (Responsive)': require('raw!../../examples/Table/TableStriped.js.example'),
-  'Table : Horizontal Scroll': require('raw!../../examples/Table/TableHorizontalScroll.js.example'),
+  'Table : Default (Responsive)': require('raw-loader!../../examples/Table/Table.js.example'),
+  'Table : Striped (Responsive)': require('raw-loader!../../examples/Table/TableStriped.js.example'),
+  'Table : Horizontal Scroll': require('raw-loader!../../examples/Table/TableHorizontalScroll.js.example'),
 }
 
 export default class TableExamplePage extends Component {

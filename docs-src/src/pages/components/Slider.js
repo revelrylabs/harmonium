@@ -6,7 +6,7 @@ import SliderVars from './SliderTables/SliderVars'
 import SliderProps from './SliderTables/SliderProps'
 
 const examples = {
-  Slider: require('raw!../../examples/Slider.js.example'),
+  Slider: require('raw-loader!../../examples/Slider.js.example'),
 }
 
 export default class SliderExamplePage extends Component {

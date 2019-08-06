@@ -4,7 +4,7 @@ import scope from '../../../ExampleScope'
 import Headers from '../../../Headers'
 
 const examples = {
-  Basic: require('raw!../../../examples/Map/DesignedSilverMap.js.example'),
+  Basic: require('raw-loader!../../../examples/Map/DesignedSilverMap.js.example'),
 }
 
 export default class DesignedSilverMapExamplePage extends Component {

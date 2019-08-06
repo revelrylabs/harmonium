@@ -4,8 +4,8 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Stateless: require('raw!../../examples/Tabs/Stateless.js.example'),
-  Stateful: require('raw!../../examples/Tabs/Stateful.js.example'),
+  Stateless: require('raw-loader!../../examples/Tabs/Stateless.js.example'),
+  Stateful: require('raw-loader!../../examples/Tabs/Stateful.js.example'),
 }
 
 export default class TabsExamplePage extends Component {

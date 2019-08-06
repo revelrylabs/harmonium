@@ -4,8 +4,8 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Basic: require('raw!../../examples/Icon/Basic.js.example'),
-  Foundation: require('raw!../../examples/Icon/Foundation.js.example'),
+  Basic: require('raw-loader!../../examples/Icon/Basic.js.example'),
+  Foundation: require('raw-loader!../../examples/Icon/Foundation.js.example'),
 }
 
 export default class IconExamplePage extends Component {

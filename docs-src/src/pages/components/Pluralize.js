@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Pluralize: require('raw!../../examples/Pluralize.js.example'),
+  Pluralize: require('raw-loader!../../examples/Pluralize.js.example'),
 }
 
 export default class PluralizeExamplePage extends Component {

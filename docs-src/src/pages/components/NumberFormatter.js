@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  'Number Formatter': require('raw!../../examples/NumberFormatter.js.example'),
+  'Number Formatter': require('raw-loader!../../examples/NumberFormatter.js.example'),
 }
 
 export default class NumberFormatterExamplePage extends Component {

@@ -4,7 +4,7 @@ import scope from '../../../ExampleScope'
 import Headers from '../../../Headers'
 
 const examples = {
-  Basic: require('raw!../../../examples/Map/HybridMap.js.example'),
+  Basic: require('raw-loader!../../../examples/Map/HybridMap.js.example'),
 }
 
 export default class HybridMapExamplePage extends Component {

@@ -4,8 +4,8 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Basic: require('raw!../../examples/Checkboxes/Basic.js.example'),
-  'Fieldset With Help and Error Text': require('raw!../../examples/Checkboxes/FieldsetWithHelpAndError.js.example'),
+  Basic: require('raw-loader!../../examples/Checkboxes/Basic.js.example'),
+  'Fieldset With Help and Error Text': require('raw-loader!../../examples/Checkboxes/FieldsetWithHelpAndError.js.example'),
 }
 
 export default class CheckboxExamplePage extends Component {

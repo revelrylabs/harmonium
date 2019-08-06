@@ -4,8 +4,8 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  'Stateless': require('raw!../../examples/Modal/Stateless.js.example'),
-  'With Background Click': require('raw!../../examples/Modal/WithBackgroundClick.js.example'),
+  'Stateless': require('raw-loader!../../examples/Modal/Stateless.js.example'),
+  'With Background Click': require('raw-loader!../../examples/Modal/WithBackgroundClick.js.example'),
 }
 
 export default class ModalExamplePage extends Component {
