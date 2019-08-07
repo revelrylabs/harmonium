@@ -386,6 +386,7 @@ class UncontrolledDatePicker extends React.Component {
           {...calendar}
           day={day}
           headerDay={headerDay}
+          showYearSelection={showYearSelection}
           className={
             this.calendarOpened ? 'rev-Calendar--open' : 'rev-Calendar--closed'
           }

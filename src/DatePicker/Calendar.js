@@ -7,6 +7,7 @@ import CalendarHeaderRow from './CalendarHeaderRow'
 import CalendarWeekRow from './CalendarWeekRow'
 import Card from '../Card'
 import Icon from '../Icon'
+import Button from '../Button'
 
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
@@ -209,18 +210,20 @@ export default class Calendar extends Component {
             </span>
             {showYearSelection && (
               <div className="rev-Calender-year-selection">
-                <button
-                  className="rev-Calendar-year-selection--up"
+                <Button
+                  small
+                  className="rev-Calendar-year-selection-button"
                   onClick={this.addYear.bind(this, 1)}
                 >
-                  <Icon icon="plus" />
-                </button>
-                <button
-                  className="rev-Calendar-year-selection--down"
+                  <span>&#708;</span>
+                </Button>
+                <Button
+                  small
+                  className="rev-Calendar-year-selection-button"
                   onClick={this.addYear.bind(this, -1)}
                 >
-                  <Icon icon="minus" />
-                </button>
+                  <span>&#709;</span>
+                </Button>
               </div>
             )}
             <button
