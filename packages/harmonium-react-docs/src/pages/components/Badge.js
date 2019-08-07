@@ -4,7 +4,7 @@ import Badge from 'harmonium-react/lib/Badge'
 import Headers from '../../Headers'
 
 const examples = {
-  Badges: require('raw!../../examples/Badge.js.example'),
+  Badges: require('raw-loader!../../examples/Badge.js.example'),
 }
 
 const scope = {React, Badge}

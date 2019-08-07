@@ -4,9 +4,9 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  'DataGrid : Default (Responsive)': require('raw!../../examples/DataGrids/DataGrid.js.example'),
-  'DataGrid : Striped': require('raw!../../examples/DataGrids/DataGridStriped.js.example'),
-  'DataGrid : Vertical Scroll': require('raw!../../examples/DataGrids/DataGridVerticalScroll.js.example'),
+  'DataGrid : Default (Responsive)': require('raw-loader!../../examples/DataGrids/DataGrid.js.example'),
+  'DataGrid : Striped': require('raw-loader!../../examples/DataGrids/DataGridStriped.js.example'),
+  'DataGrid : Vertical Scroll': require('raw-loader!../../examples/DataGrids/DataGridVerticalScroll.js.example'),
 }
 
 export default class DataGridExamplePage extends Component {

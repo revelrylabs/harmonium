@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Currency: require('raw!../../examples/Currency.js.example'),
+  Currency: require('raw-loader!../../examples/Currency.js.example'),
 }
 
 export default class CurrencyExamplePage extends Component {

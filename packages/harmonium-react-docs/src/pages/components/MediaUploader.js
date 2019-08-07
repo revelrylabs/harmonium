@@ -5,8 +5,8 @@ import Headers from '../../Headers'
 import MediaUploaderProps from './MediaUploaderTables/MediaUploaderProps'
 
 const examples = {
-  Basic: require('raw!../../examples/MediaUploader/Basic.js.example'),
-  'Using Presigned URLs': require('raw!../../examples/MediaUploader/S3.js.example'),
+  Basic: require('raw-loader!../../examples/MediaUploader/Basic.js.example'),
+  'Using Presigned URLs': require('raw-loader!../../examples/MediaUploader/S3.js.example'),
 }
 
 export default class MediaUploaderExamplePage extends Component {

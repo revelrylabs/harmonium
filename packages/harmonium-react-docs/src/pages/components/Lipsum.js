@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Lipsum: require('raw!../../examples/Lipsum.js.example'),
+  Lipsum: require('raw-loader!../../examples/Lipsum.js.example'),
 }
 
 export default class LipsumExamplePage extends Component {

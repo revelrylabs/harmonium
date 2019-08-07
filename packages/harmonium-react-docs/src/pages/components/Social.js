@@ -4,8 +4,8 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Links: require('raw!../../examples/Social/Link.js.example'),
-  'With Icons And Buttons': require('raw!../../examples/Social/IconsAndButtons.js.example'),
+  Links: require('raw-loader!../../examples/Social/Link.js.example'),
+  'With Icons And Buttons': require('raw-loader!../../examples/Social/IconsAndButtons.js.example'),
 }
 
 export default class SocialExamplePage extends Component {

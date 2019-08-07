@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Textarea: require('raw!../../examples/Textarea.js.example'),
+  Textarea: require('raw-loader!../../examples/Textarea.js.example'),
 }
 
 export default class TextareaExamplePage extends Component {

@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Card: require('raw!../../examples/Card.js.example'),
+  Card: require('raw-loader!../../examples/Card.js.example'),
 }
 
 export default class CardExamplePage extends Component {

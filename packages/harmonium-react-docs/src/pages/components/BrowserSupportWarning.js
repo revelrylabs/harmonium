@@ -4,8 +4,8 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  'Warn unless Chrome 45+ or IE 10+': require('raw!../../examples/BrowserSupportWarning/Chrome45.js.example'),
-  'Warn unless Chrome 9999+ or IE 9999+': require('raw!../../examples/BrowserSupportWarning/Chrome9999.js.example'),
+  'Warn unless Chrome 45+ or IE 10+': require('raw-loader!../../examples/BrowserSupportWarning/Chrome45.js.example'),
+  'Warn unless Chrome 9999+ or IE 9999+': require('raw-loader!../../examples/BrowserSupportWarning/Chrome9999.js.example'),
 }
 
 export default class BrowserSupportWarningExamplePage extends Component {

@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  TextAlign: require('raw!../../examples/TextAlign.js.example'),
+  TextAlign: require('raw-loader!../../examples/TextAlign.js.example'),
 }
 
 export default class TextAlignExamplePage extends Component {

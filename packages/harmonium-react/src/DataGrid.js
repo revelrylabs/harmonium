@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import {Row, Col} from 'harmonium-react/lib/grid'
+import {Row, Col} from './grid'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
@@ -87,7 +87,10 @@ class DataGridHeaderRowStacked extends Component {
     const {className, children, ...props} = this.props
 
     return (
-      <Row {...props} className={`rev-DataGrid-headerRow rev-DataGrid-headerRow--stacked ${className}`}>
+      <Row
+        {...props}
+        className={`rev-DataGrid-headerRow rev-DataGrid-headerRow--stacked ${className}`}
+      >
         {children}
       </Row>
     )
@@ -122,11 +125,7 @@ class DataGridBody extends Component {
   render() {
     const {className, children} = this.props
 
-    return (
-      <div className={`rev-DataGrid-body ${className}`}>
-        {children}
-      </div>
-    )
+    return <div className={`rev-DataGrid-body ${className}`}>{children}</div>
   }
 }
 DataGrid.Body = DataGridBody
@@ -140,11 +139,7 @@ class DataGridRow extends Component {
   render() {
     const {className, children} = this.props
 
-    return (
-      <Row className={`rev-DataGrid-row ${className}`}>
-        {children}
-      </Row>
-    )
+    return <Row className={`rev-DataGrid-row ${className}`}>{children}</Row>
   }
 }
 DataGrid.Row = DataGridRow

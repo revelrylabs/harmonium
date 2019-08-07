@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  THings: require('raw!../../examples/Visibility.js.example'),
+  THings: require('raw-loader!../../examples/Visibility.js.example'),
 }
 
 export default class VisibilityExamplePage extends Component {

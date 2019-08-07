@@ -4,9 +4,9 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Basic: require('raw!../../examples/Drawer/Basic.js.example'),
-  Scroll: require('raw!../../examples/Drawer/Scroll.js.example'),
-  Overlay: require('raw!../../examples/Drawer/Overlay.js.example'),
+  Basic: require('raw-loader!../../examples/Drawer/Basic.js.example'),
+  Scroll: require('raw-loader!../../examples/Drawer/Scroll.js.example'),
+  Overlay: require('raw-loader!../../examples/Drawer/Overlay.js.example'),
 }
 
 export default class DrawerExamplePage extends Component {

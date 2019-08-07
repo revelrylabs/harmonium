@@ -6,15 +6,15 @@ import Headers from '../../Headers'
 
 const examples = {
   stateless: {
-    'With None Active': require('raw!../../examples/Accordion/Stateless/NoneActive.js.example'),
-    'With One Active': require('raw!../../examples/Accordion/Stateless/OneActive.js.example'),
-    'With Two Active (array form)': require('raw!../../examples/Accordion/Stateless/TwoActiveArray.js.example'),
-    'With Two Active (object form)': require('raw!../../examples/Accordion/Stateless/TwoActiveObject.js.example'),
+    'With None Active': require('raw-loader!../../examples/Accordion/Stateless/NoneActive.js.example'),
+    'With One Active': require('raw-loader!../../examples/Accordion/Stateless/OneActive.js.example'),
+    'With Two Active (array form)': require('raw-loader!../../examples/Accordion/Stateless/TwoActiveArray.js.example'),
+    'With Two Active (object form)': require('raw-loader!../../examples/Accordion/Stateless/TwoActiveObject.js.example'),
   },
   stateful: {
-    'With None defaultActive': require('raw!../../examples/Accordion/Stateful/NoneActive.js.example'),
-    'With One defaultActive': require('raw!../../examples/Accordion/Stateful/OneActive.js.example'),
-    'Allowing multiple open': require('raw!../../examples/Accordion/Stateful/MultiOpen.js.example'),
+    'With None defaultActive': require('raw-loader!../../examples/Accordion/Stateful/NoneActive.js.example'),
+    'With One defaultActive': require('raw-loader!../../examples/Accordion/Stateful/OneActive.js.example'),
+    'Allowing multiple open': require('raw-loader!../../examples/Accordion/Stateful/MultiOpen.js.example'),
   },
 }
 

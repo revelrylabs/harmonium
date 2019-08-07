@@ -4,22 +4,22 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  "Intro": require('raw!../../examples/grid/Intro.js.example'),
+  "Intro": require('raw-loader!../../examples/grid/Intro.js.example'),
   'Flex Grid': {
-    Shrink: require('raw!../../examples/grid/Shrink.js.example'),
-    'Source Ordering With Flex Grid': require('raw!../../examples/grid/SourceOrderingWithFlexGrid.js.example'),
-    'Vertical Alignment On Col': require('raw!../../examples/grid/VerticalAlignmentOnCol.js.example'),
-    'Vertical Alignment On Row': require('raw!../../examples/grid/VerticalAlignmentOnRow.js.example'),
-    'Horizontal Alignment On Row': require('raw!../../examples/grid/HorizontalAlignmentOnRow.js.example'),
+    Shrink: require('raw-loader!../../examples/grid/Shrink.js.example'),
+    'Source Ordering With Flex Grid': require('raw-loader!../../examples/grid/SourceOrderingWithFlexGrid.js.example'),
+    'Vertical Alignment On Col': require('raw-loader!../../examples/grid/VerticalAlignmentOnCol.js.example'),
+    'Vertical Alignment On Row': require('raw-loader!../../examples/grid/VerticalAlignmentOnRow.js.example'),
+    'Horizontal Alignment On Row': require('raw-loader!../../examples/grid/HorizontalAlignmentOnRow.js.example'),
   },
   'Float Grid': {
-    "Nesting": require('raw!../../examples/grid/Nesting.js.example'),
-    Offsets: require('raw!../../examples/grid/Offsets.js.example'),
-    'Row Collapse': require('raw!../../examples/grid/RowCollapse.js.example'),
-    'Block Grid': require('raw!../../examples/grid/BlockGrids.js.example'),
-    'Source Ordering With Float Grid': require('raw!../../examples/grid/SourceOrderingWithoutFlexGrid.js.example'),
-    'Incomplete Rows With Float Grid': require('raw!../../examples/grid/IncompleteRowsWithoutFlexGrid.js.example'),
-    'Centered Columns': require('raw!../../examples/grid/CenteredColumns.js.example'),
+    "Nesting": require('raw-loader!../../examples/grid/Nesting.js.example'),
+    Offsets: require('raw-loader!../../examples/grid/Offsets.js.example'),
+    'Row Collapse': require('raw-loader!../../examples/grid/RowCollapse.js.example'),
+    'Block Grid': require('raw-loader!../../examples/grid/BlockGrids.js.example'),
+    'Source Ordering With Float Grid': require('raw-loader!../../examples/grid/SourceOrderingWithoutFlexGrid.js.example'),
+    'Incomplete Rows With Float Grid': require('raw-loader!../../examples/grid/IncompleteRowsWithoutFlexGrid.js.example'),
+    'Centered Columns': require('raw-loader!../../examples/grid/CenteredColumns.js.example'),
   },
 }
 
