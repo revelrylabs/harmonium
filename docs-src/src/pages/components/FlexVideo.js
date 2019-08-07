@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  FlexVideo: require('raw!../../examples/FlexVideo.js.example'),
+  FlexVideo: require('raw-loader!../../examples/FlexVideo.js.example'),
 }
 
 export default class FlexVideoExamplePage extends Component {

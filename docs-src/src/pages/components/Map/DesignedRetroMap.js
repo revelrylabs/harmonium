@@ -4,7 +4,7 @@ import scope from '../../../ExampleScope'
 import Headers from '../../../Headers'
 
 const examples = {
-  Basic: require('raw!../../../examples/Map/DesignedRetroMap.js.example'),
+  Basic: require('raw-loader!../../../examples/Map/DesignedRetroMap.js.example'),
 }
 
 export default class DesignedRetroMapExamplePage extends Component {

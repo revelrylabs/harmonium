@@ -4,11 +4,11 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Sizes: require('raw!../../examples/Loader/Sizes.js.example'),
-  Duration: require('raw!../../examples/Loader/Duration.js.example'),
-  Color: require('raw!../../examples/Loader/Color.js.example'),
-  'Secondary color': require('raw!../../examples/Loader/SecondaryColor.js.example'),
-  'Usage with button': require('raw!../../examples/Loader/ButtonLoader.js.example'),
+  Sizes: require('raw-loader!../../examples/Loader/Sizes.js.example'),
+  Duration: require('raw-loader!../../examples/Loader/Duration.js.example'),
+  Color: require('raw-loader!../../examples/Loader/Color.js.example'),
+  'Secondary color': require('raw-loader!../../examples/Loader/SecondaryColor.js.example'),
+  'Usage with button': require('raw-loader!../../examples/Loader/ButtonLoader.js.example'),
 }
 
 export default class LoaderExamplePage extends Component {

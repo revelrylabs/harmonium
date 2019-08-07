@@ -4,14 +4,14 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  'Without Props': require('raw!../../examples/TimePicker/Basic.js.example'),
-  'With Default Value': require('raw!../../examples/TimePicker/DefaultValue.js.example'),
-  'With Error and Help': require('raw!../../examples/TimePicker/ErrorAndHelp.js.example'),
-  'Always Open': require('raw!../../examples/TimePicker/AlwaysOpen.js.example'),
-  "Disabled": require('raw!../../examples/TimePicker/Disabled.js.example'),
-  'With 24 Hour Clock': require('raw!../../examples/TimePicker/TwentyFourHour.js.example'),
-  'With Seconds Shown': require('raw!../../examples/TimePicker/ShowSeconds.js.example'),
-  "Overlay": require('raw!../../examples/TimePicker/Overlay.js.example'),
+  'Without Props': require('raw-loader!../../examples/TimePicker/Basic.js.example'),
+  'With Default Value': require('raw-loader!../../examples/TimePicker/DefaultValue.js.example'),
+  'With Error and Help': require('raw-loader!../../examples/TimePicker/ErrorAndHelp.js.example'),
+  'Always Open': require('raw-loader!../../examples/TimePicker/AlwaysOpen.js.example'),
+  "Disabled": require('raw-loader!../../examples/TimePicker/Disabled.js.example'),
+  'With 24 Hour Clock': require('raw-loader!../../examples/TimePicker/TwentyFourHour.js.example'),
+  'With Seconds Shown': require('raw-loader!../../examples/TimePicker/ShowSeconds.js.example'),
+  "Overlay": require('raw-loader!../../examples/TimePicker/Overlay.js.example'),
 }
 
 export default class TimePickerExamplePage extends Component {

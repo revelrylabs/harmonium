@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Progress: require('raw!../../examples/Progress.js.example'),
+  Progress: require('raw-loader!../../examples/Progress.js.example'),
 }
 
 export default class ProgressExamplePage extends Component {

@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Emptyable: require('raw!../../examples/Emptyable.js.example'),
+  Emptyable: require('raw-loader!../../examples/Emptyable.js.example'),
 }
 
 export default class EmptyableExamplePage extends Component {

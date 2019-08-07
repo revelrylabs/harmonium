@@ -4,10 +4,10 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  'Menu : Default': require('raw!../../examples/Menu/Default.js.example'),
-  'Menu : Horizontal': require('raw!../../examples/Menu/Horizontal.js.example'),
-  'Menu : Vertical': require('raw!../../examples/Menu/Vertical.js.example'),
-  'Menu : Nested': require('raw!../../examples/Menu/Nested.js.example'),
+  'Menu : Default': require('raw-loader!../../examples/Menu/Default.js.example'),
+  'Menu : Horizontal': require('raw-loader!../../examples/Menu/Horizontal.js.example'),
+  'Menu : Vertical': require('raw-loader!../../examples/Menu/Vertical.js.example'),
+  'Menu : Nested': require('raw-loader!../../examples/Menu/Nested.js.example'),
 }
 
 export default class MenuExamplePage extends Component {

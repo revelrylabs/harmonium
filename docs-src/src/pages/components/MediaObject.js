@@ -4,10 +4,10 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  'Basic': require('raw!../../examples/MediaObject/Basic.js.example'),
-  'Stack': require('raw!../../examples/MediaObject/Stack.js.example'),
-  'SectionAlignment': require('raw!../../examples/MediaObject/SectionAlignment.js.example'),
-  'Nested': require('raw!../../examples/MediaObject/Nested.js.example'),
+  'Basic': require('raw-loader!../../examples/MediaObject/Basic.js.example'),
+  'Stack': require('raw-loader!../../examples/MediaObject/Stack.js.example'),
+  'SectionAlignment': require('raw-loader!../../examples/MediaObject/SectionAlignment.js.example'),
+  'Nested': require('raw-loader!../../examples/MediaObject/Nested.js.example'),
 }
 
 export default class MediaObjectExamplePage extends Component {

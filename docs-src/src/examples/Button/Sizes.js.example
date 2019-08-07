@@ -1,5 +1,9 @@
 <Row className="ExampleButtons">
   <Col>
+    <h3>Button Sizes</h3>  
+    <p>Properties such as <code>small</code> and <code>large</code> can be added to your button in order to change its size.</p>
+  </Col>
+  <Col>
     <Button small>Small</Button>
     <Button>Default</Button>
     <Button large>Large</Button>

@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  CloseButton: require('raw!../../examples/CloseButton.js.example'),
+  CloseButton: require('raw-loader!../../examples/CloseButton.js.example'),
 }
 
 export default class CloseButtonExamplePage extends Component {

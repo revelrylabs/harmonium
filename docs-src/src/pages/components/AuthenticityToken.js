@@ -6,7 +6,7 @@ import ExampleSection from '../../ExampleSection'
 import Headers from '../../Headers'
 
 const examples = {
-  'Authenticity Token Provider': require('raw!../../examples/AuthenticityTokenProvider.js.example'),
+  'Authenticity Token Provider': require('raw-loader!../../examples/AuthenticityTokenProvider.js.example'),
 }
 
 const scope = {React, Form, Button, AuthenticityTokenProvider}

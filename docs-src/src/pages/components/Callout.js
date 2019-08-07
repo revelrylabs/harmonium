@@ -4,7 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Callout: require('raw!../../examples/Callout.js.example'),
+  Callout: require('raw-loader!../../examples/Callout.js.example'),
 }
 
 export default class CalloutExamplePage extends Component {

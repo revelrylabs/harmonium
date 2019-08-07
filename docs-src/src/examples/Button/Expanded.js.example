@@ -1,5 +1,10 @@
 <div>
-  <Button expanded small>expanded small</Button>
-  <Button expanded>expanded</Button>
-  <Button expanded large>expanded large</Button>
+  <Col>
+    <h3>Expanded Buttons</h3>
+  </Col>
+  <Col>
+    <Button expanded small>expanded small</Button>
+    <Button expanded>expanded</Button>
+    <Button expanded large>expanded large</Button>
+  </Col>
 </div>

@@ -4,8 +4,8 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 
 const examples = {
-  Singular: require('raw!../../examples/Radio/Singular.js.example'),
-  Fieldset: require('raw!../../examples/Radio/Fieldset.js.example'),
+  Singular: require('raw-loader!../../examples/Radio/Singular.js.example'),
+  Fieldset: require('raw-loader!../../examples/Radio/Fieldset.js.example'),
 }
 
 export default class RadioExamplePage extends Component {
