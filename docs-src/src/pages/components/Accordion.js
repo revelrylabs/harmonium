@@ -3,6 +3,7 @@ import Accordion from 'harmonium/lib/Accordion'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   stateless: {

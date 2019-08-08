@@ -6,6 +6,7 @@ import ButtonProps from './ButtonTables/ButtonProps'
 import ButtonGroupProps from './ButtonTables/ButtonGroupProps'
 import Headers from '../../Headers'
 import Table from 'harmonium/lib/Table'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   "Sizes": require('raw-loader!../../examples/Button/Sizes.js.example'),

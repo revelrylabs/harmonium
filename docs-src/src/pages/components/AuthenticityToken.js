@@ -4,6 +4,7 @@ import Button from 'harmonium/lib/Button'
 import AuthenticityTokenProvider from 'harmonium/lib/AuthenticityTokenProvider'
 import ExampleSection from '../../ExampleSection'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   'Authenticity Token Provider': require('raw-loader!../../examples/AuthenticityTokenProvider.js.example'),

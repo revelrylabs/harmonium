@@ -3,6 +3,7 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 import MediaUploaderProps from './MediaUploaderTables/MediaUploaderProps'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   Basic: require('raw-loader!../../examples/MediaUploader/Basic.js.example'),

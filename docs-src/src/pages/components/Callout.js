@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   Callout: require('raw-loader!../../examples/Callout.js.example'),

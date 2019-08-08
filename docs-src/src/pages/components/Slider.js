@@ -4,6 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 import SliderVars from './SliderTables/SliderVars'
 import SliderProps from './SliderTables/SliderProps'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   Slider: require('raw-loader!../../examples/Slider.js.example'),

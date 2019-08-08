@@ -4,8 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 import TopBarProps from './TopBarTables/TopBarProps'
 import {Row, Col} from 'harmonium/lib/grid'
-
-
+import Layout from '../../layouts/index.js'
 
 const examples = {
   'TopBar : Default (Justifed Content)': require('raw-loader!../../examples/TopBar/TopBar.js.example'),

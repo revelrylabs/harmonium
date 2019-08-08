@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import Badge from 'harmonium/lib/Badge'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   Badges: require('raw-loader!../../examples/Badge.js.example'),

@@ -1,48 +1,9 @@
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  switch (stage) {
-    case 'develop':
-      config.loader('raw-loader', {
-        use: 'raw-loader',
-      });
-
-      break;
-
-    case 'build-css':
-      config.loader('raw-loader', {
-        use: 'raw-loader',
-      });
-
-      break;
-
-    case 'build-html':
-      config.loader('raw-loader', {
-        use: 'raw-loader',
-      });
-
-      break;
-
-    case 'build-javascript':
-      config.loader('raw-loader', {
-        use: 'raw-loader',
-      });
-
-      break;
-  }
-
-  config.loader('sass', function(cfg) {
-      cfg.test = /\.scss$/;
-      cfg.loader = 'style!css!scss';
-      return cfg;
-  });
-
-  return config;
-}
-
 module.exports = {
   siteMetadata: {
     title: 'React Components for Teams That Move Fast | Harmonium',
   },
   plugins: [
+    `gatsby-plugin-sass`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,
