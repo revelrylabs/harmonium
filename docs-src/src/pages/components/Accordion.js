@@ -3,6 +3,7 @@ import Accordion from 'harmonium/lib/Accordion'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   stateless: {
@@ -21,33 +22,35 @@ const examples = {
 export default class AccordionExamplePage extends Component {
   render() {
     return (
-      <div className="rev-Row rev-Row--collapse">
-        <Headers
-          title="Accordions"
-          metaDescription={
-            'Accordions are components with multiple sections that can be ' +
-            'hidden or revealed. In Harmonium, they come in stateful ' +
-            '(self-managed) and stateless (parent-managed) types.'
-          }
-          extraKeywords="Component, Accordion, Expander"
-        >
-          <p>
-            Accordions are components with multiple sections that can be
-            hidden or revealed. In Harmonium, they come in stateful
-            (self-managed) and stateless (parent-managed) types.
-          </p>
-          <p>
-            With stateless accordions, you must specify which section(s) are open
-            using props. With stateful accordions, the interaction is built-in.
-          </p>
-        </Headers>
-        <ExampleSection
-          title="Examples"
-          examples={examples}
-          depth={1}
-          scope={scope}
-        />
-      </div>
+      <Layout location={this.props.location}>
+        <div className="rev-Row rev-Row--collapse">
+          <Headers
+            title="Accordions"
+            metaDescription={
+              'Accordions are components with multiple sections that can be ' +
+              'hidden or revealed. In Harmonium, they come in stateful ' +
+              '(self-managed) and stateless (parent-managed) types.'
+            }
+            extraKeywords="Component, Accordion, Expander"
+          >
+            <p>
+              Accordions are components with multiple sections that can be
+              hidden or revealed. In Harmonium, they come in stateful
+              (self-managed) and stateless (parent-managed) types.
+            </p>
+            <p>
+              With stateless accordions, you must specify which section(s) are open
+              using props. With stateful accordions, the interaction is built-in.
+            </p>
+          </Headers>
+          <ExampleSection
+            title="Examples"
+            examples={examples}
+            depth={1}
+            scope={scope}
+          />
+        </div>
+      </Layout>
     )
   }
 }

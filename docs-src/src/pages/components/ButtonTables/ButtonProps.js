@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Table from 'harmonium/lib/Table'
+import Layout from '../../../layouts/index.js'
 
 export default function ButtonProps() {
   return (
@@ -179,7 +180,7 @@ export default function ButtonProps() {
             <Table.HeaderInline>Type:</Table.HeaderInline> string
           </Table.Data>
           <Table.Data>
-            <Table.HeaderInline>Default:</Table.HeaderInline> 
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Description:</Table.HeaderInline><span> Prop added to a link to make it styled like a button. Adds the class <code>rev-Button</code></span>
@@ -194,7 +195,7 @@ export default function ButtonProps() {
             <Table.HeaderInline>Type:</Table.HeaderInline> enum: <code>_blank</code>, <code>_parent</code>, <code>_self</code>, <code>_top</code>
           </Table.Data>
           <Table.Data>
-            <Table.HeaderInline>Default:</Table.HeaderInline> 
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Description:</Table.HeaderInline><span> Attribute added to specify how you want the link to open.</span>

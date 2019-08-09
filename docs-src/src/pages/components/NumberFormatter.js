@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   'Number Formatter': require('raw-loader!../../examples/NumberFormatter.js.example'),
@@ -10,7 +11,7 @@ const examples = {
 export default class NumberFormatterExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Number Formatter"
           metaDescription={
@@ -33,7 +34,7 @@ export default class NumberFormatterExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   'Menu : Default': require('raw-loader!../../examples/Menu/Default.js.example'),
@@ -13,7 +14,7 @@ const examples = {
 export default class MenuExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Menu"
           metaDescription={
@@ -37,7 +38,7 @@ export default class MenuExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

@@ -3,6 +3,7 @@ import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 import MediaUploaderProps from './MediaUploaderTables/MediaUploaderProps'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   Basic: require('raw-loader!../../examples/MediaUploader/Basic.js.example'),
@@ -12,7 +13,7 @@ const examples = {
 export default class MediaUploaderExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Media Uploader"
           metaDescription={
@@ -45,7 +46,7 @@ export default class MediaUploaderExamplePage extends Component {
         />
         <h3>Properties:</h3>
         <MediaUploaderProps />
-      </div>
+      </Layout>
     )
   }
 }

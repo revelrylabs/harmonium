@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   'Table : Default (Responsive)': require('raw-loader!../../examples/Table/Table.js.example'),
@@ -12,7 +13,7 @@ const examples = {
 export default class TableExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Tables"
           metaDescription={
@@ -27,7 +28,7 @@ export default class TableExamplePage extends Component {
           examples={examples}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

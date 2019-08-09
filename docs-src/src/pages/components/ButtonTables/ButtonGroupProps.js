@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Table from 'harmonium/lib/Table'
+import Layout from '../../../layouts/index.js'
 
 export default function ButtonGroupProps() {
   return (
@@ -179,7 +180,7 @@ export default function ButtonGroupProps() {
             <Table.HeaderInline>Type:</Table.HeaderInline> string
           </Table.Data>
           <Table.Data>
-            <Table.HeaderInline>Default:</Table.HeaderInline> 
+            <Table.HeaderInline>Default:</Table.HeaderInline>
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Description:</Table.HeaderInline><span> Prop added to button links that you want to stack on small screens. This helps avoid button groups breaking to a new line on smaller screens. Adds the class <code>rev-ButtonGroup--stackedForSmall</code></span>

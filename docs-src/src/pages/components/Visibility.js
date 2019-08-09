@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   THings: require('raw-loader!../../examples/Visibility.js.example'),
@@ -10,7 +11,7 @@ const examples = {
 export default class VisibilityExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Visibility"
           metaDescription={
@@ -34,7 +35,7 @@ export default class VisibilityExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

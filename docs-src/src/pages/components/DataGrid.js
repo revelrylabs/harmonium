@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   'DataGrid : Default (Responsive)': require('raw-loader!../../examples/DataGrids/DataGrid.js.example'),
@@ -12,7 +13,7 @@ const examples = {
 export default class DataGridExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="DataGrid"
           metaDescription={
@@ -29,7 +30,7 @@ export default class DataGridExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

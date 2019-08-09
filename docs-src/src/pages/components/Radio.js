@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   Singular: require('raw-loader!../../examples/Radio/Singular.js.example'),
@@ -11,7 +12,7 @@ const examples = {
 export default class RadioExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Radio Button"
           metaDescription={
@@ -36,7 +37,7 @@ export default class RadioExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

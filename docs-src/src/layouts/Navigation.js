@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import Menu from 'harmonium/lib/Menu'
 import Drawer from 'harmonium/lib/Drawer'
 import packageInfo from '../../../package.json'
@@ -14,10 +13,10 @@ export default function Navigation() {
       left
     >
       <nav>
-        <Link className="rev-Brand ExampleBrand Hide--smallOnly" to="/">
+        <a className="rev-Brand ExampleBrand Hide--smallOnly" href="/">
           <img src="/images/harmonium-logo-white.png" alt="Harmonium"/>
           <small>Version {packageInfo.version}</small>
-        </Link>
+        </a>
         <Menu className="FixedDrawerLinks">
           <Menu.Item>
             <a href="https://github.com/revelrylabs/harmonium">GitHub</a>
@@ -41,10 +40,10 @@ export default function Navigation() {
             <h5>Grid</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/grid/">Rows &amp; Columns</Link>
+            <a href="/components/grid/">Rows &amp; Columns</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/ExpandingCol/">Expanding Columns</Link>
+            <a href="/components/ExpandingCol/">Expanding Columns</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
@@ -52,37 +51,37 @@ export default function Navigation() {
             <h5>Forms</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Button/">Buttons</Link>
+            <a href="/components/Button/">Buttons</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Checkbox/">Checkboxes</Link>
+            <a href="/components/Checkbox/">Checkboxes</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Datepicker/">Date Picker</Link>
+            <a href="/components/DatePicker/">Date Picker</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Input/">Inputs</Link>
+            <a href="/components/Input/">Inputs</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/InputGroup/">Input Group</Link>
+            <a href="/components/InputGroup/">Input Group</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/MediaUploader/">Media Uploader</Link>
+            <a href="/components/MediaUploader/">Media Uploader</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Radio/">Radio Buttons</Link>
+            <a href="/components/Radio/">Radio Buttons</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Select/">Selects</Link>
+            <a href="/components/Select/">Selects</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Textarea/">Textareas</Link>
+            <a href="/components/Textarea/">Textareas</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/TimePicker/">Time Picker</Link>
+            <a href="/components/TimePicker/">Time Picker</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Slider/">Slider Input</Link>
+            <a href="/components/Slider/">Slider Input</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
@@ -90,10 +89,10 @@ export default function Navigation() {
             <h5>Lists</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Emptyable/">Emptyable</Link>
+            <a href="/components/Emptyable/">Emptyable</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Pagination/">Pagination</Link>
+            <a href="/components/Pagination/">Pagination</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
@@ -101,13 +100,13 @@ export default function Navigation() {
             <h5>Formatting</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Currency/">Currency</Link>
+            <a href="/components/Currency/">Currency</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/NumberFormatter/">Number Formatter</Link>
+            <a href="/components/NumberFormatter/">Number Formatter</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Pluralize/">Pluralize</Link>
+            <a href="/components/Pluralize/">Pluralize</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
@@ -115,19 +114,19 @@ export default function Navigation() {
             <h5>Navigation</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Menu/">Menu</Link>
+            <a href="/components/Menu/">Menu</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/TopBar/">Top Bar</Link>
+            <a href="/components/TopBar/">Top Bar</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Drawer/">Stateful Drawer</Link>
+            <a href="/components/Drawer/">Stateful Drawer</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/StatelessDrawer/">StatelessDrawer</Link>
+            <a href="/components/StatelessDrawer/">StatelessDrawer</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Breadcrumbs/">Breadcrumbs</Link>
+            <a href="/components/Breadcrumbs/">Breadcrumbs</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
@@ -135,16 +134,16 @@ export default function Navigation() {
             <h5>Cards &amp; Media</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Card/">Card</Link>
+            <a href="/components/Card/">Card</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/CardLayout/">Card Layout</Link>
+            <a href="/components/CardLayout/">Card Layout</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/FlexVideo/">Flex Video</Link>
+            <a href="/components/FlexVideo/">Flex Video</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/MediaObject/">Media Object</Link>
+            <a href="/components/MediaObject/">Media Object</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
@@ -152,25 +151,25 @@ export default function Navigation() {
             <h5>Containers</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Accordion/">Accordion</Link>
+            <a href="/components/Accordion/">Accordion</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Callout/">Callout</Link>
+            <a href="/components/Callout/">Callout</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Modal/">Modal</Link>
+            <a href="/components/Modal/">Modal</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Sticky/">Sticky</Link>
+            <a href="/components/Sticky/">Sticky</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Tabs/">Tabs</Link>
+            <a href="/components/Tabs/">Tabs</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Table/">Table</Link>
+            <a href="/components/Table/">Table</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/DataGrid/">DataGrid</Link>
+            <a href="/components/DataGrid/">DataGrid</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
@@ -178,13 +177,13 @@ export default function Navigation() {
             <h5>Atoms</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Badge/">Badge</Link>
+            <a href="/components/Badge/">Badge</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/CloseButton/">Close Button</Link>
+            <a href="/components/CloseButton/">Close Button</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Icon/">Icon</Link>
+            <a href="/components/Icon/">Icon</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
@@ -192,30 +191,30 @@ export default function Navigation() {
             <h5>Utilities</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/AuthenticityToken/">Authenticity Token</Link>
+            <a href="/components/AuthenticityToken/">Authenticity Token</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/BrowserSupportWarning/">
+            <a href="/components/BrowserSupportWarning/">
               Browser Support Warning
-            </Link>
+            </a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/HelpText/">Help Text</Link>
+            <a href="/components/HelpText/">Help Text</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Loader/">Loader</Link>
+            <a href="/components/Loader/">Loader</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Progress/">Progress</Link>
+            <a href="/components/Progress/">Progress</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Social/">Social</Link>
+            <a href="/components/Social/">Social</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/TextAlign/">Text Align</Link>
+            <a href="/components/TextAlign/">Text Align</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Visibility/">Visibility</Link>
+            <a href="/components/Visibility/">Visibility</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
@@ -223,7 +222,7 @@ export default function Navigation() {
             <h5>Prototyping</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Lipsum/">Lorem Ipsum</Link>
+            <a href="/components/Lipsum/">Lorem Ipsum</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
@@ -231,20 +230,20 @@ export default function Navigation() {
             <h5>Map</h5>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Map/DefaultMap/">Default Map Component</Link>
+            <a href="/components/Map/DefaultMap/">Default Map Component</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Map/HybridMap/">Hybrid Map</Link>
+            <a href="/components/Map/HybridMap/">Hybrid Map</a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Map/DesignedSilverMap/">
+            <a href="/components/Map/DesignedSilverMap/">
               Small Designed Silver Map
-            </Link>
+            </a>
           </Menu.Item>
           <Menu.Item>
-            <Link to="/components/Map/DesignedRetroMap/">
+            <a href="/components/Map/DesignedRetroMap/">
               Designed Retro Map
-            </Link>
+            </a>
           </Menu.Item>
         </Menu>
       </nav>

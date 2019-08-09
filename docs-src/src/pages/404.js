@@ -1,5 +1,6 @@
 import React from 'react'
 import Headers from '../Headers'
+import Layout from '../layouts/index.js'
 
 const NotFoundPage = () => (
   <div>

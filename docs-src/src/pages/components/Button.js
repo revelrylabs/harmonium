@@ -6,6 +6,7 @@ import ButtonProps from './ButtonTables/ButtonProps'
 import ButtonGroupProps from './ButtonTables/ButtonGroupProps'
 import Headers from '../../Headers'
 import Table from 'harmonium/lib/Table'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   "Sizes": require('raw-loader!../../examples/Button/Sizes.js.example'),
@@ -19,32 +20,34 @@ const examples = {
 export default class ButtonExamplePage extends Component {
   render() {
     return (
-      <div className="rev-Row rev-Row--collapse">
-        <Headers
-          title="Buttons"
-          metaDescription={
-            'Harmonium provides semantic button components for a variety of uses, ' +
-            'in differing styles and sizes.'
-          }
-          extraKeywords="Component, Buttons, Forms"
-        >
-          <p>
-            Harmonium provides semantic button components for a variety of uses,
-            in differing styles and sizes.
-          </p>
-        </Headers>
-        <ExampleSection
-          examples={examples}
-          depth={1}
-          scope={scope}
-        />
-        <h3>Variables:</h3>
-        <ButtonVars />
-        <h3>Properties:</h3>
-        <ButtonProps />
-        <h3>ButtonGroup Properties:</h3>
-        <ButtonGroupProps />
-      </div>
+      <Layout location={this.props.location}>
+        <div className="rev-Row rev-Row--collapse">
+          <Headers
+            title="Buttons"
+            metaDescription={
+              'Harmonium provides semantic button components for a variety of uses, ' +
+              'in differing styles and sizes.'
+            }
+            extraKeywords="Component, Buttons, Forms"
+          >
+            <p>
+              Harmonium provides semantic button components for a variety of uses,
+              in differing styles and sizes.
+            </p>
+          </Headers>
+          <ExampleSection
+            examples={examples}
+            depth={1}
+            scope={scope}
+          />
+          <h3>Variables:</h3>
+          <ButtonVars />
+          <h3>Properties:</h3>
+          <ButtonProps />
+          <h3>ButtonGroup Properties:</h3>
+          <ButtonGroupProps />
+        </div>
+      </Layout>
     )
   }
 }
