@@ -11,7 +11,7 @@ const examples = {
 export default class TextareaExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Textarea"
           metaDescription={
@@ -33,7 +33,7 @@ export default class TextareaExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

@@ -18,7 +18,7 @@ const examples = {
 export default class TimePickerExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Time picker"
           metaDescription={
@@ -41,7 +41,7 @@ export default class TimePickerExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

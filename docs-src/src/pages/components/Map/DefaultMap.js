@@ -11,7 +11,7 @@ const examples = {
 export default class DefaultMapExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Default Map Component"
           metaDescription={
@@ -30,7 +30,7 @@ export default class DefaultMapExamplePage extends Component {
           </p>
         </Headers>
         <ExampleSection examples={examples} depth={1} scope={scope} />
-      </div>
+      </Layout>
     )
   }
 }

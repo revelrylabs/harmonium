@@ -13,7 +13,7 @@ const examples = {
 export default class DrawerExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Drawer"
           metaDescription={
@@ -35,7 +35,7 @@ export default class DrawerExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

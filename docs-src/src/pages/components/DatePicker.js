@@ -25,7 +25,7 @@ const examples = {
 export default class DatePickerExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Date Picker"
           metaDescription={
@@ -46,7 +46,7 @@ export default class DatePickerExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

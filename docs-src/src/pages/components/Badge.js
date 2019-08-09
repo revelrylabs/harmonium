@@ -13,27 +13,29 @@ const scope = {React, Badge}
 export default class BadgeExamplePage extends Component {
   render() {
     return (
-      <div className="rev-Row rev-Row--collapse">
-        <Headers
-          title="Badges"
-          metaDescription={
-            'Badges are small UI accents that provide status or numerical ' +
-            'feedback, for example, unread message counts.'
-          }
-          extraKeywords="Component, Badge, Badges, Unread, Status"
-        >
-          <p>
-            Badges are small UI accents that provide status or numerical
-            feedback, for example, unread message counts.
-          </p>
-        </Headers>
-        <ExampleSection
-          title="Examples"
-          examples={examples}
-          depth={1}
-          scope={scope}
-        />
-      </div>
+      <Layout location={this.props.location}>
+        <div className="rev-Row rev-Row--collapse">
+          <Headers
+            title="Badges"
+            metaDescription={
+              'Badges are small UI accents that provide status or numerical ' +
+              'feedback, for example, unread message counts.'
+            }
+            extraKeywords="Component, Badge, Badges, Unread, Status"
+          >
+            <p>
+              Badges are small UI accents that provide status or numerical
+              feedback, for example, unread message counts.
+            </p>
+          </Headers>
+          <ExampleSection
+            title="Examples"
+            examples={examples}
+            depth={1}
+            scope={scope}
+          />
+        </div>
+      </Layout>
     )
   }
 }

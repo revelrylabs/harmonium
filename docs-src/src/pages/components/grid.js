@@ -27,7 +27,7 @@ const examples = {
 export default class gridExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Grid"
           metaDescription={
@@ -56,7 +56,7 @@ export default class gridExamplePage extends Component {
           </ul>
         </Headers>
         <ExampleSection examples={examples} depth={1} scope={scope} />
-      </div>
+      </Layout>
     )
   }
 }

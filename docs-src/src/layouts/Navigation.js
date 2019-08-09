@@ -57,7 +57,7 @@ export default function Navigation() {
             <a href="/components/Checkbox/">Checkboxes</a>
           </Menu.Item>
           <Menu.Item>
-            <a href="/components/Datepicker/">Date Picker</a>
+            <a href="/components/DatePicker/">Date Picker</a>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/Input/">Inputs</a>

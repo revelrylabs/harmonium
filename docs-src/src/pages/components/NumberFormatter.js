@@ -11,7 +11,7 @@ const examples = {
 export default class NumberFormatterExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Number Formatter"
           metaDescription={
@@ -34,7 +34,7 @@ export default class NumberFormatterExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

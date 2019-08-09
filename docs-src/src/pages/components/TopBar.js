@@ -17,7 +17,7 @@ const examples = {
 export default class TopBarExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="TopBar"
           metaDescription={
@@ -48,7 +48,7 @@ export default class TopBarExamplePage extends Component {
             <TopBarProps />
           </Col>
         </Row>
-      </div>
+      </Layout>
     )
   }
 }

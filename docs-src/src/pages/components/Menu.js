@@ -14,7 +14,7 @@ const examples = {
 export default class MenuExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Menu"
           metaDescription={
@@ -38,7 +38,7 @@ export default class MenuExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

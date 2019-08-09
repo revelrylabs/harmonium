@@ -11,7 +11,7 @@ const examples = {
 export default class LipsumExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Lipsum"
           metaDescription={
@@ -31,7 +31,7 @@ export default class LipsumExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

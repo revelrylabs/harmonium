@@ -15,7 +15,7 @@ const examples = {
 export default class StickyExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Sticky"
           metaDescription={
@@ -41,7 +41,7 @@ export default class StickyExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

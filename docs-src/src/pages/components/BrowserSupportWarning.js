@@ -12,27 +12,29 @@ const examples = {
 export default class BrowserSupportWarningExamplePage extends Component {
   render() {
     return (
-      <div className="rev-Row rev-Row--collapse">
-        <Headers
-          title="Browser Support Warning"
-          metaDescription={
-            'BrowserSupportWarning is a utility component for displaying a message ' +
-            "if the user's browser is not supported by the site."
-          }
-          extraKeywords="Component, Browser Support Warning, Warning, Dialog"
-        >
-          <p>
-            BrowserSupportWarning is a utility component for displaying a message
-            if the user's browser is not supported by the site.
-          </p>
-        </Headers>
-        <ExampleSection
-          title="Examples"
-          examples={examples}
-          depth={1}
-          scope={scope}
-        />
-      </div>
+      <Layout location={this.props.location}>
+        <div className="rev-Row rev-Row--collapse">
+          <Headers
+            title="Browser Support Warning"
+            metaDescription={
+              'BrowserSupportWarning is a utility component for displaying a message ' +
+              "if the user's browser is not supported by the site."
+            }
+            extraKeywords="Component, Browser Support Warning, Warning, Dialog"
+          >
+            <p>
+              BrowserSupportWarning is a utility component for displaying a message
+              if the user's browser is not supported by the site.
+            </p>
+          </Headers>
+          <ExampleSection
+            title="Examples"
+            examples={examples}
+            depth={1}
+            scope={scope}
+          />
+        </div>
+      </Layout>
     )
   }
 }

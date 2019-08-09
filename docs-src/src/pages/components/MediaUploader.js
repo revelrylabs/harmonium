@@ -13,7 +13,7 @@ const examples = {
 export default class MediaUploaderExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Media Uploader"
           metaDescription={
@@ -46,7 +46,7 @@ export default class MediaUploaderExamplePage extends Component {
         />
         <h3>Properties:</h3>
         <MediaUploaderProps />
-      </div>
+      </Layout>
     )
   }
 }

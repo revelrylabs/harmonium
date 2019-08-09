@@ -11,7 +11,7 @@ const examples = {
 export default class VisibilityExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Visibility"
           metaDescription={
@@ -35,7 +35,7 @@ export default class VisibilityExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

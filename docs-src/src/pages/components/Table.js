@@ -13,7 +13,7 @@ const examples = {
 export default class TableExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Tables"
           metaDescription={
@@ -28,7 +28,7 @@ export default class TableExamplePage extends Component {
           examples={examples}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

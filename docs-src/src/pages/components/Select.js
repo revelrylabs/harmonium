@@ -13,7 +13,7 @@ const examples = {
 export default class SelectExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Select"
           metaDescription={
@@ -35,7 +35,7 @@ export default class SelectExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }

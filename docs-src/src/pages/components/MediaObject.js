@@ -13,7 +13,7 @@ const examples = {
 
 export default class MediaObjectExamplePage extends Component {
   render() {
-    return <div>
+    return <Layout location={this.props.location}>
       <Headers
         title="Media Object"
         metaDescription={
@@ -35,6 +35,6 @@ export default class MediaObjectExamplePage extends Component {
         depth={1}
         scope={scope}
       />
-    </div>
+    </Layout>
   }
 }

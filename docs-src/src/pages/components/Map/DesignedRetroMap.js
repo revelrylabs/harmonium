@@ -11,7 +11,7 @@ const examples = {
 export default class DesignedRetroMapExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Designed Retro Map Component"
           metaDescription={
@@ -29,7 +29,7 @@ export default class DesignedRetroMapExamplePage extends Component {
           </p>
         </Headers>
         <ExampleSection examples={examples} depth={1} scope={scope} />
-      </div>
+      </Layout>
     )
   }
 }

@@ -12,7 +12,7 @@ const examples = {
 export default class RadioExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Radio Button"
           metaDescription={
@@ -37,7 +37,7 @@ export default class RadioExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }
