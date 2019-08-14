@@ -11,88 +11,21 @@ $grid-row-width: $large;
 
 // Breakpoints
 $breakpoints: (
-  small: (
-    min-width: $small,
-  ),
-  small-only: (
-    (
-        min-width: $small,
-      )
-      and
-      (
-        max-width: $medium - 1,
-      ),
-  ),
-  medium: (
-    min-width: $medium,
-  ),
-  medium-down: (
-    (
-      max-width: $medium - 1,
-    ),
-  ),
-  medium-only: (
-    (
-        min-width: $medium,
-      )
-      and
-      (
-        max-width: $large - 1,
-      ),
-  ),
-  large: (
-    min-width: $large,
-  ),
-  large-down: (
-    (
-      max-width: $large - 1,
-    ),
-  ),
-  large-only: (
-    (
-        min-width: $large,
-      )
-      and
-      (
-        max-width: $xlarge - 1,
-      ),
-  ),
-  xlarge: (
-    min-width: $xlarge,
-  ),
-  xlarge-down: (
-    (
-      max-width: $xlarge - 1,
-    ),
-  ),
-  xlarge-only: (
-    (
-        min-width: $xlarge,
-      )
-      and
-      (
-        max-width: $xxlarge - 1,
-      ),
-  ),
-  xxlarge: (
-    min-width: $xxlarge,
-  ),
-  global-width: (
-    min-width: $global-width,
-  ),
-  nav: (
-    min-width: $nav,
-  ),
-  // Desktop nav nav-only: (
-      (
-          min-width: $small,
-        )
-        and
-        (
-          max-width: $nav - 1,
-        ),
-    ),
-  // Mobile nav,
+  small: (min-width: $small),
+  small-only: ((min-width: $small) and (max-width: $medium - 1)),
+  medium: (min-width: $medium),
+  medium-down: ((max-width: $medium)),
+  medium-only: ((min-width: $medium) and (max-width: $large - 1)),
+  large: (min-width: $large),
+  large-down: ((max-width: $large)),
+  large-only: ((min-width: $large) and (max-width: $xlarge - 1)),
+  xlarge: (min-width: $xlarge),
+  xlarge-down: ((max-width: $xlarge)),
+  xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge - 1)),
+  xxlarge: (min-width: $xxlarge),
+  global-width: (min-width: $global-width),
+  nav: (min-width: $nav), // Desktop nav
+  nav-only: ((min-width: $small) and (max-width: $nav - 1)) // Mobile nav
 );
 
 // IMPORT FONTS HERE
