@@ -6,6 +6,9 @@ import {omit} from 'lodash'
 import CalendarHeaderRow from './CalendarHeaderRow'
 import CalendarWeekRow from './CalendarWeekRow'
 import Card from '../Card'
+import Icon from '../Icon'
+import Button from '../Button'
+
 import createElementWithOverride from '../Utilities/createElementWithOverride'
 
 /**
@@ -28,6 +31,7 @@ export default class Calendar extends Component {
     previousLabel: PropTypes.node,
     className: PropTypes.string,
     getCalendarRef: PropTypes.func,
+    showYearSelection: PropTypes.bool,
   }
 
   /**
@@ -141,6 +145,26 @@ export default class Calendar extends Component {
     }
   }
 
+  /**
+   * Move the focus year up n years (or back |n| years if n is negative).
+   *
+   * This function does not change the date in the input (only calendar display,
+   * so we can get away with using the first of the month like this.
+   * @param {int} num - the number of years to move the focus year
+   * @param {Event} event - the event that caused this handler to be invoked
+   *   (e.g. the click event from the next or previous button on the calendar)
+   * @return {void}
+   */
+  addYear(num, event) {
+    event.preventDefault()
+    this.setState({
+      date: this.startOfMonth().plus(Duration.fromObject({year: num})),
+    })
+    if (this.props.focuser) {
+      this.props.focuser()
+    }
+  }
+
   render() {
     const {
       className,
@@ -156,6 +180,7 @@ export default class Calendar extends Component {
       previousLabel,
       overlay,
       getCalendarRef,
+      showYearSelection,
       ...props
     } = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
@@ -183,6 +208,24 @@ export default class Calendar extends Component {
                 year: 'numeric',
               })}
             </span>
+            {showYearSelection && (
+              <div className="rev-Calender-year-selection">
+                <Button
+                  small
+                  className="rev-Calendar-year-selection-button"
+                  onClick={this.addYear.bind(this, 1)}
+                >
+                  <span>&#708;</span>
+                </Button>
+                <Button
+                  small
+                  className="rev-Calendar-year-selection-button"
+                  onClick={this.addYear.bind(this, -1)}
+                >
+                  <span>&#709;</span>
+                </Button>
+              </div>
+            )}
             <button
               onClick={this.addMonth.bind(this, 1)}
               className="rev-Calendar-header-button rev-Calendar-header-button--next"

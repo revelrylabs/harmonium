@@ -336,6 +336,7 @@ class UncontrolledDatePicker extends React.Component {
       day,
       headerDay,
       overlay,
+      showYearSelection,
       ...props
     } = this.props
     const createElement = createElementWithOverride.bind(this, overrides)
@@ -385,6 +386,7 @@ class UncontrolledDatePicker extends React.Component {
           {...calendar}
           day={day}
           headerDay={headerDay}
+          showYearSelection={showYearSelection}
           className={
             this.calendarOpened ? 'rev-Calendar--open' : 'rev-Calendar--closed'
           }
@@ -414,6 +416,7 @@ UncontrolledDatePicker.propTypes = {
   day: PropTypes.object,
   headerDay: PropTypes.object,
   useCalendarOnMobile: PropTypes.bool,
+  showYearSelection: PropTypes.bool,
 }
 
 UncontrolledDatePicker.DateInputBlock = DateInputBlock

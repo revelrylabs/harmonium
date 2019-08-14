@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   "Intro": require('raw-loader!../../examples/grid/Intro.js.example'),
@@ -26,7 +27,7 @@ const examples = {
 export default class gridExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Grid"
           metaDescription={
@@ -55,7 +56,7 @@ export default class gridExamplePage extends Component {
           </ul>
         </Headers>
         <ExampleSection examples={examples} depth={1} scope={scope} />
-      </div>
+      </Layout>
     )
   }
 }

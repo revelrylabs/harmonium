@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Table from 'harmonium-react/lib/Table'
+import Layout from '../../../layouts/index.js'
 
 export default function ButtonGroupProps() {
   return (

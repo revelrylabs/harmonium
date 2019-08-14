@@ -1,5 +1,6 @@
 import React from 'react'
 import Table from 'harmonium-react/lib/Table'
+import Layout from '../../../layouts/index.js'
 
 export default function InputProps() {
   return (

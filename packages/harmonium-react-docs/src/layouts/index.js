@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Link from 'gatsby-link'
 import Helmet from 'react-helmet'
 import {Row, Col} from 'harmonium-react/lib/grid'
 import TopBar from 'harmonium-react/lib/TopBar'
@@ -69,20 +68,20 @@ const TemplateWrapper = ({children, location}) => (
       />
     </Helmet>
     <TopBar className="Show--smallOnly">
-      <Link className="rev-Brand ExampleBrand Show--smallOnly" to="/">
-        <img src="/images/harmonium-logo.png" alt="Harmonium" />
+      <a className="rev-Brand ExampleBrand Show--smallOnly" href="/">
+        <img src="/images/harmonium-logo.png" alt="Harmonium"/>
         <small>Version {packageInfo.version}</small>
-      </Link>
+      </a>
     </TopBar>
     <div className="rev-ContentWrapper">
       <Navigation />
-      <main className="rev-Content">{children()}</main>
+      <main className="rev-Content">{children}</main>
     </div>
   </div>
 )
 
 TemplateWrapper.propTypes = {
-  children: PropTypes.func,
+  children: PropTypes.object,
 }
 
 export default TemplateWrapper

@@ -69,6 +69,7 @@ $calendar-header-height: $size-large !default;
     background: $calendar-header-bkgd;
     height: $calendar-header-height;
     text-align: center;
+    position: relative;
   }
   .rev-Calendar-header-button {
     @include button;
@@ -81,7 +82,27 @@ $calendar-header-height: $size-large !default;
   .rev-Calendar-header-button--next {
     border-top-right-radius: $card-radius;
   }
+
+  .rev-Calender-year-selection {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    right: 30%;
+    height: 72%;
+    justify-content: space-between;
+  }
 }
+.rev-Card-header .rev-Button.rev-Button--small.rev-Calendar-year-selection-button {
+  padding: 0;
+  height: $size-small;
+  width: $size-small;
+  margin: 0;
+  span {
+    position: relative;
+    bottom: 2px;
+  }
+}
+
 .rev-InputHelpText,
 .rev-InputErrors {
   + .rev-Calendar {

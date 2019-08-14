@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../../ExampleSection'
 import scope from '../../../ExampleScope'
 import Headers from '../../../Headers'
+import Layout from '../../../layouts/index.js'
 
 const examples = {
   Basic: require('raw-loader!../../../examples/Map/HybridMap.js.example'),
@@ -10,7 +11,7 @@ const examples = {
 export default class HybridMapExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Hybrid Map Component"
           metaDescription={
@@ -29,7 +30,7 @@ export default class HybridMapExamplePage extends Component {
           </p>
         </Headers>
         <ExampleSection examples={examples} depth={1} scope={scope} />
-      </div>
+      </Layout>
     )
   }
 }

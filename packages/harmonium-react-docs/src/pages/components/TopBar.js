@@ -4,8 +4,7 @@ import scope from '../../ExampleScope'
 import Headers from '../../Headers'
 import TopBarProps from './TopBarTables/TopBarProps'
 import {Row, Col} from 'harmonium-react/lib/grid'
-
-
+import Layout from '../../layouts/index.js'
 
 const examples = {
   'TopBar : Default (Justifed Content)': require('raw-loader!../../examples/TopBar/TopBar.js.example'),
@@ -18,7 +17,7 @@ const examples = {
 export default class TopBarExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="TopBar"
           metaDescription={
@@ -49,7 +48,7 @@ export default class TopBarExamplePage extends Component {
             <TopBarProps />
           </Col>
         </Row>
-      </div>
+      </Layout>
     )
   }
 }

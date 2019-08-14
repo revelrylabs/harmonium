@@ -2,6 +2,7 @@ import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
 import Headers from '../../Headers'
+import Layout from '../../layouts/index.js'
 
 const examples = {
   'Without Props': require('raw-loader!../../examples/DatePicker/Basic.js.example'),
@@ -11,6 +12,7 @@ const examples = {
   'Always Open': require('raw-loader!../../examples/DatePicker/IsOpen.js.example'),
   "Disabled": require('raw-loader!../../examples/DatePicker/Disabled.js.example'),
   'With Component Overrides': require('raw-loader!../../examples/DatePicker/Overrides.js.example'),
+  'With Year Selection': require('raw-loader!../../examples/DatePicker/WithYearSelection.js.example'),
   'Filter Selectable Dates': require('raw-loader!../../examples/DatePicker/IsSelectable.js.example'),
   'With Props for Children': require('raw-loader!../../examples/DatePicker/WithPropsToChildren.js.example'),
   'With Custom Change Handler': require('raw-loader!../../examples/DatePicker/WithCustomHandler.js.example'),
@@ -24,7 +26,7 @@ const examples = {
 export default class DatePickerExamplePage extends Component {
   render() {
     return (
-      <div>
+      <Layout location={this.props.location}>
         <Headers
           title="Date Picker"
           metaDescription={
@@ -34,9 +36,9 @@ export default class DatePickerExamplePage extends Component {
         >
           <p>
             The date picker component allows users to select a date from a
-            calendar. It is very flexible. It has many options to allow different
-            modes of date selection, and different behavior. For example, you can
-            highlight or filter dates arbitrarily.
+            calendar. It is very flexible. It has many options to allow
+            different modes of date selection, and different behavior. For
+            example, you can highlight or filter dates arbitrarily.
           </p>
         </Headers>
         <ExampleSection
@@ -45,7 +47,7 @@ export default class DatePickerExamplePage extends Component {
           depth={1}
           scope={scope}
         />
-      </div>
+      </Layout>
     )
   }
 }
