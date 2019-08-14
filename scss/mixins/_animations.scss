@@ -1,26 +1,75 @@
-@-webkit-keyframes fade-in {
-  0% {opacity: 0; }
-  100% { opacity: 1; }
-}
-@-moz-keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-@-o-keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 @keyframes fade-in {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
-}
-.FadeIn {
-  -moz-animation: fade-in 0.5s;
-  -o-animation: fade-in 0.5s;
-  -webkit-animation: fade-in 0.5s;
-  animation: fade-in 0.5s;
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
-@mixin fade-in{
-  @extend .FadeIn;
+@keyframes hide {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+    position: absolute;
+    transition: transform 2s;
+  }
+}
+
+@mixin fade-out(
+  $animation-delay: 0,
+  $animation-duration: 0.5s,
+  $animation-fill-mode: both
+) {
+  animation-name: fade-out;
+  animation-delay: $animation-delay;
+  animation-duration: $animation-duration;
+  animation-fill-mode: $animation-fill-mode;
+}
+
+.FadeOut {
+  @include fade-out;
+}
+
+@mixin fade-in(
+  $animation-delay: 0,
+  $animation-duration: 0.5s,
+  $animation-fill-mode: both
+) {
+  animation-name: fade-in;
+  animation-delay: $animation-delay;
+  animation-duration: $animation-duration;
+  animation-fill-mode: $animation-fill-mode;
+}
+
+.FadeIn {
+  @include fade-in;
+}
+
+@mixin fade-out--hide(
+  $animation-delay: (
+    5s,
+    5s,
+  ),
+  $animation-duration: (
+    0.3s,
+    0.4s,
+  ),
+  $animation-fill-mode: both
+) {
+  animation-name: fade-out, hide;
+  animation-duration: $animation-duration;
+  animation-delay: $animation-delay;
+  animation-fill-mode: $animation-fill-mode;
+  transition: position 2s ease-out;
 }

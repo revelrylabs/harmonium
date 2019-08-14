@@ -157,6 +157,9 @@ export default function Navigation() {
             <a href="/components/Callout/">Callout</a>
           </Menu.Item>
           <Menu.Item>
+            <a href="/components/Flash/">Flash</a>
+          </Menu.Item>
+          <Menu.Item>
             <a href="/components/Modal/">Modal</a>
           </Menu.Item>
           <Menu.Item>

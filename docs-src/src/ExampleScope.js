@@ -22,6 +22,7 @@ import DatePicker from 'harmonium/lib/DatePicker'
 import Drawer from 'harmonium/lib/Drawer'
 import Emptyable from 'harmonium/lib/Emptyable'
 import ExpandingCol from 'harmonium/lib/ExpandingCol'
+import Flash from 'harmonium/lib/Flash'
 import FileInput from 'harmonium/lib/FileInput'
 import FlexVideo from 'harmonium/lib/FlexVideo'
 import Form from 'harmonium/lib/Form'
@@ -93,6 +94,7 @@ export default {
   Emptyable,
   ExpandingCol,
   FileInput,
+  Flash,
   FlexVideo,
   Form,
   forms,
