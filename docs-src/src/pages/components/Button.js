@@ -38,6 +38,7 @@ export default class ButtonExamplePage extends Component {
           depth={1}
           scope={scope}
         />
+       
         <h3>Variables:</h3>
         <ButtonVars />
         <h3>Properties:</h3>

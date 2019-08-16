@@ -1,0 +1,19 @@
+<div>
+  <Col>
+    <h3>Sizes</h3>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup small>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+  <Col medium={6}>
+    <ButtonGroup large>
+      <Button>One</Button>
+      <Button>Two</Button>
+      <Button>Three</Button>
+    </ButtonGroup>
+  </Col>
+</div>

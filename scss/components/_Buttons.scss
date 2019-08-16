@@ -55,17 +55,39 @@ $button-color-secondary-active: $white !default;
     color: $button-color-active;
   }
 }
+@mixin button-secondary  {
+  background: $button-bkgd-secondary;
+  // border: 1px solid $button-box-shadow-secondary;
+  box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
+  color: $button-color-secondary;
+  &:hover {
+    background: $button-bkgd-secondary-hover;
+    // border: 1px solid $button-box-shadow-secondary-hover;
+    box-shadow: 0 0 0 1px $button-bkgd-secondary-hover inset;
+    color: $button-color-secondary-hover;
+  }
+  &:active,
+  &:focus {
+    background: $button-bkgd-secondary-active;
+    // border: 1px solid $button-box-shadow-secondary-active;
+    box-shadow: 0 0 0 1px $button-bkgd-secondary-active inset;
+    color: $button-color-secondary-active;
+  }
+}
 .rev-Button {
   @include button;
-  &.rev-Button--large {
+  &.rev-Button--large,
+  .rev-ButtonGroup--large & {
     font-size: $global-font-size-medium;
     padding: $global-padding $global-padding-large;
     margin: 0 auto $global-vertical-space;
   }
-  &.rev-Button--small {
+  &.rev-Button--small,
+  .rev-ButtonGroup--small & {
     @include small-input;
   }
-  &.rev-Button--primary {
+  &.rev-Button--primary,
+  .rev-ButtonGroup--primary & {
     box-shadow: $global-box-shadow;
     &:hover {
       box-shadow: $global-box-shadow-hover;
@@ -76,31 +98,31 @@ $button-color-secondary-active: $white !default;
     }
   }
   &.rev-Button--secondary {
-    background: $button-bkgd-secondary;
-    box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
-    color: $button-color-secondary;
-    &:hover {
-      background: $button-bkgd-secondary-hover;
-      box-shadow: 0 0 0 1px $button-bkgd-secondary-hover inset;
-      color: $button-color-secondary-hover;
-    }
-    &:active,
-    &:focus {
-      background: $button-bkgd-secondary-active;
-      box-shadow: 0 0 0 1px $button-bkgd-secondary-active inset;
-      color: $button-color-secondary-active;
-    }
+    @include button-secondary;
+    // background: $button-bkgd-secondary;
+    // box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
+    // color: $button-color-secondary;
+    // &:hover {
+    //   background: $button-bkgd-secondary-hover;
+    //   box-shadow: 0 0 0 1px $button-bkgd-secondary-hover inset;
+    //   color: $button-color-secondary-hover;
+    // }
+    // &:active,
+    // &:focus {
+    //   background: $button-bkgd-secondary-active;
+    //   box-shadow: 0 0 0 1px $button-bkgd-secondary-active inset;
+    //   color: $button-color-secondary-active;
+    // }
   }
-  &.rev-Button--inverted {
+  &.rev-Button--inverted,
+  .rev-ButtonGroup--inverted & {
     background: $button-color;
     color: $button-bkgd;
     &:hover,
+    &:active,
     &:focus {
       background: $button-color;
-      color: $button-bkgd-hover;
-    }
-    &:active {
-      color: $button-bkgd-active;
+      color: $button-bkgd;
     }
     &.rev-Button--secondary {
       background: transparent;
@@ -119,7 +141,8 @@ $button-color-secondary-active: $white !default;
       }
     }
   }
-  &.rev-Button--success {
+  &.rev-Button--success, 
+  .rev-ButtonGroup--success & {
     background: $success;
     &:hover,
     &:active,
@@ -127,7 +150,8 @@ $button-color-secondary-active: $white !default;
       background: darken($success, 10%);
     }
   }
-  &.rev-Button--alert {
+  &.rev-Button--alert,
+  .rev-ButtonGroup--alert & {   
     background: $alert;
     &:hover,
     &:active,
@@ -135,7 +159,8 @@ $button-color-secondary-active: $white !default;
       background: darken($alert, 10%);
     }
   }
-  &.rev-Button--warning {
+  &.rev-Button--warning,
+  .rev-ButtonGroup--warning & {
     background: $warning;
     &:hover,
     &:active,
@@ -149,7 +174,8 @@ $button-color-secondary-active: $white !default;
   &.rev-Button--collapse {
     margin: 0;
   }
-  &.rev-Button--disabled {
+  &.rev-Button--disabled,
+  .rev-ButtonGroup--disabled & {   
     @include disabled($button-bkgd, $button-color);
     &.rev-Button--secondary {
       @include disabled($button-bkgd-secondary, $button-color-secondary);
@@ -157,6 +183,8 @@ $button-color-secondary-active: $white !default;
     }
   }
 }
+
+// BUTTONGROUP
 .rev-ButtonGroup {
   font-size: 0;
   .rev-Button {
@@ -168,6 +196,38 @@ $button-color-secondary-active: $white !default;
     &:last-child {
       border: 0;
       border-radius: 0 $global-radius $global-radius 0;
+    }
+  }
+}
+.rev-ButtonGroup--secondary {
+  font-size: 0;
+  .rev-Button {
+    @include button-secondary;
+  }
+}
+.rev-ButtonGroup--expanded {
+  display: flex; // TODO: do some testing -- IDK if this is the best idea.
+  .rev-Button {
+    width: 100%;
+  }
+}
+.rev-ButtonGroup--stackedForSmall {
+  @include breakpoint(small-only) {
+    display: block;
+    margin: 0 0 $global-vertical-space;
+    .rev-Button {
+      border-bottom: 1px solid $divider-color;
+      border-right: 0;
+      display: block;
+      margin: 0;
+      // width: 100%;
+      &:first-child {
+        border-radius: $global-radius $global-radius 0 0;
+      }
+      &:last-child {
+        border: 0;
+        border-radius: 0 0 $global-radius $global-radius;
+      }
     }
   }
 }
