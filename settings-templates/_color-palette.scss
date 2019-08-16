@@ -1,17 +1,17 @@
-$test: #f0f;
+$test: #F0F;
 
 // BRAND COLORS
-$brand: #ffffff; //#295DE5;
-$brand-secondary: #6422eb;
-$brand-tertiary: #501bbc;
+$brand: #FFFFFF; //#295DE5;
+$brand-secondary: #6422EB;
+$brand-tertiary: #501BBC;
 
-$white: #fff;
-$lightest-gray: #f4f4f4;
-$lighter-gray: #d5d5d5;
-$light-gray: #ababab;
+$white: #FFF;
+$lightest-gray: #F4F4F4;
+$lighter-gray: #D5D5D5;
+$light-gray: #ABABAB;
 $gray: #818181;
 $dark-gray: #565656;
-$darker-gray: #2a2a2a;
+$darker-gray: #2A2A2A;
 $black: #000;
 
 $white-0: rgba(255, 255, 255, 0); // for animation purposes
@@ -41,10 +41,10 @@ $black-90: rgba(0, 0, 0, 0.9);
 
 // UTILITY COLORS
 $primary: $brand;
-$success: #00a67f;
-$alert: #d94011;
-$warning: #d10034;
-$error: #d10034;
+$success: #00A67f;
+$alert: #D94011;
+$warning: #D10034;
+$error: #D10034;
 
 $divider-color: $black-10;
 $divider-color-dark: $black-20;

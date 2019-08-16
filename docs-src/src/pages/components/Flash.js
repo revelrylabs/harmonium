@@ -1,7 +1,10 @@
 import React, {Component} from 'react'
 import ExampleSection from '../../ExampleSection'
 import scope from '../../ExampleScope'
+import FlashVars from './FlashTables/FlashVars'
+import FlashProps from './FlashTables/FlashProps'
 import Headers from '../../Headers'
+import Table from 'harmonium/lib/Table'
 import Layout from '../../layouts/index.js'
 
 const examples = {
@@ -34,6 +37,10 @@ export default class FlashExamplePage extends Component {
             depth={1}
             scope={scope}
           />
+          <h3>Variables:</h3>
+          <FlashVars />
+          <h3>Properties:</h3>
+          <FlashProps />
         </div>
       </Layout>
     )
