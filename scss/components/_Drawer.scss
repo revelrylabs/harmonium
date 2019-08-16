@@ -8,6 +8,8 @@ $drawer-height-contained: 800px !default;
 $drawer-height-fixed: 100vh !default;
 $drawer-overlay-top-value: 0 !default;
 
+$drawer-controls-size: $size-large !default; // TODO this needs to be added to settings files
+
 
 /* TODO: add option for collapsible sidebar
 add overlay collapsible for all sidebars at specified breakpoint */
@@ -17,12 +19,12 @@ add overlay collapsible for all sidebars at specified breakpoint */
 .rev-Drawer-closer {
   cursor: pointer;
   display: none;
-  height: $size-large;
+  height: $drawer-controls-size;
   font-size: $global-font-size-medium;
-  line-height: $size-large;
+  line-height: $drawer-controls-size;
   opacity: 0;
   text-align: center;
-  width: $size-large;
+  width: $drawer-controls-size;
   z-index: $below-everything;
 }
 // ADD DRAWER CONTROLS MIXIN WHERE NEEDED
@@ -36,7 +38,8 @@ add overlay collapsible for all sidebars at specified breakpoint */
     position: fixed;
     left: 0;
     opacity: 1;
-    top: 0;
+    // top: 0;
+    top: auto; // new
     z-index: $above-everything;
   }
   &.rev-Drawer--open {
@@ -55,11 +58,13 @@ add overlay collapsible for all sidebars at specified breakpoint */
     @include global-transition;
     left: 0;
     position: fixed;
-    top: 0;
+    // top: 0;
+    top: auto; // new
   }
   &.rev-Drawer--open {
     .rev-Drawer-closer {
-      left: calc(#{$drawer-width} - #{$size-large});
+      left: calc(#{$drawer-width} + #{$drawer-controls-size / 2});
+      // left: calc(#{$drawer-width} - #{$size-default});
       opacity: 1;
       z-index: $above-everything;
     }
@@ -71,12 +76,14 @@ add overlay collapsible for all sidebars at specified breakpoint */
     }
     &.rev-Drawer--open {
       .rev-Drawer-closer {
-        right: $drawer-width;
+        // right: $drawer-width;
+        right: calc(#{$drawer-width} + #{$drawer-controls-size / 2});
       }
     }
   }
 }
-// ZERO OUT DRAWER STYLES (ex: TOPBAR ABOVE MOBILE BREAKPOINT)
+
+// // ZERO OUT DRAWER STYLES (ex: TOPBAR ABOVE MOBILE BREAKPOINT)
 @mixin drawer-nostyle {
   @include flex(center, row, space-between, nowrap);
   background: transparent;
@@ -104,9 +111,27 @@ add overlay collapsible for all sidebars at specified breakpoint */
   position: relative;
   top: 0;
   width: $drawer-width;
+
+  // // NOTE: Need to probably put these in a breakpoint for collapsedFor[SIZE]
+  // // TODO: Do these 2 below belong in a different mixin?
+  // height: $drawer-height-fixed;
+  // overflow-y: scroll;
+  // background: $drawer-bkgd;
+  height: $drawer-height-fixed;
+
   .rev-Drawer-contents {
     background: $drawer-bkgd;
     width: $drawer-width;
+
+    // NOTE: Need to probably put these in a breakpoint for collapsedFor[SIZE]
+    // TODO: Do these 2 below belong in a different mixin?
+    max-height: $drawer-height-fixed;
+    overflow-y: scroll;
+    position: fixed;
+    // NOTE: Does this need to be in a breakpoint for collapsedFor[SIZE]?
+    // TODO: Does this belong in a different mixin?
+    // min-height: $drawer-height-fixed;;
+
   }
   .rev-TopBar-item .rev-Menu {
     flex-direction: column;
@@ -121,7 +146,8 @@ add overlay collapsible for all sidebars at specified breakpoint */
   }
 }
 // SCROLLING DRAWER
-@mixin drawer-scroll($height: $drawer-height-contained) {
+@mixin drawer-scroll($height: $drawer-height-fixed) {
+// @mixin drawer-scroll($height: $drawer-height-contained) {
   @include vertical-scroll-container($height);
 }
 // FIXED POSITION DRAWER
@@ -129,7 +155,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
   height: $drawer-height-fixed;
   .rev-Drawer-contents {
     @include drawer-scroll($drawer-height-fixed);
-    position: fixed;
+    // position: fixed;
   }
 }
 // OVERLAY DRAWER
@@ -142,18 +168,20 @@ add overlay collapsible for all sidebars at specified breakpoint */
   width: 0px;
   z-index: $above-most;
   &.rev-Drawer--open {
-    left:0;
+    left: 0;
     min-width: $drawer-width;
     width: $drawer-width;
   }
-  .rev-Content & {
+
+  .rev-Content & { // NOTE: This is what helps overlap the drawer over the content. But what if we dont use the rev-Content class?
+    // TODO: If were going to keep styles based on rev-Content, be sure to add a note about this in the example file
     position: absolute;
     height: 100%;
     z-index: 5;
     .rev-Drawer-contents {
-      position: absolute;
-      height: 100%;
-      overflow: visible;
+      // position: absolute;
+      // height: 100%;
+      // overflow: visible;
       width: 0;
       & > * {
         display: none;
@@ -176,16 +204,17 @@ add overlay collapsible for all sidebars at specified breakpoint */
 }
 // COLLAPSIBLE DRAWER
 @mixin drawer-collapsible {
-  @include drawer-controls;
-  @include drawer-fixed;
-  left: -$drawer-width;
-  min-width: 0px;
-  width: 0px;
-  &.rev-Drawer--open {
-    left:0;
-    min-width: $drawer-width;
-    width: $drawer-width;
-  }
+  // @include drawer-controls;
+  // @include drawer-fixed;
+  // // v These are the same styles as drawer-overlay 
+  // left: -$drawer-width;
+  // min-width: 0px;
+  // width: 0px;
+  // &.rev-Drawer--open {
+  //   left:0;
+  //   min-width: $drawer-width;
+  //   width: $drawer-width;
+  // }
 }
 
 
@@ -193,142 +222,245 @@ add overlay collapsible for all sidebars at specified breakpoint */
 .rev-Drawer {
   @include global-transition;
   @include drawer;
+
+  // @include drawer-scroll; // NOTE: Not sure if this should be here. And this might need to be inside of a breakpoint? 
+
   // MOBILE DRAWER STYLES
   @include breakpoint(small-only) {
-    @include drawer-collapsible;
-    @include drawer-overlay;
+    // @include drawer-collapsible;
+    // @include drawer-fixed;
+    // @include drawer-overlay;
   }
-  &.rev-Drawer--scroll {
-    @include drawer-scroll;
+  // &.rev-Drawer--scroll {
+  //   @include drawer-scroll;
+  // }
+  // &.rev-Drawer--fixed {
+  //   @include drawer-fixed;
+  // }
+  // &.rev-Drawer--overlay {
+  //   @include drawer-overlay;
+  //   &.rev-Drawer--left {
+  //     left: 0;
+  //     right: auto;
+  //   }
+  //   &.rev-Drawer--right {
+  //     left: auto;
+  //     right: 0;
+  //   }
+  // }
+  &.rev-Drawer--left {
+    left: 0;
+    right: auto;
+
+    // COMPILED CODE FROM OTHER PLACES IN THE FILE: 
+    // .rev-Drawer-contents {
+    //   @include global-transition;
+    //   left: 0;
+    //   right: auto;
+    // }
   }
-  &.rev-Drawer--fixed {
-    @include drawer-fixed;
+  &.rev-Drawer--right {
+    left: auto;
+    right: 0;
+
+    // COMPILED CODE FROM OTHER PLACES IN THE FILE: 
+    // .rev-Drawer-contents {
+    //   left: auto;
+    //   right: 0;
+    // }
   }
-  &.rev-Drawer--overlay {
-    @include drawer-overlay;
-    &.rev-Drawer--left {
-      left: 0;
-      right: auto;
-    }
-    &.rev-Drawer--right {
-      left: auto;
-      right: 0;
-    }
-  }
-  &.rev-Drawer--collapsible {
-    @include drawer-collapsible;
-    @include global-transition;
-    &.rev-Drawer--left {
-      .rev-Drawer-contents {
-        @include global-transition;
-        left: 0;
-        right: auto;
-        @include breakpoint(global-width) {
-          left: calc((100vw - #{$global-width}) / 2);
-        }
-      }
-    }
-    &.rev-Drawer--right {
-      .rev-Drawer-contents {
-        left: auto;
-        right: 0;
-        @include breakpoint(global-width) {
-          right: calc((100vw - #{$global-width}) / 2);
-        }
-      }
-    }
-    &.collapsed {
-      max-width: 0;
+  
+  // COMPILED CODE FROM OTHER PLACES IN THE FILE: 
+  // .rev-Content & { // NOTE: This is what helps overlap the drawer over the content. But what if we dont use the rev-Content class?
+  //   // TODO: If were going to keep styles based on rev-Content, be sure to add a note about this in the example file
+  //   position: absolute;
+  //   height: 100%;
+  //   z-index: 5;
+  //   .rev-Drawer-contents {
+  //     // position: absolute;
+  //     // height: 100%;
+  //     // overflow: visible;
+  //     width: 0;
+  //     & > * {
+  //       display: none;
+  //     }
+  //   }
+  //   .rev-Drawer-expander,
+  //   .rev-Drawer-closer {
+  //     display: block;
+  //     left: $drawer-width;
+  //     position: absolute;
+  //     top: $global-lineheight * -1rem;
+  //   }
+  // }
+  // &.rev-Drawer--open .rev-Drawer-contents {
+  //   width: $drawer-width;
+  //   & > * {
+  //     display: block;
+  //   }
+  // }
+
+
+
+//   &.rev-Drawer--collapsible {
+//     @include drawer-collapsible;
+    // @include global-transition;
+//     &.rev-Drawer--left {
+//       .rev-Drawer-contents { // NOTE: tried to add this but it messed up the position of the content. Might only be needed when it overlays on screen size depicted (since it overlays)
+//         @include global-transition;
+//         left: 0;
+//         right: auto; 
+//         @include breakpoint(global-width) { // NOTE: I cant figure out what this is for
+//           left: calc((100vw - #{$global-width}) / 2);
+//         }
+//       }
+//     }
+//     &.rev-Drawer--right {
+//       .rev-Drawer-contents {  // NOTE: tried to add this but it messed up the position of the content. Might only be needed when it overlays on screen size depicted (since it overlays)
+//         left: auto;
+//         right: 0;
+//         @include breakpoint(global-width) { // NOTE: I cant figure out what this is for
+//           right: calc((100vw - #{$global-width}) / 2);
+//         }
+//       }
+//     }
+//     &.collapsed {
+//       max-width: 0;
+//       min-width: 0;
+//       overflow-x: hidden;
+//       width: 0;
+//       &.rev-Drawer--left {
+//         .rev-Drawer-contents {
+//           left: -$drawer-width;
+//         }
+//       }
+//       &.rev-Drawer--right {
+//         .rev-Drawer-contents {
+//           right: -$drawer-width;
+//         }
+//       }
+//     }
+//   }
+//   //TODO: mobile Nav styles + toggle
+//   &.rev-Drawer--mobileNav {
+//     @include breakpoint(medium) {
+//       @include drawer-nostyle;
+//     }
+//     @include breakpoint(medium-down) {
+//       @include drawer-overlay;
+//       &.rev-Drawer--left {
+//         left: 0;
+//         right: auto;
+//       }
+//       &.rev-Drawer--right {
+//         left: auto;
+//         right: 0;
+//       }
+//     }
+//   }
+}
+
+// TODO: I think these need to be for sizeDown
+$collapseBreakpoints: (collapseForSmall small-only),
+                      (collapseForMedium medium),
+                      (collapseForLarge large),
+                      (collapseForXLarge xlarge),
+                      // (collapseForMediumDown medium-down),
+                      // (collapseForLargeDown large-down),
+                      // (collapseForXlargeDown xlarge-down),
+                      // (collapseForNavOnly nav-only),
+                      (collapseForNav nav);
+
+@each $breakpoint in $collapseBreakpoints {
+  .rev-Drawer--#{nth($breakpoint, 1)} {
+    @include breakpoint(#{nth($breakpoint, 2)}) {
+      @include drawer-controls;
+      position: absolute;
+
       min-width: 0;
-      overflow-x: hidden;
       width: 0;
+
+      &:not(.rev-Drawer--open) .rev-Drawer-contents { // styles for rev-Drawer-contents when the drawer isnt open
+        left: -$drawer-width;
+      }
       &.rev-Drawer--left {
-        .rev-Drawer-contents {
-          left: -$drawer-width;
-        }
+        left: -$drawer-width;
       }
       &.rev-Drawer--right {
-        .rev-Drawer-contents {
-          right: -$drawer-width;
+        right: -$drawer-width;
+      }
+      &.rev-Drawer--open {
+        min-width: $drawer-width;
+        width: $drawer-width;
+        &.rev-Drawer--left {
+          left: 0;
         }
+        &.rev-Drawer--right {
+          right: 0;
+        }
+
       }
-    }
-  }
-  //TODO: mobile Nav styles + toggle
-  &.rev-Drawer--mobileNav {
-    @include breakpoint(medium) {
-      @include drawer-nostyle;
-    }
-    @include breakpoint(medium-down) {
-      @include drawer-overlay;
-      &.rev-Drawer--left {
-        left: 0;
-        right: auto;
-      }
-      &.rev-Drawer--right {
-        left: auto;
-        right: 0;
-      }
+
     }
   }
 }
 
-//TODO: Drawer Toggle
-/* #Drawer-toggle { //  input
-  opacity: 0;
-  position: fixed;
-  right: 0;
-  top: $topbar-height;
-  z-index: $below;
-}
-.Drawer-toggle { // label
-  @include global-transition;
-  background: $primary;
-  border-radius: $global-rounded $global-rounded 0 0;
-  color: $white;
-  cursor: pointer;
-  height: 30px;
-  line-height: 30px;
-  position: fixed;
-  right: -85px;
-  text-align: center;
-  top: 169px;
-  transform: rotate(-90deg);
-  width: 200px;
-  z-index: $above;
-  &:hover {
-    background: $anchor-color-hover;
-  }
-  &:active {
-    background: $anchor-color-active;
-  }
-}
-#Drawer-toggle:checked { // checked input
-  ~ .rev-Drawer { // Drawer Wrapper
-    min-width: $drawer-width;
-    right: -$global-padding;
-    width: $drawer-width;
-    .rev-Drawer-contents { // Scrollable Drawer Contents
-      right: 0;
-    }
-  }
-  + .Drawer-toggle { // label
-    right: 265px;
-  }
-}
-.NavToggle {
-  @include flex(center, row, center, nowrap);
-  background: transparent;
-  border: 0;
-  color: $white;
-  height: $topbar-height;
-  outline: none;
-  position: absolute;
-  right: 0;
-  top: 0;
-  width: $topbar-height;
-  &:hover,
-  &:active {
-    color: $primary;
-  }
-} */
+// //TODO: Drawer Toggle
+// #Drawer-toggle { //  input
+//   opacity: 0;
+//   position: fixed;
+//   right: 0;
+//   top: $topbar-height;
+//   z-index: $below;
+// }
+// .Drawer-toggle { // label
+//   @include global-transition;
+//   background: $primary;
+//   border-radius: $global-rounded $global-rounded 0 0;
+//   color: $white;
+//   cursor: pointer;
+//   height: 30px;
+//   line-height: 30px;
+//   position: fixed;
+//   right: -85px;
+//   text-align: center;
+//   top: 169px;
+//   transform: rotate(-90deg);
+//   width: 200px;
+//   z-index: $above;
+//   &:hover {
+//     background: $anchor-color-hover;
+//   }
+//   &:active {
+//     background: $anchor-color-active;
+//   }
+// }
+// #Drawer-toggle:checked { // checked input
+//   ~ .rev-Drawer { // Drawer Wrapper
+//     min-width: $drawer-width;
+//     right: -$global-padding;
+//     width: $drawer-width;
+//     .rev-Drawer-contents { // Scrollable Drawer Contents
+//       right: 0;
+//     }
+//   }
+//   + .Drawer-toggle { // label
+//     right: 265px;
+//   }
+// }
+// .NavToggle {
+//   @include flex(center, row, center, nowrap);
+//   background: transparent;
+//   border: 0;
+//   color: $white;
+//   height: $topbar-height;
+//   outline: none;
+//   position: absolute;
+//   right: 0;
+//   top: 0;
+//   width: $topbar-height;
+//   &:hover,
+//   &:active {
+//     color: $primary;
+//   }
+// }

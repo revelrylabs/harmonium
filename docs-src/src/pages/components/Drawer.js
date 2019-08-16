@@ -5,8 +5,8 @@ import Headers from '../../Headers'
 
 const examples = {
   Basic: require('raw!../../examples/Drawer/Basic.js.example'),
-  Scroll: require('raw!../../examples/Drawer/Scroll.js.example'),
-  Overlay: require('raw!../../examples/Drawer/Overlay.js.example'),
+// Scroll: require('raw!../../examples/Drawer/Scroll.js.example'),
+  // Overlay: require('raw!../../examples/Drawer/Overlay.js.example'),
 }
 
 export default class DrawerExamplePage extends Component {

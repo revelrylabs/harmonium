@@ -1,11 +1,13 @@
 <div className="rev-ContentWrapper ExampleDrawerContainer">
   <Drawer
     expanderChildren="+"
-    closerChildren="+"
+    closerChildren="-"
+    right
+    collapseForSmall
   >
     <Menu>
       <Menu.Item text>
-        <span>This is a basic drawer. It is the height of it's contents.</span>
+        <span>This drawer's contents will scroll vertically.</span>
       </Menu.Item>
       <Menu.Item>
         <a href="#">one</a>
@@ -15,6 +17,48 @@
       </Menu.Item>
       <Menu.Item>
         <a href="#">three</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">four</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">five</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">six</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">seven</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">eight</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">nine</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">ten</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">eleven</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">twelve</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">thirteen</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">fourteen</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">fifteen</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">sixteen</a>
+      </Menu.Item>
+      <Menu.Item>
+        <a href="#">seventeen</a>
       </Menu.Item>
     </Menu>
   </Drawer>

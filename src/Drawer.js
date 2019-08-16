@@ -11,7 +11,13 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   scroll: 'rev-Drawer--scroll',
   fixed: 'rev-Drawer--fixed',
   overlay: 'rev-Drawer--overlay',
-  collapsible: 'rev-Drawer--collapsible',
+  collapsed: 'rev-Drawer--collapsed',
+  collapsible: 'rev-Drawer--collapsible', // TODO: Delete this prop
+  collapseForSmall: 'rev-Drawer--collapseForSmall',
+  collapseForMedium: 'rev-Drawer--collapseForMedium',
+  collapseForLarge: 'rev-Drawer--collapseForLarge',
+  collapseForXlarge: 'rev-Drawer--collapseForXlarge',
+  collapseForNav: 'rev-Drawer--collapseForNav',
 }
 
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)

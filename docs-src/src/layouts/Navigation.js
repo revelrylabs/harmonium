@@ -12,6 +12,7 @@ export default function Navigation() {
       closerChildren="+"
       className="DocsSiteNav"
       left
+      collapseForSmall
     >
       <nav>
         <Link className="rev-Brand ExampleBrand Hide--smallOnly" to="/">

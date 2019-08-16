@@ -12,7 +12,9 @@ const examples = {
   'TopBar : Centered Content': require('raw!../../examples/TopBar/TopBarCenter.js.example'),
   'TopBar : Left-aligned Content': require('raw!../../examples/TopBar/TopBarLeft.js.example'),
   'TopBar : Right-aligned Content': require('raw!../../examples/TopBar/TopBarRight.js.example'),
+  'TopBar : Dropdown Content': require('raw!../../examples/TopBar/TopBarDropdown.js.example'),
   'TopBar : Item-scroll Content': require('raw!../../examples/TopBar/TopBarItemScroll.js.example'),
+  'TopBar : Collapse Content': require('raw!../../examples/TopBar/TopBarCollapse.js.example'),
 }
 
 export default class TopBarExamplePage extends Component {

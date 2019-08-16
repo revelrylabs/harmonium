@@ -77,7 +77,10 @@ $topbar-link-bkgd: transparent !default;
   }
   .rev-Menu  {
     background: transparent;
-    overflow: visible; // So that dropdowns can be visible 
+    // overflow: visible; // So that dropdowns can be visible 
+    &.rev-Menu--horizontalLeft {
+      overflow: visible; // So that dropdowns can be visible 
+    }
     .rev-Menu-item a {
       border-radius: $global-radius;
     }
