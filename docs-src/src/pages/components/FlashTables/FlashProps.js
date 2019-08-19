@@ -19,7 +19,7 @@ export default function FlashProps() {
       <Table.Body>
         <Table.Row>
           <Table.Data>
-            <Table.HeaderInline>Name:</Table.HeaderInline> <code>info</code>
+            <Table.HeaderInline>Name:</Table.HeaderInline> <code>Default</code>
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Type:</Table.HeaderInline> bool
@@ -31,8 +31,7 @@ export default function FlashProps() {
             <Table.HeaderInline>Description:</Table.HeaderInline>{' '}
             <span>
               {' '}
-              Prop added for info flash. Adds the class{' '}
-              <code>rev-Flash--info</code>
+              Prop added for info flash. Adds the class <code>rev-Flash</code>
             </span>
           </Table.Data>
         </Table.Row>
@@ -134,27 +133,6 @@ export default function FlashProps() {
               {' '}
               Prop added for fade flash. Adds the class{' '}
               <code>rev-Flash--fade</code> And fades out after 5secs
-            </span>
-          </Table.Data>
-        </Table.Row>
-
-        <Table.Row>
-          <Table.Data>
-            <Table.HeaderInline>Name:</Table.HeaderInline>{' '}
-            <code>dismissible</code>
-          </Table.Data>
-          <Table.Data>
-            <Table.HeaderInline>Type:</Table.HeaderInline> bool
-          </Table.Data>
-          <Table.Data>
-            <Table.HeaderInline>Default:</Table.HeaderInline> False
-          </Table.Data>
-          <Table.Data>
-            <Table.HeaderInline>Description:</Table.HeaderInline>{' '}
-            <span>
-              {' '}
-              Prop added for dismissible flash. Adds the class{' '}
-              <code>rev-Flash--dismissible</code>
             </span>
           </Table.Data>
         </Table.Row>

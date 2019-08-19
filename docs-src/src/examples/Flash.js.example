@@ -3,9 +3,9 @@
     <h3>Utility Flashes</h3>
   </Col>
   <Col>
-    <Flash info>
+    <Flash>
       <Row> 
-        <Col> Info Flash  </Col>
+        <Col> Default Flash  </Col>
       </Row>
     </Flash>
     <Flash success>

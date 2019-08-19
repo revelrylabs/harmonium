@@ -14,10 +14,10 @@ $breakpoints: (
   small: (min-width: $small),
   small-only: ((min-width: $small) and (max-width: $medium - 1)),
   medium: (min-width: $medium),
-  medium-down: ((max-width: $medium)),
+  medium-down: ((max-width: $medium - 1 )),
   medium-only: ((min-width: $medium) and (max-width: $large - 1)),
   large: (min-width: $large),
-  large-down: ((max-width: $large)),
+  large-down: ((max-width: $large - 1)),
   large-only: ((min-width: $large) and (max-width: $xlarge - 1)),
   xlarge: (min-width: $xlarge),
   xlarge-down: ((max-width: $xlarge)),
@@ -33,8 +33,7 @@ $breakpoints: (
 // Global Fonts
 $global-monospace-font: 'Montserrat', sans-serif;
 $global-serif-font: 'Georgia', serif;
-$global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial,
-  'Lucida Grande', sans-serif;
+$global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 
 // we use the global-font-sizes for typographic utilities
 // AND to determine vertical spacing

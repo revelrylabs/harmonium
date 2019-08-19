@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
-  info: ['rev-Flash--info'],
   success: ['rev-Flash--success'],
   warning: ['rev-Flash--warning'],
   alert: ['rev-Flash--alert'],

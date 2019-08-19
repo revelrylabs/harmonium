@@ -42,7 +42,7 @@ export default function FlashVars() {
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Description:</Table.HeaderInline> Default border
-            for Flash.
+            size for Flash
           </Table.Data>
         </Table.Row>
 
