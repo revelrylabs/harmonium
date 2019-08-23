@@ -1,3 +1,5 @@
+@import "@material/button/mdc-button";
+
 // Button Vars
 $button-bkgd: $brand !default;
 $button-border: 0 !default;
@@ -19,143 +21,13 @@ $button-box-shadow-secondary-active: darken($brand, 10%) !default;
 $button-color-secondary-active: $white !default;
 
 @mixin button-contained {
-  .rev-Button {
-    margin: $global-vertical-space / 2 auto;
-    &.rev-Button--small {
-      margin: $global-vertical-space / 2 auto;
-    }
-    &.rev-Button--large {
-      margin: $global-vertical-space auto;
-    }
-  }
 }
-
 @mixin button {
-  @include global-transition;
-  background: $button-bkgd;
-  border: $button-border;
-  border-radius: $button-radius;
-  color: $button-color;
-  cursor: pointer;
-  display: inline-block;
-  font-size: $global-font-size;
-  font-weight: normal;
-  line-height: $base-lineheight;
-  margin: 0 0 $global-vertical-space;
-  padding: $global-padding-small $global-padding;
-  &:hover,
-  &:active,
-  &:focus {
-    background: $button-bkgd-hover;
-    color: $button-color-hover;
-  }
-  &:active,
-  &:focus {
-    background: $button-bkgd-active;
-    color: $button-color-active;
-  }
+  @extend .mdc-button;
+  @extend .mdc-button--raised;
 }
 .rev-Button {
   @include button;
-  &.rev-Button--large {
-    font-size: $global-font-size-medium;
-    padding: $global-padding $global-padding-large;
-    margin: 0 auto $global-vertical-space;
-  }
-  &.rev-Button--small {
-    @include small-input;
-  }
-  &.rev-Button--primary {
-    box-shadow: $global-box-shadow;
-    &:hover {
-      box-shadow: $global-box-shadow-hover;
-    }
-    &:active,
-    &:focus {
-      box-shadow: $global-box-shadow-active;
-    }
-  }
-  &.rev-Button--secondary {
-    background: $button-bkgd-secondary;
-    box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
-    color: $button-color-secondary;
-    &:hover {
-      background: $button-bkgd-secondary-hover;
-      box-shadow: 0 0 0 1px $button-bkgd-secondary-hover inset;
-      color: $button-color-secondary-hover;
-    }
-    &:active,
-    &:focus {
-      background: $button-bkgd-secondary-active;
-      box-shadow: 0 0 0 1px $button-bkgd-secondary-active inset;
-      color: $button-color-secondary-active;
-    }
-  }
-  &.rev-Button--inverted {
-    background: $button-color;
-    color: $button-bkgd;
-    &:hover,
-    &:focus {
-      background: $button-color;
-      color: $button-bkgd-hover;
-    }
-    &:active {
-      color: $button-bkgd-active;
-    }
-    &.rev-Button--secondary {
-      background: transparent;
-      box-shadow: 0 0 0 1px $button-color inset;
-      color: $button-color;
-      &:hover {
-        background: $button-color-hover;
-        box-shadow: 0 0 0 1px $button-color-hover inset;
-        color: $button-bkgd-hover;
-      }
-      &:active,
-      &:focus {
-        background: $button-color-active;
-        box-shadow: 0 0 0 1px $button-color-active inset;
-        color: $button-bkgd-active;
-      }
-    }
-  }
-  &.rev-Button--success {
-    background: $success;
-    &:hover,
-    &:active,
-    &:focus {
-      background: darken($success, 10%);
-    }
-  }
-  &.rev-Button--alert {
-    background: $alert;
-    &:hover,
-    &:active,
-    &:focus {
-      background: darken($alert, 10%);
-    }
-  }
-  &.rev-Button--warning {
-    background: $warning;
-    &:hover,
-    &:active,
-    &:focus {
-      background: darken($warning, 10%);
-    }
-  }
-  &.rev-Button--expanded {
-    width: 100%;
-  }
-  &.rev-Button--collapse {
-    margin: 0;
-  }
-  &.rev-Button--disabled {
-    @include disabled($button-bkgd, $button-color);
-    &.rev-Button--secondary {
-      @include disabled($button-bkgd-secondary, $button-color-secondary);
-      box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
-    }
-  }
 }
 .rev-ButtonGroup {
   font-size: 0;

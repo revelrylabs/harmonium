@@ -49,6 +49,8 @@ const TemplateWrapper = ({children, location}) => (
         rel="canonical"
         href={`https://harmonium.revelry.co${location.pathname}`}
       />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+      <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
     </Helmet>
     <TopBar className="Show--smallOnly">
       <a className="rev-Brand ExampleBrand Show--smallOnly" href="/">

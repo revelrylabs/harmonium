@@ -22,7 +22,7 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
 }
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
-export default class Button extends Component {
+export default class HarmoniumButton extends Component {
   static propTypes = {
     tag: PropTypes.string,
     icon: PropTypes.string,
