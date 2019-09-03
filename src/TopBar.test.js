@@ -32,4 +32,9 @@ describe('Topbar.Item', () => {
   it('should render without throwing', () => {
     shallow(<TopBar.Item />)
   })
+  it('can render scroll nav', () => {
+    const wrapper = mount(<TopBar.Item scrollNav />)
+    expect(wrapper.find('TopBarItem').exists()).to.equal(true)
+    expect(wrapper.find('.rev-TopBar-item--scroll--nav').exists()).to.equal(true)
+  })
 })
