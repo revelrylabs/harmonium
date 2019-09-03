@@ -70,7 +70,16 @@ describe('StatefulTabs', () => {
 
 describe('Tabs.Item', () => {
   it('can render without error (title case)', () => {
-    mount(<Tabs.Item contentKey={1} title="One" renderTitle />)
+    const wrapper = mount(<Tabs.Item contentKey={1} title="One" renderTitle />)
+    expect(wrapper.exists()).to.equal(true);
+    expect(wrapper.find('.rev-TabsTitle-link').text()).to.equal('One');
+  })
+  it('can render clickable link', () => {
+    const spy = sinon.spy()
+    const wrapper = mount(<Tabs.Item contentKey={1} title="One" renderTitle onClick={spy}/>)
+
+    wrapper.find('a').simulate('click')
+    expect(spy.calledOnce).to.eq(true)
   })
 })
 
