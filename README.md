@@ -49,7 +49,7 @@ import it from the package.
 
 ## Configuration
 
-At this time, there's no package level configuration-- all options as passed as
+At this time, there's no package level configuration-- all options are passed as
 props to the components at time of use.
 
 ## Contributing and Development
@@ -60,7 +60,7 @@ for guidance on how to develop harmonium.
 Bug reports and pull requests are welcome on GitHub at https://github.com/revelrylabs/harmonium. Check out [CONTRIBUTING.md](https://github.com/revelrylabs/harmonium/blob/master/CONTRIBUTING.md) for more info.
 
 Everyone is welcome to participate in the project. We expect contributors to
-adhere the Contributor Covenant Code of Conduct (see [CODE_OF_CONDUCT.md](https://github.com/revelrylabs/harmonium/blob/master/CODE_OF_CONDUCT.md)).
+adhere to the Contributor Covenant Code of Conduct (see [CODE_OF_CONDUCT.md](https://github.com/revelrylabs/harmonium/blob/master/CODE_OF_CONDUCT.md)).
 
 [npm-badge]: https://img.shields.io/npm/v/harmonium.svg
 [npm-url]: https://www.npmjs.com/package/harmonium
