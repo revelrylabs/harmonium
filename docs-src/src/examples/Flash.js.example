@@ -33,9 +33,9 @@
         <Col> Flash that fades out after [X]s </Col>
       </Row>    
     </Flash>
-    <Flash dismissible>
+    <Flash dismissable>
       <Row> 
-        <Col> Dismissible Flash <span class="close_btn"> &times; </span> </Col>
+        <Col> Dismissable Flash </Col>
       </Row>      
     </Flash>
   </Col>
