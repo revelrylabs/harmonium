@@ -33,9 +33,9 @@
         <Col> Flash that fades out after [X]s </Col>
       </Row>    
     </Flash>
-    <Flash dismissable>
+    <Flash dismissible>
       <Row> 
-        <Col> Dismissable Flash </Col>
+        <Col> Dismissible Flash </Col>
       </Row>      
     </Flash>
   </Col>
