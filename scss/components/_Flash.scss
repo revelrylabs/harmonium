@@ -15,8 +15,21 @@ $flash-padding: $global-vertical-space $global-horizontal-space !default;
   color: $flash-color;
   margin-bottom: $global-margin;
   padding: $global-padding-tiny 0;
+  position: relative;
 
   &.rev-Flash--fade {
     @include fade-out--hide();
   }
+  &.rev-Flash--dismissible {
+    cursor: pointer;
+  }
+}
+
+.rev-FlashClose {
+  background: none;
+  border: none;
+  color: $flash-color;
+  position: absolute;
+  right: $global-padding-tiny;
+  top: $global-padding-tiny;
 }
