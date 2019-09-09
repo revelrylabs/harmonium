@@ -35,7 +35,7 @@
     </Flash>
     <Flash dismissible>
       <Row> 
-        <Col> Dismissible Flash <span class="close_btn"> &times; </span> </Col>
+        <Col> Dismissible Flash </Col>
       </Row>      
     </Flash>
   </Col>

@@ -10,16 +10,32 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
   fade: ['rev-Flash--fade'],
   dismissible: ['rev-Flash--dismissible'],
 }
-const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
+const BOOL_PROPS = [
+  ...Object.keys(BOOL_PROPS_TO_CLASS_NAMES),
+  'dismissible',
+  'closeIcon',
+]
 
 export default class Flash extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     children: PropTypes.node,
+    dismissible: PropTypes.bool,
+    closeIcon: PropTypers.node,
+  }
+
+  state = {
+    isOpen: true,
+  }
+
+  handleCloseFlash = () => {
+    if (this.props.dismissible) {
+      this.setState({isOpen: false})
+    }
   }
 
   render() {
-    const {className, children, ...props} = this.props
+    const {className, children, dismissible, ...props} = this.props
 
     const boolClassNames = []
 
@@ -32,10 +48,34 @@ export default class Flash extends React.Component {
 
     const divClassName = classNames(className, 'rev-Flash', boolClassNames)
 
-    return (
-      <div {...props} className={divClassName}>
-        {children}
-      </div>
-    )
+    if (this.state.isOpen) {
+      return (
+        <div
+          {...props}
+          className={divClassName}
+          onClick={this.handleCloseFlash}
+          onKeyPress={this.handleCloseFlash}
+          role="button"
+          tabIndex="0"
+        >
+          {children}
+          {dismissible && <CloseButton icon={props.closeIcon} />}
+        </div>
+      )
+    }
+
+    return null
   }
+}
+
+function CloseButton({icon}) {
+  return (
+    <button className="rev-FlashClose">
+      {icon ? icon : <span>&times;</span>}
+    </button>
+  )
+}
+
+CloseButton.propTypes = {
+  icon: PropTypes.node,
 }
