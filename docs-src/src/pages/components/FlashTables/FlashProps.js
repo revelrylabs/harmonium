@@ -136,6 +136,44 @@ export default function FlashProps() {
             </span>
           </Table.Data>
         </Table.Row>
+
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline>{' '}
+            <code>dismissible</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> bool
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline> False
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline>{' '}
+            <span>
+              {' '}
+              Prop added for the dismissible flash. Adds the class{' '}
+              <code>rev-Flash--dismissible</code> And is hidden when clicked
+            </span>
+          </Table.Data>
+        </Table.Row>
+
+        <Table.Row>
+          <Table.Data>
+            <Table.HeaderInline>Name:</Table.HeaderInline>{' '}
+            <code>closeIcon</code>
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Type:</Table.HeaderInline> node
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Default:</Table.HeaderInline> undefined
+          </Table.Data>
+          <Table.Data>
+            <Table.HeaderInline>Description:</Table.HeaderInline>{' '}
+            <span>Optional custom close icon for the dismissible flash.</span>
+          </Table.Data>
+        </Table.Row>
       </Table.Body>
     </Table>
   )

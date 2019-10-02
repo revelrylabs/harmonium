@@ -21,7 +21,7 @@ export default class Flash extends React.Component {
     className: PropTypes.string,
     children: PropTypes.node,
     dismissible: PropTypes.bool,
-    closeIcon: PropTypers.node,
+    closeIcon: PropTypes.node,
   }
 
   state = {
