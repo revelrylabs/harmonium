@@ -30,7 +30,7 @@ export default function Navigation() {
             <h5>Starter</h5>
           </Menu.Item>
           <Menu.Item>
-            <a href="/settings-templates/settings-templates.zip" download>
+            <a href={`https://github.com/revelrylabs/harmonium/raw/v${packageInfo.version}/settings-templates/settings-templates.zip`} download>
               Download Starter Settings
             </a>
           </Menu.Item>
