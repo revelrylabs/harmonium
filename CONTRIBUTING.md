@@ -50,7 +50,9 @@ If your changes aren't being reflected, try stopping the dev server, running
     </Table.Row>
   </Table.Head>
   <Table.HeadStacked>
-    <Table.Data>[ComponentName] Vars</Table.Data>
+    <Table.Row>
+      <Table.Header>[ComponentName] Vars</Table.Header>
+    </Table.Row>
   </Table.HeadStacked>
   <Table.Body>
     <Table.Row>
@@ -88,7 +90,9 @@ If your changes aren't being reflected, try stopping the dev server, running
     </Table.Row>
   </Table.Head>
   <Table.HeadStacked>
-    <Table.Data>[ComponentName] Props</Table.Data>
+    <Table.Row>
+      <Table.Header>[ComponentName] Props</Table.Header>
+    </Table.Row>
   </Table.HeadStacked>
   <Table.Body>
     <Table.Row>
