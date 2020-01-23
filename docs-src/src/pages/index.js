@@ -87,19 +87,23 @@ export default class MyComponent extends Component {
 @import '~harmonium/scss/app';
 /* your styles here; */
 `}
-            </code>
-          </pre>
+          </code>
+        </pre>
         <p>
-          You can import the variable settings as well to override them
+          The styles can be easily customized for your project through many
+          overrideable SCSS variables. You can download starter settings files to
+          include in your project{' '}
+          <a href="/settings-templates/settings-templates.zip">here.</a>
         </p>
           <pre>
             <code className="language-scss">
               {`/* myapp.scss */
-@import '~harmonium/settings-templates/color-palette';
-@import '~harmonium/settings-templates/harmonium-settings';
 @import '~harmonium/scss/app';
 
-$brand: #eeeeee;
+/* local copies of settings-templates from starter kit in your project */
+/* customize variable settings in each */
+@import 'path/to/local/color-palette';
+@import 'path/to/local/harmonium-settings';
 
 /* your styles here; */
 `}
@@ -113,12 +117,6 @@ $brand: #eeeeee;
             sassy-npm-importer
           </a>{' '}
           to import it from the package.
-        </p>
-        <p>
-          The styles can be easily customized for your project through many
-          overrideable SCSS variables. You can download starter settings files to
-          include in your project{' '}
-          <a href="/settings-templates/settings-templates.zip">here.</a>
         </p>
       </Col>
     </Row>
