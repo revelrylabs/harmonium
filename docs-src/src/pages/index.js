@@ -1,19 +1,18 @@
 import React from 'react'
-import { useEffect } from "react"
+import { useEffect } from 'react'
 import Row from 'harmonium/lib/Row';
 import Col from 'harmonium/lib/Col';
 import Layout from '../layouts/index.js'
 import Prism from "prismjs"
 
-const description = 'Harmonium is a framework of React components optimized for ' +
-'teams that want to ship apps fast. It is a curated list of ' +
-'components that work together and have cohesive styles. One ' +
-'of our design goals is that you never have to research and ' +
-'handpick component packages. Whatever you need is already here.'
+const description = `Harmonium is a framework of React components optimized for
+teams that want to ship apps fast. It is a curated list of
+components that work together and have cohesive styles. One
+of our design goals is that you never have to research and
+handpick component packages. Whatever you need is already here.`
 
 const IndexPage = ({location}) => {
   useEffect(() => {
-    // call the highlightAll() function to style our code blocks
     Prism.highlightAll()
   })
 
