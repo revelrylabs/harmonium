@@ -46,7 +46,52 @@ const IndexPage = ({location}) => {
         <pre>
           <code className="language-bash">npm install --save harmonium</code>
         </pre>
-        <h2>Using Harmonium with React</h2>
+
+        <h2>SCSS Setup</h2>
+        <p>
+          We&apos;ve built a set of SCSS styles for all the components. In order to use Harmonium, make sure
+          that your asset compilation pipeline can understand scss files.
+        </p>
+        <p>
+          Import Harmonium's styles into your scss like so:
+        </p>
+        <pre>
+            <code className="language-scss">
+              {`/* myapp.scss */
+@import '~harmonium/scss/app';
+/* your styles here; */
+`}
+          </code>
+        </pre>
+        <p>
+        Harmonium includes !default values for color-palette and harmonium-settings vars.
+        You can download the starter settings <a href="/settings-templates/settings-templates.zip">here</a> (which include color-palette.scss and harmonium-settings.scss) and easily view/edit variables to fit your project
+        </p>
+        <p>
+        Your style imports would look something like this:
+        </p>
+          <pre>
+            <code className="language-scss">
+              {`/* myapp.scss */
+@import 'wherever-your-styles-live/color-palette';
+@import 'wherever-your-styles-live/harmonium-settings';
+@import '~/harmonium/scss/app';
+
+/* your styles here; */
+`}
+            </code>
+          </pre>
+        <p>
+          For advanced configurations, styles can be found in the <code>scss</code> directory
+          of the package. You can either copy it into your project&apos;s SCSS
+          directory, or use a tool like{' '}
+          <a href="https://www.npmjs.com/package/sassy-npm-importer">
+            sassy-npm-importer
+          </a>{' '}
+          to import it from the package.
+        </p>
+
+        <h2>Usage with React</h2>
         <pre>
             <code className="language-jsx">
               {`import React, {Component} from 'react'
@@ -70,53 +115,27 @@ export default class MyComponent extends Component {
 `}
             </code>
           </pre>
-        <p>
-          For more, see the component documentation listed to the left.
-        </p>
-        <h2>Using Harmonium without React</h2>
-        <p>
-          We don&apos;t just provide React components. We&apos;ve built a set of SCSS
-          styles for all the components.
-        </p>
-        <p>
-          To include Harmonium's styles into your scss, import it like so
-        </p>
+
+          <h2>Usage with HTML</h2>
+          <p>
+            If you aren't using React,
+            you can still take advantage of Harmonium's components
+            by adding the proper classes to your markup
+          </p>
         <pre>
-            <code className="language-scss">
-              {`/* myapp.scss */
-@import '~harmonium/scss/app';
-/* your styles here; */
-`}
-          </code>
-        </pre>
-        <p>
-          The styles can be easily customized for your project through many
-          overrideable SCSS variables. You can download starter settings files to
-          include in your project{' '}
-          <a href="/settings-templates/settings-templates.zip">here.</a>
-        </p>
-          <pre>
-            <code className="language-scss">
-              {`/* myapp.scss */
-@import '~harmonium/scss/app';
-
-/* local copies of settings-templates from starter kit in your project */
-/* customize variable settings in each */
-@import 'path/to/local/color-palette';
-@import 'path/to/local/harmonium-settings';
-
-/* your styles here; */
-`}
+            <code className="language-html">
+              {`<div class="rev-Row">
+  <div class="rev-Col">
+    <h3>Hello, world</h3>
+  </div>
+  <div class="rev-Col">
+    <button class="rev-Button">Press me</button>
+  </div>
+</div>`}
             </code>
           </pre>
         <p>
-          For advanced configurations, styles can be found in the <code>scss</code> directory
-          of the package. You can either copy it into your project&apos;s SCSS
-          directory, or use a tool like{' '}
-          <a href="https://www.npmjs.com/package/sassy-npm-importer">
-            sassy-npm-importer
-          </a>{' '}
-          to import it from the package.
+          For more, see the component documentation listed to the left.
         </p>
       </Col>
     </Row>
