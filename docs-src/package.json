@@ -8,26 +8,24 @@
     "@babel/preset-env": "^7.5.5",
     "babel-preset-gatsby": "^0.2.8",
     "component-playground": "^3.2.1",
-    "gatsby": "^2.13.52",
+    "gatsby": "^2.19.2",
     "gatsby-cli": "^2.7.26",
     "gatsby-image": "^2.2.8",
-    "gatsby-link": "^1.0.1",
-    "gatsby-plugin-manifest": "^2.2.4",
-    "gatsby-plugin-offline": "^2.2.4",
-    "gatsby-plugin-react-helmet": "^1.0.8",
+    "gatsby-link": "^2.2.0",
+    "gatsby-plugin-manifest": "^2.2.38",
+    "gatsby-plugin-offline": "^3.0.0",
+    "gatsby-plugin-react-helmet": "^3.1.0",
     "gatsby-plugin-sass": "^2.1.4",
     "gatsby-plugin-sharp": "^2.2.9",
     "gatsby-source-filesystem": "^2.1.8",
     "gatsby-transformer-sharp": "^2.2.5",
     "node-sass": "^4.12.0",
     "prop-types": "^15.7.2",
-    "raw-loader": "^0.5.1",
+    "raw-loader": "^4.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-router-dom": "^5.0.1",
-    "resolve-cwd": "^2.0.0",
-    "yargs-parser": "^9.0.2",
     "yarn": "^1.17.3"
   },
   "keywords": [
@@ -44,7 +42,7 @@
     "postinstall": "(cd .. && npm run prepare) && ln -s ../.. node_modules/harmonium"
   },
   "devDependencies": {
-    "mini-css-extract-plugin": "^0.8.0",
+    "mini-css-extract-plugin": "^0.9.0",
     "prettier": "^1.5.2"
   }
 }
