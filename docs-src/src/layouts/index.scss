@@ -384,3 +384,12 @@ code {
 .rev-Slider {
   margin: $global-padding-larger $global-padding-small;
 }
+
+.HTMLCodeSection {
+  padding: 0;
+  margin: 0 1.2rem;
+
+  .code-toolbar {
+    max-width: inherit;
+  }
+}

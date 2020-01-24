@@ -1,23 +1,22 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
-import {Row, Col} from 'harmonium/lib/grid'
 import TopBar from 'harmonium/lib/TopBar'
-import Menu from 'harmonium/lib/Menu'
 import Navigation from './Navigation'
 import packageInfo from '../../../package.json'
 
 import './index.scss'
 
-const TemplateWrapper = ({children, location}) => (
-  <div>
+const TemplateWrapper = (props) => {
+  const description = props.description ? props.description : 'An opinionated React component framework for teams that move fast.'
+
+  return <div>
     <Helmet
       title="Harmonium | React Components for Teams That Move Fast"
       meta={[
         {
           name: 'description',
-          content:
-            'An opinionated React component framework for teams that move fast.',
+          content: description,
         },
         {name: 'keywords', content: 'React, JavaScript, SCSS, CSS, HTML, Web'},
       ]}
@@ -35,7 +34,7 @@ const TemplateWrapper = ({children, location}) => (
       <meta property="og:image:width" content="279" />
       <meta property="og:image:height" content="279" />
       <meta property="og:title" content="Harmonium" />
-      <meta property="og:description" content="React components for teams that move fast." />
+      <meta property="og:description" content={description} />
       <meta property="og:url" content="https://harmonium.revelry.co/" />
       <link
         rel="stylesheet"
@@ -47,7 +46,7 @@ const TemplateWrapper = ({children, location}) => (
       />
       <link
         rel="canonical"
-        href={`https://harmonium.revelry.co${location.pathname}`}
+        href={`https://harmonium.revelry.co${props.location.pathname}`}
       />
     </Helmet>
     <TopBar className="Show--smallOnly">
@@ -58,10 +57,10 @@ const TemplateWrapper = ({children, location}) => (
     </TopBar>
     <div className="rev-ContentWrapper">
       <Navigation />
-      <main className="rev-Content">{children}</main>
+      <main className="rev-Content">{props.children}</main>
     </div>
   </div>
-)
+}
 
 TemplateWrapper.propTypes = {
   children: PropTypes.object,

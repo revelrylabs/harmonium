@@ -1,14 +1,17 @@
 // strip out units for typography math
 @function strip-unit($number) {
-  @if type-of($number) == 'number' and not unitless($number) {
+  @if type-of($number)=='number'and not unitless($number) {
     @return $number / ($number * 0 + 1);
   }
-  @if type-of($number) == 'px' {
+
+  @if type-of($number)=='px' {
     @return $number / ($number * 0.1 + 1);
   }
+
   /*TODO: check this!!*/
   @return $number;
 }
+
 // unitless values
 $h1-value: strip-unit($h1);
 $h2-value: strip-unit($h2);
@@ -19,16 +22,28 @@ $h6-value: strip-unit($h6);
 $global-font-size-value: strip-unit($global-font-size);
 
 // header lists
-$header-font-sizes: h1, h2, h3, h4, h5, h6;
-$header-font-size-values: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value, $h6-value;
+$header-font-sizes: h1,
+h2,
+h3,
+h4,
+h5,
+h6;
+$header-font-size-values: $h1-value,
+$h2-value,
+$h3-value,
+$h4-value,
+$h5-value,
+$h6-value;
 
 @for $i from 1 through length($header-font-sizes) {
-  #{nth($header-font-sizes, $i)} { //h1
+  #{nth($header-font-sizes, $i)} {
+    //h1
     font-size: nth($header-font-size-values, $i) * 1rem;
     padding-bottom: $global-vertical-space;
     padding-top: $global-vertical-space * 2;
   }
 }
+
 @mixin header-contained {
   @for $i from 1 through length($header-font-sizes) {
     #{nth($header-font-sizes, $i)} {
@@ -37,6 +52,7 @@ $header-font-size-values: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value,
     }
   }
 }
+
 @mixin typography-contained {
   @for $i from 1 through length($header-font-sizes) {
     #{nth($header-font-sizes, $i)} {
@@ -44,16 +60,18 @@ $header-font-size-values: $h1-value, $h2-value, $h3-value, $h4-value, $h5-value,
       padding-bottom: $global-vertical-space / 2;
     }
   }
+
   // TODO: better way to include p styles?
   p {
     padding: $global-vertical-space 0;
-    + p,
-    + h1,
-    + h2,
-    + h3,
-    + h4,
-    + h5,
-    + h6 {
+
+    +p,
+    +h1,
+    +h2,
+    +h3,
+    +h4,
+    +h5,
+    +h6 {
       padding: 0 0 $global-vertical-space 0;
     }
   }
@@ -75,35 +93,47 @@ h5,
 h6 {
   @include header;
 }
+
 h1 {
   line-height: $global-vertical-space * 2.5;
 }
+
 h2 {
   line-height: $global-vertical-space * 2;
 }
+
 h3 {
   line-height: $global-lineheight;
   padding: $global-margin-small 0;
 }
-h4, h5, h6 {
+
+h4,
+h5,
+h6 {
   line-height: $global-lineheight;
 }
-h5, h6 {
+
+h5,
+h6 {
   text-transform: uppercase;
 }
+
 h6 {
   color: lighten($header-color, 20%);
 }
 
-p {
+p,
+.code-toolbar {
   margin: 0;
   max-width: 70rem;
   padding: 0 0 $global-vertical-space 0;
 }
+
 .Lead {
   display: block;
   font-size: $global-font-size-medium;
 }
+
 .Small {
   @include muted;
   display: block;
@@ -115,87 +145,110 @@ a {
   @include global-transition;
   color: $anchor-color;
   text-decoration: none;
+
   &:hover {
     color: $anchor-color-hover;
   }
+
   &:active,
   &:focus {
     color: $anchor-color-active;
   }
 }
+
 small {
   font-size: 75%;
 }
+
 // TextAlignment
 //TODO: function for breakpoints
 .Text-left,
 .Text--smallLeft {
   text-align: left;
 }
+
 .Text-right,
 .Text--smallRight {
   text-align: right;
 }
+
 .Text-center,
 .Text--smallCenter {
   text-align: center;
 }
+
 .Text-justify,
 .Text--smallJustify {
   text-align: justify;
 }
+
 @include breakpoint(medium) {
   .Text--mediumLeft {
     text-align: left;
   }
+
   .Text--mediumRight {
     text-align: right;
   }
+
   .Text--mediumCenter {
     text-align: center;
   }
+
   .Text--mediumJustify {
     text-align: justify;
   }
 }
+
 @include breakpoint(large) {
   .Text--largeLeft {
     text-align: left;
   }
+
   .Text--largeRight {
     text-align: right;
   }
+
   .Text--largeCenter {
     text-align: center;
   }
+
   .Text--largeJustify {
     text-align: justify;
   }
 }
+
 @include breakpoint(xlarge) {
   .Text--xlargeLeft {
     text-align: left;
   }
+
   .Text--xlargeRight {
     text-align: right;
   }
+
   .Text--xlargeCenter {
     text-align: center;
   }
+
   .Text--xlargeJustify {
     text-align: justify;
   }
 }
+
 @include breakpoint(xxlarge) {
   .Text--xxlargeLeft {
     text-align: left;
   }
+
   .Text--xxlargeRight {
     text-align: right;
   }
+
   .Text--xxlargeCenter {
     text-align: center;
   }
+
   .Text--xxlargeJustify {
     text-align: justify;
   }
