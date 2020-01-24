@@ -6,18 +6,13 @@
   border-color: mix($alert, $white, 33%);
   color: mix($alert, $white, 33%);
 }
-
 // TYPOGRAPHY
 
 // Proxima Nova Headers for docs only
-h1,
-h2,
-h3,
-h4 {
+h1,h2,h3,h4 {
   font-family: 'proxima-nova', $global-sans-serif-font;
   font-weight: 500;
 }
-
 //TODO incorporate this into typography styles
 h1 {
   font-size: 36px;
@@ -25,12 +20,10 @@ h1 {
   margin: 0;
   padding: $global-padding-large 0 $global-padding-small;
 }
-
 h2 {
   font-size: 32px;
   line-height: 48px;
 }
-
 h5,
 h6 {
   font-weight: normal;
@@ -38,42 +31,34 @@ h6 {
   padding: $global-padding 0 0;
   text-transform: uppercase;
 }
-
 code {
   background: darken($lightest-gray, 1%);
   border: 1px solid $black-03;
   padding: 0 5px;
 }
-
 .CodeMirror.CodeMirror {
   height: auto;
 }
-
 .CodeMirror-line.CodeMirror-line {
   font-size: $global-font-size-small;
   line-height: $global-vertical-space;
   padding: 0;
 }
-
 .CodeMirror-lines.CodeMirror-lines {
   padding: $global-vertical-space / 4 0;
 }
-
 .CodeMirror-scroll {
   margin-left: $global-margin;
 }
-
 .playground {
   display: flex;
   flex-wrap: wrap;
   margin-bottom: $global-margin-large;
 }
-
 .playgroundToggleCodeBar {
   margin: 0 $global-padding-small -1px;
   order: 1;
 }
-
 .playgroundToggleCodeLink {
   @include flex(center, row, flex-start, nowrap);
   background: $lightest-gray;
@@ -84,28 +69,23 @@ code {
   cursor: pointer;
   padding: $global-padding-tiny $global-padding-small;
   position: relative;
-
   &:hover {
     color: $anchor-color-hover;
   }
-
   &:active,
   &:focus {
     color: $anchor-color-active;
   }
-
   &:after {
     content: 'code snippet';
     padding-left: $global-padding-tiny;
   }
-
   &:before {
     content: '+';
     font-weight: bold;
     padding-right: $global-padding-tiny;
   }
 }
-
 .playgroundCode {
   background: $lightest-gray;
   border: 1px solid $lighter-gray;
@@ -115,19 +95,16 @@ code {
   margin: 0 $global-padding-small;
   padding: $global-padding-small;
   width: 100%;
-
   .ReactCodeMirror {
     @include global-transition;
     @include vertical-scroll-container(150px);
     border-radius: $global-radius;
   }
-
   &.expandedCode {
     .ReactCodeMirror {
       max-height: 100%;
     }
-
-    +.playgroundToggleCodeBar {
+    + .playgroundToggleCodeBar {
       .playgroundToggleCodeLink {
         &:before {
           content: '-';
@@ -144,13 +121,11 @@ code {
   overflow-x: scroll;
   white-space: pre-wrap;
 }
-
 .playgroundPreview {
   display: block;
   order: 0;
   width: 100%;
 }
-
 .playgroundPreview--FakeViewportContainer {
   .playgroundPreview {
     background: url('https://3ulsmb4eg8vz37c0vz2si64j-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/75ff3f3c-4aa5-11e6-9c23-4491699777fe.jpg');
@@ -163,25 +138,20 @@ code {
     width: 100%;
   }
 }
-
 // For grid example pages, colorize columns and mark the edges, and put spacing between rows
 .ColumnExamples {
-
   &.rev-Row,
   .rev-Row {
     margin-bottom: $global-margin;
-
     .rev-Row {
       margin-bottom: 0;
     }
   }
-
   .rev-Col {
     // bottom and top padding for demo purposes only
     padding-bottom: $global-padding;
     padding-top: $global-padding;
     text-align: center;
-
     // All of this is a way to put an outline-esque border on the left and
     // right edge without taking up space (doing it this way, because outline
     // can't be applied to only left and right).
@@ -201,38 +171,30 @@ code {
       top: 0;
     }
   }
-
   // Throw some grayscale colors on the grid columns to show what space they
   // occupy
   .rev-Col:nth-child(6n + 1) {
     @include color-stack($lightest-gray);
   }
-
   .rev-Col:nth-child(6n + 2) {
     @include color-stack($lighter-gray);
   }
-
   .rev-Col:nth-child(6n + 3) {
     @include color-stack($light-gray);
   }
-
   .rev-Col:nth-child(6n + 4) {
     @include color-stack($gray);
   }
-
   .rev-Col:nth-child(6n + 5) {
     @include color-stack($dark-gray);
   }
-
   .rev-Col:nth-child(6n + 6) {
     @include color-stack($darker-gray);
   }
-
   // For nesting example, show the extents of the nested row
   .rev-Col .rev-Row {
     outline: 1px solid $white;
   }
-
   // removing the bkgd on Block Grid so that kitty images look better
   &.ColumnExamples--blockGrid {
     .rev-Col {
@@ -241,7 +203,6 @@ code {
     }
   }
 }
-
 // Bkgd Colors
 .ExampleBkgd--primary {
   background: $primary;
@@ -249,20 +210,17 @@ code {
   margin-bottom: $global-padding;
   padding: $global-padding $global-padding 0;
 }
-
 // Color Swatches
 .ExampleSwatches {
   @include aspect-ratio(1, 1);
   @include color-management;
 }
-
 // Buttons
 .ExampleButtons {
   .rev-Button {
     margin-right: $global-margin;
   }
 }
-
 // Visibility
 .ExampleVisibility {
   padding: $global-padding;
@@ -283,23 +241,19 @@ code {
   height: 48px;
   padding: $global-padding-tiny $global-padding-small;
   position: relative;
-
   @include breakpoint(medium) {
     margin: $global-margin-large 0 $global-margin;
     padding: 0 $global-padding;
   }
-
   img {
     height: 100%;
     width: auto;
-
     @include breakpoint(medium) {
       height: auto;
       margin-bottom: $global-padding-small;
       width: 100%
     }
   }
-
   small {
     bottom: -1.2rem;
     color: $white-60;
@@ -309,7 +263,6 @@ code {
     position: absolute;
   }
 }
-
 .rev-Brand-symbol {
   margin: $global-margin-large auto $global-margin;
   max-width: 20rem;
@@ -321,7 +274,6 @@ code {
     box-shadow: 0 0 3px 0 $black-20;
     border: 0;
     margin-bottom: $global-margin;
-
     small {
       color: $white-60;
       font-size: $global-font-size-small;
@@ -336,7 +288,6 @@ code {
     .rev-Drawer-closer {
       color: $white-60;
       transform: rotate(0.125turn);
-
       &:hover,
       &:active,
       &:focus {
@@ -344,15 +295,12 @@ code {
       }
     }
   }
-
   @include breakpoint(small-only) {
     top: $topbar-height;
-
     &.rev-Drawer {
       .rev-Drawer-closer {
         top: $topbar-height;
       }
-
       .rev-Drawer-expander {
         background: $brand;
         border-radius: 0 $global-radius $global-radius 0;
@@ -363,39 +311,32 @@ code {
       }
     }
   }
-
   .rev-Drawer-contents {
     background: $brand;
     background: linear-gradient(to bottom, $brand-secondary 0%, $brand 100%);
     color: $white;
     padding-bottom: $global-padding-larger;
   }
-
   .rev-Menu-item--text {
     color: $white-60;
   }
-
   .rev-Menu-item a {
     color: $white-80;
     position: relative;
-
     &:hover,
     &:active,
     &:focus {
       background: $white-06;
       color: $white;
     }
-
     &:active,
     &:focus {
       background: $white-10;
     }
   }
-
   .rev-Menu-item--selected a {
     background: $white-10;
     color: $white;
-
     &:after {
       background: $white;
       border-radius: 0 $global-radius $global-radius 0;
@@ -408,7 +349,6 @@ code {
     }
   }
 }
-
 .FixedDrawerLinks {
   @include flex(stretch, row, center, nowrap);
   @include global-transition;
@@ -419,19 +359,15 @@ code {
   position: fixed;
   width: $drawer-width;
   z-index: $above;
-
   .rev-Drawer--open & {
     left: 0;
   }
-
   @include breakpoint(medium) {
     left: 0;
   }
-
   .rev-Menu-item {
     flex: 1;
     text-align: center;
-
     &:first-child {
       border-right: 1px solid $divider-color-dark;
     }

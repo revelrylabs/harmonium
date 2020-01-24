@@ -5,6 +5,7 @@ import Prism from 'prismjs'
 import prettier from 'prettier/standalone';
 import prettierHTML from 'prettier/parser-html'
 
+// Use requestAnimationFrame to add in HTML previews
 function renderHTMLExamples(previewAreas){
   function worker(index){
     if(index == previewAreas.length){
