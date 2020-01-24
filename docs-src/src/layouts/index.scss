@@ -1,5 +1,6 @@
 @import '../../../scss/app';
 @import url('https://use.typekit.net/qqm8vsn.css');
+@import './prism-lucario-theme.scss';
 
 @mixin alert-color-stack {
   background-color: $alert;
@@ -385,11 +386,24 @@ code {
   margin: $global-padding-larger $global-padding-small;
 }
 
+.code-toolbar {
+  margin: 0;
+  max-width: 70rem;
+  padding: 0 0 $global-vertical-space 0;
+}
+
 .HTMLCodeSection {
   padding: 0;
   margin: 0 1.2rem;
 
   .code-toolbar {
+    background: #F4F4F4;
+    border: 1px solid #D5D5D5;
+    border-radius: 0 3px 3px 3px;
+    display: block;
+    padding: 1.2rem;
+    width: 100%;
+
     max-width: inherit;
   }
 }

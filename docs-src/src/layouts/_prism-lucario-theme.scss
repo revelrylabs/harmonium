@@ -1,0 +1,275 @@
+pre[class*="language-"],
+code[class*="language-"] {
+  color: #ffffff;
+  background: #2b3e50;
+  font-size: 13px;
+  text-shadow: none;
+  font-family: monospace;
+  direction: ltr;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+pre[class*="language-"]::selection,
+code[class*="language-"]::selection,
+pre[class*="language-"]::mozselection,
+code[class*="language-"]::mozselection {
+  text-shadow: none;
+  background: #b3d4fc;
+}
+
+@media print {
+
+  pre[class*="language-"],
+  code[class*="language-"] {
+    text-shadow: none;
+  }
+}
+
+pre[class*="language-"] {
+  padding: 1em;
+  margin: .5em 0;
+  overflow: auto;
+  background: #2b3e50;
+}
+
+:not(pre)>code[class*="language-"] {
+  padding: .1em .3em;
+  border-radius: .3em;
+  color: #db4c69;
+  background: #2b3e50;
+}
+
+/*********************************************************
+* Tokens
+*/
+.namespace {
+  opacity: .7;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #93a1a1;
+}
+
+.token.punctuation {
+  color: #ffffff;
+}
+
+.token.property,
+.token.tag,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.deleted {
+  color: #ca94ff;
+}
+
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin,
+.token.inserted {
+  color: #e6db74;
+}
+
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string {
+  color: #66d9ef;
+  background: #2b3e50;
+}
+
+.token.atrule,
+.token.attr-value,
+.token.keyword {
+  color: #ff6541;
+}
+
+.token.function {
+  color: #ffffff;
+}
+
+.token.regex,
+.token.important,
+.token.variable {
+  color: #ee9900;
+}
+
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.tag,
+.token.punctuation {
+  color: #ff6541;
+}
+
+.token.attr-name {
+  color: #66D9EF;
+}
+
+.token.attr-value {
+  color: #e6db74;
+}
+
+/*********************************************************
+* Line highlighting
+*/
+pre[data-line] {
+  position: relative;
+}
+
+pre[class*="language-"]>code[class*="language-"] {
+  position: relative;
+  z-index: 1;
+}
+
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: #243443;
+  z-index: 0;
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+
+.cm-s-lucario.CodeMirror,
+.cm-s-lucario .CodeMirror-gutters {
+  background-color: #2b3e50 !important;
+  color: #f8f8f2 !important;
+  border: none;
+}
+
+.cm-s-lucario .CodeMirror-gutters {
+  color: #2b3e50;
+}
+
+.cm-s-lucario .CodeMirror-cursor {
+  border-left: solid thin #E6C845;
+}
+
+.cm-s-lucario .CodeMirror-linenumber {
+  color: #f8f8f2;
+}
+
+.cm-s-lucario .CodeMirror-selected {
+  background: #243443;
+}
+
+.cm-s-lucario .CodeMirror-line::selection,
+.cm-s-lucario .CodeMirror-line>span::selection,
+.cm-s-lucario .CodeMirror-line>span>span::selection {
+  background: #243443;
+}
+
+.cm-s-lucario .CodeMirror-line::-moz-selection,
+.cm-s-lucario .CodeMirror-line>span::-moz-selection,
+.cm-s-lucario .CodeMirror-line>span>span::-moz-selection {
+  background: #243443;
+}
+
+.cm-s-lucario span.cm-comment {
+  color: #5c98cd;
+}
+
+.cm-s-lucario span.cm-string,
+.cm-s-lucario span.cm-string-2 {
+  color: #E6DB74;
+}
+
+.cm-s-lucario span.cm-number {
+  color: #ca94ff;
+}
+
+.cm-s-lucario span.cm-variable {
+  color: #f8f8f2;
+}
+
+.cm-s-lucario span.cm-variable-2 {
+  color: #f8f8f2;
+}
+
+.cm-s-lucario span.cm-def {
+  color: #72C05D;
+}
+
+.cm-s-lucario span.cm-operator {
+  color: #66D9EF;
+}
+
+.cm-s-lucario span.cm-keyword {
+  color: #ff6541;
+}
+
+.cm-s-lucario span.cm-atom {
+  color: #bd93f9;
+}
+
+.cm-s-lucario span.cm-meta {
+  color: #f8f8f2;
+}
+
+.cm-s-lucario span.cm-tag {
+  color: #ff6541;
+}
+
+.cm-s-lucario span.cm-attribute {
+  color: #66D9EF;
+}
+
+.cm-s-lucario span.cm-qualifier {
+  color: #72C05D;
+}
+
+.cm-s-lucario span.cm-property {
+  color: #f8f8f2;
+}
+
+.cm-s-lucario span.cm-builtin {
+  color: #72C05D;
+}
+
+.cm-s-lucario span.cm-variable-3,
+.cm-s-lucario span.cm-type {
+  color: #ffb86c;
+}
+
+.cm-s-lucario .CodeMirror-activeline-background {
+  background: #243443;
+}
+
+.cm-s-lucario .CodeMirror-matchingbracket {
+  text-decoration: underline;
+  color: white !important;
+}
