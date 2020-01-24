@@ -34,7 +34,7 @@ const IndexPage = ({location}) => {
           need is already here.
         </p>
         <p>
-          Harmonium was built by Revelry Labs. We&apos;ve been doing React since
+          Harmonium was built by <a href="https://revelry.co" rel="noopener noreferrer" target="_blank">Revelry</a>. We&apos;ve been doing React since
           the earliest version was in beta. We&apos;ve built dozens of React apps
           and we&apos;ve learned what works and what doesn&apos;t. And our focus
           is on shipping gold fast. So we never want to solve the same problem
