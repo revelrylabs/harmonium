@@ -13,7 +13,7 @@ export function closeFlash(flashComponentElement) {
  * Initializes all flash components on page.
  * @returns {void}
  */
-export function initializeFlash() {
+export function initializeFlashComponents() {
   const components = document.querySelectorAll('.rev-Flash')
 
   for (let i = 0; i < components.length; i++) {
@@ -23,7 +23,7 @@ export function initializeFlash() {
 
     if (closeButton) {
       closeButton.addEventListener('click', (e) => {
-        e.stopPropagation()
+        e.preventDefault()
         closeFlash(component)
       })
     }
@@ -40,7 +40,7 @@ function initializeAccordianItems(accordian) {
 
     if (title) {
       title.addEventListener('click', (e) => {
-        e.stopPropagation()
+        e.preventDefault()
 
         title.classList.toggle('rev-AccordionItem-title--selected')
 
@@ -60,7 +60,7 @@ function initializeAccordianItems(accordian) {
  * Initializes all accordian components on page.
  * @returns {void}
  */
-export function initializeAccordian() {
+export function initializeAccordianComponents() {
   const accordians = document.querySelectorAll('.rev-Accordion')
 
   for (let i = 0; i < accordians.length; i++) {
@@ -96,7 +96,7 @@ export function closeModal(modalElement) {
  * Initializes all modals components on page.
  * @returns {void}
  */
-export function initializeModal() {
+export function initializeModalComponents() {
   const modals = document.querySelectorAll('.rev-Modal')
 
   for (let i = 0; i < modals.length; i++) {
@@ -105,9 +105,62 @@ export function initializeModal() {
     const closeButton = modal.querySelector('.rev-CloseButton')
 
     closeButton.addEventListener('click', (e) => {
-      e.stopPropagation()
+      e.preventDefault()
       closeModal(modal)
     })
+  }
+}
+
+/**
+ * Makes the given tab the active one
+ * @param {HTMLElement} tabComponent The Tab component
+ * @param {number} tabIndex The index of the tab to select
+ * @returns {void}
+ */
+export function selectTab(tabComponent, tabIndex) {
+  const tabTitles = tabComponent.querySelectorAll('.rev-TabsTitle')
+  const tabPanels = tabComponent.querySelectorAll('.rev-TabsItem-panel')
+
+  for (let i = 0; i < tabTitles.length; i++) {
+    const tabTitle = tabTitles[i]
+    const tabPanel = tabPanels[i]
+
+    if (tabIndex === i) {
+      tabTitle.classList.add('rev-TabsTitle--selected')
+      tabPanel.classList.add('rev-TabsItem-panel--selected')
+    } else {
+      tabTitle.classList.remove('rev-TabsTitle--selected')
+      tabPanel.classList.remove('rev-TabsItem-panel--selected')
+    }
+  }
+}
+
+function initializeTab(tabComponent) {
+  const tabTitles = tabComponent.querySelectorAll('.rev-TabsTitle-link')
+
+  console.log(tabTitles)
+
+  for (let i = 0; i < tabTitles.length; i++) {
+    const tabTitle = tabTitles[i]
+
+    tabTitle.addEventListener('click', (e) => {
+      e.preventDefault()
+      selectTab(tabComponent, i)
+    })
+  }
+}
+
+/**
+ * Initializes all tab components on page.
+ * @returns {void}
+ */
+export function initializeTabsComponents() {
+  const tabComponents = document.querySelectorAll('.rev-Tabs')
+
+  for (let i = 0; i < tabComponents.length; i++) {
+    const tabComponent = tabComponents[i]
+
+    initializeTab(tabComponent)
   }
 }
 
@@ -115,8 +168,9 @@ export function initializeModal() {
  * Initializes all Harmonium components on page.
  * @returns {void}
  */
-export function initializeAll() {
-  initializeFlash()
-  initializeAccordian()
-  initializeModal()
+export function initializeAllComponents() {
+  initializeFlashComponents()
+  initializeAccordianComponents()
+  initializeModalComponents()
+  initializeTabsComponents()
 }

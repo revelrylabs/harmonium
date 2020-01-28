@@ -135,12 +135,11 @@ export default class MyComponent extends Component {
         <p>To add interactivity, make sure to include the JavaScript</p>
         <pre>
             <code className="language-html">
-            {`<script type="module" src="/path/to/harmonium.js"></script>
-<script type="module">
-  import {initializeAll} from '/path/to/harmonium.js';
+            {`<script type="module">
+  import {initializeAllComponents} from '/path/to/harmonium.js';
 
   document.addEventListener('DOMContentLoaded', () => {
-    initializeAll()
+    initializeAllComponents()
   })
 </script>`}
             </code>

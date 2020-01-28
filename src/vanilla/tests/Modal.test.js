@@ -1,10 +1,10 @@
 const {JSDOM} = require('jsdom')
 
-import * as Harmonium from '../index'
+import * as Harmonium from '../harmonium'
 
 describe('Harmonium', () => {
   describe('openModal', () => {
-    it('opens the modal', () => {
+    it('add the rev-Modal--open class to the Modal component', () => {
       const HTML = `
       <div class="rev-Modal">
       <div role="button" class="rev-Modal-background" tabindex="0"></div>
@@ -40,7 +40,7 @@ describe('Harmonium', () => {
 
       Harmonium.openModal(modal)
 
-      expect(modal.classList.contains('rev-Modal--open')).to.be.true
+      expect(modal.classList.contains('rev-Modal--open')).equal(true)
     })
   })
 })
