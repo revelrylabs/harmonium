@@ -138,8 +138,6 @@ export function selectTab(tabComponent, tabIndex) {
 function initializeTab(tabComponent) {
   const tabTitles = tabComponent.querySelectorAll('.rev-TabsTitle-link')
 
-  console.log(tabTitles)
-
   for (let i = 0; i < tabTitles.length; i++) {
     const tabTitle = tabTitles[i]
 
@@ -151,7 +149,7 @@ function initializeTab(tabComponent) {
 }
 
 /**
- * Initializes all tab components on page.
+ * Initializes all tabs components on page.
  * @returns {void}
  */
 export function initializeTabsComponents() {
@@ -161,6 +159,48 @@ export function initializeTabsComponents() {
     const tabComponent = tabComponents[i]
 
     initializeTab(tabComponent)
+  }
+}
+/**
+ * Opens the given Drawer component
+ * @param {HTMLElement} drawerComponent The Drawer component element
+ * @returns {void}
+ */
+export function openDrawer(drawerComponent) {
+  drawerComponent.classList.add('rev-Drawer--open')
+}
+
+/**
+ * Closes the given Drawer component
+ * @param {HTMLElement} drawerComponent The Drawer component element
+ * @returns {void}
+ */
+export function closeDrawer(drawerComponent) {
+  drawerComponent.classList.remove('rev-Drawer--open')
+}
+
+/**
+ * Initializes all drawer components on page.
+ * @returns {void}
+ */
+export function initializeDrawerComponents() {
+  const drawerComponents = document.querySelectorAll('.rev-Drawer')
+
+  for (let i = 0; i < drawerComponents.length; i++) {
+    const drawerComponent = drawerComponents[i]
+
+    const opener = drawerComponent.querySelector('.rev-Drawer-expander')
+    const closer = drawerComponent.querySelector('.rev-Drawer-closer')
+
+    opener.addEventListener('click', (e) => {
+      e.preventDefault()
+      openDrawer(drawerComponent)
+    })
+
+    closer.addEventListener('click', (e) => {
+      e.preventDefault()
+      closeDrawer(drawerComponent)
+    })
   }
 }
 
@@ -173,4 +213,5 @@ export function initializeAllComponents() {
   initializeAccordianComponents()
   initializeModalComponents()
   initializeTabsComponents()
+  initializeDrawerComponents()
 }
