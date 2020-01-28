@@ -285,4 +285,5 @@ export function initializeAllComponents() {
   initializeDrawerComponents()
   initializeSliderComponents()
   initializeExpandingColumnComponents()
+  initializeStickyComponents()
 }
