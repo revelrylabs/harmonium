@@ -205,6 +205,29 @@ export function initializeDrawerComponents() {
 }
 
 /**
+ * Initializes all slider components on page.
+ * @returns {void}
+ */
+export function initializeSliderComponents() {
+  const sliderComponents = document.querySelectorAll('.rev-Slider')
+
+  for (let i = 0; i < sliderComponents.length; i++) {
+    const sliderComponent = sliderComponents[i]
+
+    const slider = sliderComponent.querySelector('.rev-Slider-range')
+    const input = sliderComponent.querySelector('.rev-Slider-input')
+
+    slider.addEventListener('input', () => {
+      input.value = slider.value
+    })
+
+    input.addEventListener('input', () => {
+      slider.value = input.value
+    })
+  }
+}
+
+/**
  * Initializes all Harmonium components on page.
  * @returns {void}
  */
@@ -214,4 +237,5 @@ export function initializeAllComponents() {
   initializeModalComponents()
   initializeTabsComponents()
   initializeDrawerComponents()
+  initializeSliderComponents()
 }
