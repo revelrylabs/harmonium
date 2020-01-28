@@ -23,7 +23,7 @@ $modal-content-padding: 0 !default;
   @include flex(center, row, center, nowrap);
   @include global-transition(opacity);
   opacity: 0;
-  z-index: $above-everything;
+  z-index: $below-everything;
   &.rev-Modal--closed {
     // so we can move the modal out of the way so that it doesn't intercept
     // clicks while closed
@@ -31,6 +31,7 @@ $modal-content-padding: 0 !default;
   }
   &.rev-Modal--open {
     opacity: 1;
+    z-index: $above-everything;
   }
 }
 

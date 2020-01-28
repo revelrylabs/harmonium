@@ -105,6 +105,7 @@ export function initializeModal() {
     const closeButton = modal.querySelector('.rev-CloseButton')
 
     closeButton.addEventListener('click', (e) => {
+      e.stopPropagation()
       closeModal(modal)
     })
   }
