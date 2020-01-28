@@ -78,6 +78,7 @@ export function initializeAccordianComponents() {
 export function openModal(modalElement) {
   if (modalElement) {
     modalElement.classList.add('rev-Modal--open')
+    modalElement.classList.remove('rev-Modal--closed')
   }
 }
 
@@ -89,6 +90,7 @@ export function openModal(modalElement) {
 export function closeModal(modalElement) {
   if (modalElement) {
     modalElement.classList.remove('rev-Modal--open')
+    modalElement.classList.add('rev-Modal--closed')
   }
 }
 
@@ -285,5 +287,4 @@ export function initializeAllComponents() {
   initializeDrawerComponents()
   initializeSliderComponents()
   initializeExpandingColumnComponents()
-  initializeStickyComponents()
 }
