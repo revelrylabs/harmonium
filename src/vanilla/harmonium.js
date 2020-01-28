@@ -228,6 +228,52 @@ export function initializeSliderComponents() {
 }
 
 /**
+ * Opens the given Expanding Column component.
+ * @param {HTMLElement} expandingColumnComponent The expanding column component to open
+ * @returns {void}
+ */
+export function openExpandingColumn(expandingColumnComponent) {
+  expandingColumnComponent.classList.remove('is-closed')
+  expandingColumnComponent.classList.add('is-open')
+}
+
+/**
+ * Closes the given Expanding Column component.
+ * @param {HTMLElement} expandingColumnComponent The expanding column component to close
+ * @returns {void}
+ */
+export function closeExpandingColumn(expandingColumnComponent) {
+  expandingColumnComponent.classList.add('is-closed')
+  expandingColumnComponent.classList.remove('is-open')
+}
+
+/**
+ * Initializes all expanding column components on page
+ * @returns {void}
+ */
+export function initializeExpandingColumnComponents() {
+  const expandingColumns = document.querySelectorAll('.rev-ExpandingCol-pane')
+
+  for (let i = 0; i < expandingColumns.length; i++) {
+    const expandingColumnComponent = expandingColumns[i]
+
+    const expander = expandingColumnComponent.querySelector(
+      '.rev-ExpandingCol-expander'
+    )
+
+    expander.addEventListener('click', (e) => {
+      e.preventDefault()
+
+      if (expandingColumnComponent.classList.contains('is-closed')) {
+        openExpandingColumn(expandingColumnComponent)
+      } else {
+        closeExpandingColumn(expandingColumnComponent)
+      }
+    })
+  }
+}
+
+/**
  * Initializes all Harmonium components on page.
  * @returns {void}
  */
@@ -238,4 +284,5 @@ export function initializeAllComponents() {
   initializeTabsComponents()
   initializeDrawerComponents()
   initializeSliderComponents()
+  initializeExpandingColumnComponents()
 }
