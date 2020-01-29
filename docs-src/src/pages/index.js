@@ -132,7 +132,7 @@ export default class MyComponent extends Component {
 </div>`}
             </code>
           </pre>
-        <p>To add interactivity, make sure to include the JavaScript</p>
+        <p>A vanilla JavaScript file to use without React can be found at <code>src/vanilla/harmonium.js</code> inside of the Harmonium package. To add interactivity, make sure to include it on your page.</p>
         <pre>
             <code className="language-html">
             {`<script type="module">
