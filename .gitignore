@@ -15,3 +15,5 @@ api.json
 /api
 .idea
 /sass-test/*.css
+/src/vanilla/index.html
+/src/vanilla/harmonium.css

@@ -132,6 +132,18 @@ export default class MyComponent extends Component {
 </div>`}
             </code>
           </pre>
+        <p>A vanilla JavaScript file to use without React can be found at <code>src/vanilla/harmonium.js</code> inside of the Harmonium package. To add interactivity, make sure to include it on your page.</p>
+        <pre>
+            <code className="language-html">
+            {`<script type="module">
+  import {initializeAllComponents} from '/path/to/harmonium.js';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    initializeAllComponents()
+  })
+</script>`}
+            </code>
+        </pre>
         <p>
           For more, see the component documentation listed to the left.
         </p>
