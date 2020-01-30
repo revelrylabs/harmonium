@@ -20,6 +20,16 @@
           "format": "css/variables"
         }
       ]
+    },
+    "docs": {
+      "transformGroup": "docs",
+      "buildPath": "./docs-src/",
+      "files": [
+        {
+          "destination": "designTokens.js",
+          "format": "javascript/module"
+        }
+      ]
     }
   }
 }

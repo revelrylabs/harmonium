@@ -37,6 +37,14 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
+            <h5>Design Tokens</h5>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/">Design Tokens</a>
+          </Menu.Item>
+        </Menu>
+        <Menu vertical>
+          <Menu.Item text>
             <h5>Grid</h5>
           </Menu.Item>
           <Menu.Item>

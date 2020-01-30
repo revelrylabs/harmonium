@@ -5,6 +5,11 @@ const fs = require('fs')
 const archiver = require('archiver')
 
 function buildDesignTokens() {
+  StyleDictionary.registerTransformGroup({
+    name: 'docs',
+    transforms: ['attribute/cti', 'name/cti/kebab', 'size/rem', 'color/css'],
+  })
+
   // APPLY THE CONFIGURATION
   // IMPORTANT: the registration of custom transforms
   // needs to be done _before_ applying the configuration
