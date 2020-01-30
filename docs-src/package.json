@@ -8,7 +8,6 @@
     "@babel/preset-env": "^7.5.5",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-preset-gatsby": "^0.2.27",
-    "component-playground": "^3.2.1",
     "gatsby": "^2.19.2",
     "gatsby-cli": "^2.7.26",
     "gatsby-image": "^2.2.8",
