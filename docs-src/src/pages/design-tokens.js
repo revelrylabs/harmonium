@@ -64,27 +64,122 @@ function ColorRows(){
 }
 
 function Colors() {
-
-
-
-  return          (
+  return (
     <React.Fragment>
       <h2>Colors</h2>
-<Table>
-  <Table.Head>
-    <Table.Row>
-      <Table.Header>
-        Token
-      </Table.Header>
-      <Table.Header>
-        Value
-      </Table.Header>
-    </Table.Row>
-  </Table.Head>
-  <Table.Body>
-    {ColorRows()}
-  </Table.Body>
-</Table>
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            <Table.Header>
+              Token
+            </Table.Header>
+            <Table.Header>
+              Value
+            </Table.Header>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {ColorRows()}
+        </Table.Body>
+      </Table>
+    </React.Fragment>
+  )
+}
+
+function FontSizeRows(){
+  const rows = []
+  const fontSizes = DesignTokens.font.size
+
+  for(const font in fontSizes){
+    const exampleStyle = {
+      fontSize: fontSizes[font].value,
+    };
+
+    rows.push(<Table.Row>
+      <Table.Data>
+        <Table.HeaderInline>Token:</Table.HeaderInline>
+          <pre>${fontSizes[font].name}</pre>
+          <p><i>{fontSizes[font].comment}</i></p>
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Value:</Table.HeaderInline>
+        <div style={exampleStyle}>Harmonium</div>
+        <pre>{fontSizes[font].value}</pre>
+      </Table.Data>
+    </Table.Row>)
+  }
+
+  return rows
+}
+
+function FontSizes() {
+  return (
+    <React.Fragment>
+      <h2>Font Sizes</h2>
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            <Table.Header>
+              Token
+            </Table.Header>
+            <Table.Header>
+              Value
+            </Table.Header>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {FontSizeRows()}
+        </Table.Body>
+      </Table>
+    </React.Fragment>
+  )
+}
+
+function FontRows(){
+  const rows = []
+  const fontFamilies = DesignTokens.font.family
+
+  for(const font in fontFamilies){
+    const exampleStyle = {
+      fontFamily: fontFamilies[font].value,
+    };
+
+    rows.push(<Table.Row>
+      <Table.Data>
+        <Table.HeaderInline>Token:</Table.HeaderInline>
+          <pre>${fontFamilies[font].name}</pre>
+          <p><i>{fontFamilies[font].comment}</i></p>
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Value:</Table.HeaderInline>
+        <div style={exampleStyle}>Harmonium</div>
+        <pre>{fontFamilies[font].value}</pre>
+      </Table.Data>
+    </Table.Row>)
+  }
+
+  return rows
+}
+
+function Fonts() {
+  return (
+    <React.Fragment>
+      <h2>Fonts</h2>
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            <Table.Header>
+              Token
+            </Table.Header>
+            <Table.Header>
+              Value
+            </Table.Header>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          {FontRows()}
+        </Table.Body>
+      </Table>
     </React.Fragment>
   )
 }
@@ -97,6 +192,8 @@ function DesignTokensPage({location}) {
         </Col>
         <Col>
           <Colors />
+          <Fonts />
+          <FontSizes />
         </Col>
       </Row>
     </Layout>

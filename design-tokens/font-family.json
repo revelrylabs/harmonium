@@ -1,1 +1,15 @@
-{}
+{
+  "font": {
+    "family": {
+      "monospace": {
+        "value": "'Montserrat', sans-serif"
+      },
+      "serif": {
+        "value": "'Georgia', serif"
+      },
+      "sans-serif": {
+        "value": "'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif"
+      }
+    }
+  }
+}
