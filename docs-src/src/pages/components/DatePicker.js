@@ -46,7 +46,6 @@ export default class DatePickerExamplePage extends Component {
           examples={examples}
           depth={1}
           scope={scope}
-          disableHTMLPreview
         />
       </Layout>
     )

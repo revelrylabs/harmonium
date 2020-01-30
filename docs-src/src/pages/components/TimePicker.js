@@ -40,7 +40,6 @@ export default class TimePickerExamplePage extends Component {
           examples={examples}
           depth={1}
           scope={scope}
-          disableHTMLPreview
         />
       </Layout>
     )

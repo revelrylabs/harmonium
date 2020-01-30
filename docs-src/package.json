@@ -8,7 +8,6 @@
     "@babel/preset-env": "^7.5.5",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-preset-gatsby": "^0.2.27",
-    "component-playground": "^3.2.1",
     "gatsby": "^2.19.2",
     "gatsby-cli": "^2.7.26",
     "gatsby-image": "^2.2.8",
@@ -20,17 +19,20 @@
     "gatsby-plugin-sharp": "^2.2.9",
     "gatsby-source-filesystem": "^2.1.8",
     "gatsby-transformer-sharp": "^2.2.5",
+    "harmonium": "file:..",
     "node-sass": "^4.12.0",
     "prettier": "^1.5.2",
+    "prism-react-renderer": "^1.0.2",
     "prismjs": "^1.19.0",
     "prop-types": "^15.7.2",
     "raw-loader": "^4.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-live": "^2.2.2",
     "react-router-dom": "^5.0.1",
-    "yarn": "^1.17.3",
-    "harmonium": "file:.."
+    "react-syntax-highlighter": "^12.2.1",
+    "yarn": "^1.17.3"
   },
   "keywords": [
     "gatsby"
