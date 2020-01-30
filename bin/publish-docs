@@ -1,0 +1,12 @@
+#!/bin/bash
+
+set -x
+set -e
+
+npm install
+
+npm run build
+
+npm install --prefix docs-src
+
+npm run build --prefix docs-src
