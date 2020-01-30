@@ -5,8 +5,7 @@ import Headers from '../../Headers'
 import Layout from '../../layouts/index.js'
 
 const examples = {
-  Basic: require('raw-loader!../../examples/Icon/Basic.js.example'),
-  Foundation: require('raw-loader!../../examples/Icon/Foundation.js.example'),
+  Basic: require('raw-loader!../../examples/Icon/Basic.js.example')
 }
 
 export default class IconExamplePage extends Component {
