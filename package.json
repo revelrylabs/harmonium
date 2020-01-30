@@ -27,7 +27,8 @@
     "prepare": "npm run clean && npm run babel",
     "test": "bin/test",
     "fix": "./node_modules/.bin/eslint --fix src/** docs-src/src/**",
-    "sass-test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css"
+    "sass-test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css",
+    "build:design-tokens": "style-dictionary build --config ./design-tokens/config.json"
   },
   "keywords": [],
   "author": {
@@ -86,6 +87,7 @@
     "react-test-renderer": ">=15.0.0",
     "semantic-release": "^17.0.1",
     "sinon": "^8.1.1",
+    "style-dictionary": "^2.8.3",
     "timekeeper": "^2.0.0"
   },
   "nyc": {
