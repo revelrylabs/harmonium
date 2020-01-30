@@ -17,3 +17,5 @@ api.json
 /sass-test/*.css
 /src/vanilla/index.html
 /src/vanilla/harmonium.css
+/settings-templates/_design-tokens.scss
+/settings-templates/design-tokens.css

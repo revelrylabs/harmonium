@@ -6,7 +6,7 @@
       "buildPath": "./settings-templates/",
       "files": [
         {
-          "destination": "_variables.scss",
+          "destination": "_design-tokens.scss",
           "format": "scss/variables"
         }
       ]
@@ -16,7 +16,7 @@
       "buildPath": "./settings-templates/",
       "files": [
         {
-          "destination": "variables.css",
+          "destination": "design-tokens.css",
           "format": "css/variables"
         }
       ]
