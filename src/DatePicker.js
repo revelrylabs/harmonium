@@ -34,7 +34,9 @@ function goodDateInput() {
  */
 
 const isFirefox = () => {
-  return /Firefox/i.test(navigator.userAgent)
+  return (
+    typeof navigator !== 'undefined' && /Firefox/i.test(navigator.userAgent)
+  )
 }
 
 /** A DatePicker component containing inputs and a calendar. */
@@ -189,7 +191,7 @@ class UncontrolledDatePicker extends React.Component {
       // Force the input to be focused again (so that we don't immediately close
       // the calendar because the button click makes us not focused on the input)
       this.refocus()
-    });
+    })
   }
 
   /**
