@@ -22,7 +22,7 @@ export default class Icon extends Component {
 
     const newClassName = classNames(
       className,
-      `fi-${iconName}`,
+      iconName,
       'rev-Icon',
       `rev-Icon--${iconName}`
     )
