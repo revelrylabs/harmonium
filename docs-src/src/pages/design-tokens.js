@@ -9,14 +9,14 @@ function sortByName(itemA, itemB) {
   var nameA = itemA.name.toUpperCase(); // ignore upper and lowercase
   var nameB = itemB.name.toUpperCase(); // ignore upper and lowercase
   if (nameA < nameB) {
-    return -1;
+    return -1
   }
   if (nameA > nameB) {
-    return 1;
+    return 1
   }
 
   // names must be equal
-  return 0;
+  return 0
 }
 
 function flattenDesignTokens(category){
@@ -184,7 +184,7 @@ function Fonts() {
   )
 }
 
-function BorderRadiusRows () {
+function BorderRadiusRows() {
 
   const rows = []
   const radii = DesignTokens.border.radius
@@ -197,7 +197,8 @@ function BorderRadiusRows () {
       border: '1px solid #22222222',
     };
 
-    rows.push(<Table.Row>
+    rows.push (
+    <Table.Row>
       <Table.Data>
         <Table.HeaderInline>Token:</Table.HeaderInline>
           <pre>${radii[radius].name}</pre>
@@ -208,7 +209,8 @@ function BorderRadiusRows () {
         <div style={exampleStyle}></div>
         <pre>{radii[radius].value}</pre>
       </Table.Data>
-    </Table.Row>)
+    </Table.Row>
+    )
   }
 
   return rows
@@ -233,6 +235,34 @@ function BorderRadius() {
 }
 
 
+function ZIndexRows() {
+  
+  const rows = []
+  const zIndices = DesignTokens["z-index"]
+
+  for (const index in zIndices) {
+    const exampleStyle = {
+      zIndex: zIndices[index].value
+    };
+
+    rows.push (
+      <Table.Row>
+        <Table.Data>
+          <Table.HeaderInline>Token:</Table.HeaderInline>
+            <pre>${zIndices[index].name}</pre>
+            <p><i>{zIndices[index].comment}</i></p>
+        </Table.Data>
+        <Table.Data>
+          <Table.HeaderInline>Value:</Table.HeaderInline>
+          <pre>{zIndices[index].value}</pre>
+        </Table.Data>
+      </Table.Row>
+      )
+    }
+
+    return rows
+}
+
 function ZIndex() {
   return (
     <React.Fragment>
@@ -244,7 +274,7 @@ function ZIndex() {
             <Table.Header>Value</Table.Header>
           </Table.Row>
         </Table.Head>
-        <Table.Body></Table.Body>
+        <Table.Body>{ZIndexRows()}</Table.Body>
       </Table>
     </React.Fragment>
   )
@@ -299,6 +329,7 @@ function DesignTokensPage({location}) {
           <Fonts />
           <FontSizes />
           <BorderRadius />
+          <ZIndex />
         </Col>
       </Row>
     </Layout>
