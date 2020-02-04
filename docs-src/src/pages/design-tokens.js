@@ -72,17 +72,11 @@ function Colors() {
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>
-              Token
-            </Table.Header>
-            <Table.Header>
-              Value
-            </Table.Header>
+            <Table.Header>Token</Table.Header>
+            <Table.Header>Value</Table.Header>
           </Table.Row>
         </Table.Head>
-        <Table.Body>
-          {ColorRows()}
-        </Table.Body>
+        <Table.Body>{ColorRows()}</Table.Body>
       </Table>
     </React.Fragment>
   )
@@ -121,17 +115,11 @@ function FontSizes() {
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>
-              Token
-            </Table.Header>
-            <Table.Header>
-              Value
-            </Table.Header>
+            <Table.Header>Token</Table.Header>
+            <Table.Header>Value</Table.Header>
           </Table.Row>
         </Table.Head>
-        <Table.Body>
-          {FontSizeRows()}
-        </Table.Body>
+        <Table.Body>{FontSizeRows()}</Table.Body>
       </Table>
     </React.Fragment>
   )
@@ -171,14 +159,10 @@ function Fonts() {
         <Table.Head>
           <Table.Row>
             <Table.Header>Token</Table.Header>
-            <Table.Header>
-              Value
-            </Table.Header>
+            <Table.Header>Value</Table.Header>
           </Table.Row>
         </Table.Head>
-        <Table.Body>
-          {FontRows()}
-        </Table.Body>
+        <Table.Body>{FontRows()}</Table.Body>
       </Table>
     </React.Fragment>
   )
@@ -194,7 +178,7 @@ function BorderRadiusRows() {
       borderRadius: radii[radius].value,
       width: '10rem',
       height: '3rem',
-      border: '1px solid #22222222',
+      border: '1px solid black',
     };
 
     rows.push (
@@ -234,7 +218,7 @@ function BorderRadius() {
   )
 }
 
-
+// TODO is exampleStyle necessary here?  How can I eliminate this useless thang
 function ZIndexRows() {
   
   const rows = []
@@ -280,6 +264,8 @@ function ZIndex() {
   )
 }
 
+
+// TODO fix name not being displayed at same spacing as value!
 function SpacingRows() {
 
   const rows = []
