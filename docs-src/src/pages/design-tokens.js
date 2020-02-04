@@ -137,11 +137,11 @@ function FontSizes() {
   )
 }
 
-function FontRows(){
+function FontRows() {
   const rows = []
   const fontFamilies = DesignTokens.font.family
 
-  for(const font in fontFamilies){
+  for (const font in fontFamilies) {
     const exampleStyle = {
       fontFamily: fontFamilies[font].value,
     };
@@ -170,9 +170,7 @@ function Fonts() {
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>
-              Token
-            </Table.Header>
+            <Table.Header>Token</Table.Header>
             <Table.Header>
               Value
             </Table.Header>
@@ -186,6 +184,110 @@ function Fonts() {
   )
 }
 
+function BorderRadiusRows () {
+
+  const rows = []
+  const radii = DesignTokens.border.radius
+
+  for (const radius in radii) {
+    const exampleStyle = {
+      borderRadius: radii[radius].value,
+      width: '10rem',
+      height: '3rem',
+      border: '1px solid #22222222',
+    };
+
+    rows.push(<Table.Row>
+      <Table.Data>
+        <Table.HeaderInline>Token:</Table.HeaderInline>
+          <pre>${radii[radius].name}</pre>
+          <p><i>{radii[radius].comment}</i></p>
+      </Table.Data>
+      <Table.Data>
+        <Table.HeaderInline>Value:</Table.HeaderInline>
+        <div style={exampleStyle}></div>
+        <pre>{radii[radius].value}</pre>
+      </Table.Data>
+    </Table.Row>)
+  }
+
+  return rows
+
+}
+
+function BorderRadius() {
+  return (
+    <React.Fragment>
+      <h2>Border Radius</h2>
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            <Table.Header>Token</Table.Header>
+            <Table.Header>Value</Table.Header>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>{BorderRadiusRows()}</Table.Body>
+      </Table>
+    </React.Fragment>
+  )
+}
+
+
+function ZIndex() {
+  return (
+    <React.Fragment>
+      <h2>Z-Index</h2>
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            <Table.Header>Token</Table.Header>
+            <Table.Header>Value</Table.Header>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body></Table.Body>
+      </Table>
+    </React.Fragment>
+  )
+}
+
+function Spacing() {
+  return (
+    <React.Fragment>
+      <h2>Spacing</h2>
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            <Table.Header>Token</Table.Header>
+            <Table.Header>Value</Table.Header>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>
+          <div style={DesignTokens.Spacing.value} />
+        </Table.Body>
+      </Table>
+    </React.Fragment>
+  )
+}
+
+// function Shadows() {
+//   return (
+//     <React.Fragment>
+//       <h2>Shadows</h2>
+//       <Table>
+//         <Table.Head>
+//           <Table.Row>
+//             <Table.Header>Token</Table.Header>
+//             <Table.Header>Value</Table.Header>
+//           </Table.Row>
+//         </Table.Head>
+//         <Table.Body>
+//           <div style={} />
+//         </Table.Body>
+//       </Table>
+//     </React.Fragment>
+//   )
+// }
+
 function DesignTokensPage({location}) {
   return <Layout location={location}>
       <Row>
@@ -196,6 +298,7 @@ function DesignTokensPage({location}) {
           <Colors />
           <Fonts />
           <FontSizes />
+          <BorderRadius />
         </Col>
       </Row>
     </Layout>
