@@ -254,7 +254,7 @@ function ZIndexRows() {
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <pre>{zIndices[index].value}</pre>
+          <pre>${zIndices[index].value}</pre>
         </Table.Data>
       </Table.Row>
       )
@@ -280,6 +280,37 @@ function ZIndex() {
   )
 }
 
+function SpacingRows() {
+
+  const rows = []
+  const spaces = DesignTokens.spacing
+
+  for (const space in spaces) {
+    const exampleStyle = {
+      spacing: spaces[space].value,
+      height: spaces[space].value,
+      width: spaces[space].value,
+    };
+
+    rows.push (
+      <Table.Row>
+        <Table.Data>
+          <Table.HeaderInline>Token:</Table.HeaderInline>
+          <pre>${spaces[space].name}</pre>
+          <p><i>{spaces[space].comment}</i></p>
+        </Table.Data>
+        <Table.Data>
+          <Table.HeaderInline>Value:</Table.HeaderInline>
+          <div style={exampleStyle}></div>
+          <pre>${spaces[space].value}</pre>
+        </Table.Data>
+      </Table.Row>
+    )
+  }
+
+  return rows
+}
+
 function Spacing() {
   return (
     <React.Fragment>
@@ -292,7 +323,7 @@ function Spacing() {
           </Table.Row>
         </Table.Head>
         <Table.Body>
-          <div style={DesignTokens.Spacing.value} />
+          {SpacingRows()}
         </Table.Body>
       </Table>
     </React.Fragment>
@@ -330,6 +361,7 @@ function DesignTokensPage({location}) {
           <FontSizes />
           <BorderRadius />
           <ZIndex />
+          <Spacing />
         </Col>
       </Row>
     </Layout>
