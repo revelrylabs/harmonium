@@ -324,7 +324,7 @@ function ShadowRows() {
       shadowing: shadows[shadow].value,
       width: '10rem',
       height: '3rem',
-      border: '1px solid black'
+      border: '1px solid black',
     };
 
     rows.push (
@@ -337,7 +337,7 @@ function ShadowRows() {
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
           <div style={exampleStyle}></div>
-          {/* <pre>${shadows[shadow].value}</pre> */}
+          <pre>${shadows[shadow].value}</pre>
         </Table.Data>
       </Table.Row>
     )
@@ -363,6 +363,52 @@ function Shadows() {
   )
 }
 
+function FontWeightRows() {
+
+  const rows = []
+  const fontWeights = DesignTokens.font
+
+  for (const weight in fontWeights) {
+    const exampleStyle = {
+      fontWeight: fontWeights[weight].value,
+    };
+
+    rows.push(
+      <Table.Row>
+        <Table.Data>
+          <Table.HeaderInline>Token:</Table.HeaderInline>
+            <pre>${fontWeights[weight].name}</pre>
+            <p><i>{fontWeights[weight].comment}</i></p>
+        </Table.Data>
+        <Table.Data>
+          <Table.HeaderInline>Value:</Table.HeaderInline>
+          <div style={exampleStyle}>The quick brown fox jumped over the lazy dog.</div>
+          <pre>{fontWeights[weight].value}</pre>
+        </Table.Data>
+      </Table.Row>
+    )
+  }
+
+  return rows
+}
+
+function FontWeight() {
+  return (
+    <React.Fragment>
+      <h2>Font Weights</h2>
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            <Table.Header>Token</Table.Header>
+            <Table.Header>Value</Table.Header>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>{FontWeightRows()}</Table.Body>
+      </Table>
+    </React.Fragment>
+  )
+}
+
 function DesignTokensPage({location}) {
   return <Layout location={location}>
       <Row>
@@ -377,6 +423,7 @@ function DesignTokensPage({location}) {
           <ZIndex />
           <Spacing />
           <Shadows />
+          <FontWeight />
         </Col>
       </Row>
     </Layout>
