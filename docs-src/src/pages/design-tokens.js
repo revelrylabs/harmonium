@@ -308,32 +308,60 @@ function Spacing() {
             <Table.Header>Value</Table.Header>
           </Table.Row>
         </Table.Head>
-        <Table.Body>
-          {SpacingRows()}
-        </Table.Body>
+        <Table.Body>{SpacingRows()}</Table.Body>
       </Table>
     </React.Fragment>
   )
 }
 
-// function Shadows() {
-//   return (
-//     <React.Fragment>
-//       <h2>Shadows</h2>
-//       <Table>
-//         <Table.Head>
-//           <Table.Row>
-//             <Table.Header>Token</Table.Header>
-//             <Table.Header>Value</Table.Header>
-//           </Table.Row>
-//         </Table.Head>
-//         <Table.Body>
-//           <div style={} />
-//         </Table.Body>
-//       </Table>
-//     </React.Fragment>
-//   )
-// }
+function ShadowRows() {
+  
+  const rows = []
+  const shadows = DesignTokens.shadow
+
+  for (const shadow in shadows) {
+    const exampleStyle = {
+      shadowing: shadows[shadow].value,
+      width: '10rem',
+      height: '3rem',
+      border: '1px solid black'
+    };
+
+    rows.push (
+      <Table.Row>
+        <Table.Data>
+          <Table.HeaderInline>Token:</Table.HeaderInline>
+          <pre>${shadows[shadow].name}</pre>
+          <p><i>{shadows[shadow].comment}</i></p>
+        </Table.Data>
+        <Table.Data>
+          <Table.HeaderInline>Value:</Table.HeaderInline>
+          <div style={exampleStyle}></div>
+          {/* <pre>${shadows[shadow].value}</pre> */}
+        </Table.Data>
+      </Table.Row>
+    )
+  }
+
+  return rows
+}
+
+function Shadows() {
+  return (
+    <React.Fragment>
+      <h2>Shadows</h2>
+      <Table>
+        <Table.Head>
+          <Table.Row>
+            <Table.Header>Token</Table.Header>
+            <Table.Header>Value</Table.Header>
+          </Table.Row>
+        </Table.Head>
+        <Table.Body>{ShadowRows()}</Table.Body>
+      </Table>
+    </React.Fragment>
+  )
+}
 
 function DesignTokensPage({location}) {
   return <Layout location={location}>
@@ -348,6 +376,7 @@ function DesignTokensPage({location}) {
           <BorderRadius />
           <ZIndex />
           <Spacing />
+          <Shadows />
         </Col>
       </Row>
     </Layout>
