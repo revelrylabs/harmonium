@@ -317,7 +317,7 @@ function Spacing() {
 function ShadowRows() {
   
   const rows = []
-  const shadows = DesignTokens.shadow
+  const shadows = DesignTokens.box.shadow
 
   for (const shadow in shadows) {
     const exampleStyle = {
@@ -366,7 +366,7 @@ function Shadows() {
 function FontWeightRows() {
 
   const rows = []
-  const fontWeights = DesignTokens.font
+  const fontWeights = DesignTokens.font.weight
 
   for (const weight in fontWeights) {
     const exampleStyle = {
