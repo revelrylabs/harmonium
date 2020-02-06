@@ -23,7 +23,6 @@
     "clean": "rm -rf lib/",
     "babel": "babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel && node build.js",
-    "prepare": "npm run clean && npm run babel",
     "test": "bin/test",
     "fix": "eslint --fix src/** docs-src/src/**",
     "sass-test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css"
