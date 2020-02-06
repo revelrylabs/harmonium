@@ -238,7 +238,7 @@ function ZIndexRows() {
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <pre>${zIndices[index].value}</pre>
+          <pre>{zIndices[index].value}</pre>
         </Table.Data>
       </Table.Row>
       )
@@ -273,7 +273,6 @@ function SpacingRows() {
 
   for (const space in spaces) {
     const exampleStyle = {
-      spacing: spaces[space].value,
       height: spaces[space].value,
       width: spaces[space].value,
     };
@@ -288,7 +287,7 @@ function SpacingRows() {
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
           <div style={exampleStyle}></div>
-          <pre>${spaces[space].value}</pre>
+          <pre>{spaces[space].value}</pre>
         </Table.Data>
       </Table.Row>
     )
@@ -321,7 +320,6 @@ function ShadowRows() {
 
   for (const shadow in shadows) {
     const exampleStyle = {
-      shadowing: shadows[shadow].value,
       width: '10rem',
       height: '3rem',
       border: '1px solid black',
@@ -338,7 +336,7 @@ function ShadowRows() {
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
           <div style={exampleStyle}></div>
-          <pre>${shadows[shadow].value}</pre>
+          <pre>{shadows[shadow].value}</pre>
         </Table.Data>
       </Table.Row>
     )
