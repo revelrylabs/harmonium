@@ -325,6 +325,7 @@ function ShadowRows() {
       width: '10rem',
       height: '3rem',
       border: '1px solid black',
+      "box-shadow": shadows[shadow].value,
     };
 
     rows.push (
