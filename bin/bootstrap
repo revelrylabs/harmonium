@@ -1,0 +1,17 @@
+#!/bin/bash
+
+if which asdf >/dev/null; then
+    echo "Running asdf install"
+    asdf plugin-add nodejs https://github.com/asdf-vm/asdf-nodejs.git
+    asdf plugin update --all
+    asdf install
+else
+    echo "asdf not found. Please make sure it is installed by following directions below and try again"
+    echo "https://github.com/asdf-vm/asdf"
+    exit 1
+fi
+
+echo "Installing node dependencies"
+npm install
+npm install --prefix docs-src
+npm run build
