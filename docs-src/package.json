@@ -18,6 +18,7 @@
     "gatsby-plugin-sass": "^2.1.4",
     "gatsby-plugin-sharp": "^2.2.9",
     "gatsby-source-filesystem": "^2.1.8",
+    "gatsby-transformer-remark": "^2.6.50",
     "gatsby-transformer-sharp": "^2.2.5",
     "harmonium": "file:..",
     "node-sass": "^4.12.0",
