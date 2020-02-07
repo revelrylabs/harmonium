@@ -1,7 +1,5 @@
 const StyleDictionary = require('style-dictionary')
-
 const fs = require('fs')
-
 const archiver = require('archiver')
 
 function fileHeader(options, commentStyle) {
