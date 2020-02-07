@@ -42,6 +42,15 @@ export default function Navigation() {
           <Menu.Item>
             <a href="/guidelines/overview/">Overview</a>
           </Menu.Item>
+          <Menu.Item>
+            <a href="/guidelines/markup/">Markup</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/guidelines/color/">Color</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/guidelines/typography/">Typography</a>
+          </Menu.Item>
         </Menu>
         <Menu vertical>
           <Menu.Item text>

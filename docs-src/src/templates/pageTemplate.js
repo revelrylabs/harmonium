@@ -13,6 +13,7 @@ export default function Template({
     <Row>
       <Col>
       <h1>{frontmatter.title}</h1>
+      <hr/>
       <div
           dangerouslySetInnerHTML={{ __html: html }}
         />
