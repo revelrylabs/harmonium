@@ -1,0 +1,40 @@
+// default component vars listed at the top of the component stylesheet
+// those vars are transferred to rev-settings AND are commented out
+// this way updates can be made to a component by uncommenting settings vars
+$flash-background: $primary !default;
+$flash-border-size: 1px !default;
+$flash-border-color: $divider-color-dark !default;
+$flash-color: $white !default;
+$flash-padding: $global-padding-tiny 0;
+$flash-dismissible-padding-right: global-padding-tiny;
+$flash-margin: $global-margin;
+$flash-close-right: $global-padding-tiny;
+$flash-close-top: $global-padding-tiny;
+
+.rev-Flash {
+  @include color-management;
+  @include typography-contained;
+  background: $flash-background;
+  border: $flash-border-size solid $flash-border-color;
+  color: $flash-color;
+  margin-bottom: $flash-margin;
+  padding: $flash-padding;
+  position: relative;
+
+  &.rev-Flash--fade {
+    @include fade-out--hide();
+  }
+  &.rev-Flash--dismissible {
+    cursor: pointer;
+    padding-right: $flash-dismissible-padding-right;
+  }
+}
+
+.rev-FlashClose {
+  background: none;
+  border: none;
+  color: $flash-color;
+  position: absolute;
+  right: $flash-close-right;
+  top: $flash-close-top;
+}

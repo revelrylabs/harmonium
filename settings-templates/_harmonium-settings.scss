@@ -14,18 +14,18 @@ $breakpoints: (
   small: (min-width: $small),
   small-only: ((min-width: $small) and (max-width: $medium - 1)),
   medium: (min-width: $medium),
-  medium-down: ((max-width: $medium - 1)),
+  medium-down: ((max-width: $medium - 1 )),
   medium-only: ((min-width: $medium) and (max-width: $large - 1)),
   large: (min-width: $large),
   large-down: ((max-width: $large - 1)),
   large-only: ((min-width: $large) and (max-width: $xlarge - 1)),
   xlarge: (min-width: $xlarge),
-  xlarge-down: ((max-width: $xlarge - 1)),
+  xlarge-down: ((max-width: $xlarge)),
   xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge - 1)),
   xxlarge: (min-width: $xxlarge),
   global-width: (min-width: $global-width),
   nav: (min-width: $nav), // Desktop nav
-  nav-only: ((min-width: $small) and (max-width: $nav - 1)), // Mobile nav
+  nav-only: ((min-width: $small) and (max-width: $nav - 1)) // Mobile nav
 );
 
 // IMPORT FONTS HERE
@@ -79,7 +79,7 @@ $global-horizontal-space: $global-vertical-space; // 24px
 $base-size: 0.8rem;
 
 // Global Padding - made up of vertical spacing multiples
-$global-padding-tiny: $global-vertical-space / 4;  // 6px
+$global-padding-tiny: $global-vertical-space / 4; // 6px
 $global-padding-small: $global-vertical-space / 2; // 12px
 $global-padding: $global-vertical-space; // 24px
 $global-padding-large: $global-vertical-space * 2; // 48px
@@ -211,7 +211,6 @@ $stateful-item-color-selected: $anchor-color-active;
 $stateful-item-bkgd-disabled: $stateful-item-bkgd; // will have disabled-opacity
 $stateful-item-color-disabled: $stateful-item-color; // will have disabled-opacity
 
-
 //## LAYOUT ELEMENTS -----------------------------
 
 //# TopBar
@@ -310,6 +309,13 @@ $card-padding: 0;
 $card-radius: $global-radius;
 $card-header-background: $white;
 $card-footer-background: $white;
+
+//# Flashes
+$flash-background: $primary;
+$flash-border-size: 1px;
+$flash-border-color: $divider-color-dark;
+$flash-color: $white;
+$flash-padding: $global-vertical-space $global-horizontal-space;
 
 //# Modals
 $modal-bkgd: $black-40;

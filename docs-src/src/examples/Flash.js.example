@@ -1,0 +1,42 @@
+<Row>
+  <Col>
+    <h3>Utility Flashes</h3>
+  </Col>
+  <Col>
+    <Flash>
+      <Row> 
+        <Col> Default Flash  </Col>
+      </Row>
+    </Flash>
+    <Flash success>
+      <Row> 
+        <Col> Success Flash  </Col>
+      </Row>
+    </Flash>
+    <Flash warning>
+      <Row> 
+        <Col> Warning Flash  </Col>
+      </Row>
+    </Flash>
+    <Flash alert>
+      <Row> 
+        <Col> Alert Flash  </Col>
+      </Row>
+    </Flash>
+    <Flash persistent>
+      <Row> 
+        <Col> Persistent Flash  </Col>
+      </Row>
+    </Flash>
+    <Flash fade>
+      <Row> 
+        <Col> Flash that fades out after [X]s </Col>
+      </Row>    
+    </Flash>
+    <Flash dismissible>
+      <Row> 
+        <Col> Dismissible Flash </Col>
+      </Row>      
+    </Flash>
+  </Col>
+</Row>
