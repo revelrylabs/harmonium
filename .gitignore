@@ -4,6 +4,7 @@ lib/
 docs/**/*
 !docs/.keep
 npm-debug.log
+yarn-error.log
 /.nyc_output/*
 coverage/**/*
 docs-src/package-lock.json
@@ -14,3 +15,5 @@ api.json
 /api
 .idea
 /sass-test/*.css
+/src/vanilla/index.html
+/src/vanilla/harmonium.css

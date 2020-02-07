@@ -24,11 +24,13 @@ $modal-content-padding: 0 !default;
   @include global-transition(opacity);
   opacity: 0;
   z-index: $above-everything;
+
   &.rev-Modal--closed {
     // so we can move the modal out of the way so that it doesn't intercept
     // clicks while closed
     right: 9999vw;
   }
+
   &.rev-Modal--open {
     opacity: 1;
   }
@@ -50,6 +52,7 @@ $modal-content-padding: 0 !default;
   padding: $modal-content-padding;
   position: relative;
   width: 90%;
+
   .rev-Modal--open & {
     margin-top: 0;
   }

@@ -37,3 +37,10 @@ $tabs-content-padding: $global-padding 0 !default;
   border-top: 0;
   padding: $tabs-content-padding;
 }
+.rev-TabsItem-panel {
+  display: none;
+}
+
+.rev-TabsItem-panel--selected {
+  display: block;
+}

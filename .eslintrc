@@ -190,7 +190,7 @@
       2,
       {
         "min": 3,
-        "max": 32,
+        "max": 64,
         "properties": "never",
         "exceptions": [
           "i",

@@ -4,3 +4,4 @@ docs/**/*
 !docs/.keep
 npm-debug.log
 sass-test/
+docs-src/
