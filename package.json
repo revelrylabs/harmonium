@@ -24,7 +24,7 @@
     "babel": "babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel && node build.js",
     "test": "bin/test",
-    "fix": "eslint --fix src/** docs-src/src/**",
+    "fix": "eslint src/**/*.js docs-src/src/**/*.js --fix",
     "sass-test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css"
   },
   "keywords": [],

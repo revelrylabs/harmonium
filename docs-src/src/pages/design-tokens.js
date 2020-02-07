@@ -1,13 +1,15 @@
 import React from 'react'
 import Layout from '../layouts/index.js'
-import Row from 'harmonium/lib/Row';
-import Col from 'harmonium/lib/Col';
+import Row from 'harmonium/lib/Row'
+import Col from 'harmonium/lib/Col'
 import Table from 'harmonium/lib/Table'
 import DesignTokens from '../../designTokens'
 
 function sortByName(itemA, itemB) {
-  var nameA = itemA.name.toUpperCase(); // ignore upper and lowercase
-  var nameB = itemB.name.toUpperCase(); // ignore upper and lowercase
+  const nameA = itemA.name.toUpperCase() // ignore upper and lowercase
+
+  const nameB = itemB.name.toUpperCase() // ignore upper and lowercase
+
   if (nameA < nameB) {
     return -1
   }
@@ -19,24 +21,24 @@ function sortByName(itemA, itemB) {
   return 0
 }
 
-function flattenDesignTokens(category){
+function flattenDesignTokens(category) {
   let results = []
 
   for (const type in category) {
-    if(category[type].value){
+    if (category[type].value) {
       results.push(category[type])
     } else {
       results = results.concat(flattenDesignTokens(category[type]))
     }
   }
 
-  results.sort(sortByName);
+  results.sort(sortByName)
 
   return results
 }
 
-function ColorRows(){
-  const colors = flattenDesignTokens(DesignTokens.color);
+function ColorRows() {
+  const colors = flattenDesignTokens(DesignTokens.color)
   const rows = []
 
   for (let i = 0; i < colors.length; i++) {
@@ -45,21 +47,25 @@ function ColorRows(){
       width: '10rem',
       height: '3rem',
       border: '1px solid #22222222',
-      borderRadius: '3%'
-    };
+      borderRadius: '3%',
+    }
 
-    rows.push(<Table.Row>
-      <Table.Data>
-        <Table.HeaderInline>Token:</Table.HeaderInline>
+    rows.push(
+      <Table.Row>
+        <Table.Data>
+          <Table.HeaderInline>Token:</Table.HeaderInline>
           <pre>${colors[i].name}</pre>
-          <p><i>{colors[i].comment}</i></p>
-      </Table.Data>
-      <Table.Data>
-        <Table.HeaderInline>Value:</Table.HeaderInline>
-        <div style={exampleStyle}></div>
-        <pre>{colors[i].value}</pre>
-      </Table.Data>
-    </Table.Row>)
+          <p>
+            <i>{colors[i].comment}</i>
+          </p>
+        </Table.Data>
+        <Table.Data>
+          <Table.HeaderInline>Value:</Table.HeaderInline>
+          <div style={exampleStyle} />
+          <pre>{colors[i].value}</pre>
+        </Table.Data>
+      </Table.Row>
+    )
   }
 
   return rows
@@ -82,27 +88,31 @@ function Colors() {
   )
 }
 
-function FontSizeRows(){
+function FontSizeRows() {
   const rows = []
   const fontSizes = DesignTokens.font.size
 
-  for(const font in fontSizes){
+  for (const font in fontSizes) {
     const exampleStyle = {
       fontSize: fontSizes[font].value,
-    };
+    }
 
-    rows.push(<Table.Row>
-      <Table.Data>
-        <Table.HeaderInline>Token:</Table.HeaderInline>
+    rows.push(
+      <Table.Row>
+        <Table.Data>
+          <Table.HeaderInline>Token:</Table.HeaderInline>
           <pre>${fontSizes[font].name}</pre>
-          <p><i>{fontSizes[font].comment}</i></p>
-      </Table.Data>
-      <Table.Data>
-        <Table.HeaderInline>Value:</Table.HeaderInline>
-        <div style={exampleStyle}>Harmonium</div>
-        <pre>{fontSizes[font].value}</pre>
-      </Table.Data>
-    </Table.Row>)
+          <p>
+            <i>{fontSizes[font].comment}</i>
+          </p>
+        </Table.Data>
+        <Table.Data>
+          <Table.HeaderInline>Value:</Table.HeaderInline>
+          <div style={exampleStyle}>Harmonium</div>
+          <pre>{fontSizes[font].value}</pre>
+        </Table.Data>
+      </Table.Row>
+    )
   }
 
   return rows
@@ -132,20 +142,24 @@ function FontRows() {
   for (const font in fontFamilies) {
     const exampleStyle = {
       fontFamily: fontFamilies[font].value,
-    };
+    }
 
-    rows.push(<Table.Row>
-      <Table.Data>
-        <Table.HeaderInline>Token:</Table.HeaderInline>
+    rows.push(
+      <Table.Row>
+        <Table.Data>
+          <Table.HeaderInline>Token:</Table.HeaderInline>
           <pre>${fontFamilies[font].name}</pre>
-          <p><i>{fontFamilies[font].comment}</i></p>
-      </Table.Data>
-      <Table.Data>
-        <Table.HeaderInline>Value:</Table.HeaderInline>
-        <div style={exampleStyle}>Harmonium</div>
-        <pre>{fontFamilies[font].value}</pre>
-      </Table.Data>
-    </Table.Row>)
+          <p>
+            <i>{fontFamilies[font].comment}</i>
+          </p>
+        </Table.Data>
+        <Table.Data>
+          <Table.HeaderInline>Value:</Table.HeaderInline>
+          <div style={exampleStyle}>Harmonium</div>
+          <pre>{fontFamilies[font].value}</pre>
+        </Table.Data>
+      </Table.Row>
+    )
   }
 
   return rows
@@ -169,7 +183,6 @@ function Fonts() {
 }
 
 function BorderRadiusRows() {
-
   const rows = []
   const radii = DesignTokens.border.radius
 
@@ -179,26 +192,27 @@ function BorderRadiusRows() {
       width: '10rem',
       height: '3rem',
       border: '1px solid black',
-    };
+    }
 
-    rows.push (
-    <Table.Row>
-      <Table.Data>
-        <Table.HeaderInline>Token:</Table.HeaderInline>
+    rows.push(
+      <Table.Row>
+        <Table.Data>
+          <Table.HeaderInline>Token:</Table.HeaderInline>
           <pre>${radii[radius].name}</pre>
-          <p><i>{radii[radius].comment}</i></p>
-      </Table.Data>
-      <Table.Data>
-        <Table.HeaderInline>Value:</Table.HeaderInline>
-        <div style={exampleStyle}></div>
-        <pre>{radii[radius].value}</pre>
-      </Table.Data>
-    </Table.Row>
+          <p>
+            <i>{radii[radius].comment}</i>
+          </p>
+        </Table.Data>
+        <Table.Data>
+          <Table.HeaderInline>Value:</Table.HeaderInline>
+          <div style={exampleStyle} />
+          <pre>{radii[radius].value}</pre>
+        </Table.Data>
+      </Table.Row>
     )
   }
 
   return rows
-
 }
 
 function BorderRadius() {
@@ -220,31 +234,32 @@ function BorderRadius() {
 
 // TODO is exampleStyle necessary here?  How can I eliminate this useless thang
 function ZIndexRows() {
-  
   const rows = []
-  const zIndices = DesignTokens["z-index"]
+  const zIndices = DesignTokens['z-index']
 
   for (const index in zIndices) {
     const exampleStyle = {
-      zIndex: zIndices[index].value
-    };
+      zIndex: zIndices[index].value,
+    }
 
-    rows.push (
+    rows.push(
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-            <pre>${zIndices[index].name}</pre>
-            <p><i>{zIndices[index].comment}</i></p>
+          <pre>${zIndices[index].name}</pre>
+          <p>
+            <i>{zIndices[index].comment}</i>
+          </p>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
           <pre>{zIndices[index].value}</pre>
         </Table.Data>
       </Table.Row>
-      )
-    }
+    )
+  }
 
-    return rows
+  return rows
 }
 
 function ZIndex() {
@@ -264,10 +279,8 @@ function ZIndex() {
   )
 }
 
-
 // TODO fix name not being displayed at same spacing as value!
 function SpacingRows() {
-
   const rows = []
   const spaces = DesignTokens.spacing
 
@@ -275,18 +288,20 @@ function SpacingRows() {
     const exampleStyle = {
       height: spaces[space].value,
       width: spaces[space].value,
-    };
+    }
 
-    rows.push (
+    rows.push(
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
           <pre>${spaces[space].name}</pre>
-          <p><i>{spaces[space].comment}</i></p>
+          <p>
+            <i>{spaces[space].comment}</i>
+          </p>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle}></div>
+          <div style={exampleStyle} />
           <pre>{spaces[space].value}</pre>
         </Table.Data>
       </Table.Row>
@@ -314,28 +329,29 @@ function Spacing() {
 }
 
 function ShadowRows() {
-  
   const rows = []
   const shadows = DesignTokens.box.shadow
 
   for (const shadow in shadows) {
     const exampleStyle = {
-      width: '10rem',
+      "width": '10rem',
       height: '3rem',
-      border: '1px solid black',
-      "box-shadow": shadows[shadow].value,
-    };
+      'border': '1px solid black',
+      'box-shadow': shadows[shadow].value,
+    }
 
-    rows.push (
+    rows.push(
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
           <pre>${shadows[shadow].name}</pre>
-          <p><i>{shadows[shadow].comment}</i></p>
+          <p>
+            <i>{shadows[shadow].comment}</i>
+          </p>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle}></div>
+          <div style={exampleStyle} />
           <pre>{shadows[shadow].value}</pre>
         </Table.Data>
       </Table.Row>
@@ -363,25 +379,28 @@ function Shadows() {
 }
 
 function FontWeightRows() {
-
   const rows = []
   const fontWeights = DesignTokens.font.weight
 
   for (const weight in fontWeights) {
     const exampleStyle = {
       fontWeight: fontWeights[weight].value,
-    };
+    }
 
     rows.push(
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-            <pre>${fontWeights[weight].name}</pre>
-            <p><i>{fontWeights[weight].comment}</i></p>
+          <pre>${fontWeights[weight].name}</pre>
+          <p>
+            <i>{fontWeights[weight].comment}</i>
+          </p>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle}>The quick brown fox jumped over the lazy dog.</div>
+          <div style={exampleStyle}>
+            The quick brown fox jumped over the lazy dog.
+          </div>
           <pre>{fontWeights[weight].value}</pre>
         </Table.Data>
       </Table.Row>
@@ -409,9 +428,10 @@ function FontWeight() {
 }
 
 function DesignTokensPage({location}) {
-  return <Layout location={location}>
+  return (
+    <Layout location={location}>
       <Row>
-      <Col>
+        <Col>
           <h1>Design Tokens</h1>
         </Col>
         <Col>
@@ -426,8 +446,7 @@ function DesignTokensPage({location}) {
         </Col>
       </Row>
     </Layout>
+  )
 }
-
-
 
 export default DesignTokensPage

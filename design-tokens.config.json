@@ -3,11 +3,11 @@
   "platforms": {
     "scss": {
       "transformGroup": "scss",
-      "buildPath": "./settings-templates/",
+      "buildPath": "./scss/vars/",
       "files": [
         {
           "destination": "_design-tokens.scss",
-          "format": "scss/variables"
+          "format": "scss/variables/default"
         }
       ]
     },
