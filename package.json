@@ -22,10 +22,9 @@
   "scripts": {
     "clean": "rm -rf lib/",
     "babel": "node_modules/.bin/babel --source-maps -d lib/ src/",
-    "build": "npm run clean && npm run babel",
-    "prepare": "npm run clean && npm run babel",
+    "build": "npm run clean && npm run babel && node build.js",
     "test": "bin/test",
-    "fix": "./node_modules/.bin/eslint --fix src/** docs-src/src/**",
+    "fix": "eslint src/**/*.js docs-src/src/**/*.js --fix",
     "sass-test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css"
   },
   "keywords": [],
@@ -53,6 +52,7 @@
     "@semantic-release/changelog": "^5.0.0",
     "@semantic-release/git": "^9.0.0",
     "@semantic-release/npm": "^7.0.0",
+    "archiver": "^3.1.1",
     "babel-cli": "^6.24.1",
     "babel-eslint": "^10.0.1",
     "babel-plugin-istanbul": "^4.1.4",

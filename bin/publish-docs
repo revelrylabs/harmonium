@@ -9,4 +9,6 @@ npm run build
 
 npm install --prefix docs-src
 
+cp settings-templates/settings-templates.zip docs-src/static/settings-templates.zip
+
 npm run build --prefix docs-src
