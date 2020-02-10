@@ -6,6 +6,8 @@
   "dependencies": {
     "@babel/plugin-proposal-object-rest-spread": "^7.5.5",
     "@babel/preset-env": "^7.5.5",
+    "@mdx-js/mdx": "^1.5.5",
+    "@mdx-js/react": "^1.5.5",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-preset-gatsby": "^0.2.27",
     "gatsby": "^2.19.2",
@@ -13,6 +15,7 @@
     "gatsby-image": "^2.2.8",
     "gatsby-link": "^2.2.0",
     "gatsby-plugin-manifest": "^2.2.38",
+    "gatsby-plugin-mdx": "^1.0.70",
     "gatsby-plugin-offline": "^3.0.0",
     "gatsby-plugin-react-helmet": "^3.1.0",
     "gatsby-plugin-sass": "^2.1.4",
