@@ -1,6 +1,9 @@
 {
   "screen": {
     "width": {
+      "full": {
+        "value": "100%"
+      },
       "small": {
         "value": "0"
       },
