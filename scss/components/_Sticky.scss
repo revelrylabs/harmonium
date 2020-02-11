@@ -1,14 +1,14 @@
 // default component vars listed at the top of the component stylesheet
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
-$sticky-container-bkgd: $white 0 !default;
-$sticky-bkgd: $white 0 !default;
+$sticky-container-bkgd: $color-white 0 !default;
+$sticky-bkgd: $color-white 0 !default;
 
 .rev-Sticky {
   position: relative;
   background: $sticky-bkgd;
-  padding: $global-padding;
-  background-color: $primary;
+  padding: $padding-base;
+  background-color: $color-ui-primary;
   color: #fff;
 }
 

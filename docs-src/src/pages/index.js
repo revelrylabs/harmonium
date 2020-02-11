@@ -82,6 +82,7 @@ const IndexPage = ({location}) => {
               {`/* myapp.scss */
 @import 'wherever-your-styles-live/color-palette';
 @import 'wherever-your-styles-live/harmonium-settings';
+@import 'wherever-your-styles-live/harmonium-component-settings';
 @import '~/harmonium/scss/app';
 
 /* your styles here; */

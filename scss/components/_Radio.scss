@@ -3,10 +3,10 @@
   background: transparent;
   box-shadow: none;
   display: inline-block;
-  margin-bottom: $global-padding-tiny;
-  margin-right: $global-padding-tiny;
-  padding-bottom: $global-padding-small;
-  padding-top: $global-padding-small;
+  margin-bottom: $padding-tiny;
+  margin-right: $padding-tiny;
+  padding-bottom: $padding-small;
+  padding-top: $padding-small;
   width: auto;
   &:focus,
   &:active {
@@ -27,12 +27,12 @@
   @extend .rev-LabelText;
 }
 .rev-Radio-input {
-  margin-right: $global-padding-small;
+  margin-right: $padding-small;
 }
 .rev-Radio,
 .rev-Radio-input {
   ~ .rev-InputHelpText,
   ~ .rev-InputErrors {
-    margin-top: -$global-padding-tiny;
+    margin-top: -$padding-tiny;
   }
 }

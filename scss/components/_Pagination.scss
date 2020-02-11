@@ -1,4 +1,4 @@
-$pagination-radius: $global-radius !default;
+$pagination-radius: $border-radius-small !default;
 $pagination-dot-bkgd: transparent !default;
 $pagination-dot-color: $body-font-color !default;
 $pagination-link-bkgd: null !default;
@@ -13,47 +13,56 @@ $pagination-link-color-selected: null !default;
 .rev-PaginationWrapper {
   display: block;
 }
+
 .rev-Pagination {
   display: block;
   text-align: center;
 }
+
 .rev-Pagination-arrow,
 .rev-Pagination-number,
 .rev-Pagination-dots {
   @include navigation-color-mgmt;
   border-radius: $pagination-radius;
   display: inline-block;
-  font-size: $global-font-size-small;
-  margin: 0 $global-margin-tiny / 4;
+  font-size: $font-size-small;
+  margin: 0 $margin-tiny / 4;
+
   &--hidden {
     display: none;
   }
+
   a {
     background: $pagination-link-bkgd;
-    border: 1px solid $divider-color;
+    border: 1px solid $color-divider;
     border-radius: $pagination-radius;
     color: $pagination-link-color;
-    padding: $global-padding-tiny $global-padding-small;
+    padding: $padding-tiny $padding-small;
     text-align: center;
+
     &:hover {
       background-color: $pagination-link-bkgd-hover;
       color: $pagination-link-color-hover;
     }
+
     &:active,
     &:focus {
       background-color: $pagination-link-bkgd-active;
       color: $pagination-link-color-active;
     }
   }
+
   &[class*='--selected'] a {
     background-color: $pagination-link-bkgd-selected;
     color: $pagination-link-color-selected;
   }
 }
+
 .rev-Pagination-dots {
   background: $pagination-dot-bkgd;
   color: $pagination-dot-color;
 }
+
 .rev-PaginationWrapper-pageList {
   text-align: center;
 }

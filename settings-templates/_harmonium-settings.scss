@@ -1,403 +1,59 @@
-// Sizes
-$small: 0;
-$medium: 768px;
-$large: 1024px;
-$xlarge: 1200px;
-$xxlarge: 1440px;
-$nav: $medium;
 
-$global-width: 100%;
-$grid-row-width: $large;
+// Do not edit directly
+// Generated on Tue, 11 Feb 2020 18:36:39 GMT
 
-// Breakpoints
-$breakpoints: (
-  small: (min-width: $small),
-  small-only: ((min-width: $small) and (max-width: $medium - 1)),
-  medium: (min-width: $medium),
-  medium-down: ((max-width: $medium - 1)),
-  medium-only: ((min-width: $medium) and (max-width: $large - 1)),
-  large: (min-width: $large),
-  large-down: ((max-width: $large - 1)),
-  large-only: ((min-width: $large) and (max-width: $xlarge - 1)),
-  xlarge: (min-width: $xlarge),
-  xlarge-down: ((max-width: $xlarge - 1)),
-  xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge - 1)),
-  xxlarge: (min-width: $xxlarge),
-  global-width: (min-width: $global-width),
-  nav: (min-width: $nav), // Desktop nav
-  nav-only: ((min-width: $small) and (max-width: $nav - 1)), // Mobile nav
-);
-
-// IMPORT FONTS HERE
-
-// Global Fonts
-$global-monospace-font: 'Montserrat', sans-serif;
-$global-serif-font: 'Georgia', serif;
-$global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
-
-// we use the global-font-sizes for typographic utilities
-// AND to determine vertical spacing
-$global-font-size: 1.6rem;
-$global-font-size-tiny: $global-font-size * 0.5;
-$global-font-size-smaller: $global-font-size * 0.75;
-$global-font-size-small: $global-font-size * 0.875;
-$global-font-size-medium: $global-font-size * 1;
-$global-font-size-large: $global-font-size * 1.5;
-$global-font-size-larger: $global-font-size * 2;
-$global-font-size-largest: $global-font-size * 3;
-
-// Headers (rems or unit-less values only!)
-$h1: $global-font-size-largest;
-$h2: $global-font-size-larger;
-$h3: $global-font-size-large;
-$h4: $global-font-size-medium;
-$h5: $global-font-size;
-$h6: $global-font-size;
-//TODO: make sass map for header sizes with breakpoints for small/large
-
-$global-weight-light: 300;
-$global-weight-normal: 400;
-$global-weight-bold: 700;
-$global-lineheight: 1.5;
-$base-lineheight: $global-lineheight * $global-font-size;
-
-// Sizes - made up of vertical spacing multiples
-// common size vars for things like badges
-$size-tiny: 6px;
-$size-small: 12px;
-$size-default: 24px;
-$size-large: 48px;
-$size-larger: 64px;
-$size-largest: 128px;
-
-// GRID COLS - determines the number of columns in a grid
+$blur-enabled: blur(8px);
+$blur-disabled: blur(0);
+$border-radius-small: 3px;
+$border-radius-rounded: 100000px;
+$font-family-monospace: 'Montserrat', sans-serif;
+$font-family-serif: 'Georgia', serif;
+$font-family-sans-serif: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+$font-size-tiny: 0.474rem; // the smallest size of the font
+$font-size-smaller: 0.711rem; // a smaller font size
+$font-size-small: 1.067rem; // the small size of the font
+$font-size-medium: 1.6rem; // the medium size of the font
+$font-size-large: 2.4rem; // the large size of the font
+$font-size-larger: 3.6rem; // a larger font size
+$font-size-largest: 5.4rem; // the largest size of the font
+$font-size-base: 1.6rem; // the base size of the font
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$grid-row-width: 1024px;
+$grid-column-padding: 12px;
+$grid-gutter: 12px * 2;
 $grid-columns: 12;
-
-// Spacing
-$global-vertical-space: $global-font-size * $global-lineheight; // 24px
-$global-horizontal-space: $global-vertical-space; // 24px
-$base-size: 0.8rem;
-
-// Global Padding - made up of vertical spacing multiples
-$global-padding-tiny: $global-vertical-space / 4;  // 6px
-$global-padding-small: $global-vertical-space / 2; // 12px
-$global-padding: $global-vertical-space; // 24px
-$global-padding-large: $global-vertical-space * 2; // 48px
-$global-padding-larger: $global-vertical-space * 3; // 72px
-
-// Global Margin - made up of vertical spacing multiples
-$global-margin-tiny: $global-padding-tiny;
-$global-margin-small: $global-padding-small;
-$global-margin: $global-padding;
-$global-margin-large: $global-padding-large;
-$global-margin-larger: $global-padding-larger;
-
-// Grid
-$grid-column-padding: $global-padding-small;
-$grid-gutter: $grid-column-padding * 2;
-
-// Border Radiuses
-$global-radius: 3px;
-$global-rounded: 100000px;
-
-// Box Shadows
-$global-box-shadow: 0 1px 4px 0 $black-30;
-$global-box-shadow-hover: 0 2px 6px 0 $black-50;
-$global-box-shadow-active: 0 1px 2px 0 $black-30;
-
-// Body Vars
-$body-bkgd: $white;
-$body-font-color: $darker-gray;
-$body-font-family: $global-sans-serif-font;
-
-// Header Vars
-$header-color: $body-font-color;
-$header-font-family: $global-sans-serif-font;
-$header-font-style: normal;
-$header-font-weight: $global-weight-normal;
-
-$subheader-color: $header-color;
-$header-font-family: $global-sans-serif-font;
-$subheader-font-weight: $global-weight-normal;
-
-// Paragraph Vars
-$paragraph-lineheight: $global-lineheight;
-$paragraph-margin-bottom: $global-vertical-space;
-$paragraph-text-rendering: optimizeLegibility;
-
-// ANCHORS
-$anchor-color: $primary;
-$anchor-color-hover: darken($primary, 10%);
-$anchor-color-active: darken($primary, 15%);
-$anchor-color-inverse: $body-bkgd;
-$anchor-text-decoration: none;
-$anchor-text-decoration-hover: none;
-
-// BUTTONS
-$button-bkgd: $brand;
-$button-border: 0;
-$button-color: $white;
-$button-bkgd-hover: darken($brand, 5%);
-$button-color-hover: $white;
-$button-bkgd-active: darken($brand, 10%);
-$button-color-active: $white;
-$button-radius: $global-radius;
-
-$button-bkgd-secondary: transparent;
-$button-box-shadow-secondary: $brand;
-$button-color-secondary: $brand;
-$button-bkgd-secondary-hover: darken($brand, 5%);
-$button-box-shadow-secondary-hover: darken($brand, 5%);
-$button-color-secondary-hover: $white;
-$button-bkgd-secondary-active: darken($brand, 10%);
-$button-box-shadow-secondary-active: darken($brand, 10%);
-$button-color-secondary-active: $white;
-
-// CLOSE BUTTON
-$closebutton-bkgd: $darker-gray;
-$closebutton-color: $white;
-$closebutton-bkgd-hover: $black;
-$closebutton-color-hover: $white;
-$closebutton-bkgd-active: $black;
-$closebutton-color-active: $white;
-$closebutton-radius: $global-rounded;
-$closebutton-size: $size-large;
-
-// HR Vars
-$hr-width: $global-width;
-$hr-border: 1px solid $divider-color;
-$hr-margin: $global-padding-large auto;
-
-// Image Blur
-$image-blur: blur(8px);
-$no-image-blur: blur(0);
-
-// Disabled
-$disabled-opacity: 0.35;
-
-//## Color Mgmt for Navigational Components -----------------------------
-// ex: menus, pagination
-$navigation-bkgd: $white-0;
-// ^transparent by default so that the bkgd of the component shows through
-$navigation-color: $anchor-color;
-// # hover navigation colors
-$navigation-bkgd-hover: darken($navigation-bkgd, 3%);
-$navigation-color-hover: $anchor-color-hover;
-// # onClick navigation colors
-$navigation-bkgd-active: darken($navigation-bkgd, 6%);
-$navigation-color-active: $anchor-color-active;
-// # selected state colors are reversed
-$navigation-bkgd-selected: $navigation-color;
-$navigation-color-selected: $navigation-bkgd;
-// # disabled navigation
-$navigation-color-disabled: $disabled;
-$navigation-bkgd-disabled: $navigation-bkgd; // will have disabled-opacity
-
-//## Color Mgmt for Components with States -----------------------------
-// ex: tabs, accordions
-$stateful-item-bkgd: $white-0;
-// ^transparent by default so that the bkgd of the component shows through
-$stateful-item-color: $body-font-color;
-// hover state colors
-$stateful-item-bkgd-hover: $black-06;
-$stateful-item-color-hover: $anchor-color;
-// active state colors
-$stateful-item-bkgd-active: $black-10;
-$stateful-item-color-active: $anchor-color-active;
-// selected state colors
-$stateful-item-bkgd-selected: $black-10;
-$stateful-item-color-selected: $anchor-color-active;
-// disabled
-$stateful-item-bkgd-disabled: $stateful-item-bkgd; // will have disabled-opacity
-$stateful-item-color-disabled: $stateful-item-color; // will have disabled-opacity
-
-
-//## LAYOUT ELEMENTS -----------------------------
-
-//# TopBar
-$topbar-bkgd: $white;
-$topbar-border-color: $divider-color;
-$topbar-border-size: 1px;
-$topbar-color: $body-font-color;
-$topbar-height: $size-larger;
-$topbar-input-width: $size-largest;
-$topbar-link-bkgd: transparent;
-
-//# Drawer
-$drawer-width: 300px;
-$drawer-bkgd: $white;
-$mobile-nav-bkgd: $black;
-$drawer-height: 100%;
-$drawer-height-contained: 800px;
-$drawer-height-fixed: 100vh;
-$drawer-overlay-top-value: 0;
-
-//## NAVIGATION -----------------------------
-
-//# Menus
-$menu-bkgd: $white-0;
-$menu-text-bkgd: $navigation-bkgd;
-$menu-text-color: $body-font-color;
-// unless updated here, menu link colors are managed by navigation-color-mgmt
-// (see Color Mgmt for Navigational Components)
-$menu-link-bkgd: null;
-$menu-link-color: null;
-$menu-link-bkgd-hover: null;
-$menu-link-color-hover: null;
-$menu-link-bkgd-active: null;
-$menu-link-color-active: null;
-$menu-link-bkgd-selected: null;
-$menu-link-color-selected: null;
-
-//# Pagination
-$pagination-radius: $global-radius;
-$pagination-dot-bkgd: transparent;
-$pagination-dot-color: $body-font-color;
-// unless updated here, pagination colors are managed by navigation-color-mgmt
-// (see Color Mgmt for Navigational Components)
-$pagination-link-bkgd: null;
-$pagination-link-color: null;
-$pagination-link-bkgd-hover: null;
-$pagination-link-color-hover: null;
-$pagination-link-bkgd-active: null;
-$pagination-link-color-active: null;
-$pagination-link-bkgd-selected: null;
-$pagination-link-color-selected: null;
-
-//# Breadcrumbs
-$breadcrumb-font-size: $global-font-size-smaller;
-$breadcrumb-selected-color: $body-font-color;
-$breadcrumb-color: $anchor-color;
-$breadcrumb-color-hover: $anchor-color-hover;
-$breadcrumb-color-active: $anchor-color-active;
-$breadcrumb-text-transform: uppercase;
-$breadcrumb-separator-family: $body-font-family; // In case you want to use an icon as the separator
-$breadcrumb-separator: '/';
-$breadcrumb-separator-color: $light-gray;
-$breadcrumb-margin: $global-margin 0;
-$breadcrumb-item-margin: 0 $global-margin-small;
-$breadcrumb-item-padding: 0;
-
-//## STATEFUL COMPONENTS -----------------------------
-
-//# Accordions
-$accordion-border-size: 1px;
-$accordion-border-color: $divider-color;
-$accordion-content-bkgd: $white;
-
-//# Tabs
-$tabs-margin: $global-margin;
-$tabs-border-size: 1px;
-$tabs-border-color: $divider-color;
-$tabs-titles-bkgd: $white;
-$tabs-title-link-padding: $global-padding-small $global-padding;
-$tabs-content-bkgd: $white 0;
-$tabs-content-padding: $global-padding 0;
-
-//## CONTAINERS -----------------------------
-
-//# Callouts
-$callout-bkgd: $white;
-$callout-border-size: 1px;
-$callout-border-color: $divider-color;
-$callout-color: $body-font-color;
-$callout-padding: $global-vertical-space $global-horizontal-space;
-
-//# Cards
-$card-bkgd: $white;
-$card-border: 1px solid $divider-color;
-$card-padding: 0;
-$card-radius: $global-radius;
-$card-header-background: $white;
-$card-footer-background: $white;
-
-//# Modals
-$modal-bkgd: $black-40;
-$modal-content-bkgd: $white;
-$modal-content-border-size: 1px;
-$modal-content-border-color: $divider-color;
-$modal-content-box-shadow: $global-box-shadow;
-$modal-content-color: $body-font-color;
-$modal-content-padding: 0;
-
-//## FORMS -----------------------------
-
-$input-bkgd: $white;
-$input-bkgd-focus: $input-bkgd;
-$input-box-shadow: 0 0 0 1px $divider-color inset;
-$input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset;
-$input-radius: $global-radius;
-$input-color: $body-font-color;
-$input-color-focus: $input-color;
-$input-font-size: $global-font-size;
-$label-color: $body-font-color;
-$label-font-size: $global-font-size;
-
-//## Range Slider -----------------------------
-$slider-height: 50px;
-$slider-track-padding-right: $global-padding;
-$slider-track-color: $light-gray;
-$slider-input-height: 25px;
-$slider-input-width: 80px;
-$slider-input-margin: 0;
-$slider-thumb-width: 16px;
-$slider-thumb-height: 16px;
-$slider-thumb-border-radius: 50%;
-$slider-thumb-background: $primary;
-$slider-progress-color: $primary;
-
-//## TABLES -----------------------------
-
-$table-background: $white;
-$table-color: $body-font-color;
-$table-border: 1px solid $divider-color;
-$table-header-background: $body-font-color;
-$table-header-color: $white;
-//responsive table breakpoint
-$table-breakpoint: medium;
-//striped tables
-$table-stripe-background: $lightest-gray;
-
-//## DATA GRIDS -----------------------------
-
-$data-grid-background: $white;
-$data-grid-color: $body-font-color;
-$data-grid-border: 1px solid $divider-color;
-$data-grid-header-background: $body-font-color;
-$data-grid-header-color: $white;
-$data-grid-stripe-background: $lightest-gray;
-$data-grid-scroll-height: 15rem;
-
-//## PICKERS -----------------------------
-
-//# Calendar
-$calendar-bkgd: $card-bkgd;
-$calendar-border: $card-border;
-$calendar-container-width: 32rem;
-$calendar-width: 32rem;
-$calendar-max-height-animation: 35rem;
-$calendar-header-bkgd: $calendar-bkgd;
-$calendar-header-height: $size-large;
-
-//# Time
-$time-picker-container-width: 100%;
-$time-picker-bkgd: $card-bkgd;
-$time-picker-border: $card-border;
-$time-picker-width: auto;
-$time-picker-max-height-animation: 20rem;
-$time-picker-header-bkgd: $time-picker-bkgd;
-
-//## ATOMS -----------------------------
-
-//# Badges
-$badge-size: $size-default;
-
-//## UTILITIES -----------------------------
-
-//# Help Text
-$help-text-color: $gray;
-
-//# Progress
-$progress-radius: $global-rounded;
-$progress-meter-height: $size-tiny;
-$progress-meter-bkgd: $darker-gray;
+$icon-size-tiny: 8px;
+$icon-size-small: 16px;
+$icon-size-medium: 24px;
+$icon-size-large: 48px;
+$icon-size-larger: 64px;
+$icon-size-largest: 128px;
+$icon-size-base: 24px;
+$line-height-global: 1.5;
+$line-height-base: [object Object];
+$opacity-disabled: 0.35;
+$screen-width-full: 100%;
+$screen-width-small: 0;
+$screen-width-medium: 768px;
+$screen-width-large: 1024px;
+$screen-width-xlarge: 1200px;
+$screen-width-xxlarge: 1440px;
+$screen-width-nav: 768px;
+$box-shadow-default: 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+$box-shadow-hover: 0 2px 6px 0 rgba(0, 0, 0, 0.5);
+$box-shadow-active: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+$spacing-tiny: 6px;
+$spacing-small: 12px;
+$spacing-medium: 24px;
+$spacing-large: 48px;
+$spacing-larger: 72px;
+$spacing-base: 24px;
+$z-index-above-everything: 1000;
+$z-index-above-most: 10;
+$z-index-above: 1;
+$z-index-default: 0;
+$z-index-below: -1;
+$z-index-below-most: -10;
+$z-index-below-everything: -1000;

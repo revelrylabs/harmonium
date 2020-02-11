@@ -1,7 +1,7 @@
 .EmptyState {
-  border: 1px solid $divider-color;
-  color: $muted;
+  border: 1px solid $color-divider;
+  color: $color-muted;
   font-style: italic;
-  padding: $global-padding;
+  padding: $padding-base;
   text-align: center;
 }
