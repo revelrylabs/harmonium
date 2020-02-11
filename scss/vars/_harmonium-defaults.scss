@@ -112,12 +112,6 @@ $z-index-below: -1;
 $z-index-below-most: -10;
 $z-index-below-everything: -1000;
 
-// Grid
-$grid-row-width: $screen-width-large !default;
-$grid-columns: 12 !default;
-$grid-column-padding: $padding-small !default;
-$grid-gutter: $grid-column-padding * 2 !default;
-
 // Padding
 $padding-tiny: $spacing-tiny !default;
 $padding-small: $spacing-small !default;
@@ -131,6 +125,12 @@ $margin-small: $padding-small !default;
 $margin-base: $padding-base !default;
 $margin-large: $padding-large !default;
 $margin-larger: $padding-larger !default;
+
+// Grid
+$grid-row-width: $screen-width-large !default;
+$grid-columns: 12 !default;
+$grid-column-padding: $padding-small !default;
+$grid-gutter: $grid-column-padding * 2 !default;
 
 // Body Vars
 $body-bkgd: $color-white !default;
