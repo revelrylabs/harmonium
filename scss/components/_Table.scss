@@ -29,14 +29,14 @@ $table-stripe-background: $color-lightest-gray !default;
   //Inline Table Headers
   .rev-Table-header--inline {
     display: block;
-    font-weight: $global-weight-bold;
-    padding-right: $global-padding-small;
+    font-weight: $font-weight-bold;
+    padding-right: $padding-small;
   }
 }
 
 .rev-TableContainer {
   @include horizontal-scroll-container;
-  margin: $global-margin 0;
+  margin: $margin-base 0;
 }
 
 .rev-Table {
@@ -49,7 +49,7 @@ $table-stripe-background: $color-lightest-gray !default;
   th,
   td {
     color: $table-color;
-    padding: $global-padding-small $global-padding-small;
+    padding: $padding-small $padding-small;
     vertical-align: top;
   }
 
@@ -124,19 +124,19 @@ $table-stripe-background: $color-lightest-gray !default;
 
   th {
     color: $table-header-color;
-    font-size: $global-font-size-small;
-    font-weight: $global-weight-normal;
+    font-size: $font-size-small;
+    font-weight: $font-weight-normal;
     text-align: left;
   }
 }
 
 .rev-Table-body {
-  font-size: $global-font-size-small;
+  font-size: $font-size-small;
 }
 
 .rev-Table-row {
   border-bottom: $table-border;
-  padding: $global-padding-small 0;
+  padding: $padding-small 0;
 
   &:last-child {
     border-bottom: 0;
@@ -148,6 +148,6 @@ $table-stripe-background: $color-lightest-gray !default;
   //Inline Table Headers
   &--inline {
     display: none;
-    font-weight: $global-weight-bold;
+    font-weight: $font-weight-bold;
   }
 }

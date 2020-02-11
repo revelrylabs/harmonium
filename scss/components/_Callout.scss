@@ -5,7 +5,7 @@ $callout-bkgd: $color-white !default;
 $callout-border-size: 1px !default;
 $callout-border-color: $color-divider-dark !default;
 $callout-color: $body-font-color !default;
-$callout-padding: $global-vertical-space $global-horizontal-space !default;
+$callout-padding: $spacing-base $spacing-base !default;
 
 .rev-Callout {
   @include color-management;
@@ -13,7 +13,7 @@ $callout-padding: $global-vertical-space $global-horizontal-space !default;
   background: $callout-bkgd;
   border: $callout-border-size solid $callout-border-color;
   color: $callout-color;
-  margin-bottom: $global-margin;
+  margin-bottom: $margin-base;
   padding: 0;
 
   &.rev-Callout--primary {

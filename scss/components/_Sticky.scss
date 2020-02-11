@@ -7,7 +7,7 @@ $sticky-bkgd: $color-white 0 !default;
 .rev-Sticky {
   position: relative;
   background: $sticky-bkgd;
-  padding: $global-padding;
+  padding: $padding-base;
   background-color: $color-ui-primary;
   color: #fff;
 }

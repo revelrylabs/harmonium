@@ -1,40 +1,40 @@
 // Sizes
-$small: 0;
-$medium: 768px;
-$large: 1024px;
-$xlarge: 1200px;
-$xxlarge: 1440px;
-$nav: $medium;
+$screen-width-small: 0;
+$screen-width-medium: 768px;
+$screen-width-large: 1024px;
+$screen-width-xlarge: 1200px;
+$screen-width-xxlarge: 1440px;
+$screen-width-nav: $screen-width-medium;
 
-$global-width: 100%;
-$grid-row-width: $large;
+$screen-width-full: 100%;
+$grid-row-width: $screen-width-large;
 
 // Breakpoints
-$breakpoints: (small: (min-width: $small),
-  small-only: ((min-width: $small) and (max-width: $medium - 1)),
-  medium: (min-width: $medium),
-  medium-down: ((max-width: $medium - 1)),
-  medium-only: ((min-width: $medium) and (max-width: $large - 1)),
-  large: (min-width: $large),
-  large-down: ((max-width: $large - 1)),
-  large-only: ((min-width: $large) and (max-width: $xlarge - 1)),
-  xlarge: (min-width: $xlarge),
-  xlarge-down: ((max-width: $xlarge - 1)),
-  xlarge-only: ((min-width: $xlarge) and (max-width: $xxlarge - 1)),
-  xxlarge: (min-width: $xxlarge),
-  global-width: (min-width: $global-width),
-  nav: (min-width: $nav), // Desktop nav
-  nav-only: ((min-width: $small) and (max-width: $nav - 1)), // Mobile nav
+$breakpoints: (small: (min-width: $screen-width-small),
+  small-only: ((min-width: $screen-width-small) and (max-width: $screen-width-medium - 1)),
+  medium: (min-width: $screen-width-medium),
+  medium-down: ((max-width: $screen-width-medium - 1)),
+  medium-only: ((min-width: $screen-width-medium) and (max-width: $screen-width-large - 1)),
+  large: (min-width: $screen-width-large),
+  large-down: ((max-width: $screen-width-large - 1)),
+  large-only: ((min-width: $screen-width-large) and (max-width: $screen-width-xlarge - 1)),
+  xlarge: (min-width: $screen-width-xlarge),
+  xlarge-down: ((max-width: $screen-width-xlarge - 1)),
+  xlarge-only: ((min-width: $screen-width-xlarge) and (max-width: $screen-width-xxlarge - 1)),
+  xxlarge: (min-width: $screen-width-xxlarge),
+  global-width: (min-width: $screen-width-full),
+  nav: (min-width: $screen-width-nav), // Desktop nav
+  nav-only: ((min-width: $screen-width-small) and (max-width: $screen-width-nav - 1)), // Mobile nav
 );
 
 // IMPORT FONTS HERE
 
 // Global Fonts
-$global-monospace-font: 'Montserrat',
+$font-family-monospace: 'Montserrat',
 sans-serif;
-$global-serif-font: 'Georgia',
+$font-family-serif: 'Georgia',
 serif;
-$global-sans-serif-font: 'Roboto',
+$font-family-sans-serif: 'Roboto',
 'Helvetica Neue',
 Helvetica,
 Arial,
@@ -43,29 +43,29 @@ sans-serif;
 
 // we use the global-font-sizes for typographic utilities
 // AND to determine vertical spacing
-$global-font-size: 1.6rem;
-$global-font-size-tiny: $global-font-size * 0.5;
-$global-font-size-smaller: $global-font-size * 0.75;
-$global-font-size-small: $global-font-size * 0.875;
-$global-font-size-medium: $global-font-size * 1;
-$global-font-size-large: $global-font-size * 1.5;
-$global-font-size-larger: $global-font-size * 2;
-$global-font-size-largest: $global-font-size * 3;
+$font-size-base: 1.6rem;
+$font-size-tiny: $font-size-base * 0.5;
+$font-size-smaller: $font-size-base * 0.75;
+$font-size-small: $font-size-base * 0.875;
+$font-size-medium: $font-size-base * 1;
+$font-size-large: $font-size-base * 1.5;
+$font-size-larger: $font-size-base * 2;
+$font-size-largest: $font-size-base * 3;
 
 // Headers (rems or unit-less values only!)
-$h1: $global-font-size-largest;
-$h2: $global-font-size-larger;
-$h3: $global-font-size-large;
-$h4: $global-font-size-medium;
-$h5: $global-font-size;
-$h6: $global-font-size;
+$h1: $font-size-largest;
+$h2: $font-size-larger;
+$h3: $font-size-large;
+$h4: $font-size-medium;
+$h5: $font-size-base;
+$h6: $font-size-base;
 //TODO: make sass map for header sizes with breakpoints for small/large
 
-$global-weight-light: 300;
-$global-weight-normal: 400;
-$global-weight-bold: 700;
-$global-lineheight: 1.5;
-$base-lineheight: $global-lineheight * $global-font-size;
+$font-weight-light: 300;
+$font-weight-normal: 400;
+$font-weight-bold: 700;
+$line-height-global: 1.5;
+$line-height-base: $line-height-global * $font-size-base;
 
 // Sizes - made up of vertical spacing multiples
 // common size vars for things like badges
@@ -80,31 +80,31 @@ $size-largest: 128px;
 $grid-columns: 12;
 
 // Spacing
-$global-vertical-space: $global-font-size * $global-lineheight; // 24px
-$global-horizontal-space: $global-vertical-space; // 24px
-$base-size: 0.8rem;
+$spacing-base: $font-size-base * $line-height-global; // 24px
+$spacing-base: $spacing-base; // 24px
+$spacing-base: 0.8rem;
 
 // Global Padding - made up of vertical spacing multiples
-$global-padding-tiny: $global-vertical-space / 4; // 6px
-$global-padding-small: $global-vertical-space / 2; // 12px
-$global-padding: $global-vertical-space; // 24px
-$global-padding-large: $global-vertical-space * 2; // 48px
-$global-padding-larger: $global-vertical-space * 3; // 72px
+$padding-tiny: $spacing-base / 4; // 6px
+$padding-small: $spacing-base / 2; // 12px
+$padding-base: $spacing-base; // 24px
+$padding-large: $spacing-base * 2; // 48px
+$padding-larger: $spacing-base * 3; // 72px
 
 // Global Margin - made up of vertical spacing multiples
-$global-margin-tiny: $global-padding-tiny;
-$global-margin-small: $global-padding-small;
-$global-margin: $global-padding;
-$global-margin-large: $global-padding-large;
-$global-margin-larger: $global-padding-larger;
+$margin-tiny: $padding-tiny;
+$margin-small: $padding-small;
+$margin-base: $padding-base;
+$margin-large: $padding-large;
+$margin-larger: $padding-larger;
 
 // Grid
-$grid-column-padding: $global-padding-small;
+$grid-column-padding: $padding-small;
 $grid-gutter: $grid-column-padding * 2;
 
 // Border Radiuses
-$global-radius: 3px;
-$global-rounded: 100000px;
+$border-radius-small: 3px;
+$border-radius-rounded: 100000px;
 
 // Box Shadows
 $global-box-shadow: 0 1px 4px 0 $color-black-30;
@@ -114,21 +114,21 @@ $global-box-shadow-active: 0 1px 2px 0 $color-black-30;
 // Body Vars
 $body-bkgd: $color-white;
 $body-font-color: $color-darker-gray;
-$body-font-family: $global-sans-serif-font;
+$body-font-family: $font-family-sans-serif;
 
 // Header Vars
 $header-color: $body-font-color;
-$header-font-family: $global-sans-serif-font;
+$header-font-family: $font-family-sans-serif;
 $header-font-style: normal;
-$header-font-weight: $global-weight-normal;
+$header-font-weight: $font-weight-normal;
 
 $subheader-color: $header-color;
-$header-font-family: $global-sans-serif-font;
-$subheader-font-weight: $global-weight-normal;
+$header-font-family: $font-family-sans-serif;
+$subheader-font-weight: $font-weight-normal;
 
 // Paragraph Vars
-$paragraph-lineheight: $global-lineheight;
-$paragraph-margin-bottom: $global-vertical-space;
+$paragraph-lineheight: $line-height-global;
+$paragraph-margin-bottom: $spacing-base;
 $paragraph-text-rendering: optimizeLegibility;
 
 // ANCHORS
@@ -147,7 +147,7 @@ $button-bkgd-hover: darken($color-brand, 5%);
 $button-color-hover: $color-white;
 $button-bkgd-active: darken($color-brand, 10%);
 $button-color-active: $color-white;
-$button-radius: $global-radius;
+$button-radius: $border-radius-small;
 
 $button-bkgd-secondary: transparent;
 $button-box-shadow-secondary: $color-brand;
@@ -166,13 +166,13 @@ $closebutton-bkgd-hover: $color-black;
 $closebutton-color-hover: $color-white;
 $closebutton-bkgd-active: $color-black;
 $closebutton-color-active: $color-white;
-$closebutton-radius: $global-rounded;
+$closebutton-radius: $border-radius-rounded;
 $closebutton-size: $size-large;
 
 // HR Vars
-$hr-width: $global-width;
+$hr-width: $screen-width-full;
 $hr-border: 1px solid $color-divider;
-$hr-margin: $global-padding-large auto;
+$hr-margin: $padding-large auto;
 
 // Image Blur
 $image-blur: blur(8px);
@@ -256,7 +256,7 @@ $menu-link-bkgd-selected: null;
 $menu-link-color-selected: null;
 
 //# Pagination
-$pagination-radius: $global-radius;
+$pagination-radius: $border-radius-small;
 $pagination-dot-bkgd: transparent;
 $pagination-dot-color: $body-font-color;
 // unless updated here, pagination colors are managed by navigation-color-mgmt
@@ -271,7 +271,7 @@ $pagination-link-bkgd-selected: null;
 $pagination-link-color-selected: null;
 
 //# Breadcrumbs
-$breadcrumb-font-size: $global-font-size-smaller;
+$breadcrumb-font-size: $font-size-smaller;
 $breadcrumb-selected-color: $body-font-color;
 $breadcrumb-color: $anchor-color;
 $breadcrumb-color-hover: $anchor-color-hover;
@@ -280,8 +280,8 @@ $breadcrumb-text-transform: uppercase;
 $breadcrumb-separator-family: $body-font-family; // In case you want to use an icon as the separator
 $breadcrumb-separator: '/';
 $breadcrumb-separator-color: $color-light-gray;
-$breadcrumb-margin: $global-margin 0;
-$breadcrumb-item-margin: 0 $global-margin-small;
+$breadcrumb-margin: $margin-base 0;
+$breadcrumb-item-margin: 0 $margin-small;
 $breadcrumb-item-padding: 0;
 
 //## STATEFUL COMPONENTS -----------------------------
@@ -292,13 +292,13 @@ $accordion-border-color: $color-divider;
 $accordion-content-bkgd: $color-white;
 
 //# Tabs
-$tabs-margin: $global-margin;
+$tabs-margin: $margin-base;
 $tabs-border-size: 1px;
 $tabs-border-color: $color-divider;
 $tabs-titles-bkgd: $color-white;
-$tabs-title-link-padding: $global-padding-small $global-padding;
+$tabs-title-link-padding: $padding-small $padding-base;
 $tabs-content-bkgd: $color-white 0;
-$tabs-content-padding: $global-padding 0;
+$tabs-content-padding: $padding-base 0;
 
 //## CONTAINERS -----------------------------
 
@@ -307,13 +307,13 @@ $callout-bkgd: $color-white;
 $callout-border-size: 1px;
 $callout-border-color: $color-divider;
 $callout-color: $body-font-color;
-$callout-padding: $global-vertical-space $global-horizontal-space;
+$callout-padding: $spacing-base $spacing-base;
 
 //# Cards
 $card-bkgd: $color-white;
 $card-border: 1px solid $color-divider;
 $card-padding: 0;
-$card-radius: $global-radius;
+$card-radius: $border-radius-small;
 $card-header-background: $color-white;
 $card-footer-background: $color-white;
 
@@ -332,16 +332,16 @@ $input-bkgd: $color-white;
 $input-bkgd-focus: $input-bkgd;
 $input-box-shadow: 0 0 0 1px $color-divider inset;
 $input-box-shadow-focus: 0 0 0 1px $color-divider-dark inset;
-$input-radius: $global-radius;
+$input-radius: $border-radius-small;
 $input-color: $body-font-color;
 $input-color-focus: $input-color;
-$input-font-size: $global-font-size;
+$input-font-size: $font-size-base;
 $label-color: $body-font-color;
-$label-font-size: $global-font-size;
+$label-font-size: $font-size-base;
 
 //## Range Slider -----------------------------
 $slider-height: 50px;
-$slider-track-padding-right: $global-padding;
+$slider-track-padding-right: $padding-base;
 $slider-track-color: $color-light-gray;
 $slider-input-height: 25px;
 $slider-input-width: 80px;
@@ -404,6 +404,6 @@ $badge-size: $size-default;
 $help-text-color: $color-gray;
 
 //# Progress
-$progress-radius: $global-rounded;
+$progress-radius: $border-radius-rounded;
 $progress-meter-height: $size-tiny;
 $progress-meter-bkgd: $color-darker-gray;

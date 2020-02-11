@@ -55,7 +55,7 @@ export default function InputVars() {
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Default Value:</Table.HeaderInline>{' '}
-            <code>$global-padding</code>
+            <code>$padding-base</code>
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Description:</Table.HeaderInline> Default

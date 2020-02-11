@@ -31,8 +31,8 @@ $data-grid-scroll-height: 15rem !default;
   background-color: $data-grid-background;
   border-collapse: collapse;
   border: $data-grid-border;
-  font-size: $global-font-size-small;
-  margin: $global-margin 0;
+  font-size: $font-size-small;
+  margin: $margin-base 0;
   width: 100%;
 
   //stacked for all screens
@@ -90,8 +90,8 @@ $data-grid-scroll-height: 15rem !default;
 
 .rev-DataGrid-headerCol {
   color: $data-grid-header-color;
-  padding-bottom: $global-padding-small;
-  padding-top: $global-padding-small;
+  padding-bottom: $padding-small;
+  padding-top: $padding-small;
 }
 
 .rev-DataGrid-body {
@@ -107,13 +107,13 @@ $data-grid-scroll-height: 15rem !default;
 }
 
 .rev-DataGrid-col {
-  padding-bottom: $global-padding-small;
-  padding-top: $global-padding-small;
+  padding-bottom: $padding-small;
+  padding-top: $padding-small;
 }
 
 .rev-DataGrid-header--inline {
   display: none;
   flex: 0 0 50%; // makes the width of inline headers consistant... 50% too much??
-  font-weight: $global-weight-bold;
-  padding-right: $global-padding-small;
+  font-weight: $font-weight-bold;
+  padding-right: $padding-small;
 }

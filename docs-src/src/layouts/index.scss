@@ -15,7 +15,7 @@ h1,
 h2,
 h3,
 h4 {
-  font-family: 'proxima-nova', $global-sans-serif-font;
+  font-family: 'proxima-nova', $font-family-sans-serif;
   font-weight: 500;
 }
 
@@ -24,7 +24,7 @@ h1 {
   font-size: 36px;
   line-height: 48px;
   margin: 0;
-  padding: $global-padding-large 0 $global-padding-small;
+  padding: $padding-large 0 $padding-small;
 }
 
 h2 {
@@ -36,7 +36,7 @@ h5,
 h6 {
   font-weight: normal;
   letter-spacing: 1px;
-  padding: $global-padding 0 0;
+  padding: $padding-base 0 0;
   text-transform: uppercase;
 }
 
@@ -51,27 +51,27 @@ code {
 }
 
 .CodeMirror-line.CodeMirror-line {
-  font-size: $global-font-size-small;
-  line-height: $global-vertical-space;
+  font-size: $font-size-small;
+  line-height: $spacing-base;
   padding: 0;
 }
 
 .CodeMirror-lines.CodeMirror-lines {
-  padding: $global-vertical-space / 4 0;
+  padding: $spacing-base / 4 0;
 }
 
 .CodeMirror-scroll {
-  margin-left: $global-margin;
+  margin-left: $margin-base;
 }
 
 .playground {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: $global-margin-large;
+  margin-bottom: $margin-large;
 }
 
 .playgroundToggleCodeBar {
-  margin: 0 $global-padding-small -1px;
+  margin: 0 $padding-small -1px;
   order: 1;
 }
 
@@ -80,10 +80,10 @@ code {
   background: $color-lightest-gray;
   border: 1px solid $color-lighter-gray;
   border-bottom: 1px solid $color-lightest-gray;
-  border-radius: $global-radius $global-radius 0 0;
+  border-radius: $border-radius-small $border-radius-small 0 0;
   color: $anchor-color;
   cursor: pointer;
-  padding: $global-padding-tiny $global-padding-small;
+  padding: $padding-tiny $padding-small;
   position: relative;
 
   &:hover {
@@ -97,30 +97,30 @@ code {
 
   &:after {
     content: 'code snippet';
-    padding-left: $global-padding-tiny;
+    padding-left: $padding-tiny;
   }
 
   &:before {
     content: '+';
     font-weight: bold;
-    padding-right: $global-padding-tiny;
+    padding-right: $padding-tiny;
   }
 }
 
 .playgroundCode {
   background: $color-lightest-gray;
   border: 1px solid $color-lighter-gray;
-  border-radius: 0 $global-radius $global-radius $global-radius;
+  border-radius: 0 $border-radius-small $border-radius-small $border-radius-small;
   display: block;
   order: 2;
-  margin: 0 $global-padding-small;
-  padding: $global-padding-small;
+  margin: 0 $padding-small;
+  padding: $padding-small;
   width: 100%;
 
   .ReactCodeMirror {
     @include global-transition;
     @include vertical-scroll-container(150px);
-    border-radius: $global-radius;
+    border-radius: $border-radius-small;
   }
 
   &.expandedCode {
@@ -157,7 +157,7 @@ code {
     background: url('https://3ulsmb4eg8vz37c0vz2si64j-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/75ff3f3c-4aa5-11e6-9c23-4491699777fe.jpg');
     background-position: center;
     background-size: cover;
-    margin: 0 $global-margin-small $global-margin;
+    margin: 0 $margin-small $margin-base;
     min-height: 320px;
     min-width: 320px;
     transform: scale(1);
@@ -170,7 +170,7 @@ code {
 
   &.rev-Row,
   .rev-Row {
-    margin-bottom: $global-margin;
+    margin-bottom: $margin-base;
 
     .rev-Row {
       margin-bottom: 0;
@@ -179,8 +179,8 @@ code {
 
   .rev-Col {
     // bottom and top padding for demo purposes only
-    padding-bottom: $global-padding;
-    padding-top: $global-padding;
+    padding-bottom: $padding-base;
+    padding-top: $padding-base;
     text-align: center;
 
     // All of this is a way to put an outline-esque border on the left and
@@ -238,7 +238,7 @@ code {
   &.ColumnExamples--blockGrid {
     .rev-Col {
       background: transparent;
-      margin-bottom: $global-padding-small;
+      margin-bottom: $padding-small;
     }
   }
 }
@@ -247,8 +247,8 @@ code {
 .ExampleBkgd--primary {
   background: $color-ui-primary;
   display: block;
-  margin-bottom: $global-padding;
-  padding: $global-padding $global-padding 0;
+  margin-bottom: $padding-base;
+  padding: $padding-base $padding-base 0;
 }
 
 // Color Swatches
@@ -260,13 +260,13 @@ code {
 // Buttons
 .ExampleButtons {
   .rev-Button {
-    margin-right: $global-margin;
+    margin-right: $margin-base;
   }
 }
 
 // Visibility
 .ExampleVisibility {
-  padding: $global-padding;
+  padding: $padding-base;
 }
 
 .ExamplePink {
@@ -275,19 +275,19 @@ code {
 
 // Example TopBars
 .playground .rev-TopBar {
-  margin: 0 0 $global-vertical-space;
+  margin: 0 0 $spacing-base;
 }
 
 // Branding
 .ExampleBrand {
   @include flex(center, row, center, nowrap);
   height: 48px;
-  padding: $global-padding-tiny $global-padding-small;
+  padding: $padding-tiny $padding-small;
   position: relative;
 
   @include breakpoint(medium) {
-    margin: $global-margin-large 0 $global-margin;
-    padding: 0 $global-padding;
+    margin: $margin-large 0 $margin-base;
+    padding: 0 $padding-base;
   }
 
   img {
@@ -296,7 +296,7 @@ code {
 
     @include breakpoint(medium) {
       height: auto;
-      margin-bottom: $global-padding-small;
+      margin-bottom: $padding-small;
       width: 100%
     }
   }
@@ -304,15 +304,15 @@ code {
   small {
     bottom: -1.2rem;
     color: $color-white-60;
-    font-size: $global-font-size;
+    font-size: $font-size-base;
     font-weight: normal;
-    left: $global-padding;
+    left: $padding-base;
     position: absolute;
   }
 }
 
 .rev-Brand-symbol {
-  margin: $global-margin-large auto $global-margin;
+  margin: $margin-large auto $margin-base;
   max-width: 20rem;
 }
 
@@ -321,11 +321,11 @@ code {
   .rev-TopBar.Show--smallOnly {
     box-shadow: 0 0 3px 0 $color-black-20;
     border: 0;
-    margin-bottom: $global-margin;
+    margin-bottom: $margin-base;
 
     small {
       color: $color-white-60;
-      font-size: $global-font-size-small;
+      font-size: $font-size-small;
       font-weight: normal;
     }
   }
@@ -356,7 +356,7 @@ code {
 
       .rev-Drawer-expander {
         background: $color-brand;
-        border-radius: 0 $global-radius $global-radius 0;
+        border-radius: 0 $border-radius-small $border-radius-small 0;
         color: $color-white;
         font-size: 18px;
         top: $topbar-height + 10;
@@ -369,7 +369,7 @@ code {
     background: $color-brand;
     background: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand 100%);
     color: $color-white;
-    padding-bottom: $global-padding-larger;
+    padding-bottom: $padding-larger;
   }
 
   .rev-Menu-item--text {
@@ -399,7 +399,7 @@ code {
 
     &:after {
       background: $color-white;
-      border-radius: 0 $global-radius $global-radius 0;
+      border-radius: 0 $border-radius-small $border-radius-small 0;
       content: '';
       height: 100%;
       left: 0;
@@ -447,13 +447,13 @@ code {
 
 // SLIDER
 .rev-Slider {
-  margin: $global-padding-larger $global-padding-small;
+  margin: $padding-larger $padding-small;
 }
 
 .code-toolbar {
   margin: 0;
   max-width: 70rem;
-  padding: 0 0 $global-vertical-space 0;
+  padding: 0 0 $spacing-base 0;
 }
 
 .HTMLCodeSection {

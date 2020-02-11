@@ -24,8 +24,8 @@ $topbar-link-bkgd: transparent !default;
     @include flex(center, row, space-between, no-wrap);
     height: $topbar-height;
     margin: 0 auto;
-    max-width: $global-width;
-    padding: 0 $global-padding;
+    max-width: $screen-width-full;
+    padding: 0 $padding-base;
     width: 100%;
   }
 
@@ -93,7 +93,7 @@ $topbar-link-bkgd: transparent !default;
     overflow: visible; // So that dropdowns can be visible
 
     .rev-Menu-item a {
-      border-radius: $global-radius;
+      border-radius: $border-radius-small;
     }
   }
 }

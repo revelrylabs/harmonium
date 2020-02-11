@@ -44,7 +44,7 @@
   // is adjusted, making for a smoother transition
   @include global-transition(max-height opacity, .25s);
   // odd max-height here for transition
-  padding-right: $global-padding; // roughly the width of the expander button
+  padding-right: $padding-base; // roughly the width of the expander button
   max-height: 1000000px;
   overflow: hidden;
   opacity: 1;

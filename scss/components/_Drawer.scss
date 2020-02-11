@@ -18,7 +18,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
   cursor: pointer;
   display: none;
   height: $size-large;
-  font-size: $global-font-size-medium;
+  font-size: $font-size-medium;
   line-height: $size-large;
   opacity: 0;
   text-align: center;
@@ -192,7 +192,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
       display: block;
       left: $drawer-width;
       position: absolute;
-      top: $global-lineheight * -1rem;
+      top: $line-height-global * -1rem;
     }
   }
 
@@ -265,7 +265,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
         right: auto;
 
         @include breakpoint(global-width) {
-          left: calc((100vw - #{$global-width}) / 2);
+          left: calc((100vw - #{$screen-width-full}) / 2);
         }
       }
     }
@@ -276,7 +276,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
         right: 0;
 
         @include breakpoint(global-width) {
-          right: calc((100vw - #{$global-width}) / 2);
+          right: calc((100vw - #{$screen-width-full}) / 2);
         }
       }
     }
@@ -334,7 +334,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
 .Drawer-toggle { // label
   @include global-transition;
   background: $color-ui-primary;
-  border-radius: $global-rounded $global-rounded 0 0;
+  border-radius: $border-radius-rounded $border-radius-rounded 0 0;
   color: $color-white;
   cursor: pointer;
   height: 30px;
@@ -356,7 +356,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
 #Drawer-toggle:checked { // checked input
   ~ .rev-Drawer { // Drawer Wrapper
     min-width: $drawer-width;
-    right: -$global-padding;
+    right: -$padding-base;
     width: $drawer-width;
     .rev-Drawer-contents { // Scrollable Drawer Contents
       right: 0;

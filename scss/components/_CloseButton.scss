@@ -8,7 +8,7 @@ $closebutton-bkgd-hover: $color-black !default;
 $closebutton-color-hover: $color-white !default;
 $closebutton-bkgd-active: $color-black !default;
 $closebutton-color-active: $color-white !default;
-$closebutton-radius: $global-rounded !default;
+$closebutton-radius: $border-radius-rounded !default;
 $closebutton-size: $size-large !default;
 
 .rev-CloseButton {
@@ -20,10 +20,10 @@ $closebutton-size: $size-large !default;
   color: $closebutton-color;
   float: right;
   line-height: $closebutton-size;
-  margin: $global-padding-small;
+  margin: $padding-small;
   min-height: $closebutton-size;
   min-width: $closebutton-size;
-  padding: 0 $global-padding-tiny;
+  padding: 0 $padding-tiny;
 
   &:hover {
     background: $closebutton-bkgd-hover;
@@ -39,7 +39,7 @@ $closebutton-size: $size-large !default;
   &.rev-CloseButton--absolute {
     margin: 0;
     position: absolute;
-    right: $global-padding-small;
-    top: $global-padding-small;
+    right: $padding-small;
+    top: $padding-small;
   }
 }

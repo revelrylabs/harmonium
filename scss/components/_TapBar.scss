@@ -17,7 +17,7 @@ $tapbar-font-size: 14px;
   @include flex(center, column, center);
   color: $tapbar-color;
   flex: 1;
-  font-size: $global-font-size;
+  font-size: $font-size-base;
   height: $tapbar-height;
   position: relative;
   text-align: center;

@@ -4,7 +4,7 @@ $card-border-size: 1px !default;
 $card-border-style: solid !default;
 $card-border: $card-border-size $card-border-style $card-border-color !default;
 $card-padding: 0 !default;
-$card-radius: $global-radius !default;
+$card-radius: $border-radius-small !default;
 $card-header-background: $color-white !default;
 $card-footer-background: $color-white !default;
 
@@ -14,11 +14,11 @@ $card-footer-background: $color-white !default;
   background-color: $card-bkgd;
   border: $card-border;
   border-radius: $card-radius;
-  margin-bottom: $global-vertical-space;
+  margin-bottom: $spacing-base;
 
   .rev-Row {
-    padding-left: $global-padding-small;
-    padding-right: $global-padding-small;
+    padding-left: $padding-small;
+    padding-right: $padding-small;
   }
 
   .rev-Col {
@@ -37,21 +37,21 @@ $card-footer-background: $color-white !default;
 
   &.rev-Card--small {
     .rev-Row {
-      padding-left: $global-padding-tiny;
-      padding-right: $global-padding-tiny;
+      padding-left: $padding-tiny;
+      padding-right: $padding-tiny;
     }
 
     .rev-Col {
-      padding-left: $global-padding-tiny;
-      padding-right: $global-padding-tiny;
+      padding-left: $padding-tiny;
+      padding-right: $padding-tiny;
     }
 
     p:first-child {
-      margin-top: $global-padding-small;
+      margin-top: $padding-small;
     }
 
     p:last-child {
-      margin-bottom: $global-padding-small;
+      margin-bottom: $padding-small;
     }
   }
 }

@@ -1,4 +1,4 @@
-$progress-radius: $global-rounded !default;
+$progress-radius: $border-radius-rounded !default;
 $progress-meter-height: $size-tiny !default;
 $progress-meter-bkgd: $color-darker-gray !default;
 
@@ -14,7 +14,7 @@ $progress-meter-bkgd: $color-darker-gray !default;
 
 .rev-Progress {
   @include progress-color-management;
-  margin: $global-vertical-space 0;
+  margin: $spacing-base 0;
 }
 
 .rev-Progress-track {
@@ -25,6 +25,7 @@ $progress-meter-bkgd: $color-darker-gray !default;
   position: relative;
   width: 100%;
 }
+
 .rev-Progress-track-amount {
   background-color: $progress-meter-bkgd;
   border-radius: $progress-radius;
@@ -33,6 +34,5 @@ $progress-meter-bkgd: $color-darker-gray !default;
   left: 0;
   position: absolute;
 }
-.rev-Progress-text {
 
-}
+.rev-Progress-text {}

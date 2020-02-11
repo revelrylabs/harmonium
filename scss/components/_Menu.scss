@@ -40,7 +40,7 @@ $menu-dropdown-width: 24rem !default;
   }
 
   .rev-Menu-item--text .rev-Menu-item--divider {
-    margin-bottom: $global-vertical-space / 2;
+    margin-bottom: $spacing-base / 2;
   }
 }
 
@@ -60,7 +60,7 @@ $menu-dropdown-width: 24rem !default;
   .rev-Menu--nested {
     border: 1px solid $color-divider;
     border-top: 0;
-    border-radius: $global-radius;
+    border-radius: $border-radius-small;
     display: none;
     position: absolute;
     width: $menu-dropdown-width;
@@ -102,7 +102,7 @@ $menu-dropdown-width: 24rem !default;
       background-color: $menu-link-bkgd;
       color: $menu-link-color;
       display: block;
-      padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
+      padding: $spacing-base / 2 $spacing-base $spacing-base / 2 $spacing-base;
 
       &:hover {
         background-color: $menu-link-bkgd-hover;
@@ -124,7 +124,7 @@ $menu-dropdown-width: 24rem !default;
     &.rev-Menu-item--text {
       background-color: $menu-text-bkgd;
       display: block;
-      padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
+      padding: $spacing-base / 2 $spacing-base $spacing-base / 2 $spacing-base;
     }
   }
 }
@@ -183,17 +183,17 @@ $menu-dropdown-width: 24rem !default;
 .rev-Menu--nested {
   .rev-Menu-item {
     a {
-      padding-left: calc(#{$global-padding} + (#{$global-padding-small} * 1));
+      padding-left: calc(#{$padding-base} + (#{$padding-small} * 1));
     }
 
     .rev-Menu--nested {
       a {
-        padding-left: calc(#{$global-padding} + (#{$global-padding-small} * 2));
+        padding-left: calc(#{$padding-base} + (#{$padding-small} * 2));
       }
 
       .rev-Menu--nested {
         a {
-          padding-left: calc(#{$global-padding} + (#{$global-padding-small} * 3));
+          padding-left: calc(#{$padding-base} + (#{$padding-small} * 3));
         }
       }
     }

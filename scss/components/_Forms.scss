@@ -2,12 +2,12 @@ $input-bkgd: $color-white !default;
 $input-bkgd-focus: $input-bkgd !default;
 $input-box-shadow: 0 0 0 1px $color-divider inset !default;
 $input-box-shadow-focus: 0 0 0 1px $color-divider-dark inset !default;
-$input-radius: $global-radius !default;
+$input-radius: $border-radius-small !default;
 $input-color: $body-font-color !default;
 $input-color-focus: $input-color !default;
-$input-font-size: $global-font-size !default;
+$input-font-size: $font-size-base !default;
 $label-color: $body-font-color !default;
-$label-font-size: $global-font-size !default;
+$label-font-size: $font-size-base !default;
 
 @mixin input-style {
   @include global-transition;
@@ -21,11 +21,11 @@ $label-font-size: $global-font-size !default;
   color: $input-color;
   display: block;
   font-size: $input-font-size;
-  line-height: $base-lineheight;
-  margin: 0 0 $global-margin;
+  line-height: $line-height-base;
+  margin: 0 0 $margin-base;
   max-width: 100%;
   outline: none;
-  padding: $global-padding-small;
+  padding: $padding-small;
   width: 100%;
 
   &:active,
@@ -51,7 +51,7 @@ $label-font-size: $global-font-size !default;
 .rev-InputLabel {
   display: block;
   font-size: $label-font-size;
-  margin: 0 0 $global-margin;
+  margin: 0 0 $margin-base;
 
   .rev-Button,
   .rev-Input,
@@ -73,19 +73,19 @@ $label-font-size: $global-font-size !default;
 .rev-InputHelpText,
 .rev-InputErrors {
   display: block;
-  font-size: $global-font-size-small;
+  font-size: $font-size-small;
   font-style: normal;
-  line-height: $base-lineheight;
-  padding: $global-padding-tiny 0;
+  line-height: $line-height-base;
+  padding: $padding-tiny 0;
 
   +.rev-InputErrors {
-    margin-top: -$global-padding-tiny;
+    margin-top: -$padding-tiny;
     padding-top: 0;
   }
 }
 
 .rev-InputHelpText {
-  margin-top: -$global-padding;
+  margin-top: -$padding-base;
 }
 
 .rev-InputLabel {

@@ -1,10 +1,10 @@
 .rev-BrowserSupportWarning {
   @extend .rev-Callout;
   @extend .rev-Callout--alert;
-  left: $global-padding;
+  left: $padding-base;
   position: fixed;
-  right: $global-padding;
-  top: $global-padding;
+  right: $padding-base;
+  top: $padding-base;
   z-index: $above-everything;
   @media screen and (min-width: 640px) {
     left: 50%;

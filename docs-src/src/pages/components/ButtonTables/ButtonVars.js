@@ -108,7 +108,7 @@ export default function ButtonVars() {
             <Table.HeaderInline>Var:</Table.HeaderInline> <code>$button-radius</code>
           </Table.Data>
           <Table.Data>
-            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$global-radius</code>
+            <Table.HeaderInline>Default Value:</Table.HeaderInline> <code>$border-radius-small</code>
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Description:</Table.HeaderInline> Default border-radius for buttons.

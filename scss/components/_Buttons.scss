@@ -6,7 +6,7 @@ $button-bkgd-hover: darken($color-brand, 5%) !default;
 $button-color-hover: $color-white !default;
 $button-bkgd-active: darken($color-brand, 10%) !default;
 $button-color-active: $color-white !default;
-$button-radius: $global-radius !default;
+$button-radius: $border-radius-small !default;
 
 $button-bkgd-secondary: transparent !default;
 $button-box-shadow-secondary: $color-brand !default;
@@ -20,14 +20,14 @@ $button-color-secondary-active: $color-white !default;
 
 @mixin button-contained {
   .rev-Button {
-    margin: $global-vertical-space / 2 auto;
+    margin: $spacing-base / 2 auto;
 
     &.rev-Button--small {
-      margin: $global-vertical-space / 2 auto;
+      margin: $spacing-base / 2 auto;
     }
 
     &.rev-Button--large {
-      margin: $global-vertical-space auto;
+      margin: $spacing-base auto;
     }
   }
 }
@@ -40,11 +40,11 @@ $button-color-secondary-active: $color-white !default;
   color: $button-color;
   cursor: pointer;
   display: inline-block;
-  font-size: $global-font-size;
+  font-size: $font-size-base;
   font-weight: normal;
-  line-height: $base-lineheight;
-  margin: 0 0 $global-vertical-space;
-  padding: $global-padding-small $global-padding;
+  line-height: $line-height-base;
+  margin: 0 0 $spacing-base;
+  padding: $padding-small $padding-base;
 
   &:hover,
   &:active,
@@ -64,9 +64,9 @@ $button-color-secondary-active: $color-white !default;
   @include button;
 
   &.rev-Button--large {
-    font-size: $global-font-size-medium;
-    padding: $global-padding $global-padding-large;
-    margin: 0 auto $global-vertical-space;
+    font-size: $font-size-medium;
+    padding: $padding-base $padding-large;
+    margin: 0 auto $spacing-base;
   }
 
   &.rev-Button--small {
@@ -195,12 +195,12 @@ $button-color-secondary-active: $color-white !default;
     border-right: 1px solid $color-divider;
 
     &:first-child {
-      border-radius: $global-radius 0 0 $global-radius;
+      border-radius: $border-radius-small 0 0 $border-radius-small;
     }
 
     &:last-child {
       border: 0;
-      border-radius: 0 $global-radius $global-radius 0;
+      border-radius: 0 $border-radius-small $border-radius-small 0;
     }
   }
 }

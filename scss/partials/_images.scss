@@ -1,6 +1,6 @@
 @mixin image-contained {
   img {
-    margin: $global-vertical-space 0;
+    margin: $spacing-base 0;
   }
 }
 
@@ -20,7 +20,7 @@ img {
   @include global-transition;
   background: $color-white;
   box-shadow: 0 0 0 1px $color-divider;
-  border-radius: $global-radius;
+  border-radius: $border-radius-small;
   margin: 0;
-  padding: $global-padding-tiny;
+  padding: $padding-tiny;
 }

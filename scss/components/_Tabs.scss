@@ -1,13 +1,13 @@
 // default component vars listed at the top of the component stylesheet
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
-$tabs-margin: $global-margin !default;
+$tabs-margin: $margin-base !default;
 $tabs-border-size: 1px !default;
 $tabs-border-color: $color-divider !default;
 $tabs-titles-bkgd: $color-white !default;
-$tabs-title-link-padding: $global-padding-small $global-padding !default;
+$tabs-title-link-padding: $padding-small $padding-base !default;
 $tabs-content-bkgd: $color-white 0 !default;
-$tabs-content-padding: $global-padding 0 !default;
+$tabs-content-padding: $padding-base 0 !default;
 
 .rev-Tabs {
   margin-bottom: $tabs-margin;
@@ -32,7 +32,7 @@ $tabs-content-padding: $global-padding 0 !default;
   @include stateful-color-mgmt;
   border-right: $tabs-border-size solid $tabs-border-color;
   display: block;
-  font-size: $global-font-size;
+  font-size: $font-size-base;
   padding: $tabs-title-link-padding;
 }
 

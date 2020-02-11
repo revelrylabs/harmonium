@@ -8,7 +8,7 @@ $accordion-content-bkgd: $color-white !default;
 .rev-Accordion {
   // ul
   border: $accordion-border-size solid $accordion-border-color;
-  margin-bottom: $global-vertical-space;
+  margin-bottom: $spacing-base;
 }
 
 .rev-AccordionItem {
@@ -22,7 +22,7 @@ $accordion-content-bkgd: $color-white !default;
   // a inside the li
   @include stateful-color-mgmt;
   display: block;
-  padding: $global-padding-small $global-padding;
+  padding: $padding-small $padding-base;
   position: relative;
 
   &:before {
@@ -31,7 +31,7 @@ $accordion-content-bkgd: $color-white !default;
     // content: '\e900'; // .icon-add
     content: '+';
     position: absolute;
-    right: $global-padding;
+    right: $padding-base;
   }
 
   &--selected {
@@ -47,7 +47,7 @@ $accordion-content-bkgd: $color-white !default;
   background: $accordion-content-bkgd;
   display: none;
   overflow: hidden;
-  padding: $global-padding;
+  padding: $padding-base;
 
   &--selected {
     display: block;
