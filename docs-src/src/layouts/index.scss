@@ -360,7 +360,7 @@ code {
         color: $color-white;
         font-size: 18px;
         top: $topbar-height + 10;
-        width: $size-default;
+        width: $icon-size-base;
       }
     }
   }
@@ -419,7 +419,7 @@ code {
   left: -$drawer-width;
   position: fixed;
   width: $drawer-width;
-  z-index: $above;
+  z-index: $z-index-above;
 
   .rev-Drawer--open & {
     left: 0;

@@ -6,7 +6,7 @@
   top: -$padding-base;
   width: 100%;
   @supports (filter: blur(8px)) {
-    filter: $image-blur;
+    filter: $blur-enabled;
     height: calc(100% + (#{$padding-base} + #{$padding-base}));
     object-fit: cover;
     width: calc(100% + (#{$padding-base} + #{$padding-base}));

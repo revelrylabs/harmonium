@@ -7,7 +7,7 @@ $calendar-container-width: 32rem !default;
 $calendar-width: 32rem !default;
 $calendar-max-height-animation: 35rem !default;
 $calendar-header-bkgd: $calendar-bkgd !default;
-$calendar-header-height: $size-large !default;
+$calendar-header-height: $icon-size-large !default;
 
 .rev-DatePicker {
   display: block;
@@ -48,7 +48,7 @@ $calendar-header-height: $size-large !default;
   &.rev-Calendar--overlay {
     position: absolute;
     top: calc(100% + #{$padding-small});
-    z-index: $above-most;
+    z-index: $z-index-above-most;
 
     &.rev-Calendar--closed {
       opacity: 0;
@@ -107,8 +107,8 @@ $calendar-header-height: $size-large !default;
 
 .rev-Card-header .rev-Button.rev-Button--small.rev-Calendar-year-selection-button {
   padding: 0;
-  height: $size-small;
-  width: $size-small;
+  height: $icon-size-small;
+  width: $icon-size-small;
   margin: 0;
 
   span {

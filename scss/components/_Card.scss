@@ -27,7 +27,7 @@ $card-footer-background: $color-white !default;
 
   &.rev-Card--primary {
     border: 0;
-    box-shadow: $global-box-shadow;
+    box-shadow: $box-shadow-default;
   }
 
   &.rev-Card--secondary {

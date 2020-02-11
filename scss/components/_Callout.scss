@@ -18,7 +18,7 @@ $callout-padding: $spacing-base $spacing-base !default;
 
   &.rev-Callout--primary {
     background: $callout-bkgd;
-    box-shadow: $global-box-shadow;
+    box-shadow: $box-shadow-default;
     color: $callout-color;
   }
 

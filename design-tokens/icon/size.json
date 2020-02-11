@@ -1,0 +1,27 @@
+{
+  "icon": {
+    "size": {
+      "tiny": {
+        "value": "8px"
+      },
+      "small": {
+        "value": "16px"
+      },
+      "medium": {
+        "value": "24px"
+      },
+      "large": {
+        "value": "48px"
+      },
+      "larger": {
+        "value": "64px"
+      },
+      "largest": {
+        "value": "128px"
+      },
+      "base": {
+        "value": "{icon.size.medium.value}"
+      }
+    }
+  }
+}

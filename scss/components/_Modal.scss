@@ -5,7 +5,7 @@ $modal-bkgd: $color-black-60 !default;
 $modal-content-bkgd: $color-white !default;
 $modal-content-border-size: 1px !default;
 $modal-content-border-color: $color-divider !default;
-$modal-content-box-shadow: $global-box-shadow !default;
+$modal-content-box-shadow: $box-shadow-default !default;
 $modal-content-color: $body-font-color !default;
 $modal-content-padding: 0 !default;
 
@@ -23,7 +23,7 @@ $modal-content-padding: 0 !default;
   @include flex(center, row, center, nowrap);
   @include global-transition(opacity);
   opacity: 0;
-  z-index: $above-everything;
+  z-index: $z-index-above-everything;
 
   &.rev-Modal--closed {
     // so we can move the modal out of the way so that it doesn't intercept
@@ -45,7 +45,7 @@ $modal-content-padding: 0 !default;
   @include global-transition(margin-top);
   background: $modal-content-bkgd;
   border-radius: $card-radius;
-  box-shadow: $global-box-shadow;
+  box-shadow: $box-shadow-default;
   color: $modal-content-color;
   margin-top: $padding-large;
   max-width: $screen-width-full;

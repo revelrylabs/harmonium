@@ -10,7 +10,7 @@ $tapbar-font-size: 14px;
   background: $tapbar-bkgd;
   height: $tapbar-height;
   position: relative;
-  z-index: $above;
+  z-index: $z-index-above;
 }
 
 .TapBar-link {

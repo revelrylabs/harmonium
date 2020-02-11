@@ -5,8 +5,8 @@ $topbar-bkgd: $color-white !default;
 $topbar-border-color: $color-divider !default;
 $topbar-border-size: 1px !default;
 $topbar-color: $body-font-color !default;
-$topbar-height: $size-larger !default;
-$topbar-input-width: $size-largest !default;
+$topbar-height: $icon-size-larger !default;
+$topbar-input-width: $icon-size-largest !default;
 $topbar-link-bkgd: transparent !default;
 
 .rev-TopBar {
@@ -18,7 +18,7 @@ $topbar-link-bkgd: transparent !default;
   padding: 0;
   position: relative;
   width: 100%;
-  z-index: $above-everything;
+  z-index: $z-index-above-everything;
 
   nav {
     @include flex(center, row, space-between, no-wrap);
@@ -81,7 +81,7 @@ $topbar-link-bkgd: transparent !default;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index: $above-everything;
+    z-index: $z-index-above-everything;
 
     .rev-Row {
       @include flex(stretch, row, space-between);

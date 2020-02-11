@@ -17,13 +17,13 @@ add overlay collapsible for all sidebars at specified breakpoint */
 .rev-Drawer-closer {
   cursor: pointer;
   display: none;
-  height: $size-large;
+  height: $icon-size-large;
   font-size: $font-size-medium;
-  line-height: $size-large;
+  line-height: $icon-size-large;
   opacity: 0;
   text-align: center;
-  width: $size-large;
-  z-index: $below-everything;
+  width: $icon-size-large;
+  z-index: $z-index-below-everything;
 }
 
 // ADD DRAWER CONTROLS MIXIN WHERE NEEDED
@@ -40,13 +40,13 @@ add overlay collapsible for all sidebars at specified breakpoint */
     left: 0;
     opacity: 1;
     top: 0;
-    z-index: $above-everything;
+    z-index: $z-index-above-everything;
   }
 
   &.rev-Drawer--open {
     .rev-Drawer-expander {
       opacity: 0;
-      z-index: $below-everything;
+      z-index: $z-index-below-everything;
     }
   }
 
@@ -66,9 +66,9 @@ add overlay collapsible for all sidebars at specified breakpoint */
 
   &.rev-Drawer--open {
     .rev-Drawer-closer {
-      left: calc(#{$drawer-width} - #{$size-large});
+      left: calc(#{$drawer-width} - #{$icon-size-large});
       opacity: 1;
-      z-index: $above-everything;
+      z-index: $z-index-above-everything;
     }
   }
 
@@ -163,7 +163,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
   position: fixed;
   top: $top;
   width: 0px;
-  z-index: $above-most;
+  z-index: $z-index-above-most;
 
   &.rev-Drawer--open {
     left: 0;
@@ -329,7 +329,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
   position: fixed;
   right: 0;
   top: $topbar-height;
-  z-index: $below;
+  z-index: $z-index-below;
 }
 .Drawer-toggle { // label
   @include global-transition;
@@ -345,7 +345,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
   top: 169px;
   transform: rotate(-90deg);
   width: 200px;
-  z-index: $above;
+  z-index: $z-index-above;
   &:hover {
     background: $anchor-color-hover;
   }

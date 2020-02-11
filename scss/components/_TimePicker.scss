@@ -31,7 +31,7 @@ $time-picker-header-bkgd: $time-picker-bkgd !default;
   &.rev-TimeContainer--overlay {
     position: absolute;
     top: calc(100% + #{$padding-small});
-    z-index: $above-most;
+    z-index: $z-index-above-most;
 
     &.rev-TimeContainer--closed {
       opacity: 0;
@@ -84,7 +84,7 @@ $time-picker-header-bkgd: $time-picker-bkgd !default;
 .rev-TimeTicker-button {
   border-right: 1px solid $color-divider;
   padding: 0;
-  width: $size-large;
+  width: $icon-size-large;
 }
 
 .rev-TimeTicker-value {
@@ -95,5 +95,5 @@ $time-picker-header-bkgd: $time-picker-bkgd !default;
 .rev-TimeTicker-divider {
   display: block;
   text-align: center;
-  width: $size-tiny;
+  width: $icon-size-tiny;
 }

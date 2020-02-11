@@ -74,15 +74,15 @@ $button-color-secondary-active: $color-white !default;
   }
 
   &.rev-Button--primary {
-    box-shadow: $global-box-shadow;
+    box-shadow: $box-shadow-default;
 
     &:hover {
-      box-shadow: $global-box-shadow-hover;
+      box-shadow: $box-shadow-hover;
     }
 
     &:active,
     &:focus {
-      box-shadow: $global-box-shadow-active;
+      box-shadow: $box-shadow-active;
     }
   }
 

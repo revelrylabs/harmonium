@@ -9,7 +9,7 @@ $closebutton-color-hover: $color-white !default;
 $closebutton-bkgd-active: $color-black !default;
 $closebutton-color-active: $color-white !default;
 $closebutton-radius: $border-radius-rounded !default;
-$closebutton-size: $size-large !default;
+$closebutton-size: $icon-size-large !default;
 
 .rev-CloseButton {
   @include button;

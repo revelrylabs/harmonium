@@ -10,10 +10,12 @@
   right: auto;
   top: auto;
   width: 0;
-  z-index: $above-most;
+  z-index: $z-index-above-most;
 }
+
 @mixin arrow-down($color: null, $arrow-size: 12px) {
   position: relative;
+
   :before {
     @include arrow-base;
     border: $arrow-size solid transparent;
@@ -24,8 +26,10 @@
     margin-left: -$arrow-size;
   }
 }
+
 @mixin arrow-down-outline($color: null, $border-color: $color-divider, $arrow-size: 12px) {
   @include arrow-down;
+
   :after {
     @include arrow-base;
     border: $arrow-size + 1 solid transparent;
@@ -34,12 +38,13 @@
     bottom: -$arrow-size - 1;
     left: 50%;
     margin-left: -$arrow-size - 1;
-    z-index: $above;
+    z-index: $z-index-above;
   }
 }
 
 @mixin arrow-left($color: null, $arrow-size: 12px) {
   position: relative;
+
   :before {
     @include arrow-base;
     border: $arrow-size solid transparent;
@@ -50,8 +55,10 @@
     top: 50%;
   }
 }
+
 @mixin arrow-left-outline($color: null, $border-color: $color-divider, $arrow-size: 12px) {
   @include arrow-left;
+
   :after {
     @include arrow-base;
     border: $arrow-size + 1 solid transparent;
@@ -60,11 +67,13 @@
     right: 100%;
     margin-top: -$arrow-size - 1;
     top: 50%;
-    z-index: $above;
+    z-index: $z-index-above;
   }
 }
+
 @mixin arrow-right($color: null, $arrow-size: 12px) {
   position: relative;
+
   :before {
     @include arrow-base;
     border: $arrow-size solid transparent;
@@ -75,8 +84,10 @@
     top: 50%;
   }
 }
+
 @mixin arrow-right-outline($color: null, $border-color: $color-divider, $arrow-size: 12px) {
   @include arrow-right;
+
   :after {
     @include arrow-base;
     border: $arrow-size + 1 solid transparent;
@@ -85,11 +96,13 @@
     left: 100%;
     margin-top: -$arrow-size - 1;
     top: 50%;
-    z-index: $above;
+    z-index: $z-index-above;
   }
 }
+
 @mixin arrow-up($color: null, $arrow-size: 12px) {
   position: relative;
+
   :before {
     @include arrow-base;
     border: $arrow-size solid transparent;
@@ -100,8 +113,10 @@
     top: -$arrow-size;
   }
 }
+
 @mixin arrow-up-outline($color: null, $border-color: $color-divider, $arrow-size: 12px) {
   @include arrow-up($color);
+
   :after {
     @include arrow-base;
     border: $arrow-size + 1 solid transparent;
@@ -110,6 +125,6 @@
     left: 50%;
     margin-left: -$arrow-size - 1;
     top: -$arrow-size - 1;
-    z-index: $above;
+    z-index: $z-index-above;
   }
 }

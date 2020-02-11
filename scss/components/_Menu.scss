@@ -64,7 +64,7 @@ $menu-dropdown-width: 24rem !default;
     display: none;
     position: absolute;
     width: $menu-dropdown-width;
-    z-index: $above;
+    z-index: $z-index-above;
 
     .rev-Menu--nested {
       border: 0;

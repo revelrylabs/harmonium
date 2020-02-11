@@ -17,7 +17,7 @@
   //   position: absolute;
   //   right: -5%;
   //   top: -5%;
-  //   z-index: $below; // Watch this: may not be appropriate for all situations
+  //   z-index: $z-index-below; // Watch this: may not be appropriate for all situations
   // }
 }
 
@@ -28,5 +28,5 @@
   position: absolute;
   top: 0;
   width: 100%;
-  z-index: $above;
+  z-index: $z-index-above;
 }

@@ -6,14 +6,14 @@
   background-color: $background;
   color: $color;
   cursor: not-allowed;
-  opacity: $color-disabled-opacity;
+  opacity: $opacity-disabled;
 
   &:hover,
   &:active,
   &:focus {
     background-color: $background;
     color: $color;
-    opacity: $color-disabled-opacity;
+    opacity: $opacity-disabled;
   }
 }
 

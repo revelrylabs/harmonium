@@ -69,12 +69,12 @@ $line-height-base: $line-height-global * $font-size-base;
 
 // Sizes - made up of vertical spacing multiples
 // common size vars for things like badges
-$size-tiny: 6px;
-$size-small: 12px;
-$size-default: 24px;
-$size-large: 48px;
-$size-larger: 64px;
-$size-largest: 128px;
+$icon-size-tiny: 6px;
+$icon-size-small: 12px;
+$icon-size-base: 24px;
+$icon-size-large: 48px;
+$icon-size-larger: 64px;
+$icon-size-largest: 128px;
 
 // GRID COLS - determines the number of columns in a grid
 $grid-columns: 12;
@@ -107,9 +107,9 @@ $border-radius-small: 3px;
 $border-radius-rounded: 100000px;
 
 // Box Shadows
-$global-box-shadow: 0 1px 4px 0 $color-black-30;
-$global-box-shadow-hover: 0 2px 6px 0 $color-black-50;
-$global-box-shadow-active: 0 1px 2px 0 $color-black-30;
+$box-shadow-default: 0 1px 4px 0 $color-black-30;
+$box-shadow-hover: 0 2px 6px 0 $color-black-50;
+$box-shadow-active: 0 1px 2px 0 $color-black-30;
 
 // Body Vars
 $body-bkgd: $color-white;
@@ -167,7 +167,7 @@ $closebutton-color-hover: $color-white;
 $closebutton-bkgd-active: $color-black;
 $closebutton-color-active: $color-white;
 $closebutton-radius: $border-radius-rounded;
-$closebutton-size: $size-large;
+$closebutton-size: $icon-size-large;
 
 // HR Vars
 $hr-width: $screen-width-full;
@@ -175,11 +175,11 @@ $hr-border: 1px solid $color-divider;
 $hr-margin: $padding-large auto;
 
 // Image Blur
-$image-blur: blur(8px);
-$no-image-blur: blur(0);
+$blur-enabled: blur(8px);
+$blur-disabled: blur(0);
 
 // Disabled
-$color-disabled-opacity: 0.35;
+$opacity-disabled: 0.35;
 
 //## Color Mgmt for Navigational Components -----------------------------
 // ex: menus, pagination
@@ -225,8 +225,8 @@ $topbar-bkgd: $color-white;
 $topbar-border-color: $color-divider;
 $topbar-border-size: 1px;
 $topbar-color: $body-font-color;
-$topbar-height: $size-larger;
-$topbar-input-width: $size-largest;
+$topbar-height: $icon-size-larger;
+$topbar-input-width: $icon-size-largest;
 $topbar-link-bkgd: transparent;
 
 //# Drawer
@@ -322,7 +322,7 @@ $modal-bkgd: $color-black-40;
 $modal-content-bkgd: $color-white;
 $modal-content-border-size: 1px;
 $modal-content-border-color: $color-divider;
-$modal-content-box-shadow: $global-box-shadow;
+$modal-content-box-shadow: $box-shadow-default;
 $modal-content-color: $body-font-color;
 $modal-content-padding: 0;
 
@@ -383,7 +383,7 @@ $calendar-container-width: 32rem;
 $calendar-width: 32rem;
 $calendar-max-height-animation: 35rem;
 $calendar-header-bkgd: $calendar-bkgd;
-$calendar-header-height: $size-large;
+$calendar-header-height: $icon-size-large;
 
 //# Time
 $time-picker-container-width: 100%;
@@ -396,7 +396,7 @@ $time-picker-header-bkgd: $time-picker-bkgd;
 //## ATOMS -----------------------------
 
 //# Badges
-$badge-size: $size-default;
+$badge-size: $icon-size-base;
 
 //## UTILITIES -----------------------------
 
@@ -405,5 +405,5 @@ $help-text-color: $color-gray;
 
 //# Progress
 $progress-radius: $border-radius-rounded;
-$progress-meter-height: $size-tiny;
+$progress-meter-height: $icon-size-tiny;
 $progress-meter-bkgd: $color-darker-gray;
