@@ -1,15 +1,5 @@
 // ALL VARS ARE WRITTEN AS !DEFAULT HERE SO THAT THEY CAN BE EASILY OVERWRITTEN
 
-// Sizes
-$screen-width-small: 0 !default;
-$screen-width-medium: 768px !default;
-$screen-width-large: 1024px !default;
-$screen-width-xlarge: 1200px !default;
-$screen-width-xxlarge: 1440px !default;
-$screen-width-nav: $screen-width-medium !default;
-
-$screen-width-full: 100% !default;
-
 // Breakpoints
 $breakpoints: (small: (min-width: $screen-width-small),
   small-only: ((min-width: $screen-width-small) and (max-width: $screen-width-medium - 1)),
@@ -30,31 +20,6 @@ $breakpoints: (small: (min-width: $screen-width-small),
 
 @import '../mixins/media-queries';
 
-// IMPORT FONTS HERE
-
-// Global Fonts
-$font-family-monospace: 'Montserrat',
-sans-serif !default;
-$font-family-serif: 'Georgia',
-serif !default;
-$font-family-sans-serif: 'Roboto',
-'Helvetica Neue',
-Helvetica,
-Arial,
-'Lucida Grande',
-sans-serif !default;
-
-// we use the global-font-sizes for typographic utilities
-// AND to determine vertical spacing
-$font-size-base: 1.6rem !default;
-$font-size-tiny: 0.474rem !default;
-$font-size-smaller: 0.711rem !default;
-$font-size-small: 1.067rem !default;
-$font-size-medium: 1.6rem !default;
-$font-size-large: 2.4rem !default;
-$font-size-larger: 3.6rem !default;
-$font-size-largest: 5.4rem !default;
-
 // Headers (rems or unit-less values only!)
 $h1: $font-size-largest !default;
 $h2: $font-size-larger !default;
@@ -63,54 +28,6 @@ $h4: $font-size-medium !default;
 $h5: $font-size-base !default;
 $h6: $font-size-base !default;
 //TODO: make sass map for header sizes with breakpoints for small/large
-
-$font-weight-light: 300 !default;
-$font-weight-normal: 400 !default;
-$font-weight-bold: 700 !default;
-$line-height-global: 1.5 !default;
-$line-height-base: $line-height-global * $font-size-base !default;
-
-// Spacing
-$spacing-base: 24px !default;
-$spacing-tiny: $spacing-base / 4 !default; // 6px
-$spacing-small: $spacing-base / 2 !default; // 12px
-$spacing-medium: $spacing-base !default; // 24px
-$spacing-large: $spacing-base * 2 !default; // 48px
-$spacing-larger: $spacing-base * 3 !default; // 72px
-
-// Opacity
-$opacity-disabled: 0.35 !default;
-
-// Border Radius
-$border-radius-small: 3px !default;
-$border-radius-rounded: 100000px !default;
-
-// Box Shadow
-$box-shadow-default: 0 1px 4px 0 $color-black-30 !default;
-$box-shadow-hover: 0 2px 6px 0 $color-black-50 !default;
-$box-shadow-active: 0 1px 2px 0 $color-black-30 !default;
-
-// Image Blur
-$blur-enabled: blur(8px) !default;
-$blur-disabled: blur(0) !default;
-
-// Sizes
-// common size vars for things like badges, close buttons, fixed naviagtion bars
-$icon-size-tiny: 8px !default;
-$icon-size-small: 16px !default;
-$icon-size-base: 24px !default;
-$icon-size-large: 48px !default;
-$icon-size-larger: 64px !default;
-$icon-size-largest: 128px !default;
-
-// Z-Index
-$z-index-above-everything: 1000;
-$z-index-above-most: 10;
-$z-index-above: 1;
-$z-index-default: 0;
-$z-index-below: -1;
-$z-index-below-most: -10;
-$z-index-below-everything: -1000;
 
 // Padding
 $padding-tiny: $spacing-tiny !default;
@@ -125,12 +42,6 @@ $margin-small: $padding-small !default;
 $margin-base: $padding-base !default;
 $margin-large: $padding-large !default;
 $margin-larger: $padding-larger !default;
-
-// Grid
-$grid-row-width: $screen-width-large !default;
-$grid-columns: 12 !default;
-$grid-column-padding: $padding-small !default;
-$grid-gutter: $grid-column-padding * 2 !default;
 
 // Body Vars
 $body-bkgd: $color-white !default;
