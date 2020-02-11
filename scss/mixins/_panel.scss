@@ -1,5 +1,5 @@
 @mixin panel($padded: false) {
-  border: 1px solid $divider-color;
+  border: 1px solid $color-divider;
   margin-bottom: $global-vertical-space;
   @if ($padded) {
     padding: $global-vertical-space $global-horizontal-space;

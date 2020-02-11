@@ -1,4 +1,4 @@
-$menu-bkgd: $white-0 !default;
+$menu-bkgd: $color-white-0 !default;
 $menu-text-bkgd: $menu-bkgd !default;
 $menu-text-color: $body-font-color !default;
 // unless updated, menu link colors are managed by navigation-color-mgmt
@@ -19,54 +19,67 @@ $menu-dropdown-width: 24rem !default;
 
 @mixin vertical-menu {
   display: block;
+
   &.rev-Menu--dividers {
     .rev-Menu--nested {
-      border-top: 1px solid $divider-color;
+      border-top: 1px solid $color-divider;
     }
+
     .rev-Menu-item,
     .rev-Menu-item--divider {
-      border-bottom: 1px solid $divider-color;
+      border-bottom: 1px solid $color-divider;
     }
+
     .rev-Menu-item:last-of-type {
       border: 0;
     }
   }
+
   .rev-Menu-item--divider {
-    border-bottom: 1px solid $divider-color;
+    border-bottom: 1px solid $color-divider;
   }
+
   .rev-Menu-item--text .rev-Menu-item--divider {
     margin-bottom: $global-vertical-space / 2;
   }
 }
+
 @mixin horizontal-menu {
   @include flex(center, row, space-between, nowrap);
   overflow-x: scroll;
+
   &.rev-Menu--dividers .rev-Menu-item,
   .rev-Menu-item--divider {
-    border-left: 1px solid $divider-color;
+    border-left: 1px solid $color-divider;
   }
+
   &.rev-Menu--dividers .rev-Menu-item:first-of-type {
     border: 0;
   }
+
   .rev-Menu--nested {
-    border: 1px solid $divider-color;
+    border: 1px solid $color-divider;
     border-top: 0;
     border-radius: $global-radius;
     display: none;
     position: absolute;
     width: $menu-dropdown-width;
     z-index: $above;
+
     .rev-Menu--nested {
       border: 0;
       position: static;
       width: 100%;
     }
+
     li:hover & {
       display: block;
     }
   }
+
   .rev-Menu-item {
     position: relative;
+
     &:hover,
     &:active,
     &:focus,
@@ -84,25 +97,30 @@ $menu-dropdown-width: 24rem !default;
     margin: 0;
     padding: 0;
     position: relative;
+
     a {
       background-color: $menu-link-bkgd;
       color: $menu-link-color;
       display: block;
       padding: $global-vertical-space / 2 $global-horizontal-space $global-vertical-space / 2 $global-horizontal-space;
+
       &:hover {
         background-color: $menu-link-bkgd-hover;
         color: $menu-link-color-hover;
       }
+
       &:active,
       &:focus {
         background-color: $menu-link-bkgd-active;
         color: $menu-link-color-active;
       }
     }
+
     &[class*='--selected'] a {
       background-color: $menu-link-bkgd-selected;
       color: $menu-link-color-selected;
     }
+
     &.rev-Menu-item--text {
       background-color: $menu-text-bkgd;
       display: block;
@@ -115,37 +133,46 @@ $menu-dropdown-width: 24rem !default;
   @include rev-menu-item;
   background-color: $menu-bkgd;
   position: relative;
+
   &.rev-Menu--horizontal {
     @include horizontal-menu;
   }
+
   &.rev-Menu--horizontalJustified {
     @include horizontal-menu;
+
     .rev-Menu-item {
       flex: 1;
       text-align: center;
     }
   }
+
   &.rev-Menu--horizontalCentered {
     @include horizontal-menu;
     justify-content: center;
   }
+
   &.rev-Menu--horizontalLeft {
     @include horizontal-menu;
     justify-content: flex-start;
   }
+
   &.rev-Menu--horizontalRight {
     @include horizontal-menu;
     justify-content: flex-end;
   }
+
   &.rev-Menu--vertical,
   &.rev-Menu--verticalLeft {
     @include vertical-menu;
     text-align: left;
   }
+
   &.rev-Menu--verticalCentered {
     @include vertical-menu;
     text-align: center;
   }
+
   &.rev-Menu--verticalRight {
     @include vertical-menu;
     text-align: right;
@@ -158,10 +185,12 @@ $menu-dropdown-width: 24rem !default;
     a {
       padding-left: calc(#{$global-padding} + (#{$global-padding-small} * 1));
     }
+
     .rev-Menu--nested {
       a {
         padding-left: calc(#{$global-padding} + (#{$global-padding-small} * 2));
       }
+
       .rev-Menu--nested {
         a {
           padding-left: calc(#{$global-padding} + (#{$global-padding-small} * 3));

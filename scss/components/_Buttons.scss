@@ -1,29 +1,31 @@
 // Button Vars
-$button-bkgd: $brand !default;
+$button-bkgd: $color-brand !default;
 $button-border: 0 !default;
-$button-color: $white !default;
-$button-bkgd-hover: darken($brand, 5%) !default;
-$button-color-hover: $white !default;
-$button-bkgd-active: darken($brand, 10%) !default;
-$button-color-active: $white !default;
+$button-color: $color-white !default;
+$button-bkgd-hover: darken($color-brand, 5%) !default;
+$button-color-hover: $color-white !default;
+$button-bkgd-active: darken($color-brand, 10%) !default;
+$button-color-active: $color-white !default;
 $button-radius: $global-radius !default;
 
 $button-bkgd-secondary: transparent !default;
-$button-box-shadow-secondary: $brand !default;
-$button-color-secondary: $brand !default;
-$button-bkgd-secondary-hover: darken($brand, 5%) !default;
-$button-box-shadow-secondary-hover: darken($brand, 5%) !default;
-$button-color-secondary-hover: $white !default;
-$button-bkgd-secondary-active: darken($brand, 10%) !default;
-$button-box-shadow-secondary-active: darken($brand, 10%) !default;
-$button-color-secondary-active: $white !default;
+$button-box-shadow-secondary: $color-brand !default;
+$button-color-secondary: $color-brand !default;
+$button-bkgd-secondary-hover: darken($color-brand, 5%) !default;
+$button-box-shadow-secondary-hover: darken($color-brand, 5%) !default;
+$button-color-secondary-hover: $color-white !default;
+$button-bkgd-secondary-active: darken($color-brand, 10%) !default;
+$button-box-shadow-secondary-active: darken($color-brand, 10%) !default;
+$button-color-secondary-active: $color-white !default;
 
 @mixin button-contained {
   .rev-Button {
     margin: $global-vertical-space / 2 auto;
+
     &.rev-Button--small {
       margin: $global-vertical-space / 2 auto;
     }
+
     &.rev-Button--large {
       margin: $global-vertical-space auto;
     }
@@ -43,47 +45,58 @@ $button-color-secondary-active: $white !default;
   line-height: $base-lineheight;
   margin: 0 0 $global-vertical-space;
   padding: $global-padding-small $global-padding;
+
   &:hover,
   &:active,
   &:focus {
     background: $button-bkgd-hover;
     color: $button-color-hover;
   }
+
   &:active,
   &:focus {
     background: $button-bkgd-active;
     color: $button-color-active;
   }
 }
+
 .rev-Button {
   @include button;
+
   &.rev-Button--large {
     font-size: $global-font-size-medium;
     padding: $global-padding $global-padding-large;
     margin: 0 auto $global-vertical-space;
   }
+
   &.rev-Button--small {
     @include small-input;
   }
+
   &.rev-Button--primary {
     box-shadow: $global-box-shadow;
+
     &:hover {
       box-shadow: $global-box-shadow-hover;
     }
+
     &:active,
     &:focus {
       box-shadow: $global-box-shadow-active;
     }
   }
+
   &.rev-Button--secondary {
     background: $button-bkgd-secondary;
     box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
     color: $button-color-secondary;
+
     &:hover {
       background: $button-bkgd-secondary-hover;
       box-shadow: 0 0 0 1px $button-bkgd-secondary-hover inset;
       color: $button-color-secondary-hover;
     }
+
     &:active,
     &:focus {
       background: $button-bkgd-secondary-active;
@@ -91,26 +104,32 @@ $button-color-secondary-active: $white !default;
       color: $button-color-secondary-active;
     }
   }
+
   &.rev-Button--inverted {
     background: $button-color;
     color: $button-bkgd;
+
     &:hover,
     &:focus {
       background: $button-color;
       color: $button-bkgd-hover;
     }
+
     &:active {
       color: $button-bkgd-active;
     }
+
     &.rev-Button--secondary {
       background: transparent;
       box-shadow: 0 0 0 1px $button-color inset;
       color: $button-color;
+
       &:hover {
         background: $button-color-hover;
         box-shadow: 0 0 0 1px $button-color-hover inset;
         color: $button-bkgd-hover;
       }
+
       &:active,
       &:focus {
         background: $button-color-active;
@@ -119,52 +138,66 @@ $button-color-secondary-active: $white !default;
       }
     }
   }
+
   &.rev-Button--success {
-    background: $success;
+    background: $color-ui-success;
+
     &:hover,
     &:active,
     &:focus {
-      background: darken($success, 10%);
+      background: darken($color-ui-success, 10%);
     }
   }
+
   &.rev-Button--alert {
-    background: $alert;
+    background: $color-ui-alert;
+
     &:hover,
     &:active,
     &:focus {
-      background: darken($alert, 10%);
+      background: darken($color-ui-alert, 10%);
     }
   }
+
   &.rev-Button--warning {
-    background: $warning;
+    background: $color-ui-warning;
+
     &:hover,
     &:active,
     &:focus {
-      background: darken($warning, 10%);
+      background: darken($color-ui-warning, 10%);
     }
   }
+
   &.rev-Button--expanded {
     width: 100%;
   }
+
   &.rev-Button--collapse {
     margin: 0;
   }
+
   &.rev-Button--disabled {
     @include disabled($button-bkgd, $button-color);
+
     &.rev-Button--secondary {
       @include disabled($button-bkgd-secondary, $button-color-secondary);
       box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
     }
   }
 }
+
 .rev-ButtonGroup {
   font-size: 0;
+
   .rev-Button {
     border-radius: 0;
-    border-right: 1px solid $divider-color;
+    border-right: 1px solid $color-divider;
+
     &:first-child {
       border-radius: $global-radius 0 0 $global-radius;
     }
+
     &:last-child {
       border: 0;
       border-radius: 0 $global-radius $global-radius 0;

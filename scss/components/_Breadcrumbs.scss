@@ -6,7 +6,7 @@ $breadcrumb-color-active: $anchor-color-active !default;
 $breadcrumb-text-transform: uppercase !default;
 $breadcrumb-separator-family: $body-font-family !default; // In case you want to use an icon as the separator
 $breadcrumb-separator: '/' !default;
-$breadcrumb-separator-color: $light-gray !default;
+$breadcrumb-separator-color: $color-light-gray !default;
 $breadcrumb-margin: $global-margin 0 !default;
 $breadcrumb-item-margin: 0 $global-margin-small !default;
 $breadcrumb-item-padding: 0 !default;
@@ -16,7 +16,7 @@ $breadcrumb-item-padding: 0 !default;
   list-style: none;
   margin: $breadcrumb-margin;
   &--center {
-    @include flex(center, row, center, wrap);    
+    @include flex(center, row, center, wrap);
   }
   &--justified {
     @include flex(center, row, space-between, wrap);
@@ -39,7 +39,7 @@ $breadcrumb-item-padding: 0 !default;
       color: $breadcrumb-color-hover;
     }
     &:active {
-      color: $breadcrumb-color-active;      
+      color: $breadcrumb-color-active;
     }
   }
   &:not(:last-child):after {

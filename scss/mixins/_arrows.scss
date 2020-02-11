@@ -24,7 +24,7 @@
     margin-left: -$arrow-size;
   }
 }
-@mixin arrow-down-outline($color: null, $border-color: $divider-color, $arrow-size: 12px) {
+@mixin arrow-down-outline($color: null, $border-color: $color-divider, $arrow-size: 12px) {
   @include arrow-down;
   :after {
     @include arrow-base;
@@ -50,7 +50,7 @@
     top: 50%;
   }
 }
-@mixin arrow-left-outline($color: null, $border-color: $divider-color, $arrow-size: 12px) {
+@mixin arrow-left-outline($color: null, $border-color: $color-divider, $arrow-size: 12px) {
   @include arrow-left;
   :after {
     @include arrow-base;
@@ -75,7 +75,7 @@
     top: 50%;
   }
 }
-@mixin arrow-right-outline($color: null, $border-color: $divider-color, $arrow-size: 12px) {
+@mixin arrow-right-outline($color: null, $border-color: $color-divider, $arrow-size: 12px) {
   @include arrow-right;
   :after {
     @include arrow-base;
@@ -100,7 +100,7 @@
     top: -$arrow-size;
   }
 }
-@mixin arrow-up-outline($color: null, $border-color: $divider-color, $arrow-size: 12px) {
+@mixin arrow-up-outline($color: null, $border-color: $color-divider, $arrow-size: 12px) {
   @include arrow-up($color);
   :after {
     @include arrow-base;

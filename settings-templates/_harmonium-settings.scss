@@ -10,8 +10,7 @@ $global-width: 100%;
 $grid-row-width: $large;
 
 // Breakpoints
-$breakpoints: (
-  small: (min-width: $small),
+$breakpoints: (small: (min-width: $small),
   small-only: ((min-width: $small) and (max-width: $medium - 1)),
   medium: (min-width: $medium),
   medium-down: ((max-width: $medium - 1)),
@@ -31,9 +30,16 @@ $breakpoints: (
 // IMPORT FONTS HERE
 
 // Global Fonts
-$global-monospace-font: 'Montserrat', sans-serif;
-$global-serif-font: 'Georgia', serif;
-$global-sans-serif-font: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+$global-monospace-font: 'Montserrat',
+sans-serif;
+$global-serif-font: 'Georgia',
+serif;
+$global-sans-serif-font: 'Roboto',
+'Helvetica Neue',
+Helvetica,
+Arial,
+'Lucida Grande',
+sans-serif;
 
 // we use the global-font-sizes for typographic utilities
 // AND to determine vertical spacing
@@ -79,7 +85,7 @@ $global-horizontal-space: $global-vertical-space; // 24px
 $base-size: 0.8rem;
 
 // Global Padding - made up of vertical spacing multiples
-$global-padding-tiny: $global-vertical-space / 4;  // 6px
+$global-padding-tiny: $global-vertical-space / 4; // 6px
 $global-padding-small: $global-vertical-space / 2; // 12px
 $global-padding: $global-vertical-space; // 24px
 $global-padding-large: $global-vertical-space * 2; // 48px
@@ -101,13 +107,13 @@ $global-radius: 3px;
 $global-rounded: 100000px;
 
 // Box Shadows
-$global-box-shadow: 0 1px 4px 0 $black-30;
-$global-box-shadow-hover: 0 2px 6px 0 $black-50;
-$global-box-shadow-active: 0 1px 2px 0 $black-30;
+$global-box-shadow: 0 1px 4px 0 $color-black-30;
+$global-box-shadow-hover: 0 2px 6px 0 $color-black-50;
+$global-box-shadow-active: 0 1px 2px 0 $color-black-30;
 
 // Body Vars
-$body-bkgd: $white;
-$body-font-color: $darker-gray;
+$body-bkgd: $color-white;
+$body-font-color: $color-darker-gray;
 $body-font-family: $global-sans-serif-font;
 
 // Header Vars
@@ -126,46 +132,46 @@ $paragraph-margin-bottom: $global-vertical-space;
 $paragraph-text-rendering: optimizeLegibility;
 
 // ANCHORS
-$anchor-color: $primary;
-$anchor-color-hover: darken($primary, 10%);
-$anchor-color-active: darken($primary, 15%);
+$anchor-color: $color-ui-primary;
+$anchor-color-hover: darken($color-ui-primary, 10%);
+$anchor-color-active: darken($color-ui-primary, 15%);
 $anchor-color-inverse: $body-bkgd;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 
 // BUTTONS
-$button-bkgd: $brand;
+$button-bkgd: $color-brand;
 $button-border: 0;
-$button-color: $white;
-$button-bkgd-hover: darken($brand, 5%);
-$button-color-hover: $white;
-$button-bkgd-active: darken($brand, 10%);
-$button-color-active: $white;
+$button-color: $color-white;
+$button-bkgd-hover: darken($color-brand, 5%);
+$button-color-hover: $color-white;
+$button-bkgd-active: darken($color-brand, 10%);
+$button-color-active: $color-white;
 $button-radius: $global-radius;
 
 $button-bkgd-secondary: transparent;
-$button-box-shadow-secondary: $brand;
-$button-color-secondary: $brand;
-$button-bkgd-secondary-hover: darken($brand, 5%);
-$button-box-shadow-secondary-hover: darken($brand, 5%);
-$button-color-secondary-hover: $white;
-$button-bkgd-secondary-active: darken($brand, 10%);
-$button-box-shadow-secondary-active: darken($brand, 10%);
-$button-color-secondary-active: $white;
+$button-box-shadow-secondary: $color-brand;
+$button-color-secondary: $color-brand;
+$button-bkgd-secondary-hover: darken($color-brand, 5%);
+$button-box-shadow-secondary-hover: darken($color-brand, 5%);
+$button-color-secondary-hover: $color-white;
+$button-bkgd-secondary-active: darken($color-brand, 10%);
+$button-box-shadow-secondary-active: darken($color-brand, 10%);
+$button-color-secondary-active: $color-white;
 
 // CLOSE BUTTON
-$closebutton-bkgd: $darker-gray;
-$closebutton-color: $white;
-$closebutton-bkgd-hover: $black;
-$closebutton-color-hover: $white;
-$closebutton-bkgd-active: $black;
-$closebutton-color-active: $white;
+$closebutton-bkgd: $color-darker-gray;
+$closebutton-color: $color-white;
+$closebutton-bkgd-hover: $color-black;
+$closebutton-color-hover: $color-white;
+$closebutton-bkgd-active: $color-black;
+$closebutton-color-active: $color-white;
 $closebutton-radius: $global-rounded;
 $closebutton-size: $size-large;
 
 // HR Vars
 $hr-width: $global-width;
-$hr-border: 1px solid $divider-color;
+$hr-border: 1px solid $color-divider;
 $hr-margin: $global-padding-large auto;
 
 // Image Blur
@@ -173,11 +179,11 @@ $image-blur: blur(8px);
 $no-image-blur: blur(0);
 
 // Disabled
-$disabled-opacity: 0.35;
+$color-disabled-opacity: 0.35;
 
 //## Color Mgmt for Navigational Components -----------------------------
 // ex: menus, pagination
-$navigation-bkgd: $white-0;
+$navigation-bkgd: $color-white-0;
 // ^transparent by default so that the bkgd of the component shows through
 $navigation-color: $anchor-color;
 // # hover navigation colors
@@ -190,22 +196,22 @@ $navigation-color-active: $anchor-color-active;
 $navigation-bkgd-selected: $navigation-color;
 $navigation-color-selected: $navigation-bkgd;
 // # disabled navigation
-$navigation-color-disabled: $disabled;
+$navigation-color-disabled: $color-disabled;
 $navigation-bkgd-disabled: $navigation-bkgd; // will have disabled-opacity
 
 //## Color Mgmt for Components with States -----------------------------
 // ex: tabs, accordions
-$stateful-item-bkgd: $white-0;
+$stateful-item-bkgd: $color-white-0;
 // ^transparent by default so that the bkgd of the component shows through
 $stateful-item-color: $body-font-color;
 // hover state colors
-$stateful-item-bkgd-hover: $black-06;
+$stateful-item-bkgd-hover: $color-black-06;
 $stateful-item-color-hover: $anchor-color;
 // active state colors
-$stateful-item-bkgd-active: $black-10;
+$stateful-item-bkgd-active: $color-black-10;
 $stateful-item-color-active: $anchor-color-active;
 // selected state colors
-$stateful-item-bkgd-selected: $black-10;
+$stateful-item-bkgd-selected: $color-black-10;
 $stateful-item-color-selected: $anchor-color-active;
 // disabled
 $stateful-item-bkgd-disabled: $stateful-item-bkgd; // will have disabled-opacity
@@ -215,8 +221,8 @@ $stateful-item-color-disabled: $stateful-item-color; // will have disabled-opaci
 //## LAYOUT ELEMENTS -----------------------------
 
 //# TopBar
-$topbar-bkgd: $white;
-$topbar-border-color: $divider-color;
+$topbar-bkgd: $color-white;
+$topbar-border-color: $color-divider;
 $topbar-border-size: 1px;
 $topbar-color: $body-font-color;
 $topbar-height: $size-larger;
@@ -225,8 +231,8 @@ $topbar-link-bkgd: transparent;
 
 //# Drawer
 $drawer-width: 300px;
-$drawer-bkgd: $white;
-$mobile-nav-bkgd: $black;
+$drawer-bkgd: $color-white;
+$mobile-nav-bkgd: $color-black;
 $drawer-height: 100%;
 $drawer-height-contained: 800px;
 $drawer-height-fixed: 100vh;
@@ -235,7 +241,7 @@ $drawer-overlay-top-value: 0;
 //## NAVIGATION -----------------------------
 
 //# Menus
-$menu-bkgd: $white-0;
+$menu-bkgd: $color-white-0;
 $menu-text-bkgd: $navigation-bkgd;
 $menu-text-color: $body-font-color;
 // unless updated here, menu link colors are managed by navigation-color-mgmt
@@ -273,7 +279,7 @@ $breadcrumb-color-active: $anchor-color-active;
 $breadcrumb-text-transform: uppercase;
 $breadcrumb-separator-family: $body-font-family; // In case you want to use an icon as the separator
 $breadcrumb-separator: '/';
-$breadcrumb-separator-color: $light-gray;
+$breadcrumb-separator-color: $color-light-gray;
 $breadcrumb-margin: $global-margin 0;
 $breadcrumb-item-margin: 0 $global-margin-small;
 $breadcrumb-item-padding: 0;
@@ -282,50 +288,50 @@ $breadcrumb-item-padding: 0;
 
 //# Accordions
 $accordion-border-size: 1px;
-$accordion-border-color: $divider-color;
-$accordion-content-bkgd: $white;
+$accordion-border-color: $color-divider;
+$accordion-content-bkgd: $color-white;
 
 //# Tabs
 $tabs-margin: $global-margin;
 $tabs-border-size: 1px;
-$tabs-border-color: $divider-color;
-$tabs-titles-bkgd: $white;
+$tabs-border-color: $color-divider;
+$tabs-titles-bkgd: $color-white;
 $tabs-title-link-padding: $global-padding-small $global-padding;
-$tabs-content-bkgd: $white 0;
+$tabs-content-bkgd: $color-white 0;
 $tabs-content-padding: $global-padding 0;
 
 //## CONTAINERS -----------------------------
 
 //# Callouts
-$callout-bkgd: $white;
+$callout-bkgd: $color-white;
 $callout-border-size: 1px;
-$callout-border-color: $divider-color;
+$callout-border-color: $color-divider;
 $callout-color: $body-font-color;
 $callout-padding: $global-vertical-space $global-horizontal-space;
 
 //# Cards
-$card-bkgd: $white;
-$card-border: 1px solid $divider-color;
+$card-bkgd: $color-white;
+$card-border: 1px solid $color-divider;
 $card-padding: 0;
 $card-radius: $global-radius;
-$card-header-background: $white;
-$card-footer-background: $white;
+$card-header-background: $color-white;
+$card-footer-background: $color-white;
 
 //# Modals
-$modal-bkgd: $black-40;
-$modal-content-bkgd: $white;
+$modal-bkgd: $color-black-40;
+$modal-content-bkgd: $color-white;
 $modal-content-border-size: 1px;
-$modal-content-border-color: $divider-color;
+$modal-content-border-color: $color-divider;
 $modal-content-box-shadow: $global-box-shadow;
 $modal-content-color: $body-font-color;
 $modal-content-padding: 0;
 
 //## FORMS -----------------------------
 
-$input-bkgd: $white;
+$input-bkgd: $color-white;
 $input-bkgd-focus: $input-bkgd;
-$input-box-shadow: 0 0 0 1px $divider-color inset;
-$input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset;
+$input-box-shadow: 0 0 0 1px $color-divider inset;
+$input-box-shadow-focus: 0 0 0 1px $color-divider-dark inset;
 $input-radius: $global-radius;
 $input-color: $body-font-color;
 $input-color-focus: $input-color;
@@ -336,36 +342,36 @@ $label-font-size: $global-font-size;
 //## Range Slider -----------------------------
 $slider-height: 50px;
 $slider-track-padding-right: $global-padding;
-$slider-track-color: $light-gray;
+$slider-track-color: $color-light-gray;
 $slider-input-height: 25px;
 $slider-input-width: 80px;
 $slider-input-margin: 0;
 $slider-thumb-width: 16px;
 $slider-thumb-height: 16px;
 $slider-thumb-border-radius: 50%;
-$slider-thumb-background: $primary;
-$slider-progress-color: $primary;
+$slider-thumb-background: $color-ui-primary;
+$slider-progress-color: $color-ui-primary;
 
 //## TABLES -----------------------------
 
-$table-background: $white;
+$table-background: $color-white;
 $table-color: $body-font-color;
-$table-border: 1px solid $divider-color;
+$table-border: 1px solid $color-divider;
 $table-header-background: $body-font-color;
-$table-header-color: $white;
+$table-header-color: $color-white;
 //responsive table breakpoint
 $table-breakpoint: medium;
 //striped tables
-$table-stripe-background: $lightest-gray;
+$table-stripe-background: $color-lightest-gray;
 
 //## DATA GRIDS -----------------------------
 
-$data-grid-background: $white;
+$data-grid-background: $color-white;
 $data-grid-color: $body-font-color;
-$data-grid-border: 1px solid $divider-color;
+$data-grid-border: 1px solid $color-divider;
 $data-grid-header-background: $body-font-color;
-$data-grid-header-color: $white;
-$data-grid-stripe-background: $lightest-gray;
+$data-grid-header-color: $color-white;
+$data-grid-stripe-background: $color-lightest-gray;
 $data-grid-scroll-height: 15rem;
 
 //## PICKERS -----------------------------
@@ -395,9 +401,9 @@ $badge-size: $size-default;
 //## UTILITIES -----------------------------
 
 //# Help Text
-$help-text-color: $gray;
+$help-text-color: $color-gray;
 
 //# Progress
 $progress-radius: $global-rounded;
 $progress-meter-height: $size-tiny;
-$progress-meter-bkgd: $darker-gray;
+$progress-meter-bkgd: $color-darker-gray;

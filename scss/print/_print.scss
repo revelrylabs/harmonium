@@ -2,12 +2,14 @@
   @page {
     margin: 2cm;
   }
+
   body {
-    background: $white;
+    background: $color-white;
     margin: 0;
     padding: 0;
     width: 100%;
   }
+
   body,
   h1,
   h2,
@@ -17,8 +19,9 @@
   h6,
   p,
   li {
-    color: $black;
+    color: $color-black;
   }
+
   h1,
   h2,
   h3,
@@ -27,25 +30,32 @@
   h6 {
     page-break-after: avoid;
   }
+
   ul,
   img {
     page-break-inside: avoid;
   }
+
   img {
     max-width: 100% !important;
   }
+
   article {
     page-break-before: always;
   }
+
   a {
+
     &:link,
     &:visited {
       text-decoration: underline;
+
       &:after {
-        content: " (" attr(href) ") ";
+        content: " ("attr(href) ") ";
       }
     }
   }
+
   nav,
   footer,
   aside,
@@ -53,6 +63,7 @@
   .HideForPrint {
     display: none;
   }
+
   .ShowForPrint {
     display: block;
   }

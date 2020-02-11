@@ -1,8 +1,8 @@
 $tapbar-height: 60px;
-$tapbar-bkgd: $darker-gray;
-$tapbar-highlight-bkgd: $black;
-$tapbar-color: $lightest-gray;
-$tapbar-highlight-color: $white;
+$tapbar-bkgd: $color-darker-gray;
+$tapbar-highlight-bkgd: $color-black;
+$tapbar-color: $color-lightest-gray;
+$tapbar-highlight-color: $color-white;
 $tapbar-font-size: 14px;
 
 .TapBar {
@@ -12,6 +12,7 @@ $tapbar-font-size: 14px;
   position: relative;
   z-index: $above;
 }
+
 .TapBar-link {
   @include flex(center, column, center);
   color: $tapbar-color;
@@ -21,6 +22,7 @@ $tapbar-font-size: 14px;
   position: relative;
   text-align: center;
   text-decoration: none;
+
   &:hover,
   &:active,
   &:focus,

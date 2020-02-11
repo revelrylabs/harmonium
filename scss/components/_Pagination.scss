@@ -30,7 +30,7 @@ $pagination-link-color-selected: null !default;
   }
   a {
     background: $pagination-link-bkgd;
-    border: 1px solid $divider-color;
+    border: 1px solid $color-divider;
     border-radius: $pagination-radius;
     color: $pagination-link-color;
     padding: $global-padding-tiny $global-padding-small;

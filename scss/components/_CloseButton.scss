@@ -2,12 +2,12 @@
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
 
-$closebutton-bkgd: $darker-gray !default;
-$closebutton-color: $white !default;
-$closebutton-bkgd-hover: $black !default;
-$closebutton-color-hover: $white !default;
-$closebutton-bkgd-active: $black !default;
-$closebutton-color-active: $white !default;
+$closebutton-bkgd: $color-darker-gray !default;
+$closebutton-color: $color-white !default;
+$closebutton-bkgd-hover: $color-black !default;
+$closebutton-color-hover: $color-white !default;
+$closebutton-bkgd-active: $color-black !default;
+$closebutton-color-active: $color-white !default;
 $closebutton-radius: $global-rounded !default;
 $closebutton-size: $size-large !default;
 
@@ -24,15 +24,18 @@ $closebutton-size: $size-large !default;
   min-height: $closebutton-size;
   min-width: $closebutton-size;
   padding: 0 $global-padding-tiny;
+
   &:hover {
     background: $closebutton-bkgd-hover;
     color: $closebutton-color-hover;
   }
+
   &:active,
   &:focus {
     background: $closebutton-bkgd-active;
     color: $closebutton-color-active;
   }
+
   &.rev-CloseButton--absolute {
     margin: 0;
     position: absolute;

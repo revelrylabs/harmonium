@@ -4,9 +4,9 @@
   animation: spin 2s linear infinite;
   // The `border` property specifies the size and `secondaryColor` prop of our
   // `<Loader />`.
-  border: 16px solid $lighter-gray; // Light grey
+  border: 16px solid $color-lighter-gray; // Light grey
   // The `border-top` property specifies the `color` prop of our `<Loader />`.
-  border-top: 16px solid $brand; // Blue
+  border-top: 16px solid $color-brand; // Blue
   // The `border-radius` property transforms our `<Loader />` into a circle.
   border-radius: 50%;
   // The size of our `<Loader />` is specified by way of the `width` and
@@ -19,16 +19,19 @@
     height: 17px;
     width: 17px;
   }
+
   &--medium {
     border-width: 4px;
     height: 32px;
     width: 32px;
   }
+
   &--large {
     border-width: 12px;
     height: 88px;
     width: 88px;
   }
+
   &--huge {
     border-width: 16px;
     height: 120px;
@@ -40,6 +43,7 @@
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }

@@ -1,6 +1,6 @@
 $progress-radius: $global-rounded !default;
 $progress-meter-height: $size-tiny !default;
-$progress-meter-bkgd: $darker-gray !default;
+$progress-meter-bkgd: $color-darker-gray !default;
 
 @mixin progress-color-management {
   @for $i from 1 through length($color-list) {
@@ -18,7 +18,7 @@ $progress-meter-bkgd: $darker-gray !default;
 }
 
 .rev-Progress-track {
-  background: $divider-color;
+  background: $color-divider;
   border-radius: $progress-radius;
   display: block;
   height: $progress-meter-height;

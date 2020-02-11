@@ -1,8 +1,8 @@
 // default component vars listed at the top of the component stylesheet
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
-$topbar-bkgd: $white !default;
-$topbar-border-color: $divider-color !default;
+$topbar-bkgd: $color-white !default;
+$topbar-border-color: $color-divider !default;
 $topbar-border-size: 1px !default;
 $topbar-color: $body-font-color !default;
 $topbar-height: $size-larger !default;
@@ -19,6 +19,7 @@ $topbar-link-bkgd: transparent !default;
   position: relative;
   width: 100%;
   z-index: $above-everything;
+
   nav {
     @include flex(center, row, space-between, no-wrap);
     height: $topbar-height;
@@ -27,41 +28,51 @@ $topbar-link-bkgd: transparent !default;
     padding: 0 $global-padding;
     width: 100%;
   }
+
   // SEARCH FORMS IN TOPBARS
   .rev-Form {
     padding-left: $grid-column-padding;
     padding-right: $grid-column-padding;
+
     .rev-Button,
     .rev-Input {
       margin: 0;
     }
   }
+
   .rev-InputGroup {
     .rev-Input {
       max-width: $topbar-input-width;
     }
   }
+
   // TOPBAR POSITIONING
   &.rev-TopBar--center {
     nav {
       @include flex(center, row, center, no-wrap);
     }
   }
+
   &.rev-TopBar--left {
     nav {
       @include flex(center, row, flex-start, no-wrap);
     }
   }
-  &.rev-TopBar--justified { //default
+
+  &.rev-TopBar--justified {
+
+    //default
     nav {
       @include flex(center, row, space-between, no-wrap);
     }
   }
+
   &.rev-TopBar--right {
     nav {
       @include flex(center, row, flex-end, no-wrap);
     }
   }
+
   // FIXED POSITION TOPBAR
   &.rev-TopBar--fixed {
     height: $topbar-height;
@@ -70,14 +81,17 @@ $topbar-link-bkgd: transparent !default;
     position: fixed;
     top: 0;
     width: 100%;
-    z-index:  $above-everything;
+    z-index: $above-everything;
+
     .rev-Row {
       @include flex(stretch, row, space-between);
     }
   }
-  .rev-Menu  {
+
+  .rev-Menu {
     background: transparent;
-    overflow: visible; // So that dropdowns can be visible 
+    overflow: visible; // So that dropdowns can be visible
+
     .rev-Menu-item a {
       border-radius: $global-radius;
     }
@@ -92,20 +106,20 @@ $topbar-link-bkgd: transparent !default;
   margin-right: auto;
 }*/
 
-// SCROLLING CONTAINERS WHEN THERES TOO MANY NAV ITEMS 
+// SCROLLING CONTAINERS WHEN THERES TOO MANY NAV ITEMS
 .rev-TopBar-item--scroll {
   overflow-x: scroll;
 }
 
 $scrollBreakpoints: (smallOnly small-only),
-                    (medium medium),
-                    (large large),
-                    (xLarge xlarge),
-                    (mediumDown medium-down),
-                    (largeDown large-down),
-                    (xLargeDown xlarge-down),
-                    (nav nav),
-                    (navOnly nav-only);
+(medium medium),
+(large large),
+(xLarge xlarge),
+(mediumDown medium-down),
+(largeDown large-down),
+(xLargeDown xlarge-down),
+(nav nav),
+(navOnly nav-only);
 
 @each $breakpoint in $scrollBreakpoints {
   .rev-TopBar-item--scroll--#{nth($breakpoint, 1)} {
