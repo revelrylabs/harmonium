@@ -3,11 +3,17 @@
   "platforms": {
     "scss": {
       "transformGroup": "scss",
-      "buildPath": "./scss/vars/",
+      "buildPath": "./settings-templates/",
       "files": [
         {
-          "destination": "_design-tokens.scss",
-          "format": "scss/variables/default"
+          "destination": "_harmonium-settings.scss",
+          "format": "scss/variables",
+          "filter": "isNotColor"
+        },
+        {
+          "destination": "_color-palette.scss",
+          "format": "scss/variables",
+          "filter": "isColor"
         }
       ]
     },

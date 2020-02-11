@@ -1,20 +1,16 @@
-$color-test: #F0F;
 
-// BRAND COLORS
-$color-brand: #295DE5;
-$color-brand-secondary: #6422EB;
-$color-brand-tertiary: #501BBC;
+// Do not edit directly
+// Generated on Tue, 11 Feb 2020 18:09:13 GMT
 
-$color-white: #FFF;
-$color-lightest-gray: #F4F4F4;
-$color-lighter-gray: #D5D5D5;
-$color-light-gray: #ABABAB;
+$color-white: #ffffff;
+$color-lightest-gray: #f4f4f4;
+$color-lighter-gray: #d5d5d5;
+$color-light-gray: #ababab;
 $color-gray: #818181;
 $color-dark-gray: #565656;
-$color-darker-gray: #2A2A2A;
-$color-black: #000;
-
-$color-white-0: rgba(255, 255, 255, 0); // for animation purposes
+$color-darker-gray: #2a2a2a;
+$color-black: #000000;
+$color-white-0: rgba(255, 255, 255, 0); // For animation purposes
 $color-white-03: rgba(255, 255, 255, 0.03);
 $color-white-06: rgba(255, 255, 255, 0.06);
 $color-white-10: rgba(255, 255, 255, 0.1);
@@ -26,7 +22,7 @@ $color-white-60: rgba(255, 255, 255, 0.6);
 $color-white-70: rgba(255, 255, 255, 0.7);
 $color-white-80: rgba(255, 255, 255, 0.8);
 $color-white-90: rgba(255, 255, 255, 0.9);
-$color-black-0: rgba(0, 0, 0, 0); // for animation purposes
+$color-black-0: rgba(0, 0, 0, 0); // For animation purposes
 $color-black-03: rgba(0, 0, 0, 0.03);
 $color-black-06: rgba(0, 0, 0, 0.06);
 $color-black-10: rgba(0, 0, 0, 0.1);
@@ -38,18 +34,17 @@ $color-black-60: rgba(0, 0, 0, 0.6);
 $color-black-70: rgba(0, 0, 0, 0.7);
 $color-black-80: rgba(0, 0, 0, 0.8);
 $color-black-90: rgba(0, 0, 0, 0.9);
-
-// UTILITY COLORS
-$color-ui-primary: $color-brand;
-$color-ui-success: #00A67F;
-$color-ui-alert: #D94011;
-$color-ui-warning: #D10034;
-$color-ui-error: #D10034;
-
-$color-divider: $color-black-10;
-$color-divider-dark: $color-black-20;
-$color-divider-light: $color-white-10;
-$color-muted: $color-lighter-gray;
-$color-very-muted: $color-lightest-gray;
-
-$color-disabled: $color-light-gray;
+$color-divider: rgba(0, 0, 0, 0.1);
+$color-divider-dark: rgba(0, 0, 0, 0.2);
+$color-divider-light: rgba(255, 255, 255, 0.1);
+$color-muted: #d5d5d5;
+$color-very-muted: #f4f4f4;
+$color-disabled: #ababab;
+$color-brand-primary: #295de5;
+$color-brand-secondary: #6422eb;
+$color-brand-tertiary: #501bbc;
+$color-ui-primary: #295de5;
+$color-ui-success: #00a67f;
+$color-ui-alert: #d94011;
+$color-ui-warning: #d10034;
+$color-ui-error: #d10034;

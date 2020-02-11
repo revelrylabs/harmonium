@@ -66,6 +66,20 @@ function buildDesignTokens() {
     },
   })
 
+  StyleDictionary.registerFilter({
+    name: 'isColor',
+    matcher(prop) {
+      return prop.attributes.category === 'color'
+    },
+  })
+
+  StyleDictionary.registerFilter({
+    name: 'isNotColor',
+    matcher(prop) {
+      return prop.attributes.category !== 'color'
+    },
+  })
+
   // APPLY THE CONFIGURATION
   // IMPORTANT: the registration of custom transforms
   // needs to be done _before_ applying the configuration

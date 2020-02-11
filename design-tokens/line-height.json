@@ -4,7 +4,7 @@
       "value": "1.5"
     },
     "base": {
-      "value": "{line-height.global.value * font.size.base}"
+      "value": "{line-height.global.value} * {font.size.base}"
     }
   }
 }

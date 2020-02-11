@@ -2,7 +2,7 @@
   "grid": {
     "row": {
       "width": {
-        "value": "{screen.size.large.value}"
+        "value": "{screen.width.large.value}"
       }
     },
     "column": {
@@ -11,7 +11,7 @@
       }
     },
     "gutter": {
-      "value": "{spacing.small.value * 2}"
+      "value": "{spacing.small.value} * 2"
     },
     "columns": {
       "value": "12"
