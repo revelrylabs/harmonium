@@ -1,0 +1,59 @@
+
+// Do not edit directly
+// Generated on Tue, 11 Feb 2020 22:51:14 GMT
+
+$blur-enabled: blur(8px) !default;
+$blur-disabled: blur(0) !default;
+$border-radius-small: 3px !default;
+$border-radius-rounded: 100000px !default;
+$font-family-monospace: 'Montserrat', sans-serif !default;
+$font-family-serif: 'Georgia', serif !default;
+$font-family-sans-serif: 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif !default;
+$font-size-tiny: 0.474rem !default; // the smallest size of the font
+$font-size-smaller: 0.711rem !default; // a smaller font size
+$font-size-small: 1.067rem !default; // the small size of the font
+$font-size-medium: 1.6rem !default; // the medium size of the font
+$font-size-large: 2.4rem !default; // the large size of the font
+$font-size-larger: 3.6rem !default; // a larger font size
+$font-size-largest: 5.4rem !default; // the largest size of the font
+$font-size-base: 1.6rem !default; // the base size of the font
+$font-weight-light: 300 !default;
+$font-weight-normal: 400 !default;
+$font-weight-bold: 700 !default;
+$grid-row-width: 1024px !default;
+$grid-column-padding: 12px !default;
+$grid-gutter: 12px * 2 !default;
+$grid-columns: 12 !default;
+$icon-size-tiny: 8px !default;
+$icon-size-small: 16px !default;
+$icon-size-medium: 24px !default;
+$icon-size-large: 48px !default;
+$icon-size-larger: 64px !default;
+$icon-size-largest: 128px !default;
+$icon-size-base: 24px !default;
+$line-height-global: 1.5 !default;
+$line-height-base: [object Object] !default;
+$opacity-disabled: 0.35 !default;
+$screen-width-full: 100% !default;
+$screen-width-small: 0 !default;
+$screen-width-medium: 768px !default;
+$screen-width-large: 1024px !default;
+$screen-width-xlarge: 1200px !default;
+$screen-width-xxlarge: 1440px !default;
+$screen-width-nav: 768px !default;
+$box-shadow-default: 0 1px 4px 0 rgba(0, 0, 0, 0.3) !default;
+$box-shadow-hover: 0 2px 6px 0 rgba(0, 0, 0, 0.5) !default;
+$box-shadow-active: 0 1px 2px 0 rgba(0, 0, 0, 0.3) !default;
+$spacing-tiny: 6px !default;
+$spacing-small: 12px !default;
+$spacing-medium: 24px !default;
+$spacing-large: 48px !default;
+$spacing-larger: 72px !default;
+$spacing-base: 24px !default;
+$z-index-above-everything: 1000 !default;
+$z-index-above-most: 10 !default;
+$z-index-above: 1 !default;
+$z-index-default: 0 !default;
+$z-index-below: -1 !default;
+$z-index-below-most: -10 !default;
+$z-index-below-everything: -1000 !default;
