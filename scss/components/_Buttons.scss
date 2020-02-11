@@ -1,21 +1,21 @@
 // Button Vars
-$button-bkgd: $color-brand !default;
+$button-bkgd: $color-brand-primary !default;
 $button-border: 0 !default;
 $button-color: $color-white !default;
-$button-bkgd-hover: darken($color-brand, 5%) !default;
+$button-bkgd-hover: darken($color-brand-primary, 5%) !default;
 $button-color-hover: $color-white !default;
-$button-bkgd-active: darken($color-brand, 10%) !default;
+$button-bkgd-active: darken($color-brand-primary, 10%) !default;
 $button-color-active: $color-white !default;
 $button-radius: $border-radius-small !default;
 
 $button-bkgd-secondary: transparent !default;
-$button-box-shadow-secondary: $color-brand !default;
-$button-color-secondary: $color-brand !default;
-$button-bkgd-secondary-hover: darken($color-brand, 5%) !default;
-$button-box-shadow-secondary-hover: darken($color-brand, 5%) !default;
+$button-box-shadow-secondary: $color-brand-primary !default;
+$button-color-secondary: $color-brand-primary !default;
+$button-bkgd-secondary-hover: darken($color-brand-primary, 5%) !default;
+$button-box-shadow-secondary-hover: darken($color-brand-primary, 5%) !default;
 $button-color-secondary-hover: $color-white !default;
-$button-bkgd-secondary-active: darken($color-brand, 10%) !default;
-$button-box-shadow-secondary-active: darken($color-brand, 10%) !default;
+$button-bkgd-secondary-active: darken($color-brand-primary, 10%) !default;
+$button-box-shadow-secondary-active: darken($color-brand-primary, 10%) !default;
 $button-color-secondary-active: $color-white !default;
 
 @mixin button-contained {

@@ -13,7 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 | Before                      | After                       |
 | --------------------------- | --------------------------- |
 | `$test`                     | `$color-test`               |
-| `$brand`                    | `$color-brand`              |
+| `$brand`                    | `$color-brand-primary`      |
 | `$brand-secondary`          | `$color-brand-secondary`    |
 | `$brand-tertiary`           | `$color-brand-tertiary`     |
 | `$white`                    | `$color-white`              |

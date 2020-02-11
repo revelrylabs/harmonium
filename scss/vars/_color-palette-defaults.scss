@@ -1,7 +1,7 @@
 $color-test: #F0F !default;
 
 // BRAND COLORS
-$color-brand: #295DE5 !default;
+$color-brand-primary: #295DE5 !default;
 $color-brand-secondary: #6422EB !default;
 $color-brand-tertiary: #501BBC !default;
 
@@ -40,7 +40,7 @@ $color-black-80: rgba(0, 0, 0, 0.8) !default;
 $color-black-90: rgba(0, 0, 0, 0.9) !default;
 
 // UTILITY COLORS
-$color-ui-primary: $color-brand !default;
+$color-ui-primary: $color-brand-primary !default;
 $color-ui-success: #00A67F !default;
 $color-ui-alert: #D94011 !default;
 $color-ui-warning: #D10034 !default;

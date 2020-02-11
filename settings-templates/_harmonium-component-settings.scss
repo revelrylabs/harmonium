@@ -52,23 +52,23 @@ $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
 
 // BUTTONS
-$button-bkgd: $color-brand;
+$button-bkgd: $color-brand-primary;
 $button-border: 0;
 $button-color: $color-white;
-$button-bkgd-hover: darken($color-brand, 5%);
+$button-bkgd-hover: darken($color-brand-primary, 5%);
 $button-color-hover: $color-white;
-$button-bkgd-active: darken($color-brand, 10%);
+$button-bkgd-active: darken($color-brand-primary, 10%);
 $button-color-active: $color-white;
 $button-radius: $border-radius-small;
 
 $button-bkgd-secondary: transparent;
-$button-box-shadow-secondary: $color-brand;
-$button-color-secondary: $color-brand;
-$button-bkgd-secondary-hover: darken($color-brand, 5%);
-$button-box-shadow-secondary-hover: darken($color-brand, 5%);
+$button-box-shadow-secondary: $color-brand-primary;
+$button-color-secondary: $color-brand-primary;
+$button-bkgd-secondary-hover: darken($color-brand-primary, 5%);
+$button-box-shadow-secondary-hover: darken($color-brand-primary, 5%);
 $button-color-secondary-hover: $color-white;
-$button-bkgd-secondary-active: darken($color-brand, 10%);
-$button-box-shadow-secondary-active: darken($color-brand, 10%);
+$button-bkgd-secondary-active: darken($color-brand-primary, 10%);
+$button-box-shadow-secondary-active: darken($color-brand-primary, 10%);
 $button-color-secondary-active: $color-white;
 
 // CLOSE BUTTON

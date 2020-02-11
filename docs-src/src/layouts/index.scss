@@ -355,7 +355,7 @@ code {
       }
 
       .rev-Drawer-expander {
-        background: $color-brand;
+        background: $color-brand-primary;
         border-radius: 0 $border-radius-small $border-radius-small 0;
         color: $color-white;
         font-size: 18px;
@@ -366,8 +366,8 @@ code {
   }
 
   .rev-Drawer-contents {
-    background: $color-brand;
-    background: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand 100%);
+    background: $color-brand-primary;
+    background: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%);
     color: $color-white;
     padding-bottom: $padding-larger;
   }

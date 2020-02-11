@@ -6,7 +6,7 @@
   // `<Loader />`.
   border: 16px solid $color-lighter-gray; // Light grey
   // The `border-top` property specifies the `color` prop of our `<Loader />`.
-  border-top: 16px solid $color-brand; // Blue
+  border-top: 16px solid $color-brand-primary; // Blue
   // The `border-radius` property transforms our `<Loader />` into a circle.
   border-radius: 50%;
   // The size of our `<Loader />` is specified by way of the `width` and

@@ -178,7 +178,7 @@ $calendar-header-height: $icon-size-large !default;
 .rev-Calendar-body-bodyCell--thisMonth {}
 
 .rev-Calendar-body-bodyCell--selected.rev-Calendar-body-bodyCell--selected {
-  background-color: $color-brand;
+  background-color: $color-brand-primary;
   color: $color-white;
 }
 
