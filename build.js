@@ -144,6 +144,10 @@ function buildSettingsTemplatesArchive() {
     name: 'settings-templates/_harmonium-settings.scss',
   })
 
+  archive.file('settings-templates/_harmonium-component-settings.scss', {
+    name: 'settings-templates/_harmonium-component-settings.scss',
+  })
+
   archive.finalize()
 }
 
