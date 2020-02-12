@@ -1,13 +1,13 @@
-$input-bkgd: $white !default;
+$input-bkgd: $color-white !default;
 $input-bkgd-focus: $input-bkgd !default;
-$input-box-shadow: 0 0 0 1px $divider-color inset !default;
-$input-box-shadow-focus: 0 0 0 1px $divider-color-dark inset !default;
-$input-radius: $global-radius !default;
+$input-box-shadow: 0 0 0 1px $color-divider inset !default;
+$input-box-shadow-focus: 0 0 0 1px $color-divider-dark inset !default;
+$input-radius: $border-radius-small !default;
 $input-color: $body-font-color !default;
 $input-color-focus: $input-color !default;
-$input-font-size: $global-font-size !default;
+$input-font-size: $font-size-base !default;
 $label-color: $body-font-color !default;
-$label-font-size: $global-font-size !default;
+$label-font-size: $font-size-base !default;
 
 @mixin input-style {
   @include global-transition;
@@ -21,12 +21,13 @@ $label-font-size: $global-font-size !default;
   color: $input-color;
   display: block;
   font-size: $input-font-size;
-  line-height: $base-lineheight;
-  margin: 0 0 $global-margin;
+  line-height: $line-height-base;
+  margin: 0 0 $margin-base;
   max-width: 100%;
   outline: none;
-  padding: $global-padding-small;
+  padding: $padding-small;
   width: 100%;
+
   &:active,
   &:focus {
     background-color: $input-bkgd-focus;
@@ -36,18 +37,22 @@ $label-font-size: $global-font-size !default;
     color: $input-color-focus;
     outline: none;
   }
+
   &.is-invalid {
-    box-shadow: 0 0 0 1px $error inset;
+    box-shadow: 0 0 0 1px $color-ui-error inset;
   }
+
   &:disabled {
     @include disabled;
   }
 }
+
 // Form Labels
 .rev-InputLabel {
   display: block;
   font-size: $label-font-size;
-  margin: 0 0 $global-margin;
+  margin: 0 0 $margin-base;
+
   .rev-Button,
   .rev-Input,
   .rev-Select,
@@ -57,27 +62,32 @@ $label-font-size: $global-font-size !default;
     margin-bottom: 0;
   }
 }
+
 .rev-LabelText {
   @include global-transition;
   color: $label-color;
   font-size: $label-font-size;
 }
+
 // Form HelpText & Errors
 .rev-InputHelpText,
 .rev-InputErrors {
   display: block;
-  font-size: $global-font-size-small;
+  font-size: $font-size-small;
   font-style: normal;
-  line-height: $base-lineheight;
-  padding: $global-padding-tiny 0;
-  + .rev-InputErrors {
-    margin-top: -$global-padding-tiny;
+  line-height: $line-height-base;
+  padding: $padding-tiny 0;
+
+  +.rev-InputErrors {
+    margin-top: -$padding-tiny;
     padding-top: 0;
   }
 }
+
 .rev-InputHelpText {
-  margin-top: -$global-padding;
+  margin-top: -$padding-base;
 }
+
 .rev-InputLabel {
   .rev-InputHelpText {
     margin-top: 0;
@@ -86,5 +96,5 @@ $label-font-size: $global-font-size !default;
 
 .is-invalid-label,
 .rev-InputErrors {
-  color: $error;
+  color: $color-ui-error;
 }

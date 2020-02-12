@@ -1,0 +1,22 @@
+{
+  "spacing": {
+    "tiny": {
+      "value": "6px"
+    },
+    "small": {
+      "value": "12px"
+    },
+    "medium": {
+      "value": "24px"
+    },
+    "large": {
+      "value": "48px"
+    },
+    "larger": {
+      "value": "72px"
+    },
+    "base": {
+      "value": "{spacing.medium.value}"
+    }
+  }
+}

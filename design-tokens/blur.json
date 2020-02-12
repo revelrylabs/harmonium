@@ -1,0 +1,10 @@
+{
+  "blur": {
+    "enabled": {
+      "value": "blur(8px)"
+    },
+    "disabled": {
+      "value": "blur(0)"
+    }
+  }
+}

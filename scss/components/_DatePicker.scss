@@ -7,59 +7,68 @@ $calendar-container-width: 32rem !default;
 $calendar-width: 32rem !default;
 $calendar-max-height-animation: 35rem !default;
 $calendar-header-bkgd: $calendar-bkgd !default;
-$calendar-header-height: $size-large !default;
+$calendar-header-height: $icon-size-large !default;
 
 .rev-DatePicker {
   display: block;
   position: relative;
-/*   this enables the Chrome and Firefox designs to be the same
- */    
-    ::-moz-placeholder {
-      opacity: 1;
-      color: black;
-    }
 
-    ::-webkit-input-placeholder {
-      opacity: 1;
-      color: black;
-    }
+  /*   this enables the Chrome and Firefox designs to be the same
+ */
+  ::-moz-placeholder {
+    opacity: 1;
+    color: black;
+  }
 
-    :-ms-input-placeholder {
-      opacity: 1;
-      color: black;
-    }
+  ::-webkit-input-placeholder {
+    opacity: 1;
+    color: black;
+  }
+
+  :-ms-input-placeholder {
+    opacity: 1;
+    color: black;
+  }
 }
+
 .rev-Calendar {
   @include global-transition;
   overflow: hidden;
   position: relative;
+
   &.rev-Calendar--closed {
     max-height: 0px;
     border: none;
   }
+
   &.rev-Calendar--open {
     max-height: $calendar-max-height-animation;
   }
+
   &.rev-Calendar--overlay {
     position: absolute;
-    top: calc(100% + #{$global-padding-small});
-    z-index: $above-most;
+    top: calc(100% + #{$padding-small});
+    z-index: $z-index-above-most;
+
     &.rev-Calendar--closed {
       opacity: 0;
       transform: translateY(-10px);
     }
+
     &.rev-Calendar--open {
       opacity: 1;
       transform: translateY(0px);
     }
+
     .rev-Calendar-header {
       @include arrow-up-outline($calendar-header-bkgd);
     }
   }
+
   .rev-Card {
     background: $calendar-bkgd;
     border: $calendar-border;
-    margin-top: $global-padding-small;
+    margin-top: $padding-small;
     width: $calendar-container-width;
   }
 
@@ -71,14 +80,17 @@ $calendar-header-height: $size-large !default;
     text-align: center;
     position: relative;
   }
+
   .rev-Calendar-header-button {
     @include button;
     border-radius: 0;
     margin: 0;
   }
+
   .rev-Calendar-header-button--previous {
     border-top-left-radius: $card-radius;
   }
+
   .rev-Calendar-header-button--next {
     border-top-right-radius: $card-radius;
   }
@@ -92,11 +104,13 @@ $calendar-header-height: $size-large !default;
     justify-content: space-between;
   }
 }
+
 .rev-Card-header .rev-Button.rev-Button--small.rev-Calendar-year-selection-button {
   padding: 0;
-  height: $size-small;
-  width: $size-small;
+  height: $icon-size-small;
+  width: $icon-size-small;
   margin: 0;
+
   span {
     position: relative;
     bottom: 2px;
@@ -105,7 +119,7 @@ $calendar-header-height: $size-large !default;
 
 .rev-InputHelpText,
 .rev-InputErrors {
-  + .rev-Calendar {
+  +.rev-Calendar {
     margin-top: 0;
   }
 }
@@ -117,16 +131,19 @@ $calendar-header-height: $size-large !default;
   max-width: $calendar-width;
   width: 100%;
 }
+
 .rev-Calendar-body-headerCell {
   text-align: center;
 }
+
 .rev-Calendar-body-bodyCell {
   text-align: center;
   padding-bottom: calc((#{100% / 7}) / 2);
   padding-top: calc((#{100% / 7}) / 2);
   position: relative;
   width: calc(100% / 7);
-  & > button {
+
+  &>button {
     appearance: none;
     -webkit-appearance: none;
     background: transparent;
@@ -139,33 +156,37 @@ $calendar-header-height: $size-large !default;
     width: 100%;
   }
 }
+
 .rev-Calendar-body-headerCell {
   text-align: center;
-  padding-bottom: calc((#{100% / 7} - #{1.5rem * $global-lineheight}) / 2);
-  padding-top: calc((#{100% / 7} - #{1.5rem * $global-lineheight}) / 2);
+  padding-bottom: calc((#{100% / 7} - #{1.5rem * $line-height-global}) / 2);
+  padding-top: calc((#{100% / 7} - #{1.5rem * $line-height-global}) / 2);
   position: relative;
   width: calc(100% / 7);
 }
+
 .rev-DatePicker--custom {
   input[type="date"]::-webkit-calendar-picker-indicator {
     display: none;
   }
 }
-.rev-Calendar-body-bodyCell--otherMonth {
-  color: $light-gray;
-}
-.rev-Calendar-body-bodyCell--thisMonth {
 
+.rev-Calendar-body-bodyCell--otherMonth {
+  color: $color-light-gray;
 }
+
+.rev-Calendar-body-bodyCell--thisMonth {}
+
 .rev-Calendar-body-bodyCell--selected.rev-Calendar-body-bodyCell--selected {
-  background-color: $brand;
-  color: $white;
+  background-color: $color-brand-primary;
+  color: $color-white;
 }
+
 .rev-Calendar-body-bodyCell--unselectable {
-  color: $lighter-gray;
+  color: $color-lighter-gray;
 }
 
 
 .rev-Calendar-body-bodyCell--highlighted {
-  color: $success;
+  color: $color-ui-success;
 }

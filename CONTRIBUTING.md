@@ -67,7 +67,7 @@ If your changes aren't being reflected, try stopping the dev server, running
   </Table.Body>
 </Table>
 ```
-  * Make sure to check the harmonium-settings.scss file for any vars that were not listed at the top of the components stylesheet. 
+  * Make sure to check the harmonium-settings.scss file for any vars that were not listed at the top of the components stylesheet.
 * Import the ComponentNameVars file into the main example page: `/docs-src/src/pages/components/ComponentName.js`
 * After the `ExampleSection` include `<h3>Variables:</h3>`
 * Then call in the table: `<ComponentNameVars />`
@@ -121,8 +121,7 @@ When creating a new component, new styles will likely be needed. Follow the step
 * Add an SCSS file like `scss/components/_ComponentName.scss`
 * Update `scss/components/_components.scss` so that it imports your new component's style sheet.
 * New variables should be at the top of the component's style sheet (`_ComponentName.scss`) with `!default` tags.
-* Add all of the new vars to `/harmonium/settings-templates/harmonium-settings.scss` and remove the `!default` tags
-* Update the `/harmonium/settings-templates/settings-templates.zip` file (aka: re-compress the color-palette and harmonium-settings stylesheets and replace the settings-templates.zip).
+* Add component vars to `/harmonium/settings-templates/harmonium-component-settings.scss`. Remove any `!default` tags
 
 
 ## Submitting Changes

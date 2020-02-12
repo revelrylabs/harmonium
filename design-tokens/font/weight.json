@@ -1,0 +1,15 @@
+{
+  "font": {
+    "weight": {
+      "light": {
+        "value": "300"
+      },
+      "normal": {
+        "value": "400"
+      },
+      "bold": {
+        "value": "700"
+      }
+    }
+  }
+}

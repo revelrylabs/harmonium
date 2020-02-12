@@ -21,7 +21,7 @@
   },
   "scripts": {
     "clean": "rm -rf lib/",
-    "babel": "node_modules/.bin/babel --source-maps -d lib/ src/",
+    "babel": "babel --source-maps -d lib/ src/",
     "build": "npm run clean && npm run babel && node build.js",
     "test": "bin/test",
     "fix": "eslint src/**/*.js docs-src/src/**/*.js --fix",
@@ -85,6 +85,7 @@
     "react-test-renderer": ">=15.0.0",
     "semantic-release": "^17.0.1",
     "sinon": "^8.1.1",
+    "style-dictionary": "^2.8.3",
     "timekeeper": "^2.0.0"
   },
   "nyc": {

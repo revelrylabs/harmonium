@@ -56,7 +56,7 @@ export default function TopBarProps() {
       name: <code>scrollNav</code>,
       type: 'bool',
       defaultValue: 'none',
-      description: <span>Apply to <code>rev-TopBar-item</code>. If you have updated the <code>$nav</code> breakpoint var so that it is not using the default size, this prop can be used to make the container scrollable at your customized nav breakpoint and up. </span>,
+      description: <span>Apply to <code>rev-TopBar-item</code>. If you have updated the <code>$screen-width-nav</code> breakpoint var so that it is not using the default size, this prop can be used to make the container scrollable at your customized nav breakpoint and up. </span>,
     },
     {
       name: <code>scrollNavOnly</code>,

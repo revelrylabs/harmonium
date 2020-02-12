@@ -1,5 +1,5 @@
 .rev-Brand {
-  font-weight: $global-weight-bold;
+  font-weight: $font-weight-bold;
   padding-left: $grid-column-padding;
   padding-right: $grid-column-padding;
   height: 100%;
@@ -8,5 +8,5 @@
 .rev-Brand-img {
   height: 100%;
   width: auto;
-  padding: $global-padding-tiny 0;
+  padding: $padding-tiny 0;
 }

@@ -1,38 +1,42 @@
-$table-background: $white !default;
+$table-background: $color-white !default;
 $table-color: $body-font-color !default;
-$table-border: 1px solid $divider-color !default;
+$table-border: 1px solid $color-divider !default;
 $table-header-background: $body-font-color !default;
-$table-header-color: $white !default;
+$table-header-color: $color-white !default;
 //responsive tables
 $table-breakpoint: medium !default;
 //striped tables
-$table-stripe-background: $lightest-gray !default;
+$table-stripe-background: $color-lightest-gray !default;
 
 @mixin stacked-table {
   th {
     display: block;
   }
+
   td {
     @include flex(flex-start, row, flex-start, nowrap);
   }
+
   .rev-Table-head {
     display: none;
+
     //Small Screen Table Head Row
     &--stacked {
       display: block;
     }
   }
+
   //Inline Table Headers
   .rev-Table-header--inline {
     display: block;
-    font-weight: $global-weight-bold;
-    padding-right: $global-padding-small;
+    font-weight: $font-weight-bold;
+    padding-right: $padding-small;
   }
 }
 
 .rev-TableContainer {
   @include horizontal-scroll-container;
-  margin: $global-margin 0;
+  margin: $margin-base 0;
 }
 
 .rev-Table {
@@ -41,37 +45,44 @@ $table-stripe-background: $lightest-gray !default;
   border: $table-border;
   margin: 0;
   width: 100%;
+
   th,
   td {
     color: $table-color;
-    padding: $global-padding-small $global-padding-small;
+    padding: $padding-small $padding-small;
     vertical-align: top;
   }
+
   //stacked for all screens
   &--stacked {
     @include stacked-table;
   }
+
   //stackForSmall (default)
   @include breakpoint(medium-down) {
     @include stacked-table;
   }
+
   &--stackForSmall {
     @include breakpoint(medium-down) {
       @include stacked-table;
     }
   }
+
   //stackForMedium
   &--stackForMedium {
     @include breakpoint(large-down) {
       @include stacked-table;
     }
   }
+
   //stackForLarge
   &--stackForLarge {
     @include breakpoint(xlarge-down) {
       @include stacked-table;
     }
   }
+
   // STRIPED TABLES
   &--striped {
     .rev-Table-body {
@@ -80,17 +91,21 @@ $table-stripe-background: $lightest-gray !default;
       }
     }
   }
+
   // HORIZONTAL SCROLLING TABLES
   &--horizontalScroll {
     min-width: 100%;
     width: auto;
+
     .rev-Table-head {
       display: table-header-group;
     }
+
     td,
     th {
       display: table-cell;
     }
+
     th {
       white-space: nowrap;
     }
@@ -101,31 +116,38 @@ $table-stripe-background: $lightest-gray !default;
   background-color: $table-header-background;
   color: $table-header-color;
   padding: 0;
+
   //Small Screen Table Head Row
   &--stacked {
     display: none;
   }
+
   th {
     color: $table-header-color;
-    font-size: $global-font-size-small;
-    font-weight: $global-weight-normal;
+    font-size: $font-size-small;
+    font-weight: $font-weight-normal;
     text-align: left;
   }
 }
+
 .rev-Table-body {
-  font-size: $global-font-size-small;
+  font-size: $font-size-small;
 }
+
 .rev-Table-row {
   border-bottom: $table-border;
-  padding: $global-padding-small 0;
+  padding: $padding-small 0;
+
   &:last-child {
     border-bottom: 0;
   }
 }
+
 .rev-Table-header {
+
   //Inline Table Headers
   &--inline {
     display: none;
-    font-weight: $global-weight-bold;
+    font-weight: $font-weight-bold;
   }
 }

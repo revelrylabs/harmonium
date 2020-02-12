@@ -14,7 +14,7 @@ export default function Navigation() {
     >
       <nav>
         <a className="rev-Brand ExampleBrand Hide--smallOnly" href="/">
-          <img src="/images/harmonium-logo-white.png" alt="Harmonium"/>
+          <img src="/images/harmonium-logo-white.png" alt="Harmonium" />
           <small>Version {packageInfo.version}</small>
         </a>
         <Menu className="FixedDrawerLinks">
@@ -33,6 +33,14 @@ export default function Navigation() {
             <a href={'/settings-templates.zip'} download>
               Download Starter Settings
             </a>
+          </Menu.Item>
+        </Menu>
+        <Menu vertical>
+          <Menu.Item text>
+            <h5>Design Tokens</h5>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/">Design Tokens</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
@@ -241,9 +249,7 @@ export default function Navigation() {
             </a>
           </Menu.Item>
           <Menu.Item>
-            <a href="/components/Map/DesignedRetroMap/">
-              Designed Retro Map
-            </a>
+            <a href="/components/Map/DesignedRetroMap/">Designed Retro Map</a>
           </Menu.Item>
         </Menu>
       </nav>

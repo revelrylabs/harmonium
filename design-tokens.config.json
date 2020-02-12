@@ -1,0 +1,47 @@
+{
+  "source": ["./design-tokens/**/*.json"],
+  "platforms": {
+    "scss": {
+      "transformGroup": "scss",
+      "buildPath": "./settings-templates/",
+      "files": [
+        {
+          "destination": "_harmonium-settings.scss",
+          "format": "scss/variables",
+          "filter": "isNotColor"
+        },
+        {
+          "destination": "_color-palette.scss",
+          "format": "scss/variables",
+          "filter": "isColor"
+        }
+      ]
+    },
+    "scss-defaults": {
+      "transformGroup": "scss",
+      "buildPath": "./scss/vars/",
+      "files": [
+        {
+          "destination": "_design-token-defaults.scss",
+          "format": "scss/variables/default",
+          "filter": "isNotColor"
+        },
+        {
+          "destination": "_color-palette-defaults.scss",
+          "format": "scss/variables/default",
+          "filter": "isColor"
+        }
+      ]
+    },
+    "docs": {
+      "transformGroup": "docs",
+      "buildPath": "./docs-src/",
+      "files": [
+        {
+          "destination": "designTokens.js",
+          "format": "javascript/module"
+        }
+      ]
+    }
+  }
+}
