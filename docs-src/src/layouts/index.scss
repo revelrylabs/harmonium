@@ -1,6 +1,5 @@
 @import '../../../scss/app';
 @import url('https://use.typekit.net/qqm8vsn.css');
-@import './prism-lucario-theme.scss';
 
 @mixin alert-color-stack {
   background-color: $color-ui-alert;
@@ -450,21 +449,29 @@ code {
   margin: $padding-larger $padding-small;
 }
 
-.code-toolbar {
-  margin: 0;
-  max-width: 70rem;
-  padding: 0 0 $spacing-base 0;
+pre {
+  position: relative;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 0px;
+  overflow: hidden;
+  white-space: pre;
+  font-family: monospace;
+  color: rgb(191, 199, 213);
+  background-color: rgb(41, 45, 62);
+  margin: 0px;
+  border: 0px;
+  background: none;
+  white-space: pre-wrap;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  position: relative;
+  pointer-events: none;
+  padding: 10px;
 }
 
-.HTMLCodeSection {
-  padding: 0;
-  margin: 0 1.2rem;
-
-  .code-toolbar {
-    display: block;
-    padding: 1.2rem;
-    width: 100%;
-
-    max-width: inherit;
+.HomePage {
+  pre {
+    max-width: 70rem;
   }
 }
