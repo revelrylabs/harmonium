@@ -5,7 +5,7 @@
 [![Dependency Status](https://dependencyci.com/github/revelrylabs/harmonium/badge)](https://dependencyci.com/github/revelrylabs/harmonium)
 [![Coverage Status](https://opencov.prod.revelry.net/projects/8/badge.svg)](https://opencov.prod.revelry.net/projects/8)
 
-Harmonium is a framework of React components optimized for teams that want to ship apps fast. It is a curated list of components that work together and have cohesive styles. One of our design goals is that you never have to research and handpick component packages. Whatever you need is already here.
+Harmonium is a framework of components optimized for teams that want to ship apps fast. It is a curated list of components that work together and have cohesive styles. One of our design goals is that you never have to research and handpick component packages. Whatever you need is already here.
 
 A gallery of components is at https://harmonium.revelry.co.
 
