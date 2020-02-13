@@ -1,10 +1,12 @@
 React.createElement(
 class Example2 extends Component {
-  state = {
-    currentPage: 1,
+  constructor(){
+    this.state = {
+      currentPage: 1,
+    }
   }
 
-  onPageClick = (pageNumber) => {
+  onPageClick(pageNumber) {
     this.setState({currentPage: pageNumber})
   }
 
@@ -12,14 +14,14 @@ class Example2 extends Component {
     return (
       <div>
         <p>
-          This example shows the pagination component when hidden 
-          begin and end arrows are set to true, max view pages are 
-          3, and a custom className (text-center) is passed to the 
+          This example shows the pagination component when hidden
+          begin and end arrows are set to true, max view pages are
+          3, and a custom className (text-center) is passed to the
           component.
         </p>
         <p>
-          Note that the component is still mobile-responsive, and 
-          still requires the included stylesheet 
+          Note that the component is still mobile-responsive, and
+          still requires the included stylesheet
           (<strong>Pagination.scss</strong>).
         </p>
         <Pagination
