@@ -45,125 +45,6 @@ code {
   padding: 0 5px;
 }
 
-.CodeMirror.CodeMirror {
-  height: auto;
-}
-
-.CodeMirror-line.CodeMirror-line {
-  font-size: $font-size-small;
-  line-height: $spacing-base;
-  padding: 0;
-}
-
-.CodeMirror-lines.CodeMirror-lines {
-  padding: $spacing-base / 4 0;
-}
-
-.CodeMirror-scroll {
-  margin-left: $margin-base;
-}
-
-.playground {
-  display: flex;
-  flex-wrap: wrap;
-  margin-bottom: $margin-large;
-}
-
-.playgroundToggleCodeBar {
-  margin: 0 $padding-small -1px;
-  order: 1;
-}
-
-.playgroundToggleCodeLink {
-  @include flex(center, row, flex-start, nowrap);
-  background: $color-lightest-gray;
-  border: 1px solid $color-lighter-gray;
-  border-bottom: 1px solid $color-lightest-gray;
-  border-radius: $border-radius-small $border-radius-small 0 0;
-  color: $anchor-color;
-  cursor: pointer;
-  padding: $padding-tiny $padding-small;
-  position: relative;
-
-  &:hover {
-    color: $anchor-color-hover;
-  }
-
-  &:active,
-  &:focus {
-    color: $anchor-color-active;
-  }
-
-  &:after {
-    content: 'code snippet';
-    padding-left: $padding-tiny;
-  }
-
-  &:before {
-    content: '+';
-    font-weight: bold;
-    padding-right: $padding-tiny;
-  }
-}
-
-.playgroundCode {
-  background: $color-lightest-gray;
-  border: 1px solid $color-lighter-gray;
-  border-radius: 0 $border-radius-small $border-radius-small $border-radius-small;
-  display: block;
-  order: 2;
-  margin: 0 $padding-small;
-  padding: $padding-small;
-  width: 100%;
-
-  .ReactCodeMirror {
-    @include global-transition;
-    @include vertical-scroll-container(150px);
-    border-radius: $border-radius-small;
-  }
-
-  &.expandedCode {
-    .ReactCodeMirror {
-      max-height: 100%;
-    }
-
-    +.playgroundToggleCodeBar {
-      .playgroundToggleCodeLink {
-        &:before {
-          content: '-';
-        }
-      }
-    }
-  }
-}
-
-.playgroundError {
-  @include alert-color-stack;
-  @include panel($padded: true);
-  font-family: monospace;
-  overflow-x: scroll;
-  white-space: pre-wrap;
-}
-
-.playgroundPreview {
-  display: block;
-  order: 0;
-  width: 100%;
-}
-
-.playgroundPreview--FakeViewportContainer {
-  .playgroundPreview {
-    background: url('https://3ulsmb4eg8vz37c0vz2si64j-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/75ff3f3c-4aa5-11e6-9c23-4491699777fe.jpg');
-    background-position: center;
-    background-size: cover;
-    margin: 0 $margin-small $margin-base;
-    min-height: 320px;
-    min-width: 320px;
-    transform: scale(1);
-    width: 100%;
-  }
-}
-
 // For grid example pages, colorize columns and mark the edges, and put spacing between rows
 .ColumnExamples {
 
@@ -457,7 +338,6 @@ pre {
   overflow: hidden;
   white-space: pre;
   font-family: monospace;
-  color: rgb(191, 199, 213);
   background-color: rgb(41, 45, 62);
   margin: 0px;
   border: 0px;
@@ -473,5 +353,11 @@ pre {
 .HomePage {
   pre {
     max-width: 70rem;
+  }
+}
+
+.DesignTokenExamples {
+  .DesignTokenVariable {
+    font-size: $font-size-medium;
   }
 }
