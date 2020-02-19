@@ -31,7 +31,7 @@ async function createConfiguration() {
   }
 
   return {
-    buildPath: './harmonium-settings',
+    buildPath: './harmonium-settings/',
     designTokens: designTokenObject,
   }
 }
