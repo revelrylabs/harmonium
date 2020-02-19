@@ -81,15 +81,26 @@ const IndexPage = ({location}) => {
 
 /* your styles here; */`}
           language="scss" />
+
+          <h2>Customization</h2>
           <p>
-            For advanced configurations, styles can be found in the{' '}
-            <code>scss</code> directory of the package. You can either copy it
-            into your project&apos;s SCSS directory, or use a tool like{' '}
-            <a href="https://www.npmjs.com/package/sassy-npm-importer">
-              sassy-npm-importer
-            </a>{' '}
-            to import it from the package.
+            Harmonium's settings can be customized even further.
+            By using harmonium's cli, you can create a configuration file to update
+            the design token values used to create the <code>_color-palette.scss</code> and <code>_harmonium-settings.scss</code>
+            used above.
           </p>
+
+          <p>To create the configuration file, run:</p>
+          <CodeBlock language="bash" code={"npx harmonium init"} />
+
+          <p>This will create a file, <code>harmonium.config.js</code>, in the root of your project</p>
+
+          <p>In this file you can update the values of the design tokens. You can also update the build path of the output</p>
+
+          <p>To create the assets with the values you defined, run:</p>
+          <CodeBlock language="bash" code={"npx harmonium build"} />
+
+          <p>And they should be created in the build path specificed in <code>harmonium.config.js</code></p>
 
           <h2>Usage with React</h2>
           <CodeBlock language="jsx"
