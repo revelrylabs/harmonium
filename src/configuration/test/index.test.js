@@ -8,7 +8,7 @@ describe('Configuration', () => {
     it('creates a new Harmonium configuration object', async () => {
       const config = await Configuration.createConfiguration()
 
-      expect(config.buildPath).equal('./harmonium-settings')
+      expect(config.buildPath).equal('./harmonium-settings/')
       expect(config.hasOwnProperty('designTokens')).equal(true)
     })
   })
@@ -18,12 +18,12 @@ describe('Configuration', () => {
       const config1 = await Configuration.createConfiguration()
       const config2 = await Configuration.createConfiguration()
 
-      config2.buildPath = './not-harmonium-settings'
+      config2.buildPath = './not-harmonium-settings/'
       const mergedConfig = Configuration.mergeConfiguration(config1, config2)
 
-      expect(config1.buildPath).equal('./harmonium-settings')
-      expect(config2.buildPath).equal('./not-harmonium-settings')
-      expect(mergedConfig.buildPath).equal('./not-harmonium-settings')
+      expect(config1.buildPath).equal('./harmonium-settings/')
+      expect(config2.buildPath).equal('./not-harmonium-settings/')
+      expect(mergedConfig.buildPath).equal('./not-harmonium-settings/')
     })
   })
 
