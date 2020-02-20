@@ -42,6 +42,16 @@
           "format": "javascript/module"
         }
       ]
+    },
+    "js": {
+      "transformGroup": "js",
+      "buildPath": "./settings-templates/",
+      "files": [
+        {
+          "destination": "harmoniumDesignTokens.js",
+          "format": "javascript/module"
+        }
+      ]
     }
   }
 }

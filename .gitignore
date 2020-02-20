@@ -22,5 +22,6 @@ api.json
 /docs-src/static/settings-templates.zip
 /settings-templates/_harmonium-settings.scss
 /settings-templates/_color-palette.scss
+/settings-templates/harmoniumDesignTokens.js
 /settings-templates/settings-templates.zip
 harmonium.config.js

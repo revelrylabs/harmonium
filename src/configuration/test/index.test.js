@@ -42,6 +42,7 @@ describe('Configuration', () => {
 
       expect(files).to.include('_harmonium-settings.scss')
       expect(files).to.include('_color-palette.scss')
+      expect(files).to.include('harmoniumDesignTokens.js')
     })
   })
 })

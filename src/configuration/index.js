@@ -61,7 +61,10 @@ async function createAssets(configuration) {
 
   let scss = designTokensConfig.platforms.scss
 
+  let jsPlatform = designTokensConfig.platforms.js
+
   scss = merge(scss, {buildPath: configuration.buildPath})
+  jsPlatform = merge(jsPlatform, {buildPath: configuration.buildPath})
 
   const StyleDictionary = require('./styleDictionary')
     .prepareStyleDictionary()
@@ -69,6 +72,7 @@ async function createAssets(configuration) {
       source: [tempFile],
       platforms: {
         scss,
+        jsPlatform,
       },
     })
 
