@@ -22,6 +22,7 @@
     "react": ">=15.3.0",
     "react-dom": ">=15.3.0",
     "sassy-npm-importer": "^3.0.0",
+    "style-dictionary": "^2.8.3",
     "tempy": "^0.4.0"
   },
   "bin": {
@@ -97,7 +98,6 @@
     "react-test-renderer": ">=15.0.0",
     "semantic-release": "^17.0.1",
     "sinon": "^9.0.0",
-    "style-dictionary": "^2.8.3",
     "timekeeper": "^2.0.0"
   },
   "nyc": {
