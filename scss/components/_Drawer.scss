@@ -1,7 +1,7 @@
 // Copyright © Revelry Labs, LLC 2017 - All Rights Reserved.
 $drawer-width: 300px !default;
-$drawer-bkgd: $lightest-gray !default;
-$mobile-nav-bkgd: $black !default;
+$drawer-bkgd: $color-lightest-gray !default;
+$mobile-nav-bkgd: $color-black !default;
 
 $drawer-height: 100% !default;
 $drawer-height-contained: 800px !default;
@@ -17,58 +17,67 @@ add overlay collapsible for all sidebars at specified breakpoint */
 .rev-Drawer-closer {
   cursor: pointer;
   display: none;
-  height: $size-large;
-  font-size: $global-font-size-medium;
-  line-height: $size-large;
+  height: $icon-size-large;
+  font-size: $font-size-medium;
+  line-height: $icon-size-large;
   opacity: 0;
   text-align: center;
-  width: $size-large;
-  z-index: $below-everything;
+  width: $icon-size-large;
+  z-index: $z-index-below-everything;
 }
+
 // ADD DRAWER CONTROLS MIXIN WHERE NEEDED
 @mixin drawer-controls {
+
   .rev-Drawer-expander,
   .rev-Drawer-closer {
     display: block;
   }
+
   .rev-Drawer-expander {
     @include global-transition;
     position: fixed;
     left: 0;
     opacity: 1;
     top: 0;
-    z-index: $above-everything;
+    z-index: $z-index-above-everything;
   }
+
   &.rev-Drawer--open {
     .rev-Drawer-expander {
       opacity: 0;
-      z-index: $below-everything;
+      z-index: $z-index-below-everything;
     }
   }
+
   &.rev-Drawer--right {
     .rev-Drawer-expander {
       left: auto;
       right: 0;
     }
   }
+
   .rev-Drawer-closer {
     @include global-transition;
     left: 0;
     position: fixed;
     top: 0;
   }
+
   &.rev-Drawer--open {
     .rev-Drawer-closer {
-      left: calc(#{$drawer-width} - #{$size-large});
+      left: calc(#{$drawer-width} - #{$icon-size-large});
       opacity: 1;
-      z-index: $above-everything;
+      z-index: $z-index-above-everything;
     }
   }
+
   &.rev-Drawer--right {
     .rev-Drawer-closer {
       left: auto;
       right: 0;
     }
+
     &.rev-Drawer--open {
       .rev-Drawer-closer {
         right: $drawer-width;
@@ -76,6 +85,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
     }
   }
 }
+
 // ZERO OUT DRAWER STYLES (ex: TOPBAR ABOVE MOBILE BREAKPOINT)
 @mixin drawer-nostyle {
   @include flex(center, row, space-between, nowrap);
@@ -84,19 +94,24 @@ add overlay collapsible for all sidebars at specified breakpoint */
   position: static;
   height: auto;
   width: auto;
+
   .rev-TopBar--center & {
     @include flex(center, row, flex-start, nowrap);
   }
+
   .rev-TopBar--justified & {
     @include flex(center, row, space-between, nowrap);
   }
+
   .rev-TopBar--left & {
     @include flex(center, row, flex-start, nowrap);
   }
+
   .rev-TopBar--right & {
     @include flex(center, row, flex-end, nowrap);
   }
 }
+
 // DEFAULT DRAWER
 @mixin drawer {
   margin: 0;
@@ -104,34 +119,42 @@ add overlay collapsible for all sidebars at specified breakpoint */
   position: relative;
   top: 0;
   width: $drawer-width;
+
   .rev-Drawer-contents {
     background: $drawer-bkgd;
     width: $drawer-width;
   }
+
   .rev-TopBar-item .rev-Menu {
     flex-direction: column;
     flex-wrap: nowrap;
     justify-content: center;
+
     .rev-Menu-item {
       width: 100%;
+
       a {
         justify-content: center;
       }
     }
   }
 }
+
 // SCROLLING DRAWER
 @mixin drawer-scroll($height: $drawer-height-contained) {
   @include vertical-scroll-container($height);
 }
+
 // FIXED POSITION DRAWER
 @mixin drawer-fixed {
   height: $drawer-height-fixed;
+
   .rev-Drawer-contents {
     @include drawer-scroll($drawer-height-fixed);
     position: fixed;
   }
 }
+
 // OVERLAY DRAWER
 @mixin drawer-overlay($top: $drawer-overlay-top-value) {
   @include drawer-fixed;
@@ -140,40 +163,48 @@ add overlay collapsible for all sidebars at specified breakpoint */
   position: fixed;
   top: $top;
   width: 0px;
-  z-index: $above-most;
+  z-index: $z-index-above-most;
+
   &.rev-Drawer--open {
-    left:0;
+    left: 0;
     min-width: $drawer-width;
     width: $drawer-width;
   }
+
   .rev-Content & {
     position: absolute;
     height: 100%;
     z-index: 5;
+
     .rev-Drawer-contents {
       position: absolute;
       height: 100%;
       overflow: visible;
       width: 0;
-      & > * {
+
+      &>* {
         display: none;
       }
     }
+
     .rev-Drawer-expander.rev-Drawer-expander,
     .rev-Drawer-closer.rev-Drawer-closer {
       display: block;
       left: $drawer-width;
       position: absolute;
-      top: $global-lineheight * -1rem;
+      top: $line-height-global * -1rem;
     }
   }
+
   &.rev-Drawer--open .rev-Drawer-contents {
     width: $drawer-width;
-    & > * {
+
+    &>* {
       display: block;
     }
   }
 }
+
 // COLLAPSIBLE DRAWER
 @mixin drawer-collapsible {
   @include drawer-controls;
@@ -181,8 +212,9 @@ add overlay collapsible for all sidebars at specified breakpoint */
   left: -$drawer-width;
   min-width: 0px;
   width: 0px;
+
   &.rev-Drawer--open {
-    left:0;
+    left: 0;
     min-width: $drawer-width;
     width: $drawer-width;
   }
@@ -193,60 +225,74 @@ add overlay collapsible for all sidebars at specified breakpoint */
 .rev-Drawer {
   @include global-transition;
   @include drawer;
+
   // MOBILE DRAWER STYLES
   @include breakpoint(small-only) {
     @include drawer-collapsible;
     @include drawer-overlay;
   }
+
   &.rev-Drawer--scroll {
     @include drawer-scroll;
   }
+
   &.rev-Drawer--fixed {
     @include drawer-fixed;
   }
+
   &.rev-Drawer--overlay {
     @include drawer-overlay;
+
     &.rev-Drawer--left {
       left: 0;
       right: auto;
     }
+
     &.rev-Drawer--right {
       left: auto;
       right: 0;
     }
   }
+
   &.rev-Drawer--collapsible {
     @include drawer-collapsible;
     @include global-transition;
+
     &.rev-Drawer--left {
       .rev-Drawer-contents {
         @include global-transition;
         left: 0;
         right: auto;
+
         @include breakpoint(global-width) {
-          left: calc((100vw - #{$global-width}) / 2);
+          left: calc((100vw - #{$screen-width-full}) / 2);
         }
       }
     }
+
     &.rev-Drawer--right {
       .rev-Drawer-contents {
         left: auto;
         right: 0;
+
         @include breakpoint(global-width) {
-          right: calc((100vw - #{$global-width}) / 2);
+          right: calc((100vw - #{$screen-width-full}) / 2);
         }
       }
     }
+
     &.collapsed {
       max-width: 0;
       min-width: 0;
       overflow-x: hidden;
       width: 0;
+
       &.rev-Drawer--left {
         .rev-Drawer-contents {
           left: -$drawer-width;
         }
       }
+
       &.rev-Drawer--right {
         .rev-Drawer-contents {
           right: -$drawer-width;
@@ -254,17 +300,21 @@ add overlay collapsible for all sidebars at specified breakpoint */
       }
     }
   }
+
   //TODO: mobile Nav styles + toggle
   &.rev-Drawer--mobileNav {
     @include breakpoint(medium) {
       @include drawer-nostyle;
     }
+
     @include breakpoint(medium-down) {
       @include drawer-overlay;
+
       &.rev-Drawer--left {
         left: 0;
         right: auto;
       }
+
       &.rev-Drawer--right {
         left: auto;
         right: 0;
@@ -279,13 +329,13 @@ add overlay collapsible for all sidebars at specified breakpoint */
   position: fixed;
   right: 0;
   top: $topbar-height;
-  z-index: $below;
+  z-index: $z-index-below;
 }
 .Drawer-toggle { // label
   @include global-transition;
-  background: $primary;
-  border-radius: $global-rounded $global-rounded 0 0;
-  color: $white;
+  background: $color-ui-primary;
+  border-radius: $border-radius-rounded $border-radius-rounded 0 0;
+  color: $color-white;
   cursor: pointer;
   height: 30px;
   line-height: 30px;
@@ -295,7 +345,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
   top: 169px;
   transform: rotate(-90deg);
   width: 200px;
-  z-index: $above;
+  z-index: $z-index-above;
   &:hover {
     background: $anchor-color-hover;
   }
@@ -306,7 +356,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
 #Drawer-toggle:checked { // checked input
   ~ .rev-Drawer { // Drawer Wrapper
     min-width: $drawer-width;
-    right: -$global-padding;
+    right: -$padding-base;
     width: $drawer-width;
     .rev-Drawer-contents { // Scrollable Drawer Contents
       right: 0;
@@ -320,7 +370,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
   @include flex(center, row, center, nowrap);
   background: transparent;
   border: 0;
-  color: $white;
+  color: $color-white;
   height: $topbar-height;
   outline: none;
   position: absolute;
@@ -329,6 +379,6 @@ add overlay collapsible for all sidebars at specified breakpoint */
   width: $topbar-height;
   &:hover,
   &:active {
-    color: $primary;
+    color: $color-ui-primary;
   }
 } */

@@ -17,6 +17,11 @@ api.json
 /sass-test/*.css
 /src/vanilla/index.html
 /src/vanilla/harmonium.css
-/scss/vars/_design-tokens.scss
+/scss/vars/_design-token-defaults.scss
+/scss/vars/_color-palette-defaults.scss
 /docs-src/static/settings-templates.zip
+/settings-templates/_harmonium-settings.scss
+/settings-templates/_color-palette.scss
+/settings-templates/harmoniumDesignTokens.js
 /settings-templates/settings-templates.zip
+harmonium.config.js

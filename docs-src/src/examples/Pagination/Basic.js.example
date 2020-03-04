@@ -1,10 +1,12 @@
 React.createElement(
 class Example1 extends Component {
-  state = {
-    currentPage: 1,
+  constructor(){
+    this.state = {
+      currentPage: 1,
+    }
   }
 
-  onPageClick = (pageNumber) => {
+  onPageClick(pageNumber){
     this.setState({currentPage: pageNumber})
   }
 

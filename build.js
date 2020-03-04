@@ -1,7 +1,31 @@
 const fs = require('fs')
-
 const archiver = require('archiver')
+const styleDictionary = require('./src/configuration/styleDictionary')
 
+/**
+ * Reads in our design token files and
+ * Exports them depending on the outputs from
+ * design-tokens.config.json
+ * @returns {void}
+ */
+function buildDesignTokens() {
+  const StyleDictionary = styleDictionary.prepareStyleDictionary()
+
+  // APPLY THE CONFIGURATION
+  // IMPORTANT: the registration of custom transforms
+  // needs to be done _before_ applying the configuration
+  StyleDictionaryExtended = StyleDictionary.extend(
+    `${__dirname}/design-tokens.config.json`
+  )
+
+  // FINALLY, BUILD ALL THE PLATFORMS
+  StyleDictionaryExtended.buildAllPlatforms()
+}
+
+/**
+ * Generates our settings-templates zip file
+ * @returns {void}
+ */
 function buildSettingsTemplatesArchive() {
   // create a file to stream archive data to.
   const output = fs.createWriteStream(
@@ -45,10 +69,21 @@ function buildSettingsTemplatesArchive() {
     name: 'settings-templates/_harmonium-settings.scss',
   })
 
+  archive.file('settings-templates/_harmonium-component-settings.scss', {
+    name: 'settings-templates/_harmonium-component-settings.scss',
+  })
+
+  archive.file('settings-templates/harmoniumDesignTokens.js', {
+    name: 'settings-templates/harmoniumDesignTokens.js',
+  })
+
   archive.finalize()
 }
 
 function build() {
+  console.log('Building design token output')
+  buildDesignTokens()
+
   console.log('Building settings-templates.zip')
   buildSettingsTemplatesArchive()
 }

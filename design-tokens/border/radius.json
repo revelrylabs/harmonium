@@ -1,0 +1,12 @@
+{
+  "border": {
+    "radius": {
+      "small": {
+        "value": "3px"
+      },
+      "rounded": {
+        "value": "100000px"
+      }
+    }
+  }
+}

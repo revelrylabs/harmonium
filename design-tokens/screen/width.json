@@ -1,0 +1,27 @@
+{
+  "screen": {
+    "width": {
+      "full": {
+        "value": "100%"
+      },
+      "small": {
+        "value": "0"
+      },
+      "medium": {
+        "value": "768px"
+      },
+      "large": {
+        "value": "1024px"
+      },
+      "xlarge": {
+        "value": "1200px"
+      },
+      "xxlarge": {
+        "value": "1440px"
+      },
+      "nav": {
+        "value": "{screen.width.medium.value}"
+      }
+    }
+  }
+}

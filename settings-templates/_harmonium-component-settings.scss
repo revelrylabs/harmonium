@@ -1,0 +1,328 @@
+// Padding
+$padding-tiny: $spacing-tiny;
+$padding-small: $spacing-small;
+$padding-base: $spacing-base;
+$padding-large: $spacing-large;
+$padding-larger: $spacing-large;
+
+// Margin
+$margin-tiny: $padding-tiny;
+$margin-small: $padding-small;
+$margin-base: $padding-base;
+$margin-large: $padding-large;
+$margin-larger: $padding-larger;
+
+$h1: $font-size-largest;
+$h2: $font-size-larger;
+$h3: $font-size-large;
+$h4: $font-size-medium;
+$h5: $font-size-base;
+$h6: $font-size-base;
+
+// Breakpoints
+$breakpoints: (small: (min-width: $screen-width-small),
+  small-only: ((min-width: $screen-width-small) and (max-width: $screen-width-medium - 1)),
+  medium: (min-width: $screen-width-medium),
+  medium-down: ((max-width: $screen-width-medium - 1)),
+  medium-only: ((min-width: $screen-width-medium) and (max-width: $screen-width-large - 1)),
+  large: (min-width: $screen-width-large),
+  large-down: ((max-width: $screen-width-large - 1)),
+  large-only: ((min-width: $screen-width-large) and (max-width: $screen-width-xlarge - 1)),
+  xlarge: (min-width: $screen-width-xlarge),
+  xlarge-down: ((max-width: $screen-width-xlarge - 1)),
+  xlarge-only: ((min-width: $screen-width-xlarge) and (max-width: $screen-width-xxlarge - 1)),
+  xxlarge: (min-width: $screen-width-xxlarge),
+  global-width: (min-width: $screen-width-full),
+  nav: (min-width: $screen-width-nav), // Desktop nav
+  nav-only: ((min-width: $screen-width-small) and (max-width: $screen-width-nav - 1)), // Mobile nav
+);
+
+// Body Vars
+$body-bkgd: $color-white;
+$body-font-color: $color-darker-gray;
+$body-font-family: $font-family-sans-serif;
+
+// Header Vars
+$header-color: $body-font-color;
+$header-font-family: $font-family-sans-serif;
+$header-font-style: normal;
+$header-font-weight: $font-weight-normal;
+
+$subheader-color: $header-color;
+$header-font-family: $font-family-sans-serif;
+$subheader-font-weight: $font-weight-normal;
+
+// Paragraph Vars
+$paragraph-lineheight: $line-height-global;
+$paragraph-margin-bottom: $spacing-base;
+$paragraph-text-rendering: optimizeLegibility;
+
+// ANCHORS
+$anchor-color: $color-ui-primary;
+$anchor-color-hover: darken($color-ui-primary, 10%);
+$anchor-color-active: darken($color-ui-primary, 15%);
+$anchor-color-inverse: $body-bkgd;
+$anchor-text-decoration: none;
+$anchor-text-decoration-hover: none;
+
+// BUTTONS
+$button-bkgd: $color-brand-primary;
+$button-border: 0;
+$button-color: $color-white;
+$button-bkgd-hover: darken($color-brand-primary, 5%);
+$button-color-hover: $color-white;
+$button-bkgd-active: darken($color-brand-primary, 10%);
+$button-color-active: $color-white;
+$button-radius: $border-radius-small;
+
+$button-bkgd-secondary: transparent;
+$button-box-shadow-secondary: $color-brand-primary;
+$button-color-secondary: $color-brand-primary;
+$button-bkgd-secondary-hover: darken($color-brand-primary, 5%);
+$button-box-shadow-secondary-hover: darken($color-brand-primary, 5%);
+$button-color-secondary-hover: $color-white;
+$button-bkgd-secondary-active: darken($color-brand-primary, 10%);
+$button-box-shadow-secondary-active: darken($color-brand-primary, 10%);
+$button-color-secondary-active: $color-white;
+
+// CLOSE BUTTON
+$closebutton-bkgd: $color-darker-gray;
+$closebutton-color: $color-white;
+$closebutton-bkgd-hover: $color-black;
+$closebutton-color-hover: $color-white;
+$closebutton-bkgd-active: $color-black;
+$closebutton-color-active: $color-white;
+$closebutton-radius: $border-radius-rounded;
+$closebutton-size: $icon-size-large;
+
+// HR Vars
+$hr-width: $screen-width-full;
+$hr-border: 1px solid $color-divider;
+$hr-margin: $padding-large auto;
+
+//## Color Mgmt for Navigational Components -----------------------------
+// ex: menus, pagination
+$navigation-bkgd: $color-white-0;
+// ^transparent by default so that the bkgd of the component shows through
+$navigation-color: $anchor-color;
+// # hover navigation colors
+$navigation-bkgd-hover: darken($navigation-bkgd, 3%);
+$navigation-color-hover: $anchor-color-hover;
+// # onClick navigation colors
+$navigation-bkgd-active: darken($navigation-bkgd, 6%);
+$navigation-color-active: $anchor-color-active;
+// # selected state colors are reversed
+$navigation-bkgd-selected: $navigation-color;
+$navigation-color-selected: $navigation-bkgd;
+// # disabled navigation
+$navigation-color-disabled: $color-disabled;
+$navigation-bkgd-disabled: $navigation-bkgd; // will have disabled-opacity
+
+//## Color Mgmt for Components with States -----------------------------
+// ex: tabs, accordions
+$stateful-item-bkgd: $color-white-0;
+// ^transparent by default so that the bkgd of the component shows through
+$stateful-item-color: $body-font-color;
+// hover state colors
+$stateful-item-bkgd-hover: $color-black-06;
+$stateful-item-color-hover: $anchor-color;
+// active state colors
+$stateful-item-bkgd-active: $color-black-10;
+$stateful-item-color-active: $anchor-color-active;
+// selected state colors
+$stateful-item-bkgd-selected: $color-black-10;
+$stateful-item-color-selected: $anchor-color-active;
+// disabled
+$stateful-item-bkgd-disabled: $stateful-item-bkgd; // will have disabled-opacity
+$stateful-item-color-disabled: $stateful-item-color; // will have disabled-opacity
+
+
+//## LAYOUT ELEMENTS -----------------------------
+
+//# TopBar
+$topbar-bkgd: $color-white;
+$topbar-border-color: $color-divider;
+$topbar-border-size: 1px;
+$topbar-color: $body-font-color;
+$topbar-height: $icon-size-larger;
+$topbar-input-width: $icon-size-largest;
+$topbar-link-bkgd: transparent;
+
+//# Drawer
+$drawer-width: 300px;
+$drawer-bkgd: $color-white;
+$mobile-nav-bkgd: $color-black;
+$drawer-height: 100%;
+$drawer-height-contained: 800px;
+$drawer-height-fixed: 100vh;
+$drawer-overlay-top-value: 0;
+
+//## NAVIGATION -----------------------------
+
+//# Menus
+$menu-bkgd: $color-white-0;
+$menu-text-bkgd: $navigation-bkgd;
+$menu-text-color: $body-font-color;
+// unless updated here, menu link colors are managed by navigation-color-mgmt
+// (see Color Mgmt for Navigational Components)
+$menu-link-bkgd: null;
+$menu-link-color: null;
+$menu-link-bkgd-hover: null;
+$menu-link-color-hover: null;
+$menu-link-bkgd-active: null;
+$menu-link-color-active: null;
+$menu-link-bkgd-selected: null;
+$menu-link-color-selected: null;
+
+//# Pagination
+$pagination-radius: $border-radius-small;
+$pagination-dot-bkgd: transparent;
+$pagination-dot-color: $body-font-color;
+// unless updated here, pagination colors are managed by navigation-color-mgmt
+// (see Color Mgmt for Navigational Components)
+$pagination-link-bkgd: null;
+$pagination-link-color: null;
+$pagination-link-bkgd-hover: null;
+$pagination-link-color-hover: null;
+$pagination-link-bkgd-active: null;
+$pagination-link-color-active: null;
+$pagination-link-bkgd-selected: null;
+$pagination-link-color-selected: null;
+
+//# Breadcrumbs
+$breadcrumb-font-size: $font-size-smaller;
+$breadcrumb-selected-color: $body-font-color;
+$breadcrumb-color: $anchor-color;
+$breadcrumb-color-hover: $anchor-color-hover;
+$breadcrumb-color-active: $anchor-color-active;
+$breadcrumb-text-transform: uppercase;
+$breadcrumb-separator-family: $body-font-family; // In case you want to use an icon as the separator
+$breadcrumb-separator: '/';
+$breadcrumb-separator-color: $color-light-gray;
+$breadcrumb-margin: $margin-base 0;
+$breadcrumb-item-margin: 0 $margin-small;
+$breadcrumb-item-padding: 0;
+
+//## STATEFUL COMPONENTS -----------------------------
+
+//# Accordions
+$accordion-border-size: 1px;
+$accordion-border-color: $color-divider;
+$accordion-content-bkgd: $color-white;
+
+//# Tabs
+$tabs-margin: $margin-base;
+$tabs-border-size: 1px;
+$tabs-border-color: $color-divider;
+$tabs-titles-bkgd: $color-white;
+$tabs-title-link-padding: $padding-small $padding-base;
+$tabs-content-bkgd: $color-white 0;
+$tabs-content-padding: $padding-base 0;
+
+//## CONTAINERS -----------------------------
+
+//# Callouts
+$callout-bkgd: $color-white;
+$callout-border-size: 1px;
+$callout-border-color: $color-divider;
+$callout-color: $body-font-color;
+$callout-padding: $spacing-base $spacing-base;
+
+//# Cards
+$card-bkgd: $color-white;
+$card-border: 1px solid $color-divider;
+$card-padding: 0;
+$card-radius: $border-radius-small;
+$card-header-background: $color-white;
+$card-footer-background: $color-white;
+
+//# Modals
+$modal-bkgd: $color-black-40;
+$modal-content-bkgd: $color-white;
+$modal-content-border-size: 1px;
+$modal-content-border-color: $color-divider;
+$modal-content-box-shadow: $box-shadow-default;
+$modal-content-color: $body-font-color;
+$modal-content-padding: 0;
+
+//## FORMS -----------------------------
+
+$input-bkgd: $color-white;
+$input-bkgd-focus: $input-bkgd;
+$input-box-shadow: 0 0 0 1px $color-divider inset;
+$input-box-shadow-focus: 0 0 0 1px $color-divider-dark inset;
+$input-radius: $border-radius-small;
+$input-color: $body-font-color;
+$input-color-focus: $input-color;
+$input-font-size: $font-size-base;
+$label-color: $body-font-color;
+$label-font-size: $font-size-base;
+
+//## Range Slider -----------------------------
+$slider-height: 50px;
+$slider-track-padding-right: $padding-base;
+$slider-track-color: $color-light-gray;
+$slider-input-height: 25px;
+$slider-input-width: 80px;
+$slider-input-margin: 0;
+$slider-thumb-width: 16px;
+$slider-thumb-height: 16px;
+$slider-thumb-border-radius: 50%;
+$slider-thumb-background: $color-ui-primary;
+$slider-progress-color: $color-ui-primary;
+
+//## TABLES -----------------------------
+
+$table-background: $color-white;
+$table-color: $body-font-color;
+$table-border: 1px solid $color-divider;
+$table-header-background: $body-font-color;
+$table-header-color: $color-white;
+//responsive table breakpoint
+$table-breakpoint: medium;
+//striped tables
+$table-stripe-background: $color-lightest-gray;
+
+//## DATA GRIDS -----------------------------
+
+$data-grid-background: $color-white;
+$data-grid-color: $body-font-color;
+$data-grid-border: 1px solid $color-divider;
+$data-grid-header-background: $body-font-color;
+$data-grid-header-color: $color-white;
+$data-grid-stripe-background: $color-lightest-gray;
+$data-grid-scroll-height: 15rem;
+
+//## PICKERS -----------------------------
+
+//# Calendar
+$calendar-bkgd: $card-bkgd;
+$calendar-border: $card-border;
+$calendar-container-width: 32rem;
+$calendar-width: 32rem;
+$calendar-max-height-animation: 35rem;
+$calendar-header-bkgd: $calendar-bkgd;
+$calendar-header-height: $icon-size-large;
+
+//# Time
+$time-picker-container-width: 100%;
+$time-picker-bkgd: $card-bkgd;
+$time-picker-border: $card-border;
+$time-picker-width: auto;
+$time-picker-max-height-animation: 20rem;
+$time-picker-header-bkgd: $time-picker-bkgd;
+
+//## ATOMS -----------------------------
+
+//# Badges
+$badge-size: $icon-size-base;
+
+//## UTILITIES -----------------------------
+
+//# Help Text
+$help-text-color: $color-gray;
+
+//# Progress
+$progress-radius: $border-radius-rounded;
+$progress-meter-height: $icon-size-tiny;
+$progress-meter-bkgd: $color-darker-gray;

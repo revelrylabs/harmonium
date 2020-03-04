@@ -1,23 +1,26 @@
-$data-grid-background: $white !default;
+$data-grid-background: $color-white !default;
 $data-grid-color: $body-font-color !default;
-$data-grid-border: 1px solid $divider-color !default;
+$data-grid-border: 1px solid $color-divider !default;
 $data-grid-header-background: $body-font-color !default;
-$data-grid-header-color: $white !default;
-$data-grid-stripe-background: $lightest-gray !default;
+$data-grid-header-color: $color-white !default;
+$data-grid-stripe-background: $color-lightest-gray !default;
 $data-grid-scroll-height: 15rem !default;
 
 @mixin stacked-data-grid {
   .rev-DataGrid-headerRow {
     display: none;
   }
+
   //Small Screen DataGrid Header Row
   .rev-DataGrid-headerRow--stacked {
     display: block;
   }
+
   //Inline DataGrid Headers
   .rev-DataGrid-header--inline {
     display: block;
   }
+
   .rev-DataGrid-col {
     @include flex(flex-start, row, flex-start, nowrap);
     width: 100%;
@@ -28,40 +31,47 @@ $data-grid-scroll-height: 15rem !default;
   background-color: $data-grid-background;
   border-collapse: collapse;
   border: $data-grid-border;
-  font-size: $global-font-size-small;
-  margin: $global-margin 0;
+  font-size: $font-size-small;
+  margin: $margin-base 0;
   width: 100%;
+
   //stacked for all screens
   &--stacked {
     @include stacked-data-grid;
   }
+
   //stackForSmall (default)
   @include breakpoint(medium-down) {
     @include stacked-data-grid;
   }
+
   &--stackForSmall {
     @include breakpoint(medium-down) {
       @include stacked-data-grid;
     }
   }
+
   //stackForMedium
   &--stackForMedium {
     @include breakpoint(large-down) {
       @include stacked-data-grid;
     }
   }
+
   //stackForLarge
   &--stackForLarge {
     @include breakpoint(xlarge-down) {
       @include stacked-data-grid;
     }
   }
+
   //STRIPED DATA GRIDS
   &--striped {
     .rev-DataGrid-row {
       @include even-odd-stripes($data-grid-background, $data-grid-stripe-background);
     }
   }
+
   //VERTICAL SCROLLING DATA GRIDS
   &.rev-DataGrid--verticalScroll {
     .rev-DataGrid-body {
@@ -73,31 +83,37 @@ $data-grid-scroll-height: 15rem !default;
 .rev-DataGrid-headerRow {
   background: $data-grid-header-background;
 }
+
 .rev-DataGrid-headerRow--stacked {
   display: none;
 }
+
 .rev-DataGrid-headerCol {
   color: $data-grid-header-color;
-  padding-bottom: $global-padding-small;
-  padding-top: $global-padding-small;
+  padding-bottom: $padding-small;
+  padding-top: $padding-small;
 }
 
 .rev-DataGrid-body {
   background: $data-grid-background;
 }
+
 .rev-DataGrid-row {
   border-bottom: $data-grid-border;
+
   &:last-child {
     border-bottom: 0;
   }
 }
+
 .rev-DataGrid-col {
-  padding-bottom: $global-padding-small;
-  padding-top: $global-padding-small;
+  padding-bottom: $padding-small;
+  padding-top: $padding-small;
 }
+
 .rev-DataGrid-header--inline {
   display: none;
   flex: 0 0 50%; // makes the width of inline headers consistant... 50% too much??
-  font-weight: $global-weight-bold;
-  padding-right: $global-padding-small;
+  font-weight: $font-weight-bold;
+  padding-right: $padding-small;
 }

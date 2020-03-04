@@ -1,0 +1,11 @@
+{
+  "z-index": {
+    "above-everything": {"value": "1000"},
+    "above-most": {"value": "10"},
+    "above": {"value": "1"},
+    "default": {"value": "0"},
+    "below": {"value": "-1"},
+    "below-most": {"value": "-10"},
+    "below-everything": {"value": "-1000"}
+  }
+}

@@ -47,6 +47,7 @@ function isVideoFile(file) {
 // check file size in bytes against a max size in MB
 function isTooBig(file, maxFileSize) {
   const fileSize = file.size / 1024 / 1024 // in MB
+
   return fileSize > maxFileSize
 }
 

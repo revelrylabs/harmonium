@@ -6,14 +6,10 @@ const NotFoundPage = () => (
   <div>
     <Headers
       title="Not Found"
-      metaDescription={
-        'There is no such page!'
-      }
+      metaDescription={'There is no such page!'}
       extraKeywords="404"
     >
-      <p>
-        There is no such page.
-      </p>
+      <p>There is no such page.</p>
     </Headers>
   </div>
 )
