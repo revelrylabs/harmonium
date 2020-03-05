@@ -15,11 +15,8 @@ This will open up a new browser tab at localhost:8000.
 While this is running you can make changes in the src folder and the site will
 automatically reload with your changes.
 
-From time to time, you may need to run `npm install` in the root harmonium
+From time to time, you may need to run `npm run build` in the root harmonium
 directory to rebuild the `lib/` directory as you change components.
-
-If your changes aren't being reflected, try stopping the dev server, running
-`npm run cache:rebuild`, and then `npm run develop` again.
 
 ## How to add code
 
@@ -135,6 +132,6 @@ When creating a new component, new styles will likely be needed. Follow the step
 7. Re-run `npm test`. If your specs fail, return to step 6.
 8. Thoroughly document and comment your code.
 9. Add a usage example as src/ComponentName.example.js
-10. Run `cd docs-src && yarn && npm run develop` and make sure your example loads and looks like you expect.
+10. Run `cd docs-src && npm run develop` and make sure your example loads and looks like you expect.
 11. Add, commit, and push your changes.
 12. Submit a pull request.
