@@ -2,13 +2,12 @@
 
 ## Development Setup
 
-Clone and run `npm install`.
+Clone and run `./bin/setup`.
 
 ## Running the docs site locally
 
 ```
 cd docs-src
-yarn
 npm run develop
 ```
 
