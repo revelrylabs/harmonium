@@ -36,7 +36,7 @@ directory to rebuild the `lib/` directory as you change components.
 * Create a new folder in `/docs-src/src/pages/components called ComponentNameTables`
 * Create a new file in that folder called `ComponentNameVars.js`
 * Table Markup:
-```
+```jsx
 <Table>
   <Table.Head>
     <Table.Row>
@@ -73,7 +73,7 @@ directory to rebuild the `lib/` directory as you change components.
 * If you haven't already, create a new folder in `/docs-src/src/pages/components called ComponentNameTables`
 * Create a new file in the `ComponentNameTables` folder called `ComponentNameProps.js`
 * Table details:
-```
+```jsx
 <Table>
   <Table.Head>
     <Table.Row>
