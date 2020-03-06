@@ -10,7 +10,6 @@ export default function MDXPageLayout({
     <Row>
       <Col>
       <h1>{frontmatter.title}</h1>
-      <hr/>
       {children}
       </Col>
     </Row>
