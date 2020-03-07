@@ -31,7 +31,14 @@ async function createConfiguration() {
   }
 
   return {
-    buildPath: './harmonium-settings/',
+    platforms: {
+      scss: {
+        buildPath: './harmonium-settings/',
+      },
+      js: {
+        buildPath: './js/',
+      },
+    },
     designTokens: designTokenObject,
   }
 }
@@ -63,8 +70,8 @@ async function createAssets(configuration) {
 
   let jsPlatform = designTokensConfig.platforms.js
 
-  scss = merge(scss, {buildPath: configuration.buildPath})
-  jsPlatform = merge(jsPlatform, {buildPath: configuration.buildPath})
+  scss = merge(scss, {buildPath: configuration.platforms.scss.buildPath})
+  jsPlatform = merge(jsPlatform, {buildPath: configuration.platforms.js.buildPath})
 
   const StyleDictionary = require('./styleDictionary')
     .prepareStyleDictionary()
