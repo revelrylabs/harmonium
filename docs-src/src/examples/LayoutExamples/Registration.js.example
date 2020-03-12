@@ -11,9 +11,9 @@
           <Input.Stack label="Confirm Password" />
         </Col>
         <Col>
-          <Button expanded>Sign Up</Button>
+          <Button>Sign Up</Button>
         </Col>
-        <Col className="Text-center">
+        <Col>
           <p>Already have an account? <a href="#">Log In</a></p>
         </Col>
       </Row>
