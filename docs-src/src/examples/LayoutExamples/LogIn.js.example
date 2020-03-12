@@ -6,8 +6,8 @@
           <h3>Log In</h3>
         </Col>
         <Col>
-          <Input.Stack label="Email" placeholder="Placeholder" />
-          <Input.Stack label="Password" placeholder="Placeholder" />
+          <Input.Stack label="Email" />
+          <Input.Stack label="Password" />
         </Col>
         <Col>
           <Button expanded>Log In</Button>

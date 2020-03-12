@@ -6,9 +6,9 @@
           <h3>Sign Up</h3>
         </Col>
         <Col>
-          <Input.Stack label="Email" placeholder="Email" />
-          <Input.Stack label="Password" placeholder="Password" />
-          <Input.Stack label="Confirm Password" placeholder="Confirm Password" />
+          <Input.Stack label="Email" />
+          <Input.Stack label="Password" />
+          <Input.Stack label="Confirm Password" />
         </Col>
         <Col>
           <Button expanded>Sign Up</Button>
