@@ -10,12 +10,12 @@
           <Input.Stack label="Password" />
         </Col>
         <Col>
-          <Button expanded>Log In</Button>
+          <Button>Log In</Button>
         </Col>
-        <Col className="Text-center">
+        <Col>
           <a href="#">Forgot Password?</a>
         </Col>
-        <Col className="Text-center">
+        <Col>
           <p>Don't have an account? <a href="#">Sign Up</a></p>
         </Col>
       </Row>
