@@ -25,3 +25,5 @@ api.json
 /settings-templates/harmoniumDesignTokens.js
 /settings-templates/settings-templates.zip
 harmonium.config.js
+harmonium-settings/
+js/
