@@ -259,6 +259,9 @@ export default function Navigation() {
           <Menu.Item>
             <a href="/components/LayoutExamples/LogIn/">Log In</a>
           </Menu.Item>
+          <Menu.Item>
+            <a href="/components/LayoutExamples/Registration/">Registration</a>
+          </Menu.Item>
         </Menu>
       </nav>
     </Drawer>
