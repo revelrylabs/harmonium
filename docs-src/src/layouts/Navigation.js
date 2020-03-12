@@ -252,6 +252,14 @@ export default function Navigation() {
             <a href="/components/Map/DesignedRetroMap/">Designed Retro Map</a>
           </Menu.Item>
         </Menu>
+        <Menu vertical>
+          <Menu.Item text>
+            <h5>Layout Examples</h5>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/components/LayoutExamples/LogIn/">Log In</a>
+          </Menu.Item>
+        </Menu>
       </nav>
     </Drawer>
   )

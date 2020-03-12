@@ -1,0 +1,24 @@
+<Row>
+  <Col large={8} smallCentered>
+    <Card>
+      <Row>
+        <Col>
+          <h3>Log In</h3>
+        </Col>
+        <Col>
+          <Input.Stack label="Email" />
+          <Input.Stack label="Password" />
+        </Col>
+        <Col>
+          <Button expanded>Log In</Button>
+        </Col>
+        <Col className="Text-center">
+          <a href="#">Forgot Password?</a>
+        </Col>
+        <Col className="Text-center">
+          <p>Don't have an account? <a href="#">Sign Up</a></p>
+        </Col>
+      </Row>
+    </Card>
+  </Col>
+</Row>
