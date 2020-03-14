@@ -21,7 +21,9 @@ describe('ButtonGroup', () => {
 
   it('should handle a props for different types of button groups', () => {
     const buttonGroup = shallow(<ButtonGroup secondary />)
+    const buttonGroupExpanded = shallow(<ButtonGroup expanded />)
 
     expect(buttonGroup.prop('className')).to.contain('secondary')
+    expect(buttonGroupExpanded.prop('className')).to.contain('expanded')
   })
 })

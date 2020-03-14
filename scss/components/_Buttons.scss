@@ -191,6 +191,7 @@ $button-color-secondary-active: $color-white !default;
   font-size: 0;
 
   .rev-Button {
+    flex: auto;
     border-radius: 0;
     border-right: 1px solid $color-divider;
 
@@ -202,5 +203,9 @@ $button-color-secondary-active: $color-white !default;
       border: 0;
       border-radius: 0 $border-radius-small $border-radius-small 0;
     }
+  }
+
+  &.rev-ButtonGroup--expanded {
+    display: flex;
   }
 }
