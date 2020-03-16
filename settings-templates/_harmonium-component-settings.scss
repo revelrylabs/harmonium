@@ -17,7 +17,7 @@ $h2: $font-size-larger;
 $h3: $font-size-large;
 $h4: $font-size-medium;
 $h5: $font-size-base;
-$h6: $font-size-base;
+$h6: $font-size-small;
 
 // Breakpoints
 $breakpoints: (small: (min-width: $screen-width-small),
@@ -46,7 +46,7 @@ $body-font-family: $font-family-sans-serif;
 $header-color: $body-font-color;
 $header-font-family: $font-family-sans-serif;
 $header-font-style: normal;
-$header-font-weight: $font-weight-normal;
+$header-font-weight: $font-weight-bold;
 
 $subheader-color: $header-color;
 $header-font-family: $font-family-sans-serif;
