@@ -79,3 +79,10 @@ $hr-width: $screen-width-full !default;
 $hr-border: 1px solid $color-divider !default;
 $hr-margin: $padding-large auto !default;
 // COMPONENT VARS ARE LOCATED AT THE TOP OF THE COMPONENT STYLESHEET
+
+// HERO 
+$hero-bkgd: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%) !default;
+$hero-bkgd-fallback: $color-brand-primary !default;
+$hero-color: $color-white !default;
+$min-height: 70vh !default;
+$min-height-mobile: calc(90vh - #{$topbar-height}) !default;
