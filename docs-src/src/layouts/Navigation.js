@@ -40,7 +40,7 @@ export default function Navigation() {
             <h5>Design Guidelines</h5>
           </Menu.Item>
           <Menu.Item>
-            <a href="/guidelines/principles/">Principles</a>
+            <a href="/guidelines/overview/">Overview</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>
