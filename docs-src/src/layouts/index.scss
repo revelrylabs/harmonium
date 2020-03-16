@@ -13,22 +13,22 @@
 h1,
 h2,
 h3,
-h4 {
+h4,
+h5,
+h6 {
   font-family: 'proxima-nova', $font-family-sans-serif;
-  font-weight: 500;
 }
-
 //TODO incorporate this into typography styles
 h1 {
-  font-size: 36px;
-  line-height: 48px;
+  line-height: 1.1;
   margin: 0;
-  padding: $padding-large 0 $padding-small;
+  padding-top: $padding-large;
 }
 
 h2 {
-  font-size: 32px;
-  line-height: 48px;
+  line-height: 1.1;
+  margin: 0;
+  padding: 0 0 $padding-small;
 }
 
 h5,
@@ -126,6 +126,19 @@ code {
     .rev-Col {
       background: transparent;
       margin-bottom: $padding-small;
+    }
+  }
+}
+
+// Design Principle Cards 
+.DesignPrinciples {
+  .rev-Card {
+    padding: $padding-base 0;
+  }
+  .SectionDivider {
+    @include breakpoint(large) {
+      border-left: 4px solid $color-divider;
+      padding-left: $padding-base;
     }
   }
 }
