@@ -1,0 +1,11 @@
+<div className="Hero">
+  <Row>
+    <Col>
+      <h1>Landing Page Hero</h1>
+      <p className="Lead">This is a sub-header</p>
+    </Col>
+    <Col>
+      <Button inverted large>Get Started!</Button>
+    </Col>
+  </Row>
+</div>

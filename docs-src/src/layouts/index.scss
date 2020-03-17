@@ -377,6 +377,13 @@ pre {
 
 .DesignTokenExamples {
   .DesignTokenVariable {
-    font-size: $font-size-medium;
+    font-size: $font-size-base;
+  }
+}
+
+.Hero {
+  text-align: center;
+  @include breakpoint(small-only) {
+    margin-top: -$margin-base; // Negate the margin bottom put on the topbar for mobile 
   }
 }
