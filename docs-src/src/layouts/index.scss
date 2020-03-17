@@ -351,22 +351,19 @@ code {
 }
 
 pre {
-  position: relative;
-  text-align: left;
-  box-sizing: border-box;
-  padding: 0px;
-  overflow: hidden;
-  white-space: pre;
-  font-family: monospace;
+  background: none;
   background-color: rgb(41, 45, 62);
   border: 0px;
-  background: none;
+  font-family: monospace;
+  overflow-wrap: break-word;
+  margin: 0 0 $margin-base;
+  overflow: hidden;
+  padding: $padding-small;
+  pointer-events: none;
+  position: relative;
+  text-align: left;
   white-space: pre-wrap;
   word-break: keep-all;
-  overflow-wrap: break-word;
-  position: relative;
-  pointer-events: none;
-  padding: 10px;
 }
 
 .HomePage {
