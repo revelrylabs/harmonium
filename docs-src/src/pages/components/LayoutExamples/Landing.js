@@ -6,6 +6,7 @@ import Layout from '../../../layouts/index.js'
 
 const examples = {
   Basic: require('raw-loader!../../../examples/LayoutExamples/LandingHero.js.example'),
+  Featured: require('raw-loader!../../../examples/LayoutExamples/LandingFeatured.js.example'),
 }
 
 export default class LandingExamplePage extends Component {
