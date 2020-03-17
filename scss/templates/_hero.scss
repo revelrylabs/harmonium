@@ -1,0 +1,22 @@
+$hero-bkgd: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%) !default;
+$hero-bkgd-fallback: $color-brand-primary !default;
+$hero-color: $color-white !default;
+$min-height: 70vh !default;
+$min-height-mobile: calc(90vh - #{$topbar-height}) !default;
+
+.Hero {
+  @include flex(center, row, center);
+  background: $hero-bkgd-fallback;
+  background: $hero-bkgd;
+  color: $hero-color;
+  min-height: $min-height-mobile;
+  @include breakpoint(medium) {
+    min-height: $min-height;
+  }
+  p {
+    max-width: 100%;
+  }
+  .rev-Row {
+    max-width: 100%;
+  }
+}
