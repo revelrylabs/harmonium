@@ -100,13 +100,6 @@ $hr-width: $screen-width-full;
 $hr-border: 1px solid $color-divider;
 $hr-margin: $padding-large auto;
 
-// HERO
-$hero-bkgd: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%);
-$hero-bkgd-fallback: $color-brand-primary;
-$hero-color: $color-white;
-$min-height: 70vh;
-$min-height-mobile: calc(90vh - #{$topbar-height});
-
 //## Color Mgmt for Navigational Components -----------------------------
 // ex: menus, pagination
 $navigation-bkgd: $color-white-0;
@@ -334,3 +327,12 @@ $help-text-color: $color-gray;
 $progress-radius: $border-radius-rounded;
 $progress-meter-height: $icon-size-tiny;
 $progress-meter-bkgd: $color-darker-gray;
+
+//## EXAMPLE LAYOUTS -----------------------------
+
+// HERO
+$hero-bkgd: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%);
+$hero-bkgd-fallback: $color-brand-primary;
+$hero-color: $color-white;
+$min-height: 70vh;
+$min-height-mobile: calc(90vh - #{$topbar-height});
