@@ -1,8 +1,5 @@
+$featured-font-size: $font-size-small !default;
+
 .rev-Featured {
-  p {
-    font-size: $font-size-small;
-  }
-}
-.rev-Featured--center {
-  text-align: center;
+  font-size: $featured-font-size;
 }
