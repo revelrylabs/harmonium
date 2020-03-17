@@ -2,19 +2,19 @@
   "font": {
     "size": {
       "tiny": {
-        "value": "0.474rem",
+        "value": "1rem",
         "comment": "the smallest size of the font"
       },
       "smaller": {
-        "value": "0.711rem",
+        "value": "1.2rem",
         "comment": "a smaller font size"
       },
       "small": {
-        "value": "1.067rem",
+        "value": "1.4rem",
         "comment": "the small size of the font"
       },
       "medium": {
-        "value": "1.6rem",
+        "value": "1.8rem",
         "comment": "the medium size of the font"
       },
       "large": {
@@ -26,11 +26,11 @@
         "comment": "a larger font size"
       },
       "largest": {
-        "value": "5.4rem",
+        "value": "4.2rem",
         "comment": "the largest size of the font"
       },
       "base": {
-        "value": "{font.size.medium.value}",
+        "value": "1.6rem",
         "comment": "the base size of the font"
       }
     }
