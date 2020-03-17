@@ -60,21 +60,6 @@ $h6-value;
       padding-bottom: $spacing-base / 2;
     }
   }
-
-  // TODO: better way to include p styles?
-  p {
-    padding: $spacing-base 0;
-
-    +p,
-    +h1,
-    +h2,
-    +h3,
-    +h4,
-    +h5,
-    +h6 {
-      padding: 0 0 $spacing-base 0;
-    }
-  }
 }
 
 @mixin header {
