@@ -1,4 +1,4 @@
-<div className="Hero">
+<div className="rev-Hero">
   <Row>
     <Col>
       <h1>Landing Page Hero</h1>

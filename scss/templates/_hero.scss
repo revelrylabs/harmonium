@@ -4,7 +4,7 @@ $hero-color: $color-white !default;
 $min-height: 70vh !default;
 $min-height-mobile: calc(90vh - #{$topbar-height}) !default;
 
-.Hero {
+.rev-Hero {
   @include flex(center, row, center);
   background: $hero-bkgd-fallback;
   background: $hero-bkgd;
