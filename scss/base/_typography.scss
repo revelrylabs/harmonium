@@ -113,12 +113,14 @@ p {
   padding: 0 0 $spacing-base 0;
 }
 
-.Lead {
+.Lead,
+.rev-Lead {
   display: block;
   font-size: $font-size-medium;
 }
 
-.Small {
+.Small,
+.rev-Small {
   @include muted;
   display: block;
   font-size: $font-size-small;
@@ -147,93 +149,121 @@ small {
 // TextAlignment
 //TODO: function for breakpoints
 .Text-left,
-.Text--smallLeft {
+.Text--smallLeft,
+.rev-TextLeft,
+.rev-TextLeft--small {
   text-align: left;
 }
 
 .Text-right,
-.Text--smallRight {
+.Text--smallRight,
+.rev-TextRight,
+.rev-TextRight--small {
   text-align: right;
 }
 
 .Text-center,
-.Text--smallCenter {
+.Text--smallCenter,
+.rev-TextCenter,
+.rev-TextCenter--small {
   text-align: center;
+  p {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .Text-justify,
-.Text--smallJustify {
+.Text--smallJustify,
+.rev-TextJustify,
+.rev-TextJustify--small {
   text-align: justify;
 }
 
 @include breakpoint(medium) {
-  .Text--mediumLeft {
+  .Text--mediumLeft,
+  .rev-TextLeft--medium {
     text-align: left;
   }
 
-  .Text--mediumRight {
+  .Text--mediumRight,
+  .rev-TextRight--medium {
     text-align: right;
   }
 
-  .Text--mediumCenter {
+  .Text--mediumCenter,
+  .rev-TextCenter--medium {
     text-align: center;
   }
 
-  .Text--mediumJustify {
+  .Text--mediumJustify,
+  .rev-TextJustify--medium {
     text-align: justify;
   }
 }
 
 @include breakpoint(large) {
-  .Text--largeLeft {
+  .Text--largeLeft,
+  .rev-TextLeft--large {
     text-align: left;
   }
 
-  .Text--largeRight {
+  .Text--largeRight,
+  .rev-TextRight--large {
     text-align: right;
   }
 
-  .Text--largeCenter {
+  .Text--largeCenter,
+  .rev-TextCenter--large {
     text-align: center;
   }
 
-  .Text--largeJustify {
+  .Text--largeJustify,
+  .rev-TextJustify--large {
     text-align: justify;
   }
 }
 
 @include breakpoint(xlarge) {
-  .Text--xlargeLeft {
+  .Text--xlargeLeft,
+  .rev-TextLeft--xlarge {
     text-align: left;
   }
 
-  .Text--xlargeRight {
+  .Text--xlargeRight,
+  .rev-TextRight--xlarge {
     text-align: right;
   }
 
-  .Text--xlargeCenter {
+  .Text--xlargeCenter,
+  .rev-TextCenter--xlarge {
     text-align: center;
   }
 
-  .Text--xlargeJustify {
+  .Text--xlargeJustify,
+  .rev-TextJustify--xlarge {
     text-align: justify;
   }
 }
 
 @include breakpoint(xxlarge) {
-  .Text--xxlargeLeft {
+  .Text--xxlargeLeft,
+  .rev-TextLeft--xxlarge {
     text-align: left;
   }
 
-  .Text--xxlargeRight {
+  .Text--xxlargeRight,
+  .rev-TextRight--xxlarge {
     text-align: right;
   }
 
-  .Text--xxlargeCenter {
+  .Text--xxlargeCenter,
+  .rev-TextCenter--xxlarge {
     text-align: center;
   }
 
-  .Text--xxlargeJustify {
+  .Text--xxlargeJustify,
+  .rev-TextJustify--xxlarge {
     text-align: justify;
   }
 }
