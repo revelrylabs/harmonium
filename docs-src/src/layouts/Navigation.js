@@ -48,7 +48,28 @@ export default function Navigation() {
             <h5>Design Tokens</h5>
           </Menu.Item>
           <Menu.Item>
-            <a href="/design-tokens/">Design Tokens</a>
+            <a href="/design-tokens/#colors">Colors</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#fonts">Fonts</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#font-sizes">Font Sizes</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#border-radius">Border Radius</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#z-index">Z-Index</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#spacing">Spacing</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#shadows">Shadows</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#font-weights">Font Weights</a>
           </Menu.Item>
         </Menu>
         <Menu vertical>

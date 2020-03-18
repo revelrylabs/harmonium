@@ -74,7 +74,7 @@ function ColorRows() {
 function Colors() {
   return (
     <React.Fragment>
-      <h2>Colors</h2>
+      <h2 id="colors">Colors</h2>
       <Table>
         <Table.Head>
           <Table.Row>
@@ -121,7 +121,7 @@ function FontSizeRows() {
 function FontSizes() {
   return (
     <React.Fragment>
-      <h2>Font Sizes</h2>
+      <h2 id="font-sizes">Font Sizes</h2>
       <Table>
         <Table.Head>
           <Table.Row>
@@ -168,7 +168,7 @@ function FontRows() {
 function Fonts() {
   return (
     <React.Fragment>
-      <h2>Fonts</h2>
+      <h2 id="fonts">Fonts</h2>
       <Table>
         <Table.Head>
           <Table.Row>
@@ -218,7 +218,7 @@ function BorderRadiusRows() {
 function BorderRadius() {
   return (
     <React.Fragment>
-      <h2>Border Radius</h2>
+      <h2 id="border-radius">Border Radius</h2>
       <Table>
         <Table.Head>
           <Table.Row>
@@ -265,7 +265,7 @@ function ZIndexRows() {
 function ZIndex() {
   return (
     <React.Fragment>
-      <h2>Z-Index</h2>
+      <h2 id="z-index">Z-Index</h2>
       <Table>
         <Table.Head>
           <Table.Row>
@@ -314,7 +314,7 @@ function SpacingRows() {
 function Spacing() {
   return (
     <React.Fragment>
-      <h2>Spacing</h2>
+      <h2 id="spacing">Spacing</h2>
       <Table>
         <Table.Head>
           <Table.Row>
@@ -364,7 +364,7 @@ function ShadowRows() {
 function Shadows() {
   return (
     <React.Fragment>
-      <h2>Shadows</h2>
+      <h2 id="shadows">Shadows</h2>
       <Table>
         <Table.Head>
           <Table.Row>
@@ -413,7 +413,7 @@ function FontWeightRows() {
 function FontWeight() {
   return (
     <React.Fragment>
-      <h2>Font Weights</h2>
+      <h2 id="font-weights">Font Weights</h2>
       <Table>
         <Table.Head>
           <Table.Row>
@@ -433,6 +433,16 @@ function DesignTokensPage({location}) {
       <Row className="DesignTokenExamples">
         <Col>
           <h1>Design Tokens</h1>
+        </Col>
+        <Col>
+          <p>What are design tokens?</p>
+        </Col>
+        <Col>
+          <p>Design tokens are a way to define atomic style items in an agnostic way.
+            This helps to use Harmonium not only in sass and the web, but to other platforms such as native mobile.</p>
+        </Col>
+        <Col>
+          <p>For more information on design tokens, check out the post <a href="https://css-tricks.com/what-are-design-tokens/">here</a></p>
         </Col>
         <Col>
           <Colors />
