@@ -42,7 +42,7 @@ $button-color-secondary-active: $color-white !default;
   display: inline-block;
   font-size: $font-size-base;
   font-weight: normal;
-  line-height: $line-height-base;
+  line-height: $line-height-global;
   margin: 0 0 $spacing-base;
   padding: $padding-small $padding-base;
 
@@ -65,7 +65,7 @@ $button-color-secondary-active: $color-white !default;
 
   &.rev-Button--large {
     font-size: $font-size-medium;
-    padding: $padding-base $padding-large;
+    padding: $padding-small $padding-large;
     margin: 0 auto $spacing-base;
   }
 

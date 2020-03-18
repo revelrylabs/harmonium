@@ -273,6 +273,9 @@ export default function Navigation() {
           <Menu.Item>
             <a href="/components/LayoutExamples/Landing/">Landing Page Sections</a>
           </Menu.Item>
+          <Menu.Item>
+            <a href="/components/LayoutExamples/Pricing/">Pricing Section</a>
+          </Menu.Item>
         </Menu>
       </nav>
     </Drawer>

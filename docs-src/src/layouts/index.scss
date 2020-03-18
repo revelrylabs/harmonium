@@ -28,7 +28,7 @@ h1 {
 h2 {
   line-height: 1.1;
   margin: 0;
-  padding: 0 0 $padding-small;
+  padding: 0 0 $padding-base;
 }
 
 h5,
@@ -43,14 +43,6 @@ code {
   background: darken($color-lightest-gray, 1%);
   border: 1px solid $color-black-03;
   padding: 0 5px;
-}
-
-.BulletedList {
-  list-style: disc;
-  margin-left: 18px;
-  li {
-    padding: 0 0 $padding-small;
-  }
 }
 
 // For grid example pages, colorize columns and mark the edges, and put spacing between rows

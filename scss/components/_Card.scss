@@ -35,6 +35,9 @@ $card-footer-background: $color-white !default;
     border: 1px solid $color-divider;
   }
 
+  &.rev-Card--large {
+    padding: $padding-base 0;
+  }
   &.rev-Card--small {
     .rev-Row {
       padding-left: $padding-tiny;
