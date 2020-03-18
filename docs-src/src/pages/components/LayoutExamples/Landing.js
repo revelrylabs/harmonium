@@ -6,11 +6,11 @@ import Layout from '../../../layouts/index.js'
 
 const examples = {
   Basic: require('raw-loader!../../../examples/LayoutExamples/LandingHero.js.example'),
+  FeaturedDefault: require('raw-loader!../../../examples/LayoutExamples/LandingFeaturedDefault.js.example'),
+  FeaturedCard: require('raw-loader!../../../examples/LayoutExamples/LandingFeaturedCard.js.example'),
   CtaDefault: require('raw-loader!../../../examples/LayoutExamples/CtaDefault.js.example'),
   CtaSplit: require('raw-loader!../../../examples/LayoutExamples/CtaSplit.js.example'),
   CtaPrimary: require('raw-loader!../../../examples/LayoutExamples/CtaPrimary.js.example'),
-  FeaturedDefault: require('raw-loader!../../../examples/LayoutExamples/LandingFeaturedDefault.js.example'),
-  FeaturedCard: require('raw-loader!../../../examples/LayoutExamples/LandingFeaturedCard.js.example'),
 }
 
 export default class LandingExamplePage extends Component {
