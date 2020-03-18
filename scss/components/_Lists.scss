@@ -1,12 +1,21 @@
-ul,
-ol {
-  margin: 0;
-  padding: 0;
+.rev-List {
+  margin-bottom: $margin-base;
 }
-ul {
-  list-style: none;
+.BulletedList,
+.rev-List--bulleted {
+  list-style: disc;
+  margin-left: 18px;
+  li {
+    padding: 0 0 $padding-small;
+  }
 }
-li {
-  margin: 0;
-  padding: 0 0 $padding-base;
+.rev-List--dividers {
+  li {
+    border-bottom: 1px solid $color-divider;
+    font-size: $font-size-small;
+    padding: $padding-tiny 0;
+    &:first-child {
+      border-top: 1px solid $color-divider;
+    }
+  }
 }

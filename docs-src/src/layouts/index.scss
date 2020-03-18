@@ -28,7 +28,7 @@ h1 {
 h2 {
   line-height: 1.1;
   margin: 0;
-  padding: 0 0 $padding-small;
+  padding: 0 0 $padding-base;
 }
 
 h5,
@@ -43,14 +43,6 @@ code {
   background: darken($color-lightest-gray, 1%);
   border: 1px solid $color-black-03;
   padding: 0 5px;
-}
-
-.BulletedList {
-  list-style: disc;
-  margin-left: 18px;
-  li {
-    padding: 0 0 $padding-small;
-  }
 }
 
 // For grid example pages, colorize columns and mark the edges, and put spacing between rows
@@ -351,22 +343,19 @@ code {
 }
 
 pre {
-  position: relative;
-  text-align: left;
-  box-sizing: border-box;
-  padding: 0px;
-  overflow: hidden;
-  white-space: pre;
-  font-family: monospace;
+  background: none;
   background-color: rgb(41, 45, 62);
   border: 0px;
-  background: none;
+  font-family: monospace;
+  overflow-wrap: break-word;
+  margin: 0 0 $margin-base;
+  overflow: hidden;
+  padding: $padding-small;
+  pointer-events: none;
+  position: relative;
+  text-align: left;
   white-space: pre-wrap;
   word-break: keep-all;
-  overflow-wrap: break-word;
-  position: relative;
-  pointer-events: none;
-  padding: 10px;
 }
 
 .HomePage {
@@ -381,7 +370,7 @@ pre {
   }
 }
 
-.Hero {
+.rev-Hero {
   text-align: center;
   @include breakpoint(small-only) {
     margin-top: -$margin-base; // Negate the margin bottom put on the topbar for mobile 
