@@ -18,6 +18,7 @@ h5,
 h6 {
   font-family: 'proxima-nova', $font-family-sans-serif;
 }
+
 //TODO incorporate this into typography styles
 h1 {
   line-height: 1.1;
@@ -47,6 +48,7 @@ code {
 
 // For grid example pages, colorize columns and mark the edges, and put spacing between rows
 .ColumnExamples {
+
   &.rev-Row,
   .rev-Row {
     margin-bottom: $margin-base;
@@ -122,11 +124,12 @@ code {
   }
 }
 
-// Design Principle Cards 
+// Design Principle Cards
 .DesignPrinciples {
   .rev-Card {
     padding: $padding-base 0;
   }
+
   .SectionDivider {
     @include breakpoint(large) {
       border-left: 4px solid $color-divider;
@@ -367,12 +370,14 @@ pre {
 .DesignTokenExamples {
   .DesignTokenVariable {
     font-size: $font-size-base;
+    background-color: transparent;
   }
 }
 
 .rev-Hero {
   text-align: center;
+
   @include breakpoint(small-only) {
-    margin-top: -$margin-base; // Negate the margin bottom put on the topbar for mobile 
+    margin-top: -$margin-base; // Negate the margin bottom put on the topbar for mobile
   }
 }
