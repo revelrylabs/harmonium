@@ -1,0 +1,80 @@
+<section className="u-bkgdColorLightestGray Text-center">
+  <Row>
+    <Col>
+      <h2>Pricing Options</h2>
+    </Col>
+  </Row>
+  <Row>
+    <Col large={11} smallCentered>
+      <Row collapse flex alignCenter>
+        <Col small={12} large={4}>
+          <Card large>
+            <Row>
+              <Col>
+                <h4>Option A</h4>
+              </Col>
+              <Col>
+                <p className="Pricing-cost"><strong><small>$</small>100</strong> / month</p>
+              </Col>
+              <Col>
+                <ul className="rev-List rev-List--dividers">
+                  <li>Included item</li>
+                  <li>Included item</li>
+                  <li>Included item</li>
+                </ul>
+              </Col>
+              <Col>
+                <Button secondary>Select</Button>
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+        <Col small={12} large={4}>
+          <Card primary large>
+            <Row>
+              <Col>
+                <h4>Option B</h4>
+              </Col>
+              <Col>
+                <p className="Pricing-cost"><strong><small>$</small>150</strong> / month</p>
+              </Col>
+              <Col>
+                <ul className="rev-List rev-List--dividers">
+                  <li>Included item</li>
+                  <li>Included item</li>
+                  <li>Included item</li>
+                  <li>Included item</li>
+                </ul>
+              </Col>
+              <Col>
+                <Button primary large>Select</Button>
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+        <Col small={12} large={4}>
+          <Card large>
+            <Row>
+              <Col>
+                <h4>Option C</h4>
+              </Col>
+              <Col>
+                <p className="Pricing-cost"><strong><small>$</small>200</strong> / month</p>
+              </Col>
+              <Col>
+                <ul className="rev-List rev-List--dividers">
+                  <li>Included item</li>
+                  <li>Included item</li>
+                  <li>Included item</li>
+                </ul>
+              </Col>
+              <Col>
+                <Button secondary>Select</Button>
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+      </Row>
+    </Col>
+  </Row>
+</section>
