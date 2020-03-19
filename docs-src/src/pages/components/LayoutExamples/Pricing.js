@@ -5,7 +5,9 @@ import Headers from '../../../Headers'
 import Layout from '../../../layouts/index.js'
 
 const examples = {
-  Basic: require('raw-loader!../../../examples/LayoutExamples/Pricing.js.example'),
+  ThreeOptions: require('raw-loader!../../../examples/LayoutExamples/PricingThreeOptions.js.example'),
+  TwoOptions: require('raw-loader!../../../examples/LayoutExamples/PricingTwoOptions.js.example'),
+  OneOption: require('raw-loader!../../../examples/LayoutExamples/PricingOneOption.js.example'),
 }
 
 export default class PricingExamplePage extends Component {

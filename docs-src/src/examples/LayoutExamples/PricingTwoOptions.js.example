@@ -1,0 +1,59 @@
+<section className="u-bkgdColorLightestGray rev-TextCenter">
+  <Row>
+    <Col>
+      <h2>2 Equal Options</h2>
+      <p className="Lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </Col>
+  </Row>
+  <Row>
+    <Col large={11} smallCentered>
+      <Row flex alignCenter>
+        <Col small={12} large={6}>
+          <Card large>
+            <Row>
+              <Col>
+                <h4>Option A</h4>
+              </Col>
+              <Col>
+                <p className="Pricing-cost"><strong><small>$</small>100</strong> / month</p>
+              </Col>
+              <Col>
+                <ul className="rev-List rev-List--dividers">
+                  <li>Included item</li>
+                  <li>Included item</li>
+                  <li>Included item</li>
+                </ul>
+              </Col>
+              <Col>
+                <Button>Choose Plan</Button>
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+        <Col small={12} large={6}>
+          <Card large>
+            <Row>
+              <Col>
+                <h4>Option B</h4>
+              </Col>
+              <Col>
+                <p className="Pricing-cost"><strong><small>$</small>150</strong> / month</p>
+              </Col>
+              <Col>
+                <ul className="rev-List rev-List--dividers">
+                  <li>Included item</li>
+                  <li>Included item</li>
+                  <li>Included item</li>
+                </ul>
+              </Col>
+              <Col>
+                <Button>Choose Plan</Button>
+              </Col>
+            </Row>
+          </Card>
+        </Col>
+        
+      </Row>
+    </Col>
+  </Row>
+</section>
