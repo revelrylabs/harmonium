@@ -292,10 +292,9 @@ function NoExampleRows(tokens) {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${flattenedTokens[index].name}</pre>
-          <p>
-            <i>{flattenedTokens[index].comment}</i>
-          </p>
+        <pre className="DesignTokenVariable">${flattenedTokens[index].name}
+          <p className="DesignTokenComment">{flattenedTokens[index].comment}</p>
+        </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
