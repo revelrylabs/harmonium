@@ -71,6 +71,24 @@ export default function Navigation() {
           <Menu.Item>
             <a href="/design-tokens/#font-weights">Font Weights</a>
           </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#blur">Blur</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#grid">Grid</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#icon-sizes">Icon Sizes</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#line-heights">Line Heights</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#opacity">Opacity</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#screen-widths">Screen Widths</a>
+          </Menu.Item>
         </Menu>
         <Menu vertical>
           <Menu.Item text>
