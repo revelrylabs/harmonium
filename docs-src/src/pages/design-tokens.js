@@ -54,15 +54,16 @@ function ColorRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${colors[i].name}</pre>
-          <p>
-            <i>{colors[i].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${colors[i].name}
+            <p className="DesignTokenComment">{colors[i].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle} />
-          <pre className="DesignTokenVariable">{colors[i].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{colors[i].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle} />
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -74,12 +75,12 @@ function ColorRows() {
 function Colors() {
   return (
     <React.Fragment>
-      <h2>Colors</h2>
+      <h2 id="colors">Colors</h2>
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>Token</Table.Header>
-            <Table.Header>Value</Table.Header>
+            <Table.Header width="50%">Token</Table.Header>
+            <Table.Header width="50%">Value</Table.Header>
           </Table.Row>
         </Table.Head>
         <Table.Body>{ColorRows()}</Table.Body>
@@ -101,15 +102,16 @@ function FontSizeRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${fontSizes[font].name}</pre>
-          <p>
-            <i>{fontSizes[font].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${fontSizes[font].name}
+            <p className="DesignTokenComment">{fontSizes[font].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle}>Harmonium</div>
-          <pre className="DesignTokenVariable">{fontSizes[font].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{fontSizes[font].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle}>Harmonium</div>
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -121,12 +123,12 @@ function FontSizeRows() {
 function FontSizes() {
   return (
     <React.Fragment>
-      <h2>Font Sizes</h2>
+      <h2 id="font-sizes">Font Sizes</h2>
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>Token</Table.Header>
-            <Table.Header>Value</Table.Header>
+            <Table.Header width="50%">Token</Table.Header>
+            <Table.Header width="50%">Value</Table.Header>
           </Table.Row>
         </Table.Head>
         <Table.Body>{FontSizeRows()}</Table.Body>
@@ -148,15 +150,16 @@ function FontRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${fontFamilies[font].name}</pre>
-          <p>
-            <i>{fontFamilies[font].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${fontFamilies[font].name}
+            <p className="DesignTokenComment">{fontFamilies[font].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle}>Harmonium</div>
-          <pre className="DesignTokenVariable">{fontFamilies[font].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{fontFamilies[font].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle}>Harmonium</div>
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -168,12 +171,12 @@ function FontRows() {
 function Fonts() {
   return (
     <React.Fragment>
-      <h2>Fonts</h2>
+      <h2 id="fonts">Fonts</h2>
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>Token</Table.Header>
-            <Table.Header>Value</Table.Header>
+            <Table.Header width="50%">Token</Table.Header>
+            <Table.Header width="50%">Value</Table.Header>
           </Table.Row>
         </Table.Head>
         <Table.Body>{FontRows()}</Table.Body>
@@ -198,15 +201,16 @@ function BorderRadiusRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${radii[radius].name}</pre>
-          <p>
-            <i>{radii[radius].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${radii[radius].name}
+            <p className="DesignTokenComment">{radii[radius].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle} />
-          <pre className="DesignTokenVariable">{radii[radius].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{radii[radius].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle} />
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -218,12 +222,12 @@ function BorderRadiusRows() {
 function BorderRadius() {
   return (
     <React.Fragment>
-      <h2>Border Radius</h2>
+      <h2 id="border-radius">Border Radius</h2>
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>Token</Table.Header>
-            <Table.Header>Value</Table.Header>
+            <Table.Header width="50%">Token</Table.Header>
+            <Table.Header width="50%">Value</Table.Header>
           </Table.Row>
         </Table.Head>
         <Table.Body>{BorderRadiusRows()}</Table.Body>
@@ -246,10 +250,9 @@ function ZIndexRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${zIndices[index].name}</pre>
-          <p>
-            <i>{zIndices[index].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${zIndices[index].name}
+            <p className="DesignTokenComment">{zIndices[index].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
@@ -265,12 +268,12 @@ function ZIndexRows() {
 function ZIndex() {
   return (
     <React.Fragment>
-      <h2>Z-Index</h2>
+      <h2 id="z-index">Z-Index</h2>
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>Token</Table.Header>
-            <Table.Header>Value</Table.Header>
+            <Table.Header width="50%">Token</Table.Header>
+            <Table.Header width="50%">Value</Table.Header>
           </Table.Row>
         </Table.Head>
         <Table.Body>{ZIndexRows()}</Table.Body>
@@ -294,15 +297,16 @@ function SpacingRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${spaces[space].name}</pre>
-          <p>
-            <i>{spaces[space].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${spaces[space].name}
+            <p className="DesignTokenComment">{spaces[space].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle} />
-          <pre className="DesignTokenVariable">{spaces[space].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{spaces[space].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle} />
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -314,12 +318,12 @@ function SpacingRows() {
 function Spacing() {
   return (
     <React.Fragment>
-      <h2>Spacing</h2>
+      <h2 id="spacing">Spacing</h2>
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>Token</Table.Header>
-            <Table.Header>Value</Table.Header>
+            <Table.Header width="50%">Token</Table.Header>
+            <Table.Header width="50%">Value</Table.Header>
           </Table.Row>
         </Table.Head>
         <Table.Body>{SpacingRows()}</Table.Body>
@@ -344,15 +348,16 @@ function ShadowRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${shadows[shadow].name}</pre>
-          <p>
-            <i>{shadows[shadow].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${shadows[shadow].name}
+            <p className="DesignTokenComment">{shadows[shadow].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle} />
-          <pre className="DesignTokenVariable">{shadows[shadow].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{shadows[shadow].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle} />
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -364,12 +369,12 @@ function ShadowRows() {
 function Shadows() {
   return (
     <React.Fragment>
-      <h2>Shadows</h2>
+      <h2 id="shadows">Shadows</h2>
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>Token</Table.Header>
-            <Table.Header>Value</Table.Header>
+            <Table.Header width="50%">Token</Table.Header>
+            <Table.Header width="50%">Value</Table.Header>
           </Table.Row>
         </Table.Head>
         <Table.Body>{ShadowRows()}</Table.Body>
@@ -391,17 +396,18 @@ function FontWeightRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${fontWeights[weight].name}</pre>
-          <p>
-            <i>{fontWeights[weight].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${fontWeights[weight].name}
+            <p className="DesignTokenComment">{fontWeights[weight].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div className="DesignTokenVariable" style={exampleStyle}>
-            The quick brown fox jumped over the lazy dog.
+          <div>
+            <pre className="DesignTokenVariable">{fontWeights[weight].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle}>
+              The quick brown fox jumped over the lazy dog.
+            </div>
           </div>
-          <pre className="DesignTokenVariable">{fontWeights[weight].value}</pre>
         </Table.Data>
       </Table.Row>
     )
@@ -413,12 +419,12 @@ function FontWeightRows() {
 function FontWeight() {
   return (
     <React.Fragment>
-      <h2>Font Weights</h2>
+      <h2 id="font-weights">Font Weights</h2>
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>Token</Table.Header>
-            <Table.Header>Value</Table.Header>
+            <Table.Header width="50%">Token</Table.Header>
+            <Table.Header width="50%">Value</Table.Header>
           </Table.Row>
         </Table.Head>
         <Table.Body>{FontWeightRows()}</Table.Body>
@@ -435,14 +441,24 @@ function DesignTokensPage({location}) {
           <h1>Design Tokens</h1>
         </Col>
         <Col>
+          <p>What are design tokens?</p>
+        </Col>
+        <Col>
+          <p>Design tokens are a way to define atomic style items in an agnostic way.
+            This helps to use Harmonium not only in sass and the web, but to other platforms such as native mobile.</p>
+        </Col>
+        <Col>
+          <p>For more information on design tokens, check out the post <a href="https://css-tricks.com/what-are-design-tokens/">here</a></p>
+        </Col>
+        <Col>
+          <BorderRadius />
           <Colors />
           <Fonts />
           <FontSizes />
-          <BorderRadius />
-          <ZIndex />
-          <Spacing />
-          <Shadows />
           <FontWeight />
+          <Shadows />
+          <Spacing />
+          <ZIndex />
         </Col>
       </Row>
     </Layout>
