@@ -1,0 +1,9 @@
+<Row mediumFlex alignCenter>
+  <Col medium={6}>
+    <h1>Sed ut perspiciatis unde omnis iste</h1>
+    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+  </Col>
+  <Col medium={6} className="Text-center">
+    <Button large>Get Started!</Button>
+  </Col>
+</Row>
