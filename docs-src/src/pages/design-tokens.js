@@ -54,15 +54,16 @@ function ColorRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${colors[i].name}</pre>
-          <p>
-            <i>{colors[i].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${colors[i].name}
+            <p className="DesignTokenComment">{colors[i].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle} />
-          <pre className="DesignTokenVariable">{colors[i].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{colors[i].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle} />
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -84,15 +85,16 @@ function FontSizeRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${fontSizes[font].name}</pre>
-          <p>
-            <i>{fontSizes[font].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${fontSizes[font].name}
+            <p className="DesignTokenComment">{fontSizes[font].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle}>Harmonium</div>
-          <pre className="DesignTokenVariable">{fontSizes[font].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{fontSizes[font].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle}>Harmonium</div>
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -114,15 +116,16 @@ function FontRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${fontFamilies[font].name}</pre>
-          <p>
-            <i>{fontFamilies[font].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${fontFamilies[font].name}
+            <p className="DesignTokenComment">{fontFamilies[font].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle}>Harmonium</div>
-          <pre className="DesignTokenVariable">{fontFamilies[font].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{fontFamilies[font].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle}>Harmonium</div>
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -147,15 +150,16 @@ function BorderRadiusRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${radii[radius].name}</pre>
-          <p>
-            <i>{radii[radius].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${radii[radius].name}
+            <p className="DesignTokenComment">{radii[radius].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle} />
-          <pre className="DesignTokenVariable">{radii[radius].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{radii[radius].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle} />
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -179,15 +183,16 @@ function SpacingRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${spaces[space].name}</pre>
-          <p>
-            <i>{spaces[space].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${spaces[space].name}
+            <p className="DesignTokenComment">{spaces[space].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle} />
-          <pre className="DesignTokenVariable">{spaces[space].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{spaces[space].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle} />
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -212,15 +217,16 @@ function ShadowRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${shadows[shadow].name}</pre>
-          <p>
-            <i>{shadows[shadow].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${shadows[shadow].name}
+            <p className="DesignTokenComment">{shadows[shadow].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div style={exampleStyle} />
-          <pre className="DesignTokenVariable">{shadows[shadow].value}</pre>
+          <div>
+            <pre className="DesignTokenVariable">{shadows[shadow].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle} />
+          </div>
         </Table.Data>
       </Table.Row>
     )
@@ -242,17 +248,18 @@ function FontWeightRows() {
       <Table.Row>
         <Table.Data>
           <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${fontWeights[weight].name}</pre>
-          <p>
-            <i>{fontWeights[weight].comment}</i>
-          </p>
+          <pre className="DesignTokenVariable">${fontWeights[weight].name}
+            <p className="DesignTokenComment">{fontWeights[weight].comment}</p>
+          </pre>
         </Table.Data>
         <Table.Data>
           <Table.HeaderInline>Value:</Table.HeaderInline>
-          <div className="DesignTokenVariable" style={exampleStyle}>
-            The quick brown fox jumped over the lazy dog.
+          <div>
+            <pre className="DesignTokenVariable">{fontWeights[weight].value}</pre>
+            <div className="DesignTokenExample" style={exampleStyle}>
+              The quick brown fox jumped over the lazy dog.
+            </div>
           </div>
-          <pre className="DesignTokenVariable">{fontWeights[weight].value}</pre>
         </Table.Data>
       </Table.Row>
     )
@@ -306,8 +313,8 @@ function DesignTokenTable({children}) {
       <Table>
         <Table.Head>
           <Table.Row>
-            <Table.Header>Token</Table.Header>
-            <Table.Header>Value</Table.Header>
+            <Table.Header width="50%">Token</Table.Header>
+            <Table.Header width="50%">Value</Table.Header>
           </Table.Row>
         </Table.Head>
         <Table.Body>{children}</Table.Body>
@@ -333,6 +340,14 @@ function DesignTokensPage({location}) {
           <p>For more information on design tokens, check out the post <a href="https://css-tricks.com/what-are-design-tokens/">here</a></p>
         </Col>
         <Col>
+          <h2 id="blur">Blur</h2>
+          <DesignTokenTable>
+            {NoExampleRows(DesignTokens.blur)}
+          </DesignTokenTable>
+          <h2 id="border-radius">Border Radius</h2>
+          <DesignTokenTable>
+            {BorderRadiusRows()}
+          </DesignTokenTable>
           <h2 id="colors">Colors</h2>
           <DesignTokenTable>
             {ColorRows()}
@@ -345,29 +360,9 @@ function DesignTokensPage({location}) {
           <DesignTokenTable>
             {FontSizeRows()}
           </DesignTokenTable>
-          <h2 id="border-radius">Border Radius</h2>
-          <DesignTokenTable>
-            {BorderRadiusRows()}
-          </DesignTokenTable>
-          <h2 id="z-index">Z-Index</h2>
-          <DesignTokenTable>
-            {NoExampleRows(DesignTokens['z-index'])}
-          </DesignTokenTable>
-          <h2 id="spacing">Spacing</h2>
-          <DesignTokenTable>
-            {SpacingRows()}
-          </DesignTokenTable>
-          <h2 id="shadows">Shadows</h2>
-          <DesignTokenTable>
-            {ShadowRows()}
-          </DesignTokenTable>
           <h2 id="font-weights">Font Weights</h2>
           <DesignTokenTable>
             {FontWeightRows()}
-          </DesignTokenTable>
-          <h2 id="blur">Blur</h2>
-          <DesignTokenTable>
-            {NoExampleRows(DesignTokens.blur)}
           </DesignTokenTable>
           <h2 id="grid">Grid</h2>
           <DesignTokenTable>
@@ -388,6 +383,18 @@ function DesignTokensPage({location}) {
           <h2 id="screen-widths">Screen Widths</h2>
           <DesignTokenTable>
             {NoExampleRows(DesignTokens.screen.width)}
+          </DesignTokenTable>
+          <h2 id="shadows">Shadows</h2>
+          <DesignTokenTable>
+            {ShadowRows()}
+          </DesignTokenTable>
+          <h2 id="spacing">Spacing</h2>
+          <DesignTokenTable>
+            {SpacingRows()}
+          </DesignTokenTable>
+          <h2 id="z-index">Z-Index</h2>
+          <DesignTokenTable>
+            {NoExampleRows(DesignTokens['z-index'])}
           </DesignTokenTable>
         </Col>
       </Row>
