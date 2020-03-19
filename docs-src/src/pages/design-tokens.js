@@ -356,7 +356,7 @@ function DesignTokensPage({location}) {
           <DesignTokenTable>
             {FontRows()}
           </DesignTokenTable>
-          <h2 id="fonts-sizes">Fonts Sizes</h2>
+          <h2 id="font-sizes">Fonts Sizes</h2>
           <DesignTokenTable>
             {FontSizeRows()}
           </DesignTokenTable>
