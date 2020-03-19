@@ -1,5 +1,5 @@
 @import '../../../scss/app';
-@import url('https://use.typekit.net/qqm8vsn.css');
+@import url('https://use.typekit.net/sdk4npj.css');
 
 @mixin alert-color-stack {
   background-color: $color-ui-alert;
@@ -30,14 +30,6 @@ h2 {
   line-height: 1.1;
   margin: 0;
   padding: 0 0 $padding-base;
-}
-
-h5,
-h6 {
-  font-weight: normal;
-  letter-spacing: 1px;
-  padding: $padding-base 0 0;
-  text-transform: uppercase;
 }
 
 code {
@@ -269,6 +261,9 @@ code {
 
   .rev-Menu-item--text {
     color: $color-white-60;
+    h5 {
+      padding: $padding-small 0 0;
+    }
   }
 
   .rev-Menu-item a {
@@ -347,7 +342,6 @@ code {
 
 pre {
   background: none;
-  background-color: rgb(41, 45, 62);
   border: 0px;
   font-family: monospace;
   overflow-wrap: break-word;

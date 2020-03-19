@@ -1,0 +1,36 @@
+<section className="u-bkgdColorLightestGray">
+  <Row>
+    <Col className="rev-TextCenter">
+      <h2>The Price</h2>
+      <p className="rev-Lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+    </Col>
+  </Row>
+  <Row>
+    <Col large={11} smallCentered>
+      <Card primary large>
+        <Row flex alignCenter>
+          <Col small={12} medium={6} large={8}>
+            <h3>Single Option</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+          </Col>
+          <Col small={12} medium={6} large={4} className="rev-TextCenter">
+            <p className="Pricing-cost"><strong><small>$</small>100</strong> / month</p>
+          </Col>
+        </Row>
+        <Row>
+          <Col>
+            <ul className="rev-List rev-List--twoCol rev-List--dividers">
+              <li>Included item</li>
+              <li>Included item</li>
+              <li>Included item</li>
+              <li>Included item</li>
+            </ul>
+          </Col>
+          <Col small={12} className="rev-TextCenter">
+            <Button>Get Started</Button>
+          </Col>
+        </Row>
+      </Card>
+    </Col>
+  </Row>
+</section>
