@@ -72,23 +72,6 @@ function ColorRows() {
   return rows
 }
 
-function Colors() {
-  return (
-    <React.Fragment>
-      <h2 id="colors">Colors</h2>
-      <Table>
-        <Table.Head>
-          <Table.Row>
-            <Table.Header width="50%">Token</Table.Header>
-            <Table.Header width="50%">Value</Table.Header>
-          </Table.Row>
-        </Table.Head>
-        <Table.Body>{ColorRows()}</Table.Body>
-      </Table>
-    </React.Fragment>
-  )
-}
-
 function FontSizeRows() {
   const rows = []
   const fontSizes = DesignTokens.font.size
@@ -120,23 +103,6 @@ function FontSizeRows() {
   return rows
 }
 
-function FontSizes() {
-  return (
-    <React.Fragment>
-      <h2 id="font-sizes">Font Sizes</h2>
-      <Table>
-        <Table.Head>
-          <Table.Row>
-            <Table.Header width="50%">Token</Table.Header>
-            <Table.Header width="50%">Value</Table.Header>
-          </Table.Row>
-        </Table.Head>
-        <Table.Body>{FontSizeRows()}</Table.Body>
-      </Table>
-    </React.Fragment>
-  )
-}
-
 function FontRows() {
   const rows = []
   const fontFamilies = DesignTokens.font.family
@@ -166,23 +132,6 @@ function FontRows() {
   }
 
   return rows
-}
-
-function Fonts() {
-  return (
-    <React.Fragment>
-      <h2 id="fonts">Fonts</h2>
-      <Table>
-        <Table.Head>
-          <Table.Row>
-            <Table.Header width="50%">Token</Table.Header>
-            <Table.Header width="50%">Value</Table.Header>
-          </Table.Row>
-        </Table.Head>
-        <Table.Body>{FontRows()}</Table.Body>
-      </Table>
-    </React.Fragment>
-  )
 }
 
 function BorderRadiusRows() {
@@ -219,69 +168,6 @@ function BorderRadiusRows() {
   return rows
 }
 
-function BorderRadius() {
-  return (
-    <React.Fragment>
-      <h2 id="border-radius">Border Radius</h2>
-      <Table>
-        <Table.Head>
-          <Table.Row>
-            <Table.Header width="50%">Token</Table.Header>
-            <Table.Header width="50%">Value</Table.Header>
-          </Table.Row>
-        </Table.Head>
-        <Table.Body>{BorderRadiusRows()}</Table.Body>
-      </Table>
-    </React.Fragment>
-  )
-}
-
-// TODO is exampleStyle necessary here?  How can I eliminate this useless thang
-function ZIndexRows() {
-  const rows = []
-  const zIndices = DesignTokens['z-index']
-
-  for (const index in zIndices) {
-    const exampleStyle = {
-      zIndex: zIndices[index].value,
-    }
-
-    rows.push(
-      <Table.Row>
-        <Table.Data>
-          <Table.HeaderInline>Token:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">${zIndices[index].name}
-            <p className="DesignTokenComment">{zIndices[index].comment}</p>
-          </pre>
-        </Table.Data>
-        <Table.Data>
-          <Table.HeaderInline>Value:</Table.HeaderInline>
-          <pre className="DesignTokenVariable">{zIndices[index].value}</pre>
-        </Table.Data>
-      </Table.Row>
-    )
-  }
-
-  return rows
-}
-
-function ZIndex() {
-  return (
-    <React.Fragment>
-      <h2 id="z-index">Z-Index</h2>
-      <Table>
-        <Table.Head>
-          <Table.Row>
-            <Table.Header width="50%">Token</Table.Header>
-            <Table.Header width="50%">Value</Table.Header>
-          </Table.Row>
-        </Table.Head>
-        <Table.Body>{ZIndexRows()}</Table.Body>
-      </Table>
-    </React.Fragment>
-  )
-}
-
 // TODO fix name not being displayed at same spacing as value!
 function SpacingRows() {
   const rows = []
@@ -313,23 +199,6 @@ function SpacingRows() {
   }
 
   return rows
-}
-
-function Spacing() {
-  return (
-    <React.Fragment>
-      <h2 id="spacing">Spacing</h2>
-      <Table>
-        <Table.Head>
-          <Table.Row>
-            <Table.Header width="50%">Token</Table.Header>
-            <Table.Header width="50%">Value</Table.Header>
-          </Table.Row>
-        </Table.Head>
-        <Table.Body>{SpacingRows()}</Table.Body>
-      </Table>
-    </React.Fragment>
-  )
 }
 
 function ShadowRows() {
@@ -366,23 +235,6 @@ function ShadowRows() {
   return rows
 }
 
-function Shadows() {
-  return (
-    <React.Fragment>
-      <h2 id="shadows">Shadows</h2>
-      <Table>
-        <Table.Head>
-          <Table.Row>
-            <Table.Header width="50%">Token</Table.Header>
-            <Table.Header width="50%">Value</Table.Header>
-          </Table.Row>
-        </Table.Head>
-        <Table.Body>{ShadowRows()}</Table.Body>
-      </Table>
-    </React.Fragment>
-  )
-}
-
 function FontWeightRows() {
   const rows = []
   const fontWeights = DesignTokens.font.weight
@@ -416,10 +268,47 @@ function FontWeightRows() {
   return rows
 }
 
-function FontWeight() {
+function getTokenValue(token) {
+  if(!token || !token.value){
+    return null
+  }
+
+  if(Object.prototype.toString.call(token.value) === '[object Object]') {
+    return token.value.value
+  } else if (typeof token.value === 'string' ||token.value instanceof String)
+    return token.value
+  else {
+    return null
+  }
+}
+
+function NoExampleRows(tokens) {
+  const rows = []
+
+  const flattenedTokens = flattenDesignTokens(tokens)
+
+  for (const index in flattenedTokens) {
+    rows.push(
+      <Table.Row>
+        <Table.Data>
+          <Table.HeaderInline>Token:</Table.HeaderInline>
+        <pre className="DesignTokenVariable">${flattenedTokens[index].name}
+          <p className="DesignTokenComment">{flattenedTokens[index].comment}</p>
+        </pre>
+        </Table.Data>
+        <Table.Data>
+          <Table.HeaderInline>Value:</Table.HeaderInline>
+          <pre className="DesignTokenVariable">{getTokenValue(flattenedTokens[index])}</pre>
+        </Table.Data>
+      </Table.Row>
+    )
+  }
+
+  return rows
+}
+
+function DesignTokenTable({children}) {
   return (
-    <React.Fragment>
-      <h2 id="font-weights">Font Weights</h2>
       <Table>
         <Table.Head>
           <Table.Row>
@@ -427,9 +316,8 @@ function FontWeight() {
             <Table.Header width="50%">Value</Table.Header>
           </Table.Row>
         </Table.Head>
-        <Table.Body>{FontWeightRows()}</Table.Body>
+        <Table.Body>{children}</Table.Body>
       </Table>
-    </React.Fragment>
   )
 }
 
@@ -451,14 +339,62 @@ function DesignTokensPage({location}) {
           <p>For more information on design tokens, check out the post <a href="https://css-tricks.com/what-are-design-tokens/">here</a></p>
         </Col>
         <Col>
-          <BorderRadius />
-          <Colors />
-          <Fonts />
-          <FontSizes />
-          <FontWeight />
-          <Shadows />
-          <Spacing />
-          <ZIndex />
+          <h2 id="blur">Blur</h2>
+          <DesignTokenTable>
+            {NoExampleRows(DesignTokens.blur)}
+          </DesignTokenTable>
+          <h2 id="border-radius">Border Radius</h2>
+          <DesignTokenTable>
+            {BorderRadiusRows()}
+          </DesignTokenTable>
+          <h2 id="colors">Colors</h2>
+          <DesignTokenTable>
+            {ColorRows()}
+          </DesignTokenTable>
+          <h2 id="fonts">Fonts</h2>
+          <DesignTokenTable>
+            {FontRows()}
+          </DesignTokenTable>
+          <h2 id="font-sizes">Fonts Sizes</h2>
+          <DesignTokenTable>
+            {FontSizeRows()}
+          </DesignTokenTable>
+          <h2 id="font-weights">Font Weights</h2>
+          <DesignTokenTable>
+            {FontWeightRows()}
+          </DesignTokenTable>
+          <h2 id="grid">Grid</h2>
+          <DesignTokenTable>
+            {NoExampleRows(DesignTokens.grid)}
+          </DesignTokenTable>
+          <h2 id="icon-sizes">Icon Sizes</h2>
+          <DesignTokenTable>
+            {NoExampleRows(DesignTokens.icon.size)}
+          </DesignTokenTable>
+          <h2 id="line-heights">Line Heights</h2>
+          <DesignTokenTable>
+            {NoExampleRows(DesignTokens["line-height"])}
+          </DesignTokenTable>
+          <h2 id="opacity">Opacity</h2>
+          <DesignTokenTable>
+            {NoExampleRows(DesignTokens.opacity)}
+          </DesignTokenTable>
+          <h2 id="screen-widths">Screen Widths</h2>
+          <DesignTokenTable>
+            {NoExampleRows(DesignTokens.screen.width)}
+          </DesignTokenTable>
+          <h2 id="shadows">Shadows</h2>
+          <DesignTokenTable>
+            {ShadowRows()}
+          </DesignTokenTable>
+          <h2 id="spacing">Spacing</h2>
+          <DesignTokenTable>
+            {SpacingRows()}
+          </DesignTokenTable>
+          <h2 id="z-index">Z-Index</h2>
+          <DesignTokenTable>
+            {NoExampleRows(DesignTokens['z-index'])}
+          </DesignTokenTable>
         </Col>
       </Row>
     </Layout>

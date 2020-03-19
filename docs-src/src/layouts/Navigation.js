@@ -48,6 +48,9 @@ export default function Navigation() {
             <h5>Design Tokens</h5>
           </Menu.Item>
           <Menu.Item>
+            <a href="/design-tokens/#blur">Blur</a>
+          </Menu.Item>
+          <Menu.Item>
             <a href="/design-tokens/#border-radius">Border Radius</a>
           </Menu.Item>
           <Menu.Item>
@@ -60,7 +63,22 @@ export default function Navigation() {
             <a href="/design-tokens/#font-sizes">Font Sizes</a>
           </Menu.Item>
           <Menu.Item>
-            <a href="/design-tokens/#font-weights">Font Weights</a>  
+            <a href="/design-tokens/#font-weights">Font Weights</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#grid">Grid</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#icon-sizes">Icon Sizes</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#line-heights">Line Heights</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#opacity">Opacity</a>
+          </Menu.Item>
+          <Menu.Item>
+            <a href="/design-tokens/#screen-widths">Screen Widths</a>
           </Menu.Item>
           <Menu.Item>
             <a href="/design-tokens/#shadows">Shadows</a>
