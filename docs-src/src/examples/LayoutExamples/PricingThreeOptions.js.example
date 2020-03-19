@@ -1,7 +1,8 @@
-<section className="u-bkgdColorLightestGray Text-center">
+<section className="u-bkgdColorLightestGray rev-TextCenter">
   <Row>
     <Col>
       <h2>Pricing Options</h2>
+      <p className="Lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
     </Col>
   </Row>
   <Row>
