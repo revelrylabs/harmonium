@@ -369,8 +369,19 @@ pre {
 
 .DesignTokenExamples {
   .DesignTokenVariable {
-    font-size: $font-size-base;
     background-color: transparent;
+    font-size: $font-size-base;
+    padding: 0;
+    margin-bottom: 0;
+  }
+  .DesignTokenExample {
+    display: block;
+    margin-top: $margin-small;
+  }
+  .DesignTokenComment {
+    color: $color-light-gray;
+    font-size: $font-size-small;
+    font-style: italic;
   }
 }
 
