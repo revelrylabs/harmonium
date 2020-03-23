@@ -8,6 +8,13 @@ $button-bkgd-active: darken($color-brand-primary, 10%) !default;
 $button-color-active: $color-white !default;
 $button-radius: $border-radius-small !default;
 
+$button-bkgd-primary: $color-brand-primary !default;
+$button-color-primary: $color-white !default;
+$button-bkgd-primary-hover: darken($color-brand-primary, 5%) !default;
+$button-color-primary-hover: $color-white !default;
+$button-bkgd-primary-active: darken($color-brand-primary, 10%) !default;
+$button-color-primary-active: $color-white !default;
+
 $button-bkgd-secondary: transparent !default;
 $button-box-shadow-secondary: $color-brand-primary !default;
 $button-color-secondary: $color-brand-primary !default;

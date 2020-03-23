@@ -1,5 +1,9 @@
+$cta-primary-bkgd: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%) !default;
+$cta-primary-bkgd-fallback: $color-brand-primary !default;
+$cta-primary-color: $color-white !default;
+
 .rev-CtaPrimary {
-  background: $color-brand-primary;
-  background: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%);
-  color: $color-white;
+  background: $cta-primary-bkgd;
+  background: $cta-primary-bkgd-fallback;
+  color: $cta-primary-color;
 }

@@ -19,14 +19,13 @@ $topbar-link-bkgd: transparent !default;
   position: relative;
   width: 100%;
   z-index: $z-index-above-everything;
-
   nav {
     @include flex(center, row, space-between, no-wrap);
     height: $topbar-height;
     margin: 0 auto;
     max-width: $screen-width-full;
     padding: 0 $padding-base;
-    width: 100%;
+    width: $grid-row-width;
   }
 
   // SEARCH FORMS IN TOPBARS
@@ -97,14 +96,6 @@ $topbar-link-bkgd: transparent !default;
     }
   }
 }
-
-// can override positioning placed on the parent .rev-TopBar
-/*.rev-TopBar-item--right {
-  margin-left: auto;
-}
-.rev-TopBar-item--left {
-  margin-right: auto;
-}*/
 
 // SCROLLING CONTAINERS WHEN THERES TOO MANY NAV ITEMS
 .rev-TopBar-item--scroll {

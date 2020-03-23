@@ -5,6 +5,9 @@
     },
     "base": {
       "value": "{line-height.global.value} * {font.size.base}"
+    },
+    "header": {
+      "value": "1.1"
     }
   }
 }

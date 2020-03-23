@@ -75,6 +75,13 @@ $button-bkgd-active: darken($color-brand-primary, 10%);
 $button-color-active: $color-white;
 $button-radius: $border-radius-small;
 
+$button-bkgd-primary: $color-brand-primary;
+$button-color-primary: $color-white;
+$button-bkgd-primary-hover: darken($color-brand-primary, 5%);
+$button-color-primary-hover: $color-white;
+$button-bkgd-primary-active: darken($color-brand-primary, 10%);
+$button-color-primary-active: $color-white;
+
 $button-bkgd-secondary: transparent;
 $button-box-shadow-secondary: $color-brand-primary;
 $button-color-secondary: $color-brand-primary;
@@ -336,3 +343,13 @@ $hero-bkgd-fallback: $color-brand-primary;
 $hero-color: $color-white;
 $min-height: 70vh;
 $min-height-mobile: calc(90vh - #{$topbar-height});
+
+// CTA
+$cta-primary-bkgd: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%);
+$cta-primary-bkgd-fallback: $color-brand-primary;
+$cta-primary-color: $color-white;
+
+
+// FOOTER
+$footer-bkgd: $color-darker-gray;
+$footer-color: $color-light-gray;
