@@ -1,4 +1,8 @@
+.rev-Section,
 section {
   display: block;
   padding: $padding-large 0;
+}
+.rev-Section--large {
+  padding: $padding-larger 0;
 }

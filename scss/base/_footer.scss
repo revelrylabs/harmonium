@@ -1,0 +1,32 @@
+$footer-bkgd: $color-darker-gray !default;
+$footer-color: $color-light-gray !default;
+
+.rev-Footer {
+  background: $footer-bkgd;
+  color: $footer-color;
+  padding: $padding-base 0;
+}
+
+// for Revelry Products
+.rev-MadeByRev {
+  color: $color-gray;
+  font-size: $font-size-smaller;
+  padding: $padding-base;
+  text-align: center;
+  .rev-Brand {
+    img {
+      @include global-transition;
+      height: 2rem;
+      margin: $margin-tiny auto 0;
+      opacity: 0.65;
+      width: auto;
+    }
+    &:hover,
+    &:active,
+    &:focus {
+      img {
+        opacity: 1;
+      }
+    }
+  }
+}

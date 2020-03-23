@@ -4,7 +4,10 @@
       "value": "1.5"
     },
     "base": {
-      "value": "{line-height.global.value} * {font.size.base}"
+      "value": "2.4rem"
+    },
+    "header": {
+      "value": "1.1"
     }
   }
 }

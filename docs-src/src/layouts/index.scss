@@ -380,8 +380,6 @@ pre {
 }
 
 .rev-Hero {
-  text-align: center;
-
   @include breakpoint(small-only) {
     margin-top: -$margin-base; // Negate the margin bottom put on the topbar for mobile
   }
