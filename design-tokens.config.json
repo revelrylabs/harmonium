@@ -48,7 +48,7 @@
       "buildPath": "./settings-templates/",
       "files": [
         {
-          "destination": "harmonium.tokens.js",
+          "destination": "harmonium-tokens.js",
           "format": "javascript/module"
         }
       ]

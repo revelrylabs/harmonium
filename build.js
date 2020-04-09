@@ -73,8 +73,8 @@ function buildSettingsTemplatesArchive() {
     name: 'settings-templates/_harmonium-component-settings.scss',
   })
 
-  archive.file('settings-templates/harmonium.tokens.js', {
-    name: 'settings-templates/harmonium.tokens.js',
+  archive.file('settings-templates/harmonium-tokens.js', {
+    name: 'settings-templates/harmonium-tokens.js',
   })
 
   archive.finalize()
