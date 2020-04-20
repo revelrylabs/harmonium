@@ -24,8 +24,12 @@ describe('Configuration', () => {
       const mergedConfig = Configuration.mergeConfiguration(config1, config2)
 
       expect(config1.platforms.scss.buildPath).equal('./harmonium-settings/')
-      expect(config2.platforms.scss.buildPath).equal('./not-harmonium-settings/')
-      expect(mergedConfig.platforms.scss.buildPath).equal('./not-harmonium-settings/')
+      expect(config2.platforms.scss.buildPath).equal(
+        './not-harmonium-settings/'
+      )
+      expect(mergedConfig.platforms.scss.buildPath).equal(
+        './not-harmonium-settings/'
+      )
     })
   })
 
@@ -50,7 +54,7 @@ describe('Configuration', () => {
 
       expect(scssFiles).to.include('_harmonium-settings.scss')
       expect(scssFiles).to.include('_color-palette.scss')
-      expect(jsFiles).to.include('harmoniumDesignTokens.js')
+      expect(jsFiles).to.include('harmonium-tokens.js')
     })
   })
 })
