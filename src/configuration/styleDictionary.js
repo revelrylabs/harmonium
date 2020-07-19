@@ -1,4 +1,5 @@
 const StyleDictionary = require('style-dictionary')
+const Color = require('tinycolor2')
 
 function fileHeader(options, commentStyle) {
   let to_ret = ''
@@ -48,6 +49,10 @@ function variablesWithPrefix(prefix, properties, suffix, commentStyle) {
     .join('\n')
 }
 
+function isColor(prop) {
+  return prop.attributes.category === 'color'
+}
+
 function prepareStyleDictionary() {
   StyleDictionary.registerTransformGroup({
     name: 'docs',
@@ -69,15 +74,42 @@ function prepareStyleDictionary() {
   StyleDictionary.registerFilter({
     name: 'isColor',
     matcher(prop) {
-      return prop.attributes.category === 'color'
+      return isColor(prop)
     },
   })
 
   StyleDictionary.registerFilter({
     name: 'isNotColor',
     matcher(prop) {
-      return prop.attributes.category !== 'color'
+      return !isColor(prop)
     },
+  })
+
+  StyleDictionary.registerTransform({
+    name: 'color/css-capitalized',
+    type: 'value',
+    matcher: isColor,
+    transformer: (prop) => {
+      const color = Color(prop.value)
+
+      if (color.getAlpha() === 1) {
+        return color.toHexString().toUpperCase()
+      } else {
+        return color.toRgbString()
+      }
+    },
+  })
+
+  StyleDictionary.registerTransformGroup({
+    name: 'scss-capitalized',
+    transforms: [
+      'attribute/cti',
+      'name/cti/kebab',
+      'time/seconds',
+      'content/icon',
+      'size/rem',
+      'color/css-capitalized',
+    ],
   })
 
   return StyleDictionary

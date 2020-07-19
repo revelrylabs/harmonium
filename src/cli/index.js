@@ -28,9 +28,7 @@ program
 
     const config = await configuration.createConfiguration()
 
-    const configModule = `module.exports = ${util.inspect(config, {
-      depth: null,
-    })}`
+    const configModule = `module.exports = ${JSON.stringify(config, null, 2)}`
 
     const writeFileAsync = promisify(fs.writeFile)
 
