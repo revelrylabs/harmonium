@@ -116,7 +116,7 @@ $menu-dropdown-width: 24rem !default;
       }
     }
 
-    &[class*='--selected'] a {
+    &[class*='--selected'] > a {
       background-color: $menu-link-bkgd-selected;
       color: $menu-link-color-selected;
     }

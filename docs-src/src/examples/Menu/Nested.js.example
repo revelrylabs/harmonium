@@ -25,7 +25,7 @@
         <Menu.Item><a href="#">One</a>
           <Menu nested>
             <Menu.Item><a href="#">Nested One</a></Menu.Item>
-            <Menu.Item><a href="#">Nested Two</a>
+            <Menu.Item active><a href="#">Nested Two</a>
               <Menu nested>
                 <Menu.Item><a href="#">Double Nested One</a></Menu.Item>
                 <Menu.Item><a href="#">Double Nested Two</a></Menu.Item>

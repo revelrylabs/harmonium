@@ -108,7 +108,7 @@ $navigation-color-disabled: $navigation-color !default; // will have disabled-op
     }
   }
 
-  &[class*='--selected'] a {
+  &[class*='--selected'] > a {
     background-color: $navigation-bkgd-selected;
 
     @if lightness($navigation-bkgd-selected)>65% {
