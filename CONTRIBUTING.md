@@ -4,6 +4,16 @@
 
 Clone and run `./bin/setup`.
 
+If you receive the message
+```
+asdf not found. Please make sure it is installed by following directions below and try again
+https://github.com/asdf-vm/asdf
+====================================
+Setup complete.
+====================================
+```
+This means the setup was not complete, go to https://github.com/asdf-vm/asdf and follow the getting started guide. Then rerun `./bin/setup`.
+
 ## Running the docs site locally
 
 ```
