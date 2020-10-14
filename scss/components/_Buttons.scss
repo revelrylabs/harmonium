@@ -1,11 +1,15 @@
 // Button Vars
 $button-bkgd: $color-brand-primary !default;
+$button-bkgd-white: $color-white !default;
 $button-border: 0 !default;
 $button-color: $color-white !default;
+$button-color-primary: $color-brand-primary !default;
 $button-bkgd-hover: darken($color-brand-primary, 5%) !default;
 $button-color-hover: $color-white !default;
+$button-color-primary-hover: darken($color-brand-primary, 5%) !default;
 $button-bkgd-active: darken($color-brand-primary, 10%) !default;
 $button-color-active: $color-white !default;
+$button-color-primary-active: darken($color-brand-primary, 10%) !default;
 $button-radius: $border-radius-small !default;
 
 $button-bkgd-primary: $color-brand-primary !default;
@@ -113,17 +117,17 @@ $button-color-secondary-active: $color-white !default;
   }
 
   &.rev-Button--inverted {
-    background: $button-color;
-    color: $button-bkgd;
+    background: $button-bkgd-white;
+    color: $button-color-primary;
 
     &:hover,
     &:focus {
-      background: $button-color;
-      color: $button-bkgd-hover;
+      background: $button-bkgd-white;
+      color: $button-color-primary-hover;
     }
 
     &:active {
-      color: $button-bkgd-active;
+      color: $button-color-primary-active;
     }
 
     &.rev-Button--secondary {
@@ -132,16 +136,16 @@ $button-color-secondary-active: $color-white !default;
       color: $button-color;
 
       &:hover {
-        background: $button-color-hover;
+        background: $button-bkgd-white;
         box-shadow: 0 0 0 1px $button-color-hover inset;
-        color: $button-bkgd-hover;
+        color: $button-color-primary-hover;
       }
 
       &:active,
       &:focus {
-        background: $button-color-active;
-        box-shadow: 0 0 0 1px $button-color-active inset;
-        color: $button-bkgd-active;
+        background: $button-bkgd-white;
+        box-shadow: 0 0 0 1px $button-bkgd-white inset;
+        color: $button-color-primary-active;
       }
     }
   }
@@ -211,3 +215,4 @@ $button-color-secondary-active: $color-white !default;
     }
   }
 }
+
