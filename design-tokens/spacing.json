@@ -1,22 +1,25 @@
 {
   "spacing": {
     "tiny": {
-      "value": "6px"
+      "value": "0.6rem"
     },
     "small": {
-      "value": "12px"
+      "value": "1.2rem"
     },
     "medium": {
-      "value": "24px"
+      "value": "3.6rem"
     },
     "large": {
-      "value": "48px"
+      "value": "4.8rem"
     },
     "larger": {
-      "value": "72px"
+      "value": "7.2rem"
+    },
+    "largest": {
+      "value": "9.6rem"
     },
     "base": {
-      "value": "{spacing.medium.value}"
+      "value": "2.4rem"
     }
   }
 }

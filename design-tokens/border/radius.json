@@ -2,7 +2,7 @@
   "border": {
     "radius": {
       "small": {
-        "value": "3px"
+        "value": "0.5rem"
       },
       "rounded": {
         "value": "100000px"

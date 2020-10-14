@@ -1,7 +1,7 @@
 {
   "blur": {
     "enabled": {
-      "value": "blur(8px)"
+      "value": "blur(0.8rem)"
     },
     "disabled": {
       "value": "blur(0)"

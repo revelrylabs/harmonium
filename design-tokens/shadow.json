@@ -1,9 +1,9 @@
 {
   "box": {
     "shadow": {
-      "default": {"value": "0 1px 4px 0 {color.black-30.value}"},
-      "hover": {"value": "0 2px 6px 0 {color.black-50.value}"},
-      "active": {"value": "0 1px 2px 0 {color.black-30.value}"}
+      "default": {"value": "0 0.2rem 0.4rem 0 {color.black-30.value}"},
+      "hover": {"value": "0 0.2rem 0.6rem 0 {color.black-50.value}"},
+      "active": {"value": "0 0.1rem 0.2rem 0 {color.black-30.value}"}
     }
   }
 }

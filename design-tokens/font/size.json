@@ -14,19 +14,19 @@
         "comment": "the small size of the font"
       },
       "medium": {
-        "value": "2rem",
+        "value": "2.4rem",
         "comment": "the medium size of the font"
       },
       "large": {
-        "value": "2.4rem",
+        "value": "4rem",
         "comment": "the large size of the font"
       },
       "larger": {
-        "value": "3.6rem",
+        "value": "5.6rem",
         "comment": "a larger font size"
       },
       "largest": {
-        "value": "4.2rem",
+        "value": "7.2rem",
         "comment": "the largest size of the font"
       },
       "base": {
