@@ -1,9 +1,14 @@
 {
   "color": {
     "brand": {
-      "primary": {"value": "#295DE5"},
-      "secondary": {"value": "#6422EB"},
-      "tertiary": {"value": "501BBC"}
+      "purple": {"value": "#5533FF"},
+      "red": {"value": "#E25A50"},
+      "yellow": {"value": "#FFDD78"},
+      "amber": {"value": "#E2A04A"},
+      "blue": {"value": "#4379FF"},
+      "primary": {"value": "{color.brand.purple.value}"},
+      "secondary": {"value": "{color.brand.yellow.value}"},
+      "tertiary": {"value": "{color.brand.red.value}"}
     }
   }
 }

@@ -333,7 +333,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
 }
 .Drawer-toggle { // label
   @include global-transition;
-  background: $color-ui-primary;
+  background: $color-brand-primary;
   border-radius: $border-radius-rounded $border-radius-rounded 0 0;
   color: $color-white;
   cursor: pointer;
@@ -379,6 +379,6 @@ add overlay collapsible for all sidebars at specified breakpoint */
   width: $topbar-height;
   &:hover,
   &:active {
-    color: $color-ui-primary;
+    color: $color-brand-primary;
   }
 } */

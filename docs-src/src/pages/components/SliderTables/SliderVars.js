@@ -175,7 +175,7 @@ export default function InputVars() {
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Default Value:</Table.HeaderInline>{' '}
-            <code>$color-ui-primary</code>
+            <code>$color-brand-primary</code>
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Description:</Table.HeaderInline> Default
@@ -190,7 +190,7 @@ export default function InputVars() {
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Default Value:</Table.HeaderInline>{' '}
-            <code>$color-ui-primary</code>
+            <code>$color-brand-primary</code>
           </Table.Data>
           <Table.Data>
             <Table.HeaderInline>Description:</Table.HeaderInline> Default

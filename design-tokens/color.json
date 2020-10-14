@@ -1,12 +1,13 @@
 {
   "color": {
     "white": {"value": "#FFF"},
-    "lightest-gray": {"value": "#F4F4F4"},
+    "lightest-gray": {"value": "#F8F9FE"},
     "lighter-gray": {"value": "#D5D5D5"},
     "light-gray": {"value": "#ABABAB"},
-    "gray": {"value": "#818181"},
+    "gray": {"value": "#7C7C7F"},
     "dark-gray": {"value": "#565656"},
-    "darker-gray": {"value": "#2A2A2A"},
+    "darker-gray": {"value": "#231F20"},
+    "darkest-gray": {"value": "#231F20"},
     "black": {"value": "#000"},
     "white-0": {
       "value": "rgba(255, 255, 255, 0)",
@@ -41,8 +42,8 @@
     "divider": {"value": "{color.black-10.value}"},
     "divider-dark": {"value": "{color.black-20.value}"},
     "divider-light": {"value": "{color.white-10.value}"},
-    "muted": {"value": "{color.lighter-gray.value}"},
-    "very-muted": {"value": "{color.lightest-gray.value}"},
+    "muted": {"value": "{color.gray.value}"},
+    "very-muted": {"value": "{color.lighter-gray.value}"},
     "disabled": {"value": "{color.light-gray.value}"}
   }
 }

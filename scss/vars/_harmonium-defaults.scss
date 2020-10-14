@@ -67,9 +67,9 @@ $paragraph-margin-bottom: $spacing-base !default;
 $paragraph-text-rendering: optimizeLegibility !default;
 
 // Anchor Vars
-$anchor-color: $color-ui-primary !default;
-$anchor-color-hover: darken($color-ui-primary, 10%) !default;
-$anchor-color-active: darken($color-ui-primary, 15%) !default;
+$anchor-color: $color-brand-primary !default;
+$anchor-color-hover: darken($color-brand-primary, 10%) !default;
+$anchor-color-active: darken($color-brand-primary, 15%) !default;
 $anchor-color-inverse: $body-bkgd !default;
 $anchor-text-decoration: none !default;
 $anchor-text-decoration-hover: none !default;

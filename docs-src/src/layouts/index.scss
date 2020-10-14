@@ -132,7 +132,7 @@ code {
 
 // Bkgd Colors
 .ExampleBkgd--primary {
-  background: $color-ui-primary;
+  background: $color-brand-primary;
   display: block;
   margin-bottom: $padding-base;
   padding: $padding-base $padding-base 0;
@@ -254,7 +254,6 @@ code {
 
   .rev-Drawer-contents {
     background: $color-brand-primary;
-    background: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%);
     color: $color-white;
     padding-bottom: $padding-larger;
   }
@@ -303,7 +302,7 @@ code {
 .FixedDrawerLinks {
   @include flex(stretch, row, center, nowrap);
   @include global-transition;
-  background: $color-ui-primary;
+  background: $color-brand-primary;
   border-top: 1px solid $color-divider-dark;
   bottom: 0;
   left: -$drawer-width;

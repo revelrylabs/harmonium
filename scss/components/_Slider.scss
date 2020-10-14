@@ -8,8 +8,8 @@ $slider-input-margin: 0 !default;
 $slider-thumb-width: 16px !default;
 $slider-thumb-height: 16px !default;
 $slider-thumb-border-radius: 50% !default;
-$slider-thumb-background: $color-ui-primary !default;
-$slider-progress-color: $color-ui-primary !default;
+$slider-thumb-background: $color-brand-primary !default;
+$slider-progress-color: $color-brand-primary !default;
 
 // Duplicates the shadow to make a fake progress bar
 // TODO refactor into element. See Harmonium GH ticket: #327

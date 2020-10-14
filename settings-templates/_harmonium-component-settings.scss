@@ -58,9 +58,9 @@ $paragraph-margin-bottom: $spacing-base;
 $paragraph-text-rendering: optimizeLegibility;
 
 // ANCHORS
-$anchor-color: $color-ui-primary;
-$anchor-color-hover: darken($color-ui-primary, 10%);
-$anchor-color-active: darken($color-ui-primary, 15%);
+$anchor-color: $color-brand-primary;
+$anchor-color-hover: darken($color-brand-primary, 10%);
+$anchor-color-active: darken($color-brand-primary, 15%);
 $anchor-color-inverse: $body-bkgd;
 $anchor-text-decoration: none;
 $anchor-text-decoration-hover: none;
@@ -276,8 +276,8 @@ $slider-input-margin: 0;
 $slider-thumb-width: 16px;
 $slider-thumb-height: 16px;
 $slider-thumb-border-radius: 50%;
-$slider-thumb-background: $color-ui-primary;
-$slider-progress-color: $color-ui-primary;
+$slider-thumb-background: $button-bkgd;
+$slider-progress-color: $button-bkgd;
 
 //## TABLES -----------------------------
 

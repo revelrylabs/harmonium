@@ -1,7 +1,6 @@
 {
   "color": {
     "ui": {
-      "primary": {"value": "{color.brand.primary.value}"},
       "success": {"value": "#00A67F"},
       "alert": {"value": "#D94011"},
       "warning": {"value": "#D10034"},
