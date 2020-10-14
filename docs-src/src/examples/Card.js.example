@@ -82,7 +82,7 @@
       <Card.Footer>
         <Row>
           <Col>
-            <h6>Footer</h6>
+            <p>Footer</p>
           </Col>
         </Row>
       </Card.Footer>
@@ -108,7 +108,7 @@
       <Card.Footer>
         <Row>
           <Col>
-            <h6>Footer</h6>
+            <p>Footer</p>
           </Col>
         </Row>
       </Card.Footer>
@@ -139,9 +139,7 @@
 
   <Col large={6}>
     <Card>
-      <Card.Body>
-        <img src="https://picsum.photos/800/400" className="ResponsiveImage" />
-      </Card.Body>
+      <img src="https://picsum.photos/800/400" className="ResponsiveImage" />
       <Card.Footer>
         <Row>
           <Col>

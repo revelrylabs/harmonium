@@ -10,40 +10,29 @@ $card-footer-background: $color-white !default;
 
 .rev-Card,
 .rev-CardLayout {
-  @include typography-contained;
   background-color: $card-bkgd;
   border: $card-border;
   border-radius: $card-radius;
+  box-shadow: $box-shadow-default;
   margin-bottom: $spacing-base;
-
+  overflow: hidden;
   .rev-Row {
     padding-left: $padding-small;
     padding-right: $padding-small;
   }
-
-  .rev-Col {
-    @include image-contained;
-  }
-
   &.rev-Card--primary {
     border: 0;
     box-shadow: $box-shadow-default;
   }
-
   &.rev-Card--secondary {
     background: transparent;
     border: 1px solid $color-divider;
-  }
-
-  &.rev-Card--large {
-    padding: $padding-base 0;
   }
   &.rev-Card--small {
     .rev-Row {
       padding-left: $padding-tiny;
       padding-right: $padding-tiny;
     }
-
     .rev-Col {
       padding-left: $padding-tiny;
       padding-right: $padding-tiny;
@@ -56,17 +45,63 @@ $card-footer-background: $color-white !default;
 .rev-Card-header,
 .rev-Card-footer {
   padding: $card-padding;
-
 }
 
 .rev-Card-header {
   @include button-contained;
   background-color: $card-header-background;
-  border-bottom: 1px solid $color-divider;
+  border-radius: $card-radius $card-radius 0 0;
+  padding: $spacing-base 0 0;
+  position: relative;
+  &:before {
+    background: $color-black-10;
+    bottom: 0;
+    content: '';
+    height: 1px;
+    left: $spacing-base;
+    position: absolute;
+    right: 0;
+  }
+  .rev-Card--large & {
+    padding: $spacing-large 0 0;
+  }
+  .rev-Card--small & {
+    &:before {
+      left: $spacing-small;
+    }
+  }
 }
-
+.rev-Card-body {
+  padding-top: $spacing-base;
+  .rev-Card--large & {
+    padding: $spacing-large 0 0;
+  }
+  img {
+    margin-bottom: $spacing-base;
+  }
+}
 .rev-Card-footer {
   @include button-contained;
   background-color: $card-footer-background;
-  border-top: 1px solid $color-divider;
+  border-radius: 0 0 $card-radius $card-radius;
+  padding: $spacing-base 0 0;
+  position: relative;
+  &:before {
+    background: $color-black-10;
+    content: '';
+    height: 1px;
+    left: $spacing-base;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .rev-Card--large & {
+    padding: $spacing-large 0 0;
+  }
+  .rev-Card--small & {
+    &:before {
+      left: $spacing-small;
+    }
+  }
 }
+
