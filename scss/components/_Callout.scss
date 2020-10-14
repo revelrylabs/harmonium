@@ -9,19 +9,19 @@ $callout-padding: $spacing-base $spacing-base !default;
 
 .rev-Callout {
   @include color-management;
-  @include typography-contained;
   background: $callout-bkgd;
   border: $callout-border-size solid $callout-border-color;
   color: $callout-color;
   margin-bottom: $margin-base;
   padding: 0;
-
+  p:only-child {
+    margin-top: $spacing-base;
+  }
   &.rev-Callout--primary {
     background: $callout-bkgd;
     box-shadow: $box-shadow-default;
     color: $callout-color;
   }
-
   &.rev-Callout--secondary {
     background: $color-divider-dark;
     color: $callout-color;

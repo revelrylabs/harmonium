@@ -1,5 +1,8 @@
 @import '../../../scss/app';
-@import url('https://use.typekit.net/sdk4npj.css');
+
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400&display=swap');
+// not including accent font in design tokens b/c it requires font-family import
+$font-family-accent: 'Oswald', 'Arial Narrow', 'Roboto', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 
 @mixin alert-color-stack {
   background-color: $color-ui-alert;
@@ -8,28 +11,18 @@
 }
 
 // TYPOGRAPHY
-
-// Proxima Nova Headers for docs only
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: 'proxima-nova', $font-family-sans-serif;
+  font-family: $font-family-accent;
+  font-weight: normal;
 }
-
-//TODO incorporate this into typography styles
-h1 {
-  line-height: 1.1;
-  margin: 0;
-  padding-top: $padding-large;
-}
-
-h2 {
-  line-height: 1.1;
-  margin: 0;
-  padding: 0 0 $padding-base;
+.rev-Button,
+.rev-Lead {
+  font-family: $font-family-accent;
 }
 
 code {
@@ -260,7 +253,7 @@ code {
 
   .rev-Menu-item--text {
     color: $color-white-60;
-    h5 {
+    h6 {
       padding: $padding-small 0 0;
     }
   }
@@ -268,7 +261,6 @@ code {
   .rev-Menu-item a {
     color: $color-white-80;
     position: relative;
-
     &:hover,
     &:active,
     &:focus {

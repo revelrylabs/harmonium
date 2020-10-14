@@ -1,8 +1,5 @@
 $card-bkgd: $color-white !default;
-$card-border-color: $color-divider !default;
-$card-border-size: 1px !default;
-$card-border-style: solid !default;
-$card-border: $card-border-size $card-border-style $card-border-color !default;
+$card-border: 0 !default;
 $card-padding: 0 !default;
 $card-radius: $border-radius-small !default;
 $card-header-background: $color-white !default;
@@ -19,10 +16,6 @@ $card-footer-background: $color-white !default;
   .rev-Row {
     padding-left: $padding-small;
     padding-right: $padding-small;
-  }
-  &.rev-Card--primary {
-    border: 0;
-    box-shadow: $box-shadow-default;
   }
   &.rev-Card--secondary {
     background: transparent;

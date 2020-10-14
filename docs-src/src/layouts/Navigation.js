@@ -27,7 +27,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Starter</h5>
+            <h6>Starter</h6>
           </Menu.Item>
           <Menu.Item>
             <a href={'/settings-templates.zip'} download>
@@ -37,7 +37,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Design Guidelines</h5>
+            <h6>Design Guidelines</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/guidelines/overview/">Overview</a>
@@ -45,7 +45,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Design Tokens</h5>
+            <h6>Design Tokens</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/design-tokens/#blur">Blur</a>
@@ -92,7 +92,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Grid</h5>
+            <h6>Grid</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/grid/">Rows &amp; Columns</a>
@@ -103,7 +103,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Forms</h5>
+            <h6>Forms</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/Button/">Buttons</a>
@@ -141,7 +141,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Lists</h5>
+            <h6>Lists</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/Emptyable/">Emptyable</a>
@@ -152,7 +152,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Formatting</h5>
+            <h6>Formatting</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/Currency/">Currency</a>
@@ -166,7 +166,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Navigation</h5>
+            <h6>Navigation</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/Menu/">Menu</a>
@@ -186,7 +186,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Cards &amp; Media</h5>
+            <h6>Cards &amp; Media</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/Card/">Card</a>
@@ -203,7 +203,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Containers</h5>
+            <h6>Containers</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/Accordion/">Accordion</a>
@@ -229,7 +229,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Atoms</h5>
+            <h6>Atoms</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/Badge/">Badge</a>
@@ -243,7 +243,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Utilities</h5>
+            <h6>Utilities</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/AuthenticityToken/">Authenticity Token</a>
@@ -274,7 +274,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Prototyping</h5>
+            <h6>Prototyping</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/Lipsum/">Lorem Ipsum</a>
@@ -282,7 +282,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Map</h5>
+            <h6>Map</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/Map/DefaultMap/">Default Map Component</a>
@@ -301,7 +301,7 @@ export default function Navigation() {
         </Menu>
         <Menu vertical>
           <Menu.Item text>
-            <h5>Layout Examples</h5>
+            <h6>Layout Examples</h6>
           </Menu.Item>
           <Menu.Item>
             <a href="/components/LayoutExamples/LogIn/">Log In</a>

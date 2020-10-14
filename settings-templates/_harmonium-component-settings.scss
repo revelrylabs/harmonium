@@ -2,6 +2,7 @@
 $padding-tiny: $spacing-tiny;
 $padding-small: $spacing-small;
 $padding-base: $spacing-base;
+$padding-medium: $spacing-medium;
 $padding-large: $spacing-large;
 $padding-larger: $spacing-larger;
 
@@ -9,6 +10,7 @@ $padding-larger: $spacing-larger;
 $margin-tiny: $padding-tiny;
 $margin-small: $padding-small;
 $margin-base: $padding-base;
+$margin-medium: $padding-medium;
 $margin-large: $padding-large;
 $margin-larger: $padding-larger;
 
@@ -17,7 +19,7 @@ $h2: $font-size-larger;
 $h3: $font-size-large;
 $h4: $font-size-medium;
 $h5: $font-size-small;
-$h6: $font-size-smaller;
+$h6: $font-size-base;
 
 // Breakpoints
 $breakpoints: (small: (min-width: $screen-width-small),
@@ -237,7 +239,7 @@ $callout-padding: $spacing-base $spacing-base;
 
 //# Cards
 $card-bkgd: $color-white;
-$card-border: 1px solid $color-divider;
+$card-border: 0;
 $card-padding: 0;
 $card-radius: $border-radius-small;
 $card-header-background: $color-white;

@@ -1,71 +1,9 @@
-// strip out units for typography math
-@function strip-unit($number) {
-  @if type-of($number)=='number'and not unitless($number) {
-    @return $number / ($number * 0 + 1);
-  }
-
-  @if type-of($number)=='px' {
-    @return $number / ($number * 0.1 + 1);
-  }
-
-  /*TODO: check this!!*/
-  @return $number;
-}
-
-// unitless values
-$h1-value: strip-unit($h1);
-$h2-value: strip-unit($h2);
-$h3-value: strip-unit($h3);
-$h4-value: strip-unit($h4);
-$h5-value: strip-unit($h5);
-$h6-value: strip-unit($h6);
-$font-size-base-value: strip-unit($font-size-base);
-
-// header lists
-$header-font-sizes: h1,
-h2,
-h3,
-h4,
-h5,
-h6;
-$header-font-size-values: $h1-value,
-$h2-value,
-$h3-value,
-$h4-value,
-$h5-value,
-$h6-value;
-
-@for $i from 1 through length($header-font-sizes) {
-  #{nth($header-font-sizes, $i)} {
-    font-size: nth($header-font-size-values, $i) * 1rem;
-    line-height: $line-height-header;
-    padding-bottom: $spacing-base;
-  }
-}
-
-@mixin header-contained {
-  @for $i from 1 through length($header-font-sizes) {
-    #{nth($header-font-sizes, $i)} {
-      padding-top: $spacing-base / 2;
-      padding-bottom: $spacing-base / 2;
-    }
-  }
-}
-
-@mixin typography-contained {
-  @for $i from 1 through length($header-font-sizes) {
-    #{nth($header-font-sizes, $i)} {
-      padding-top: $spacing-base / 2;
-      padding-bottom: $spacing-base / 2;
-    }
-  }
-}
-
 @mixin header {
   display: block;
   font-family: $header-font-family;
   font-style: $header-font-style;
   font-weight: $header-font-weight;
+  line-height: $line-height-header;
   margin: 0;
 }
 
@@ -77,24 +15,39 @@ h5,
 h6 {
   @include header;
 }
-
+h1 {
+  font-size: $font-size-large;
+  padding-bottom: $spacing-base;
+	@include breakpoint(medium) {
+		font-size: $font-size-larger;
+	}
+	@include breakpoint(xlarge) {
+    font-size: $h1;
+	}
+}
+h2 {
+  font-size: 3.6rem;
+  padding-bottom: $spacing-base;
+  @include breakpoint(medium) {
+		font-size: $h2;
+	}
+}
 h3 {
-  padding: $margin-small 0;
+  font-size: $h3;
+	padding-bottom: $spacing-base;
 }
-
-h5,
-h6 {
-  line-height: $line-height-base;
-  text-transform: uppercase;
+h5 {
+	padding-bottom: $spacing-small;
 }
-
 h6 {
-  color: $color-muted;
+	color: inherit;
+	letter-spacing: 5px;
+	padding-bottom: $spacing-small;
+	text-transform: uppercase;
 }
 
 p {
   margin: 0;
-  max-width: 70rem;
   padding: 0 0 $spacing-base 0;
 }
 
@@ -105,7 +58,8 @@ p {
 }
 
 .Small,
-.rev-Small {
+.rev-Small,
+small {
   @include muted;
   display: block;
   font-size: $font-size-small;
@@ -116,19 +70,13 @@ a {
   @include global-transition;
   color: $anchor-color;
   text-decoration: none;
-
   &:hover {
     color: $anchor-color-hover;
   }
-
   &:active,
   &:focus {
     color: $anchor-color-active;
   }
-}
-
-small {
-  font-size: 75%;
 }
 
 // TextAlignment
