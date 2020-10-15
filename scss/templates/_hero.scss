@@ -1,14 +1,10 @@
 $hero-bkgd: $color-brand-primary !default;
 $hero-color: $color-white !default;
 $min-height: 60rem !default;
-$min-height-mobile: calc(90vh - #{$topbar-height}) !default;
 
 .rev-Hero {
   @include flex(center, row, center);
   background: $hero-bkgd;
   color: $hero-color;
-  min-height: $min-height-mobile;
-  @include breakpoint(medium) {
-    min-height: $min-height;
-  }
+  min-height: $min-height;
 }

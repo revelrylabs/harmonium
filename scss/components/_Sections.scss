@@ -1,8 +1,10 @@
 .rev-Section,
 section {
   display: block;
-  padding: $padding-large 0;
+  padding-bottom: $padding-large;
+  padding-top: $padding-large;
 }
 .rev-Section--large {
-  padding: $padding-larger 0;
+  padding-bottom: $padding-larger;
+  padding-top: $padding-larger;
 }

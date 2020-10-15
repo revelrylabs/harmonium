@@ -330,7 +330,7 @@ $badge-size: $icon-size-base;
 //## UTILITIES -----------------------------
 
 //# Help Text
-$help-text-color: $color-gray;
+$help-text-color: $color-muted;
 
 //# Progress
 $progress-radius: $border-radius-rounded;
@@ -340,18 +340,14 @@ $progress-meter-bkgd: $color-darker-gray;
 //## EXAMPLE LAYOUTS -----------------------------
 
 // HERO
-$hero-bkgd: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%);
-$hero-bkgd-fallback: $color-brand-primary;
+$hero-bkgd: $color-brand-primary;
 $hero-color: $color-white;
 $min-height: 70vh;
-$min-height-mobile: calc(90vh - #{$topbar-height});
 
 // CTA
-$cta-primary-bkgd: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%);
-$cta-primary-bkgd-fallback: $color-brand-primary;
+$cta-primary-bkgd: $color-brand-primary;
 $cta-primary-color: $color-white;
 
-
 // FOOTER
-$footer-bkgd: $color-darker-gray;
-$footer-color: $color-light-gray;
+$footer-bkgd: $color-white;
+$footer-color: $body-font-color;

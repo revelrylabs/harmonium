@@ -10,6 +10,10 @@ $font-family-accent: 'Oswald', 'Arial Narrow', 'Roboto', 'Helvetica Neue', Helve
   color: mix($color-ui-alert, $color-white, 33%);
 }
 
+section {
+  padding-left: $padding-base;
+  padding-right: $padding-base;
+}
 // TYPOGRAPHY
 h1,
 h2,
