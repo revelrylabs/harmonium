@@ -40,7 +40,7 @@ $breakpoints: (small: (min-width: $screen-width-small),
 );
 
 // Body Vars
-$body-bkgd: $color-white;
+$body-bkgd: $color-lightest-gray;
 $body-font-color: $color-darker-gray;
 $body-font-family: $font-family-sans-serif;
 
@@ -77,11 +77,11 @@ $button-bkgd-active: darken($color-brand-primary, 10%);
 $button-color-active: $color-white;
 $button-radius: $border-radius-small;
 
-$button-bkgd-primary: $color-brand-primary;
+$button-bkgd-primary: $color-brand-amber;
 $button-color-primary: $color-white;
-$button-bkgd-primary-hover: darken($color-brand-primary, 5%);
+$button-bkgd-primary-hover: darken($color-brand-amber, 5%);
 $button-color-primary-hover: $color-white;
-$button-bkgd-primary-active: darken($color-brand-primary, 10%);
+$button-bkgd-primary-active: darken($color-brand-amber, 10%);
 $button-color-primary-active: $color-white;
 
 $button-bkgd-secondary: transparent;

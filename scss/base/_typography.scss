@@ -36,11 +36,16 @@ h3 {
   font-size: $h3;
 	padding-bottom: $spacing-base;
 }
+h4 {
+  font-size: $h4;
+}
 h5 {
+  font-size: $h5;
 	padding-bottom: $spacing-small;
 }
 h6 {
-	color: inherit;
+  color: inherit;
+  font-size: $h6;
 	letter-spacing: 5px;
 	padding-bottom: $spacing-small;
 	text-transform: uppercase;

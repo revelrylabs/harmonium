@@ -8,29 +8,29 @@ $button-bkgd-active: darken($color-brand-primary, 10%) !default;
 $button-color-active: $color-white !default;
 $button-radius: $border-radius-small !default;
 
-$button-bkgd-primary: $color-brand-primary !default;
+$button-bkgd-primary: $color-brand-amber !default;
 $button-color-primary: $color-white !default;
-$button-bkgd-primary-hover: darken($color-brand-primary, 5%) !default;
+$button-bkgd-primary-hover: darken($color-brand-amber, 5%) !default;
 $button-color-primary-hover: $color-white !default;
-$button-bkgd-primary-active: darken($color-brand-primary, 10%) !default;
+$button-bkgd-primary-active: darken($color-brand-amber, 10%) !default;
 $button-color-primary-active: $color-white !default;
 
 $button-bkgd-secondary: transparent !default;
-$button-box-shadow-secondary: $color-brand-primary !default;
+$button-box-shadow-secondary: rgba($color-brand-primary, 0.3) !default;
 $button-color-secondary: $color-brand-primary !default;
-$button-bkgd-secondary-hover: darken($color-brand-primary, 5%) !default;
-$button-box-shadow-secondary-hover: darken($color-brand-primary, 5%) !default;
-$button-color-secondary-hover: $color-white !default;
-$button-bkgd-secondary-active: darken($color-brand-primary, 10%) !default;
-$button-box-shadow-secondary-active: darken($color-brand-primary, 10%) !default;
-$button-color-secondary-active: $color-white !default;
+$button-bkgd-secondary-hover: transparent !default;
+$button-box-shadow-secondary-hover: $color-brand-primary !default;
+$button-color-secondary-hover: $color-brand-primary !default;
+$button-bkgd-secondary-active: transparent !default;
+$button-box-shadow-secondary-active: rgba($color-brand-primary, 0.8) !default;
+$button-color-secondary-active: $color-brand-primary !default;
 
 @mixin button-contained {
   .rev-Button {
-    margin: $spacing-base / 2 auto;
+    margin: $spacing-small auto;
 
     &.rev-Button--small {
-      margin: $spacing-base / 2 auto;
+      margin: $spacing-small auto;
     }
 
     &.rev-Button--large {
@@ -41,10 +41,8 @@ $button-color-secondary-active: $color-white !default;
 
 @mixin button {
   @include global-transition;
-  background: $button-bkgd;
   border: $button-border;
   border-radius: $button-radius;
-  color: $button-color;
   cursor: pointer;
   display: inline-block;
   font-size: $font-size-base;
@@ -52,23 +50,23 @@ $button-color-secondary-active: $color-white !default;
   line-height: $line-height-global;
   margin: 0 0 $spacing-base;
   padding: $padding-small $padding-base;
+}
 
+.rev-Button {
+  @include button;
+  background: $button-bkgd;
+  color: $button-color;
   &:hover,
   &:active,
   &:focus {
     background: $button-bkgd-hover;
     color: $button-color-hover;
   }
-
   &:active,
   &:focus {
     background: $button-bkgd-active;
     color: $button-color-active;
   }
-}
-
-.rev-Button {
-  @include button;
 
   &.rev-Button--large {
     font-size: $font-size-medium;
@@ -81,15 +79,16 @@ $button-color-secondary-active: $color-white !default;
   }
 
   &.rev-Button--primary {
-    box-shadow: $box-shadow-default;
-
+    background: $button-bkgd-primary;
+    color: $button-color-primary;
     &:hover {
-      box-shadow: $box-shadow-hover;
+      background: $button-bkgd-primary-hover;
+      color: $button-color-primary-hover;
     }
-
-    &:active,
+    &:active
     &:focus {
-      box-shadow: $box-shadow-active;
+      background: $button-bkgd-primary-active;
+      color: $button-color-primary-active;
     }
   }
 
@@ -97,17 +96,15 @@ $button-color-secondary-active: $color-white !default;
     background: $button-bkgd-secondary;
     box-shadow: 0 0 0 1px $button-box-shadow-secondary inset;
     color: $button-color-secondary;
-
     &:hover {
       background: $button-bkgd-secondary-hover;
-      box-shadow: 0 0 0 1px $button-bkgd-secondary-hover inset;
+      box-shadow: 0 0 0 1px $button-box-shadow-secondary-hover inset;
       color: $button-color-secondary-hover;
     }
-
     &:active,
     &:focus {
       background: $button-bkgd-secondary-active;
-      box-shadow: 0 0 0 1px $button-bkgd-secondary-active inset;
+      box-shadow: 0 0 0 1px $button-box-shadow-secondary-active inset;
       color: $button-color-secondary-active;
     }
   }
@@ -115,40 +112,35 @@ $button-color-secondary-active: $color-white !default;
   &.rev-Button--inverted {
     background: $button-color;
     color: $button-bkgd;
-
     &:hover,
     &:focus {
       background: $button-color;
       color: $button-bkgd-hover;
     }
-
     &:active {
       color: $button-bkgd-active;
     }
 
     &.rev-Button--secondary {
       background: transparent;
-      box-shadow: 0 0 0 1px $button-color inset;
-      color: $button-color;
-
+      box-shadow: 0 0 0 1px $color-white-30 inset;
+      color: $color-white;
       &:hover {
-        background: $button-color-hover;
-        box-shadow: 0 0 0 1px $button-color-hover inset;
-        color: $button-bkgd-hover;
+        background: transparent;
+        box-shadow: 0 0 0 1px $color-white inset;
+        color: $color-white;
       }
-
       &:active,
       &:focus {
-        background: $button-color-active;
-        box-shadow: 0 0 0 1px $button-color-active inset;
-        color: $button-bkgd-active;
+        background: transparent;
+        box-shadow: 0 0 0 1px $color-white-80 inset;
+        color: $color-white;
       }
     }
   }
 
   &.rev-Button--success {
     background: $color-ui-success;
-
     &:hover,
     &:active,
     &:focus {
@@ -158,7 +150,6 @@ $button-color-secondary-active: $color-white !default;
 
   &.rev-Button--alert {
     background: $color-ui-alert;
-
     &:hover,
     &:active,
     &:focus {
@@ -168,7 +159,6 @@ $button-color-secondary-active: $color-white !default;
 
   &.rev-Button--warning {
     background: $color-ui-warning;
-
     &:hover,
     &:active,
     &:focus {
