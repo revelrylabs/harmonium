@@ -1,6 +1,6 @@
 $card-bkgd: $color-white !default;
 $card-border: 0 !default;
-$card-padding: $spacing-small 0 !default;
+$card-padding: $spacing-base $spacing-small !default;
 $card-radius: $border-radius-small !default;
 $card-header-background: $color-white !default;
 $card-footer-background: $color-white !default;
@@ -13,26 +13,11 @@ $card-footer-background: $color-white !default;
   box-shadow: $box-shadow-default;
   margin-bottom: $spacing-base;
   overflow: hidden;
-  .rev-Row {
-    padding-left: $padding-small;
-    padding-right: $padding-small;
-  }
   &.rev-Card--secondary {
     background: transparent;
     border: 1px solid $color-divider;
   }
-  &.rev-Card--small {
-    .rev-Row {
-      padding-left: $padding-tiny;
-      padding-right: $padding-tiny;
-    }
-    .rev-Col {
-      padding-left: $padding-tiny;
-      padding-right: $padding-tiny;
-    }
-  }
 }
-
 .rev-Card-slice,
 .rev-CardLayout-bar,
 .rev-Card-header,
@@ -42,6 +27,44 @@ $card-footer-background: $color-white !default;
   @include header-contained;
   @include paragraph-contained;
   padding: $card-padding;
+}
+.rev-Card--large {
+  .rev-Card-header,
+  .rev-Card-body,
+  .rev-Card-footer {
+    padding-left: $spacing-medium;
+    padding-right: $spacing-medium;
+  }
+  .rev-Card-header {
+    padding-top: $spacing-base;
+    &:before {
+      left: $spacing-large;
+    }
+  }
+  .rev-Card-footer {
+    padding-bottom: $spacing-base;
+    &:before {
+      left: $spacing-large;
+    }
+  }
+}
+.rev-Card--small {
+  .rev-Card-header,
+  .rev-Card-body,
+  .rev-Card-footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .rev-Card-header {
+    &:before {
+      left: $spacing-small;
+    }
+  }
+  .rev-Card-footer {
+    &:before {
+      left: $spacing-small;
+    }
+  }
 }
 
 .rev-Card-header {
@@ -57,16 +80,8 @@ $card-footer-background: $color-white !default;
     position: absolute;
     right: 0;
   }
-  .rev-Card--small & {
-    &:before {
-      left: $spacing-small;
-    }
-  }
 }
 .rev-Card-body {
-  .rev-Card--large & {
-    padding: $spacing-large 0;
-  }
   img {
     margin-bottom: $spacing-base;
   }
@@ -74,7 +89,6 @@ $card-footer-background: $color-white !default;
 .rev-Card-footer {
   background-color: $card-footer-background;
   border-radius: 0 0 $card-radius $card-radius;
-  padding: $card-padding;
   position: relative;
   &:before {
     background: $color-black-10;
@@ -84,14 +98,6 @@ $card-footer-background: $color-white !default;
     position: absolute;
     right: 0;
     top: 0;
-  }
-  .rev-Card--large & {
-    padding: $spacing-base 0;
-  }
-  .rev-Card--small & {
-    &:before {
-      left: $spacing-small;
-    }
   }
 }
 
