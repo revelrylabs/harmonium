@@ -29,7 +29,7 @@ class CardLayoutExample extends Component {
           }}
         >
           <Card.Header>
-            <Row className="rev-Row--flex rev-Row--middle">
+            <Row className="rev-Row--flex rev-Row--alignCenter">
               <Col>
                 <h3>Header</h3>
               </Col>

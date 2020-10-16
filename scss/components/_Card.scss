@@ -1,6 +1,6 @@
 $card-bkgd: $color-white !default;
 $card-border: 0 !default;
-$card-padding: 0 !default;
+$card-padding: $spacing-small 0 !default;
 $card-radius: $border-radius-small !default;
 $card-header-background: $color-white !default;
 $card-footer-background: $color-white !default;
@@ -36,15 +36,17 @@ $card-footer-background: $color-white !default;
 .rev-Card-slice,
 .rev-CardLayout-bar,
 .rev-Card-header,
+.rev-Card-body,
 .rev-Card-footer {
+  @include button-contained;
+  @include header-contained;
+  @include paragraph-contained;
   padding: $card-padding;
 }
 
 .rev-Card-header {
-  @include button-contained;
   background-color: $card-header-background;
   border-radius: $card-radius $card-radius 0 0;
-  padding: $spacing-base 0 0;
   position: relative;
   &:before {
     background: $color-black-10;
@@ -55,9 +57,6 @@ $card-footer-background: $color-white !default;
     position: absolute;
     right: 0;
   }
-  .rev-Card--large & {
-    padding: $spacing-large 0 0;
-  }
   .rev-Card--small & {
     &:before {
       left: $spacing-small;
@@ -65,19 +64,17 @@ $card-footer-background: $color-white !default;
   }
 }
 .rev-Card-body {
-  padding-top: $spacing-base;
   .rev-Card--large & {
-    padding: $spacing-large 0 0;
+    padding: $spacing-large 0;
   }
   img {
     margin-bottom: $spacing-base;
   }
 }
 .rev-Card-footer {
-  @include button-contained;
   background-color: $card-footer-background;
   border-radius: 0 0 $card-radius $card-radius;
-  padding: $spacing-base 0 0;
+  padding: $card-padding;
   position: relative;
   &:before {
     background: $color-black-10;
@@ -89,7 +86,7 @@ $card-footer-background: $color-white !default;
     top: 0;
   }
   .rev-Card--large & {
-    padding: $spacing-large 0 0;
+    padding: $spacing-base 0;
   }
   .rev-Card--small & {
     &:before {

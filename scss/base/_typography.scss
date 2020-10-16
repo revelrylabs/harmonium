@@ -1,3 +1,13 @@
+@mixin header-contained {
+  h1, h2, h3, h4, h5, h6 {
+    padding: $spacing-small 0;
+  }
+}
+@mixin paragraph-contained {
+  p {
+    padding: $spacing-small 0;
+  }
+}
 @mixin header {
   display: block;
   font-family: $header-font-family;
@@ -17,7 +27,7 @@ h6 {
 }
 h1 {
   font-size: $font-size-large;
-  padding-bottom: $spacing-base;
+  padding: $spacing-base 0;
 	@include breakpoint(medium) {
 		font-size: $font-size-larger;
 	}
@@ -27,14 +37,14 @@ h1 {
 }
 h2 {
   font-size: 3.6rem;
-  padding-bottom: $spacing-base;
+  padding: $spacing-base 0;
   @include breakpoint(medium) {
 		font-size: $h2;
 	}
 }
 h3 {
   font-size: $h3;
-	padding-bottom: $spacing-base;
+	padding: $spacing-base 0;
 }
 h4 {
   font-size: $h4;
