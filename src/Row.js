@@ -3,6 +3,14 @@ import PropTypes from 'prop-types'
 import classNames from 'classnames'
 
 const BOOL_PROPS_TO_CLASS_NAMES = {
+  // row width 100%
+  expand: ['rev-Row--expand'],
+  smallExpand: ['rev-Row--smallExpand'],
+  mediumExpand: ['rev-Row--mediumExpand'],
+  largeExpand: ['rev-Row--largeExpand'],
+  xlargeExpand: ['rev-Row--xlargeExpand'],
+  xxlargeExpand: ['rev-Row--xxlargeExpand'],
+  
   // zeros out padding on direct child cols
   collapse: ['rev-Row--collapse'],
   smallCollapse: ['rev-Row--smallCollapse'],

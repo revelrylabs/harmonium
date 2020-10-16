@@ -1,8 +1,8 @@
 // ROWS (float and flex)
 .rev-Row {
   display: block;
-  margin-left: 0;
-  margin-right: 0;
+  margin-left: auto;
+  margin-right: auto;
   max-width: $grid-row-width;
   position: relative;
   width: 100%;
@@ -12,9 +12,16 @@
     clear: both;
     display: table;
   }
+  // Remove max-width for Expanded Rows
+  &.rev-Row--expand {
+    max-width: 100%;
+    width: 100%;
+  }
   // Collapse padding on direct child cols
   &.rev-Row--collapse,
   &.rev-Row--smallCollapse {
+    padding-left: 0;
+    padding-right: 0;
     > .rev-Col {
       padding-left: 0;
       padding-right: 0;
@@ -30,6 +37,8 @@
   }
   @include breakpoint(medium)  {
     &.rev-Row--mediumCollapse {
+      padding-left: 0;
+      padding-right: 0;
       > .rev-Col {
         padding-left: 0;
         padding-right: 0;
@@ -44,6 +53,8 @@
   }
   @include breakpoint(large)  {
     &.rev-Row--largeCollapse {
+      padding-left: 0;
+      padding-right: 0;
       > .rev-Col {
         padding-left: 0;
         padding-right: 0;
@@ -58,6 +69,8 @@
   }
   @include breakpoint(xlarge)  {
     &.rev-Row--xlargeCollapse {
+      padding-left: 0;
+      padding-right: 0;
       > .rev-Col {
         padding-left: 0;
         padding-right: 0;
@@ -72,6 +85,8 @@
   }
   @include breakpoint(xxlarge)  {
     &.rev-Row--xxlargeCollapse {
+      padding-left: 0;
+      padding-right: 0;
       > .rev-Col {
         padding-left: 0;
         padding-right: 0;
