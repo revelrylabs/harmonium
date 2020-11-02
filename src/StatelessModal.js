@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
 import classNames from 'classnames'
+import CloseButton from './CloseButton'
 
 export default class StatelessModal extends Component {
   static propTypes = {
@@ -36,7 +37,9 @@ export default class StatelessModal extends Component {
           onKeyPress={this.onBackgroundClick}
           tabIndex={0}
         />
-        <div className="rev-Modal-content">{this.props.children}</div>
+        <div className="rev-Modal-content">{this.props.children}
+          <CloseButton onClick={this.onBackgroundClick}>Close</CloseButton>
+        </div>
       </div>
     )
   }

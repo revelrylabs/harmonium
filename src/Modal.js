@@ -30,7 +30,6 @@ export default class Modal extends Component {
     return (
       <StatelessModal isOpen={isOpen} onBackgroundClick={this.handleClick}>
         {this.props.children}
-        <CloseButton onClick={this.handleClick}>Close</CloseButton>
       </StatelessModal>
     )
   }
