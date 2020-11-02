@@ -12,7 +12,7 @@ export default class Modal extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      isOpen: props.isOpen,
+      isOpen: props.isOpen || false,
     }
   }
 
