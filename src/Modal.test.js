@@ -36,4 +36,13 @@ describe('Modal', () => {
     expect(modal.state('isOpen')).to.eq(false)
     expect(spy.called).to.eq(true)
   })
+
+  it('should default to closed', () => {
+    const modal = shallow(
+      <Modal>
+        <h2>Some Content</h2>
+      </Modal>
+    )
+    expect(modal.state('isOpen')).to.eq(false)
+  })
 })
