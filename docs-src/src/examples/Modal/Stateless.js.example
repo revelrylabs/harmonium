@@ -1,32 +1,35 @@
-React.createElement(
-class StatelessModalExample extends Component {
-  state = { isOpen: true };
 
-  openModal = () => {
-    this.setState({ isOpen: true })
+React.createElement(
+class Example extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      isOpen: false,
+    }
   }
 
-  closeModal = () => {
-    this.setState({ isOpen: false })
+  open(){
+    this.setState({isOpen: true})
+  }
+
+  close(){
+    this.setState({isOpen: false})
   }
 
   render() {
     return (
       <div>
-        <Button style={{backgroundColor: 'black'}} onClick={() => this.openModal()}>Open Modal</Button>
-        <StatelessModal isOpen={this.state.isOpen} onBackgroundClick={() => this.closeModal()}>
+      <Button onClick={() => this.open()}>Open the modal</Button>
+      {this.state.isOpen && 
+        <StatelessModal isOpen={this.state.isOpen} onBackgroundClick={() => this.close()}>
           <Row>
             <Col>
-              <h1>Modal Example</h1>
-              <p>Click the background or the close button to dismiss the modal.</p>
+              <h2>Stateless modal Example</h2>
+              <p>Click the background or the close button to dismiss this Stateless Modal.</p>
             </Col>
           </Row>
-          <CloseButton
-          absolute
-          aria-label="Close Callout"
-          onClick={() => this.closeModal()}>&times;</CloseButton
-          >
         </StatelessModal>
+      }
       </div>
     )
   }
