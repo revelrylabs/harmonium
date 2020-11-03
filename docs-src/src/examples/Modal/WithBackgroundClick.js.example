@@ -1,10 +1,39 @@
-<div className="FakeViewportContainer">
-  <Modal isOpen={true}>
-    <Row>
-      <Col>
-        <h2>Modal Example</h2>
-        <p>Click the background to dismiss the modal.</p>
-      </Col>
-    </Row>
-  </Modal>
-</div>
+React.createElement(
+class Example extends Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      isOpen: false,
+    }
+  }
+
+  open(){
+    this.setState({isOpen: true})
+  }
+
+  close(){
+    this.setState({isOpen: false})
+  }
+
+  render() {
+    return (
+      <div>
+        <Button onClick={() => this.open()}>Open the modal</Button>
+        {this.state.isOpen && 
+        <Modal isOpen={this.state.isOpen} onBackgroundClick={() => this.close()}>
+          <Row>
+            <Col>
+              <h2>Modal Example</h2>
+              <p>Click the background or the close button to dismiss this Modal.</p>
+            </Col>
+          </Row>
+        </Modal>
+
+        }
+      </div>
+    )
+  }
+}
+)
+
+

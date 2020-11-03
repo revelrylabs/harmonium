@@ -1,7 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import StatelessModal from './StatelessModal'
-import CloseButton from './CloseButton'
 
 export default class Modal extends Component {
   static propTypes = {
@@ -18,7 +16,7 @@ export default class Modal extends Component {
   }
 
   handleClick = (e) => {
-    this.setState({isOpen: false})
+    this.setState({isOpen: !this.isOpen})
     if (this.props.onBackgroundClick) {
       this.props.onBackgroundClick(e)
     }
