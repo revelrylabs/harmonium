@@ -1,9 +1,18 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Menu from 'harmonium/lib/Menu'
 import Drawer from 'harmonium/lib/Drawer'
 import packageInfo from '../../../package.json'
+import Input from 'harmonium/lib/Input'
 
 export default function Navigation() {
+
+  const [formValue, setFormValue] = useState('')
+
+  const handleFormChange = (e) => {
+    // debugger
+    setFormValue(e.target.value)
+  }
+
   return (
     <Drawer
       fixed
@@ -25,6 +34,7 @@ export default function Navigation() {
             <a href="https://www.npmjs.com/package/harmonium">NPM</a>
           </Menu.Item>
         </Menu>
+        <Input placeholder='Search for something' value={formValue} onChange={handleFormChange}/>
         <Menu vertical>
           <Menu.Item text>
             <h5>Starter</h5>
