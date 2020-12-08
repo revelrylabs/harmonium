@@ -152,6 +152,7 @@ add overlay collapsible for all sidebars at specified breakpoint */
   .rev-Drawer-contents {
     @include drawer-scroll($drawer-height-fixed);
     position: fixed;
+    min-height: 100vh;
   }
 }
 
