@@ -1,3 +1,5 @@
+//Items to be displayed in the Navigation 
+
 const menuItems = [
     {
       category: 'Design Tokens',

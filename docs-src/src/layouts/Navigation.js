@@ -7,20 +7,25 @@ import menuItems from '../pages/menuItems'
 
 export default function Navigation() {
 
+  //Use local state for controlled form
   const [formValue, setFormValue] = useState('')
 
+  //Set local state to form value
   const handleFormChange = (e) => {
     setFormValue(e.target.value)
   }
 
+  //Check if item is including in search form
   function itemCheck(item){
     return item.label.toLowerCase().includes(formValue.toLowerCase());
   }
 
+  //Display filtered menu items 
   function displayMenu(menu){
     return menu.map( (cat, i) => {
       if (cat.contents.filter( (item) => itemCheck(item)).length >= 1)
       return ( 
+        //Category name
         <Menu vertical key={i}>
           <Menu.Item text style={{color: 'black'}}>
             <h5>{cat.category}</h5>
@@ -28,6 +33,7 @@ export default function Navigation() {
           {cat.contents.map( (item, j) => {
           if (itemCheck(item)){
             return (
+            //Link to component
             <Menu.Item key={j}>
               <a href={`/${cat.domain}/${item.endpoint}`}>{item.label}</a>
             </Menu.Item>
@@ -77,10 +83,9 @@ export default function Navigation() {
             <a href="/guidelines/overview/">Overview</a>
           </Menu.Item>
         </Menu>
+        {/* Search bar */}
         <Input placeholder='Search for Component' style={{margin:'20px', width: '85%'}} value={formValue} onChange={handleFormChange}/>
-
           {displayMenu(menuItems)}
- 
        </nav>
     </Drawer>
   )
