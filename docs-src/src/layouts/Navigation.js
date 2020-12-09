@@ -27,7 +27,7 @@ export default function Navigation() {
       return ( 
         //Category name
         <Menu vertical key={i}>
-          <Menu.Item text style={{color: 'black'}}>
+          <Menu.Item text>
             <h5>{cat.category}</h5>
           </Menu.Item>
           {cat.contents.map( (item, j) => {
@@ -66,7 +66,7 @@ export default function Navigation() {
           </Menu.Item>
         </Menu>
         <Menu vertical>
-          <Menu.Item text style={{color: 'black'}}>
+          <Menu.Item text>
             <h5>Starter</h5>
           </Menu.Item>
           <Menu.Item>
@@ -76,7 +76,7 @@ export default function Navigation() {
           </Menu.Item>
         </Menu>
         <Menu vertical>
-          <Menu.Item text style={{color: 'black'}}>
+          <Menu.Item text>
             <h5>Design Guidelines</h5>
           </Menu.Item>
           <Menu.Item>
@@ -84,7 +84,7 @@ export default function Navigation() {
           </Menu.Item>
         </Menu>
         {/* Search bar */}
-        <Input placeholder='Search for Component' style={{margin:'20px', width: '85%'}} value={formValue} onChange={handleFormChange}/>
+        <Input className='search' placeholder='Search for Component' value={formValue} onChange={handleFormChange}/>
           {displayMenu(menuItems)}
        </nav>
     </Drawer>

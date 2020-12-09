@@ -1,5 +1,10 @@
 $input-placeholder-color: $color-muted !default;
 
+.rev-Input.search {
+  margin-left: 2vw;
+  width: 85%;
+}
+
 .rev-Input,
 .rev-DatePicker-input {
   @include input-style;
