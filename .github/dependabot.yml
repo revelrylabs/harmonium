@@ -1,0 +1,52 @@
+version: 2
+registries:
+  git-github-com:
+    type: git
+    url: https://github.com
+    username: x-access-token
+    password: "${{secrets.GIT_GITHUB_COM_PASSWORD}}"
+
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+    time: "11:00"
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: chart.js
+    versions:
+    - 3.0.2
+    - 3.1.0
+    - 3.1.1
+  - dependency-name: eslint
+    versions:
+    - 7.18.0
+    - 7.19.0
+    - 7.20.0
+    - 7.21.0
+    - 7.22.0
+    - 7.23.0
+    - 7.24.0
+  - dependency-name: sinon
+    versions:
+    - 10.0.0
+  - dependency-name: commander
+    versions:
+    - 7.0.0
+    - 7.1.0
+    - 7.2.0
+  - dependency-name: tempy
+    versions:
+    - 1.0.1
+  - dependency-name: mocha
+    versions:
+    - 8.3.0
+    - 8.3.1
+    - 8.3.2
+  - dependency-name: archiver
+    versions:
+    - 5.2.0
+    - 5.3.0
+  registries:
+  - git-github-com
