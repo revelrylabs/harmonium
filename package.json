@@ -97,7 +97,7 @@
     "prettier-eslint": "^8.8.1",
     "react-test-renderer": ">=15.0.0",
     "semantic-release": "^17.0.1",
-    "sinon": "^9.0.0",
+    "sinon": "^11.1.1",
     "timekeeper": "^2.0.0"
   },
   "nyc": {
