@@ -9,7 +9,7 @@
   "dependencies": {
     "bowser": "^2.0.0",
     "breakpoint-sass": "^2.7.1",
-    "chart.js": "^2.7.2",
+    "chart.js": "^3.4.1",
     "classnames": "^2.2.5",
     "commander": "^5.0.0",
     "deepmerge": "^4.2.2",
