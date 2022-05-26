@@ -61,7 +61,7 @@ $devices: (
   @each $item, $value in $breakpoints {
     @if $item == $size {
       @if $value != null {
-        @media screen and #{$value} {
+        @media #{screen and break-for($item)} {
           @content;
         }
       }
@@ -75,13 +75,42 @@ $devices: (
   @each $item, $value in $devices {
     @if $item == $size {
       @if $value != null {
-        @media only screen #{$value} {
+        @media #{only screen device-for($value)} {
           @content;
         }
       }
     }
   }
 }
+
+@function device-for($name) {
+  $device: map-get($devices, $name);
+  @return "#{$device}";
+}
+
+@function min-width-for($screen) {
+  $width: map-get($min-widths, $screen);
+  @return '(min-width: #{$width})';
+}
+
+@function max-width-for($screen) {
+  $width: map-get($max-withs, $screen);
+  @return '(max-width: #{$width})';
+}
+
+@function break-for($screen) {
+  $min: min-width-for($screen);
+  $max: max-width-for($screen);
+  @return 'screen and #{$min} and #{$max}';
+}
+
+@mixin media-min-width($min-breakpoint-name) {
+  @media #{min-width-for($min-breakpoint-name)} {
+    @content;
+  }
+}
+
+
 @mixin print {
   @media print {
     @content;

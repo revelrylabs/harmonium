@@ -3,7 +3,12 @@ module.exports = {
     title: 'React Components for Teams That Move Fast | Harmonium',
   },
   plugins: [
-    `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-sass`,
+      options: {
+        implementation: require(`sass`),
+      },
+    },
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

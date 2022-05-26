@@ -3,6 +3,37 @@
 // Variables not defined here are created from _design-token-defaults.scss and _color-palette-defaults.scss
 // Those 2 files are generated from the design tokens in the design-tokens folder
 
+
+$min-widths: (
+  small: $screen-width-small,
+  small-only: $screen-width-small,
+  medium:  $screen-width-medium,
+  medium-down: $screen-width-medium,
+  medium-only: $screen-width-medium,
+  large:  $screen-width-large,
+  large-down: $screen-width-large,
+  large-only: $screen-width-large,
+  xlarge:  $screen-width-xlarge,
+  xlarge-down: $screen-width-xlarge,
+  xlarge-only: $screen-width-xlarge,
+  xxlarge:  $screen-width-xxlarge,
+  global-width:  $screen-width-full,
+  nav:  $screen-width-nav, // Desktop nav
+  nav-only: $screen-width-small //
+) !default;
+
+$max-withs: (
+  small-only: $screen-width-medium - 1,
+  medium: $screen-width-medium,
+  medium-down: $screen-width-medium,
+  medium-only: $screen-width-large - 1,
+  large-down: $screen-width-large,
+  large-only:  $screen-width-xlarge - 1,
+  xlarge-down: $screen-width-xlarge,
+  xlarge-only:  $screen-width-xxlarge - 1,
+  nav-only:  $screen-width-nav - 1 // Mobile nav
+) !default;
+
 // Breakpoints
 $breakpoints: (small: (min-width: $screen-width-small),
   small-only: ((min-width: $screen-width-small) and (max-width: $screen-width-medium - 1)),
