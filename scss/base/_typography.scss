@@ -1,28 +1,3 @@
-// keeping for posterity
-
-// strip out units for typography math
-// @function strip-unit($number) {
-//   @if type-of($number)=='number'and not unitless($number) {
-//     @return calc(#{$number} / (#{$number} * 0 + 1));
-//   }
-
-//   @if type-of($number)=='px' {
-//     @return calc(#{$number} / (#{$number} * 0.1 + 1));
-//   }
-
-//   /*TODO: check this!!*/
-//   @return $number;
-// }
-
-// unitless values
-// $h1-value: strip-unit($h1);
-// $h2-value: strip-unit($h2);
-// $h3-value: strip-unit($h3);
-// $h4-value: strip-unit($h4);
-// $h5-value: strip-unit($h5);
-// $h6-value: strip-unit($h6);
-// $font-size-base-value: strip-unit($font-size-base);
-
 // header lists
 $header-font-sizes:
 h1,
@@ -31,22 +6,6 @@ h3,
 h4,
 h5,
 h6;
-
-// $header-font-size-values:
-// $h1-value,
-// $h2-value,
-// $h3-value,
-// $h4-value,
-// $h5-value,
-// $h6-value;
-
-// @for $i from 1 through length($header-font-sizes) {
-//   #{nth($header-font-sizes, $i)} {
-//     font-size: calc(nth($header-font-size-values, $i) * 1rem);
-//     line-height: $line-height-header;
-//     padding-bottom: $spacing-base;
-//   }
-// }
 
 $headers:
 $h1,
