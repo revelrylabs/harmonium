@@ -19,7 +19,7 @@
   }
   @for $i from 1 through $grid-columns {
     &.rev-Col--smallOffset#{$i} {
-      left: 100% / $grid-columns * $i;
+      left: calc(100% / #{$grid-columns} * $i);
     }
     &.rev-Col--smallPush#{$i} {
       @include rev-Col-push($i);
@@ -31,7 +31,7 @@
   @include breakpoint(medium) {
     @for $i from 1 through $grid-columns {
       &.rev-Col--mediumOffset#{$i} {
-        left: 100% / $grid-columns * $i;
+        left: calc(100% / #{$grid-columns} * $i);
       }
       &.rev-Col--mediumPush#{$i} {
         @include rev-Col-push($i);
@@ -52,7 +52,7 @@
   @include breakpoint(large) {
     @for $i from 1 through $grid-columns {
       &.rev-Col--largeOffset#{$i} {
-        left: 100% / $grid-columns * $i;
+        left: calc(100% / #{$grid-columns} * $i);
       }
       &.rev-Col--largePush#{$i} {
         @include rev-Col-push($i);
@@ -73,7 +73,7 @@
   @include breakpoint(xlarge) {
     @for $i from 1 through $grid-columns {
       &.rev-Col--xlargeOffset#{$i} {
-        left: 100% / $grid-columns * $i;
+        left: calc(100% / #{$grid-columns} * $i);
       }
       &.rev-Col--xlargePush#{$i} {
         @include rev-Col-push($i);
@@ -94,7 +94,7 @@
   @include breakpoint(xxlarge) {
     @for $i from 1 through $grid-columns {
       &.rev-Col--xxlargeOffset#{$i} {
-        left: 100% / $grid-columns * $i;
+        left: calc(100% / #{$grid-columns} * $i);
       }
       &.rev-Col--xxlargePush#{$i} {
         @include rev-Col-push($i);

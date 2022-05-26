@@ -61,8 +61,8 @@
 // instead of expanding to take over the whole row
 @for $i from 1 through $grid-columns {
   .rev-Row--flex .rev-Col--small#{$i} {
-    flex-basis: 100% / $grid-columns * $i;
-    max-width: 100% / $grid-columns * $i;
+    flex-basis: calc(100% / #{$grid-columns} * #{$i});
+    max-width: calc(100% / #{$grid-columns} * #{$i});
     width: auto;
   }
 }
@@ -70,8 +70,8 @@
 @include breakpoint(medium)  {
   @for $i from 1 through $grid-columns {
     .rev-Row--flex .rev-Col--medium#{$i} {
-      flex-basis: 100% / $grid-columns * $i;
-      max-width: 100% / $grid-columns * $i;
+      flex-basis: calc(100% / #{$grid-columns} * #{$i});
+      max-width: calc(100% / #{$grid-columns} * #{$i});
       width: auto;
     }
   }
@@ -79,8 +79,8 @@
 @include breakpoint(large)  {
   @for $i from 1 through $grid-columns {
     .rev-Row--flex .rev-Col--large#{$i} {
-      flex-basis: 100% / $grid-columns * $i;
-      max-width: 100% / $grid-columns * $i;
+      flex-basis: calc(100% / #{$grid-columns} * #{$i});
+      max-width: calc(100% / #{$grid-columns} * #{$i});
       width: auto;
     }
   }
@@ -88,8 +88,8 @@
 @include breakpoint(xlarge) {
   @for $i from 1 through $grid-columns {
     .rev-Row--flex .rev-Col--xlarge#{$i} {
-      flex-basis: 100% / $grid-columns * $i;
-      max-width: 100% / $grid-columns * $i;
+      flex-basis: calc(100% / #{$grid-columns} * #{$i});
+      max-width: calc(100% / #{$grid-columns} * #{$i});
       width: auto;
     }
   }
@@ -97,8 +97,8 @@
 @include breakpoint(xxlarge)  {
   @for $i from 1 through $grid-columns {
     .rev-Row--flex .rev-Col--xxlarge#{$i} {
-      flex-basis: 100% / $grid-columns * $i;
-      max-width: 100% / $grid-columns * $i;
+      flex-basis: calc(100% / #{$grid-columns} * #{$i});
+      max-width: calc(100% / #{$grid-columns} * #{$i});
       width: auto;
     }
   }

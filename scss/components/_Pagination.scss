@@ -26,7 +26,7 @@ $pagination-link-color-selected: null !default;
   border-radius: $pagination-radius;
   display: inline-block;
   font-size: $font-size-small;
-  margin: 0 $margin-tiny / 4;
+  margin: 0 calc(#{$margin-tiny} / 4);
 
   &--hidden {
     display: none;

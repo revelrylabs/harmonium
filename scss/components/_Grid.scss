@@ -102,13 +102,13 @@
   }
   @for $i from 1 through $grid-columns {
     &.rev-Col--small#{$i} {
-      width: 100% / $grid-columns * $i;
+      width: calc(100% / #{$grid-columns} * #{$i});
     }
   }
   @include breakpoint(medium) {
     @for $i from 1 through $grid-columns {
       &.rev-Col--medium#{$i} {
-        width: 100% / $grid-columns * $i;
+        width: calc(100% / #{$grid-columns} * #{$i});
       }
     }
     &.rev-Col--mediumCollapse {
@@ -122,7 +122,7 @@
   @include breakpoint(large) {
     @for $i from 1 through $grid-columns {
       &.rev-Col--large#{$i} {
-        width: 100% / $grid-columns * $i;
+        width: calc(100% / #{$grid-columns} * #{$i});
       }
     }
     &.rev-Col--largeCollapse {
@@ -136,7 +136,7 @@
   @include breakpoint(xlarge) {
     @for $i from 1 through $grid-columns {
       &.rev-Col--xlarge#{$i} {
-        width: 100% / $grid-columns * $i;
+        width: calc(100% / #{$grid-columns} * #{$i});
       }
     }
     &.rev-Col--xlargeCollapse {
@@ -150,7 +150,7 @@
   @include breakpoint(xxlarge) {
     @for $i from 1 through $grid-columns {
       &.rev-Col--xxlarge#{$i} {
-        width: 100% / $grid-columns * $i;
+        width: calc(100% / #{$grid-columns} * #{$i});
       }
     }
     &.rev-Col--xxlargeCollapse {

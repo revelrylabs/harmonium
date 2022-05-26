@@ -82,7 +82,7 @@ $shadow-size: -0.4em;
     box-shadow: progress-shadow($slider-progress-color, $shadow-size);
     cursor: pointer;
     height: $slider-thumb-height;
-    margin-top: -#{(($slider-thumb-height - $slider-track-height) / 2)};
+    margin-top: -calc((#{$slider-thumb-height} - #{$slider-track-height}) / 2);
     width: $slider-thumb-width;
   }
 

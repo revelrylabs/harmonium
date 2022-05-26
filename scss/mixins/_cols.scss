@@ -1,11 +1,11 @@
 @mixin rev-Col($col: 1, $sum: 12) {
-  width: percentage($col/$sum);
+  width: percentage(calc($col/$sum));
 }
 @mixin rev-Col-push ($push, $sum: 12) {
-  left: percentage($push/$sum);
+  left: percentage(calc($push/$sum));
   position: relative;
 }
 @mixin rev-Col-pull ($pull, $sum: 12) {
-  right: percentage($pull/$sum);
+  right: percentage(calc($pull/$sum));
   position: relative;
 }
