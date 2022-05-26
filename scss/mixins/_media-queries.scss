@@ -57,17 +57,6 @@ $devices: (
   ),
 );
 
-@mixin breakpoint($size) {
-  @each $item, $value in $breakpoints {
-    @if $item == $size {
-      @if $value != null {
-        @media #{screen and break-for($item)} {
-          @content;
-        }
-      }
-    }
-  }
-}
 //@include device(device-name-here) {
 //  styles go here
 //}
@@ -88,27 +77,44 @@ $devices: (
   @return "#{$device}";
 }
 
+
 @function min-width-for($screen) {
   $width: map-get($min-widths, $screen);
-  @return '(min-width: #{$width})';
+  @return $width;
 }
 
 @function max-width-for($screen) {
   $width: map-get($max-withs, $screen);
-  @return '(max-width: #{$width})';
+  @return $width;
 }
 
 @function break-for($screen) {
   $min: min-width-for($screen);
   $max: max-width-for($screen);
-  @return 'screen and #{$min} and #{$max}';
-}
-
-@mixin media-min-width($min-breakpoint-name) {
-  @media #{min-width-for($min-breakpoint-name)} {
-    @content;
+  @if $min != null and $max != null {
+    @return '(min-width: #{$min}) and (max-width: #{$max})';
+  }
+  @if $min != null and $max == null {
+    @return '(min-width: #{$min})';
+  }
+  @if $min == null and $max != null {
+    @return '(max-width: #{$max})';
   }
 }
+
+@mixin breakpoint($size) {
+  @each $item, $value in $breakpoints {
+    @if $item == $size {
+      // $value: #{screen and break-for($item)};
+      // @debug $value;
+      @media screen and #{break-for($item)} {
+        @content;
+      }
+    }
+  }
+}
+// This is what we want to preserve
+// @include breakpoint(laura);
 
 
 @mixin print {
