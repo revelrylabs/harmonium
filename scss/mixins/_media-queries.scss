@@ -64,7 +64,7 @@ $devices: (
   @each $item, $value in $devices {
     @if $item == $size {
       @if $value != null {
-        @media #{only screen device-for($value)} {
+        @media only screen and #{device-for($value)} {
           @content;
         }
       }
