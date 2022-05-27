@@ -135,3 +135,27 @@ When creating a new component, new styles will likely be needed. Follow the step
 10. Run `cd docs-src && npm run develop` and make sure your example loads and looks like you expect.
 11. Add, commit, and push your changes.
 12. Submit a pull request.
+
+## Updating Design Tokens
+
+The design tokens help us define our style variables in one spot. The `/design-tokens` directory is where design token values should be updated. Once you update a design token, you will need to run `npm run build` to generate all of these files:
+```
+Building design token output
+
+scss
+✔︎  ./settings-templates/_harmonium-settings.scss
+✔︎  ./settings-templates/_color-palette.scss
+
+scss-defaults
+✔︎  ./scss/vars/_design-token-defaults.scss
+✔︎  ./scss/vars/_color-palette-defaults.scss
+
+docs
+✔︎  ./docs-src/designTokens.js
+
+js
+✔︎  ./settings-templates/harmonium-tokens.js
+Building settings-templates.zip
+```
+
+which are nessesary for for the doc site, the styles included in harmonoium, as well as the downloadable harmonium settings.
