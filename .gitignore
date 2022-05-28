@@ -7,9 +7,7 @@ npm-debug.log
 yarn-error.log
 /.nyc_output/*
 coverage/**/*
-docs-src/package-lock.json
 docs-src/yarn.lock
-package-lock.json
 yarn.lock
 api.json
 /api
@@ -27,3 +25,4 @@ api.json
 harmonium.config.js
 harmonium-settings/
 js/
+.DS_Store
