@@ -36,7 +36,7 @@
     "build": "npm run clean && npm run babel && node build.js",
     "test": "bin/test",
     "fix": "eslint src/**/*.js docs-src/src/**/*.js --fix",
-    "sass-test": "cat ./sass-test/input.scss | sass > ./sass-test/output.css"
+    "sass-test": "cat ./sass-test/input.scss | sass --stdin > ./sass-test/output.css"
   },
   "keywords": [],
   "author": {
