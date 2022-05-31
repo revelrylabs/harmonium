@@ -21,6 +21,7 @@
     "prop-types": "^15.5.7",
     "react": ">=15.3.0",
     "react-dom": ">=15.3.0",
+    "sass": "^1.52.1",
     "sass-migrator": "^1.5.4",
     "sassy-npm-importer": "^3.0.0",
     "style-dictionary": "^2.8.3",
