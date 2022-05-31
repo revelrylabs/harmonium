@@ -21,6 +21,7 @@
     "prop-types": "^15.5.7",
     "react": ">=15.3.0",
     "react-dom": ">=15.3.0",
+    "sass-migrator": "^1.5.4",
     "sassy-npm-importer": "^3.0.0",
     "style-dictionary": "^2.8.3",
     "tempy": "^0.5.0",
@@ -35,7 +36,7 @@
     "build": "npm run clean && npm run babel && node build.js",
     "test": "bin/test",
     "fix": "eslint src/**/*.js docs-src/src/**/*.js --fix",
-    "sass-test": "cat ./sass-test/input.scss | node-sass > ./sass-test/output.css"
+    "sass-test": "cat ./sass-test/input.scss | sass > ./sass-test/output.css"
   },
   "keywords": [],
   "author": {
@@ -79,7 +80,7 @@
     "chai": "^4.2.0",
     "coveralls": "^3.0.2",
     "enzyme": ">=2.8.2",
-    "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-adapter-react-16": "1.15.5",
     "eslint": "^5.11.1",
     "eslint-config-prettier": "^6.10.0",
     "eslint-plugin-babel": "^5.3.0",
@@ -94,7 +95,7 @@
     "nyc": "^14.0.0",
     "prettier": "^1.11.1",
     "prettier-eslint": "^8.8.1",
-    "react-test-renderer": ">=15.0.0",
+    "react-test-renderer": "16.13.1",
     "semantic-release": "^17.0.1",
     "sinon": "^9.0.0",
     "timekeeper": "^2.0.0"

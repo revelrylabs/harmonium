@@ -26,3 +26,4 @@ harmonium.config.js
 harmonium-settings/
 js/
 .DS_Store
+.sass-cache/
