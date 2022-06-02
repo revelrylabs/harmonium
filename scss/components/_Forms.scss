@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 $input-bkgd: $color-white !default;
 $input-bkgd-focus: $input-bkgd !default;
 $input-box-shadow: 0 0 0 1px $color-divider inset !default;
@@ -8,6 +11,7 @@ $input-color-focus: $input-color !default;
 $input-font-size: $font-size-base !default;
 $label-color: $body-font-color !default;
 $label-font-size: $font-size-base !default;
+$input-placeholder-color: $color-muted !default;
 
 @mixin input-style {
   @include global-transition;
@@ -44,6 +48,29 @@ $label-font-size: $font-size-base !default;
 
   &:disabled {
     @include disabled;
+  }
+}
+
+@mixin placeholder($color: $input-placeholder-color) {
+  &::-webkit-input-placeholder {
+    color: $color;
+    font-family: $body-font-family;
+    font-weight: normal;
+  }
+  &:-moz-placeholder {
+    color: $color;
+    font-family: $body-font-family;
+    font-weight: normal;
+  }
+  &::-moz-placeholder {
+    color: $color;
+    font-family: $body-font-family;
+    font-weight: normal;
+  }
+  &:-ms-input-placeholder {
+    color: $color;
+    font-family: $body-font-family;
+    font-weight: normal;
   }
 }
 

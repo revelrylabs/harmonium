@@ -1,4 +1,10 @@
-@import '../../../scss/app';
+@use '../../../scss/app';
+
+@use '../../../scss/vars' as *;
+@use '../../../scss/mixins' as *;
+@use '../../../scss/components/Drawer' as *;
+@use '../../../scss/components/TopBar' as *;
+
 @import url('https://use.typekit.net/sdk4npj.css');
 
 @mixin alert-color-stack {

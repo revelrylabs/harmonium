@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 code {
   background: $color-lightest-gray;
   border: 1px solid $color-divider;

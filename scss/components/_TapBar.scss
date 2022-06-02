@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 $tapbar-height: 60px;
 $tapbar-bkgd: $color-darker-gray;
 $tapbar-highlight-bkgd: $color-black;

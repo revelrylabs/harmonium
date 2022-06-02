@@ -1,3 +1,5 @@
+@use '../vars' as *;
+
 @mixin flex($align-items: null, $flex-direction: null, $justify-content: null, $wrap: null) {
   align-items: $align-items;
   display: flex;

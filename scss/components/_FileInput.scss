@@ -1,11 +1,12 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 .rev-FileInput.is-invalid {
   .rev-InputGroup-field {
     /*@include form-input-error;*/
     /*color: $form-label-color-invalid;*/
   }
 }
-
-
 
 .rev-FileInput {
   .rev-InputGroup-field {

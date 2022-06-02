@@ -1,3 +1,7 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+@use 'Forms' as *;
+
 $slider-height: 40px !default;
 $slider-track-height: 3px !default;
 $slider-track-padding-right: $padding-base !default;

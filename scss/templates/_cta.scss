@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 $cta-primary-bkgd: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%) !default;
 $cta-primary-bkgd-fallback: $color-brand-primary !default;
 $cta-primary-color: $color-white !default;

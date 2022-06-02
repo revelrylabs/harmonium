@@ -1,4 +1,6 @@
-$input-placeholder-color: $color-muted !default;
+@use '../vars' as *;
+@use '../mixins' as *;
+@use 'Forms' as *;
 
 .rev-Input,
 .rev-DatePicker-input {

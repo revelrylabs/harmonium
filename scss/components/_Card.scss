@@ -1,3 +1,7 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+@use 'Buttons' as *;
+
 $card-bkgd: $color-white !default;
 $card-border-color: $color-divider !default;
 $card-border-size: 1px !default;

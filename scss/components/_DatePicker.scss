@@ -1,3 +1,8 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+@use 'Buttons' as *;
+@use 'Card' as *;
+
 // default component vars listed at the top of the component stylesheet
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars

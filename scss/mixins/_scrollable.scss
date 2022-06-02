@@ -1,3 +1,5 @@
+@use '../vars' as *;
+
 @mixin horizontal-scroll-container($width: 100%) {
   display: block;
   overflow-x: scroll;

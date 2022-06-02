@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 $pagination-radius: $border-radius-small !default;
 $pagination-dot-bkgd: transparent !default;
 $pagination-dot-color: $body-font-color !default;
@@ -23,6 +26,7 @@ $pagination-link-color-selected: null !default;
 .rev-Pagination-number,
 .rev-Pagination-dots {
   @include navigation-color-mgmt;
+  @include global-transition;
   border-radius: $pagination-radius;
   display: inline-block;
   font-size: $font-size-small;

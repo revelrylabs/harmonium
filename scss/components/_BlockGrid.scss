@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 // BLOCK GRID
 @for $i from 1 through $grid-columns {
   .rev-Row--smallUp#{$i} {

@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 $menu-bkgd: $color-white-0 !default;
 $menu-text-bkgd: $menu-bkgd !default;
 $menu-text-color: $body-font-color !default;
@@ -94,6 +97,7 @@ $menu-dropdown-width: 24rem !default;
 @mixin rev-menu-item {
   .rev-Menu-item {
     @include navigation-color-mgmt;
+    @include global-transition;
     margin: 0;
     padding: 0;
     position: relative;

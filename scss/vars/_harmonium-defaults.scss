@@ -3,6 +3,8 @@
 // Variables not defined here are created from _design-token-defaults.scss and _color-palette-defaults.scss
 // Those 2 files are generated from the design tokens in the design-tokens folder
 
+@use 'color-palette-defaults' as *;
+@use 'design-token-defaults' as *;
 
 $min-widths: (
   small: $screen-width-small,
@@ -48,8 +50,6 @@ $breakpoints: (
   nav: (min-width: $screen-width-nav), // Desktop nav
   nav-only: ((min-width: $screen-width-small) and (max-width: $screen-width-nav - 1)) // Mobile nav
 ) !default;
-
-@import '../mixins/media-queries';
 
 // Headers (rems or unit-less values only!)
 $h1: $font-size-largest !default;

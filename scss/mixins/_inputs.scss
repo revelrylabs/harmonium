@@ -1,3 +1,5 @@
+@use '../vars' as *;
+
 @mixin small-input {
   font-size: $font-size-small;
   line-height: $line-height-base;

@@ -1,3 +1,5 @@
+@use '../vars' as *;
+
 @mixin panel($padded: false) {
   border: 1px solid $color-divider;
   margin-bottom: $spacing-base;

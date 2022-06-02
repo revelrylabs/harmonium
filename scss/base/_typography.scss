@@ -1,53 +1,5 @@
-// header lists
-$header-font-sizes:
-h1,
-h2,
-h3,
-h4,
-h5,
-h6;
-
-$headers:
-$h1,
-$h2,
-$h3,
-$h4,
-$h5,
-$h6;
-
-@for $i from 1 through length($header-font-sizes) {
-  #{nth($header-font-sizes, $i)} {
-    font-size: nth($headers, $i);
-    line-height: $line-height-header;
-    padding-bottom: $spacing-base;
-  }
-}
-
-@mixin header-contained {
-  @for $i from 1 through length($header-font-sizes) {
-    #{nth($header-font-sizes, $i)} {
-      padding-top:  calc(#{$spacing-base} / 2);
-      padding-bottom:  calc(#{$spacing-base} / 2);
-    }
-  }
-}
-
-@mixin typography-contained {
-  @for $i from 1 through length($header-font-sizes) {
-    #{nth($header-font-sizes, $i)} {
-      padding-top: calc(#{$spacing-base} / 2);
-      padding-bottom: calc(#{$spacing-base} / 2);
-    }
-  }
-}
-
-@mixin header {
-  display: block;
-  font-family: $header-font-family;
-  font-style: $header-font-style;
-  font-weight: $header-font-weight;
-  margin: 0;
-}
+@use '../vars' as *;
+@use '../mixins' as *;
 
 h1,
 h2,

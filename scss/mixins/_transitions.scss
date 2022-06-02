@@ -1,3 +1,5 @@
+@use '../vars' as *;
+
 // Safari hack to reduce flicker on transitions
 @mixin reduce-flicker {
   -webkit-transform: translate3d(0, 0, 0);

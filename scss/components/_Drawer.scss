@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 // Copyright © Revelry Labs, LLC 2017 - All Rights Reserved.
 $drawer-width: 300px !default;
 $drawer-bkgd: $color-lightest-gray !default;

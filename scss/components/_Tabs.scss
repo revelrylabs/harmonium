@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 // default component vars listed at the top of the component stylesheet
 // those vars are transferred to rev-settings AND are commented out
 // this way updates can be made to a component by uncommenting settings vars
@@ -30,6 +33,7 @@ $tabs-content-padding: $padding-base 0 !default;
 
 .rev-TabsTitle-link {
   @include stateful-color-mgmt;
+  @include global-transition;
   border-right: $tabs-border-size solid $tabs-border-color;
   display: block;
   font-size: $font-size-base;

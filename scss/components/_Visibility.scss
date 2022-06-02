@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 @mixin SR-element {
   position: absolute !important;
   width: 1px;

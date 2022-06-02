@@ -1,3 +1,5 @@
+@use '../vars' as *;
+
 @mixin rev-Col($col: 1, $sum: 12) {
   width: percentage(calc($col/$sum));
 }

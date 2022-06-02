@@ -1,3 +1,11 @@
+@use '../vars' as *;
+
+@mixin image-contained {
+  img {
+    margin: $spacing-base 0;
+  }
+}
+
 @mixin image-blur {
   height: auto;
   left: -$padding-base;

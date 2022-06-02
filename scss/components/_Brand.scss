@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 .rev-Brand {
   font-weight: $font-weight-bold;
   padding: $padding-small;

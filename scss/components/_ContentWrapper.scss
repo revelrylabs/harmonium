@@ -1,3 +1,7 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+@use 'TopBar' as *;
+
 .rev-ContentWrapper {
   @include flex($wrap: nowrap);
   margin: 0 auto;

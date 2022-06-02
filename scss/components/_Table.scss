@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 $table-background: $color-white !default;
 $table-color: $body-font-color !default;
 $table-border: 1px solid $color-divider !default;

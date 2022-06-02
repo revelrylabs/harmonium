@@ -1,3 +1,5 @@
+@use '../vars' as *;
+
 // remove initial styles from chrome & safari
 @mixin remove-appearance {
   -webkit-appearance: none;

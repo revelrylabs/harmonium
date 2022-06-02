@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 .playgroundPreview--FakeViewportContainer .playgroundPreview {
   background: url('https://3ulsmb4eg8vz37c0vz2si64j-wpengine.netdna-ssl.com/wp-content/uploads/2016/07/75ff3f3c-4aa5-11e6-9c23-4491699777fe.jpg');
   background-position: center;

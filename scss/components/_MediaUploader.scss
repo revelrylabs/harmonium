@@ -1,3 +1,6 @@
+@use '../vars' as *;
+@use '../mixins' as *;
+
 .rev-MediaUploader {
   .rev-HelpText {
     font-size: $font-size-smaller;

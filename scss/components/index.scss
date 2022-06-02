@@ -1,61 +1,61 @@
 //GRIDS
-@import 'Grid';
-@import 'BlockGrid';
-@import 'FlexRows';
-@import 'FlexCols';
-@import 'FloatCols';
-@import 'Expander';
+@use 'Grid';
+@use 'BlockGrid';
+@use 'FlexRows';
+@use 'FlexCols';
+@use 'FloatCols';
+@use 'Expander';
 
 // LAYOUT ELEMENTS
-@import 'TapBar';
-@import 'TopBar';
-@import 'Drawer';
-@import 'ContentWrapper';
-@import 'Sections';
-@import 'BrowserSupportWarning';
-@import 'Breadcrumbs';
+@use 'TapBar';
+@use 'TopBar';
+@use 'Drawer';
+@use 'ContentWrapper';
+@use 'Sections';
+@use 'BrowserSupportWarning';
+@use 'Breadcrumbs';
 
 // BUTTONS
-@import 'Buttons';
-@import 'CloseButton';
+@use 'Buttons';
+@use 'CloseButton';
 
 // CONTAINERS
-@import 'Callout';
-@import 'Card';
-@import 'CardLayout';
-@import 'DataGrid';
-@import 'Modal'; // requires Card
-@import 'Sticky';
-@import 'Table';
+@use 'Callout';
+@use 'Card';
+@use 'CardLayout';
+@use 'DataGrid';
+@use 'Modal'; // requires Card
+@use 'Sticky';
+@use 'Table';
 
 // FORMS
-@import 'Forms';
-@import 'Fieldset';
-@import 'Input';
-@import 'Checkbox';
-@import 'DatePicker';
-@import 'Radio';
-@import 'Select';
-@import 'Textarea';
-@import 'InputGroup';
-@import 'MediaUploader';
-@import 'FileInput';
-@import 'TimePicker';
-@import 'Slider';
+@use 'Forms';
+@use 'Fieldset';
+@use 'Input';
+@use 'Checkbox';
+@use 'DatePicker';
+@use 'Radio';
+@use 'Select';
+@use 'Textarea';
+@use 'InputGroup';
+@use 'MediaUploader';
+@use 'FileInput';
+@use 'TimePicker';
+@use 'Slider';
 
 // NON-DEPENDENT COMPONENTS
-@import 'Accordion';
-@import 'Badge';
-@import 'Brand';
-@import 'Code';
-@import 'Emptyable';
-@import 'GoogleMaps';
-@import 'HelpText';
-@import 'Lists';
-@import 'Loader';
-@import 'Menu';
-@import 'NavigationOutline';
-@import 'Pagination';
-@import 'Progress';
-@import 'Tabs';
-@import 'Visibility';
+@use 'Accordion';
+@use 'Badge';
+@use 'Brand';
+@use 'Code';
+@use 'Emptyable';
+@use 'GoogleMaps';
+@use 'HelpText';
+@use 'Lists';
+@use 'Loader';
+@use 'Menu';
+@use 'NavigationOutline';
+@use 'Pagination';
+@use 'Progress';
+@use 'Tabs';
+@use 'Visibility';

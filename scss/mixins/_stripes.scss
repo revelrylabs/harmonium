@@ -1,3 +1,5 @@
+@use '../vars' as *;
+
 @mixin even-odd-stripes ($odd: $color-white, $even: $color-lightest-gray) {
   &:nth-child(odd) {
     background-color: $odd;
