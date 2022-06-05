@@ -1,6 +1,6 @@
 language: node_js
 node_js:
-  - '10'
+  - '16'
 install:
   - npm install
 before_script:
@@ -17,7 +17,7 @@ deploy:
     on:
       repo: revelrylabs/harmonium
       tags: true
-      node: '10'
+      node: '16'
     skip_cleanup: true
   - provider: script
     skip_cleanup: true
@@ -25,4 +25,4 @@ deploy:
       - npx semantic-release
     on:
       repo: revelrylabs/harmonium
-      node: '10'
+      node: '16'
