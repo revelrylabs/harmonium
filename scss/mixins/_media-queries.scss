@@ -100,6 +100,9 @@ $devices: (
   @if $min == null and $max != null {
     @return '(max-width: #{$max})';
   }
+  @else {
+    @return '(min-width: 0)';
+  }
 }
 
 @mixin breakpoint($size) {
