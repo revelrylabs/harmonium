@@ -1,9 +1,9 @@
-@use 'normalizer';
-// @use 'vars';
-// @use 'mixins';
-@use 'base';
-@use 'components';
-@use 'templates';
-@use 'utilities';
-@use 'print';
+@forward 'normalizer';
+@forward 'vars';
+@forward 'mixins';
+@forward 'base';
+@forward 'components';
+@forward 'templates';
+@forward 'utilities';
+@forward 'print';
 
