@@ -77,14 +77,13 @@ $devices: (
   @return "#{$device}";
 }
 
-
 @function min-width-for($screen) {
   $width: map-get($min-widths, $screen);
   @return $width;
 }
 
 @function max-width-for($screen) {
-  $width: map-get($max-withs, $screen);
+  $width: map-get($max-widths, $screen);
   @return $width;
 }
 
@@ -93,27 +92,18 @@ $devices: (
   $max: max-width-for($screen);
   @if $min != null and $max != null {
     @return '(min-width: #{$min}) and (max-width: #{$max})';
-  }
-  @if $min != null and $max == null {
+  } @else if $min != null and $max == null {
     @return '(min-width: #{$min})';
-  }
-  @if $min == null and $max != null {
+  } @else if $min == null and $max != null {
     @return '(max-width: #{$max})';
-  }
-  @else {
-    @return '(min-width: 0)';
+  } @else {
+    @return '(max-width: 0)';
   }
 }
 
 @mixin breakpoint($size) {
-  @each $item, $value in $breakpoints {
-    @if $item == $size {
-      // $value: #{screen and break-for($item)};
-      // @debug $value;
-      @media screen and #{break-for($item)} {
-        @content;
-      }
-    }
+  @media screen and #{break-for($size)} {
+    @content;
   }
 }
 // This is what we want to preserve
