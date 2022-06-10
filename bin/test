@@ -3,7 +3,7 @@
 set -x
 set -e
 
-NODE_ENV=test npx nyc mocha './src/**/*.test.js' --opts ./mocha.opts
+NODE_ENV=test npx nyc mocha './src/**/*.test.js'
 NODE_ENV=test npx nyc report --reporter=html
 npm run sass-test
 

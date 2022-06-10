@@ -2,86 +2,61 @@
 
 $devices: (
   // iPhone 7 / 8
-  iphone: (
-    and (device-width : 375px)
-    and (device-height : 667px)
-    and (-webkit-device-pixel-ratio : 2)
-  ),
-  iphone-portrait: (
-    and (device-width : 375px)
-    and (device-height : 667px)
-    and (-webkit-device-pixel-ratio : 2)
-    and (orientation : portrait)
-  ),
-  iphone-landscape: (
-    and (device-width : 375px)
-    and (device-height : 667px)
-    and (-webkit-device-pixel-ratio : 2)
-    and (orientation : landscape)
-  ),
+  iphone: "(device-width: 375) and (device-height:667px) and (-webkit-device-pixel-ratio: 2)",
+  iphone-portrait: "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)",
+  iphone-landscape: "(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape)",
   // iPhone 6+ / 6s+ / 7+ / 8+
-  iphone-plus: (
-    and (device-width : 414px)
-    and (device-height : 736px)
-    and (-webkit-device-pixel-ratio : 3)
-  ),
-  iphone-plus-portrait: (
-    and (device-width : 414px)
-    and (device-height : 736px)
-    and (-webkit-device-pixel-ratio : 3)
-    and (orientation : portrait)
-  ),
-  iphone-plus-landscape: (
-    and (device-width : 414px)
-    and (device-height : 736px)
-    and (-webkit-device-pixel-ratio : 3)
-    and (orientation : landscape)
-  ),
+  iphone-plus: "(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3)",
+  iphone-plus-portrait: "(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)",
+  iphone-plus-landscape: "(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)",
   // iPhone X
-  iphone-x: (
-    and (device-width : 375px)
-    and (device-height : 812px)
-    and (-webkit-device-pixel-ratio : 3)
-  ),
-  iphone-x-portrait: (
-    and (device-width : 375px)
-    and (device-height : 812px)
-    and (-webkit-device-pixel-ratio : 3)
-    and (orientation : portrait)
-  ),
-  iphone-x-landscape: (
-    and (device-width : 375px)
-    and (device-height : 812px)
-    and (-webkit-device-pixel-ratio : 3)
-    and (orientation : landscape)
-  ),
+  iphone-x: "(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3)",
+  iphone-x-portrait: "(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)",
+  iphone-x-landscape: "(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)",
 );
 
-@mixin breakpoint($size) {
-  @each $item, $value in $breakpoints {
-    @if $item == $size {
-      @if $value != null {
-        @media screen and #{$value} {
-          @content;
-        }
-      }
-    }
-  }
-}
 //@include device(device-name-here) {
 //  styles go here
 //}
 @mixin device($size) {
-  @each $item, $value in $devices {
-    @if $item == $size {
-      @if $value != null {
-        @media only screen #{$value} {
-          @content;
-        }
-      }
+  $value: map-get($devices, $size);
+  @if $value != null {
+    @media only screen and #{$value} {
+      @content;
     }
   }
 }
+
+@function min-width-for($screen) {
+  $width: map-get($min-widths, $screen);
+  @return $width;
+}
+
+@function max-width-for($screen) {
+  $width: map-get($max-widths, $screen);
+  @return $width;
+}
+
+@function break-for($screen) {
+  $min: min-width-for($screen);
+  $max: max-width-for($screen);
+  @if $min != null and $max != null {
+    @return '(min-width: #{$min}) and (max-width: #{$max})';
+  } @else if $min != null and $max == null {
+    @return '(min-width: #{$min})';
+  } @else if $min == null and $max != null {
+    @return '(max-width: #{$max})';
+  } @else {
+    @return '(max-width: 0)';
+  }
+}
+
+@mixin breakpoint($size) {
+  @media screen and #{break-for($size)} {
+    @content;
+  }
+}
+
 @mixin print {
   @media print {
     @content;

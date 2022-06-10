@@ -168,7 +168,7 @@ code {
 // Branding
 .ExampleBrand {
   @include flex(center, row, center, nowrap);
-  height: 48px;
+  height: 64px;
   padding: $padding-tiny $padding-small;
   position: relative;
 
@@ -254,7 +254,6 @@ code {
 
   .rev-Drawer-contents {
     background: $color-brand-primary;
-    background: linear-gradient(to bottom, $color-brand-secondary 0%, $color-brand-primary 100%);
     color: $color-white;
     padding-bottom: $padding-larger;
   }
