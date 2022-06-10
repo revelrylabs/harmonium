@@ -3,22 +3,31 @@
 // Variables not defined here are created from _design-token-defaults.scss and _color-palette-defaults.scss
 // Those 2 files are generated from the design tokens in the design-tokens folder
 
-// Breakpoints
-$breakpoints: (small: (min-width: $screen-width-small),
-  small-only: ((min-width: $screen-width-small) and (max-width: $screen-width-medium - 1)),
-  medium: (min-width: $screen-width-medium),
-  medium-down: ((max-width: $screen-width-medium)),
-  medium-only: ((min-width: $screen-width-medium) and (max-width: $screen-width-large - 1)),
-  large: (min-width: $screen-width-large),
-  large-down: ((max-width: $screen-width-large)),
-  large-only: ((min-width: $screen-width-large) and (max-width: $screen-width-xlarge - 1)),
-  xlarge: (min-width: $screen-width-xlarge),
-  xlarge-down: ((max-width: $screen-width-xlarge)),
-  xlarge-only: ((min-width: $screen-width-xlarge) and (max-width: $screen-width-xxlarge - 1)),
-  xxlarge: (min-width: $screen-width-xxlarge),
-  global-width: (min-width: $screen-width-full),
-  nav: (min-width: $screen-width-nav), // Desktop nav
-  nav-only: ((min-width: $screen-width-small) and (max-width: $screen-width-nav - 1)) // Mobile nav
+
+$min-widths: (
+  small: $screen-width-small,
+  small-only: $screen-width-small,
+  medium:  $screen-width-medium,
+  medium-only: $screen-width-medium,
+  large:  $screen-width-large,
+  large-only: $screen-width-large,
+  xlarge:  $screen-width-xlarge,
+  xlarge-only: $screen-width-xlarge,
+  xxlarge:  $screen-width-xxlarge,
+  global-width:  $screen-width-full,
+  nav:  $screen-width-nav, // Desktop nav
+  nav-only: $screen-width-small //
+) !default;
+
+$max-widths: (
+  small-only: $screen-width-medium - 1,
+  medium-down: $screen-width-medium,
+  medium-only: $screen-width-large - 1,
+  large-down: $screen-width-large,
+  large-only:  $screen-width-xlarge - 1,
+  xlarge-down: $screen-width-xlarge,
+  xlarge-only:  $screen-width-xxlarge - 1,
+  nav-only:  $screen-width-nav - 1 // Mobile nav
 ) !default;
 
 @import '../mixins/media-queries';

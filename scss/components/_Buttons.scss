@@ -27,10 +27,10 @@ $button-color-secondary-active: $color-white !default;
 
 @mixin button-contained {
   .rev-Button {
-    margin: $spacing-base / 2 auto;
+    margin: calc(#{$spacing-base} / 2) auto;
 
     &.rev-Button--small {
-      margin: $spacing-base / 2 auto;
+      margin: calc(#{$spacing-base} / 2) auto;
     }
 
     &.rev-Button--large {
