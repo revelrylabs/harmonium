@@ -5,6 +5,16 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [8.0.1] - 2022-06-15
+
+### Breaking
+
+- Replace node-sass with dart sass beacause [Node Sass is deprecated](https://sass-lang.com/blog/libsass-is-deprecated).
+  - fix: rewrite division & arithmetic using `calc()`
+  - fix: split `$breakpoints` map into explicit `min-widths` and `max-widths` maps
+  - fix: `$devices` values as strings
+- Upgrade to node 16.15.1
+
 ## [7.0.0] - 2020-04-20
 
 ### Breaking
