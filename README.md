@@ -120,6 +120,63 @@ A vanilla JavaScript file to use without React can be found at `src/vanilla/harm
 See the example site at https://harmonium.revelry.co for more examples of how to
 use the components in your projects.
 
+## Updating Harmonium 8
+
+1. Update the harmonium dependency to `^8.0.1` in your package. json file
+2. Remove node-sass as a dependency in the package.json
+3. Add sass as a dependency in the package.json
+4. Ensure that any node-sass commands are converted to sass commands. Their APIs are almost identical so in many cases this should be a straightforward swap.
+5. For Sass Loader < v10, require sass instead of node-sass. (Sass loader 10+ uses sass by default)
+```
+loader: "sass-loader",
+options: {
+	implementation: require("sass"),
+	},
+```
+
+6. Use the [Sass Migrator](https://sass-lang.com/documentation/cli/migrator#division) to swap out any css division for multiplication. 
+7. Check out [Sass: Breaking Changes](https://sass-lang.com/documentation/breaking-changes) for any other updates that you need to address (color units, extending compound selectors, css variable syntax)
+8. Update media query breakpoints list
+**If you do not have custom breakpoints in your project**, you can just replace your old `$breakpoints` list in harmonium-component-settings.scss with the code below.
+
+**If you do have custom breakpoints in your project**, make sure to add them to the `$min-width`, `$max-width` or both lists, as necessary.
+
+```
+$min-widths: (
+ small: $screen-width-small,
+ small-only: $screen-width-small,
+ medium:  $screen-width-medium,
+ medium-only: $screen-width-medium,
+ large:  $screen-width-large,
+ large-only: $screen-width-large,
+ xlarge:  $screen-width-xlarge,
+ xlarge-only: $screen-width-xlarge,
+ xxlarge:  $screen-width-xxlarge,
+ global-width:  $screen-width-full,
+ nav:  $screen-width-nav,
+ nav-only: $screen-width-small,
+ // your custom min-width media query name and value here
+);
+ 
+$max-widths: (
+ small-only: $screen-width-medium - 1,
+ medium-down: $screen-width-medium,
+ medium-only: $screen-width-large - 1,
+ large-down: $screen-width-large,
+ large-only:  $screen-width-xlarge - 1,
+ xlarge-down: $screen-width-xlarge,
+ xlarge-only:  $screen-width-xxlarge - 1,
+ nav-only:  $screen-width-nav - 1,
+ // your custom max-width media query name and value here
+);
+```
+The way the media query mixin is included ex: `@include breakpoint(medium)` will stay the same
+ 
+
+
+
+
+
 ## Contributing and Development
 
 See [CONTRIBUTING.md](https://github.com/revelrylabs/harmonium/blob/master/CONTRIBUTING.md)
