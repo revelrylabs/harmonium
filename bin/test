@@ -4,9 +4,4 @@ set -x
 set -e
 
 NODE_ENV=test npx nyc mocha './src/**/*.test.js'
-NODE_ENV=test npx nyc report --reporter=html
 npm run sass-test
-
-if [ ${CI} ]; then
-  cat ./coverage/lcov.info | npx coveralls
-fi
