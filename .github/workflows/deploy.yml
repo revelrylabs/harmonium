@@ -1,0 +1,25 @@
+name: Deploy
+
+on:
+  push:
+    tags: [ 'v*.*.*' ]
+    branches: master
+
+jobs:
+  test:
+    uses: ./.github/workflows/test.yml
+  deploy:
+    needs: [test]
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
+      registry-url: 'https://registry.npmjs.org'
+      with:
+        node-version: 16
+    - run: npm install
+    - run: npm run build
+    - run: npx semantic-release
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
