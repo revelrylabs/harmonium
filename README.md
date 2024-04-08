@@ -1,7 +1,6 @@
 <img src="docs-src/static/images/harmonium-logo.png" width="400px"/>
 
 [![NPM Version][npm-badge]][npm-url]
-[![Travis Build Status][travis-badge]][travis-url]
 [![Dependency Status](https://dependencyci.com/github/revelrylabs/harmonium/badge)](https://dependencyci.com/github/revelrylabs/harmonium)
 [![Coverage Status](https://opencov.prod.revelry.net/projects/8/badge.svg)](https://opencov.prod.revelry.net/projects/8)
 
@@ -189,8 +188,6 @@ adhere to the Contributor Covenant Code of Conduct (see [CODE_OF_CONDUCT.md](htt
 
 [npm-badge]: https://img.shields.io/npm/v/harmonium.svg
 [npm-url]: https://www.npmjs.com/package/harmonium
-[travis-badge]: https://img.shields.io/travis/revelrylabs/harmonium.svg
-[travis-url]: https://travis-ci.org/revelrylabs/harmonium
 
 ## License
 
