@@ -3,13 +3,13 @@ name: Deploy
 on:
   push:
     tags: [ 'v*.*.*' ]
+    branches: master
 
 jobs:
   test:
     uses: ./.github/workflows/test.yml
   deploy:
     needs: [test]
-    if: ${{ github.ref_name == 'master' }}
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
