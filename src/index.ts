@@ -185,6 +185,20 @@ export type { StatelessModalProps } from './StatelessModal'
 export { default as DatePicker, Calendar, DateInputBlock } from './DatePicker'
 export type { DatePickerProps } from './DatePicker'
 
+// Add TimePicker exports
+export { default as TimePicker } from './TimePicker'
+export type { TimePickerProps } from './TimePicker'
+export { default as TimeContainer } from './TimePicker/TimeContainer'
+export type { TimeContainerProps } from './TimePicker/TimeContainer'
+export { default as TimeInput } from './TimePicker/TimeInput'
+export type { TimeInputProps } from './TimePicker/TimeInput'
+export { default as TimeTicker } from './TimePicker/TimeTicker'
+export type { TimeTickerProps } from './TimePicker/TimeTicker'
+
+// Add Pagination exports
+export { default as Pagination } from './Pagination'
+export type { PaginationProps } from './Pagination'
+
 // For backwards compatibility
 import Button from './Button'
 import Icon from './Icon'
@@ -230,6 +244,8 @@ import Social from './Social'
 import Modal from './Modal'
 import StatelessModal from './StatelessModal'
 import DatePicker from './DatePicker'
+import TimePicker from './TimePicker'
+import Pagination from './Pagination'
 
 // TODO: Add additional components here
 const Harmonium = {
@@ -277,6 +293,8 @@ const Harmonium = {
   Social,
   Modal,
   StatelessModal,
+  TimePicker,
+  Pagination,
 }
 
 export default Harmonium 
