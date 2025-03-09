@@ -4,11 +4,23 @@
 [![Dependency Status](https://dependencyci.com/github/revelrylabs/harmonium/badge)](https://dependencyci.com/github/revelrylabs/harmonium)
 [![Coverage Status](https://opencov.prod.revelry.net/projects/8/badge.svg)](https://opencov.prod.revelry.net/projects/8)
 
+# Harmonium 9 - Modernized React Component Framework
+
 Harmonium is a framework of React components optimized for teams that want to ship apps fast. It is a curated list of components that work together and have cohesive styles. One of our design goals is that you never have to research and handpick component packages. Whatever you need is already here.
 
 Harmonium was built by [Revelry](https://revelry.co). We've been doing React since the earliest version was in beta. We've built dozens of React apps and we've learned what works and what doesn't. And our focus is on shipping gold fast. So we never want to solve the same problem twice.
 
 A gallery of components is at https://harmonium.revelry.co.
+
+## New in Version 9
+
+Version 9 brings major modernizations to Harmonium:
+
+- **React 18**: Full support for React 18 with improved performance
+- **TypeScript Support**: Enhanced type safety with TypeScript
+- **Modern Testing**: Updated to React Testing Library for more reliable testing
+- **Latest Dependencies**: All dependencies updated to their latest versions
+- **Improved Developer Experience**: New scripts for linting, formatting, and development
 
 ## Installation
 
@@ -70,24 +82,53 @@ And they should be created in the build path specificed in `harmonium.config.js`
 You can import components and use components from the toolkit like:
 
 ```jsx
-import React, {Component} from 'react'
-import Row from 'harmonium/lib/Row'
-import Col from 'harmonium/lib/Col'
-import Button from 'harmonium/lib/Button'
-export default class MyComponent extends Component {
-  render() {
-    return (
-      <Row>
-        <Col>
-          <h3>Hello, world</h3>
-        </Col>
-        <Col>
-          <Button small>Click here</Button>
-        </Col>
-      </Row>
-    )
-  }
+import React from 'react'
+import { Row, Col, Button } from 'harmonium'
+
+const MyComponent = () => {
+  return (
+    <Row>
+      <Col>
+        <h3>Hello, world</h3>
+      </Col>
+      <Col>
+        <Button small>Click here</Button>
+      </Col>
+    </Row>
+  )
 }
+
+export default MyComponent
+```
+
+## Usage with TypeScript
+
+Harmonium now supports TypeScript out of the box:
+
+```tsx
+import React from 'react'
+import { Row, Col, Button } from 'harmonium'
+import type { ButtonProps } from 'harmonium'
+
+// You can use type information from Harmonium
+const CustomButton: React.FC<ButtonProps> = (props) => {
+  return <Button {...props} className="custom-button" />
+}
+
+const MyComponent: React.FC = () => {
+  return (
+    <Row>
+      <Col>
+        <h3>Hello, world</h3>
+      </Col>
+      <Col>
+        <CustomButton small>Click here</CustomButton>
+      </Col>
+    </Row>
+  )
+}
+
+export default MyComponent
 ```
 
 ## Usage with HTML
@@ -119,62 +160,13 @@ A vanilla JavaScript file to use without React can be found at `src/vanilla/harm
 See the example site at https://harmonium.revelry.co for more examples of how to
 use the components in your projects.
 
-## Updating Harmonium 8
+## Updating to Harmonium 9
 
-1. Update the harmonium dependency to `^8.0.1` in your package. json file
-2. Remove node-sass as a dependency in the package.json
-3. Add sass as a dependency in the package.json
-4. Ensure that any node-sass commands are converted to sass commands. Their APIs are almost identical so in many cases this should be a straightforward swap.
-5. For Sass Loader < v10, require sass instead of node-sass. (Sass loader 10+ uses sass by default)
-```
-loader: "sass-loader",
-options: {
-	implementation: require("sass"),
-	},
-```
-
-6. Use the [Sass Migrator](https://sass-lang.com/documentation/cli/migrator#division) to swap out any css division for multiplication. 
-7. Check out [Sass: Breaking Changes](https://sass-lang.com/documentation/breaking-changes) for any other updates that you need to address (color units, extending compound selectors, css variable syntax)
-8. Update media query breakpoints list
-**If you do not have custom breakpoints in your project**, you can just replace your old `$breakpoints` list in harmonium-component-settings.scss with the code below.
-
-**If you do have custom breakpoints in your project**, make sure to add them to the `$min-width`, `$max-width` or both lists, as necessary.
-
-```
-$min-widths: (
- small: $screen-width-small,
- small-only: $screen-width-small,
- medium:  $screen-width-medium,
- medium-only: $screen-width-medium,
- large:  $screen-width-large,
- large-only: $screen-width-large,
- xlarge:  $screen-width-xlarge,
- xlarge-only: $screen-width-xlarge,
- xxlarge:  $screen-width-xxlarge,
- global-width:  $screen-width-full,
- nav:  $screen-width-nav,
- nav-only: $screen-width-small,
- // your custom min-width media query name and value here
-);
- 
-$max-widths: (
- small-only: $screen-width-medium - 1,
- medium-down: $screen-width-medium,
- medium-only: $screen-width-large - 1,
- large-down: $screen-width-large,
- large-only:  $screen-width-xlarge - 1,
- xlarge-down: $screen-width-xlarge,
- xlarge-only:  $screen-width-xxlarge - 1,
- nav-only:  $screen-width-nav - 1,
- // your custom max-width media query name and value here
-);
-```
-The way the media query mixin is included ex: `@include breakpoint(medium)` will stay the same
- 
-
-
-
-
+1. Update the harmonium dependency to `^9.0.0` in your package.json file
+2. Make sure you're using a modern Node.js version (18+)
+3. If you're using TypeScript, you'll get full type definitions automatically
+4. If you're using Jest for testing, you may need to update your test configuration to accommodate React 18
+5. Review the [CHANGELOG.md](https://github.com/revelrylabs/harmonium/blob/master/CHANGELOG.md) for detailed migration instructions
 
 ## Contributing and Development
 

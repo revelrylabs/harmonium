@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import classNames from 'classnames'
 import Icon from './Icon'
 
@@ -20,47 +19,47 @@ const BOOL_PROPS_TO_CLASS_NAMES = {
 
   dropdown: ['rev-Button--dropdown'],
 }
+
 const BOOL_PROPS = Object.keys(BOOL_PROPS_TO_CLASS_NAMES)
 
-/**
- * @typedef {Object} ButtonProps
- * @property {string} [tag] - The HTML element tag to use
- * @property {string} [icon] - Icon name to display with the button
- * @property {string} [className] - Additional class names
- * @property {React.ReactNode} [children] - Button content
- * @property {boolean} [small] - Small button style
- * @property {boolean} [large] - Large button style
- * @property {boolean} [primary] - Primary button style
- * @property {boolean} [secondary] - Secondary button style
- * @property {boolean} [inverted] - Inverted button style
- * @property {boolean} [success] - Success button style
- * @property {boolean} [warning] - Warning button style
- * @property {boolean} [alert] - Alert button style
- * @property {boolean} [disabled] - Disabled button state
- * @property {boolean} [expanded] - Expanded button style
- * @property {boolean} [dropdown] - Dropdown button style
- * @property {string} [href] - URL for link buttons
- */
+export interface ButtonProps extends React.HTMLAttributes<HTMLElement> {
+  tag?: string
+  icon?: string
+  className?: string
+  children?: React.ReactNode
+  small?: boolean
+  large?: boolean
+  primary?: boolean
+  secondary?: boolean
+  inverted?: boolean
+  success?: boolean
+  warning?: boolean
+  alert?: boolean
+  disabled?: boolean
+  expanded?: boolean
+  dropdown?: boolean
+  href?: string
+}
 
 /**
  * Button component
- * @param {ButtonProps} props - Component props
- * @returns {React.ReactElement} - Button component
+ * @param props - Component props
+ * @returns Button component
  */
-const Button = (props) => {
+const Button: React.FC<ButtonProps> = (props) => {
   // Extract props that will not pass through.
   const { className, children, tag, icon, ...passthrough } = props
 
   // Start building the className
-  const boolClassNames = []
+  const boolClassNames: string[] = []
 
   BOOL_PROPS.forEach((name) => {
-    if (passthrough[name]) {
-      boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name])
+    if (passthrough[name as keyof typeof passthrough]) {
+      boolClassNames.push(BOOL_PROPS_TO_CLASS_NAMES[name as keyof typeof BOOL_PROPS_TO_CLASS_NAMES])
     }
     // Don't delete classname props if they also need to pass through.
     if (!['disabled'].includes(name)) {
-      delete passthrough[name]
+      delete passthrough[name as keyof typeof passthrough]
     }
   })
 
@@ -99,11 +98,4 @@ const Button = (props) => {
   )
 }
 
-Button.propTypes = {
-  tag: PropTypes.string,
-  icon: PropTypes.string,
-  className: PropTypes.string,
-  children: PropTypes.node,
-}
-
-export default Button
+export default Button 

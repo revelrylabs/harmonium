@@ -5,6 +5,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [9.0.0] - 2023-07-05
+
+### Breaking Changes
+
+- Upgraded React to version 18
+- Updated all dependencies to latest versions
+- Switched to Node.js v18
+- Removed support for older browsers
+
+### Added
+
+- Added new development scripts for linting and formatting
+- Added TypeScript support
+- Added React Testing Library for improved component testing
+- Added React hooks plugin for ESLint
+
+### Changed
+
+- Modernized build tooling
+- Updated all major dependencies to latest versions
+- Improved developer experience with additional scripts
+
 ## [8.0.1] - 2022-06-15
 
 ### Breaking
