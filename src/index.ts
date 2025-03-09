@@ -78,6 +78,35 @@ export type { CloseButtonProps } from './CloseButton'
 // Add Currency exports
 export { default as Currency } from './Currency'
 
+// Add DataGrid exports
+export { default as DataGrid } from './DataGrid'
+export type { 
+  DataGridProps, 
+  DataGridHeaderRowProps, 
+  DataGridHeaderColProps,
+  DataGridHeaderRowStackedProps,
+  DataGridHeaderInlineProps,
+  DataGridBodyProps,
+  DataGridRowProps,
+  DataGridColProps
+} from './DataGrid'
+
+// Add Drawer exports
+export { default as Drawer } from './Drawer'
+export type { DrawerProps } from './Drawer'
+
+// Add StatelessDrawer exports
+export { default as StatelessDrawer } from './StatelessDrawer'
+export type { StatelessDrawerProps } from './StatelessDrawer'
+
+// Add Emptyable exports
+export { default as Emptyable } from './Emptyable'
+export type { EmptyableProps } from './Emptyable'
+
+// Add Expander exports
+export { default as Expander } from './Expander'
+export type { ExpanderProps } from './Expander'
+
 // Add TopBar exports
 export { default as TopBar, TopBarItem } from './TopBar'
 export type { TopBarProps, TopBarItemProps } from './TopBar'
@@ -182,6 +211,11 @@ import BrowserSupportWarning from './BrowserSupportWarning'
 import Checkbox from './Checkbox'
 import CloseButton from './CloseButton'
 import Currency from './Currency'
+import DataGrid from './DataGrid'
+import Drawer from './Drawer'
+import StatelessDrawer from './StatelessDrawer'
+import Emptyable from './Emptyable'
+import Expander from './Expander'
 import TopBar from './TopBar'
 import Tabs from './Tabs'
 import Table from './Table'
@@ -223,6 +257,11 @@ const Harmonium = {
   Checkbox,
   CloseButton,
   Currency,
+  DataGrid,
+  Drawer,
+  StatelessDrawer,
+  Emptyable,
+  Expander,
   TopBar,
   Tabs,
   Table,
