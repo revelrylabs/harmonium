@@ -1,0 +1,102 @@
+import React, { useState, useCallback } from 'react'
+import { DatePicker, Row, Col, Button } from 'harmonium'
+import { DateTime } from 'luxon'
+
+// Define custom highlight types for TypeScript
+type HighlightedDate = string
+type HighlightedDateMap = Record<string, string>
+
+// Example component with TypeScript
+const AdvancedDatePickerExample: React.FC = () => {
+  // State management with TypeScript
+  const [selectedDate, setSelectedDate] = useState<string | undefined>('2023-04-15')
+  const [errorMessage, setErrorMessage] = useState<string | undefined>(undefined)
+  
+  // Initialize highlighted dates (holidays, etc)
+  const [highlights, setHighlights] = useState<HighlightedDate[]>([
+    '2023-04-01', // April Fools
+    '2023-04-07', // Good Friday
+    '2023-04-09', // Easter
+    '2023-04-22', // Earth Day
+  ])
+
+  // Function to determine if a date is selectable
+  const isDateSelectable = useCallback((date: DateTime): boolean => {
+    // Don't allow dates in the past
+    const today = DateTime.local().startOf('day')
+    if (date < today) {
+      return false
+    }
+    
+    // No weekends
+    if (date.weekday >= 6) {
+      return false
+    }
+
+    return true
+  }, [])
+
+  // Handle date change with TypeScript
+  const handleDateChange = useCallback((event: React.SyntheticEvent) => {
+    const target = event.target as HTMLInputElement
+    const newDate = target.value
+    
+    // Validate the selected date
+    if (newDate) {
+      const date = DateTime.fromISO(newDate)
+      
+      // Check if this is a holiday
+      if (highlights.includes(newDate)) {
+        setErrorMessage('This date is a holiday')
+      } else {
+        setErrorMessage(undefined)
+      }
+    }
+    
+    setSelectedDate(newDate)
+  }, [highlights])
+
+  return (
+    <div>
+      <Row>
+        <Col>
+          <h4>Advanced DatePicker with TypeScript</h4>
+          <p>This example demonstrates TypeScript integration with validation and custom logic.</p>
+        </Col>
+      </Row>
+      <Row>
+        <Col small={12} medium={6}>
+          <DatePicker 
+            value={selectedDate} 
+            onChange={handleDateChange}
+            isSelectable={isDateSelectable}
+            highlights={highlights}
+            label="Select an Available Date"
+            help="Weekdays only, holidays are highlighted"
+            error={errorMessage}
+            dateFormat="yyyy-MM-dd"
+            showYearSelection
+          />
+        </Col>
+        <Col small={12} medium={6}>
+          <h5>Selected Date: {selectedDate || 'None'}</h5>
+          {errorMessage && (
+            <div style={{ color: 'red' }}>
+              {errorMessage}
+            </div>
+          )}
+          <div>
+            <h6>Highlighted Dates (Holidays):</h6>
+            <ul>
+              {highlights.map(date => (
+                <li key={date}>{date}</li>
+              ))}
+            </ul>
+          </div>
+        </Col>
+      </Row>
+    </div>
+  )
+}
+
+export default AdvancedDatePickerExample 

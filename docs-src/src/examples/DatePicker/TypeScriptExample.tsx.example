@@ -1,0 +1,32 @@
+import React, { useState } from 'react'
+import { DatePicker } from 'harmonium'
+import { DateTime } from 'luxon'
+
+// TypeScript usage example
+const TypeScriptDatePicker = () => {
+  const [selectedDate, setSelectedDate] = useState<string | undefined>('2023-03-15')
+
+  const handleDateChange = (event: React.SyntheticEvent) => {
+    const target = event.target as HTMLInputElement
+    setSelectedDate(target.value)
+  }
+
+  // Function to determine if a date is selectable (weekends not selectable)
+  const isWeekdaySelectable = (date: DateTime) => {
+    const weekday = date.weekday
+    return weekday !== 6 && weekday !== 7 // 6 = Saturday, 7 = Sunday
+  }
+
+  return (
+    <DatePicker 
+      value={selectedDate} 
+      onChange={handleDateChange}
+      isSelectable={isWeekdaySelectable}
+      label="Event Date"
+      help="Select a weekday date"
+      error={selectedDate === '2023-03-18' ? 'This date is unavailable' : undefined}
+    />
+  )
+}
+
+export default TypeScriptDatePicker 

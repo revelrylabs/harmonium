@@ -101,34 +101,43 @@ const MyComponent = () => {
 export default MyComponent
 ```
 
-## Usage with TypeScript
+## TypeScript Support
 
-Harmonium now supports TypeScript out of the box:
+Harmonium includes TypeScript definitions for components. The following components have full TypeScript support:
+
+- DatePicker
+
+You can use these components with type safety in your TypeScript projects:
 
 ```tsx
-import React from 'react'
-import { Row, Col, Button } from 'harmonium'
-import type { ButtonProps } from 'harmonium'
+import React, { useState } from 'react'
+import { DatePicker } from 'harmonium'
+import { DateTime } from 'luxon'
 
-// You can use type information from Harmonium
-const CustomButton: React.FC<ButtonProps> = (props) => {
-  return <Button {...props} className="custom-button" />
-}
+const MyDatePickerComponent = () => {
+  const [selectedDate, setSelectedDate] = useState<string | undefined>('2023-03-15')
 
-const MyComponent: React.FC = () => {
+  const handleDateChange = (event: React.SyntheticEvent) => {
+    const target = event.target as HTMLInputElement
+    setSelectedDate(target.value)
+  }
+
+  // Function to determine if a date is selectable (weekends not selectable)
+  const isWeekdaySelectable = (date: DateTime) => {
+    const weekday = date.weekday
+    return weekday !== 6 && weekday !== 7 // 6 = Saturday, 7 = Sunday
+  }
+
   return (
-    <Row>
-      <Col>
-        <h3>Hello, world</h3>
-      </Col>
-      <Col>
-        <CustomButton small>Click here</CustomButton>
-      </Col>
-    </Row>
+    <DatePicker 
+      value={selectedDate} 
+      onChange={handleDateChange}
+      isSelectable={isWeekdaySelectable}
+      label="Event Date"
+      help="Select a weekday date"
+    />
   )
 }
-
-export default MyComponent
 ```
 
 ## Usage with HTML
