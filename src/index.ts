@@ -246,6 +246,11 @@ import StatelessModal from './StatelessModal'
 import DatePicker from './DatePicker'
 import TimePicker from './TimePicker'
 import Pagination from './Pagination'
+import AuthenticityTokenProvider from './AuthenticityTokenProvider'
+import ChartBuilder from './ChartBuilder'
+import ExpandingCol from './ExpandingCol'
+import FlexVideo from './FlexVideo'
+import MapComponent from './Map/MapComponent'
 
 // TODO: Add additional components here
 const Harmonium = {
@@ -295,6 +300,31 @@ const Harmonium = {
   StatelessModal,
   TimePicker,
   Pagination,
+  AuthenticityTokenProvider,
+  ChartBuilder,
+  ExpandingCol,
+  FlexVideo,
+  MapComponent,
 }
 
 export default Harmonium 
+
+// Add AuthenticityTokenProvider exports
+export { default as AuthenticityTokenProvider } from './AuthenticityTokenProvider'
+export type { AuthenticityTokenProviderProps } from './AuthenticityTokenProvider'
+
+// Add ChartBuilder exports
+export { default as ChartBuilder } from './ChartBuilder'
+export type { ChartBuilderProps } from './ChartBuilder'
+
+// Add ExpandingCol exports
+export { default as ExpandingCol, ExpandingColStateContainer } from './ExpandingCol'
+export type { ExpandingColProps } from './ExpandingCol'
+
+// Add FlexVideo exports
+export { default as FlexVideo } from './FlexVideo'
+export type { FlexVideoProps } from './FlexVideo'
+
+// Add MapComponent exports
+export { default as MapComponent } from './Map/MapComponent'
+export type { MapComponentProps } from './Map/MapComponent' 
