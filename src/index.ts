@@ -181,10 +181,9 @@ export type { ModalProps } from './Modal'
 export { default as StatelessModal } from './StatelessModal'
 export type { StatelessModalProps } from './StatelessModal'
 
-// TODO: Add additional component exports here as they are converted to TypeScript
-// Example:
-// export { default as Col } from './Col'
-// export type { ColProps } from './Col'
+// Add DatePicker exports
+export { default as DatePicker, Calendar, DateInputBlock } from './DatePicker'
+export type { DatePickerProps } from './DatePicker'
 
 // For backwards compatibility
 import Button from './Button'
@@ -230,6 +229,7 @@ import Slider from './Slider'
 import Social from './Social'
 import Modal from './Modal'
 import StatelessModal from './StatelessModal'
+import DatePicker from './DatePicker'
 
 // TODO: Add additional components here
 const Harmonium = {
@@ -258,6 +258,7 @@ const Harmonium = {
   CloseButton,
   Currency,
   DataGrid,
+  DatePicker,
   Drawer,
   StatelessDrawer,
   Emptyable,
