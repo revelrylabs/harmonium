@@ -109,6 +109,18 @@ export type { RadioProps, RadioFieldsetProps, RadioOption } from './Radio'
 export { default as Slider } from './Slider'
 export type { SliderProps } from './Slider'
 
+// Add Social exports
+export { default as Social } from './Social'
+export type { SocialProps } from './Social'
+
+// Add Modal exports
+export { default as Modal } from './Modal'
+export type { ModalProps } from './Modal'
+
+// Add StatelessModal exports
+export { default as StatelessModal } from './StatelessModal'
+export type { StatelessModalProps } from './StatelessModal'
+
 // TODO: Add additional component exports here as they are converted to TypeScript
 // Example:
 // export { default as Col } from './Col'
@@ -142,6 +154,9 @@ import Select from './Select'
 import CheckableFieldset from './CheckableFieldset'
 import Radio from './Radio'
 import Slider from './Slider'
+import Social from './Social'
+import Modal from './Modal'
+import StatelessModal from './StatelessModal'
 
 // TODO: Add additional components here
 const Harmonium = {
@@ -172,6 +187,9 @@ const Harmonium = {
   CheckableFieldset,
   Radio,
   Slider,
+  Social,
+  Modal,
+  StatelessModal,
 }
 
 export default Harmonium 
