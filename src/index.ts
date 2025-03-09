@@ -81,6 +81,18 @@ export type {
 export { default as Textarea, TextareaStack } from './Textarea'
 export type { TextareaProps, TextareaStackProps } from './Textarea'
 
+// Add Loader exports
+export { default as Loader } from './Loader'
+export type { LoaderProps } from './Loader'
+
+// Add TextAlign exports
+export { default as TextAlign } from './TextAlign'
+export type { TextAlignProps } from './TextAlign'
+
+// Add Progress exports
+export { default as Progress } from './Progress'
+export type { ProgressProps } from './Progress'
+
 // TODO: Add additional component exports here as they are converted to TypeScript
 // Example:
 // export { default as Col } from './Col'
@@ -107,6 +119,9 @@ import TopBar from './TopBar'
 import Tabs from './Tabs'
 import Table from './Table'
 import Textarea from './Textarea'
+import Loader from './Loader'
+import TextAlign from './TextAlign'
+import Progress from './Progress'
 
 // TODO: Add additional components here
 const Harmonium = {
@@ -130,6 +145,9 @@ const Harmonium = {
   Tabs,
   Table,
   Textarea,
+  Loader,
+  TextAlign,
+  Progress,
 }
 
 export default Harmonium 
