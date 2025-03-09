@@ -47,6 +47,14 @@ export type { ButtonGroupProps } from './ButtonGroup'
 export { default as Menu, MenuItem } from './Menu'
 export type { MenuProps, MenuItemProps } from './Menu'
 
+// Add Accordion exports
+export { default as Accordion } from './Accordion'
+export type { AccordionProps, AccordionItemProps, StatefulAccordionProps } from './Accordion'
+
+// Add Badge exports
+export { default as Badge } from './Badge'
+export type { BadgeProps } from './Badge'
+
 // Add TopBar exports
 export { default as TopBar, TopBarItem } from './TopBar'
 export type { TopBarProps, TopBarItemProps } from './TopBar'
@@ -143,6 +151,8 @@ import Card from './Card'
 import CardLayout from './CardLayout'
 import ButtonGroup from './ButtonGroup'
 import Menu from './Menu'
+import Accordion from './Accordion'
+import Badge from './Badge'
 import TopBar from './TopBar'
 import Tabs from './Tabs'
 import Table from './Table'
@@ -176,6 +186,8 @@ const Harmonium = {
   CardLayout,
   ButtonGroup,
   Menu,
+  Accordion,
+  Badge,
   TopBar,
   Tabs,
   Table,
