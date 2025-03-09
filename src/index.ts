@@ -93,6 +93,22 @@ export type { TextAlignProps } from './TextAlign'
 export { default as Progress } from './Progress'
 export type { ProgressProps } from './Progress'
 
+// Add Select exports
+export { default as Select, SelectStack } from './Select'
+export type { SelectProps, SelectStackProps, SelectOption } from './Select'
+
+// Add CheckableFieldset exports
+export { default as CheckableFieldset } from './CheckableFieldset'
+export type { CheckableFieldsetProps } from './CheckableFieldset'
+
+// Add Radio exports
+export { default as Radio, RadioFieldset } from './Radio'
+export type { RadioProps, RadioFieldsetProps, RadioOption } from './Radio'
+
+// Add Slider exports
+export { default as Slider } from './Slider'
+export type { SliderProps } from './Slider'
+
 // TODO: Add additional component exports here as they are converted to TypeScript
 // Example:
 // export { default as Col } from './Col'
@@ -122,6 +138,10 @@ import Textarea from './Textarea'
 import Loader from './Loader'
 import TextAlign from './TextAlign'
 import Progress from './Progress'
+import Select from './Select'
+import CheckableFieldset from './CheckableFieldset'
+import Radio from './Radio'
+import Slider from './Slider'
 
 // TODO: Add additional components here
 const Harmonium = {
@@ -148,6 +168,10 @@ const Harmonium = {
   Loader,
   TextAlign,
   Progress,
+  Select,
+  CheckableFieldset,
+  Radio,
+  Slider,
 }
 
 export default Harmonium 
