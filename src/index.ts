@@ -55,6 +55,32 @@ export type { TopBarProps, TopBarItemProps } from './TopBar'
 export { default as Tabs, TabsItem, TabsTitle, TabsPanel, StatefulTabs } from './Tabs'
 export type { TabsProps, TabsItemProps, TabsTitleProps, TabsPanelProps, StatefulTabsProps } from './Tabs'
 
+// Add Table exports
+export { 
+  default as Table, 
+  TableHead, 
+  TableHeadStacked, 
+  TableHeader, 
+  TableHeaderInline, 
+  TableBody, 
+  TableRow, 
+  TableData 
+} from './Table'
+export type { 
+  TableProps, 
+  TableHeadProps, 
+  TableHeadStackedProps, 
+  TableHeaderProps, 
+  TableHeaderInlineProps, 
+  TableBodyProps, 
+  TableRowProps, 
+  TableDataProps 
+} from './Table'
+
+// Add Textarea exports
+export { default as Textarea, TextareaStack } from './Textarea'
+export type { TextareaProps, TextareaStackProps } from './Textarea'
+
 // TODO: Add additional component exports here as they are converted to TypeScript
 // Example:
 // export { default as Col } from './Col'
@@ -79,6 +105,8 @@ import ButtonGroup from './ButtonGroup'
 import Menu from './Menu'
 import TopBar from './TopBar'
 import Tabs from './Tabs'
+import Table from './Table'
+import Textarea from './Textarea'
 
 // TODO: Add additional components here
 const Harmonium = {
@@ -100,6 +128,8 @@ const Harmonium = {
   Menu,
   TopBar,
   Tabs,
+  Table,
+  Textarea,
 }
 
 export default Harmonium 
