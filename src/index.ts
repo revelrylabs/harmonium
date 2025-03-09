@@ -55,6 +55,29 @@ export type { AccordionProps, AccordionItemProps, StatefulAccordionProps } from 
 export { default as Badge } from './Badge'
 export type { BadgeProps } from './Badge'
 
+// Add Brand exports
+export { default as Brand } from './Brand'
+export type { BrandProps } from './Brand'
+
+// Add Breadcrumbs exports
+export { default as Breadcrumbs } from './Breadcrumbs'
+export type { BreadcrumbsProps, BreadcrumbsItemProps } from './Breadcrumbs'
+
+// Add BrowserSupportWarning exports
+export { default as BrowserSupportWarning } from './BrowserSupportWarning'
+export type { BrowserSupportWarningProps } from './BrowserSupportWarning'
+
+// Add Checkbox exports
+export { default as Checkbox } from './Checkbox'
+export type { CheckboxProps, CheckboxFieldsetProps } from './Checkbox'
+
+// Add CloseButton exports
+export { default as CloseButton } from './CloseButton'
+export type { CloseButtonProps } from './CloseButton'
+
+// Add Currency exports
+export { default as Currency } from './Currency'
+
 // Add TopBar exports
 export { default as TopBar, TopBarItem } from './TopBar'
 export type { TopBarProps, TopBarItemProps } from './TopBar'
@@ -153,6 +176,12 @@ import ButtonGroup from './ButtonGroup'
 import Menu from './Menu'
 import Accordion from './Accordion'
 import Badge from './Badge'
+import Brand from './Brand'
+import Breadcrumbs from './Breadcrumbs'
+import BrowserSupportWarning from './BrowserSupportWarning'
+import Checkbox from './Checkbox'
+import CloseButton from './CloseButton'
+import Currency from './Currency'
 import TopBar from './TopBar'
 import Tabs from './Tabs'
 import Table from './Table'
@@ -188,6 +217,12 @@ const Harmonium = {
   Menu,
   Accordion,
   Badge,
+  Brand,
+  Breadcrumbs,
+  BrowserSupportWarning,
+  Checkbox,
+  CloseButton,
+  Currency,
   TopBar,
   Tabs,
   Table,
