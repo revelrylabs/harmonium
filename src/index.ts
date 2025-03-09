@@ -35,8 +35,8 @@ export type { AuthenticityTokenProps } from './AuthenticityToken'
 export { default as Callout } from './Callout'
 export type { CalloutProps } from './Callout'
 
-export { default as Card, CardHeader, CardBody, CardFooter } from './Card'
-export type { CardProps, CardHeaderProps, CardBodyProps, CardFooterProps } from './Card'
+export { default as Card, CardHeader, CardFooter, CardBody } from './Card'
+export type { CardProps, CardHeaderProps, CardFooterProps, CardBodyProps } from './Card'
 
 export { default as CardLayout, CardLayoutBar, CardLayoutFill } from './CardLayout'
 export type { CardLayoutProps, CardLayoutBarProps, CardLayoutFillProps } from './CardLayout'
@@ -46,6 +46,14 @@ export type { ButtonGroupProps } from './ButtonGroup'
 
 export { default as Menu, MenuItem } from './Menu'
 export type { MenuProps, MenuItemProps } from './Menu'
+
+// Add TopBar exports
+export { default as TopBar, TopBarItem } from './TopBar'
+export type { TopBarProps, TopBarItemProps } from './TopBar'
+
+// Add Tabs exports
+export { default as Tabs, TabsItem, TabsTitle, TabsPanel, StatefulTabs } from './Tabs'
+export type { TabsProps, TabsItemProps, TabsTitleProps, TabsPanelProps, StatefulTabsProps } from './Tabs'
 
 // TODO: Add additional component exports here as they are converted to TypeScript
 // Example:
@@ -69,6 +77,8 @@ import Card from './Card'
 import CardLayout from './CardLayout'
 import ButtonGroup from './ButtonGroup'
 import Menu from './Menu'
+import TopBar from './TopBar'
+import Tabs from './Tabs'
 
 // TODO: Add additional components here
 const Harmonium = {
@@ -88,6 +98,8 @@ const Harmonium = {
   CardLayout,
   ButtonGroup,
   Menu,
+  TopBar,
+  Tabs,
 }
 
 export default Harmonium 
