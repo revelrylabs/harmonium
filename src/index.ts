@@ -251,6 +251,17 @@ import ChartBuilder from './ChartBuilder'
 import ExpandingCol from './ExpandingCol'
 import FlexVideo from './FlexVideo'
 import MapComponent from './Map/MapComponent'
+import I18n from './I18n'
+import Lipsum from './Lipsum'
+import NumberFormatter from './NumberFormatter'
+import Option from './Option'
+import Pluralize from './Pluralize'
+import Visibility from './Visibility'
+import InfoWindow from './Map/InfoWindow'
+import Marker from './Map/Marker'
+import MediaObject from './MediaObject'
+import MediaUploader from './MediaUploader'
+import Tokenizer from './Tokenizer'
 
 // TODO: Add additional components here
 const Harmonium = {
@@ -305,6 +316,17 @@ const Harmonium = {
   ExpandingCol,
   FlexVideo,
   MapComponent,
+  I18n,
+  Lipsum,
+  NumberFormatter,
+  Option,
+  Pluralize,
+  Visibility,
+  InfoWindow,
+  Marker,
+  MediaObject,
+  MediaUploader,
+  Tokenizer,
 }
 
 export default Harmonium 
@@ -327,4 +349,42 @@ export type { FlexVideoProps } from './FlexVideo'
 
 // Add MapComponent exports
 export { default as MapComponent } from './Map/MapComponent'
-export type { MapComponentProps } from './Map/MapComponent' 
+export type { MapComponentProps } from './Map/MapComponent'
+
+// Add utility components
+export { default as I18n } from './I18n'
+export type { I18nProps } from './I18n'
+
+export { default as Lipsum } from './Lipsum'
+export type { LipsumProps } from './Lipsum'
+
+export { default as NumberFormatter } from './NumberFormatter'
+export type { NumberFormatterProps } from './NumberFormatter'
+
+export { default as Option } from './Option'
+export type { OptionProps } from './Option'
+
+export { default as Pluralize } from './Pluralize'
+export type { PluralizeProps } from './Pluralize'
+
+export { default as Visibility } from './Visibility'
+export type { VisibilityProps } from './Visibility'
+
+// Add Map components
+export { default as InfoWindow } from './Map/InfoWindow'
+export type { InfoWindowProps } from './Map/InfoWindow'
+
+export { default as Marker } from './Map/Marker'
+export type { MarkerProps } from './Map/Marker'
+
+// Add MediaObject
+export { default as MediaObject } from './MediaObject'
+export type { MediaObjectProps, MediaObjectSectionProps } from './MediaObject'
+
+// Add MediaUploader
+export { default as MediaUploader } from './MediaUploader'
+export type { MediaUploaderProps } from './MediaUploader'
+
+// Add Tokenizer
+export { default as Tokenizer } from './Tokenizer'
+export type { TokenizerProps, TokenizerItem } from './Tokenizer' 
