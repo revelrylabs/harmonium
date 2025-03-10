@@ -262,9 +262,14 @@ import Marker from './Map/Marker'
 import MediaObject from './MediaObject'
 import MediaUploader from './MediaUploader'
 import Tokenizer from './Tokenizer'
+import Sticky from './Sticky'
+import * as vanillaHarmonium from './vanilla/harmonium'
+import createElementWithOverride from './Utilities/createElementWithOverride'
+import * as configuration from './configuration'
 
 // TODO: Add additional components here
-const Harmonium = {
+// Use 'any' type to avoid exported variable errors
+const Harmonium: any = {
   Button,
   Icon,
   Row,
@@ -327,6 +332,10 @@ const Harmonium = {
   MediaObject,
   MediaUploader,
   Tokenizer,
+  Sticky,
+  createElementWithOverride,
+  vanilla: vanillaHarmonium,
+  configuration,
 }
 
 export default Harmonium 
@@ -387,4 +396,11 @@ export type { MediaUploaderProps } from './MediaUploader'
 
 // Add Tokenizer
 export { default as Tokenizer } from './Tokenizer'
-export type { TokenizerProps, TokenizerItem } from './Tokenizer' 
+export type { TokenizerProps, TokenizerItem } from './Tokenizer'
+
+export { default as Sticky } from './Sticky'
+export type { StickyProps, StickyContainerProps } from './Sticky'
+export { default as createElementWithOverride } from './Utilities/createElementWithOverride'
+export type { ComponentOverrides } from './Utilities/createElementWithOverride'
+export * from './vanilla/harmonium'
+export * from './configuration' 

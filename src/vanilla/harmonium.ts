@@ -3,9 +3,9 @@
  * @param {HTMLElement} flashComponentElement The Flash component
  * @returns {void}
  */
-export function closeFlash(flashComponentElement) {
+export function closeFlash(flashComponentElement: HTMLElement): void {
   if (flashComponentElement) {
-    flashComponentElement.parentNode.removeChild(flashComponentElement)
+    flashComponentElement.parentNode?.removeChild(flashComponentElement)
   }
 }
 
@@ -13,11 +13,11 @@ export function closeFlash(flashComponentElement) {
  * Initializes all flash components on page.
  * @returns {void}
  */
-export function initializeFlashComponents() {
+export function initializeFlashComponents(): void {
   const components = document.querySelectorAll('.rev-Flash')
 
   for (let i = 0; i < components.length; i++) {
-    const component = components[i]
+    const component = components[i] as HTMLElement
 
     const closeButton = component.querySelector('.rev-Close')
 
@@ -30,11 +30,15 @@ export function initializeFlashComponents() {
   }
 }
 
-function initializeAccordianItems(accordian) {
+/**
+ * Initializes all accordion items within an accordion
+ * @param accordian The accordion element
+ */
+function initializeAccordianItems(accordian: HTMLElement): void {
   const items = accordian.querySelectorAll('.rev-AccordionItem')
 
   for (let i = 0; i < items.length; i++) {
-    const item = items[i]
+    const item = items[i] as HTMLElement
     const title = item.querySelector('.rev-AccordionItem-title')
     const content = item.querySelector('.rev-AccordionItem-content')
 
@@ -60,11 +64,11 @@ function initializeAccordianItems(accordian) {
  * Initializes all accordian components on page.
  * @returns {void}
  */
-export function initializeAccordianComponents() {
+export function initializeAccordianComponents(): void {
   const accordians = document.querySelectorAll('.rev-Accordion')
 
   for (let i = 0; i < accordians.length; i++) {
-    const accordian = accordians[i]
+    const accordian = accordians[i] as HTMLElement
 
     initializeAccordianItems(accordian)
   }
@@ -75,7 +79,7 @@ export function initializeAccordianComponents() {
  * @param {HTMLElement} modalElement The Modal component
  * @returns {void}
  */
-export function openModal(modalElement) {
+export function openModal(modalElement: HTMLElement): void {
   if (modalElement) {
     modalElement.classList.add('rev-Modal--open')
     modalElement.classList.remove('rev-Modal--closed')
@@ -87,7 +91,7 @@ export function openModal(modalElement) {
  * @param {HTMLElement} modalElement The Modal component
  * @returns {void}
  */
-export function closeModal(modalElement) {
+export function closeModal(modalElement: HTMLElement): void {
   if (modalElement) {
     modalElement.classList.remove('rev-Modal--open')
     modalElement.classList.add('rev-Modal--closed')
@@ -98,18 +102,20 @@ export function closeModal(modalElement) {
  * Initializes all modals components on page.
  * @returns {void}
  */
-export function initializeModalComponents() {
+export function initializeModalComponents(): void {
   const modals = document.querySelectorAll('.rev-Modal')
 
   for (let i = 0; i < modals.length; i++) {
-    const modal = modals[i]
+    const modal = modals[i] as HTMLElement
 
     const closeButton = modal.querySelector('.rev-CloseButton')
 
-    closeButton.addEventListener('click', (e) => {
-      e.preventDefault()
-      closeModal(modal)
-    })
+    if (closeButton) {
+      closeButton.addEventListener('click', (e) => {
+        e.preventDefault()
+        closeModal(modal)
+      })
+    }
   }
 }
 
@@ -119,7 +125,7 @@ export function initializeModalComponents() {
  * @param {number} tabIndex The index of the tab to select
  * @returns {void}
  */
-export function selectTab(tabComponent, tabIndex) {
+export function selectTab(tabComponent: HTMLElement, tabIndex: number): void {
   const tabTitles = tabComponent.querySelectorAll('.rev-TabsTitle')
   const tabPanels = tabComponent.querySelectorAll('.rev-TabsItem-panel')
 
@@ -137,7 +143,11 @@ export function selectTab(tabComponent, tabIndex) {
   }
 }
 
-function initializeTab(tabComponent) {
+/**
+ * Initializes a single tab component
+ * @param tabComponent The tab component to initialize
+ */
+function initializeTab(tabComponent: HTMLElement): void {
   const tabTitles = tabComponent.querySelectorAll('.rev-TabsTitle-link')
 
   for (let i = 0; i < tabTitles.length; i++) {
@@ -154,21 +164,22 @@ function initializeTab(tabComponent) {
  * Initializes all tabs components on page.
  * @returns {void}
  */
-export function initializeTabsComponents() {
+export function initializeTabsComponents(): void {
   const tabComponents = document.querySelectorAll('.rev-Tabs')
 
   for (let i = 0; i < tabComponents.length; i++) {
-    const tabComponent = tabComponents[i]
+    const tabComponent = tabComponents[i] as HTMLElement
 
     initializeTab(tabComponent)
   }
 }
+
 /**
  * Opens the given Drawer component
  * @param {HTMLElement} drawerComponent The Drawer component element
  * @returns {void}
  */
-export function openDrawer(drawerComponent) {
+export function openDrawer(drawerComponent: HTMLElement): void {
   drawerComponent.classList.add('rev-Drawer--open')
 }
 
@@ -177,7 +188,7 @@ export function openDrawer(drawerComponent) {
  * @param {HTMLElement} drawerComponent The Drawer component element
  * @returns {void}
  */
-export function closeDrawer(drawerComponent) {
+export function closeDrawer(drawerComponent: HTMLElement): void {
   drawerComponent.classList.remove('rev-Drawer--open')
 }
 
@@ -185,24 +196,28 @@ export function closeDrawer(drawerComponent) {
  * Initializes all drawer components on page.
  * @returns {void}
  */
-export function initializeDrawerComponents() {
+export function initializeDrawerComponents(): void {
   const drawerComponents = document.querySelectorAll('.rev-Drawer')
 
   for (let i = 0; i < drawerComponents.length; i++) {
-    const drawerComponent = drawerComponents[i]
+    const drawerComponent = drawerComponents[i] as HTMLElement
 
     const opener = drawerComponent.querySelector('.rev-Drawer-expander')
     const closer = drawerComponent.querySelector('.rev-Drawer-closer')
 
-    opener.addEventListener('click', (e) => {
-      e.preventDefault()
-      openDrawer(drawerComponent)
-    })
+    if (opener) {
+      opener.addEventListener('click', (e) => {
+        e.preventDefault()
+        openDrawer(drawerComponent)
+      })
+    }
 
-    closer.addEventListener('click', (e) => {
-      e.preventDefault()
-      closeDrawer(drawerComponent)
-    })
+    if (closer) {
+      closer.addEventListener('click', (e) => {
+        e.preventDefault()
+        closeDrawer(drawerComponent)
+      })
+    }
   }
 }
 
@@ -210,22 +225,24 @@ export function initializeDrawerComponents() {
  * Initializes all slider components on page.
  * @returns {void}
  */
-export function initializeSliderComponents() {
+export function initializeSliderComponents(): void {
   const sliderComponents = document.querySelectorAll('.rev-Slider')
 
   for (let i = 0; i < sliderComponents.length; i++) {
-    const sliderComponent = sliderComponents[i]
+    const sliderComponent = sliderComponents[i] as HTMLElement
 
-    const slider = sliderComponent.querySelector('.rev-Slider-range')
-    const input = sliderComponent.querySelector('.rev-Slider-input')
+    const slider = sliderComponent.querySelector('.rev-Slider-range') as HTMLInputElement
+    const input = sliderComponent.querySelector('.rev-Slider-input') as HTMLInputElement
 
-    slider.addEventListener('input', () => {
-      input.value = slider.value
-    })
+    if (slider && input) {
+      slider.addEventListener('input', () => {
+        input.value = slider.value
+      })
 
-    input.addEventListener('input', () => {
-      slider.value = input.value
-    })
+      input.addEventListener('input', () => {
+        slider.value = input.value
+      })
+    }
   }
 }
 
@@ -234,7 +251,7 @@ export function initializeSliderComponents() {
  * @param {HTMLElement} expandingColumnComponent The expanding column component to open
  * @returns {void}
  */
-export function openExpandingColumn(expandingColumnComponent) {
+export function openExpandingColumn(expandingColumnComponent: HTMLElement): void {
   expandingColumnComponent.classList.remove('is-closed')
   expandingColumnComponent.classList.add('is-open')
 }
@@ -244,42 +261,51 @@ export function openExpandingColumn(expandingColumnComponent) {
  * @param {HTMLElement} expandingColumnComponent The expanding column component to close
  * @returns {void}
  */
-export function closeExpandingColumn(expandingColumnComponent) {
+export function closeExpandingColumn(expandingColumnComponent: HTMLElement): void {
   expandingColumnComponent.classList.add('is-closed')
   expandingColumnComponent.classList.remove('is-open')
 }
 
 /**
- * Initializes all expanding column components on page
+ * Initializes all expanding column components on page.
  * @returns {void}
  */
-export function initializeExpandingColumnComponents() {
-  const expandingColumns = document.querySelectorAll('.rev-ExpandingCol-pane')
+export function initializeExpandingColumnComponents(): void {
+  const expandingColumnComponents = document.querySelectorAll(
+    '.rev-ExpandingCol'
+  )
 
-  for (let i = 0; i < expandingColumns.length; i++) {
-    const expandingColumnComponent = expandingColumns[i]
+  for (let i = 0; i < expandingColumnComponents.length; i++) {
+    const expandingColumnComponent = expandingColumnComponents[i] as HTMLElement
 
     const expander = expandingColumnComponent.querySelector(
       '.rev-ExpandingCol-expander'
     )
+    const closer = expandingColumnComponent.querySelector(
+      '.rev-ExpandingCol-closer'
+    )
 
-    expander.addEventListener('click', (e) => {
-      e.preventDefault()
-
-      if (expandingColumnComponent.classList.contains('is-closed')) {
+    if (expander) {
+      expander.addEventListener('click', (e) => {
+        e.preventDefault()
         openExpandingColumn(expandingColumnComponent)
-      } else {
+      })
+    }
+
+    if (closer) {
+      closer.addEventListener('click', (e) => {
+        e.preventDefault()
         closeExpandingColumn(expandingColumnComponent)
-      }
-    })
+      })
+    }
   }
 }
 
 /**
- * Initializes all Harmonium components on page.
+ * Initializes all components on page.
  * @returns {void}
  */
-export function initializeAllComponents() {
+export function initializeAllComponents(): void {
   initializeFlashComponents()
   initializeAccordianComponents()
   initializeModalComponents()
@@ -287,4 +313,4 @@ export function initializeAllComponents() {
   initializeDrawerComponents()
   initializeSliderComponents()
   initializeExpandingColumnComponents()
-}
+} 

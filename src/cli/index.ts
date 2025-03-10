@@ -1,17 +1,25 @@
 #!/usr/bin/env node
 
-const commander = require('commander')
-const fs = require('fs')
-const path = require('path')
-const program = new commander.Command()
+import commander from 'commander'
+import fs from 'fs'
+import path from 'path'
+import { promisify } from 'util'
+import * as configuration from '../configuration'
+// Can't use ES module import for files outside the TypeScript scope
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const packageInfo = require('./../../package.json')
-const configuration = require('./../configuration/index.js')
-const util = require('util')
-const {promisify} = require('util')
+
+interface CommandOptions {
+  outputPath?: string
+  config?: string
+  name: string
+}
+
+const program = new commander.Command()
 
 program.version(packageInfo.version)
 
-let cmdValue
+let cmdValue: string | undefined
 
 program
   .command('init')
@@ -20,7 +28,7 @@ program
     '-o, --outputPath [path]',
     'the path and filename to make the config file'
   )
-  .action(async (cmd) => {
+  .action(async (cmd: CommandOptions) => {
     cmdValue = cmd.name
     const outputPath = cmd.outputPath
       ? cmd.outputPath
@@ -42,12 +50,14 @@ program
     '-c, --config [path]',
     'the configuration path and filename if not in the current working directory'
   )
-  .action(async (cmd) => {
+  .action(async (cmd: CommandOptions) => {
     cmdValue = cmd.name
     const configPath = cmd.config
       ? cmd.config
       : path.join(process.cwd(), 'harmonium.config.js')
 
+    // Using require dynamically for user configuration
+    // eslint-disable-next-line @typescript-eslint/no-var-requires
     const userConfiguration = require(configPath)
 
     const originalConfiguration = await configuration.createConfiguration()
@@ -65,4 +75,4 @@ program.parse(process.argv)
 if (typeof cmdValue === 'undefined') {
   program.help()
   process.exit(1)
-}
+} 

@@ -1,7 +1,30 @@
-const StyleDictionary = require('style-dictionary')
-const Color = require('tinycolor2')
+import StyleDictionary from 'style-dictionary'
+import Color from 'tinycolor2'
 
-function fileHeader(options, commentStyle) {
+interface FormatOptions {
+  showFileHeader?: boolean
+}
+
+interface Property {
+  name: string
+  value: string
+  comment?: string
+  attributes: {
+    category: string
+    [key: string]: any
+  }
+}
+
+// This interface is used in the code as a type annotation for function parameters
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+interface Dictionary {
+  allProperties: Property[]
+}
+
+/**
+ * Generates a file header comment block
+ */
+function fileHeader(options?: FormatOptions, commentStyle?: string): string {
   let to_ret = ''
   // for backward compatibility we need to have the user explicitly hide them
 
@@ -24,7 +47,15 @@ function fileHeader(options, commentStyle) {
   return to_ret
 }
 
-function variablesWithPrefix(prefix, properties, suffix, commentStyle) {
+/**
+ * Generates CSS/SCSS variables with a prefix and suffix
+ */
+function variablesWithPrefix(
+  prefix: string,
+  properties: Property[],
+  suffix: string,
+  commentStyle?: string
+): string {
   return properties
     .map((prop) => {
       let to_ret_prop = `${prefix + prop.name}: ${
@@ -49,11 +80,17 @@ function variablesWithPrefix(prefix, properties, suffix, commentStyle) {
     .join('\n')
 }
 
-function isColor(prop) {
+/**
+ * Checks if a property is a color
+ */
+function isColor(prop: Property): boolean {
   return prop.attributes.category === 'color'
 }
 
-function prepareStyleDictionary() {
+/**
+ * Prepares the StyleDictionary with custom transformations
+ */
+export function prepareStyleDictionary() {
   StyleDictionary.registerTransformGroup({
     name: 'docs',
     transforms: ['attribute/cti', 'name/cti/kebab', 'size/rem', 'color/css'],
@@ -61,35 +98,35 @@ function prepareStyleDictionary() {
 
   StyleDictionary.registerFormat({
     name: 'scss/variables/default',
-    formatter(dictionary) {
+    formatter: function(this: { options?: FormatOptions }, dictionary: any) {
       return (
         fileHeader(this.options, 'short') +
         variablesWithPrefix('$', dictionary.allProperties, '!default', 'short')
       )
-    },
+    } as any,
   })
 
   // Since we are making a separate color palette file for sass,
   // we want to filter those out
   StyleDictionary.registerFilter({
     name: 'isColor',
-    matcher(prop) {
+    matcher: function(prop: any) {
       return isColor(prop)
-    },
+    } as any,
   })
 
   StyleDictionary.registerFilter({
     name: 'isNotColor',
-    matcher(prop) {
+    matcher: function(prop: any) {
       return !isColor(prop)
-    },
+    } as any,
   })
 
   StyleDictionary.registerTransform({
     name: 'color/css-capitalized',
     type: 'value',
-    matcher: isColor,
-    transformer: (prop) => {
+    matcher: isColor as any,
+    transformer: function(prop: any) {
       const color = Color(prop.value)
 
       if (color.getAlpha() === 1) {
@@ -97,7 +134,7 @@ function prepareStyleDictionary() {
       } else {
         return color.toRgbString()
       }
-    },
+    } as any,
   })
 
   StyleDictionary.registerTransformGroup({
@@ -113,8 +150,4 @@ function prepareStyleDictionary() {
   })
 
   return StyleDictionary
-}
-
-module.exports = {
-  prepareStyleDictionary,
-}
+} 

@@ -1,4 +1,4 @@
-import React, {Component, Fragment, RefObject} from 'react'
+import React, {Component} from 'react'
 import classNames from 'classnames'
 
 /**
@@ -295,13 +295,14 @@ class StickyContainer extends Component<StickyContainerProps> {
   }
 }
 
-// Define the Sticky type with Container
+// Define the extended Sticky type
 interface StickyClass extends React.ComponentClass<StickyProps> {
   Container: typeof StickyContainer
 }
 
-// Add the Container to Sticky
-(Sticky as any).Container = StickyContainer
+// Create the augmented Sticky object with proper type casting
+const StickyWithContainer = Sticky as unknown as StickyClass
+StickyWithContainer.Container = StickyContainer
 
-// Export with type casting
-export default Sticky as StickyClass 
+// Export the augmented component
+export default StickyWithContainer 
