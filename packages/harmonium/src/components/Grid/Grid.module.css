@@ -1,0 +1,19 @@
+.root {
+  display: grid;
+  grid-template-columns: var(--grid-columns, repeat(12, 1fr));
+}
+
+.root[data-gap='xs'] { gap: var(--harmonium-spacing-xs); }
+.root[data-gap='sm'] { gap: var(--harmonium-spacing-sm); }
+.root[data-gap='md'] { gap: var(--harmonium-spacing-md); }
+.root[data-gap='lg'] { gap: var(--harmonium-spacing-lg); }
+.root[data-gap='xl'] { gap: var(--harmonium-spacing-xl); }
+
+.root[data-align='start'] { align-items: start; }
+.root[data-align='center'] { align-items: center; }
+.root[data-align='end'] { align-items: end; }
+.root[data-align='stretch'] { align-items: stretch; }
+
+.col {
+  grid-column: var(--col-span, auto);
+}

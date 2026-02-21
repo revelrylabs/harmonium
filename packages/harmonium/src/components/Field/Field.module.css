@@ -1,0 +1,27 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--harmonium-spacing-xs);
+}
+
+.label {
+  font-size: var(--harmonium-font-size-sm);
+  font-weight: var(--harmonium-font-weight-medium);
+  color: var(--harmonium-color-text);
+}
+
+.root[data-error] .label {
+  color: var(--harmonium-color-error);
+}
+
+.description {
+  font-size: var(--harmonium-font-size-xs);
+  color: var(--harmonium-color-text-muted);
+  margin: 0;
+}
+
+.error {
+  font-size: var(--harmonium-font-size-xs);
+  color: var(--harmonium-color-error);
+  margin: 0;
+}

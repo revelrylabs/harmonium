@@ -1,0 +1,44 @@
+.root {
+  display: flex;
+  flex-direction: column;
+}
+
+.list {
+  display: flex;
+  border-bottom: 1px solid var(--harmonium-color-border);
+  gap: 0;
+}
+
+.trigger {
+  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-md);
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--harmonium-font-size-sm);
+  font-weight: var(--harmonium-font-weight-medium);
+  color: var(--harmonium-color-text-muted);
+  transition:
+    color var(--harmonium-transition-duration-base) ease,
+    border-color var(--harmonium-transition-duration-base) ease;
+  margin-bottom: -1px;
+}
+
+.trigger:hover {
+  color: var(--harmonium-color-text);
+}
+
+.trigger[data-state='active'] {
+  color: var(--harmonium-color-brand-primary);
+  border-bottom-color: var(--harmonium-color-brand-primary);
+}
+
+.trigger:focus-visible {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: -2px;
+}
+
+.content {
+  padding: var(--harmonium-spacing-md) 0;
+}

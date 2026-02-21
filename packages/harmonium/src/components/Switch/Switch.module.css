@@ -1,0 +1,97 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--harmonium-spacing-sm);
+  cursor: pointer;
+  user-select: none;
+}
+
+.input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.track {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  background: var(--harmonium-color-gray-200);
+  border-radius: var(--harmonium-radius-full);
+  transition: background-color var(--harmonium-transition-duration-base) ease;
+  flex-shrink: 0;
+}
+
+.root[data-size='sm'] .track {
+  width: 32px;
+  height: 18px;
+}
+
+.root[data-size='md'] .track {
+  width: 40px;
+  height: 22px;
+}
+
+.root[data-size='lg'] .track {
+  width: 48px;
+  height: 26px;
+}
+
+.thumb {
+  position: absolute;
+  background: var(--harmonium-color-white);
+  border-radius: 50%;
+  box-shadow: var(--harmonium-shadow-sm);
+  transition: transform var(--harmonium-transition-duration-base) ease;
+  left: 2px;
+}
+
+.root[data-size='sm'] .thumb {
+  width: 14px;
+  height: 14px;
+}
+
+.root[data-size='md'] .thumb {
+  width: 18px;
+  height: 18px;
+}
+
+.root[data-size='lg'] .thumb {
+  width: 22px;
+  height: 22px;
+}
+
+.input:checked + .track {
+  background: var(--harmonium-color-brand-primary);
+}
+
+.root[data-size='sm'] .input:checked + .track .thumb {
+  transform: translateX(14px);
+}
+
+.root[data-size='md'] .input:checked + .track .thumb {
+  transform: translateX(18px);
+}
+
+.root[data-size='lg'] .input:checked + .track .thumb {
+  transform: translateX(22px);
+}
+
+.input:focus-visible + .track {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: 2px;
+}
+
+.input:disabled + .track {
+  opacity: var(--harmonium-opacity-disabled);
+}
+
+.input:disabled ~ .label {
+  opacity: var(--harmonium-opacity-disabled);
+}
+
+.label {
+  font-size: var(--harmonium-font-size-sm);
+  color: var(--harmonium-color-text);
+}

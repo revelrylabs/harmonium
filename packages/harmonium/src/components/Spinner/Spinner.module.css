@@ -1,0 +1,36 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.circle {
+  display: block;
+  border-radius: 50%;
+  border: 2px solid var(--harmonium-color-gray-200);
+  border-top-color: var(--harmonium-color-brand-primary);
+  animation: spin 0.6s linear infinite;
+}
+
+.root[data-size='sm'] .circle {
+  width: 16px;
+  height: 16px;
+}
+
+.root[data-size='md'] .circle {
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+}
+
+.root[data-size='lg'] .circle {
+  width: 40px;
+  height: 40px;
+  border-width: 4px;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
