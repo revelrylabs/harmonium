@@ -1,8 +1,0 @@
-@mixin panel($padded: false) {
-  border: 1px solid $color-divider;
-  margin-bottom: $spacing-base;
-
-  @if ($padded) {
-    padding: $spacing-base $spacing-base;
-  }
-}

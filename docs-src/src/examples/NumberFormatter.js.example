@@ -1,5 +1,0 @@
-<NumberFormatter 
-  value={0.0525} 
-  style="percent" 
-  minimumFractionDigits={2} 
-/>

@@ -1,0 +1,17 @@
+{
+  "color": {
+    "$type": "color",
+    "success": { "$value": "#00A67F" },
+    "warning": { "$value": "#D94011" },
+    "error": { "$value": "#D10034" },
+    "info": { "$value": "{color.brand.primary}" },
+    "bg": { "$value": "{color.white}" },
+    "text": { "$value": "{color.gray.800}" },
+    "text-muted": { "$value": "{color.gray.400}" },
+    "surface": { "$value": "{color.white}" },
+    "border": { "$value": "{color.gray.200}" },
+    "on-primary": { "$value": "{color.white}" },
+    "on-secondary": { "$value": "{color.white}" },
+    "disabled": { "$value": "{color.gray.300}" }
+  }
+}

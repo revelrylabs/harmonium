@@ -1,0 +1,30 @@
+{
+  "opacity": {
+    "$type": "number",
+    "disabled": { "$value": 0.4 }
+  },
+  "z-index": {
+    "$type": "number",
+    "dropdown": { "$value": 100 },
+    "sticky": { "$value": 200 },
+    "overlay": { "$value": 300 },
+    "modal": { "$value": 400 },
+    "popover": { "$value": 500 },
+    "tooltip": { "$value": 600 }
+  },
+  "transition": {
+    "duration": {
+      "$type": "duration",
+      "fast": { "$value": "100ms" },
+      "base": { "$value": "150ms" },
+      "slow": { "$value": "300ms" }
+    }
+  },
+  "screen": {
+    "sm": { "$type": "dimension", "$value": "640px" },
+    "md": { "$type": "dimension", "$value": "768px" },
+    "lg": { "$type": "dimension", "$value": "1024px" },
+    "xl": { "$type": "dimension", "$value": "1280px" },
+    "2xl": { "$type": "dimension", "$value": "1440px" }
+  }
+}

@@ -1,7 +1,0 @@
-#!/bin/bash
-
-set -x
-set -e
-
-NODE_ENV=test npx nyc mocha './src/**/*.test.js'
-npm run sass-test

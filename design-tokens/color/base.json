@@ -1,0 +1,19 @@
+{
+  "color": {
+    "$type": "color",
+    "white": { "$value": "#ffffff" },
+    "black": { "$value": "#000000" },
+    "gray": {
+      "50": { "$value": "#f4f4f4" },
+      "100": { "$value": "#e5e5e5" },
+      "200": { "$value": "#d5d5d5" },
+      "300": { "$value": "#ababab" },
+      "400": { "$value": "#818181" },
+      "500": { "$value": "#6b6b6b" },
+      "600": { "$value": "#565656" },
+      "700": { "$value": "#3d3d3d" },
+      "800": { "$value": "#2a2a2a" },
+      "900": { "$value": "#1a1a1a" }
+    }
+  }
+}

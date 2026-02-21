@@ -1,0 +1,36 @@
+{
+  "font": {
+    "family": {
+      "$type": "fontFamily",
+      "sans": { "$value": "'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif" },
+      "serif": { "$value": "'Georgia', serif" },
+      "mono": { "$value": "'Roboto Mono', 'Courier New', monospace" }
+    },
+    "size": {
+      "$type": "dimension",
+      "xs": { "$value": "0.75rem" },
+      "sm": { "$value": "0.875rem" },
+      "base": { "$value": "1rem" },
+      "md": { "$value": "1.125rem" },
+      "lg": { "$value": "1.25rem" },
+      "xl": { "$value": "1.5rem" },
+      "2xl": { "$value": "1.875rem" },
+      "3xl": { "$value": "2.25rem" },
+      "4xl": { "$value": "3rem" }
+    },
+    "weight": {
+      "$type": "fontWeight",
+      "light": { "$value": 300 },
+      "normal": { "$value": 400 },
+      "medium": { "$value": 500 },
+      "semibold": { "$value": 600 },
+      "bold": { "$value": 700 }
+    }
+  },
+  "line-height": {
+    "$type": "number",
+    "tight": { "$value": 1.1 },
+    "base": { "$value": 1.5 },
+    "relaxed": { "$value": 1.75 }
+  }
+}

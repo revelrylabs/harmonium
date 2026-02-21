@@ -1,27 +1,24 @@
-.node-version
 node_modules/
-lib/
-docs/**/*
-!docs/.keep
-npm-debug.log
-yarn-error.log
-/.nyc_output/*
-coverage/**/*
-docs-src/yarn.lock
-yarn.lock
-api.json
-/api
-.idea
-/sass-test/*.css
-/src/vanilla/index.html
-/src/vanilla/harmonium.css
-/docs-src/static/settings-templates.zip
-/settings-templates/_harmonium-settings.scss
-/settings-templates/_color-palette.scss
-/settings-templates/harmonium-tokens.js
-/settings-templates/settings-templates.zip
-harmonium.config.js
-harmonium-settings/
-js/
+dist/
+.turbo/
+*.tsbuildinfo
+
+# Generated token files
+packages/harmonium/src/tokens/tokens.css
+packages/harmonium/src/tokens/tokens.ts
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
 .DS_Store
-.sass-cache/
+Thumbs.db
+
+# Storybook
+storybook-static/
+
+# Coverage
+coverage/

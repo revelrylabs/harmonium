@@ -1,9 +1,10 @@
 {
   "color": {
+    "$type": "color",
     "brand": {
-      "primary": {"value": "#295DE5"},
-      "secondary": {"value": "#6422EB"},
-      "tertiary": {"value": "501BBC"}
+      "primary": { "$value": "#295DE5" },
+      "secondary": { "$value": "#6422EB" },
+      "tertiary": { "$value": "#501BBC" }
     }
   }
 }

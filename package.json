@@ -1,170 +1,22 @@
 {
-  "name": "harmonium",
-  "version": "8.0.3",
-  "description": "An opinionated React component framework for teams that move fast.",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/revelrylabs/harmonium.git"
-  },
-  "dependencies": {
-    "bowser": "^2.0.0",
-    "breakpoint-sass": "^2.7.1",
-    "chart.js": "^3.8.0",
-    "classnames": "^2.2.5",
-    "commander": "^5.0.0",
-    "deepmerge": "^4.2.2",
-    "del": "^6.1.1",
-    "glob": "^8.0.3",
-    "jquery": "^3.2.1",
-    "lodash": "^4.17.5",
-    "luxon": "^2.4.0",
-    "prop-types": "^15.5.7",
-    "react": ">=15.3.0",
-    "react-dom": ">=15.3.0",
-    "sass": "^1.52.1",
-    "sassy-npm-importer": "^3.0.0",
-    "style-dictionary": "^3.7.0",
-    "tempy": "^0.5.0",
-    "tinycolor2": "^1.4.1"
-  },
-  "bin": {
-    "harmonium": "./src/cli/index.js"
-  },
+  "name": "harmonium-monorepo",
+  "private": true,
+  "packageManager": "pnpm@10.26.0",
   "scripts": {
-    "clean": "rm -rf lib/",
-    "babel": "babel --source-maps -d lib/ src/",
-    "build": "npm run clean && npm run babel && node build.js",
-    "test": "bin/test",
-    "fix": "eslint src/**/*.js docs-src/src/**/*.js --fix",
-    "sass-test": "cat ./sass-test/input.scss | sass --stdin > ./sass-test/output.css"
+    "build": "turbo run build",
+    "test": "turbo run test",
+    "lint": "turbo run lint",
+    "storybook": "pnpm --filter docs run storybook",
+    "clean": "turbo run clean"
   },
-  "keywords": [],
-  "author": {
-    "name": "Revelry Labs",
-    "email": "support@revelry.co",
-    "url": "https://revelry.co"
-  },
-  "contributors": [
-    {
-      "name": "Joel Wietelmann",
-      "email": "joel@revelry.co"
-    },
-    {
-      "name": "Robert Prehn",
-      "email": "robert@revelry.co"
-    },
-    {
-      "name": "Laura Hill",
-      "email": "laura@revelry.co"
-    }
-  ],
-  "license": "MIT",
   "devDependencies": {
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.0.0",
-    "@babel/plugin-proposal-class-properties": "^7.0.0",
-    "@babel/plugin-proposal-export-default-from": "^7.0.0",
-    "@babel/plugin-proposal-json-strings": "^7.0.0",
-    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
-    "@babel/plugin-syntax-import-meta": "^7.0.0",
-    "@babel/polyfill": "^7.0.0",
-    "@babel/preset-env": "^7.0.0",
-    "@babel/preset-react": "^7.0.0",
-    "@babel/register": "^7.0.0",
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^9.0.1",
-    "archiver": "^5.3.1",
-    "babel-eslint": "^10.0.1",
-    "babel-plugin-istanbul": "^6.1.1",
-    "chai": "^4.2.0",
-    "cheerio": "=1.0.0-rc.3",
-    "coveralls": "^3.0.2",
-    "enzyme": ">=2.8.2",
-    "enzyme-adapter-react-16": "^1.1.1",
-    "eslint": "^8.17.0",
-    "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-babel": "^5.3.1",
-    "eslint-plugin-jsx-a11y": "^6.5.1",
-    "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react": "^7.30.0",
-    "graceful-readlink": "^1.0.1",
-    "gulp": "^4.0.2",
-    "jsdom": "^19.0.0",
-    "jsdom-global": "^3.0.2",
-    "mocha": "^10.0.0",
-    "nyc": "^15.1.0",
-    "prettier": "^2.6.2",
-    "prettier-eslint": "^15.0.1",
-    "react-test-renderer": "^16.8.0",
-    "semantic-release": "^19.0.2",
-    "sinon": "^14.0.0",
-    "timekeeper": "^2.0.0"
+    "turbo": "^2"
   },
-  "mocha": {
-    "require": [
-      "@babel/register",
-      "@babel/polyfill",
-      "./test-config"
-    ]
-  },
-  "nyc": {
-    "require": [
-      "@babel/register"
-    ],
-    "reporter": [
-      "lcov",
-      "html",
-      "text"
-    ],
-    "sourceMap": false,
-    "instrument": true
-  },
-  "babel": {
-    "presets": [
-      "@babel/preset-react",
-      [
-        "@babel/preset-env",
-        {
-          "targets": {
-            "node": "16"
-          },
-          "useBuiltIns": "entry",
-          "corejs": 3
-        }
-      ]
-    ],
-    "env": {
-      "test": {
-        "plugins": [
-          "istanbul"
-        ]
-      }
-    },
-    "plugins": [
-      "@babel/plugin-syntax-dynamic-import",
-      "@babel/plugin-syntax-import-meta",
-      "@babel/plugin-proposal-class-properties",
-      "@babel/plugin-proposal-json-strings",
-      "@babel/plugin-proposal-export-default-from"
-    ]
-  },
-  "release": {
-    "verifyConditions": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ],
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      {
-        "path": "@semantic-release/git",
-        "assets": [
-          "package.json"
-        ],
-        "message": "chore(release): Bump version to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-      }
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "style-dictionary",
+      "@bundled-es-modules/glob"
     ]
   }
 }

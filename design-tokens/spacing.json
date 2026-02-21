@@ -1,22 +1,12 @@
 {
   "spacing": {
-    "tiny": {
-      "value": "6px"
-    },
-    "small": {
-      "value": "12px"
-    },
-    "medium": {
-      "value": "24px"
-    },
-    "large": {
-      "value": "48px"
-    },
-    "larger": {
-      "value": "72px"
-    },
-    "base": {
-      "value": "{spacing.medium.value}"
-    }
+    "$type": "dimension",
+    "xs": { "$value": "4px" },
+    "sm": { "$value": "8px" },
+    "md": { "$value": "16px" },
+    "lg": { "$value": "24px" },
+    "xl": { "$value": "32px" },
+    "2xl": { "$value": "48px" },
+    "3xl": { "$value": "72px" }
   }
 }

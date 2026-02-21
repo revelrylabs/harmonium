@@ -1,4 +1,0 @@
-<Row className="ColumnExamples" flex>
-  <Col shrink>shrunk</Col>
-  <Col>remainder</Col>
-</Row>

@@ -1,0 +1,21 @@
+{
+  "name": "@harmonium/docs",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "storybook": "storybook dev -p 6006",
+    "build": "storybook build"
+  },
+  "dependencies": {
+    "harmonium": "workspace:*"
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.6.0",
+    "@storybook/addon-a11y": "^8.6.0",
+    "@storybook/react": "^8.6.0",
+    "@storybook/react-vite": "^8.6.0",
+    "storybook": "^8.6.0",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  }
+}
