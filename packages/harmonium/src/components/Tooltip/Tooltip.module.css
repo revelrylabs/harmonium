@@ -1,0 +1,44 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+.content {
+  position: absolute;
+  z-index: var(--harmonium-z-index-tooltip);
+  padding: var(--harmonium-spacing-xs) var(--harmonium-spacing-sm);
+  background: var(--harmonium-color-gray-800);
+  color: var(--harmonium-color-white);
+  font-size: var(--harmonium-font-size-xs);
+  border-radius: var(--harmonium-radius-md);
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.content[data-side='top'] {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: var(--harmonium-spacing-xs);
+}
+
+.content[data-side='bottom'] {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: var(--harmonium-spacing-xs);
+}
+
+.content[data-side='left'] {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: var(--harmonium-spacing-xs);
+}
+
+.content[data-side='right'] {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: var(--harmonium-spacing-xs);
+}

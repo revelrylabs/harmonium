@@ -1,0 +1,24 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: var(--harmonium-z-index-overlay);
+}
+
+.root {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background: var(--harmonium-color-surface);
+  box-shadow: var(--harmonium-shadow-xl);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.root[data-side='left'] { left: 0; }
+.root[data-side='right'] { right: 0; }
+
+.root[data-size='sm'] { width: 280px; }
+.root[data-size='md'] { width: 400px; }
+.root[data-size='lg'] { width: 560px; }

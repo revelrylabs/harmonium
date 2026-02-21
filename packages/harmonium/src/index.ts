@@ -38,6 +38,17 @@ export {
   Radio,
   RadioGroup,
   Switch,
+  Dialog,
+  DialogHeader,
+  DialogBody,
+  DialogFooter,
+  Drawer,
+  Tooltip,
+  Popover,
+  Menu,
+  MenuItem,
+  MenuSeparator,
+  MenuLabel,
 } from './components'
 
 export type {
@@ -73,4 +84,15 @@ export type {
   RadioProps,
   RadioGroupProps,
   SwitchProps,
+  DialogProps,
+  DialogHeaderProps,
+  DialogBodyProps,
+  DialogFooterProps,
+  DrawerProps,
+  TooltipProps,
+  PopoverProps,
+  MenuProps,
+  MenuItemProps,
+  MenuSeparatorProps,
+  MenuLabelProps,
 } from './components'

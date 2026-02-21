@@ -57,3 +57,18 @@ export type {RadioProps, RadioGroupProps} from './Radio'
 
 export {Switch} from './Switch'
 export type {SwitchProps} from './Switch'
+
+export {Dialog, DialogHeader, DialogBody, DialogFooter} from './Dialog'
+export type {DialogProps, DialogHeaderProps, DialogBodyProps, DialogFooterProps} from './Dialog'
+
+export {Drawer} from './Drawer'
+export type {DrawerProps} from './Drawer'
+
+export {Tooltip} from './Tooltip'
+export type {TooltipProps} from './Tooltip'
+
+export {Popover} from './Popover'
+export type {PopoverProps} from './Popover'
+
+export {Menu, MenuItem, MenuSeparator, MenuLabel} from './Menu'
+export type {MenuProps, MenuItemProps, MenuSeparatorProps, MenuLabelProps} from './Menu'

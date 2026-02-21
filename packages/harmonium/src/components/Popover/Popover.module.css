@@ -1,0 +1,47 @@
+.root {
+  position: relative;
+  display: inline-flex;
+}
+
+.trigger {
+  cursor: pointer;
+}
+
+.content {
+  position: absolute;
+  z-index: var(--harmonium-z-index-popover);
+  padding: var(--harmonium-spacing-md);
+  background: var(--harmonium-color-surface);
+  border: 1px solid var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-lg);
+  box-shadow: var(--harmonium-shadow-lg);
+  min-width: 200px;
+}
+
+.content[data-side='top'] {
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-bottom: var(--harmonium-spacing-xs);
+}
+
+.content[data-side='bottom'] {
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: var(--harmonium-spacing-xs);
+}
+
+.content[data-side='left'] {
+  right: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: var(--harmonium-spacing-xs);
+}
+
+.content[data-side='right'] {
+  left: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  margin-left: var(--harmonium-spacing-xs);
+}
