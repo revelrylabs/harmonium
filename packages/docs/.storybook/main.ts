@@ -14,6 +14,10 @@ const config: StorybookConfig = {
       ...config.resolve.alias,
       harmonium: resolve(__dirname, '../../harmonium/src'),
     }
+    config.esbuild = {
+      ...config.esbuild,
+      jsx: 'automatic',
+    }
     return config
   },
 }
