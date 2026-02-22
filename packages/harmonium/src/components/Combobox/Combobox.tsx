@@ -22,11 +22,11 @@ export interface ComboboxProps extends Omit<React.HTMLAttributes<HTMLDivElement>
 
 export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(
   ({options, value, onChange, placeholder = 'Search...', disabled, className, ...props}, ref) => {
+    const instanceId = React.useId()
     const [query, setQuery] = React.useState('')
     const [open, setOpen] = React.useState(false)
     const [highlightIndex, setHighlightIndex] = React.useState(-1)
     const inputRef = React.useRef<HTMLInputElement>(null)
-    const listRef = React.useRef<HTMLUListElement>(null)
 
     const filtered = query
       ? options.filter((opt) => opt.label.toLowerCase().includes(query.toLowerCase()))
@@ -76,6 +76,8 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(
       }
     }
 
+    const optionId = (index: number) => `${instanceId}-option-${index}`
+
     return (
       <div ref={ref} className={clsx(styles.root, className)} {...props}>
         <input
@@ -89,7 +91,7 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(
           aria-expanded={open}
           aria-autocomplete="list"
           aria-activedescendant={
-            highlightIndex >= 0 ? `combobox-option-${highlightIndex}` : undefined
+            highlightIndex >= 0 ? optionId(highlightIndex) : undefined
           }
           onChange={(event) => {
             setQuery(event.target.value)
@@ -97,15 +99,15 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(
             setHighlightIndex(-1)
           }}
           onFocus={() => setOpen(true)}
-          onBlur={() => setTimeout(() => setOpen(false), 150)}
+          onBlur={() => setTimeout(() => setOpen(false), 200)}
           onKeyDown={handleKeyDown}
         />
         {open && filtered.length > 0 && (
-          <ul ref={listRef} className={styles.list} role="listbox">
+          <ul className={styles.list} role="listbox">
             {filtered.map((opt, index) => (
               <li
                 key={opt.value}
-                id={`combobox-option-${index}`}
+                id={optionId(index)}
                 className={styles.option}
                 role="option"
                 aria-selected={opt.value === value}

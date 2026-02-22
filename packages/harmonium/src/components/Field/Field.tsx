@@ -18,11 +18,9 @@ export interface FieldProps extends React.HTMLAttributes<HTMLDivElement> {
   error?: boolean
 }
 
-let fieldCounter = 0
-
 export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
   ({error, className, children, ...props}, ref) => {
-    const [fieldId] = React.useState(() => `harmonium-field-${++fieldCounter}`)
+    const fieldId = React.useId()
 
     return (
       <FieldContext.Provider value={{fieldId, error}}>

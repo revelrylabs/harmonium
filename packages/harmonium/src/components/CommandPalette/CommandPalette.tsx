@@ -20,6 +20,24 @@ export interface CommandPaletteProps extends React.HTMLAttributes<HTMLDivElement
   placeholder?: string
 }
 
+interface GroupedItem {
+  item: CommandItem
+  flatIndex: number
+  group: string
+}
+
+function buildGroupedItems(filtered: CommandItem[]): Map<string, GroupedItem[]> {
+  const groups = new Map<string, GroupedItem[]>()
+  let flatIndex = 0
+  for (const item of filtered) {
+    const group = item.group ?? ''
+    if (!groups.has(group)) groups.set(group, [])
+    groups.get(group)!.push({item, flatIndex, group})
+    flatIndex++
+  }
+  return groups
+}
+
 export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPaletteProps>(
   ({open, onClose, items, placeholder = 'Type a command...', className, ...props}, ref) => {
     const [query, setQuery] = React.useState('')
@@ -29,6 +47,8 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
     const filtered = query
       ? items.filter((item) => item.label.toLowerCase().includes(query.toLowerCase()))
       : items
+
+    const grouped = React.useMemo(() => buildGroupedItems(filtered), [filtered])
 
     React.useEffect(() => {
       if (open) {
@@ -71,16 +91,6 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
 
     if (!open) return null
 
-    // Group items
-    const groups = new Map<string, CommandItem[]>()
-    for (const item of filtered) {
-      const group = item.group ?? ''
-      if (!groups.has(group)) groups.set(group, [])
-      groups.get(group)!.push(item)
-    }
-
-    let flatIndex = -1
-
     return (
       <div className={styles.overlay} onClick={onClose}>
         <div
@@ -105,26 +115,22 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
             {filtered.length === 0 && (
               <div className={styles.empty}>No results</div>
             )}
-            {Array.from(groups.entries()).map(([group, groupItems]) => (
+            {Array.from(grouped.entries()).map(([group, groupedItems]) => (
               <div key={group}>
                 {group && <div className={styles.groupLabel}>{group}</div>}
-                {groupItems.map((item) => {
-                  flatIndex++
-                  const index = flatIndex
-                  return (
-                    <div
-                      key={item.id}
-                      className={styles.item}
-                      role="option"
-                      aria-selected={index === highlightIndex}
-                      data-highlighted={index === highlightIndex || undefined}
-                      onClick={() => select(item)}
-                      onMouseEnter={() => setHighlightIndex(index)}
-                    >
-                      {item.label}
-                    </div>
-                  )
-                })}
+                {groupedItems.map(({item, flatIndex}) => (
+                  <div
+                    key={item.id}
+                    className={styles.item}
+                    role="option"
+                    aria-selected={flatIndex === highlightIndex}
+                    data-highlighted={flatIndex === highlightIndex || undefined}
+                    onClick={() => select(item)}
+                    onMouseEnter={() => setHighlightIndex(flatIndex)}
+                  >
+                    {item.label}
+                  </div>
+                ))}
               </div>
             ))}
           </div>

@@ -1,5 +1,4 @@
 import * as React from 'react'
-import {clsx} from 'clsx'
 import styles from './Toast.module.css'
 
 export interface ToastData {
@@ -32,8 +31,22 @@ export interface ToastProviderProps {
 
 export function ToastProvider({children, position = 'bottom-right'}: ToastProviderProps) {
   const [toasts, setToasts] = React.useState<ToastData[]>([])
+  const timersRef = React.useRef(new Map<string, ReturnType<typeof setTimeout>>())
+
+  React.useEffect(() => {
+    const timers = timersRef.current
+    return () => {
+      timers.forEach((timer) => clearTimeout(timer))
+      timers.clear()
+    }
+  }, [])
 
   const dismiss = React.useCallback((id: string) => {
+    const timer = timersRef.current.get(id)
+    if (timer) {
+      clearTimeout(timer)
+      timersRef.current.delete(id)
+    }
     setToasts((prev) => prev.filter((t) => t.id !== id))
   }, [])
 
@@ -43,7 +56,11 @@ export function ToastProvider({children, position = 'bottom-right'}: ToastProvid
       const duration = options.duration ?? 5000
       setToasts((prev) => [...prev, {...options, id}])
       if (duration > 0) {
-        setTimeout(() => dismiss(id), duration)
+        const timer = setTimeout(() => {
+          timersRef.current.delete(id)
+          dismiss(id)
+        }, duration)
+        timersRef.current.set(id, timer)
       }
       return id
     },

@@ -38,6 +38,11 @@
   color: var(--harmonium-color-brand-primary);
 }
 
+.sortButton:focus-visible {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: 2px;
+}
+
 .sortIcon {
   font-size: var(--harmonium-font-size-xs);
   opacity: 0.5;

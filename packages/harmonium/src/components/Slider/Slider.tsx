@@ -11,7 +11,7 @@ export interface SliderProps
 }
 
 export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
-  ({size = 'md', showValue, className, value, defaultValue, ...props}, ref) => {
+  ({size = 'md', showValue, className, value, defaultValue, onChange, ...rest}, ref) => {
     const [internal, setInternal] = React.useState(defaultValue ?? 50)
     const displayValue = value ?? internal
 
@@ -25,9 +25,9 @@ export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
           defaultValue={value === undefined ? defaultValue : undefined}
           onChange={(event) => {
             setInternal(Number(event.target.value))
-            props.onChange?.(event)
+            onChange?.(event)
           }}
-          {...props}
+          {...rest}
         />
         {showValue && <span className={styles.value}>{displayValue}</span>}
       </div>

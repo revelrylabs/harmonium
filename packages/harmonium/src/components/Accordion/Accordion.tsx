@@ -38,18 +38,29 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
 
     const toggle = React.useCallback(
       (item: string) => {
-        const next = new Set(openItems)
-        if (next.has(item)) {
-          next.delete(item)
-        } else {
-          if (!multiple) next.clear()
-          next.add(item)
+        const compute = (current: Set<string>) => {
+          const next = new Set(current)
+          if (next.has(item)) {
+            next.delete(item)
+          } else {
+            if (!multiple) next.clear()
+            next.add(item)
+          }
+          return next
         }
-        const arr = Array.from(next)
-        if (value === undefined) setInternal(next)
-        onValueChange?.(arr)
+
+        if (value === undefined) {
+          setInternal((prev) => {
+            const next = compute(prev)
+            onValueChange?.(Array.from(next))
+            return next
+          })
+        } else {
+          const next = compute(toSet(value))
+          onValueChange?.(Array.from(next))
+        }
       },
-      [openItems, multiple, value, onValueChange],
+      [multiple, value, onValueChange],
     )
 
     return (

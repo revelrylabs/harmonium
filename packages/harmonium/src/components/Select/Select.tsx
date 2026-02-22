@@ -4,15 +4,15 @@ import {useFieldContext} from '../Field'
 import styles from './Select.module.css'
 
 export interface SelectProps
-  extends React.SelectHTMLAttributes<HTMLSelectElement> {
+  extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
   /** Placeholder option text */
   placeholder?: string
   /** Size variant */
-  selectSize?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'md' | 'lg'
 }
 
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({placeholder, selectSize = 'md', className, children, ...props}, ref) => {
+  ({placeholder, size = 'md', className, children, ...props}, ref) => {
     const ctx = useFieldContext()
 
     return (
@@ -23,7 +23,7 @@ export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
         aria-describedby={ctx ? `${ctx.fieldId}-description` : undefined}
         aria-errormessage={ctx?.error ? `${ctx.fieldId}-error` : undefined}
         aria-invalid={ctx?.error || undefined}
-        data-size={selectSize}
+        data-size={size}
         {...props}
       >
         {placeholder && (

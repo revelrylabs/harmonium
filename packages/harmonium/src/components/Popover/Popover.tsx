@@ -17,6 +17,7 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
   ({content, side = 'bottom', open: controlledOpen, onOpenChange, className, children, ...props}, ref) => {
     const [internalOpen, setInternalOpen] = React.useState(false)
     const isOpen = controlledOpen ?? internalOpen
+    const rootRef = React.useRef<HTMLDivElement>(null)
 
     const toggle = React.useCallback(() => {
       const next = !isOpen
@@ -37,11 +38,16 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
           close()
         }
       }
+      const handleKeyDown = (event: KeyboardEvent) => {
+        if (event.key === 'Escape') close()
+      }
       document.addEventListener('mousedown', handleClick)
-      return () => document.removeEventListener('mousedown', handleClick)
+      document.addEventListener('keydown', handleKeyDown)
+      return () => {
+        document.removeEventListener('mousedown', handleClick)
+        document.removeEventListener('keydown', handleKeyDown)
+      }
     }, [isOpen, close])
-
-    const rootRef = React.useRef<HTMLDivElement>(null)
 
     return (
       <div
@@ -53,7 +59,22 @@ export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
         className={clsx(styles.root, className)}
         {...props}
       >
-        <div onClick={toggle} className={styles.trigger}>{children}</div>
+        <div
+          onClick={toggle}
+          onKeyDown={(event) => {
+            if (event.key === 'Enter' || event.key === ' ') {
+              event.preventDefault()
+              toggle()
+            }
+          }}
+          className={styles.trigger}
+          role="button"
+          tabIndex={0}
+          aria-expanded={isOpen}
+          aria-haspopup="true"
+        >
+          {children}
+        </div>
         {isOpen && (
           <div className={styles.content} data-side={side}>
             {content}

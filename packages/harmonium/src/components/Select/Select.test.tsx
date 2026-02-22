@@ -23,7 +23,7 @@ describe('Select', () => {
   })
 
   it('applies size', () => {
-    render(<Select selectSize="lg" aria-label="Size"><option>A</option></Select>)
+    render(<Select size="lg" aria-label="Size"><option>A</option></Select>)
     expect(screen.getByRole('combobox')).toHaveAttribute('data-size', 'lg')
   })
 })

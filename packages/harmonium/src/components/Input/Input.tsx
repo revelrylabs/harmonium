@@ -4,13 +4,13 @@ import {useFieldContext} from '../Field'
 import styles from './Input.module.css'
 
 export interface InputProps
-  extends React.InputHTMLAttributes<HTMLInputElement> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   /** Size variant */
-  inputSize?: 'sm' | 'md' | 'lg'
+  size?: 'sm' | 'md' | 'lg'
 }
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
-  ({inputSize = 'md', className, ...props}, ref) => {
+  ({size = 'md', className, ...props}, ref) => {
     const ctx = useFieldContext()
 
     return (
@@ -21,7 +21,7 @@ export const Input = React.forwardRef<HTMLInputElement, InputProps>(
         aria-describedby={ctx ? `${ctx.fieldId}-description` : undefined}
         aria-errormessage={ctx?.error ? `${ctx.fieldId}-error` : undefined}
         aria-invalid={ctx?.error || undefined}
-        data-size={inputSize}
+        data-size={size}
         {...props}
       />
     )

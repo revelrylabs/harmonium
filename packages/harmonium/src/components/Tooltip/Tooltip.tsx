@@ -12,6 +12,7 @@ export interface TooltipProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
 export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
   ({content, side = 'top', className, children, ...props}, ref) => {
     const [visible, setVisible] = React.useState(false)
+    const tooltipId = React.useId()
 
     return (
       <div
@@ -21,11 +22,17 @@ export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
         onMouseLeave={() => setVisible(false)}
         onFocus={() => setVisible(true)}
         onBlur={() => setVisible(false)}
+        onKeyDown={(event) => {
+          if (event.key === 'Escape' && visible) {
+            setVisible(false)
+          }
+        }}
+        aria-describedby={visible ? tooltipId : undefined}
         {...props}
       >
         {children}
         {visible && (
-          <div className={styles.content} data-side={side} role="tooltip">
+          <div className={styles.content} data-side={side} role="tooltip" id={tooltipId}>
             {content}
           </div>
         )}

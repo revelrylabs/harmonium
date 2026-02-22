@@ -4,7 +4,7 @@ import {useFieldContext} from '../Field'
 import styles from './NumberInput.module.css'
 
 export interface NumberInputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size' | 'onChange'> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size' | 'onChange' | 'value' | 'defaultValue'> {
   /** Size variant */
   size?: 'sm' | 'md' | 'lg'
   /** Step increment */
@@ -70,6 +70,9 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
           type="number"
           className={styles.input}
           id={ctx?.fieldId}
+          aria-describedby={ctx ? `${ctx.fieldId}-description` : undefined}
+          aria-errormessage={ctx?.error ? `${ctx.fieldId}-error` : undefined}
+          aria-invalid={ctx?.error || undefined}
           value={value}
           step={step}
           min={min}

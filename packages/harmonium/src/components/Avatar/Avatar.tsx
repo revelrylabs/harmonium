@@ -16,6 +16,11 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement> {
 export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
   ({src, alt = '', fallback, size = 'md', className, ...props}, ref) => {
     const [imgError, setImgError] = React.useState(false)
+
+    React.useEffect(() => {
+      setImgError(false)
+    }, [src])
+
     const showImage = src && !imgError
 
     return (

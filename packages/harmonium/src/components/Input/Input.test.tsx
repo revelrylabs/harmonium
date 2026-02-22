@@ -32,7 +32,7 @@ describe('Input', () => {
   })
 
   it('applies size', () => {
-    render(<Input inputSize="lg" />)
+    render(<Input size="lg" />)
     expect(screen.getByRole('textbox')).toHaveAttribute('data-size', 'lg')
   })
 
