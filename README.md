@@ -94,6 +94,14 @@ All components follow consistent patterns:
 - **Enum props** (`variant`, `size`) instead of boolean prop soup
 - **Controlled + uncontrolled** — components support both patterns where applicable
 
+## LLM-Friendly
+
+Harmonium is designed for AI-assisted development. Typed enum props, consistent component patterns, and `data-*` attribute styling mean LLMs generate correct code on the first try — no string-based class guessing.
+
+- **`llms.txt`** and **`llms-full.txt`** — structured API references that AI tools can ingest for complete library knowledge
+- **`CLAUDE.md`** / **`AGENTS.md`** — shipped in the npm package so AI coding assistants in your project automatically understand Harmonium's API
+- **Typed props** — `variant="primary"` not `className="btn-primary"`, so autocomplete and AI tools always know valid values
+
 ## Development
 
 ```bash

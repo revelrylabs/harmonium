@@ -1,0 +1,38 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--harmonium-font-family-sans);
+  font-size: var(--harmonium-font-size-base);
+  line-height: var(--harmonium-line-height-base);
+  color: var(--harmonium-color-text);
+  background: var(--harmonium-color-bg);
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
+ul,
+ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}

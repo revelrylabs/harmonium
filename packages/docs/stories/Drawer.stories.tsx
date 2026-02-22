@@ -5,6 +5,25 @@ import {useState} from 'react'
 const meta = {
   title: 'Overlays/Drawer',
   component: Drawer,
+  parameters: {
+    docs: {
+      description: {
+        component: `Slide-in panel from the left or right edge of the screen.
+
+\`\`\`tsx
+import { Drawer } from 'harmonium'
+
+<Drawer open={isOpen} onClose={() => setIsOpen(false)} side="right" size="md">
+  <h2>Drawer Title</h2>
+  <p>Content here</p>
+</Drawer>
+\`\`\`
+
+**Side:** \`left\`, \`right\` (default)
+**Sizes:** \`sm\`, \`md\`, \`lg\``,
+      },
+    },
+  },
 } satisfies Meta<typeof Drawer>
 
 export default meta

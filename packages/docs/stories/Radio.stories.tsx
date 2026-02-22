@@ -4,6 +4,25 @@ import {Radio, RadioGroup} from 'harmonium'
 const meta = {
   title: 'Forms/Radio',
   component: RadioGroup,
+  parameters: {
+    docs: {
+      description: {
+        component: `Radio buttons grouped inside a \`RadioGroup\` fieldset with a legend.
+
+\`\`\`tsx
+import { Radio, RadioGroup } from 'harmonium'
+
+<RadioGroup legend="Plan" name="plan">
+  <Radio label="Free" value="free" />
+  <Radio label="Pro" value="pro" />
+  <Radio label="Enterprise" value="enterprise" />
+</RadioGroup>
+\`\`\`
+
+\`RadioGroup\` renders a \`<fieldset>\` with a \`<legend>\`. Each \`Radio\` accepts a \`label\` prop.`,
+      },
+    },
+  },
 } satisfies Meta<typeof RadioGroup>
 
 export default meta

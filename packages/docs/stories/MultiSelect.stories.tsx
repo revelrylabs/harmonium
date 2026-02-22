@@ -5,6 +5,27 @@ import {useState} from 'react'
 const meta = {
   title: 'Forms/MultiSelect',
   component: MultiSelect,
+  parameters: {
+    docs: {
+      description: {
+        component: `Tag-based multi-selection with search. Selected items appear as removable tags.
+
+\`\`\`tsx
+import { MultiSelect } from 'harmonium'
+
+const options = [
+  { value: 'react', label: 'React' },
+  { value: 'typescript', label: 'TypeScript' },
+]
+
+<MultiSelect options={options} value={selected} onChange={setSelected} />
+\`\`\`
+
+Provide \`options\` as an array of \`{ value: string, label: string }\`. \`value\` is \`string[]\`.
+For single selection, use \`Combobox\` instead.`,
+      },
+    },
+  },
 } satisfies Meta<typeof MultiSelect>
 
 export default meta

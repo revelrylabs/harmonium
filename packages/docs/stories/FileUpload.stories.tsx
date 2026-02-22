@@ -4,6 +4,26 @@ import {FileUpload} from 'harmonium'
 const meta = {
   title: 'Forms/FileUpload',
   component: FileUpload,
+  parameters: {
+    docs: {
+      description: {
+        component: `Drag-and-drop file upload zone. Supports file type filtering, multiple files, and max size validation.
+
+\`\`\`tsx
+import { FileUpload } from 'harmonium'
+
+<FileUpload
+  accept="image/*"
+  multiple
+  maxSize={5_000_000}
+  onChange={(files) => handleFiles(files)}
+/>
+\`\`\`
+
+Pass custom children to replace the default drop zone content. Files exceeding \`maxSize\` are automatically filtered out.`,
+      },
+    },
+  },
 } satisfies Meta<typeof FileUpload>
 
 export default meta

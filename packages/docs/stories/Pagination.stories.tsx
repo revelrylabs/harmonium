@@ -5,6 +5,22 @@ import {useState} from 'react'
 const meta = {
   title: 'Navigation/Pagination',
   component: Pagination,
+  parameters: {
+    docs: {
+      description: {
+        component: `Page navigation with previous/next buttons and page numbers.
+
+\`\`\`tsx
+import { Pagination } from 'harmonium'
+
+<Pagination page={currentPage} totalPages={10} onPageChange={setCurrentPage} />
+\`\`\`
+
+All three props (\`page\`, \`totalPages\`, \`onPageChange\`) are required. \`page\` is 1-based.
+Set \`maxVisible\` to control how many page buttons are shown (default: 5).`,
+      },
+    },
+  },
 } satisfies Meta<typeof Pagination>
 
 export default meta

@@ -4,6 +4,25 @@ import {Group, Button} from 'harmonium'
 const meta = {
   title: 'Layout/Group',
   component: Group,
+  parameters: {
+    docs: {
+      description: {
+        component: `Horizontal flex layout with gap, alignment, and optional \`grow\` for equal-width children.
+
+\`\`\`tsx
+import { Group } from 'harmonium'
+
+<Group justify="end" gap="sm">
+  <Button variant="outline">Cancel</Button>
+  <Button>Save</Button>
+</Group>
+\`\`\`
+
+**Gap:** \`xs\`, \`sm\`, \`md\`, \`lg\`, \`xl\`
+Set \`grow\` to make children fill available space equally. Supports \`align\`, \`justify\`, and \`wrap\`.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Group>
 
 export default meta

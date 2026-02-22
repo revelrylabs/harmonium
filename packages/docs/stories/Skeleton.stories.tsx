@@ -4,6 +4,24 @@ import {Skeleton, Stack, Group} from 'harmonium'
 const meta = {
   title: 'Display/Skeleton',
   component: Skeleton,
+  parameters: {
+    docs: {
+      description: {
+        component: `Loading placeholder that mimics content shape while data is loading. Renders \`aria-hidden="true"\`.
+
+\`\`\`tsx
+import { Skeleton } from 'harmonium'
+
+<Skeleton width="100%" height={20} />
+<Skeleton variant="circular" width={48} height={48} />
+<Skeleton variant="rectangular" width="100%" height={200} />
+\`\`\`
+
+**Variants:** \`text\` (default), \`circular\`, \`rectangular\`
+Set \`width\` and \`height\` to match the content being loaded.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Skeleton>
 
 export default meta

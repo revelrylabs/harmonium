@@ -4,6 +4,25 @@ import {Grid, GridCol} from 'harmonium'
 const meta = {
   title: 'Layout/Grid',
   component: Grid,
+  parameters: {
+    docs: {
+      description: {
+        component: `CSS Grid layout with configurable columns and gap. Use with \`GridCol\` to span columns.
+
+\`\`\`tsx
+import { Grid, GridCol } from 'harmonium'
+
+<Grid columns={12} gap="md">
+  <GridCol span={8}>Main content</GridCol>
+  <GridCol span={4}>Sidebar</GridCol>
+</Grid>
+\`\`\`
+
+**Columns:** number (creates \`repeat(N, 1fr)\`) or string (custom template like \`"200px 1fr 200px"\`).
+**GridCol \`span\`:** number or string for column span.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Grid>
 
 export default meta

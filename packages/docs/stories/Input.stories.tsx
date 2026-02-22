@@ -4,6 +4,26 @@ import {Input, Field, FieldLabel, FieldDescription, FieldError} from 'harmonium'
 const meta = {
   title: 'Forms/Input',
   component: Input,
+  parameters: {
+    docs: {
+      description: {
+        component: `Text input field. Wrap in a \`Field\` with \`FieldLabel\`, \`FieldDescription\`, and \`FieldError\` for full form field UX with auto-wired accessibility.
+
+\`\`\`tsx
+import { Input, Field, FieldLabel, FieldError } from 'harmonium'
+
+<Field error={!!errors.email}>
+  <FieldLabel>Email</FieldLabel>
+  <Input type="email" placeholder="you@example.com" />
+  <FieldError>{errors.email}</FieldError>
+</Field>
+\`\`\`
+
+**Sizes:** \`sm\`, \`md\`, \`lg\`
+Field-context-aware: auto-wires \`id\`, \`aria-describedby\`, \`aria-errormessage\`, and \`aria-invalid\`.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Input>
 
 export default meta

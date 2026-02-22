@@ -4,6 +4,24 @@ import {Tooltip, Button, Group} from 'harmonium'
 const meta = {
   title: 'Overlays/Tooltip',
   component: Tooltip,
+  parameters: {
+    docs: {
+      description: {
+        component: `Tooltip that appears on hover and focus. Wraps its children.
+
+\`\`\`tsx
+import { Tooltip } from 'harmonium'
+
+<Tooltip content="Save your changes" side="top">
+  <Button>Save</Button>
+</Tooltip>
+\`\`\`
+
+**Side:** \`top\` (default), \`bottom\`, \`left\`, \`right\`
+The \`content\` prop accepts any \`ReactNode\`.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Tooltip>
 
 export default meta

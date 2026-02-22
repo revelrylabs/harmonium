@@ -4,6 +4,21 @@ import {Checkbox, Stack} from 'harmonium'
 const meta = {
   title: 'Forms/Checkbox',
   component: Checkbox,
+  parameters: {
+    docs: {
+      description: {
+        component: `Checkbox input with an integrated label.
+
+\`\`\`tsx
+import { Checkbox } from 'harmonium'
+
+<Checkbox label="I agree to the terms" checked={agreed} onChange={handleChange} />
+\`\`\`
+
+Extends all native \`<input>\` HTML attributes (except \`type\`).`,
+      },
+    },
+  },
 } satisfies Meta<typeof Checkbox>
 
 export default meta

@@ -5,6 +5,27 @@ import {useState} from 'react'
 const meta = {
   title: 'Overlays/CommandPalette',
   component: CommandPalette,
+  parameters: {
+    docs: {
+      description: {
+        component: `Command-K style searchable command list. Modal overlay that filters items as the user types.
+
+\`\`\`tsx
+import { CommandPalette } from 'harmonium'
+import type { CommandItem } from 'harmonium'
+
+const items: CommandItem[] = [
+  { id: '1', label: 'Go to Dashboard', group: 'Navigation', onSelect: () => navigate('/') },
+  { id: '2', label: 'Create Project', group: 'Actions', onSelect: () => create() },
+]
+
+<CommandPalette open={isOpen} onClose={close} items={items} />
+\`\`\`
+
+Each item needs \`id\`, \`label\`, and \`onSelect\`. Optional \`group\` for grouping under headings. Closes on Escape.`,
+      },
+    },
+  },
 } satisfies Meta<typeof CommandPalette>
 
 export default meta

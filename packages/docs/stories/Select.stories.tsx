@@ -4,6 +4,28 @@ import {Select, Field, FieldLabel} from 'harmonium'
 const meta = {
   title: 'Forms/Select',
   component: Select,
+  parameters: {
+    docs: {
+      description: {
+        component: `Native select dropdown with size variants. Field-context-aware — wrap in \`Field\` for labels and error states. Use \`<option>\` elements as children.
+
+\`\`\`tsx
+import { Select, Field, FieldLabel } from 'harmonium'
+
+<Field>
+  <FieldLabel>Country</FieldLabel>
+  <Select placeholder="Choose...">
+    <option value="us">United States</option>
+    <option value="uk">United Kingdom</option>
+  </Select>
+</Field>
+\`\`\`
+
+**Sizes:** \`sm\`, \`md\`, \`lg\`
+For searchable dropdowns, use \`Combobox\` instead.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Select>
 
 export default meta

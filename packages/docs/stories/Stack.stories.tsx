@@ -4,6 +4,27 @@ import {Stack} from 'harmonium'
 const meta = {
   title: 'Layout/Stack',
   component: Stack,
+  parameters: {
+    docs: {
+      description: {
+        component: `Flex layout component for stacking children vertically or horizontally with consistent spacing.
+
+\`\`\`tsx
+import { Stack } from 'harmonium'
+
+<Stack direction="vertical" gap="md">
+  <Input placeholder="Name" />
+  <Input placeholder="Email" />
+  <Button>Submit</Button>
+</Stack>
+\`\`\`
+
+**Direction:** \`vertical\` (default), \`horizontal\`
+**Gap:** \`xs\`, \`sm\`, \`md\`, \`lg\`, \`xl\`
+Also supports \`align\`, \`justify\`, and \`wrap\`.`,
+      },
+    },
+  },
   args: {
     children: undefined,
   },

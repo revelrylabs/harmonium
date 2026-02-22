@@ -5,6 +5,26 @@ import {useState} from 'react'
 const meta = {
   title: 'Navigation/Stepper',
   component: Stepper,
+  parameters: {
+    docs: {
+      description: {
+        component: `Multi-step wizard indicator. Tracks progress through a sequence of steps.
+
+\`\`\`tsx
+import { Stepper, Step } from 'harmonium'
+
+<Stepper activeStep={1} orientation="horizontal">
+  <Step label="Account" description="Create your account" />
+  <Step label="Profile" description="Set up your profile" />
+  <Step label="Review" description="Review and submit" />
+</Stepper>
+\`\`\`
+
+\`activeStep\` is 0-based. Steps before it show as completed, the active step is highlighted, and steps after are pending.
+**Orientation:** \`horizontal\` (default), \`vertical\``,
+      },
+    },
+  },
 } satisfies Meta<typeof Stepper>
 
 export default meta

@@ -5,6 +5,27 @@ import {useState} from 'react'
 const meta = {
   title: 'Forms/Combobox',
   component: Combobox,
+  parameters: {
+    docs: {
+      description: {
+        component: `Searchable single-select dropdown. Filters options as the user types.
+
+\`\`\`tsx
+import { Combobox } from 'harmonium'
+
+const options = [
+  { value: 'us', label: 'United States' },
+  { value: 'uk', label: 'United Kingdom' },
+]
+
+<Combobox options={options} value={value} onChange={setValue} placeholder="Select country" />
+\`\`\`
+
+Provide \`options\` as an array of \`{ value: string, label: string }\`.
+For multi-selection, use \`MultiSelect\` instead.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Combobox>
 
 export default meta

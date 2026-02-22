@@ -6,6 +6,28 @@ import {useState} from 'react'
 const meta = {
   title: 'Data/DataGrid',
   component: DataGrid,
+  parameters: {
+    docs: {
+      description: {
+        component: `Sortable data table with column configuration and custom cell renderers. Generic component \`DataGrid<T>\`.
+
+\`\`\`tsx
+import { DataGrid } from 'harmonium'
+import type { DataGridColumn, SortState } from 'harmonium'
+
+const columns: DataGridColumn<User>[] = [
+  { key: 'name', header: 'Name', sortable: true },
+  { key: 'status', header: 'Status', render: (row) => <Badge>{row.status}</Badge> },
+]
+
+<DataGrid columns={columns} data={users} rowKey={(r) => r.id} striped hoverable />
+\`\`\`
+
+Each column needs \`key\` and \`header\`. Optional: \`sortable\`, \`render\`, \`width\`.
+Control sorting with \`sort\` + \`onSortChange\`.`,
+      },
+    },
+  },
 } satisfies Meta
 
 export default meta

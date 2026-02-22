@@ -4,6 +4,27 @@ import {Menu, MenuItem, MenuSeparator, MenuLabel} from 'harmonium'
 const meta = {
   title: 'Overlays/Menu',
   component: Menu,
+  parameters: {
+    docs: {
+      description: {
+        component: `Dropdown menu with items, labels, and separators. Renders with \`role="menu"\`.
+
+\`\`\`tsx
+import { Menu, MenuItem, MenuSeparator, MenuLabel } from 'harmonium'
+
+<Menu>
+  <MenuLabel>Actions</MenuLabel>
+  <MenuItem onClick={handleEdit}>Edit</MenuItem>
+  <MenuItem onClick={handleDuplicate}>Duplicate</MenuItem>
+  <MenuSeparator />
+  <MenuItem variant="danger" onClick={handleDelete}>Delete</MenuItem>
+</Menu>
+\`\`\`
+
+\`MenuItem\` accepts \`variant="danger"\` for destructive actions.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Menu>
 
 export default meta

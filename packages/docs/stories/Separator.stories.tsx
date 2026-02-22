@@ -4,6 +4,23 @@ import {Separator, Stack, Group} from 'harmonium'
 const meta = {
   title: 'Layout/Separator',
   component: Separator,
+  parameters: {
+    docs: {
+      description: {
+        component: `A visual divider between content sections. Renders as an \`<hr>\` element.
+
+\`\`\`tsx
+import { Separator } from 'harmonium'
+
+<Separator />
+<Separator orientation="vertical" spacing="lg" />
+\`\`\`
+
+**Orientation:** \`horizontal\` (default), \`vertical\`
+**Spacing:** \`xs\`, \`sm\`, \`md\`, \`lg\`, \`xl\``,
+      },
+    },
+  },
 } satisfies Meta<typeof Separator>
 
 export default meta

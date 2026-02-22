@@ -1,0 +1,1102 @@
+# Harmonium — Complete API Reference
+
+Harmonium is a React component library with typed props, design-token theming via CSS custom properties, and accessible defaults. All components use `forwardRef`, accept a `className` prop (merged last for easy overrides), and use `data-*` attributes for variant styling.
+
+## Setup
+
+```bash
+npm install harmonium
+```
+
+```tsx
+import { Button, Card, CardBody, Input } from 'harmonium'
+import 'harmonium/styles.css'
+```
+
+Theme by overriding CSS custom properties:
+```css
+:root {
+  --harmonium-color-brand-primary: #E91E63;
+  --harmonium-color-brand-secondary: #9C27B0;
+  --harmonium-radius-md: 8px;
+  --harmonium-font-family-sans: 'Inter', sans-serif;
+}
+```
+
+Dark mode:
+```css
+[data-theme="dark"] {
+  --harmonium-color-bg: #1a1a1a;
+  --harmonium-color-text: #f0f0f0;
+  --harmonium-color-surface: #2d2d2d;
+  --harmonium-color-border: #404040;
+}
+```
+
+---
+
+## Button
+
+Import: `import { Button } from 'harmonium'`
+
+Props (extends `<button>` HTML attributes):
+- variant: 'primary' | 'secondary' | 'outline' | 'ghost' (default: 'primary')
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+- expanded: boolean — full-width button
+
+```tsx
+<Button variant="primary" size="md">Save</Button>
+<Button variant="outline" disabled>Cancel</Button>
+<Button variant="ghost" size="sm" onClick={handleClick}>Edit</Button>
+<Button variant="secondary" expanded>Full Width</Button>
+```
+
+---
+
+## Stack
+
+Import: `import { Stack } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes):
+- direction: 'vertical' | 'horizontal' (default: 'vertical')
+- gap: 'xs' | 'sm' | 'md' | 'lg' | 'xl' (default: 'md')
+- align: 'start' | 'center' | 'end' | 'stretch'
+- justify: 'start' | 'center' | 'end' | 'between' | 'around'
+- wrap: boolean
+
+```tsx
+<Stack gap="lg">
+  <Input placeholder="Name" />
+  <Input placeholder="Email" />
+  <Button>Submit</Button>
+</Stack>
+
+<Stack direction="horizontal" gap="sm" align="center">
+  <Avatar src="/photo.jpg" />
+  <span>Jane Doe</span>
+</Stack>
+```
+
+---
+
+## Group
+
+Import: `import { Group } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes):
+- gap: 'xs' | 'sm' | 'md' | 'lg' | 'xl' (default: 'md')
+- align: 'start' | 'center' | 'end' | 'stretch'
+- justify: 'start' | 'center' | 'end' | 'between' | 'around'
+- wrap: boolean
+- grow: boolean — children fill available space
+
+```tsx
+<Group justify="end" gap="sm">
+  <Button variant="outline">Cancel</Button>
+  <Button variant="primary">Save</Button>
+</Group>
+```
+
+---
+
+## Grid + GridCol
+
+Import: `import { Grid, GridCol } from 'harmonium'`
+
+Grid props (extends `<div>` HTML attributes):
+- columns: number | string (default: 12) — number sets repeat(N, 1fr), string used as-is
+- gap: 'xs' | 'sm' | 'md' | 'lg' | 'xl' (default: 'md')
+- align: 'start' | 'center' | 'end' | 'stretch'
+
+GridCol props (extends `<div>` HTML attributes):
+- span: number | string — number sets span N, string used as-is
+
+```tsx
+<Grid columns={12} gap="md">
+  <GridCol span={8}>
+    <Card><CardBody>Main content</CardBody></Card>
+  </GridCol>
+  <GridCol span={4}>
+    <Card><CardBody>Sidebar</CardBody></Card>
+  </GridCol>
+</Grid>
+```
+
+---
+
+## Separator
+
+Import: `import { Separator } from 'harmonium'`
+
+Props (extends `<hr>` HTML attributes):
+- orientation: 'horizontal' | 'vertical' (default: 'horizontal')
+- spacing: 'xs' | 'sm' | 'md' | 'lg' | 'xl' (default: 'md')
+
+```tsx
+<Stack>
+  <p>Section one</p>
+  <Separator />
+  <p>Section two</p>
+</Stack>
+```
+
+---
+
+## Card + CardHeader + CardBody + CardFooter
+
+Import: `import { Card, CardHeader, CardBody, CardFooter } from 'harmonium'`
+
+Card props (extends `<div>` HTML attributes):
+- variant: 'elevated' | 'outlined' | 'filled' (default: 'elevated')
+- padding: 'none' | 'sm' | 'md' | 'lg' (default: 'md')
+
+CardHeader, CardBody, CardFooter: extend `<div>` HTML attributes, no custom props.
+
+```tsx
+<Card variant="outlined">
+  <CardHeader>User Profile</CardHeader>
+  <CardBody>
+    <p>Name: Jane Doe</p>
+    <p>Email: jane@example.com</p>
+  </CardBody>
+  <CardFooter>
+    <Group justify="end" gap="sm">
+      <Button variant="outline">Cancel</Button>
+      <Button>Save</Button>
+    </Group>
+  </CardFooter>
+</Card>
+```
+
+---
+
+## Badge
+
+Import: `import { Badge } from 'harmonium'`
+
+Props (extends `<span>` HTML attributes):
+- variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'neutral' (default: 'neutral')
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+
+```tsx
+<Badge variant="success">Active</Badge>
+<Badge variant="error" size="sm">Overdue</Badge>
+```
+
+---
+
+## Alert
+
+Import: `import { Alert } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes):
+- variant: 'info' | 'success' | 'warning' | 'error' (default: 'info')
+- dismissible: boolean
+- onDismiss: () => void
+
+```tsx
+<Alert variant="success" dismissible onDismiss={() => setShow(false)}>
+  Changes saved successfully.
+</Alert>
+<Alert variant="error">Something went wrong.</Alert>
+```
+
+---
+
+## Progress
+
+Import: `import { Progress } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes, renders with role="progressbar"):
+- value: number (default: 0)
+- max: number (default: 100)
+- variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error' (default: 'primary')
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+- showLabel: boolean
+
+```tsx
+<Progress value={75} max={100} showLabel />
+<Progress value={30} variant="warning" size="sm" />
+```
+
+---
+
+## Spinner
+
+Import: `import { Spinner } from 'harmonium'`
+
+Props (extends `<span>` HTML attributes):
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+- label: string (default: 'Loading') — accessible label for screen readers
+
+```tsx
+<Spinner size="lg" />
+<Spinner size="sm" label="Saving" />
+```
+
+---
+
+## Avatar
+
+Import: `import { Avatar } from 'harmonium'`
+
+Props (extends `<span>` HTML attributes):
+- src: string — image URL
+- alt: string (default: '')
+- fallback: string — text shown when no image (e.g. initials)
+- size: 'sm' | 'md' | 'lg' | 'xl' (default: 'md')
+
+```tsx
+<Avatar src="/photo.jpg" alt="Jane Doe" size="lg" />
+<Avatar fallback="JD" size="md" />
+```
+
+---
+
+## Skeleton
+
+Import: `import { Skeleton } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes, renders aria-hidden="true"):
+- width: string | number
+- height: string | number
+- variant: 'text' | 'circular' | 'rectangular' (default: 'text')
+
+```tsx
+<Skeleton width="100%" height={20} />
+<Skeleton variant="circular" width={48} height={48} />
+<Skeleton variant="rectangular" width="100%" height={200} />
+```
+
+---
+
+## Table + TableHead + TableBody + TableRow + TableHeader + TableCell
+
+Import: `import { Table, TableHead, TableBody, TableRow, TableHeader, TableCell } from 'harmonium'`
+
+Table props (extends `<table>` HTML attributes):
+- striped: boolean
+- hoverable: boolean
+- responsive: boolean
+
+TableHead, TableBody: extend their respective HTML section attributes, no custom props.
+TableRow: extends `<tr>` HTML attributes, no custom props.
+TableHeader: extends `<th>` HTML attributes, no custom props.
+TableCell: extends `<td>` HTML attributes, no custom props.
+
+```tsx
+<Table striped hoverable>
+  <TableHead>
+    <TableRow>
+      <TableHeader>Name</TableHeader>
+      <TableHeader>Email</TableHeader>
+      <TableHeader>Role</TableHeader>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    <TableRow>
+      <TableCell>Jane Doe</TableCell>
+      <TableCell>jane@example.com</TableCell>
+      <TableCell>Admin</TableCell>
+    </TableRow>
+  </TableBody>
+</Table>
+```
+
+---
+
+## DataGrid
+
+Import: `import { DataGrid } from 'harmonium'`
+Types: `import type { DataGridColumn, SortState } from 'harmonium'`
+
+Generic component `DataGrid<T>`. Props (extends `<div>` HTML attributes):
+- columns: DataGridColumn<T>[] — required
+- data: T[] — required
+- rowKey: (row: T) => string | number — required
+- sort: SortState | null — controlled sort state
+- onSortChange: (sort: SortState) => void
+- striped: boolean
+- hoverable: boolean
+
+DataGridColumn<T>:
+- key: string — required
+- header: string — required
+- render: (row: T) => React.ReactNode — optional, falls back to String(row[key])
+- sortable: boolean
+- width: string
+
+SortState: { key: string; direction: 'asc' | 'desc' | null }
+
+```tsx
+const columns = [
+  { key: 'name', header: 'Name', sortable: true },
+  { key: 'email', header: 'Email' },
+  { key: 'role', header: 'Role', render: (row) => <Badge>{row.role}</Badge> },
+]
+
+<DataGrid
+  columns={columns}
+  data={users}
+  rowKey={(row) => row.id}
+  sort={sort}
+  onSortChange={setSort}
+  striped
+  hoverable
+/>
+```
+
+---
+
+## Tabs + TabsList + TabsTrigger + TabsContent
+
+Import: `import { Tabs, TabsList, TabsTrigger, TabsContent } from 'harmonium'`
+
+Tabs props (extends `<div>` HTML attributes):
+- value: string — controlled active tab
+- defaultValue: string — uncontrolled initial tab
+- onValueChange: (value: string) => void
+
+TabsList: extends `<div>` HTML attributes, no custom props.
+
+TabsTrigger props (extends `<button>` HTML attributes):
+- value: string — required, tab ID
+
+TabsContent props (extends `<div>` HTML attributes):
+- value: string — required, tab ID
+
+```tsx
+<Tabs defaultValue="general">
+  <TabsList>
+    <TabsTrigger value="general">General</TabsTrigger>
+    <TabsTrigger value="security">Security</TabsTrigger>
+    <TabsTrigger value="notifications">Notifications</TabsTrigger>
+  </TabsList>
+  <TabsContent value="general">General settings...</TabsContent>
+  <TabsContent value="security">Security settings...</TabsContent>
+  <TabsContent value="notifications">Notification preferences...</TabsContent>
+</Tabs>
+```
+
+---
+
+## Accordion + AccordionItem + AccordionTrigger + AccordionContent
+
+Import: `import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from 'harmonium'`
+
+Accordion props (extends `<div>` HTML attributes):
+- multiple: boolean — allow multiple items open
+- value: string | string[] — controlled
+- defaultValue: string | string[] — uncontrolled
+- onValueChange: (value: string[]) => void
+
+AccordionItem props (extends `<div>` HTML attributes):
+- value: string — required, unique item ID
+
+AccordionTrigger props (extends `<button>` HTML attributes):
+- value: string — required, item value this trigger controls
+
+AccordionContent props (extends `<div>` HTML attributes):
+- value: string — required, item value this content belongs to
+
+```tsx
+<Accordion defaultValue="faq-1">
+  <AccordionItem value="faq-1">
+    <AccordionTrigger value="faq-1">What is Harmonium?</AccordionTrigger>
+    <AccordionContent value="faq-1">
+      A React component library with design-token theming.
+    </AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="faq-2">
+    <AccordionTrigger value="faq-2">How do I theme it?</AccordionTrigger>
+    <AccordionContent value="faq-2">
+      Override --harmonium-* CSS custom properties.
+    </AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+---
+
+## Breadcrumbs + BreadcrumbItem
+
+Import: `import { Breadcrumbs, BreadcrumbItem } from 'harmonium'`
+
+Breadcrumbs props (extends `<nav>` HTML attributes):
+- separator: React.ReactNode (default: '/')
+
+BreadcrumbItem props (extends `<a>` HTML attributes):
+- active: boolean — renders as `<span>` when true (current page)
+
+```tsx
+<Breadcrumbs>
+  <BreadcrumbItem href="/">Home</BreadcrumbItem>
+  <BreadcrumbItem href="/settings">Settings</BreadcrumbItem>
+  <BreadcrumbItem active>Profile</BreadcrumbItem>
+</Breadcrumbs>
+```
+
+---
+
+## Pagination
+
+Import: `import { Pagination } from 'harmonium'`
+
+Props (extends `<nav>` HTML attributes):
+- page: number — required, 1-based current page
+- totalPages: number — required
+- onPageChange: (page: number) => void — required
+- maxVisible: number (default: 5) — max visible page buttons
+
+```tsx
+<Pagination page={currentPage} totalPages={10} onPageChange={setCurrentPage} />
+```
+
+---
+
+## TopBar + TopBarSection
+
+Import: `import { TopBar, TopBarSection } from 'harmonium'`
+
+TopBar props (extends `<header>` HTML attributes):
+- fixed: boolean — sticky positioning
+
+TopBarSection props (extends `<div>` HTML attributes):
+- align: 'left' | 'center' | 'right' (default: 'left')
+
+```tsx
+<TopBar>
+  <TopBarSection align="left">
+    <strong>My App</strong>
+  </TopBarSection>
+  <TopBarSection align="right">
+    <Button variant="ghost" size="sm">Settings</Button>
+    <Avatar src="/me.jpg" size="sm" />
+  </TopBarSection>
+</TopBar>
+```
+
+---
+
+## Dialog + DialogHeader + DialogBody + DialogFooter
+
+Import: `import { Dialog, DialogHeader, DialogBody, DialogFooter } from 'harmonium'`
+
+Dialog props (extends `<div>` HTML attributes):
+- open: boolean
+- onClose: () => void
+- size: 'sm' | 'md' | 'lg' | 'full' (default: 'md')
+
+DialogHeader, DialogBody, DialogFooter: extend `<div>` HTML attributes, no custom props.
+
+```tsx
+<Dialog open={isOpen} onClose={() => setIsOpen(false)} size="md">
+  <DialogHeader>Confirm Delete</DialogHeader>
+  <DialogBody>
+    <p>Are you sure you want to delete this item?</p>
+  </DialogBody>
+  <DialogFooter>
+    <Group justify="end" gap="sm">
+      <Button variant="outline" onClick={() => setIsOpen(false)}>Cancel</Button>
+      <Button variant="primary" onClick={handleDelete}>Delete</Button>
+    </Group>
+  </DialogFooter>
+</Dialog>
+```
+
+---
+
+## Drawer
+
+Import: `import { Drawer } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes):
+- open: boolean
+- onClose: () => void
+- side: 'left' | 'right' (default: 'right')
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+
+```tsx
+<Drawer open={isOpen} onClose={() => setIsOpen(false)} side="right" size="md">
+  <h2>Drawer Title</h2>
+  <p>Drawer content goes here.</p>
+</Drawer>
+```
+
+---
+
+## Tooltip
+
+Import: `import { Tooltip } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes, excluding 'content'):
+- content: React.ReactNode — required, tooltip text/content
+- side: 'top' | 'bottom' | 'left' | 'right' (default: 'top')
+
+Wraps its children. Shows on hover and focus.
+
+```tsx
+<Tooltip content="Save your changes">
+  <Button>Save</Button>
+</Tooltip>
+```
+
+---
+
+## Popover
+
+Import: `import { Popover } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes, excluding 'content'):
+- content: React.ReactNode — required
+- side: 'top' | 'bottom' | 'left' | 'right' (default: 'bottom')
+- open: boolean — controlled
+- onOpenChange: (open: boolean) => void
+
+Wraps its children. Opens on click.
+
+```tsx
+<Popover content={<div><p>Popover content</p></div>}>
+  <Button variant="outline">Options</Button>
+</Popover>
+```
+
+---
+
+## Menu + MenuItem + MenuSeparator + MenuLabel
+
+Import: `import { Menu, MenuItem, MenuSeparator, MenuLabel } from 'harmonium'`
+
+Menu props (extends `<div>` HTML attributes, renders role="menu"): no custom props.
+
+MenuItem props (extends `<button>` HTML attributes):
+- variant: 'default' | 'danger' (default: 'default')
+
+MenuSeparator: extends `<div>` HTML attributes, renders role="separator", no custom props.
+MenuLabel: extends `<div>` HTML attributes, no custom props.
+
+```tsx
+<Menu>
+  <MenuLabel>Actions</MenuLabel>
+  <MenuItem onClick={handleEdit}>Edit</MenuItem>
+  <MenuItem onClick={handleDuplicate}>Duplicate</MenuItem>
+  <MenuSeparator />
+  <MenuItem variant="danger" onClick={handleDelete}>Delete</MenuItem>
+</Menu>
+```
+
+---
+
+## CommandPalette
+
+Import: `import { CommandPalette } from 'harmonium'`
+Types: `import type { CommandItem } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes):
+- open: boolean
+- onClose: () => void
+- items: CommandItem[] — required
+- placeholder: string (default: 'Type a command...')
+
+CommandItem: { id: string, label: string, group?: string, onSelect: () => void }
+
+```tsx
+const commands = [
+  { id: '1', label: 'Go to Dashboard', group: 'Navigation', onSelect: () => navigate('/') },
+  { id: '2', label: 'Go to Settings', group: 'Navigation', onSelect: () => navigate('/settings') },
+  { id: '3', label: 'Create New Project', group: 'Actions', onSelect: () => setShowNew(true) },
+]
+
+<CommandPalette open={isOpen} onClose={() => setIsOpen(false)} items={commands} />
+```
+
+---
+
+## Toast (ToastProvider + useToast)
+
+Import: `import { ToastProvider, useToast } from 'harmonium'`
+
+ToastProvider props:
+- children: React.ReactNode — required
+- position: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' (default: 'bottom-right')
+
+useToast() returns: { toast, dismiss }
+- toast(options): string — creates a toast, returns ID
+- dismiss(id: string): void
+
+Toast options:
+- message: React.ReactNode
+- variant: 'info' | 'success' | 'warning' | 'error'
+- duration: number (default: 5000, 0 = persistent)
+
+```tsx
+// Wrap your app
+<ToastProvider position="bottom-right">
+  <App />
+</ToastProvider>
+
+// In any component
+function SaveButton() {
+  const { toast } = useToast()
+
+  return (
+    <Button onClick={() => toast({ message: 'Saved!', variant: 'success' })}>
+      Save
+    </Button>
+  )
+}
+```
+
+---
+
+## Field + FieldLabel + FieldDescription + FieldError
+
+Import: `import { Field, FieldLabel, FieldDescription, FieldError } from 'harmonium'`
+
+Field provides context that auto-wires accessibility attributes (id, htmlFor, aria-describedby, aria-errormessage) to child form controls (Input, Textarea, Select, NumberInput, DatePicker, TimePicker).
+
+Field props (extends `<div>` HTML attributes):
+- error: boolean
+
+FieldLabel: extends `<label>` HTML attributes, auto-connects htmlFor. No custom props.
+FieldDescription: extends `<p>` HTML attributes, auto-sets id for aria-describedby. No custom props.
+FieldError: extends `<p>` HTML attributes, auto-sets id for aria-errormessage, adds role="alert". No custom props.
+
+```tsx
+<Field error={!!errors.email}>
+  <FieldLabel>Email</FieldLabel>
+  <FieldDescription>We'll never share your email.</FieldDescription>
+  <Input type="email" placeholder="you@example.com" />
+  <FieldError>{errors.email}</FieldError>
+</Field>
+```
+
+---
+
+## Input
+
+Import: `import { Input } from 'harmonium'`
+
+Props (extends `<input>` HTML attributes, excluding native 'size'):
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+
+Field-context-aware: auto-wires id, aria-describedby, aria-errormessage, aria-invalid.
+
+```tsx
+<Input placeholder="Search..." size="md" />
+<Input type="password" size="lg" />
+```
+
+---
+
+## Textarea
+
+Import: `import { Textarea } from 'harmonium'`
+
+Props: extends `<textarea>` HTML attributes. No custom props beyond native attributes.
+Field-context-aware.
+
+```tsx
+<Field>
+  <FieldLabel>Bio</FieldLabel>
+  <Textarea rows={4} placeholder="Tell us about yourself..." />
+</Field>
+```
+
+---
+
+## Select
+
+Import: `import { Select } from 'harmonium'`
+
+Props (extends `<select>` HTML attributes, excluding native 'size'):
+- placeholder: string
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+
+Field-context-aware.
+
+```tsx
+<Field>
+  <FieldLabel>Country</FieldLabel>
+  <Select placeholder="Choose a country">
+    <option value="us">United States</option>
+    <option value="uk">United Kingdom</option>
+    <option value="ca">Canada</option>
+  </Select>
+</Field>
+```
+
+---
+
+## Checkbox
+
+Import: `import { Checkbox } from 'harmonium'`
+
+Props (extends `<input>` HTML attributes, excluding 'type'):
+- label: React.ReactNode
+
+```tsx
+<Checkbox label="I agree to the terms" checked={agreed} onChange={handleChange} />
+<Checkbox label="Subscribe to newsletter" />
+```
+
+---
+
+## Radio + RadioGroup
+
+Import: `import { Radio, RadioGroup } from 'harmonium'`
+
+RadioGroup props (extends `<fieldset>` HTML attributes):
+- legend: React.ReactNode
+
+Radio props (extends `<input>` HTML attributes, excluding 'type'):
+- label: React.ReactNode
+
+```tsx
+<RadioGroup legend="Plan" name="plan">
+  <Radio label="Free" value="free" />
+  <Radio label="Pro" value="pro" />
+  <Radio label="Enterprise" value="enterprise" />
+</RadioGroup>
+```
+
+---
+
+## Switch
+
+Import: `import { Switch } from 'harmonium'`
+
+Props (extends `<input>` HTML attributes, excluding 'type', 'role', 'size'):
+- label: React.ReactNode
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+
+Renders as `<input type="checkbox" role="switch">`.
+
+```tsx
+<Switch label="Dark mode" checked={darkMode} onChange={toggleDarkMode} />
+<Switch label="Notifications" size="sm" />
+```
+
+---
+
+## NumberInput
+
+Import: `import { NumberInput } from 'harmonium'`
+
+Props (extends `<input>` HTML attributes, excluding 'type', 'size', 'onChange', 'value', 'defaultValue'):
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+- step: number (default: 1)
+- min: number
+- max: number
+- value: number — controlled
+- defaultValue: number (default: 0)
+- onChange: (value: number) => void
+
+Field-context-aware.
+
+```tsx
+<Field>
+  <FieldLabel>Quantity</FieldLabel>
+  <NumberInput min={0} max={100} step={1} value={qty} onChange={setQty} />
+</Field>
+```
+
+---
+
+## Slider
+
+Import: `import { Slider } from 'harmonium'`
+
+Props (extends `<input>` HTML attributes, excluding 'type', 'size'):
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+- showValue: boolean
+
+Renders as `<input type="range">`.
+
+```tsx
+<Slider min={0} max={100} value={volume} onChange={handleChange} showValue />
+```
+
+---
+
+## Combobox
+
+Import: `import { Combobox } from 'harmonium'`
+Types: `import type { ComboboxOption } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes, excluding 'onChange'):
+- options: ComboboxOption[] — required
+- value: string — controlled
+- onChange: (value: string) => void
+- placeholder: string (default: 'Search...')
+- disabled: boolean
+
+ComboboxOption: { value: string, label: string }
+
+```tsx
+const countries = [
+  { value: 'us', label: 'United States' },
+  { value: 'uk', label: 'United Kingdom' },
+  { value: 'ca', label: 'Canada' },
+]
+
+<Combobox options={countries} value={country} onChange={setCountry} placeholder="Select country" />
+```
+
+---
+
+## MultiSelect
+
+Import: `import { MultiSelect } from 'harmonium'`
+Types: `import type { MultiSelectOption } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes, excluding 'onChange'):
+- options: MultiSelectOption[] — required
+- value: string[] (default: [])
+- onChange: (value: string[]) => void
+- placeholder: string (default: 'Select...')
+- disabled: boolean
+
+MultiSelectOption: { value: string, label: string }
+
+```tsx
+const tags = [
+  { value: 'react', label: 'React' },
+  { value: 'typescript', label: 'TypeScript' },
+  { value: 'css', label: 'CSS' },
+]
+
+<MultiSelect options={tags} value={selectedTags} onChange={setSelectedTags} />
+```
+
+---
+
+## DatePicker
+
+Import: `import { DatePicker } from 'harmonium'`
+
+Props (extends `<input>` HTML attributes, excluding 'type', 'size'):
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+
+Renders as `<input type="date">`. Field-context-aware.
+
+```tsx
+<Field>
+  <FieldLabel>Start Date</FieldLabel>
+  <DatePicker value={startDate} onChange={handleChange} />
+</Field>
+```
+
+---
+
+## TimePicker
+
+Import: `import { TimePicker } from 'harmonium'`
+
+Props (extends `<input>` HTML attributes, excluding 'type', 'size'):
+- size: 'sm' | 'md' | 'lg' (default: 'md')
+
+Renders as `<input type="time">`. Field-context-aware.
+
+```tsx
+<Field>
+  <FieldLabel>Meeting Time</FieldLabel>
+  <TimePicker value={time} onChange={handleChange} />
+</Field>
+```
+
+---
+
+## FileUpload
+
+Import: `import { FileUpload } from 'harmonium'`
+
+Props (extends `<div>` HTML attributes, excluding 'onChange'):
+- accept: string — file type filter (e.g. 'image/*,.pdf')
+- multiple: boolean
+- disabled: boolean
+- onChange: (files: File[]) => void
+- maxSize: number — max file size in bytes
+
+```tsx
+<FileUpload
+  accept="image/*"
+  multiple
+  maxSize={5_000_000}
+  onChange={(files) => setFiles(files)}
+/>
+```
+
+---
+
+## Stepper + Step
+
+Import: `import { Stepper, Step } from 'harmonium'`
+
+Stepper props (extends `<div>` HTML attributes):
+- activeStep: number — required, 0-based index
+- orientation: 'horizontal' | 'vertical' (default: 'horizontal')
+
+Step props (extends `<div>` HTML attributes):
+- label: string — required
+- description: string
+
+Stepper automatically injects `stepNumber` and `data-state` ('completed' | 'active' | 'pending') into Step children.
+
+```tsx
+<Stepper activeStep={1}>
+  <Step label="Account" description="Create your account" />
+  <Step label="Profile" description="Fill in your profile" />
+  <Step label="Review" description="Review and submit" />
+</Stepper>
+```
+
+---
+
+## Common Composition Patterns
+
+### Login Form
+```tsx
+import { Card, CardBody, CardHeader, Field, FieldLabel, FieldError, Input, Button, Stack } from 'harmonium'
+import 'harmonium/styles.css'
+
+function LoginForm() {
+  return (
+    <Card variant="outlined" style={{ maxWidth: 400 }}>
+      <CardHeader>Sign In</CardHeader>
+      <CardBody>
+        <Stack gap="md">
+          <Field>
+            <FieldLabel>Email</FieldLabel>
+            <Input type="email" placeholder="you@example.com" />
+          </Field>
+          <Field>
+            <FieldLabel>Password</FieldLabel>
+            <Input type="password" />
+          </Field>
+          <Button variant="primary" expanded>Sign In</Button>
+        </Stack>
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+### Settings Page
+```tsx
+import {
+  Tabs, TabsList, TabsTrigger, TabsContent,
+  Card, CardBody, Field, FieldLabel, FieldDescription, Input, Select,
+  Switch, Stack, Group, Button, Separator, Avatar
+} from 'harmonium'
+import 'harmonium/styles.css'
+
+function SettingsPage() {
+  return (
+    <Tabs defaultValue="profile">
+      <TabsList>
+        <TabsTrigger value="profile">Profile</TabsTrigger>
+        <TabsTrigger value="notifications">Notifications</TabsTrigger>
+        <TabsTrigger value="security">Security</TabsTrigger>
+      </TabsList>
+
+      <TabsContent value="profile">
+        <Card>
+          <CardBody>
+            <Stack gap="lg">
+              <Group gap="md" align="center">
+                <Avatar src="/photo.jpg" size="xl" />
+                <Button variant="outline" size="sm">Change Photo</Button>
+              </Group>
+              <Separator />
+              <Field>
+                <FieldLabel>Display Name</FieldLabel>
+                <Input defaultValue="Jane Doe" />
+              </Field>
+              <Field>
+                <FieldLabel>Email</FieldLabel>
+                <FieldDescription>Used for notifications</FieldDescription>
+                <Input type="email" defaultValue="jane@example.com" />
+              </Field>
+              <Group justify="end">
+                <Button>Save Changes</Button>
+              </Group>
+            </Stack>
+          </CardBody>
+        </Card>
+      </TabsContent>
+
+      <TabsContent value="notifications">
+        <Card>
+          <CardBody>
+            <Stack gap="md">
+              <Switch label="Email notifications" defaultChecked />
+              <Switch label="Push notifications" />
+              <Switch label="SMS notifications" />
+            </Stack>
+          </CardBody>
+        </Card>
+      </TabsContent>
+
+      <TabsContent value="security">
+        <Card>
+          <CardBody>
+            <Stack gap="md">
+              <Field>
+                <FieldLabel>Current Password</FieldLabel>
+                <Input type="password" />
+              </Field>
+              <Field>
+                <FieldLabel>New Password</FieldLabel>
+                <Input type="password" />
+              </Field>
+              <Group justify="end">
+                <Button>Update Password</Button>
+              </Group>
+            </Stack>
+          </CardBody>
+        </Card>
+      </TabsContent>
+    </Tabs>
+  )
+}
+```
+
+### Data Table Page
+```tsx
+import {
+  DataGrid, Card, CardBody, CardHeader, Group, Input, Badge, Button, Pagination
+} from 'harmonium'
+import 'harmonium/styles.css'
+
+function UsersPage() {
+  const columns = [
+    { key: 'name', header: 'Name', sortable: true },
+    { key: 'email', header: 'Email', sortable: true },
+    {
+      key: 'status',
+      header: 'Status',
+      render: (user) => (
+        <Badge variant={user.status === 'active' ? 'success' : 'neutral'}>
+          {user.status}
+        </Badge>
+      ),
+    },
+  ]
+
+  return (
+    <Card>
+      <CardHeader>
+        <Group justify="between" align="center">
+          <h2>Users</h2>
+          <Input placeholder="Search users..." size="sm" style={{ maxWidth: 250 }} />
+        </Group>
+      </CardHeader>
+      <CardBody>
+        <DataGrid columns={columns} data={users} rowKey={(u) => u.id} striped hoverable />
+        <Pagination page={page} totalPages={totalPages} onPageChange={setPage} />
+      </CardBody>
+    </Card>
+  )
+}
+```

@@ -5,6 +5,29 @@ import {useState} from 'react'
 const meta = {
   title: 'Overlays/Dialog',
   component: Dialog,
+  parameters: {
+    docs: {
+      description: {
+        component: `Modal dialog with backdrop, focus trap, and accessible keyboard navigation. Use with \`DialogHeader\`, \`DialogBody\`, and \`DialogFooter\`.
+
+\`\`\`tsx
+import { Dialog, DialogHeader, DialogBody, DialogFooter } from 'harmonium'
+
+<Dialog open={isOpen} onClose={() => setIsOpen(false)} size="md">
+  <DialogHeader>Confirm</DialogHeader>
+  <DialogBody>Are you sure?</DialogBody>
+  <DialogFooter>
+    <Button variant="outline" onClick={close}>Cancel</Button>
+    <Button onClick={confirm}>Confirm</Button>
+  </DialogFooter>
+</Dialog>
+\`\`\`
+
+**Sizes:** \`sm\`, \`md\`, \`lg\`, \`full\`
+Closes on Escape key and backdrop click.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Dialog>
 
 export default meta

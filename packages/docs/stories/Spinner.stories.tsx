@@ -4,6 +4,23 @@ import {Spinner, Group} from 'harmonium'
 const meta = {
   title: 'Display/Spinner',
   component: Spinner,
+  parameters: {
+    docs: {
+      description: {
+        component: `Loading indicator with an accessible label for screen readers.
+
+\`\`\`tsx
+import { Spinner } from 'harmonium'
+
+<Spinner size="lg" />
+<Spinner size="sm" label="Saving..." />
+\`\`\`
+
+**Sizes:** \`sm\`, \`md\`, \`lg\`
+The \`label\` prop defaults to \`"Loading"\` and is read by screen readers.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Spinner>
 
 export default meta

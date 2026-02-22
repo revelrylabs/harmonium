@@ -1,0 +1,67 @@
+# Harmonium
+
+> Ship products, not utility classes. A complete React design system with typed components, design-token theming, and accessible defaults.
+
+## Docs
+
+- [Full API Reference](https://harmonium.revelry.co/llms-full.txt): Complete props, types, and usage examples for every component
+- [GitHub](https://github.com/revelrylabs/harmonium): Source code and issue tracker
+- [Storybook](https://harmonium.revelry.co): Interactive component demos
+
+## Quick Start
+
+Install: `npm install harmonium`
+Import: `import { Button } from 'harmonium'`
+Styles: `import 'harmonium/styles.css'`
+Theme: Override `--harmonium-*` CSS custom properties
+
+## Components
+
+### Layout
+- Stack: Vertical/horizontal flex layout with gap, align, justify
+- Group: Horizontal flex with gap, align, justify, wrap, grow
+- Grid + GridCol: CSS Grid layout with configurable columns and span
+- Separator: Horizontal/vertical divider
+
+### Forms
+- Field + FieldLabel + FieldDescription + FieldError: Form field wrapper with auto-wired accessibility
+- Input: Text input with size variants (sm/md/lg), Field-context-aware
+- Textarea: Multi-line text input, Field-context-aware
+- Select: Native select with size variants, Field-context-aware
+- Checkbox: Checkbox with label
+- Radio + RadioGroup: Radio buttons with fieldset grouping
+- Switch: Toggle switch with label and size variants
+- NumberInput: Numeric input with increment/decrement, Field-context-aware
+- Slider: Range slider with size variants and optional value display
+- Combobox: Searchable single-select dropdown
+- MultiSelect: Tag-based multi-selection with search
+- DatePicker: Date input, Field-context-aware
+- TimePicker: Time input, Field-context-aware
+- FileUpload: Drag-and-drop file upload zone
+
+### Data Display
+- Card + CardHeader + CardBody + CardFooter: Content container with elevated/outlined/filled variants
+- Badge: Status label with semantic variants
+- Alert: Dismissible notification banner
+- Progress: Progress bar with variants and optional label
+- Spinner: Loading indicator with size variants
+- Avatar: User avatar with image and fallback
+- Skeleton: Loading placeholder (text/circular/rectangular)
+- Table + TableHead + TableBody + TableRow + TableHeader + TableCell: Semantic HTML table
+- DataGrid: Sortable data table with column configuration
+
+### Navigation
+- Tabs + TabsList + TabsTrigger + TabsContent: Tabbed interface (controlled/uncontrolled)
+- Accordion + AccordionItem + AccordionTrigger + AccordionContent: Expandable sections
+- Breadcrumbs + BreadcrumbItem: Navigation breadcrumb trail
+- Pagination: Page navigation with configurable visible pages
+- TopBar + TopBarSection: Application header bar
+
+### Overlays
+- Dialog + DialogHeader + DialogBody + DialogFooter: Modal dialog with size variants
+- Drawer: Slide-in panel from left or right
+- Tooltip: Hover/focus tooltip with side positioning
+- Popover: Click-triggered floating content
+- Menu + MenuItem + MenuSeparator + MenuLabel: Dropdown menu
+- CommandPalette: Command-K style searchable command list
+- Toast (ToastProvider + useToast hook): Notification toast system

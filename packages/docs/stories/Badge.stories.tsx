@@ -4,6 +4,23 @@ import {Badge, Group} from 'harmonium'
 const meta = {
   title: 'Display/Badge',
   component: Badge,
+  parameters: {
+    docs: {
+      description: {
+        component: `Small status label for tags, counts, or status indicators.
+
+\`\`\`tsx
+import { Badge } from 'harmonium'
+
+<Badge variant="success">Active</Badge>
+<Badge variant="error" size="sm">Overdue</Badge>
+\`\`\`
+
+**Variants:** \`neutral\`, \`primary\`, \`secondary\`, \`success\`, \`warning\`, \`error\`
+**Sizes:** \`sm\`, \`md\`, \`lg\``,
+      },
+    },
+  },
   args: {children: 'Badge'},
 } satisfies Meta<typeof Badge>
 

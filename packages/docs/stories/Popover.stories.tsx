@@ -4,6 +4,24 @@ import {Popover, Button, Stack} from 'harmonium'
 const meta = {
   title: 'Overlays/Popover',
   component: Popover,
+  parameters: {
+    docs: {
+      description: {
+        component: `Click-triggered floating content panel. Wraps its children.
+
+\`\`\`tsx
+import { Popover } from 'harmonium'
+
+<Popover content={<div>Rich content here</div>} side="bottom">
+  <Button variant="outline">Options</Button>
+</Popover>
+\`\`\`
+
+**Side:** \`top\`, \`bottom\` (default), \`left\`, \`right\`
+Use \`open\` + \`onOpenChange\` for controlled mode.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Popover>
 
 export default meta

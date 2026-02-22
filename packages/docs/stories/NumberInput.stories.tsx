@@ -4,6 +4,25 @@ import {NumberInput, Field, FieldLabel} from 'harmonium'
 const meta = {
   title: 'Forms/NumberInput',
   component: NumberInput,
+  parameters: {
+    docs: {
+      description: {
+        component: `Numeric input with increment/decrement buttons. Field-context-aware.
+
+\`\`\`tsx
+import { NumberInput, Field, FieldLabel } from 'harmonium'
+
+<Field>
+  <FieldLabel>Quantity</FieldLabel>
+  <NumberInput min={0} max={100} step={1} value={qty} onChange={setQty} />
+</Field>
+\`\`\`
+
+**Sizes:** \`sm\`, \`md\`, \`lg\`
+The \`onChange\` callback receives a \`number\` (not an event).`,
+      },
+    },
+  },
 } satisfies Meta<typeof NumberInput>
 
 export default meta

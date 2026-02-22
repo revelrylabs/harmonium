@@ -29,7 +29,9 @@
     "*.css"
   ],
   "files": [
-    "dist"
+    "dist",
+    "CLAUDE.md",
+    "AGENTS.md"
   ],
   "scripts": {
     "build": "pnpm run tokens && tsup",

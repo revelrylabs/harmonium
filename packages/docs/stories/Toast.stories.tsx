@@ -4,6 +4,28 @@ import {ToastProvider, useToast, Button, Group} from 'harmonium'
 const meta = {
   title: 'Feedback/Toast',
   component: ToastProvider,
+  parameters: {
+    docs: {
+      description: {
+        component: `Notification toast system. Wrap your app in \`ToastProvider\`, then use the \`useToast\` hook to trigger toasts from any component.
+
+\`\`\`tsx
+import { ToastProvider, useToast } from 'harmonium'
+
+// In your app root
+<ToastProvider position="bottom-right"><App /></ToastProvider>
+
+// In any component
+const { toast, dismiss } = useToast()
+toast({ message: 'Saved!', variant: 'success', duration: 5000 })
+\`\`\`
+
+**Variants:** \`info\`, \`success\`, \`warning\`, \`error\`
+**Position:** \`top-right\`, \`top-left\`, \`bottom-right\` (default), \`bottom-left\`
+Set \`duration: 0\` for persistent toasts. Call \`dismiss(id)\` to remove manually.`,
+      },
+    },
+  },
 } satisfies Meta
 
 export default meta

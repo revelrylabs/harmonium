@@ -4,6 +4,23 @@ import {Progress, Stack} from 'harmonium'
 const meta = {
   title: 'Display/Progress',
   component: Progress,
+  parameters: {
+    docs: {
+      description: {
+        component: `Progress bar showing completion status. Renders with \`role="progressbar"\`.
+
+\`\`\`tsx
+import { Progress } from 'harmonium'
+
+<Progress value={75} max={100} showLabel />
+\`\`\`
+
+**Variants:** \`primary\`, \`secondary\`, \`success\`, \`warning\`, \`error\`
+**Sizes:** \`sm\`, \`md\`, \`lg\`
+Set \`showLabel\` to display the percentage.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Progress>
 
 export default meta

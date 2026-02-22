@@ -4,6 +4,26 @@ import {Accordion, AccordionItem, AccordionTrigger, AccordionContent} from 'harm
 const meta = {
   title: 'Navigation/Accordion',
   component: Accordion,
+  parameters: {
+    docs: {
+      description: {
+        component: `Expandable/collapsible content sections. Supports single or multiple open items.
+
+\`\`\`tsx
+import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from 'harmonium'
+
+<Accordion defaultValue="item-1">
+  <AccordionItem value="item-1">
+    <AccordionTrigger value="item-1">Section Title</AccordionTrigger>
+    <AccordionContent value="item-1">Section content</AccordionContent>
+  </AccordionItem>
+</Accordion>
+\`\`\`
+
+Set \`multiple\` to allow multiple sections open at once. Use \`defaultValue\` for uncontrolled, or \`value\` + \`onValueChange\` for controlled.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Accordion>
 
 export default meta

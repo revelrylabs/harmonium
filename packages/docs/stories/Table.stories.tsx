@@ -4,6 +4,29 @@ import {Table, TableHead, TableBody, TableRow, TableHeader, TableCell} from 'har
 const meta = {
   title: 'Data/Table',
   component: Table,
+  parameters: {
+    docs: {
+      description: {
+        component: `Semantic HTML table with optional striping and hover styles. Use with \`TableHead\`, \`TableBody\`, \`TableRow\`, \`TableHeader\`, and \`TableCell\`.
+
+\`\`\`tsx
+import { Table, TableHead, TableBody, TableRow, TableHeader, TableCell } from 'harmonium'
+
+<Table striped hoverable>
+  <TableHead>
+    <TableRow><TableHeader>Name</TableHeader></TableRow>
+  </TableHead>
+  <TableBody>
+    <TableRow><TableCell>Jane</TableCell></TableRow>
+  </TableBody>
+</Table>
+\`\`\`
+
+Set \`striped\` for alternating row backgrounds, \`hoverable\` for row hover effect, and \`responsive\` for horizontal scrolling on small screens.
+For sortable columns with custom renderers, use \`DataGrid\` instead.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Table>
 
 export default meta

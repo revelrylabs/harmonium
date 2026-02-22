@@ -9,7 +9,7 @@
     "text": { "$value": "{color.gray.800}" },
     "text-muted": { "$value": "{color.gray.400}" },
     "surface": { "$value": "{color.white}" },
-    "border": { "$value": "{color.gray.200}" },
+    "border": { "$value": "{color.gray.300}" },
     "on-primary": { "$value": "{color.white}" },
     "on-secondary": { "$value": "{color.white}" },
     "disabled": { "$value": "{color.gray.300}" }

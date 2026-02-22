@@ -4,6 +4,24 @@ import {Button} from 'harmonium'
 const meta = {
   title: 'Components/Button',
   component: Button,
+  parameters: {
+    docs: {
+      description: {
+        component: `A clickable button with variant and size options.
+
+\`\`\`tsx
+import { Button } from 'harmonium'
+
+<Button variant="primary" size="md">Save</Button>
+<Button variant="outline" disabled>Cancel</Button>
+\`\`\`
+
+**Variants:** \`primary\`, \`secondary\`, \`outline\`, \`ghost\`
+**Sizes:** \`sm\`, \`md\`, \`lg\`
+Set \`expanded\` for full-width. Accepts all standard \`<button>\` HTML attributes.`,
+      },
+    },
+  },
   argTypes: {
     variant: {
       control: 'select',

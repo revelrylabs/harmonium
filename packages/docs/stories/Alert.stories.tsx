@@ -4,6 +4,24 @@ import {Alert, Stack} from 'harmonium'
 const meta = {
   title: 'Display/Alert',
   component: Alert,
+  parameters: {
+    docs: {
+      description: {
+        component: `Dismissible notification banner for inline messages.
+
+\`\`\`tsx
+import { Alert } from 'harmonium'
+
+<Alert variant="success" dismissible onDismiss={() => setShow(false)}>
+  Changes saved successfully.
+</Alert>
+\`\`\`
+
+**Variants:** \`info\` (default), \`success\`, \`warning\`, \`error\`
+Set \`dismissible\` and \`onDismiss\` to allow users to close the alert.`,
+      },
+    },
+  },
 } satisfies Meta<typeof Alert>
 
 export default meta

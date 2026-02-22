@@ -4,6 +4,23 @@ import {Avatar, Group} from 'harmonium'
 const meta = {
   title: 'Display/Avatar',
   component: Avatar,
+  parameters: {
+    docs: {
+      description: {
+        component: `User avatar displaying an image or fallback text (e.g. initials).
+
+\`\`\`tsx
+import { Avatar } from 'harmonium'
+
+<Avatar src="/photo.jpg" alt="Jane Doe" size="lg" />
+<Avatar fallback="JD" size="md" />
+\`\`\`
+
+**Sizes:** \`sm\`, \`md\`, \`lg\`, \`xl\`
+Provide \`src\` for an image, or \`fallback\` for text (shown when no image).`,
+      },
+    },
+  },
 } satisfies Meta<typeof Avatar>
 
 export default meta
