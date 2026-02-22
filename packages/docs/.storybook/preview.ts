@@ -1,5 +1,5 @@
 import type {Preview} from '@storybook/react'
-import 'harmonium/src/tokens/tokens.css'
+import '../../harmonium/src/tokens/tokens.css'
 
 const preview: Preview = {
   parameters: {

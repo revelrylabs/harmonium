@@ -1,4 +1,5 @@
 import type {StorybookConfig} from '@storybook/react-vite'
+import {resolve} from 'path'
 
 const config: StorybookConfig = {
   stories: ['../stories/**/*.stories.@(ts|tsx)'],
@@ -6,6 +7,14 @@ const config: StorybookConfig = {
   framework: {
     name: '@storybook/react-vite',
     options: {},
+  },
+  viteFinal: async (config) => {
+    config.resolve = config.resolve || {}
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      harmonium: resolve(__dirname, '../../harmonium/src'),
+    }
+    return config
   },
 }
 
