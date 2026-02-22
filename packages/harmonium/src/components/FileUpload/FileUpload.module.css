@@ -1,0 +1,51 @@
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--harmonium-spacing-xl) var(--harmonium-spacing-md);
+  border: 2px dashed var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-lg);
+  background: var(--harmonium-color-surface);
+  cursor: pointer;
+  transition:
+    border-color var(--harmonium-transition-duration-base) ease,
+    background-color var(--harmonium-transition-duration-base) ease;
+}
+
+.root:hover {
+  border-color: var(--harmonium-color-brand-primary);
+  background: color-mix(in srgb, var(--harmonium-color-brand-primary) 4%, transparent);
+}
+
+.root:focus-visible {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: 2px;
+}
+
+.root[data-drag-active] {
+  border-color: var(--harmonium-color-brand-primary);
+  background: color-mix(in srgb, var(--harmonium-color-brand-primary) 8%, transparent);
+}
+
+.root[data-disabled] {
+  opacity: var(--harmonium-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.input {
+  display: none;
+}
+
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--harmonium-spacing-sm);
+  color: var(--harmonium-color-text-muted);
+  font-size: var(--harmonium-font-size-sm);
+  text-align: center;
+}
+
+.icon {
+  font-size: var(--harmonium-font-size-2xl);
+}

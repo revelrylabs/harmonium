@@ -1,0 +1,69 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 20vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: var(--harmonium-z-index-modal);
+}
+
+.root {
+  width: 100%;
+  max-width: 560px;
+  background: var(--harmonium-color-surface);
+  border-radius: var(--harmonium-radius-lg);
+  box-shadow: var(--harmonium-shadow-xl);
+  overflow: hidden;
+}
+
+.input {
+  width: 100%;
+  padding: var(--harmonium-spacing-md);
+  border: none;
+  border-bottom: 1px solid var(--harmonium-color-border);
+  font-family: inherit;
+  font-size: var(--harmonium-font-size-md);
+  color: var(--harmonium-color-text);
+  background: transparent;
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--harmonium-color-text-muted);
+}
+
+.list {
+  max-height: 300px;
+  overflow-y: auto;
+  padding: var(--harmonium-spacing-xs) 0;
+}
+
+.groupLabel {
+  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-md) var(--harmonium-spacing-xs);
+  font-size: var(--harmonium-font-size-xs);
+  font-weight: var(--harmonium-font-weight-semibold);
+  color: var(--harmonium-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.item {
+  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-md);
+  font-size: var(--harmonium-font-size-sm);
+  cursor: pointer;
+  transition: background-color var(--harmonium-transition-duration-fast) ease;
+}
+
+.item:hover,
+.item[data-highlighted] {
+  background: var(--harmonium-color-gray-50);
+}
+
+.empty {
+  padding: var(--harmonium-spacing-lg);
+  text-align: center;
+  font-size: var(--harmonium-font-size-sm);
+  color: var(--harmonium-color-text-muted);
+}

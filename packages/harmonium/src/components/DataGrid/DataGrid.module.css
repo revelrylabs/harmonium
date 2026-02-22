@@ -1,0 +1,62 @@
+.wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.root {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--harmonium-font-size-sm);
+}
+
+.head {
+  border-bottom: 2px solid var(--harmonium-color-border);
+}
+
+.headerCell {
+  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-md);
+  text-align: left;
+  font-weight: var(--harmonium-font-weight-semibold);
+  color: var(--harmonium-color-text);
+  white-space: nowrap;
+}
+
+.sortButton {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--harmonium-spacing-xs);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-weight: var(--harmonium-font-weight-semibold);
+  color: inherit;
+  padding: 0;
+}
+
+.sortButton:hover {
+  color: var(--harmonium-color-brand-primary);
+}
+
+.sortIcon {
+  font-size: var(--harmonium-font-size-xs);
+  opacity: 0.5;
+}
+
+.sortButton:hover .sortIcon {
+  opacity: 1;
+}
+
+.cell {
+  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-md);
+  border-bottom: 1px solid var(--harmonium-color-border);
+  color: var(--harmonium-color-text);
+}
+
+.root[data-striped] .body .row:nth-child(even) {
+  background: var(--harmonium-color-gray-50);
+}
+
+.root[data-hoverable] .body .row:hover {
+  background: var(--harmonium-color-gray-50);
+}

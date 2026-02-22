@@ -1,0 +1,103 @@
+.root {
+  position: relative;
+  width: 100%;
+}
+
+.root[data-disabled] {
+  opacity: var(--harmonium-opacity-disabled);
+  pointer-events: none;
+}
+
+.control {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--harmonium-spacing-xs);
+  padding: var(--harmonium-spacing-xs) var(--harmonium-spacing-sm);
+  border: 1px solid var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-md);
+  background: var(--harmonium-color-surface);
+  min-height: 38px;
+  cursor: text;
+  transition: border-color var(--harmonium-transition-duration-base) ease;
+}
+
+.control:focus-within {
+  border-color: var(--harmonium-color-brand-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
+}
+
+.tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  padding: 2px var(--harmonium-spacing-xs);
+  background: var(--harmonium-color-gray-100);
+  border-radius: var(--harmonium-radius-sm);
+  font-size: var(--harmonium-font-size-sm);
+  color: var(--harmonium-color-text);
+}
+
+.tagRemove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: var(--harmonium-font-size-sm);
+  color: var(--harmonium-color-text-muted);
+  padding: 0;
+  border-radius: var(--harmonium-radius-sm);
+}
+
+.tagRemove:hover {
+  background: var(--harmonium-color-gray-200);
+  color: var(--harmonium-color-text);
+}
+
+.input {
+  flex: 1;
+  min-width: 60px;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: inherit;
+  font-size: var(--harmonium-font-size-base);
+  color: var(--harmonium-color-text);
+  padding: 2px 0;
+}
+
+.input::placeholder {
+  color: var(--harmonium-color-text-muted);
+}
+
+.list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: var(--harmonium-z-index-dropdown);
+  margin: var(--harmonium-spacing-xs) 0 0;
+  padding: var(--harmonium-spacing-xs) 0;
+  list-style: none;
+  background: var(--harmonium-color-surface);
+  border: 1px solid var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-md);
+  box-shadow: var(--harmonium-shadow-lg);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-md);
+  font-size: var(--harmonium-font-size-sm);
+  cursor: pointer;
+  transition: background-color var(--harmonium-transition-duration-fast) ease;
+}
+
+.option:hover {
+  background: var(--harmonium-color-gray-50);
+}

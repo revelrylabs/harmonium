@@ -63,6 +63,12 @@ export {
   Combobox,
   DatePicker,
   TimePicker,
+  DataGrid,
+  FileUpload,
+  MultiSelect,
+  CommandPalette,
+  Stepper,
+  Step,
 } from './components'
 
 export type {
@@ -124,4 +130,15 @@ export type {
   ComboboxOption,
   DatePickerProps,
   TimePickerProps,
+  DataGridProps,
+  DataGridColumn,
+  SortState,
+  SortDirection,
+  FileUploadProps,
+  MultiSelectProps,
+  MultiSelectOption,
+  CommandPaletteProps,
+  CommandItem,
+  StepperProps,
+  StepProps,
 } from './components'
