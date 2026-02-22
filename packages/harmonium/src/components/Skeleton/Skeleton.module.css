@@ -1,0 +1,28 @@
+.root {
+  display: block;
+  background: var(--harmonium-color-gray-100);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+.root[data-variant='text'] {
+  height: 1em;
+  border-radius: var(--harmonium-radius-sm);
+  width: 100%;
+}
+
+.root[data-variant='circular'] {
+  border-radius: 50%;
+}
+
+.root[data-variant='rectangular'] {
+  border-radius: var(--harmonium-radius-md);
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}

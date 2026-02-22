@@ -1,0 +1,87 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  border: 1px solid var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-md);
+  overflow: hidden;
+}
+
+.root:focus-within {
+  border-color: var(--harmonium-color-brand-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
+}
+
+.input {
+  border: none;
+  outline: none;
+  text-align: center;
+  font-family: inherit;
+  background: var(--harmonium-color-surface);
+  color: var(--harmonium-color-text);
+  -moz-appearance: textfield;
+}
+
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  appearance: none;
+  margin: 0;
+}
+
+.root[data-size='sm'] .input {
+  width: 48px;
+  padding: var(--harmonium-spacing-xs);
+  font-size: var(--harmonium-font-size-sm);
+}
+
+.root[data-size='md'] .input {
+  width: 56px;
+  padding: var(--harmonium-spacing-sm);
+  font-size: var(--harmonium-font-size-base);
+}
+
+.root[data-size='lg'] .input {
+  width: 64px;
+  padding: var(--harmonium-spacing-sm);
+  font-size: var(--harmonium-font-size-md);
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: var(--harmonium-color-gray-50);
+  color: var(--harmonium-color-text);
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: var(--harmonium-font-weight-medium);
+  flex-shrink: 0;
+  transition: background-color var(--harmonium-transition-duration-fast) ease;
+}
+
+.root[data-size='sm'] .button {
+  width: 28px;
+  height: 28px;
+  font-size: var(--harmonium-font-size-sm);
+}
+
+.root[data-size='md'] .button {
+  width: 36px;
+  height: 36px;
+  font-size: var(--harmonium-font-size-base);
+}
+
+.root[data-size='lg'] .button {
+  width: 40px;
+  height: 40px;
+  font-size: var(--harmonium-font-size-md);
+}
+
+.button:hover:not(:disabled) {
+  background: var(--harmonium-color-gray-100);
+}
+
+.button:disabled {
+  opacity: var(--harmonium-opacity-disabled);
+  cursor: not-allowed;
+}

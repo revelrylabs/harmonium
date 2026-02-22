@@ -1,0 +1,54 @@
+.root {
+  display: flex;
+  align-items: center;
+  gap: var(--harmonium-spacing-xs);
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 var(--harmonium-spacing-xs);
+  border: 1px solid var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-md);
+  background: var(--harmonium-color-surface);
+  color: var(--harmonium-color-text);
+  font-family: inherit;
+  font-size: var(--harmonium-font-size-sm);
+  cursor: pointer;
+  transition:
+    background-color var(--harmonium-transition-duration-fast) ease,
+    border-color var(--harmonium-transition-duration-fast) ease;
+}
+
+.button:hover:not(:disabled) {
+  background: var(--harmonium-color-gray-50);
+}
+
+.button[data-active] {
+  background: var(--harmonium-color-brand-primary);
+  border-color: var(--harmonium-color-brand-primary);
+  color: var(--harmonium-color-on-primary);
+}
+
+.button:disabled {
+  opacity: var(--harmonium-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: 2px;
+}
+
+.ellipsis {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 32px;
+  height: 32px;
+  color: var(--harmonium-color-text-muted);
+  font-size: var(--harmonium-font-size-sm);
+}

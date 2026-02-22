@@ -1,0 +1,86 @@
+.root {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: var(--harmonium-spacing-sm);
+  font-family: inherit;
+  font-size: var(--harmonium-font-size-base);
+  border: 1px solid var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-md);
+  background: var(--harmonium-color-surface);
+  color: var(--harmonium-color-text);
+  transition:
+    border-color var(--harmonium-transition-duration-base) ease,
+    box-shadow var(--harmonium-transition-duration-base) ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--harmonium-color-brand-primary);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
+}
+
+.input::placeholder {
+  color: var(--harmonium-color-text-muted);
+}
+
+.input:disabled {
+  opacity: var(--harmonium-opacity-disabled);
+  cursor: not-allowed;
+}
+
+.list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: var(--harmonium-z-index-dropdown);
+  margin: var(--harmonium-spacing-xs) 0 0;
+  padding: var(--harmonium-spacing-xs) 0;
+  list-style: none;
+  background: var(--harmonium-color-surface);
+  border: 1px solid var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-md);
+  box-shadow: var(--harmonium-shadow-lg);
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.option {
+  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-md);
+  font-size: var(--harmonium-font-size-sm);
+  cursor: pointer;
+  transition: background-color var(--harmonium-transition-duration-fast) ease;
+}
+
+.option:hover,
+.option[data-highlighted] {
+  background: var(--harmonium-color-gray-50);
+}
+
+.option[aria-selected='true'] {
+  font-weight: var(--harmonium-font-weight-medium);
+  color: var(--harmonium-color-brand-primary);
+}
+
+.empty {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: var(--harmonium-z-index-dropdown);
+  margin: var(--harmonium-spacing-xs) 0 0;
+  padding: var(--harmonium-spacing-md);
+  background: var(--harmonium-color-surface);
+  border: 1px solid var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-md);
+  box-shadow: var(--harmonium-shadow-lg);
+  font-size: var(--harmonium-font-size-sm);
+  color: var(--harmonium-color-text-muted);
+  text-align: center;
+}
