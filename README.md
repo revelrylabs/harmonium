@@ -1,8 +1,8 @@
 # Harmonium
 
-The component library for teams that ship products, not design systems.
+**Ship products, not utility classes.**
 
-Real npm packages. Design-token theming. Semantic markup. Accessible by default.
+A complete design system out of the box. Install, import, and build — no assembling primitives, no configuring class utilities, no copy-pasting component source code.
 
 ## Install
 

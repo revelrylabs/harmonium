@@ -1,7 +1,7 @@
 {
   "name": "harmonium",
   "version": "2.0.0-alpha.0",
-  "description": "The component library for teams that ship products, not design systems.",
+  "description": "Ship products, not utility classes. A complete React design system out of the box.",
   "license": "MIT",
   "repository": {
     "type": "git",

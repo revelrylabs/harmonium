@@ -4,7 +4,7 @@
 
 Harmonium is a React component library by Revelry Labs (v8.0.3). Its core philosophy — design-token-driven theming, semantic class names, opinionated defaults — directly addresses the most vocal criticisms of Tailwind CSS and shadcn/ui. However, the implementation is outdated (class components, Enzyme, jQuery, SCSS-only, no TypeScript, React 15+). This PRD defines a ground-up rebuild that preserves the design philosophy while delivering a modern, competitive library.
 
-**Positioning**: "The component library for teams that ship products, not design systems." Real npm packages. Design-token theming. Semantic markup. Accessible by default.
+**Positioning**: "Ship products, not utility classes." A complete design system out of the box — install, import, and build. No assembling primitives, no configuring class utilities, no copy-pasting component source code. Design-token theming. Semantic markup. Accessible by default.
 
 ---
 
