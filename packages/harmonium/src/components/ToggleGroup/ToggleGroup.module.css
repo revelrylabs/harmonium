@@ -1,0 +1,63 @@
+.root {
+  display: inline-flex;
+  border: 1px solid var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-md);
+  overflow: hidden;
+  background: var(--harmonium-color-gray-50);
+}
+
+.item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: var(--harmonium-font-weight-medium);
+  color: var(--harmonium-color-text-muted);
+  transition:
+    background-color var(--harmonium-transition-duration-base) ease,
+    color var(--harmonium-transition-duration-base) ease,
+    box-shadow var(--harmonium-transition-duration-base) ease;
+}
+
+.root[data-size='sm'] .item {
+  padding: var(--harmonium-spacing-xs) var(--harmonium-spacing-sm);
+  font-size: var(--harmonium-font-size-xs);
+}
+
+.root[data-size='md'] .item {
+  padding: var(--harmonium-spacing-xs) var(--harmonium-spacing-md);
+  font-size: var(--harmonium-font-size-sm);
+}
+
+.root[data-size='lg'] .item {
+  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-lg);
+  font-size: var(--harmonium-font-size-base);
+}
+
+.item:hover {
+  color: var(--harmonium-color-text);
+}
+
+.item[data-state='active'] {
+  background: var(--harmonium-color-surface);
+  color: var(--harmonium-color-brand-primary);
+  box-shadow: var(--harmonium-shadow-sm);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: -2px;
+  z-index: 1;
+}
+
+.item + .item {
+  border-left: 1px solid var(--harmonium-color-border);
+}
+
+.item[data-state='active'] + .item,
+.item + .item[data-state='active'] {
+  border-left-color: transparent;
+}

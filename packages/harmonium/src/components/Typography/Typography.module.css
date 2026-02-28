@@ -1,0 +1,47 @@
+.text {
+  font-family: var(--harmonium-font-family-sans);
+  line-height: var(--harmonium-line-height-base);
+  margin: 0;
+}
+
+.text[data-size='xs'] { font-size: var(--harmonium-font-size-xs); }
+.text[data-size='sm'] { font-size: var(--harmonium-font-size-sm); }
+.text[data-size='md'] { font-size: var(--harmonium-font-size-base); }
+.text[data-size='lg'] { font-size: var(--harmonium-font-size-lg); }
+.text[data-size='xl'] { font-size: var(--harmonium-font-size-xl); }
+
+.text[data-weight='light'] { font-weight: var(--harmonium-font-weight-light); }
+.text[data-weight='normal'] { font-weight: var(--harmonium-font-weight-normal); }
+.text[data-weight='medium'] { font-weight: var(--harmonium-font-weight-medium); }
+.text[data-weight='semibold'] { font-weight: var(--harmonium-font-weight-semibold); }
+.text[data-weight='bold'] { font-weight: var(--harmonium-font-weight-bold); }
+
+.text[data-color='default'] { color: var(--harmonium-color-text); }
+.text[data-color='muted'] { color: var(--harmonium-color-text-muted); }
+.text[data-color='primary'] { color: var(--harmonium-color-brand-primary); }
+.text[data-color='success'] { color: var(--harmonium-color-success); }
+.text[data-color='warning'] { color: var(--harmonium-color-warning); }
+.text[data-color='error'] { color: var(--harmonium-color-error); }
+
+.text[data-truncate] {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.heading {
+  font-family: var(--harmonium-font-family-sans);
+  font-weight: var(--harmonium-font-weight-bold);
+  line-height: var(--harmonium-line-height-tight);
+  color: var(--harmonium-color-text);
+  margin: 0;
+}
+
+.heading[data-size='xs'] { font-size: var(--harmonium-font-size-sm); }
+.heading[data-size='sm'] { font-size: var(--harmonium-font-size-base); }
+.heading[data-size='md'] { font-size: var(--harmonium-font-size-md); }
+.heading[data-size='lg'] { font-size: var(--harmonium-font-size-lg); }
+.heading[data-size='xl'] { font-size: var(--harmonium-font-size-xl); }
+.heading[data-size='2xl'] { font-size: var(--harmonium-font-size-2xl); }
+.heading[data-size='3xl'] { font-size: var(--harmonium-font-size-3xl); }
+.heading[data-size='4xl'] { font-size: var(--harmonium-font-size-4xl); }

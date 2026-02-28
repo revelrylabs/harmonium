@@ -1,0 +1,92 @@
+.root {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--harmonium-spacing-xs);
+  border-radius: var(--harmonium-radius-md);
+  font-family: var(--harmonium-font-family-sans);
+  font-weight: var(--harmonium-font-weight-medium);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.root[data-size='sm'] {
+  padding: 2px var(--harmonium-spacing-xs);
+  font-size: var(--harmonium-font-size-xs);
+}
+
+.root[data-size='md'] {
+  padding: var(--harmonium-spacing-xs) var(--harmonium-spacing-sm);
+  font-size: var(--harmonium-font-size-sm);
+}
+
+.root[data-size='lg'] {
+  padding: var(--harmonium-spacing-xs) var(--harmonium-spacing-md);
+  font-size: var(--harmonium-font-size-base);
+}
+
+.root[data-variant='primary'] {
+  background: color-mix(in srgb, var(--harmonium-color-brand-primary) 12%, transparent);
+  color: var(--harmonium-color-brand-primary);
+}
+
+.root[data-variant='secondary'] {
+  background: color-mix(in srgb, var(--harmonium-color-brand-secondary) 12%, transparent);
+  color: var(--harmonium-color-brand-secondary);
+}
+
+.root[data-variant='success'] {
+  background: color-mix(in srgb, var(--harmonium-color-success) 12%, transparent);
+  color: var(--harmonium-color-success);
+}
+
+.root[data-variant='warning'] {
+  background: color-mix(in srgb, var(--harmonium-color-warning) 12%, transparent);
+  color: var(--harmonium-color-warning);
+}
+
+.root[data-variant='error'] {
+  background: color-mix(in srgb, var(--harmonium-color-error) 12%, transparent);
+  color: var(--harmonium-color-error);
+}
+
+.root[data-variant='neutral'] {
+  background: var(--harmonium-color-gray-100);
+  color: var(--harmonium-color-text);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.label {
+  flex: 1;
+}
+
+.remove {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-left: 2px;
+  font-size: inherit;
+  line-height: 1;
+  color: inherit;
+  opacity: 0.7;
+  border-radius: var(--harmonium-radius-sm);
+}
+
+.remove:hover {
+  opacity: 1;
+}
+
+.remove:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 1px;
+  opacity: 1;
+}

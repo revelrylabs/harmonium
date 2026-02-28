@@ -1,0 +1,58 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  gap: var(--harmonium-spacing-xs);
+  padding: var(--harmonium-spacing-md);
+  background: var(--harmonium-color-surface);
+  border: 1px solid var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-lg);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.label {
+  font-family: var(--harmonium-font-family-sans);
+  font-size: var(--harmonium-font-size-sm);
+  font-weight: var(--harmonium-font-weight-medium);
+  color: var(--harmonium-color-text-muted);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--harmonium-color-text-muted);
+}
+
+.value {
+  font-family: var(--harmonium-font-family-sans);
+  font-size: var(--harmonium-font-size-2xl);
+  font-weight: var(--harmonium-font-weight-bold);
+  color: var(--harmonium-color-text);
+  line-height: var(--harmonium-line-height-tight);
+}
+
+.change {
+  display: inline-flex;
+  align-items: center;
+  gap: 2px;
+  font-family: var(--harmonium-font-family-sans);
+  font-size: var(--harmonium-font-size-sm);
+  font-weight: var(--harmonium-font-weight-medium);
+}
+
+.change[data-trend='up'] {
+  color: var(--harmonium-color-success);
+}
+
+.change[data-trend='down'] {
+  color: var(--harmonium-color-error);
+}
+
+.change[data-trend='neutral'] {
+  color: var(--harmonium-color-text-muted);
+}

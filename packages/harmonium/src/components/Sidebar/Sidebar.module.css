@@ -1,0 +1,105 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  background: var(--harmonium-color-surface);
+  border-right: 1px solid var(--harmonium-color-border);
+  height: 100%;
+  overflow-y: auto;
+  transition: width var(--harmonium-transition-duration-slow) ease;
+}
+
+.root[data-width='sm'] {
+  width: 200px;
+}
+
+.root[data-width='md'] {
+  width: 260px;
+}
+
+.root[data-width='lg'] {
+  width: 320px;
+}
+
+.root[data-collapsed] {
+  width: 60px;
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: var(--harmonium-spacing-sm) 0;
+}
+
+.section + .section {
+  border-top: 1px solid var(--harmonium-color-border);
+}
+
+.sectionLabel {
+  padding: var(--harmonium-spacing-xs) var(--harmonium-spacing-md);
+  font-size: var(--harmonium-font-size-xs);
+  font-weight: var(--harmonium-font-weight-semibold);
+  color: var(--harmonium-color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.root[data-collapsed] .sectionLabel {
+  display: none;
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  gap: var(--harmonium-spacing-sm);
+  width: 100%;
+  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-md);
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: var(--harmonium-font-size-sm);
+  font-weight: var(--harmonium-font-weight-medium);
+  color: var(--harmonium-color-text);
+  text-align: left;
+  transition:
+    background-color var(--harmonium-transition-duration-base) ease,
+    color var(--harmonium-transition-duration-base) ease;
+}
+
+.item:hover {
+  background: var(--harmonium-color-gray-50);
+}
+
+.item[data-active] {
+  background: color-mix(in srgb, var(--harmonium-color-brand-primary) 10%, transparent);
+  color: var(--harmonium-color-brand-primary);
+}
+
+.item:focus-visible {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: -2px;
+}
+
+.itemIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+}
+
+.itemLabel {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.root[data-collapsed] .itemLabel {
+  display: none;
+}
+
+.root[data-collapsed] .item {
+  justify-content: center;
+  padding: var(--harmonium-spacing-sm);
+}

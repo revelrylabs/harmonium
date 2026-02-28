@@ -1,0 +1,90 @@
+.root {
+  display: grid;
+  grid-template-columns: repeat(var(--pricing-columns, auto-fit), minmax(260px, 1fr));
+  gap: var(--harmonium-spacing-md);
+  align-items: stretch;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--harmonium-color-surface);
+  border: 1px solid var(--harmonium-color-border);
+  border-radius: var(--harmonium-radius-lg);
+  overflow: hidden;
+}
+
+.card[data-featured] {
+  border-color: var(--harmonium-color-brand-primary);
+  border-width: 2px;
+  box-shadow: var(--harmonium-shadow-lg);
+  position: relative;
+}
+
+.cardHeader {
+  padding: var(--harmonium-spacing-lg) var(--harmonium-spacing-lg) var(--harmonium-spacing-sm);
+  font-family: var(--harmonium-font-family-sans);
+}
+
+.cardPrice {
+  display: flex;
+  align-items: baseline;
+  gap: var(--harmonium-spacing-xs);
+  padding: 0 var(--harmonium-spacing-lg) var(--harmonium-spacing-md);
+}
+
+.amount {
+  font-family: var(--harmonium-font-family-sans);
+  font-size: var(--harmonium-font-size-4xl);
+  font-weight: var(--harmonium-font-weight-bold);
+  color: var(--harmonium-color-text);
+  line-height: var(--harmonium-line-height-tight);
+}
+
+.period {
+  font-family: var(--harmonium-font-family-sans);
+  font-size: var(--harmonium-font-size-sm);
+  color: var(--harmonium-color-text-muted);
+}
+
+.features {
+  list-style: none;
+  margin: 0;
+  padding: var(--harmonium-spacing-md) var(--harmonium-spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--harmonium-spacing-sm);
+  flex: 1;
+  border-top: 1px solid var(--harmonium-color-border);
+}
+
+.feature {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--harmonium-spacing-sm);
+  font-family: var(--harmonium-font-family-sans);
+  font-size: var(--harmonium-font-size-sm);
+  color: var(--harmonium-color-text);
+}
+
+.feature[data-included='false'] {
+  color: var(--harmonium-color-text-muted);
+  text-decoration: line-through;
+}
+
+.featureCheck {
+  flex-shrink: 0;
+  font-size: var(--harmonium-font-size-sm);
+}
+
+.feature[data-included='true'] .featureCheck {
+  color: var(--harmonium-color-success);
+}
+
+.feature[data-included='false'] .featureCheck {
+  color: var(--harmonium-color-text-muted);
+}
+
+.cardFooter {
+  padding: var(--harmonium-spacing-md) var(--harmonium-spacing-lg) var(--harmonium-spacing-lg);
+}
