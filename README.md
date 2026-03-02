@@ -59,7 +59,8 @@ Dark mode:
 
 | Feature | Harmonium | MUI | Chakra UI | Mantine | shadcn/ui | Radix Themes |
 |---------|-----------|-----|-----------|---------|-----------|--------------|
-| **Bundle size (gzip)** | ~20 KB (JS + CSS) | ~100 KB+ | ~60 KB+ | ~45 KB+ | Varies (you own source) | ~40 KB+ |
+| **JS size (gzip)** | ~12 KB | ~80 KB+ | ~45 KB+ | ~35 KB+ | Varies (you own source) | ~30 KB+ |
+| **CSS size (gzip)** | ~8 KB | Generated at runtime | Generated at runtime | Generated at runtime | Tailwind output | ~15 KB+ |
 | **Components** | 50 | 60+ | 50+ | 60+ | ~40 (copy-paste) | ~30 |
 | **Install & use** | `npm install`, import | `npm install`, import | `npm install`, import | `npm install`, import | CLI copies source into your repo | `npm install`, import |
 | **Styling approach** | CSS Modules (zero runtime) | Emotion (JS runtime) | Emotion (JS runtime) | CSS-in-JS runtime | Tailwind utility classes | Runtime CSS-in-JS |
