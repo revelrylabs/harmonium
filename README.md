@@ -55,6 +55,25 @@ Dark mode:
 }
 ```
 
+## Comparison
+
+| Feature | Harmonium | MUI | Chakra UI | Mantine | shadcn/ui | Radix Themes |
+|---------|-----------|-----|-----------|---------|-----------|--------------|
+| **Bundle size (gzip)** | ~20 KB (JS + CSS) | ~100 KB+ | ~60 KB+ | ~45 KB+ | Varies (you own source) | ~40 KB+ |
+| **Components** | 50 | 60+ | 50+ | 60+ | ~40 (copy-paste) | ~30 |
+| **Install & use** | `npm install`, import | `npm install`, import | `npm install`, import | `npm install`, import | CLI copies source into your repo | `npm install`, import |
+| **Styling approach** | CSS Modules (zero runtime) | Emotion (JS runtime) | Emotion (JS runtime) | CSS-in-JS runtime | Tailwind utility classes | Runtime CSS-in-JS |
+| **Theming** | Plain CSS custom properties | JS theme object + `ThemeProvider` | JS theme object + `ChakraProvider` | JS theme object + `MantineProvider` | `tailwind.config.js` | Proprietary token system |
+| **Provider wrapper required** | No | Yes | Yes | Yes | No | No |
+| **Build plugin required** | No | No | No | No | Yes (PostCSS/Tailwind) | No |
+| **RSC compatible** | Yes | Partial | No | Partial | Yes | Partial |
+| **Design tokens** | W3C DTCG standard | Proprietary | Proprietary | Proprietary | None (Tailwind config) | Proprietary |
+| **Accessibility** | WCAG 2.1 AA (Base UI) | WCAG 2.1 AA | WCAG 2.1 AA | WCAG 2.1 AA | Depends on implementation | WCAG 2.1 AA (Radix) |
+| **TypeScript** | Strict, typed enum props | Yes | Yes | Yes | Yes | Yes |
+| **LLM context files** | `llms.txt`, `CLAUDE.md`, `AGENTS.md` | No | No | No | No | No |
+| **Centrally maintained** | Yes (`npm update`) | Yes | Yes | Yes | No (you own the source) | Yes |
+| **Visual design out of the box** | Yes | Yes (Material) | Yes | Yes | No (unstyled) | Yes |
+
 ## Components
 
 50 components across 10 categories:
