@@ -1,0 +1,24 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--harmonium-font-family-sans);
+  color: var(--harmonium-color-text);
+  background: #fafafa;
+  line-height: var(--harmonium-line-height-base);
+}
+
+::selection {
+  background: color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
+}
