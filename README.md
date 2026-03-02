@@ -104,13 +104,80 @@ Harmonium is designed for AI-assisted development. Typed enum props, consistent 
 
 ## Development
 
+### Prerequisites
+
+- [Node.js](https://nodejs.org/) 18+
+- [pnpm](https://pnpm.io/) 10+
+
+### Monorepo Structure
+
+The repo uses pnpm workspaces + Turborepo with three packages:
+
+| Package | Path | Description |
+|---------|------|-------------|
+| `harmonium` | `packages/harmonium/` | Published library (`harmonium` on npm) |
+| `@harmonium/docs` | `packages/docs/` | Storybook documentation (private) |
+| `@harmonium/playground` | `packages/playground/` | Vite dev playground for manual testing (private) |
+
+### Commands
+
 ```bash
-pnpm install          # Install dependencies
-pnpm build            # Build tokens + library
-pnpm test             # Run tests (Vitest)
-pnpm storybook        # Launch Storybook (port 6006)
-pnpm lint             # ESLint
+pnpm install                    # Install dependencies
+pnpm build                      # Build tokens + library (all packages)
+pnpm test                       # Run tests (Vitest)
+pnpm lint                       # ESLint
+pnpm clean                      # Remove dist/ output
 ```
+
+### Storybook
+
+Storybook provides interactive documentation and a visual testbed for all components. Stories live in `packages/docs/stories/`.
+
+```bash
+pnpm storybook                  # Launch Storybook on http://localhost:6006
+```
+
+### Playground
+
+The playground is a minimal Vite + React app that consumes `harmonium` from the workspace. Use it for quick manual testing of components during development.
+
+```bash
+pnpm --filter playground dev    # Launch playground dev server
+```
+
+### Additional Commands
+
+```bash
+# Build tokens only (after editing design-tokens/*.json)
+pnpm --filter harmonium run tokens
+
+# Run a single test file
+pnpm --filter harmonium exec vitest run src/components/Button/Button.test.tsx
+
+# Run tests in watch mode
+pnpm --filter harmonium run test:watch
+```
+
+### Adding a New Component
+
+1. Create `packages/harmonium/src/components/ComponentName/` with:
+   - `ComponentName.tsx` — component with `forwardRef`, TypeScript props interface
+   - `ComponentName.module.css` — CSS Modules with CSS Custom Properties for theming
+   - `ComponentName.test.tsx` — Vitest + React Testing Library tests
+   - `index.ts` — re-export
+2. Export from `packages/harmonium/src/components/index.ts`
+3. Export from `packages/harmonium/src/index.ts`
+4. Add a Storybook story in `packages/docs/stories/ComponentName.stories.tsx`
+
+### Design Tokens
+
+Tokens use the W3C DTCG format and live in `design-tokens/`. The build pipeline:
+
+```
+design-tokens/*.json → Style Dictionary 4 → packages/harmonium/src/tokens/tokens.css
+```
+
+All generated CSS variables are prefixed with `--harmonium-`. After editing tokens, run `pnpm --filter harmonium run tokens`.
 
 ## Tech Stack
 
@@ -120,7 +187,7 @@ pnpm lint             # ESLint
 - Design tokens: W3C DTCG format + Style Dictionary 4
 - Build: tsup (ESM + CJS)
 - Test: Vitest + React Testing Library
-- Docs: Storybook
+- Docs: Storybook 8
 - Monorepo: pnpm + Turborepo
 
 ## License
