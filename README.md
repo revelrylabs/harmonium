@@ -57,32 +57,28 @@ Dark mode:
 
 ## Components
 
-### Layout
-Stack, Group, Grid, GridCol, Separator
+50 components across 10 categories:
 
-### Forms
-Field (Label, Description, Error), Input, Textarea, Select, Checkbox, Radio, RadioGroup, Switch, NumberInput, Slider, Combobox, MultiSelect, DatePicker, TimePicker
+| Category | Components |
+|----------|------------|
+| **Layout** | Stack, Group, Grid, Container, Separator, AppShell, Sidebar |
+| **Typography** | Text, Heading |
+| **Forms** | Field, Input, Textarea, Select, Checkbox, Radio, Switch, NumberInput, Slider, Combobox, MultiSelect, DatePicker, TimePicker, FileUpload |
+| **Actions** | Button, ToggleGroup |
+| **Display** | Card, Badge, Tag, Alert, Progress, Spinner, Avatar, Skeleton, Stat, EmptyState |
+| **Navigation** | Tabs, Accordion, Breadcrumbs, Pagination, TopBar |
+| **Data** | Table, DataGrid |
+| **Overlays** | Dialog, Drawer, Tooltip, Popover, Menu, CommandPalette |
+| **Feedback** | Toast (Provider + useToast hook) |
+| **Wizard** | Stepper |
+| **Marketing** | PricingTable |
 
-### Display
-Card (Header, Body, Footer), Badge, Alert, Progress, Spinner, Avatar, Skeleton
+Many components include compound sub-components (e.g., `Card` exports `CardHeader`, `CardBody`, `CardFooter`).
 
-### Navigation
-Tabs (List, Trigger, Content), Accordion (Item, Trigger, Content), Breadcrumbs, Pagination, TopBar
-
-### Data
-Table (Head, Body, Row, Header, Cell), DataGrid
-
-### Overlays
-Dialog (Header, Body, Footer), Drawer, Tooltip, Popover, Menu (Item, Separator, Label), CommandPalette
-
-### Feedback
-Toast (Provider + useToast hook)
-
-### Wizard
-Stepper, Step
-
-### Actions
-Button
+**Explore the full API:**
+- **[Storybook](http://localhost:6006)** — run `pnpm storybook` for interactive docs with live examples
+- **`llms.txt` / `llms-full.txt`** — structured API references for AI tools
+- **TypeScript autocomplete** — all props are fully typed with JSDoc descriptions
 
 ## Component Patterns
 
