@@ -2,24 +2,196 @@ import {Meta} from '@storybook/blocks'
 
 <Meta title="Introduction" />
 
-# Harmonium
+<style>
+{`
+  .intro-hero {
+    text-align: center;
+    padding: 48px 24px;
+    margin: -16px -16px 32px;
+    background: linear-gradient(135deg, #f0f4ff 0%, #e8eeff 50%, #f5f0ff 100%);
+    border-radius: 8px;
+  }
+  .intro-hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0 0 8px;
+    color: #1a1a2e;
+  }
+  .intro-hero .tagline {
+    font-size: 1.25rem;
+    color: #555;
+    margin: 0 0 16px;
+    font-weight: 500;
+  }
+  .intro-hero .subtitle {
+    font-size: 1rem;
+    color: #666;
+    max-width: 640px;
+    margin: 0 auto 24px;
+    line-height: 1.6;
+  }
+  .intro-hero .badges {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .intro-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 16px;
+    margin: 0 0 40px;
+  }
+  .intro-stat {
+    text-align: center;
+    padding: 24px 16px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #e9ecef;
+  }
+  .intro-stat .number {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #295DE5;
+    display: block;
+  }
+  .intro-stat .label {
+    font-size: 0.875rem;
+    color: #666;
+    margin-top: 4px;
+    display: block;
+  }
+  .intro-install {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    padding: 16px 24px;
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    text-align: center;
+    margin: 0 0 40px;
+    letter-spacing: 0.02em;
+  }
+  .intro-install code {
+    color: #7cb7ff;
+  }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+    margin: 0 0 40px;
+  }
+  .intro-card {
+    padding: 24px;
+    background: #fff;
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+  }
+  .intro-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+    color: #1a1a2e;
+  }
+  .intro-card p {
+    font-size: 0.875rem;
+    color: #555;
+    line-height: 1.6;
+    margin: 0;
+  }
+  .intro-comparison {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    margin: 0 0 40px;
+  }
+  .intro-comparison th {
+    text-align: left;
+    padding: 10px 12px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    font-weight: 600;
+    color: #1a1a2e;
+  }
+  .intro-comparison td {
+    padding: 10px 12px;
+    border: 1px solid #e9ecef;
+    color: #444;
+  }
+  .intro-comparison tr:hover td {
+    background: #f8f9fa;
+  }
+  .intro-check { color: #4CAF50; }
+  .intro-x { color: #ccc; }
+  .intro-section-header {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a1a2e;
+    margin: 0 0 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #e9ecef;
+  }
+  .intro-components {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    margin: 0 0 40px;
+  }
+  .intro-components th {
+    text-align: left;
+    padding: 10px 12px;
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    font-weight: 600;
+    color: #1a1a2e;
+    width: 140px;
+  }
+  .intro-components td {
+    padding: 10px 12px;
+    border: 1px solid #e9ecef;
+    color: #444;
+    line-height: 1.6;
+  }
+`}
+</style>
 
-**Ship products, not utility classes.**
+<div className="intro-hero">
+  <h1>Harmonium</h1>
+  <p className="tagline">Ship products, not utility classes.</p>
+  <p className="subtitle">
+    A complete React design system out of the box. Install, import, and build — no assembling primitives, no configuring class utilities, no copy-pasting component source code.
+  </p>
+  <div className="badges">
+    <img src="https://img.shields.io/npm/v/harmonium?style=flat-square&color=295DE5" alt="npm version" />
+    <img src="https://img.shields.io/bundlephobia/minzip/harmonium?style=flat-square&color=4CAF50&label=gzip" alt="bundle size" />
+    <img src="https://img.shields.io/github/license/revelrylabs/harmonium?style=flat-square" alt="license" />
+  </div>
+</div>
 
-A complete React design system out of the box. Install, import, and build — no assembling primitives, no configuring class utilities, no copy-pasting component source code.
+<div className="intro-stats">
+  <div className="intro-stat">
+    <span className="number">50</span>
+    <span className="label">Components</span>
+  </div>
+  <div className="intro-stat">
+    <span className="number">~12 KB</span>
+    <span className="label">JS gzipped</span>
+  </div>
+  <div className="intro-stat">
+    <span className="number">~8 KB</span>
+    <span className="label">CSS gzipped</span>
+  </div>
+  <div className="intro-stat">
+    <span className="number">0</span>
+    <span className="label">Runtime dependencies</span>
+  </div>
+</div>
 
-[![npm version](https://img.shields.io/npm/v/harmonium)](https://www.npmjs.com/package/harmonium)
-[![GitHub](https://img.shields.io/github/license/revelrylabs/harmonium)](https://github.com/revelrylabs/harmonium)
+<div className="intro-install">
+  <code>npm install harmonium</code>
+</div>
 
----
-
-## Installation
-
-```bash
-npm install harmonium
-```
-
-## Quick Start
+<h2 className="intro-section-header">Quick Start</h2>
 
 ```tsx
 import {Button, Card, CardBody, Input, Field, FieldLabel} from 'harmonium'
@@ -40,7 +212,176 @@ function App() {
 }
 ```
 
-## Theming
+<h2 className="intro-section-header">Why Harmonium?</h2>
+
+<div className="intro-grid">
+  <div className="intro-card">
+    <h3>Zero Runtime Styling</h3>
+    <p>CSS Modules at build time — no Emotion, no styled-components, no JS style injection. RSC compatible out of the box.</p>
+  </div>
+  <div className="intro-card">
+    <h3>Theme with Plain CSS</h3>
+    <p>Override CSS custom properties in a stylesheet. No providers, no JS theme objects, no build plugins required.</p>
+  </div>
+  <div className="intro-card">
+    <h3>Accessible by Default</h3>
+    <p>Built on Base UI primitives with WCAG 2.1 AA compliance, keyboard navigation, and focus management baked in.</p>
+  </div>
+  <div className="intro-card">
+    <h3>Typed Enum Props</h3>
+    <p><code>variant="primary"</code> not <code>className="btn-primary"</code>. Full TypeScript autocomplete for every prop and variant.</p>
+  </div>
+  <div className="intro-card">
+    <h3>LLM-Friendly</h3>
+    <p>Ships <code>llms.txt</code>, <code>CLAUDE.md</code>, and <code>AGENTS.md</code> so AI coding tools generate correct Harmonium code on the first try.</p>
+  </div>
+  <div className="intro-card">
+    <h3>Tiny Footprint</h3>
+    <p>~20 KB gzipped for all 50 components (JS + CSS). Lighter than most alternatives ship for a single component.</p>
+  </div>
+</div>
+
+<h2 className="intro-section-header">Comparison</h2>
+
+<table className="intro-comparison">
+  <thead>
+    <tr>
+      <th>Feature</th>
+      <th>Harmonium</th>
+      <th>MUI</th>
+      <th>Chakra UI</th>
+      <th>Mantine</th>
+      <th>shadcn/ui</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>JS size (gzip)</strong></td>
+      <td>~12 KB</td>
+      <td>~80 KB+</td>
+      <td>~45 KB+</td>
+      <td>~35 KB+</td>
+      <td>Varies</td>
+    </tr>
+    <tr>
+      <td><strong>CSS size (gzip)</strong></td>
+      <td>~8 KB</td>
+      <td>Runtime</td>
+      <td>Runtime</td>
+      <td>Runtime</td>
+      <td>Tailwind</td>
+    </tr>
+    <tr>
+      <td><strong>Styling</strong></td>
+      <td>CSS Modules (zero runtime)</td>
+      <td>Emotion (JS runtime)</td>
+      <td>Emotion (JS runtime)</td>
+      <td>CSS-in-JS runtime</td>
+      <td>Tailwind utilities</td>
+    </tr>
+    <tr>
+      <td><strong>Theming</strong></td>
+      <td>CSS custom properties</td>
+      <td>JS ThemeProvider</td>
+      <td>JS ChakraProvider</td>
+      <td>JS MantineProvider</td>
+      <td>tailwind.config.js</td>
+    </tr>
+    <tr>
+      <td><strong>Provider required</strong></td>
+      <td><span className="intro-check">No</span></td>
+      <td><span className="intro-x">Yes</span></td>
+      <td><span className="intro-x">Yes</span></td>
+      <td><span className="intro-x">Yes</span></td>
+      <td><span className="intro-check">No</span></td>
+    </tr>
+    <tr>
+      <td><strong>Build plugin required</strong></td>
+      <td><span className="intro-check">No</span></td>
+      <td><span className="intro-check">No</span></td>
+      <td><span className="intro-check">No</span></td>
+      <td><span className="intro-check">No</span></td>
+      <td><span className="intro-x">Yes (Tailwind)</span></td>
+    </tr>
+    <tr>
+      <td><strong>RSC compatible</strong></td>
+      <td><span className="intro-check">Yes</span></td>
+      <td>Partial</td>
+      <td><span className="intro-x">No</span></td>
+      <td>Partial</td>
+      <td><span className="intro-check">Yes</span></td>
+    </tr>
+    <tr>
+      <td><strong>LLM context files</strong></td>
+      <td><span className="intro-check">Yes</span></td>
+      <td><span className="intro-x">No</span></td>
+      <td><span className="intro-x">No</span></td>
+      <td><span className="intro-x">No</span></td>
+      <td><span className="intro-x">No</span></td>
+    </tr>
+    <tr>
+      <td><strong>Accessible</strong></td>
+      <td><span className="intro-check">WCAG 2.1 AA</span></td>
+      <td><span className="intro-check">WCAG 2.1 AA</span></td>
+      <td><span className="intro-check">WCAG 2.1 AA</span></td>
+      <td><span className="intro-check">WCAG 2.1 AA</span></td>
+      <td>Varies</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 className="intro-section-header">Components</h2>
+
+<table className="intro-components">
+  <tbody>
+    <tr>
+      <th>Layout</th>
+      <td>Stack, Group, Grid, Container, Separator, AppShell, Sidebar</td>
+    </tr>
+    <tr>
+      <th>Typography</th>
+      <td>Text, Heading</td>
+    </tr>
+    <tr>
+      <th>Forms</th>
+      <td>Field, Input, Textarea, Select, Checkbox, Radio, Switch, NumberInput, Slider, Combobox, MultiSelect, DatePicker, TimePicker, FileUpload</td>
+    </tr>
+    <tr>
+      <th>Actions</th>
+      <td>Button, ToggleGroup</td>
+    </tr>
+    <tr>
+      <th>Display</th>
+      <td>Card, Badge, Tag, Alert, Progress, Spinner, Avatar, Skeleton, Stat, EmptyState</td>
+    </tr>
+    <tr>
+      <th>Navigation</th>
+      <td>Tabs, Accordion, Breadcrumbs, Pagination, TopBar</td>
+    </tr>
+    <tr>
+      <th>Data</th>
+      <td>Table, DataGrid</td>
+    </tr>
+    <tr>
+      <th>Overlays</th>
+      <td>Dialog, Drawer, Tooltip, Popover, Menu, CommandPalette</td>
+    </tr>
+    <tr>
+      <th>Feedback</th>
+      <td>Toast (Provider + useToast hook)</td>
+    </tr>
+    <tr>
+      <th>Wizard</th>
+      <td>Stepper</td>
+    </tr>
+    <tr>
+      <th>Marketing</th>
+      <td>PricingTable</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 className="intro-section-header">Theming</h2>
 
 Override design tokens with plain CSS — no build tools required:
 
@@ -64,18 +405,19 @@ Dark mode:
 }
 ```
 
-## Key Features
+<h2 className="intro-section-header">Resources</h2>
 
-- **50 components** — layout, forms, navigation, data display, overlays, and more
-- **~20 KB gzipped** (JS + CSS) — lighter than most alternatives
-- **Zero runtime styling** — CSS Modules, no JS style injection, RSC compatible
-- **Accessible by default** — built on Base UI primitives, WCAG 2.1 AA
-- **Typed enum props** — `variant="primary"` not `className="btn-primary"`
-- **CSS custom property theming** — no providers, no build plugins, just CSS
-- **LLM-friendly** — ships `llms.txt`, `CLAUDE.md`, and `AGENTS.md` for AI-assisted development
-
-## Resources
-
-- [GitHub](https://github.com/revelrylabs/harmonium)
-- [npm](https://www.npmjs.com/package/harmonium)
-- [Revelry Labs](https://revelry.co)
+<div className="intro-grid">
+  <div className="intro-card">
+    <h3>GitHub</h3>
+    <p><a href="https://github.com/revelrylabs/harmonium">github.com/revelrylabs/harmonium</a></p>
+  </div>
+  <div className="intro-card">
+    <h3>npm</h3>
+    <p><a href="https://www.npmjs.com/package/harmonium">npmjs.com/package/harmonium</a></p>
+  </div>
+  <div className="intro-card">
+    <h3>Revelry Labs</h3>
+    <p><a href="https://revelry.co">revelry.co</a></p>
+  </div>
+</div>
