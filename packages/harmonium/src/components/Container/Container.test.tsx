@@ -40,4 +40,27 @@ describe('Container', () => {
     render(<Container data-testid="container" id="main-container">Content</Container>)
     expect(screen.getByTestId('container')).toHaveAttribute('id', 'main-container')
   })
+
+  it('applies responsive size', () => {
+    render(
+      <Container data-testid="container" size={{base: 'full', md: 'lg', xl: 'xl'}}>
+        Content
+      </Container>,
+    )
+    const el = screen.getByTestId('container')
+    expect(el).toHaveAttribute('data-size', 'full')
+    expect(el).toHaveAttribute('data-size-md', 'lg')
+    expect(el).toHaveAttribute('data-size-xl', 'xl')
+  })
+
+  it('applies responsive padding', () => {
+    render(
+      <Container data-testid="container" padding={{base: 'sm', lg: 'lg'}}>
+        Content
+      </Container>,
+    )
+    const el = screen.getByTestId('container')
+    expect(el).toHaveAttribute('data-padding', 'sm')
+    expect(el).toHaveAttribute('data-padding-lg', 'lg')
+  })
 })

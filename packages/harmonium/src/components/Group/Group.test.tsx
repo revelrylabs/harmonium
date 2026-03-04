@@ -24,4 +24,26 @@ describe('Group', () => {
     render(<Group data-testid="group" className="custom">Content</Group>)
     expect(screen.getByTestId('group')).toHaveClass('custom')
   })
+
+  it('applies responsive gap', () => {
+    render(
+      <Group data-testid="group" gap={{base: 'sm', lg: 'xl'}}>
+        Content
+      </Group>,
+    )
+    const el = screen.getByTestId('group')
+    expect(el).toHaveAttribute('data-gap', 'sm')
+    expect(el).toHaveAttribute('data-gap-lg', 'xl')
+  })
+
+  it('applies responsive justify', () => {
+    render(
+      <Group data-testid="group" justify={{base: 'start', md: 'between'}}>
+        Content
+      </Group>,
+    )
+    const el = screen.getByTestId('group')
+    expect(el).toHaveAttribute('data-justify', 'start')
+    expect(el).toHaveAttribute('data-justify-md', 'between')
+  })
 })

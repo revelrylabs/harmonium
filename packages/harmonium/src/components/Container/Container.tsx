@@ -1,12 +1,14 @@
 import * as React from 'react'
 import {clsx} from 'clsx'
 import styles from './Container.module.css'
+import {responsiveDataAttrs} from '../../utils/responsive'
+import type {ResponsiveValue} from '../../utils/responsive'
 
 export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Max-width size */
-  size?: 'sm' | 'md' | 'lg' | 'xl' | 'full'
+  size?: ResponsiveValue<'sm' | 'md' | 'lg' | 'xl' | 'full'>
   /** Horizontal padding */
-  padding?: 'none' | 'sm' | 'md' | 'lg'
+  padding?: ResponsiveValue<'none' | 'sm' | 'md' | 'lg'>
 }
 
 export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
@@ -15,8 +17,8 @@ export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
       <div
         ref={ref}
         className={clsx(styles.root, className)}
-        data-size={size}
-        data-padding={padding}
+        {...responsiveDataAttrs('size', size)}
+        {...responsiveDataAttrs('padding', padding)}
         {...props}
       >
         {children}

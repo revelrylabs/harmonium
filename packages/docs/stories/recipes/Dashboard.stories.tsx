@@ -91,7 +91,7 @@ function DashboardLayout() {
               </p>
             </div>
 
-            <Grid columns={4} gap="md">
+            <Grid columns={{base: 1, sm: 2, lg: 4}} gap="md">
               <GridCol>
                 <Stat label="Revenue" value="$12,426" change="+14.2%" trend="up" />
               </GridCol>
@@ -106,8 +106,8 @@ function DashboardLayout() {
               </GridCol>
             </Grid>
 
-            <Grid columns={12} gap="md">
-              <GridCol span={8}>
+            <Grid columns={{base: 1, lg: 12}} gap="md">
+              <GridCol span={{base: 1, lg: 8}}>
                 <Card>
                   <CardHeader>
                     <Group justify="between" align="center">
@@ -154,7 +154,7 @@ function DashboardLayout() {
                 </Card>
               </GridCol>
 
-              <GridCol span={4}>
+              <GridCol span={{base: 1, lg: 4}}>
                 <Stack gap="md">
                   <Card>
                     <CardHeader>

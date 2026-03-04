@@ -136,7 +136,7 @@ function FilterableDataTable() {
 
         <Card>
           <CardHeader>
-            <Group gap="md" align="end">
+            <Stack direction={{base: 'vertical', md: 'horizontal'}} gap="md" align={{md: 'end'}}>
               <div style={{flex: 1}}>
                 <Input
                   placeholder="Search by name or email..."
@@ -181,7 +181,7 @@ function FilterableDataTable() {
                   Clear
                 </Button>
               )}
-            </Group>
+            </Stack>
           </CardHeader>
           <CardBody>
             {paginated.length > 0 ? (

@@ -81,7 +81,7 @@ function Features() {
             Everything you need to ship products, nothing you don&apos;t.
           </p>
         </div>
-        <Grid columns={3} gap="md" style={{maxWidth: 960, width: '100%'}}>
+        <Grid columns={{base: 1, md: 2, lg: 3}} gap="md" style={{maxWidth: 960, width: '100%'}}>
           {features.map((f) => (
             <GridCol key={f.title}>
               <Card style={{height: '100%'}}>
@@ -115,7 +115,7 @@ function Testimonials() {
         <h2 style={{margin: 0, fontSize: '2rem', textAlign: 'center'}}>
           Loved by developers
         </h2>
-        <Grid columns={3} gap="md" style={{maxWidth: 960, width: '100%'}}>
+        <Grid columns={{base: 1, md: 2, lg: 3}} gap="md" style={{maxWidth: 960, width: '100%'}}>
           {testimonials.map((t) => (
             <GridCol key={t.name}>
               <Card style={{height: '100%'}}>

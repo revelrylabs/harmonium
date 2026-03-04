@@ -92,7 +92,12 @@ export {
   PricingCardFeatures,
   PricingCardFeature,
   PricingCardFooter,
+  Show,
 } from './components'
+
+export {breakpoints} from './tokens/breakpoints'
+export type {Breakpoint} from './tokens/breakpoints'
+export type {ResponsiveValue} from './utils/responsive'
 
 export type {
   ButtonProps,
@@ -187,4 +192,5 @@ export type {
   PricingCardFeaturesProps,
   PricingCardFeatureProps,
   PricingCardFooterProps,
+  ShowProps,
 } from './components'

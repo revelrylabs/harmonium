@@ -37,18 +37,18 @@ The single highest-impact gap. Developers can't adopt what they can't explore.
 Tailwind's breakpoint system is a key reason developers choose it. Harmonium needs a first-class responsive story.
 
 ### Responsive props on layout components
-- [ ] Support object syntax for responsive values: `<Stack direction={{base: 'vertical', md: 'horizontal'}}>`
-- [ ] Apply to `Stack`, `Group`, `Grid`, `GridCol`, `Container`
-- [ ] Define standard breakpoint tokens (`sm`, `md`, `lg`, `xl`) in the design token system
+- [x] Support object syntax for responsive values: `<Stack direction={{base: 'vertical', md: 'horizontal'}}>`
+- [x] Apply to `Stack`, `Group`, `Grid`, `GridCol`, `Container`
+- [x] Define standard breakpoint tokens (`sm`, `md`, `lg`, `xl`) in the design token system
 
 ### Responsive visibility components
-- [ ] `<Show above="md">` — render children only above a breakpoint
-- [ ] `<Hide below="sm">` — hide children below a breakpoint
-- [ ] CSS-only implementation (no JS resize observers)
+- [x] `<Show above="md">` — render children only above a breakpoint
+- [x] `<Show below="sm">` — hide children below a breakpoint (using `below` prop)
+- [x] CSS-only implementation (no JS resize observers)
 
 ### Exported breakpoint tokens
-- [ ] Export breakpoint values as CSS custom properties (`--harmonium-breakpoint-sm`, etc.)
-- [ ] Export as TypeScript constants for consumers who need them in JS
+- [x] Export breakpoint values as CSS custom properties (`--harmonium-screen-sm`, etc.)
+- [x] Export as TypeScript constants for consumers who need them in JS
 
 ---
 

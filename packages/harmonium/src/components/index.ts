@@ -147,3 +147,6 @@ export type {StatProps} from './Stat'
 
 export {PricingTable, PricingCard, PricingCardHeader, PricingCardPrice, PricingCardFeatures, PricingCardFeature, PricingCardFooter} from './PricingTable'
 export type {PricingTableProps, PricingCardProps, PricingCardHeaderProps, PricingCardPriceProps, PricingCardFeaturesProps, PricingCardFeatureProps, PricingCardFooterProps} from './PricingTable'
+
+export {Show} from './Show'
+export type {ShowProps} from './Show'

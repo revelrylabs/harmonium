@@ -1,0 +1,40 @@
+/* above: hidden by default, shown at breakpoint and above */
+
+.root[data-above='sm'] { display: none; }
+.root[data-above='md'] { display: none; }
+.root[data-above='lg'] { display: none; }
+.root[data-above='xl'] { display: none; }
+
+@media (min-width: 640px) {
+  .root[data-above='sm'] { display: block; }
+}
+
+@media (min-width: 768px) {
+  .root[data-above='md'] { display: block; }
+}
+
+@media (min-width: 1024px) {
+  .root[data-above='lg'] { display: block; }
+}
+
+@media (min-width: 1280px) {
+  .root[data-above='xl'] { display: block; }
+}
+
+/* below: shown by default, hidden at breakpoint and above */
+
+@media (min-width: 640px) {
+  .root[data-below='sm'] { display: none; }
+}
+
+@media (min-width: 768px) {
+  .root[data-below='md'] { display: none; }
+}
+
+@media (min-width: 1024px) {
+  .root[data-below='lg'] { display: none; }
+}
+
+@media (min-width: 1280px) {
+  .root[data-below='xl'] { display: none; }
+}

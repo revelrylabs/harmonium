@@ -43,7 +43,7 @@ function ProfileSettings() {
             </Stack>
           </Group>
           <Separator />
-          <Group gap="md">
+          <Stack direction={{base: 'vertical', md: 'horizontal'}} gap="md">
             <Field>
               <FieldLabel>First name</FieldLabel>
               <Input defaultValue="Jane" />
@@ -52,7 +52,7 @@ function ProfileSettings() {
               <FieldLabel>Last name</FieldLabel>
               <Input defaultValue="Doe" />
             </Field>
-          </Group>
+          </Stack>
           <Field>
             <FieldLabel>Email</FieldLabel>
             <Input type="email" defaultValue="jane@example.com" />

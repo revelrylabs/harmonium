@@ -1,18 +1,20 @@
 import * as React from 'react'
 import {clsx} from 'clsx'
 import styles from './Stack.module.css'
+import {responsiveDataAttrs} from '../../utils/responsive'
+import type {ResponsiveValue} from '../../utils/responsive'
 
 export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Direction of the stack */
-  direction?: 'vertical' | 'horizontal'
+  direction?: ResponsiveValue<'vertical' | 'horizontal'>
   /** Gap between items */
-  gap?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
+  gap?: ResponsiveValue<'xs' | 'sm' | 'md' | 'lg' | 'xl'>
   /** Alignment of items on the cross axis */
-  align?: 'start' | 'center' | 'end' | 'stretch'
+  align?: ResponsiveValue<'start' | 'center' | 'end' | 'stretch'>
   /** Justification of items on the main axis */
-  justify?: 'start' | 'center' | 'end' | 'between' | 'around'
+  justify?: ResponsiveValue<'start' | 'center' | 'end' | 'between' | 'around'>
   /** Whether items should wrap */
-  wrap?: boolean
+  wrap?: ResponsiveValue<boolean>
 }
 
 export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
@@ -33,11 +35,11 @@ export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
       <div
         ref={ref}
         className={clsx(styles.root, className)}
-        data-direction={direction}
-        data-gap={gap}
-        data-align={align || undefined}
-        data-justify={justify || undefined}
-        data-wrap={wrap || undefined}
+        {...responsiveDataAttrs('direction', direction)}
+        {...responsiveDataAttrs('gap', gap)}
+        {...responsiveDataAttrs('align', align)}
+        {...responsiveDataAttrs('justify', justify)}
+        {...responsiveDataAttrs('wrap', wrap)}
         {...props}
       >
         {children}

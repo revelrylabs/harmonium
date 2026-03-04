@@ -37,4 +37,43 @@ describe('Stack', () => {
     render(<Stack data-testid="stack" className="custom">Content</Stack>)
     expect(screen.getByTestId('stack')).toHaveClass('custom')
   })
+
+  it('applies responsive direction', () => {
+    render(
+      <Stack data-testid="stack" direction={{base: 'vertical', md: 'horizontal'}}>
+        Content
+      </Stack>,
+    )
+    const el = screen.getByTestId('stack')
+    expect(el).toHaveAttribute('data-direction', 'vertical')
+    expect(el).toHaveAttribute('data-direction-md', 'horizontal')
+  })
+
+  it('applies responsive gap', () => {
+    render(
+      <Stack data-testid="stack" gap={{base: 'sm', lg: 'xl'}}>
+        Content
+      </Stack>,
+    )
+    const el = screen.getByTestId('stack')
+    expect(el).toHaveAttribute('data-gap', 'sm')
+    expect(el).toHaveAttribute('data-gap-lg', 'xl')
+  })
+
+  it('applies responsive align and justify', () => {
+    render(
+      <Stack
+        data-testid="stack"
+        align={{base: 'start', md: 'center'}}
+        justify={{base: 'start', lg: 'between'}}
+      >
+        Content
+      </Stack>,
+    )
+    const el = screen.getByTestId('stack')
+    expect(el).toHaveAttribute('data-align', 'start')
+    expect(el).toHaveAttribute('data-align-md', 'center')
+    expect(el).toHaveAttribute('data-justify', 'start')
+    expect(el).toHaveAttribute('data-justify-lg', 'between')
+  })
 })
