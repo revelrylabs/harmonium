@@ -381,6 +381,22 @@ function App() {
   </tbody>
 </table>
 
+<h2 className="intro-section-header">Use Without React</h2>
+
+Harmonium ships a framework-agnostic CSS file for Phoenix/LiveView, Vue, Rails, or any HTML project:
+
+```html
+<link rel="stylesheet" href="harmonium/harmonium.css">
+
+<button class="hm-button" data-variant="primary">Click me</button>
+
+<div class="hm-card">
+  <div class="hm-card-body">Content</div>
+</div>
+```
+
+Same design tokens, same data-attribute variants, zero JavaScript required. See the **Guides** section for framework-specific integration guides.
+
 <h2 className="intro-section-header">Theming</h2>
 
 Override design tokens with plain CSS — no build tools required:
@@ -410,30 +426,30 @@ Dark mode:
 Copy-pasteable real-world UI patterns built entirely with Harmonium. Browse the **Recipes** section in the sidebar:
 
 <div className="intro-grid">
-  <div className="intro-card">
+  <a href="?path=/docs/recipes-login--signup--docs" className="intro-card" style={{textDecoration: 'none', color: 'inherit'}}>
     <h3>Login & Signup</h3>
     <p>Authentication forms with validation, tabbed sign-in/sign-up, and forgot password.</p>
-  </div>
-  <div className="intro-card">
+  </a>
+  <a href="?path=/docs/recipes-settings-page--docs" className="intro-card" style={{textDecoration: 'none', color: 'inherit'}}>
     <h3>Settings Page</h3>
     <p>Tabbed settings with profile, notifications, and appearance sections.</p>
-  </div>
-  <div className="intro-card">
+  </a>
+  <a href="?path=/docs/recipes-dashboard--docs" className="intro-card" style={{textDecoration: 'none', color: 'inherit'}}>
     <h3>Dashboard</h3>
     <p>Full app shell with sidebar nav, stat cards, data table, and summary panels.</p>
-  </div>
-  <div className="intro-card">
+  </a>
+  <a href="?path=/docs/recipes-data-table--docs" className="intro-card" style={{textDecoration: 'none', color: 'inherit'}}>
     <h3>Data Table</h3>
     <p>Filterable, sortable, paginated table with search, dropdowns, and empty state.</p>
-  </div>
-  <div className="intro-card">
+  </a>
+  <a href="?path=/docs/recipes-marketing-page--docs" className="intro-card" style={{textDecoration: 'none', color: 'inherit'}}>
     <h3>Marketing Page</h3>
     <p>Landing page with hero, feature grid, testimonials, and CTA sections.</p>
-  </div>
-  <div className="intro-card">
+  </a>
+  <a href="?path=/docs/recipes-pricing-page--docs" className="intro-card" style={{textDecoration: 'none', color: 'inherit'}}>
     <h3>Pricing Page</h3>
     <p>Three-tier pricing with featured plan and monthly/annual billing toggle.</p>
-  </div>
+  </a>
 </div>
 
 <h2 className="intro-section-header">Resources</h2>

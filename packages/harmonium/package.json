@@ -20,7 +20,8 @@
       }
     },
     "./styles.css": "./dist/index.css",
-    "./tokens.css": "./dist/tokens.css"
+    "./tokens.css": "./dist/tokens.css",
+    "./harmonium.css": "./dist/harmonium.css"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -30,11 +31,12 @@
   ],
   "files": [
     "dist",
+    "scripts",
     "CLAUDE.md",
     "AGENTS.md"
   ],
   "scripts": {
-    "build": "pnpm run tokens && tsup && cp src/tokens/tokens.css dist/tokens.css",
+    "build": "pnpm run tokens && tsup && cp src/tokens/tokens.css dist/tokens.css && node --import tsx scripts/build-global-css.ts",
     "tokens": "node --import tsx ./src/tokens/build.ts",
     "test": "vitest run",
     "test:watch": "vitest",
