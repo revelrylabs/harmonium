@@ -1,0 +1,81 @@
+import {Meta} from '@storybook/blocks'
+
+<Meta title="Introduction" />
+
+# Harmonium
+
+**Ship products, not utility classes.**
+
+A complete React design system out of the box. Install, import, and build — no assembling primitives, no configuring class utilities, no copy-pasting component source code.
+
+[![npm version](https://img.shields.io/npm/v/harmonium)](https://www.npmjs.com/package/harmonium)
+[![GitHub](https://img.shields.io/github/license/revelrylabs/harmonium)](https://github.com/revelrylabs/harmonium)
+
+---
+
+## Installation
+
+```bash
+npm install harmonium
+```
+
+## Quick Start
+
+```tsx
+import {Button, Card, CardBody, Input, Field, FieldLabel} from 'harmonium'
+import 'harmonium/styles.css'
+
+function App() {
+  return (
+    <Card>
+      <CardBody>
+        <Field>
+          <FieldLabel>Email</FieldLabel>
+          <Input type="email" placeholder="you@example.com" />
+        </Field>
+        <Button variant="primary">Submit</Button>
+      </CardBody>
+    </Card>
+  )
+}
+```
+
+## Theming
+
+Override design tokens with plain CSS — no build tools required:
+
+```css
+:root {
+  --harmonium-color-brand-primary: #E91E63;
+  --harmonium-color-brand-secondary: #9C27B0;
+  --harmonium-radius-md: 8px;
+  --harmonium-font-family-sans: 'Inter', sans-serif;
+}
+```
+
+Dark mode:
+
+```css
+[data-theme="dark"] {
+  --harmonium-color-bg: #1a1a1a;
+  --harmonium-color-text: #f0f0f0;
+  --harmonium-color-surface: #2d2d2d;
+  --harmonium-color-border: #404040;
+}
+```
+
+## Key Features
+
+- **50 components** — layout, forms, navigation, data display, overlays, and more
+- **~20 KB gzipped** (JS + CSS) — lighter than most alternatives
+- **Zero runtime styling** — CSS Modules, no JS style injection, RSC compatible
+- **Accessible by default** — built on Base UI primitives, WCAG 2.1 AA
+- **Typed enum props** — `variant="primary"` not `className="btn-primary"`
+- **CSS custom property theming** — no providers, no build plugins, just CSS
+- **LLM-friendly** — ships `llms.txt`, `CLAUDE.md`, and `AGENTS.md` for AI-assisted development
+
+## Resources
+
+- [GitHub](https://github.com/revelrylabs/harmonium)
+- [npm](https://www.npmjs.com/package/harmonium)
+- [Revelry Labs](https://revelry.co)
