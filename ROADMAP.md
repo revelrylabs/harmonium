@@ -9,20 +9,20 @@ This document tracks planned features and improvements beyond the current compon
 The single highest-impact gap. Developers can't adopt what they can't explore.
 
 ### Deployed docs site
-- [ ] Deploy Storybook to a public URL (Vercel, Netlify, or GitHub Pages)
-- [ ] Custom landing page with install instructions, feature comparison, and quick start
-- [ ] Searchable component API reference
-- [ ] Copy-paste code examples for every component and variant
+- [x] Deploy Storybook to a public URL (GitHub Pages)
+- [x] Custom landing page with install instructions, feature comparison, and quick start
+- [x] Searchable component API reference
+- [x] Copy-paste code examples for every component and variant
 
 ### Recipes & patterns
-- [ ] "Recipes" section showing common real-world UI patterns:
+- [x] "Recipes" section showing common real-world UI patterns:
   - Login / signup form
   - Settings page
   - Dashboard layout with sidebar
   - Data table with filters and pagination
   - Marketing landing page
   - Pricing page
-- [ ] Each recipe should be a self-contained, copy-pasteable code block
+- [x] Each recipe should be a self-contained, copy-pasteable code block
 
 ### Framework integration guides
 - [ ] Next.js (App Router + Pages Router)
