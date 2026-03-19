@@ -27,7 +27,7 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
 
 Card.displayName = 'Card'
 
-export interface CardSectionProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type CardSectionProps = React.HTMLAttributes<HTMLDivElement>
 
 export const CardHeader = React.forwardRef<HTMLDivElement, CardSectionProps>(
   ({className, children, ...props}, ref) => (

@@ -102,7 +102,7 @@ async function build() {
   const flat = flattenTokens(allTokens)
 
   const tsLines = Object.entries(flat)
-    .map(([key, value]) => {
+    .map(([key]) => {
       const constName = key
         .replace(/[.-]/g, '_')
         .replace(/([a-z])([A-Z])/g, '$1_$2')

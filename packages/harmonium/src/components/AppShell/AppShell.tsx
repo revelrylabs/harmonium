@@ -24,8 +24,7 @@ export const AppShell = React.forwardRef<HTMLDivElement, AppShellProps>(
 
 AppShell.displayName = 'AppShell'
 
-export interface AppShellHeaderProps
-  extends React.HTMLAttributes<HTMLElement> {}
+export type AppShellHeaderProps = React.HTMLAttributes<HTMLElement>
 
 export const AppShellHeader = React.forwardRef<
   HTMLElement,
@@ -42,8 +41,7 @@ export const AppShellHeader = React.forwardRef<
 
 AppShellHeader.displayName = 'AppShellHeader'
 
-export interface AppShellSidebarProps
-  extends React.HTMLAttributes<HTMLElement> {}
+export type AppShellSidebarProps = React.HTMLAttributes<HTMLElement>
 
 export const AppShellSidebar = React.forwardRef<
   HTMLElement,
@@ -60,8 +58,7 @@ export const AppShellSidebar = React.forwardRef<
 
 AppShellSidebar.displayName = 'AppShellSidebar'
 
-export interface AppShellMainProps
-  extends React.HTMLAttributes<HTMLElement> {}
+export type AppShellMainProps = React.HTMLAttributes<HTMLElement>
 
 export const AppShellMain = React.forwardRef<HTMLElement, AppShellMainProps>(
   ({className, children, ...props}, ref) => (
@@ -77,8 +74,7 @@ export const AppShellMain = React.forwardRef<HTMLElement, AppShellMainProps>(
 
 AppShellMain.displayName = 'AppShellMain'
 
-export interface AppShellFooterProps
-  extends React.HTMLAttributes<HTMLElement> {}
+export type AppShellFooterProps = React.HTMLAttributes<HTMLElement>
 
 export const AppShellFooter = React.forwardRef<
   HTMLElement,

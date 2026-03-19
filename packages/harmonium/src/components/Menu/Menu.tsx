@@ -2,7 +2,7 @@ import * as React from 'react'
 import {clsx} from 'clsx'
 import styles from './Menu.module.css'
 
-export interface MenuProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type MenuProps = React.HTMLAttributes<HTMLDivElement>
 
 export const Menu = React.forwardRef<HTMLDivElement, MenuProps>(
   ({className, children, ...props}, ref) => (
@@ -36,7 +36,7 @@ export const MenuItem = React.forwardRef<HTMLButtonElement, MenuItemProps>(
 
 MenuItem.displayName = 'MenuItem'
 
-export interface MenuSeparatorProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type MenuSeparatorProps = React.HTMLAttributes<HTMLDivElement>
 
 export const MenuSeparator = React.forwardRef<HTMLDivElement, MenuSeparatorProps>(
   ({className, ...props}, ref) => (
@@ -51,7 +51,7 @@ export const MenuSeparator = React.forwardRef<HTMLDivElement, MenuSeparatorProps
 
 MenuSeparator.displayName = 'MenuSeparator'
 
-export interface MenuLabelProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type MenuLabelProps = React.HTMLAttributes<HTMLDivElement>
 
 export const MenuLabel = React.forwardRef<HTMLDivElement, MenuLabelProps>(
   ({className, children, ...props}, ref) => (

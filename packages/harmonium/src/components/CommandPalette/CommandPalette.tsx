@@ -32,7 +32,7 @@ function buildGroupedItems(filtered: CommandItem[]): Map<string, GroupedItem[]> 
   for (const item of filtered) {
     const group = item.group ?? ''
     if (!groups.has(group)) groups.set(group, [])
-    groups.get(group)!.push({item, flatIndex, group})
+    groups.get(group)?.push({item, flatIndex, group})
     flatIndex++
   }
   return groups

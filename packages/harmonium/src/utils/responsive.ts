@@ -85,7 +85,7 @@ export function responsiveStyles(
 
   for (const bp of BREAKPOINTS) {
     if (value[bp] !== undefined) {
-      styles[`--${name}-${bp}`] = fmt(value[bp]!)
+      styles[`--${name}-${bp}`] = fmt(value[bp] as string | number)
     }
   }
 

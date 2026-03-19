@@ -53,8 +53,7 @@ export const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
 
 PricingCard.displayName = 'PricingCard'
 
-export interface PricingCardHeaderProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type PricingCardHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
 export const PricingCardHeader = React.forwardRef<
   HTMLDivElement,
@@ -87,8 +86,7 @@ export const PricingCardPrice = React.forwardRef<
 
 PricingCardPrice.displayName = 'PricingCardPrice'
 
-export interface PricingCardFeaturesProps
-  extends React.HTMLAttributes<HTMLUListElement> {}
+export type PricingCardFeaturesProps = React.HTMLAttributes<HTMLUListElement>
 
 export const PricingCardFeatures = React.forwardRef<
   HTMLUListElement,
@@ -126,8 +124,7 @@ export const PricingCardFeature = React.forwardRef<
 
 PricingCardFeature.displayName = 'PricingCardFeature'
 
-export interface PricingCardFooterProps
-  extends React.HTMLAttributes<HTMLDivElement> {}
+export type PricingCardFooterProps = React.HTMLAttributes<HTMLDivElement>
 
 export const PricingCardFooter = React.forwardRef<
   HTMLDivElement,
