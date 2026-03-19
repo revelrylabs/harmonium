@@ -48,7 +48,7 @@ export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>(
 
 Dialog.displayName = 'Dialog'
 
-export interface DialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
 export const DialogHeader = React.forwardRef<HTMLDivElement, DialogHeaderProps>(
   ({className, children, ...props}, ref) => (
@@ -59,7 +59,7 @@ export const DialogHeader = React.forwardRef<HTMLDivElement, DialogHeaderProps>(
 )
 DialogHeader.displayName = 'DialogHeader'
 
-export interface DialogBodyProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type DialogBodyProps = React.HTMLAttributes<HTMLDivElement>
 
 export const DialogBody = React.forwardRef<HTMLDivElement, DialogBodyProps>(
   ({className, children, ...props}, ref) => (
@@ -70,7 +70,7 @@ export const DialogBody = React.forwardRef<HTMLDivElement, DialogBodyProps>(
 )
 DialogBody.displayName = 'DialogBody'
 
-export interface DialogFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
+export type DialogFooterProps = React.HTMLAttributes<HTMLDivElement>
 
 export const DialogFooter = React.forwardRef<HTMLDivElement, DialogFooterProps>(
   ({className, children, ...props}, ref) => (

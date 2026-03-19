@@ -37,7 +37,6 @@ describe('NumberInput', () => {
   })
 
   it('respects max boundary', async () => {
-    const user = userEvent.setup()
     const onChange = vi.fn()
     render(<NumberInput defaultValue={10} max={10} onChange={onChange} aria-label="Qty" />)
     expect(screen.getByLabelText('Increase')).toBeDisabled()

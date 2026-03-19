@@ -3,8 +3,7 @@ import {clsx} from 'clsx'
 import {useFieldContext} from '../Field'
 import styles from './Textarea.module.css'
 
-export interface TextareaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {}
+export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>
 
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
   ({className, ...props}, ref) => {
