@@ -33,4 +33,14 @@ describe('Button', () => {
     expect(htmlButton.prop('className')).to.contain('disabled')
     expect(htmlButton.prop('disabled')).to.equal(true)
   })
+
+  it('defaults a plain button to type="button" so it does not submit a form', () => {
+    const button = mount(<Button />).find('button').first()
+    expect(button.prop('type')).to.equal('button')
+  })
+
+  it('keeps an explicit type when one is provided', () => {
+    const button = mount(<Button type="submit" />).find('button').first()
+    expect(button.prop('type')).to.equal('submit')
+  })
 })
