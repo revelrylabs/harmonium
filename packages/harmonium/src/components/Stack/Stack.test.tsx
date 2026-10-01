@@ -30,7 +30,19 @@ describe('Stack', () => {
 
   it('applies wrap', () => {
     render(<Stack data-testid="stack" wrap>Content</Stack>)
-    expect(screen.getByTestId('stack')).toHaveAttribute('data-wrap')
+    expect(screen.getByTestId('stack')).toHaveAttribute('data-wrap', 'true')
+  })
+
+  it('emits an explicit off value for wrap={false}', () => {
+    render(<Stack data-testid="stack" wrap={false}>Content</Stack>)
+    expect(screen.getByTestId('stack')).toHaveAttribute('data-wrap', 'false')
+  })
+
+  it('applies responsive wrap that turns off at a breakpoint', () => {
+    render(<Stack data-testid="stack" wrap={{base: true, md: false}}>Content</Stack>)
+    const el = screen.getByTestId('stack')
+    expect(el).toHaveAttribute('data-wrap', 'true')
+    expect(el).toHaveAttribute('data-wrap-md', 'false')
   })
 
   it('merges custom className', () => {

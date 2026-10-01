@@ -15,7 +15,19 @@ describe('responsiveDataAttrs', () => {
   })
 
   it('handles static boolean value', () => {
-    expect(responsiveDataAttrs('wrap', true)).toEqual({'data-wrap': true})
+    expect(responsiveDataAttrs('wrap', true)).toEqual({'data-wrap': 'true'})
+    expect(responsiveDataAttrs('wrap', false)).toEqual({'data-wrap': 'false'})
+  })
+
+  it('handles responsive boolean values', () => {
+    expect(responsiveDataAttrs('wrap', {base: true, md: false})).toEqual({
+      'data-wrap': 'true',
+      'data-wrap-md': 'false',
+    })
+  })
+
+  it('returns empty object for an empty responsive object', () => {
+    expect(responsiveDataAttrs('gap', {})).toEqual({})
   })
 
   it('handles responsive object with base only', () => {

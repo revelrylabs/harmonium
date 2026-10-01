@@ -7,18 +7,15 @@ export type ResponsiveValue<T> =
 const BREAKPOINTS: Breakpoint[] = ['sm', 'md', 'lg', 'xl']
 
 /**
- * Check if a value is a responsive object (has breakpoint keys).
+ * Check if a value is a responsive object. Any plain object counts, so an
+ * empty `{}` produces no attributes instead of `data-x="[object Object]"`.
  */
 function isResponsiveObject<T>(
   value: ResponsiveValue<T>,
 ): value is {base?: T; sm?: T; md?: T; lg?: T; xl?: T} {
   if (value === null || value === undefined) return false
   if (typeof value !== 'object') return false
-  if (Array.isArray(value)) return false
-  const keys = Object.keys(value)
-  return keys.some((k) =>
-    ['base', 'sm', 'md', 'lg', 'xl'].includes(k),
-  )
+  return !Array.isArray(value)
 }
 
 /**
@@ -28,26 +25,31 @@ function isResponsiveObject<T>(
  * Static: responsiveDataAttrs('gap', 'md') → { 'data-gap': 'md' }
  * Responsive: responsiveDataAttrs('gap', { base: 'sm', lg: 'xl' })
  *   → { 'data-gap': 'sm', 'data-gap-lg': 'xl' }
+ * Booleans: responsiveDataAttrs('wrap', { base: true, md: false })
+ *   → { 'data-wrap': 'true', 'data-wrap-md': 'false' }
+ *
+ * Booleans are emitted as 'true'/'false' strings; component CSS treats
+ * 'false' as an explicit off switch so it can override a smaller breakpoint.
  */
 export function responsiveDataAttrs(
   name: string,
   value: ResponsiveValue<string | boolean> | undefined,
-): Record<string, string | boolean | undefined> {
+): Record<string, string> {
   if (value === undefined) return {}
 
   if (!isResponsiveObject(value)) {
-    return {[`data-${name}`]: value as string | boolean}
+    return {[`data-${name}`]: String(value)}
   }
 
-  const attrs: Record<string, string | boolean | undefined> = {}
+  const attrs: Record<string, string> = {}
 
   if (value.base !== undefined) {
-    attrs[`data-${name}`] = value.base
+    attrs[`data-${name}`] = String(value.base)
   }
 
   for (const bp of BREAKPOINTS) {
     if (value[bp] !== undefined) {
-      attrs[`data-${name}-${bp}`] = value[bp]
+      attrs[`data-${name}-${bp}`] = String(value[bp])
     }
   }
 

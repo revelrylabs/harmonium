@@ -36,7 +36,7 @@
     "AGENTS.md"
   ],
   "scripts": {
-    "build": "pnpm run tokens && tsup && cp src/tokens/tokens.css dist/tokens.css && node --import tsx scripts/build-global-css.ts",
+    "build": "pnpm run tokens && tsup && cp src/tokens/tokens.css dist/tokens.css && node --import tsx scripts/build-global-css.ts && node --import tsx scripts/check-dist.ts",
     "tokens": "node --import tsx ./src/tokens/build.ts",
     "test": "vitest run",
     "test:watch": "vitest",
