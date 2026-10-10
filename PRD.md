@@ -1,4 +1,4 @@
-# Harmonium v2 — Product Requirements Document
+# Harmonium v9 — Product Requirements Document
 
 ## Context
 
@@ -239,7 +239,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 
 ## Component Inventory
 
-### Phase 1: Core (v2.0) — Ship a usable library
+### Phase 1: Core (v9.0) — Ship a usable library
 
 Build these on Base UI primitives where available:
 
@@ -251,7 +251,7 @@ Build these on Base UI primitives where available:
 | **Select** | `<Select>` | Native-like with custom styling |
 | **Checkbox** | `<Checkbox>` | With label integration |
 | **Radio** | `<RadioGroup>` | Group with label integration |
-| **Switch** | `<Switch>` | Toggle switch (new — not in v1) |
+| **Switch** | `<Switch>` | Toggle switch (new — not in v8) |
 | **Dialog** | `<Dialog>` | Replaces Modal. Accessible focus trap, portal |
 | **Drawer** | `<Dialog>` + CSS | Slide-in panel using Dialog primitive |
 | **Tabs** | `<Tabs>` | Keyboard navigation, ARIA |
@@ -272,23 +272,23 @@ Build these on Base UI primitives where available:
 
 **24 components** — enough to build real applications.
 
-### Phase 2: Extended (v2.1)
+### Phase 2: Extended (v9.1)
 
 | Component | Notes |
 |-----------|-------|
-| **DatePicker** | Port from v1 with Temporal API or date-fns |
-| **TimePicker** | Port from v1 |
+| **DatePicker** | Port from v8 with Temporal API or date-fns |
+| **TimePicker** | Port from v8 |
 | **Combobox** | Base UI Combobox — autocomplete/typeahead |
 | **NumberInput** | `<NumberField>` from Base UI |
 | **Slider** | `<Slider>` from Base UI |
-| **Pagination** | Port from v1 |
-| **Breadcrumbs** | Port from v1 |
+| **Pagination** | Port from v8 |
+| **Breadcrumbs** | Port from v8 |
 | **TopBar** | Navigation header |
 | **Avatar** | User avatar with fallback (new) |
 | **Skeleton** | Loading placeholder (new) |
 | **Toast** | Notification system (new) |
 
-### Phase 3: Advanced (v2.2+)
+### Phase 3: Advanced (v9.2+)
 
 | Component | Notes |
 |-----------|-------|
@@ -298,7 +298,7 @@ Build these on Base UI primitives where available:
 | **CommandPalette** | Command-K style search |
 | **Stepper** | Multi-step wizard |
 
-### Not Porting from v1
+### Not Porting from v8
 
 | Component | Reason |
 |-----------|--------|
@@ -395,7 +395,7 @@ Full type coverage:
 - [ ] Build Badge, Alert, Progress, Spinner
 - [ ] Write Storybook stories for all components
 - [ ] Write tests for all components (unit + a11y)
-- [ ] **v2.0.0-beta.1 release**
+- [ ] **v9.0.0-beta.1 release**
 
 ### Phase 2: Extended Components (Weeks 9-12)
 
@@ -403,15 +403,15 @@ Full type coverage:
 - [ ] Combobox, NumberInput, Slider
 - [ ] Pagination, Breadcrumbs, TopBar
 - [ ] Avatar, Skeleton, Toast
-- [ ] **v2.0.0 stable release**
+- [ ] **v9.0.0 stable release**
 
 ### Phase 3: Polish & Ecosystem (Weeks 13+)
 
 - [ ] Documentation website (Storybook-based, deployed)
 - [ ] Figma token sync (Tokens Studio integration)
 - [ ] Visual regression test suite (Playwright screenshots)
-- [ ] Migration guide from Harmonium v1
-- [ ] DataGrid, FileUpload, MultiSelect (v2.1+)
+- [ ] Migration guide from Harmonium v8
+- [ ] DataGrid, FileUpload, MultiSelect (v9.1+)
 
 ---
 

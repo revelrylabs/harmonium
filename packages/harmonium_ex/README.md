@@ -13,7 +13,7 @@ Add to your `mix.exs`:
 ```elixir
 def deps do
   [
-    {:harmonium, "~> 2.0"}
+    {:harmonium, "~> 9.0.0-alpha"}
   ]
 end
 ```

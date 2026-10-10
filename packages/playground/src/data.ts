@@ -4,7 +4,7 @@ export const initialTodos: Todo[] = [
   {
     id: '1',
     title: 'Design system tokens',
-    description: 'Finalize color palette and spacing scale for Harmonium v2',
+    description: 'Finalize color palette and spacing scale for Harmonium v9',
     completed: true,
     priority: 'high',
     category: 'Design',
@@ -49,7 +49,7 @@ export const initialTodos: Todo[] = [
   {
     id: '6',
     title: 'Publish alpha to npm',
-    description: 'Publish 2.0.0-alpha.0 with --tag next',
+    description: 'Publish 9.0.0-alpha.0 with --tag next',
     completed: false,
     priority: 'low',
     category: 'Release',
