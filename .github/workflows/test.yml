@@ -1,15 +1,24 @@
 name: Test
 
-on: [push, workflow_call]
+on:
+  push:
+    branches: [8.x]
+  pull_request:
+  workflow_call:
 
 jobs:
   run-tests:
     runs-on: ubuntu-latest
+    env:
+      # v8 test files use JSX via @babel/register; stop Node 22 from
+      # loading them as native ES modules.
+      NODE_OPTIONS: --no-experimental-detect-module
     steps:
     - uses: actions/checkout@v4
     - uses: actions/setup-node@v4
       with:
-        node-version: 16
-    - run: npm install
+        node-version: 22
+        cache: npm
+    - run: npm ci
     - run: npm run build
     - run: npm test
