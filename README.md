@@ -1,5 +1,7 @@
 <img src="docs-src/static/images/harmonium-logo.png" width="400px"/>
 
+> **Harmonium 8 is in maintenance.** It gets bug and security fixes only, released from the [`8.x` branch](https://github.com/revelrylabs/harmonium/tree/8.x). New development happens in **Harmonium 9**, a ground-up rewrite with TypeScript, CSS Modules and design tokens: `npm install harmonium@next`. See the [v8 → v9 migration guide](https://github.com/revelrylabs/harmonium/blob/main/MIGRATION.md).
+
 [![NPM Version][npm-badge]][npm-url]
 [![Dependency Status](https://dependencyci.com/github/revelrylabs/harmonium/badge)](https://dependencyci.com/github/revelrylabs/harmonium)
 [![Coverage Status](https://opencov.prod.revelry.net/projects/8/badge.svg)](https://opencov.prod.revelry.net/projects/8)

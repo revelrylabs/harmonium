@@ -71,9 +71,6 @@
     "@babel/preset-env": "^7.0.0",
     "@babel/preset-react": "^7.0.0",
     "@babel/register": "^7.0.0",
-    "@semantic-release/changelog": "^6.0.1",
-    "@semantic-release/git": "^10.0.1",
-    "@semantic-release/npm": "^9.0.1",
     "archiver": "^5.3.1",
     "babel-eslint": "^10.0.1",
     "babel-plugin-istanbul": "^6.1.1",
@@ -97,7 +94,6 @@
     "prettier": "^2.6.2",
     "prettier-eslint": "^15.0.1",
     "react-test-renderer": "^16.8.0",
-    "semantic-release": "^19.0.2",
     "sinon": "^14.0.0",
     "timekeeper": "^2.0.0"
   },
@@ -147,24 +143,6 @@
       "@babel/plugin-proposal-class-properties",
       "@babel/plugin-proposal-json-strings",
       "@babel/plugin-proposal-export-default-from"
-    ]
-  },
-  "release": {
-    "verifyConditions": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      "@semantic-release/git"
-    ],
-    "prepare": [
-      "@semantic-release/changelog",
-      "@semantic-release/npm",
-      {
-        "path": "@semantic-release/git",
-        "assets": [
-          "package.json"
-        ],
-        "message": "chore(release): Bump version to ${nextRelease.version} [skip ci]\n\n${nextRelease.notes}"
-      }
     ]
   }
 }
