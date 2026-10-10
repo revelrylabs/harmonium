@@ -64,7 +64,7 @@ const meta: Meta = {
 1. Install Harmonium:
 
 \`\`\`bash
-npm install harmonium
+npm install harmonium@next
 \`\`\`
 
 2. Import the global CSS in your \`main.ts\` or \`main.js\`:

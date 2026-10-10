@@ -1,8 +1,8 @@
-# Migrating from Harmonium v1 to v2
+# Migrating from Harmonium v8 to v9
 
 ## Breaking Changes
 
-Harmonium v2 is a ground-up rewrite. Every component has a new API.
+Harmonium v9 is a ground-up rewrite. Every component has a new API.
 
 ### Installation
 
@@ -37,7 +37,7 @@ Harmonium v2 is a ground-up rewrite. Every component has a new API.
 
 ## Component Mapping
 
-| v1 Component | v2 Component | Notes |
+| v8 Component | v9 Component | Notes |
 |---|---|---|
 | `Button` | `Button` | Use `variant` prop instead of `primary`/`secondary`/`alert` booleans |
 | `Row` / `Col` | `Grid` / `GridCol` | CSS Grid based. Use `columns` and `span` props |
@@ -73,7 +73,7 @@ Harmonium v2 is a ground-up rewrite. Every component has a new API.
 
 ## Removed Components
 
-These v1 components are not in v2:
+These v8 components are not in v9:
 
 | Component | Reason | Alternative |
 |---|---|---|
@@ -92,9 +92,9 @@ These v1 components are not in v2:
 | `Sticky` | Niche utility | Use `position: sticky` CSS |
 | `Form` | Rails-specific | Use `<form>` element directly |
 
-## New in v2
+## New in v9
 
-Components that didn't exist in v1:
+Components that didn't exist in v8:
 
 - **Switch** — Toggle switch input
 - **Stack** / **Group** — Flex layout primitives
@@ -124,8 +124,8 @@ Components that didn't exist in v1:
 ### CSS class names → data attributes
 
 ```diff
-- // v1: .rev-Button--primary
-+ // v2: [data-variant="primary"]
+- // v8: .rev-Button--primary
++ // v9: [data-variant="primary"]
 ```
 
 ### SCSS variables → CSS Custom Properties

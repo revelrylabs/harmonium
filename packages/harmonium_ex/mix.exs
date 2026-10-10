@@ -1,7 +1,7 @@
 defmodule Harmonium.MixProject do
   use Mix.Project
 
-  @version "2.0.0-alpha.1"
+  @version "9.0.0-alpha.1"
   @source_url "https://github.com/revelrylabs/harmonium"
 
   def project do

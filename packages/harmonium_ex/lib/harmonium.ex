@@ -9,7 +9,7 @@ defmodule Harmonium do
 
   Add to your `mix.exs`:
 
-      {:harmonium, "~> 2.0"}
+      {:harmonium, "~> 9.0.0-alpha"}
 
   Then import the CSS in your `assets/css/app.css`:
 

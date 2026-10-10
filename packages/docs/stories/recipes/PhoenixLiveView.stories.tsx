@@ -74,7 +74,7 @@ const meta: Meta = {
 1. Install Harmonium via npm:
 
 \`\`\`bash
-cd assets && npm install harmonium
+cd assets && npm install harmonium@next
 \`\`\`
 
 2. Import the global CSS in your \`assets/css/app.css\`:

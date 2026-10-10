@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Harmonium v2 is a TypeScript React component library built on Base UI headless primitives with CSS Modules + CSS Custom Properties for styling. Design tokens (W3C DTCG format) are the single source of truth, processed by Style Dictionary 4 into CSS variables. See `PRD.md` for full product requirements.
+Harmonium v9 is a TypeScript React component library built on Base UI headless primitives with CSS Modules + CSS Custom Properties for styling. Design tokens (W3C DTCG format) are the single source of truth, processed by Style Dictionary 4 into CSS variables. See `PRD.md` for full product requirements.
 
 ## Commands
 

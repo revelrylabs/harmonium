@@ -159,3 +159,27 @@ Building settings-templates.zip
 ```
 
 which are nessesary for for the doc site, the styles included in harmonoium, as well as the downloadable harmonium settings.
+
+## Releasing
+
+Harmonium has two release lines:
+
+| Line | Branch | npm dist-tag | What ships |
+|------|--------|--------------|------------|
+| 9.x (active) | `main` | `next` until 9.0.0, then `latest` | New features and breaking changes |
+| 8.x (maintenance) | `8.x` | `v8` once 9.0.0 is `latest` | Bug and security fixes only |
+
+### 9.x (`main`)
+
+Releases use [Changesets](https://github.com/changesets/changesets). `main` is in prerelease mode (`alpha`), so versions look like `9.0.0-alpha.N`.
+
+1. In your PR, run `pnpm changeset` and describe the change. Choose `patch`, `minor` or `major` for `harmonium`.
+2. After merge, the Release workflow opens or updates a **Version Packages** PR that bumps versions and writes `CHANGELOG.md`.
+3. Merge the Version Packages PR.
+4. Run **Actions → Release → Run workflow** on `main` with tag `next`. It builds, tests, checks the dist-tag (`scripts/check-dist-tag.mjs`), publishes with npm provenance, and pushes the git tag.
+
+To move to beta or a stable 9.0.0: `pnpm changeset pre exit` (or `pre enter beta`), then publish stable with tag `latest`. Before that, tag the last v8 release: `npm dist-tag add harmonium@8.x.y v8`.
+
+### 8.x (`8.x`)
+
+Fixes for v8 go in PRs against the `8.x` branch. Once 9.0.0 is `latest`, every 8.x publish **must** use `--tag v8`, so it doesn't take back `latest`.

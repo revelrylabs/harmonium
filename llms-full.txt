@@ -5,7 +5,7 @@ Harmonium is a React component library with typed props, design-token theming vi
 ## Setup
 
 ```bash
-npm install harmonium
+npm install harmonium@next
 ```
 
 ```tsx
