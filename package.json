@@ -7,9 +7,12 @@
     "test": "turbo run test",
     "lint": "turbo run lint",
     "storybook": "pnpm --filter docs run storybook",
-    "clean": "turbo run clean"
+    "clean": "turbo run clean",
+    "changeset": "changeset",
+    "version-packages": "changeset version && pnpm install --lockfile-only"
   },
   "devDependencies": {
+    "@changesets/cli": "^3.0.3",
     "turbo": "^2"
   },
   "pnpm": {

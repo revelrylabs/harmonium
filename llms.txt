@@ -10,7 +10,7 @@
 
 ## Quick Start
 
-Install: `npm install harmonium`
+Install: `npm install harmonium@next`
 Import: `import { Button } from 'harmonium'`
 Styles: `import 'harmonium/styles.css'`
 Theme: Override `--harmonium-*` CSS custom properties

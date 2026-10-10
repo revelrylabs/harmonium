@@ -1,6 +1,10 @@
 name: Test
 
-on: [push, workflow_call]
+on:
+  push:
+    branches: [main, 8.x]
+  pull_request:
+  workflow_call:
 
 jobs:
   test:
