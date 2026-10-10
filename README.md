@@ -12,7 +12,7 @@ npm install harmonium@next
 
 Harmonium 9 is a ground-up rewrite and is currently in pre-release under the `next` tag. `npm install harmonium` still installs v8 until 9.0.0 is stable.
 
-**Using v8?** It stays in maintenance on the [`8.x` branch](https://github.com/revelrylabs/harmonium/tree/8.x) (`npm install harmonium@8`). See [MIGRATION.md](MIGRATION.md) to upgrade.
+**Using v8?** It stays in maintenance on the [`8.x` branch](https://github.com/revelrylabs/harmonium/tree/8.x) (`npm install harmonium@8`). See [MIGRATION.md](https://github.com/revelrylabs/harmonium/blob/main/MIGRATION.md) to upgrade.
 
 ## Usage
 

@@ -58,8 +58,20 @@ jobs:
       - run: pnpm build
       - run: pnpm test
       - run: node scripts/check-dist-tag.mjs packages/harmonium/package.json "${{ inputs.tag }}"
-      - run: pnpm exec changeset publish --tag "${{ inputs.tag }}"
+      # `changeset publish` refuses a custom dist-tag in pre mode, so publish
+      # with pnpm directly. Skips if this version is already on npm.
+      - name: Publish to npm
+        working-directory: packages/harmonium
+        run: |
+          version=$(node -p "require('./package.json').version")
+          if npm view "harmonium@$version" version >/dev/null 2>&1; then
+            echo "harmonium@$version is already published"
+          else
+            pnpm publish --tag "${{ inputs.tag }}" --access public --provenance --no-git-checks
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          NPM_CONFIG_PROVENANCE: true
-      - run: git push --follow-tags origin HEAD:main
+      - name: Tag the release
+        run: |
+          tag="harmonium@$(node -p "require('./packages/harmonium/package.json').version")"
+          git tag "$tag" && git push origin "$tag"
