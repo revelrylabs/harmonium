@@ -20,6 +20,21 @@ function toKebab(name: string): string {
 }
 
 /**
+ * Swap comments, strings and url(...) values for placeholders so the class
+ * regexes can't touch their contents (e.g. `www.w3.org` in a data-URI SVG).
+ */
+function protect(css: string): {masked: string; restore: (s: string) => string} {
+  const saved: string[] = []
+  const masked = css.replace(
+    /\/\*[\s\S]*?\*\/|url\((?:"[^"]*"|'[^']*'|[^)]*)\)|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g,
+    (match) => `__HM_PROTECTED_${saved.push(match) - 1}__`,
+  )
+  const restore = (s: string) =>
+    s.replace(/__HM_PROTECTED_(\d+)__/g, (_, i) => saved[Number(i)])
+  return {masked, restore}
+}
+
+/**
  * Extract all class names from a CSS file (e.g., .root, .header, .body)
  */
 function extractClassNames(css: string): string[] {
@@ -74,10 +89,10 @@ for (const dir of components) {
   const cssFile = join(SRC, dir.name, `${dir.name}.module.css`)
   if (!existsSync(cssFile)) continue
 
-  const css = readFileSync(cssFile, 'utf8')
-  const classNames = extractClassNames(css)
+  const {masked, restore} = protect(readFileSync(cssFile, 'utf8'))
+  const classNames = extractClassNames(masked)
   const kebabName = toKebab(dir.name)
-  const renamed = renameClasses(css, kebabName, classNames)
+  const renamed = restore(renameClasses(masked, kebabName, classNames))
 
   sections.push(`/* === ${dir.name} === */\n${renamed}`)
 }

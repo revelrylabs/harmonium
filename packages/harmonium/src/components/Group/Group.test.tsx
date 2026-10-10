@@ -17,7 +17,14 @@ describe('Group', () => {
 
   it('applies grow attribute', () => {
     render(<Group data-testid="group" grow>Content</Group>)
-    expect(screen.getByTestId('group')).toHaveAttribute('data-grow')
+    expect(screen.getByTestId('group')).toHaveAttribute('data-grow', 'true')
+  })
+
+  it('emits explicit off values for wrap={false} and grow={false}', () => {
+    render(<Group data-testid="group" wrap={false} grow={false}>Content</Group>)
+    const el = screen.getByTestId('group')
+    expect(el).toHaveAttribute('data-wrap', 'false')
+    expect(el).toHaveAttribute('data-grow', 'false')
   })
 
   it('merges custom className', () => {
