@@ -56,6 +56,10 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
     const [query, setQuery] = React.useState('')
     const [highlightIndex, setHighlightIndex] = React.useState(0)
     const inputRef = React.useRef<HTMLInputElement>(null)
+    const listRef = React.useRef<HTMLDivElement>(null)
+    const id = React.useId()
+    const listId = `${id}-list`
+    const optionId = (index: number) => `${id}-option-${index}`
 
     const filtered = React.useMemo(
       () =>
@@ -80,6 +84,15 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
         setHighlightIndex(0)
       }
     }, [open])
+
+    const activeId = ordered[highlightIndex] ? optionId(highlightIndex) : undefined
+
+    // Keep the highlighted option visible while arrowing through a long list
+    React.useEffect(() => {
+      if (!open || !activeId) return
+      const option = listRef.current?.ownerDocument.getElementById(activeId)
+      option?.scrollIntoView?.({block: 'nearest'})
+    }, [open, activeId])
 
     const select = (item: CommandItem) => {
       item.onSelect()
@@ -115,9 +128,17 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
               initialFocus={inputRef}
               {...props}
             >
+              {/* Combobox pattern: focus stays in the input and the
+                  highlighted option is exposed via aria-activedescendant */}
               <input
                 ref={inputRef}
                 type="text"
+                role="combobox"
+                aria-expanded="true"
+                aria-controls={listId}
+                aria-autocomplete="list"
+                aria-activedescendant={activeId}
+                aria-label={placeholder}
                 className={styles.input}
                 value={query}
                 placeholder={placeholder}
@@ -127,16 +148,28 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
                 }}
                 onKeyDown={handleKeyDown}
               />
-              <div className={styles.list} role="listbox" aria-label="Commands">
-                {filtered.length === 0 && (
-                  <div className={styles.empty}>No results</div>
-                )}
-                {Array.from(grouped.entries()).map(([group, groupedItems]) => (
-                  <div key={group}>
-                    {group && <div className={styles.groupLabel}>{group}</div>}
+              <div
+                ref={listRef}
+                id={listId}
+                className={styles.list}
+                role="listbox"
+                aria-label="Commands"
+              >
+                {Array.from(grouped.entries()).map(([group, groupedItems], groupIndex) => (
+                  <div
+                    key={group}
+                    role={group ? 'group' : undefined}
+                    aria-labelledby={group ? `${id}-group-${groupIndex}` : undefined}
+                  >
+                    {group && (
+                      <div id={`${id}-group-${groupIndex}`} className={styles.groupLabel}>
+                        {group}
+                      </div>
+                    )}
                     {groupedItems.map(({item, flatIndex}) => (
                       <div
                         key={item.id}
+                        id={optionId(flatIndex)}
                         className={styles.item}
                         role="option"
                         aria-selected={flatIndex === highlightIndex}
@@ -149,6 +182,11 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
                     ))}
                   </div>
                 ))}
+              </div>
+              {/* Outside the listbox (which may only hold options) and
+                  announced politely when a query matches nothing */}
+              <div role="status">
+                {filtered.length === 0 && <div className={styles.empty}>No results</div>}
               </div>
             </BaseDialog.Popup>
           </BaseDialog.Viewport>

@@ -1,6 +1,10 @@
 import {describe, it, expect} from 'vitest'
 import {render, screen} from '@testing-library/react'
 import {Card, CardHeader, CardBody, CardFooter} from './Card'
+import {configureAxe} from 'vitest-axe'
+// jsdom has no layout, so colour contrast can't be computed here
+const axe = configureAxe({rules: {'color-contrast': {enabled: false}}})
+
 
 describe('Card', () => {
   it('renders children', () => {
@@ -31,5 +35,17 @@ describe('Card', () => {
     const el = screen.getByTestId('card')
     expect(el).toHaveAttribute('data-variant', 'outlined')
     expect(el).toHaveAttribute('data-padding', 'lg')
+  })
+
+
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <Card>
+        <CardHeader>Title</CardHeader>
+        <CardBody>Body</CardBody>
+        <CardFooter>Footer</CardFooter>
+      </Card>,
+    )
+    expect(await axe(container)).toHaveNoViolations()
   })
 })

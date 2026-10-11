@@ -53,7 +53,9 @@ function ToastApi({children}: {children: React.ReactNode}) {
         add({
           title: message,
           type: variant,
-          timeout: duration,
+          // Base UI treats 0 as "never auto-dismiss"; a non-finite timer
+          // (e.g. Infinity) would otherwise fire immediately.
+          timeout: Number.isFinite(duration) ? duration : 0,
           priority: variant === 'error' ? 'high' : 'low',
         }),
       dismiss: (id) => close(id),

@@ -29,6 +29,9 @@ export const Tag = React.forwardRef<HTMLSpanElement, TagProps>(
     },
     ref,
   ) => {
+    const id = React.useId()
+    const labelId = `${id}-label`
+    const removeId = `${id}-remove`
     return (
       <span
         ref={ref}
@@ -38,13 +41,19 @@ export const Tag = React.forwardRef<HTMLSpanElement, TagProps>(
         {...props}
       >
         {icon && <span className={styles.icon}>{icon}</span>}
-        <span className={styles.label}>{children}</span>
+        <span id={labelId} className={styles.label}>
+          {children}
+        </span>
         {removable && (
           <button
             type="button"
             className={styles.remove}
             onClick={onRemove}
+            id={removeId}
+            // Named "Remove <label>" so each tag's button is distinguishable,
+            // whatever the label's content
             aria-label="Remove"
+            aria-labelledby={`${removeId} ${labelId}`}
           >
             &times;
           </button>

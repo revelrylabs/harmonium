@@ -1,6 +1,10 @@
 import {describe, it, expect} from 'vitest'
 import {render} from '@testing-library/react'
 import {Skeleton} from './Skeleton'
+import {configureAxe} from 'vitest-axe'
+// jsdom has no layout, so colour contrast can't be computed here
+const axe = configureAxe({rules: {'color-contrast': {enabled: false}}})
+
 
 describe('Skeleton', () => {
   it('renders with aria-hidden', () => {
@@ -30,5 +34,17 @@ describe('Skeleton', () => {
   it('applies circular variant', () => {
     const {container} = render(<Skeleton variant="circular" />)
     expect(container.firstChild).toHaveAttribute('data-variant', 'circular')
+  })
+
+
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <div aria-busy="true">
+        <Skeleton />
+        <Skeleton variant="circular" width={40} height={40} />
+        <Skeleton variant="rectangular" height={100} />
+      </div>,
+    )
+    expect(await axe(container)).toHaveNoViolations()
   })
 })

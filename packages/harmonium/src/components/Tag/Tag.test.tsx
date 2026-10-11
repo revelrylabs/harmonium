@@ -2,6 +2,10 @@ import {describe, it, expect, vi} from 'vitest'
 import {render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import {Tag} from './Tag'
+import {configureAxe} from 'vitest-axe'
+// jsdom has no layout, so colour contrast can't be computed here
+const axe = configureAxe({rules: {'color-contrast': {enabled: false}}})
+
 
 describe('Tag', () => {
   it('renders children', () => {
@@ -76,5 +80,29 @@ describe('Tag', () => {
     const ref = vi.fn<(el: HTMLSpanElement | null) => void>()
     render(<Tag ref={ref}>Ref</Tag>)
     expect(ref).toHaveBeenCalledWith(expect.any(HTMLSpanElement))
+  })
+
+
+  it('names each remove button after its tag', () => {
+    render(
+      <>
+        <Tag removable>React</Tag>
+        <Tag removable>
+          <strong>Vue</strong>
+        </Tag>
+      </>,
+    )
+    expect(screen.getByRole('button', {name: 'Remove React'})).toBeInTheDocument()
+    expect(screen.getByRole('button', {name: 'Remove Vue'})).toBeInTheDocument()
+  })
+
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <>
+        <Tag removable>React</Tag>
+        <Tag variant="success">Done</Tag>
+      </>,
+    )
+    expect(await axe(container)).toHaveNoViolations()
   })
 })

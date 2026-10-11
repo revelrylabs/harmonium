@@ -13,7 +13,7 @@ const items = [
 describe('CommandPalette', () => {
   it('renders nothing when closed', () => {
     render(<CommandPalette open={false} items={items} />)
-    expect(screen.queryByRole('textbox')).not.toBeInTheDocument()
+    expect(screen.queryByRole('combobox')).not.toBeInTheDocument()
   })
 
   it('renders when open', () => {
@@ -75,10 +75,10 @@ describe('CommandPalette', () => {
       'Beta',
     ])
 
-    await user.type(screen.getByRole('textbox'), '{ArrowDown}')
+    await user.type(screen.getByRole('combobox'), '{ArrowDown}')
     expect(screen.getByRole('option', {selected: true})).toHaveTextContent('Gamma')
 
-    await user.type(screen.getByRole('textbox'), '{Enter}')
+    await user.type(screen.getByRole('combobox'), '{Enter}')
     expect(onSelect.c).toHaveBeenCalledOnce()
     expect(onSelect.b).not.toHaveBeenCalled()
   })
@@ -98,7 +98,7 @@ describe('CommandPalette', () => {
         <CommandPalette open items={items} />
       </>,
     )
-    await waitFor(() => expect(screen.getByRole('textbox')).toHaveFocus())
+    await waitFor(() => expect(screen.getByRole('combobox')).toHaveFocus())
     rerender(
       <>
         <button>Open</button>
@@ -124,6 +124,58 @@ describe('CommandPalette', () => {
       'aria-modal',
       'true',
     )
+  })
+
+  // The input used to be a plain textbox; it is now a combobox (intentional,
+  // #690), so the queries above look it up by that role.
+  it('exposes the input as a combobox that controls the listbox', () => {
+    render(<CommandPalette open items={items} />)
+    const input = screen.getByRole('combobox', {name: 'Type a command...'})
+    const listbox = screen.getByRole('listbox', {name: 'Commands'})
+    expect(input).toHaveAttribute('aria-expanded', 'true')
+    expect(input).toHaveAttribute('aria-controls', listbox.id)
+  })
+
+  it('points aria-activedescendant at the highlighted option', async () => {
+    const user = userEvent.setup()
+    render(<CommandPalette open items={items} />)
+    const input = screen.getByRole('combobox')
+    const options = screen.getAllByRole('option')
+    expect(new Set(options.map((o) => o.id)).size).toBe(options.length)
+    expect(input).toHaveAttribute('aria-activedescendant', options[0].id)
+    await user.type(input, '{ArrowDown}')
+    expect(input).toHaveAttribute('aria-activedescendant', options[1].id)
+    await user.type(input, 'xyz')
+    expect(input).not.toHaveAttribute('aria-activedescendant')
+  })
+
+  it('groups options under their labels', () => {
+    render(<CommandPalette open items={items} />)
+    const file = screen.getByRole('group', {name: 'File'})
+    expect(file).toContainElement(screen.getByRole('option', {name: 'Open File'}))
+  })
+
+  it('scrolls the highlighted option into view', async () => {
+    const user = userEvent.setup()
+    const scrollIntoView = vi.fn()
+    const original = Element.prototype.scrollIntoView
+    Element.prototype.scrollIntoView = scrollIntoView
+    try {
+      render(<CommandPalette open items={items} />)
+      scrollIntoView.mockClear()
+      await user.type(screen.getByRole('combobox'), '{ArrowDown}')
+      expect(scrollIntoView).toHaveBeenCalledWith({block: 'nearest'})
+      expect(scrollIntoView.mock.contexts.at(-1)).toHaveTextContent('Open File')
+    } finally {
+      Element.prototype.scrollIntoView = original
+    }
+  })
+
+  it('has no axe violations with no results', async () => {
+    const user = userEvent.setup()
+    render(<CommandPalette open items={items} />)
+    await user.type(screen.getByRole('combobox'), 'xyz')
+    expect(await axe(screen.getByRole('dialog'))).toHaveNoViolations()
   })
 
   it('has no axe violations', async () => {
