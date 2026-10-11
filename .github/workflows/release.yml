@@ -1,18 +1,17 @@
 name: Release v8
 
 # Harmonium 8.x is in maintenance (bug and security fixes only); new work
-# happens on main as v9. Releases are manual: Actions → Release v8 → Run
-# workflow on the 8.x branch. scripts/check-dist-tag.js picks the npm
-# dist-tag so an 8.x patch never takes `latest` away from v9.
+# happens on main as v9. To release, bump the version in a PR
+# (`npm version patch --no-git-tag-version`), merge it, then run this
+# workflow on 8.x (Actions → Release v8 → Run workflow) and approve the
+# `npm` environment. scripts/check-dist-tag.js picks the npm dist-tag so an
+# 8.x patch never takes `latest` away from v9.
+#
+# Publishing uses npm trusted publishing (OIDC) from the `npm` environment;
+# no npm token is stored anywhere.
 
 on:
   workflow_dispatch:
-    inputs:
-      bump:
-        description: Version bump (maintenance releases are patch-only unless agreed otherwise)
-        type: choice
-        options: [patch, minor]
-        default: patch
 
 concurrency: release-v8
 
@@ -24,6 +23,7 @@ jobs:
     needs: [test]
     if: github.ref == 'refs/heads/8.x'
     runs-on: ubuntu-latest
+    environment: npm
     permissions:
       contents: write
       id-token: write
@@ -33,17 +33,21 @@ jobs:
       with:
         node-version: 22
         cache: npm
-        registry-url: https://registry.npmjs.org
+    # Trusted publishing needs npm 11.5.1 or newer.
+    - run: npm install -g npm@11
     - run: npm ci
     - run: npm run build
-    - run: |
-        git config user.name "github-actions[bot]"
-        git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        npm version ${{ inputs.bump }} -m "chore(release): %s [skip ci]"
     - id: tag
       run: echo "tag=$(node scripts/check-dist-tag.js)" >> "$GITHUB_OUTPUT"
-    - run: npm publish --tag "${{ steps.tag.outputs.tag }}"
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        NPM_CONFIG_PROVENANCE: true
-    - run: git push --follow-tags origin HEAD:8.x
+    - name: Publish to npm
+      run: |
+        version=$(node -p "require('./package.json').version")
+        if npm view "harmonium@$version" version >/dev/null 2>&1; then
+          echo "harmonium@$version is already published"
+        else
+          npm publish --tag "${{ steps.tag.outputs.tag }}" --provenance
+        fi
+    - name: Tag the release
+      run: |
+        tag="v$(node -p "require('./package.json').version")"
+        git tag "$tag" && git push origin "$tag"
