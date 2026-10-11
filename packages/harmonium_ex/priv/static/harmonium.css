@@ -22,6 +22,8 @@
   --harmonium-color-success: #00a67f;
   --harmonium-color-warning: #d94011;
   --harmonium-color-error: #d10034;
+  --harmonium-color-text-muted: #636363; /** Secondary text. At least 4.5:1 on bg, surface, surface-raised, surface-muted and surface-neutral. */
+  --harmonium-color-text-placeholder: #767676; /** Input placeholders. At least 4.5:1 on surface and surface-raised. */
   --harmonium-opacity-disabled: 0.4;
   --harmonium-z-index-dropdown: 100;
   --harmonium-z-index-sticky: 200;
@@ -76,8 +78,15 @@
   --harmonium-color-info: var(--harmonium-color-brand-primary);
   --harmonium-color-bg: var(--harmonium-color-white);
   --harmonium-color-text: var(--harmonium-color-gray-800);
-  --harmonium-color-text-muted: var(--harmonium-color-gray-400);
+  --harmonium-color-text-inverse: var(--harmonium-color-white); /** Text on surface-inverse (tooltips, neutral toasts). */
   --harmonium-color-surface: var(--harmonium-color-white);
+  --harmonium-color-surface-raised: var(--harmonium-color-white); /** Floating layers: menus, popovers, dropdown lists, dialogs, drawers. */
+  --harmonium-color-surface-muted: var(--harmonium-color-gray-50); /** Subdued fill: filled cards, striped rows, segmented-control tracks, stepper buttons. */
+  --harmonium-color-surface-hover: var(--harmonium-color-gray-50); /** Hover background for items on surface or surface-raised. */
+  --harmonium-color-surface-active: var(--harmonium-color-gray-100); /** Pressed background, and hover on surface-muted. */
+  --harmonium-color-surface-neutral: var(--harmonium-color-gray-100); /** Neutral chips and placeholders: neutral badges/tags, skeletons, progress tracks, avatars. */
+  --harmonium-color-surface-strong: var(--harmonium-color-gray-200); /** Stronger neutral fill: slider/switch tracks, spinner ring, pending stepper connector. */
+  --harmonium-color-surface-inverse: var(--harmonium-color-gray-800); /** Inverted surface for tooltips and neutral toasts; pair with text-inverse. */
   --harmonium-color-border: var(--harmonium-color-gray-300);
   --harmonium-color-on-primary: var(--harmonium-color-white);
   --harmonium-color-on-secondary: var(--harmonium-color-white);
@@ -125,7 +134,7 @@
 }
 
 .hm-accordion-trigger:hover {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .hm-accordion-trigger:focus-visible {
@@ -231,8 +240,13 @@
   min-height: 100vh;
 }
 
+/* Collapsed: a narrow icon rail (matches Sidebar's collapsed width) */
 .hm-app-shell[data-sidebar-collapsed] {
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 60px 1fr;
+}
+
+.hm-app-shell[data-sidebar-collapsed] .hm-app-shell-sidebar {
+  overflow-x: hidden;
 }
 
 .hm-app-shell-header {
@@ -257,8 +271,10 @@
   padding: var(--harmonium-spacing-md);
 }
 
-@media (max-width: 768px) {
-  .hm-app-shell {
+/* Below the md breakpoint; 767.98px so it doesn't overlap `min-width: 768px` rules */
+@media (max-width: 767.98px) {
+  .hm-app-shell,
+  .hm-app-shell[data-sidebar-collapsed] {
     grid-template-areas:
       'header'
       'main'
@@ -279,8 +295,8 @@
   justify-content: center;
   border-radius: 50%;
   overflow: hidden;
-  background: var(--harmonium-color-gray-200);
-  color: var(--harmonium-color-gray-600);
+  background: var(--harmonium-color-surface-neutral);
+  color: var(--harmonium-color-text-muted);
   font-weight: var(--harmonium-font-weight-medium);
   flex-shrink: 0;
   vertical-align: middle;
@@ -379,7 +395,7 @@
 }
 
 .hm-badge[data-variant='neutral'] {
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-neutral);
   color: var(--harmonium-color-text);
 }
 
@@ -427,6 +443,12 @@
 .hm-breadcrumbs-active {
   color: var(--harmonium-color-text);
   pointer-events: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-breadcrumbs-link {
+    transition: none;
+  }
 }
 
 
@@ -493,11 +515,11 @@
 }
 
 .hm-button[data-variant='outline']:hover:not(:disabled) {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .hm-button[data-variant='outline']:active:not(:disabled) {
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-active);
 }
 
 .hm-button[data-variant='ghost'] {
@@ -507,11 +529,11 @@
 }
 
 .hm-button[data-variant='ghost']:hover:not(:disabled) {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .hm-button[data-variant='ghost']:active:not(:disabled) {
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-active);
 }
 
 /* Sizes */
@@ -535,6 +557,12 @@
   width: 100%;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hm-button {
+    transition: none;
+  }
+}
+
 
 /* === Card === */
 .hm-card {
@@ -553,7 +581,7 @@
 }
 
 .hm-card[data-variant='filled'] {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-muted);
 }
 
 .hm-card-header,
@@ -673,6 +701,12 @@
   cursor: not-allowed;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hm-checkbox-indicator {
+    transition: none;
+  }
+}
+
 
 /* === Combobox === */
 .hm-combobox {
@@ -697,13 +731,14 @@
 }
 
 .hm-combobox-input:focus {
-  outline: none;
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
 
 .hm-combobox-input::placeholder {
-  color: var(--harmonium-color-text-muted);
+  color: var(--harmonium-color-text-placeholder);
 }
 
 .hm-combobox-input:disabled {
@@ -720,7 +755,7 @@
   margin: var(--harmonium-spacing-xs) 0 0;
   padding: var(--harmonium-spacing-xs) 0;
   list-style: none;
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border: 1px solid var(--harmonium-color-border);
   border-radius: var(--harmonium-radius-md);
   box-shadow: var(--harmonium-shadow-lg);
@@ -737,7 +772,7 @@
 
 .hm-combobox-option:hover,
 .hm-combobox-option[data-highlighted] {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .hm-combobox-option[aria-selected='true'],
@@ -754,7 +789,7 @@
   z-index: var(--harmonium-z-index-dropdown);
   margin: var(--harmonium-spacing-xs) 0 0;
   padding: var(--harmonium-spacing-md);
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border: 1px solid var(--harmonium-color-border);
   border-radius: var(--harmonium-radius-md);
   box-shadow: var(--harmonium-shadow-lg);
@@ -794,6 +829,13 @@
   position: static;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hm-combobox-input,
+  .hm-combobox-option {
+    transition: none;
+  }
+}
+
 
 /* === CommandPalette === */
 .hm-command-palette-overlay {
@@ -810,7 +852,7 @@
 .hm-command-palette {
   width: 100%;
   max-width: 560px;
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border-radius: var(--harmonium-radius-lg);
   box-shadow: var(--harmonium-shadow-xl);
   overflow: hidden;
@@ -825,17 +867,27 @@
   font-size: var(--harmonium-font-size-md);
   color: var(--harmonium-color-text);
   background: transparent;
-  outline: none;
+}
+
+.hm-command-palette-input:focus {
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
+  outline-offset: -2px;
 }
 
 .hm-command-palette-input::placeholder {
-  color: var(--harmonium-color-text-muted);
+  color: var(--harmonium-color-text-placeholder);
 }
 
 .hm-command-palette-list {
   max-height: 300px;
   overflow-y: auto;
   padding: var(--harmonium-spacing-xs) 0;
+}
+
+/* No results: the list is empty and .empty (after it) shows instead */
+.hm-command-palette-list:empty {
+  padding: 0;
 }
 
 .hm-command-palette-group-label {
@@ -856,7 +908,7 @@
 
 .hm-command-palette-item:hover,
 .hm-command-palette-item[data-highlighted] {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .hm-command-palette-empty {
@@ -864,6 +916,12 @@
   text-align: center;
   font-size: var(--harmonium-font-size-sm);
   color: var(--harmonium-color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-command-palette-item {
+    transition: none;
+  }
 }
 
 
@@ -1000,11 +1058,11 @@
 }
 
 .hm-data-grid[data-striped] .hm-data-grid-body .hm-data-grid-row:nth-child(even) {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-muted);
 }
 
 .hm-data-grid[data-hoverable] .hm-data-grid-body .hm-data-grid-row:hover {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 
@@ -1038,7 +1096,8 @@
 }
 
 .hm-date-picker:focus {
-  outline: none;
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
@@ -1050,6 +1109,12 @@
 .hm-date-picker:disabled {
   opacity: var(--harmonium-opacity-disabled);
   cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-date-picker {
+    transition: none;
+  }
 }
 
 
@@ -1066,7 +1131,7 @@
 }
 
 .hm-dialog {
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border-radius: var(--harmonium-radius-lg);
   box-shadow: var(--harmonium-shadow-xl);
   max-height: calc(100vh - var(--harmonium-spacing-2xl));
@@ -1118,8 +1183,9 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   box-shadow: var(--harmonium-shadow-xl);
+  max-width: 100vw;
   overflow-y: auto;
   display: flex;
   flex-direction: column;
@@ -1279,7 +1345,8 @@
   background: color-mix(in srgb, var(--harmonium-color-brand-primary) 8%, transparent);
 }
 
-.hm-file-upload[data-disabled] {
+.hm-file-upload[data-disabled],
+.hm-file-upload[aria-disabled='true'] {
   opacity: var(--harmonium-opacity-disabled);
   cursor: not-allowed;
 }
@@ -1300,6 +1367,12 @@
 
 .hm-file-upload-icon {
   font-size: var(--harmonium-font-size-2xl);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-file-upload {
+    transition: none;
+  }
 }
 
 
@@ -1550,7 +1623,8 @@
 }
 
 .hm-input:focus {
-  outline: none;
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
@@ -1569,7 +1643,13 @@
 }
 
 .hm-input::placeholder {
-  color: var(--harmonium-color-text-muted);
+  color: var(--harmonium-color-text-placeholder);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-input {
+    transition: none;
+  }
 }
 
 
@@ -1579,7 +1659,7 @@
   flex-direction: column;
   min-width: 180px;
   padding: var(--harmonium-spacing-xs) 0;
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border: 1px solid var(--harmonium-color-border);
   border-radius: var(--harmonium-radius-lg);
   box-shadow: var(--harmonium-shadow-lg);
@@ -1603,7 +1683,7 @@
 
 .hm-menu-item:hover,
 .hm-menu-item[data-highlighted] {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .hm-menu-item:focus-visible {
@@ -1651,6 +1731,12 @@
 .hm-menu[data-side='left'] { margin-right: var(--harmonium-spacing-xs); }
 .hm-menu[data-side='right'] { margin-left: var(--harmonium-spacing-xs); }
 
+@media (prefers-reduced-motion: reduce) {
+  .hm-menu-item {
+    transition: none;
+  }
+}
+
 
 /* === MultiSelect === */
 .hm-multi-select {
@@ -1678,6 +1764,8 @@
 }
 
 .hm-multi-select-control:focus-within {
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
@@ -1687,7 +1775,7 @@
   align-items: center;
   gap: 2px;
   padding: 2px var(--harmonium-spacing-xs);
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-neutral);
   border-radius: var(--harmonium-radius-sm);
   font-size: var(--harmonium-font-size-sm);
   color: var(--harmonium-color-text);
@@ -1709,7 +1797,7 @@
 }
 
 .hm-multi-select-tag-remove:hover {
-  background: var(--harmonium-color-gray-200);
+  background: var(--harmonium-color-surface-strong);
   color: var(--harmonium-color-text);
 }
 
@@ -1717,6 +1805,7 @@
   flex: 1;
   min-width: 60px;
   border: none;
+  /* The focus ring is drawn on .control (:focus-within) */
   outline: none;
   background: transparent;
   font-family: inherit;
@@ -1726,7 +1815,7 @@
 }
 
 .hm-multi-select-input::placeholder {
-  color: var(--harmonium-color-text-muted);
+  color: var(--harmonium-color-text-placeholder);
 }
 
 .hm-multi-select-list {
@@ -1738,7 +1827,7 @@
   margin: var(--harmonium-spacing-xs) 0 0;
   padding: var(--harmonium-spacing-xs) 0;
   list-style: none;
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border: 1px solid var(--harmonium-color-border);
   border-radius: var(--harmonium-radius-md);
   box-shadow: var(--harmonium-shadow-lg);
@@ -1754,11 +1843,11 @@
 }
 
 .hm-multi-select-option:hover {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .hm-multi-select-option[data-highlighted] {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 /*
@@ -1783,6 +1872,13 @@
   position: static;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hm-multi-select-control,
+  .hm-multi-select-option {
+    transition: none;
+  }
+}
+
 
 /* === NumberInput === */
 .hm-number-input {
@@ -1794,12 +1890,15 @@
 }
 
 .hm-number-input:focus-within {
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
 
 .hm-number-input-input {
   border: none;
+  /* The focus ring is drawn on .root (:focus-within) */
   outline: none;
   text-align: center;
   font-family: inherit;
@@ -1837,7 +1936,7 @@
   align-items: center;
   justify-content: center;
   border: none;
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-muted);
   color: var(--harmonium-color-text);
   cursor: pointer;
   font-family: inherit;
@@ -1865,7 +1964,7 @@
 }
 
 .hm-number-input-button:hover:not(:disabled, [aria-disabled='true']) {
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-active);
 }
 
 /* Base UI keeps read-only steppers focusable: they get aria-disabled instead. */
@@ -1873,6 +1972,12 @@
 .hm-number-input-button[aria-disabled='true'] {
   opacity: var(--harmonium-opacity-disabled);
   cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-number-input-button {
+    transition: none;
+  }
 }
 
 
@@ -1903,7 +2008,7 @@
 }
 
 .hm-pagination-button:hover:not(:disabled) {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .hm-pagination-button[data-active] {
@@ -1932,6 +2037,12 @@
   font-size: var(--harmonium-font-size-sm);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hm-pagination-button {
+    transition: none;
+  }
+}
+
 
 /* === Popover === */
 .hm-popover {
@@ -1951,7 +2062,7 @@
 .hm-popover-content {
   z-index: var(--harmonium-z-index-popover);
   padding: var(--harmonium-spacing-md);
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border: 1px solid var(--harmonium-color-border);
   border-radius: var(--harmonium-radius-lg);
   box-shadow: var(--harmonium-shadow-lg);
@@ -1999,8 +2110,27 @@
 /* === PricingTable === */
 .hm-pricing-table {
   display: grid;
-  grid-template-columns: repeat(var(--pricing-columns, auto-fit), minmax(260px, 1fr));
-  gap: var(--harmonium-spacing-md);
+  /*
+   * Up to --pricing-columns columns (unset: as many as fit), each at least
+   * 260px (or the full width when narrower), wrapping onto more rows as the
+   * container shrinks instead of overflowing it. (The 1px absorbs rounding,
+   * so exactly N columns still fit.)
+   */
+  --hm-pricing-gap: var(--harmonium-spacing-md);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      min(
+        100%,
+        max(
+          260px,
+          calc((100% - (var(--pricing-columns, 99) - 1) * var(--hm-pricing-gap)) / var(--pricing-columns, 99) - 1px)
+        )
+      ),
+      1fr
+    )
+  );
+  gap: var(--hm-pricing-gap);
   align-items: stretch;
 }
 
@@ -2092,7 +2222,7 @@
 /* === Progress === */
 .hm-progress {
   width: 100%;
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-neutral);
   border-radius: var(--harmonium-radius-full);
   overflow: hidden;
 }
@@ -2105,9 +2235,6 @@
   height: 100%;
   border-radius: var(--harmonium-radius-full);
   transition: width var(--harmonium-transition-duration-slow) ease;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
 
 .hm-progress[data-variant='primary'] .hm-progress-bar { background: var(--harmonium-color-brand-primary); }
@@ -2116,12 +2243,34 @@
 .hm-progress[data-variant='warning'] .hm-progress-bar { background: var(--harmonium-color-warning); }
 .hm-progress[data-variant='error'] .hm-progress-bar { background: var(--harmonium-color-error); }
 
+/* Rendered after the progressbar (a sibling of .root), right-aligned below it */
 .hm-progress-label {
+  display: block;
+  margin-top: var(--harmonium-spacing-xs);
   font-size: var(--harmonium-font-size-xs);
   font-weight: var(--harmonium-font-weight-medium);
-  color: var(--harmonium-color-white);
-  padding-right: var(--harmonium-spacing-xs);
+  color: var(--harmonium-color-text-muted);
+  text-align: right;
   white-space: nowrap;
+}
+
+/* Older markup with the label inside the bar */
+.hm-progress-bar:has(> .hm-progress-label) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.hm-progress-bar > .hm-progress-label {
+  margin-top: 0;
+  padding-right: var(--harmonium-spacing-xs);
+  color: var(--harmonium-color-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-progress-bar {
+    transition: none;
+  }
 }
 
 
@@ -2221,6 +2370,12 @@
   cursor: not-allowed;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hm-radio-indicator {
+    transition: none;
+  }
+}
+
 
 /* === Select === */
 .hm-select {
@@ -2235,6 +2390,7 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23818181'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
+  /* Room for the chevron: the size rules below set the other sides only. */
   padding-right: 32px;
   cursor: pointer;
   transition:
@@ -2243,22 +2399,31 @@
 }
 
 .hm-select[data-size='sm'] {
-  padding: var(--harmonium-spacing-xs) var(--harmonium-spacing-sm);
+  padding-block: var(--harmonium-spacing-xs);
+  padding-left: var(--harmonium-spacing-sm);
   font-size: var(--harmonium-font-size-sm);
 }
 
 .hm-select[data-size='md'] {
-  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-sm);
+  padding-block: var(--harmonium-spacing-sm);
+  padding-left: var(--harmonium-spacing-sm);
   font-size: var(--harmonium-font-size-base);
 }
 
 .hm-select[data-size='lg'] {
-  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-md);
+  padding-block: var(--harmonium-spacing-sm);
+  padding-left: var(--harmonium-spacing-md);
   font-size: var(--harmonium-font-size-md);
 }
 
+/* The empty placeholder option is selected */
+.hm-select:has(> option[value='']:checked) {
+  color: var(--harmonium-color-text-placeholder);
+}
+
 .hm-select:focus {
-  outline: none;
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
@@ -2270,6 +2435,12 @@
 .hm-select:disabled {
   opacity: var(--harmonium-opacity-disabled);
   cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-select {
+    transition: none;
+  }
 }
 
 
@@ -2417,7 +2588,7 @@
 }
 
 .hm-sidebar-item:hover {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .hm-sidebar-item[data-active] {
@@ -2454,12 +2625,19 @@
   padding: var(--harmonium-spacing-sm);
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hm-sidebar,
+  .hm-sidebar-item {
+    transition: none;
+  }
+}
+
 
 /* === Skeleton === */
 .hm-skeleton {
   display: block;
-  background: var(--harmonium-color-gray-100);
-  animation: pulse 1.5s ease-in-out infinite;
+  background: var(--harmonium-color-surface-neutral);
+  animation: hm-skeleton-pulse 1.5s ease-in-out infinite;
 }
 
 .hm-skeleton[data-variant='text'] {
@@ -2476,12 +2654,18 @@
   border-radius: var(--harmonium-radius-md);
 }
 
-@keyframes pulse {
+@keyframes hm-skeleton-pulse {
   0%, 100% {
     opacity: 1;
   }
   50% {
     opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-skeleton {
+    animation: none;
   }
 }
 
@@ -2502,7 +2686,7 @@
 }
 
 .hm-slider-input::-webkit-slider-runnable-track {
-  background: var(--harmonium-color-gray-200);
+  background: var(--harmonium-color-surface-strong);
   border-radius: var(--harmonium-radius-full);
 }
 
@@ -2574,7 +2758,7 @@
 
 .hm-slider-track {
   width: 100%;
-  background: var(--harmonium-color-gray-200);
+  background: var(--harmonium-color-surface-strong);
   border-radius: var(--harmonium-radius-full);
 }
 
@@ -2626,9 +2810,9 @@
 .hm-spinner-circle {
   display: block;
   border-radius: 50%;
-  border: 2px solid var(--harmonium-color-gray-200);
+  border: 2px solid var(--harmonium-color-surface-strong);
   border-top-color: var(--harmonium-color-brand-primary);
-  animation: spin 0.6s linear infinite;
+  animation: hm-spinner-spin 0.6s linear infinite;
 }
 
 .hm-spinner[data-size='sm'] .hm-spinner-circle {
@@ -2648,9 +2832,16 @@
   border-width: 4px;
 }
 
-@keyframes spin {
+@keyframes hm-spinner-spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Keep a slow spin so the busy state still reads, without fast motion. */
+@media (prefers-reduced-motion: reduce) {
+  .hm-spinner-circle {
+    animation-duration: 1.5s;
   }
 }
 
@@ -2871,7 +3062,7 @@
 }
 
 .hm-stepper-indicator[data-state='pending'] {
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-neutral);
   color: var(--harmonium-color-text-muted);
 }
 
@@ -2921,7 +3112,14 @@
 }
 
 .hm-stepper-connector[data-state='pending'] {
-  background: var(--harmonium-color-gray-200);
+  background: var(--harmonium-color-surface-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-stepper-indicator,
+  .hm-stepper-connector {
+    transition: none;
+  }
 }
 
 
@@ -2951,7 +3149,7 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  background: var(--harmonium-color-gray-200);
+  background: var(--harmonium-color-surface-strong);
   border-radius: var(--harmonium-radius-full);
   transition: background-color var(--harmonium-transition-duration-base) ease;
   flex-shrink: 0;
@@ -3041,6 +3239,13 @@
   cursor: not-allowed;
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .hm-switch-track,
+  .hm-switch-thumb {
+    transition: none;
+  }
+}
+
 
 /* === Table === */
 .hm-table {
@@ -3073,11 +3278,11 @@
 }
 
 .hm-table[data-striped] .hm-table-body .hm-table-row:nth-child(even) {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-muted);
 }
 
 .hm-table[data-hoverable] .hm-table-body .hm-table-row:hover {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 
@@ -3193,7 +3398,7 @@
 }
 
 .hm-tag[data-variant='neutral'] {
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-neutral);
   color: var(--harmonium-color-text);
 }
 
@@ -3254,7 +3459,8 @@
 }
 
 .hm-textarea:focus {
-  outline: none;
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
@@ -3269,7 +3475,13 @@
 }
 
 .hm-textarea::placeholder {
-  color: var(--harmonium-color-text-muted);
+  color: var(--harmonium-color-text-placeholder);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-textarea {
+    transition: none;
+  }
 }
 
 
@@ -3303,7 +3515,8 @@
 }
 
 .hm-time-picker:focus {
-  outline: none;
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
@@ -3315,6 +3528,12 @@
 .hm-time-picker:disabled {
   opacity: var(--harmonium-opacity-disabled);
   cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hm-time-picker {
+    transition: none;
+  }
 }
 
 
@@ -3371,8 +3590,8 @@
 }
 
 .hm-toast-toast[data-variant='info'] {
-  background: var(--harmonium-color-gray-800);
-  color: var(--harmonium-color-white);
+  background: var(--harmonium-color-surface-inverse);
+  color: var(--harmonium-color-text-inverse);
 }
 
 .hm-toast-toast[data-variant='success'] {
@@ -3433,7 +3652,7 @@
   border: 1px solid var(--harmonium-color-border);
   border-radius: var(--harmonium-radius-md);
   overflow: hidden;
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-muted);
 }
 
 .hm-toggle-group-item {
@@ -3517,8 +3736,8 @@
 .hm-tooltip-content {
   z-index: var(--harmonium-z-index-tooltip);
   padding: var(--harmonium-spacing-xs) var(--harmonium-spacing-sm);
-  background: var(--harmonium-color-gray-800);
-  color: var(--harmonium-color-white);
+  background: var(--harmonium-color-surface-inverse);
+  color: var(--harmonium-color-text-inverse);
   font-size: var(--harmonium-font-size-xs);
   border-radius: var(--harmonium-radius-md);
   white-space: nowrap;

@@ -9,8 +9,13 @@
   min-height: 100vh;
 }
 
+/* Collapsed: a narrow icon rail (matches Sidebar's collapsed width) */
 .root[data-sidebar-collapsed] {
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 60px 1fr;
+}
+
+.root[data-sidebar-collapsed] .sidebar {
+  overflow-x: hidden;
 }
 
 .header {
@@ -35,8 +40,10 @@
   padding: var(--harmonium-spacing-md);
 }
 
-@media (max-width: 768px) {
-  .root {
+/* Below the md breakpoint; 767.98px so it doesn't overlap `min-width: 768px` rules */
+@media (max-width: 767.98px) {
+  .root,
+  .root[data-sidebar-collapsed] {
     grid-template-areas:
       'header'
       'main'

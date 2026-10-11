@@ -50,8 +50,8 @@
 }
 
 .toast[data-variant='info'] {
-  background: var(--harmonium-color-gray-800);
-  color: var(--harmonium-color-white);
+  background: var(--harmonium-color-surface-inverse);
+  color: var(--harmonium-color-text-inverse);
 }
 
 .toast[data-variant='success'] {

@@ -7,8 +7,47 @@
     "info": { "$value": "{color.brand.primary}" },
     "bg": { "$value": "{color.white}" },
     "text": { "$value": "{color.gray.800}" },
-    "text-muted": { "$value": "{color.gray.400}" },
+    "text-muted": {
+      "$value": "#636363",
+      "$description": "Secondary text. At least 4.5:1 on bg, surface, surface-raised, surface-muted and surface-neutral."
+    },
+    "text-placeholder": {
+      "$value": "#767676",
+      "$description": "Input placeholders. At least 4.5:1 on surface and surface-raised."
+    },
+    "text-inverse": {
+      "$value": "{color.white}",
+      "$description": "Text on surface-inverse (tooltips, neutral toasts)."
+    },
     "surface": { "$value": "{color.white}" },
+    "surface-raised": {
+      "$value": "{color.white}",
+      "$description": "Floating layers: menus, popovers, dropdown lists, dialogs, drawers."
+    },
+    "surface-muted": {
+      "$value": "{color.gray.50}",
+      "$description": "Subdued fill: filled cards, striped rows, segmented-control tracks, stepper buttons."
+    },
+    "surface-hover": {
+      "$value": "{color.gray.50}",
+      "$description": "Hover background for items on surface or surface-raised."
+    },
+    "surface-active": {
+      "$value": "{color.gray.100}",
+      "$description": "Pressed background, and hover on surface-muted."
+    },
+    "surface-neutral": {
+      "$value": "{color.gray.100}",
+      "$description": "Neutral chips and placeholders: neutral badges/tags, skeletons, progress tracks, avatars."
+    },
+    "surface-strong": {
+      "$value": "{color.gray.200}",
+      "$description": "Stronger neutral fill: slider/switch tracks, spinner ring, pending stepper connector."
+    },
+    "surface-inverse": {
+      "$value": "{color.gray.800}",
+      "$description": "Inverted surface for tooltips and neutral toasts; pair with text-inverse."
+    },
     "border": { "$value": "{color.gray.300}" },
     "on-primary": { "$value": "{color.white}" },
     "on-secondary": { "$value": "{color.white}" },

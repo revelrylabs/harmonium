@@ -1,7 +1,26 @@
 .root {
   display: grid;
-  grid-template-columns: repeat(var(--pricing-columns, auto-fit), minmax(260px, 1fr));
-  gap: var(--harmonium-spacing-md);
+  /*
+   * Up to --pricing-columns columns (unset: as many as fit), each at least
+   * 260px (or the full width when narrower), wrapping onto more rows as the
+   * container shrinks instead of overflowing it. (The 1px absorbs rounding,
+   * so exactly N columns still fit.)
+   */
+  --hm-pricing-gap: var(--harmonium-spacing-md);
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(
+      min(
+        100%,
+        max(
+          260px,
+          calc((100% - (var(--pricing-columns, 99) - 1) * var(--hm-pricing-gap)) / var(--pricing-columns, 99) - 1px)
+        )
+      ),
+      1fr
+    )
+  );
+  gap: var(--hm-pricing-gap);
   align-items: stretch;
 }
 

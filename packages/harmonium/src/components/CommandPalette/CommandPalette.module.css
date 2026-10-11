@@ -12,7 +12,7 @@
 .root {
   width: 100%;
   max-width: 560px;
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border-radius: var(--harmonium-radius-lg);
   box-shadow: var(--harmonium-shadow-xl);
   overflow: hidden;
@@ -27,17 +27,27 @@
   font-size: var(--harmonium-font-size-md);
   color: var(--harmonium-color-text);
   background: transparent;
-  outline: none;
+}
+
+.input:focus {
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
+  outline-offset: -2px;
 }
 
 .input::placeholder {
-  color: var(--harmonium-color-text-muted);
+  color: var(--harmonium-color-text-placeholder);
 }
 
 .list {
   max-height: 300px;
   overflow-y: auto;
   padding: var(--harmonium-spacing-xs) 0;
+}
+
+/* No results: the list is empty and .empty (after it) shows instead */
+.list:empty {
+  padding: 0;
 }
 
 .groupLabel {
@@ -58,7 +68,7 @@
 
 .item:hover,
 .item[data-highlighted] {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .empty {
@@ -66,4 +76,10 @@
   text-align: center;
   font-size: var(--harmonium-font-size-sm);
   color: var(--harmonium-color-text-muted);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    transition: none;
+  }
 }

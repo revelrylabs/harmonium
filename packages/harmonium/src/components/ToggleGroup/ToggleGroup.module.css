@@ -3,7 +3,7 @@
   border: 1px solid var(--harmonium-color-border);
   border-radius: var(--harmonium-radius-md);
   overflow: hidden;
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-muted);
 }
 
 .item {

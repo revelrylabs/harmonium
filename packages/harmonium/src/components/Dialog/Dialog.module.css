@@ -10,7 +10,7 @@
 }
 
 .root {
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border-radius: var(--harmonium-radius-lg);
   box-shadow: var(--harmonium-shadow-xl);
   max-height: calc(100vh - var(--harmonium-spacing-2xl));

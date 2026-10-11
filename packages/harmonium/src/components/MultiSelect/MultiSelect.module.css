@@ -23,6 +23,8 @@
 }
 
 .control:focus-within {
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
@@ -32,7 +34,7 @@
   align-items: center;
   gap: 2px;
   padding: 2px var(--harmonium-spacing-xs);
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-neutral);
   border-radius: var(--harmonium-radius-sm);
   font-size: var(--harmonium-font-size-sm);
   color: var(--harmonium-color-text);
@@ -54,7 +56,7 @@
 }
 
 .tagRemove:hover {
-  background: var(--harmonium-color-gray-200);
+  background: var(--harmonium-color-surface-strong);
   color: var(--harmonium-color-text);
 }
 
@@ -62,6 +64,7 @@
   flex: 1;
   min-width: 60px;
   border: none;
+  /* The focus ring is drawn on .control (:focus-within) */
   outline: none;
   background: transparent;
   font-family: inherit;
@@ -71,7 +74,7 @@
 }
 
 .input::placeholder {
-  color: var(--harmonium-color-text-muted);
+  color: var(--harmonium-color-text-placeholder);
 }
 
 .list {
@@ -83,7 +86,7 @@
   margin: var(--harmonium-spacing-xs) 0 0;
   padding: var(--harmonium-spacing-xs) 0;
   list-style: none;
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border: 1px solid var(--harmonium-color-border);
   border-radius: var(--harmonium-radius-md);
   box-shadow: var(--harmonium-shadow-lg);
@@ -99,11 +102,11 @@
 }
 
 .option:hover {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .option[data-highlighted] {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 /*
@@ -126,4 +129,11 @@
 
 .positioner .list {
   position: static;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .control,
+  .option {
+    transition: none;
+  }
 }

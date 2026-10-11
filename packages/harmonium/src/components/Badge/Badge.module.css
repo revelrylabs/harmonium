@@ -49,6 +49,6 @@
 }
 
 .root[data-variant='neutral'] {
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-neutral);
   color: var(--harmonium-color-text);
 }
