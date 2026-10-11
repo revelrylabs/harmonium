@@ -38,6 +38,16 @@
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "dist/*": [
+        "./dist/*"
+      ],
+      "*": [
+        "./dist/components/*.d.ts"
+      ]
+    }
+  },
   "sideEffects": [
     "*.css"
   ],
@@ -50,6 +60,7 @@
     "build": "pnpm run tokens && tsup && node --import tsx scripts/add-use-client.ts && cp src/tokens/tokens.css dist/tokens.css && node --import tsx scripts/build-css.ts && node --import tsx scripts/build-global-css.ts && node --import tsx scripts/check-dist.ts",
     "tokens": "node --import tsx ./src/tokens/build.ts",
     "size": "node --import tsx scripts/check-size.ts",
+    "size:competitors": "node --import tsx scripts/measure-competitors.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint src/",

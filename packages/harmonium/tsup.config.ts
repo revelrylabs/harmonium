@@ -2,6 +2,7 @@ import {readFileSync, readdirSync, existsSync} from 'fs'
 import {basename, dirname, join} from 'path'
 import type {Plugin} from 'esbuild'
 import {defineConfig} from 'tsup'
+import ts from 'typescript'
 
 const COMPONENTS = join(import.meta.dirname, 'src', 'components')
 
@@ -46,6 +47,88 @@ const prefixCssModules: Plugin = {
   },
 }
 
+/** React calls that create a value without side effects. */
+const PURE_REACT_CALLS = new Set(['forwardRef', 'memo', 'createContext'])
+
+/**
+ * Mark top-level component definitions as side-effect free, so bundlers drop
+ * the ones an app doesn't use (import {Heading} would otherwise keep Text,
+ * which lives in the same file). Two things block that in plain source:
+ *
+ * - `React.forwardRef(...)` is a call the bundler can't see into, so it's
+ *   kept unless annotated with a `@__PURE__` comment.
+ * - `X.displayName = 'X'` is a top-level assignment, which is a side effect
+ *   that keeps X even when the call is annotated.
+ *
+ * So `const X = React.forwardRef(...)` plus `X.displayName = 'X'` compiles to
+ * `const X = Object.assign(React.forwardRef(...), {displayName: 'X'})` with
+ * both calls annotated `@__PURE__`; other React.forwardRef, memo and
+ * createContext calls just get the annotation.
+ * Doing this at build time keeps the source idiomatic and covers new
+ * components automatically; check-dist.ts fails if one slips through.
+ */
+const annotatePure: Plugin = {
+  name: 'harmonium-annotate-pure',
+  setup(build) {
+    build.onLoad({filter: /[\\/]src[\\/]components[\\/].*\.tsx$/}, (args) => {
+      const source = readFileSync(args.path, 'utf8')
+      const file = ts.createSourceFile(args.path, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)
+
+      const displayNames = new Map<string, ts.ExpressionStatement>()
+      for (const statement of file.statements) {
+        if (!ts.isExpressionStatement(statement)) continue
+        const e = statement.expression
+        if (
+          ts.isBinaryExpression(e) &&
+          e.operatorToken.kind === ts.SyntaxKind.EqualsToken &&
+          ts.isPropertyAccessExpression(e.left) &&
+          e.left.name.text === 'displayName' &&
+          ts.isIdentifier(e.left.expression)
+        ) {
+          displayNames.set(e.left.expression.text, statement)
+        }
+      }
+
+      const edits: {at: number; end?: number; text: string}[] = []
+      for (const statement of file.statements) {
+        if (!ts.isVariableStatement(statement)) continue
+        for (const decl of statement.declarationList.declarations) {
+          let init = decl.initializer
+          while (init && (ts.isAsExpression(init) || ts.isParenthesizedExpression(init) || ts.isSatisfiesExpression(init))) {
+            init = init.expression
+          }
+          if (
+            !init ||
+            !ts.isCallExpression(init) ||
+            !ts.isPropertyAccessExpression(init.expression) ||
+            !ts.isIdentifier(init.expression.expression) ||
+            init.expression.expression.text !== 'React' ||
+            !PURE_REACT_CALLS.has(init.expression.name.text) ||
+            !ts.isIdentifier(decl.name)
+          ) {
+            continue
+          }
+          const assignment = displayNames.get(decl.name.text)
+          if (assignment) {
+            const value = (assignment.expression as ts.BinaryExpression).right.getText(file)
+            edits.push({at: init.getStart(file), text: '/* @__PURE__ */ Object.assign(/* @__PURE__ */ '})
+            edits.push({at: init.getEnd(), text: `, {displayName: ${value}})`})
+            edits.push({at: assignment.getStart(file), end: assignment.getEnd(), text: ''})
+          } else {
+            edits.push({at: init.getStart(file), text: '/* @__PURE__ */ '})
+          }
+        }
+      }
+
+      let contents = source
+      for (const edit of edits.sort((a, b) => b.at - a.at)) {
+        contents = contents.slice(0, edit.at) + edit.text + contents.slice(edit.end ?? edit.at)
+      }
+      return {contents, loader: 'tsx'}
+    })
+  },
+}
+
 export default defineConfig({
   entry: {index: 'src/index.ts', ...componentEntries},
   format: ['esm', 'cjs'],
@@ -59,5 +142,5 @@ export default defineConfig({
   // tsup's CSS plugin only reads the '.css' key, and the bundle imports only
   // *.module.css files (tokens.css is copied separately).
   loader: {'.css': 'local-css'},
-  esbuildPlugins: [prefixCssModules],
+  esbuildPlugins: [prefixCssModules, annotatePure],
 })

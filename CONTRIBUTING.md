@@ -173,6 +173,10 @@ How it measures:
 
 Each limit is set about 10% above the measurement when it was set. If your change grows a number on purpose, raise the limit in the same PR and say why. Never raise it just to make CI pass.
 
+Two cases (`Heading`, `TableRow`) also check that the other components defined in the same file drop out of the bundle. That relies on the build marking each `React.forwardRef`/`memo`/`createContext` call `@__PURE__` and folding `X.displayName = 'X'` into it (`annotatePure` in `packages/harmonium/tsup.config.ts`); write components the usual way and `check-dist.ts` fails if one isn't covered.
+
+The README's size badge and "Bundle size" numbers come from this script. When they change noticeably, run `pnpm --filter harmonium run size --badge` to update the badge and update the numbers in `README.md` and `packages/docs/stories/Introduction.mdx`. The competitor numbers in the comparison tables come from `pnpm --filter harmonium run size:competitors` (needs network; not run in CI), which measures pinned versions of each library the same way; update the versions and date when you re-run it.
+
 Each component is its own module in `dist/` (and its own `harmonium/<component>` entry), so `import {Button} from 'harmonium'` only pulls in Button's JS. CSS still ships as one stylesheet for every component, `harmonium/styles.css`; there is no per-component CSS.
 
 ## Releasing

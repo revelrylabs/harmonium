@@ -11,6 +11,9 @@
  * - a component folder has no entry in dist/components/, or an `exports`
  *   target in package.json doesn't exist
  * - per-component CSS was left next to the component entries
+ * - a React.forwardRef/memo/createContext call isn't annotated pure, or a
+ *   top-level `X.displayName = ...` survived (either keeps unused components
+ *   in an app's bundle; see annotatePure in tsup.config.ts)
  */
 import {existsSync, readFileSync, readdirSync} from 'fs'
 import {join} from 'path'
@@ -96,6 +99,19 @@ for (const target of targets(pkg.exports)) {
 const strayCss = distFiles.filter((f) => f.startsWith('components') && /\.css(\.map)?$/.test(f))
 if (strayCss.length > 0) {
   errors.push(`dist/components: per-component CSS should be removed by build-css.ts (${strayCss[0]} ...)`)
+}
+
+// Component definitions must be removable when unused.
+for (const file of jsFiles) {
+  const code = read(file)
+  const unannotated = code.match(/(?<!@__PURE__ \*\/ )\bReact\w*\.(forwardRef|memo|createContext)\(/g) ?? []
+  if (unannotated.length > 0) {
+    errors.push(`${file}: ${unannotated.length} React.${unannotated[0].split('.')[1]} calls lack a @__PURE__ annotation`)
+  }
+  const assigned = code.match(/^\w+\.displayName = /gm) ?? []
+  if (assigned.length > 0) {
+    errors.push(`${file}: top-level ${assigned[0]}... keeps unused components in app bundles`)
+  }
 }
 
 if (errors.length > 0) {
