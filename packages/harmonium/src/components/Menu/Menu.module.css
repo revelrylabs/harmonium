@@ -25,7 +25,8 @@
   transition: background-color var(--harmonium-transition-duration-fast) ease;
 }
 
-.item:hover {
+.item:hover,
+.item[data-highlighted] {
   background: var(--harmonium-color-gray-50);
 }
 
@@ -34,7 +35,8 @@
   outline-offset: -2px;
 }
 
-.item:disabled {
+.item:disabled,
+.item[data-disabled] {
   opacity: var(--harmonium-opacity-disabled);
   cursor: not-allowed;
 }
@@ -43,7 +45,8 @@
   color: var(--harmonium-color-error);
 }
 
-.item[data-variant='danger']:hover {
+.item[data-variant='danger']:hover,
+.item[data-variant='danger'][data-highlighted] {
   background: color-mix(in srgb, var(--harmonium-color-error) 8%, transparent);
 }
 
@@ -61,3 +64,13 @@
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
+
+/* Dropdown (React `trigger` prop): Base UI positions this wrapper next to the trigger. */
+.positioner {
+  z-index: var(--harmonium-z-index-popover);
+}
+
+.root[data-side='top'] { margin-bottom: var(--harmonium-spacing-xs); }
+.root[data-side='bottom'] { margin-top: var(--harmonium-spacing-xs); }
+.root[data-side='left'] { margin-right: var(--harmonium-spacing-xs); }
+.root[data-side='right'] { margin-left: var(--harmonium-spacing-xs); }
