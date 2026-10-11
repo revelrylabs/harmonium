@@ -1002,6 +1002,11 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.hm-data-grid-wrapper:focus-visible {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: 2px;
+}
+
 .hm-data-grid {
   width: 100%;
   border-collapse: collapse;
@@ -2582,13 +2587,25 @@
   font-weight: var(--harmonium-font-weight-medium);
   color: var(--harmonium-color-text);
   text-align: left;
+  text-decoration: none;
   transition:
     background-color var(--harmonium-transition-duration-base) ease,
     color var(--harmonium-transition-duration-base) ease;
 }
 
+.hm-sidebar-item:visited {
+  color: var(--harmonium-color-text);
+}
+
 .hm-sidebar-item:hover {
   background: var(--harmonium-color-surface-hover);
+}
+
+.hm-sidebar-item[disabled],
+.hm-sidebar-item[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .hm-sidebar-item[data-active] {
@@ -2616,8 +2633,17 @@
   text-overflow: ellipsis;
 }
 
+/* Visually hidden, so collapsed items keep their accessible name */
 .hm-sidebar[data-collapsed] .hm-sidebar-item-label {
-  display: none;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 .hm-sidebar[data-collapsed] .hm-sidebar-item {
@@ -3257,6 +3283,11 @@
 .hm-table-responsive {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.hm-table-responsive:focus-visible {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: 2px;
 }
 
 .hm-table-head {

@@ -1,5 +1,6 @@
 import {describe, it, expect} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
 import {Stack} from './Stack'
 
 describe('Stack', () => {
@@ -87,5 +88,19 @@ describe('Stack', () => {
     expect(el).toHaveAttribute('data-align-md', 'center')
     expect(el).toHaveAttribute('data-justify', 'start')
     expect(el).toHaveAttribute('data-justify-lg', 'between')
+  })
+})
+
+describe('Stack accessibility', () => {
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <Stack gap="md">
+        <div>A</div>
+        <div>B</div>
+      </Stack>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })

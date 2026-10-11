@@ -1,5 +1,7 @@
 import * as React from 'react'
 import {clsx} from 'clsx'
+import {scrollRegionProps, useScrollRegion} from '../Table/Table'
+import {useMergedRef} from '../../utils/hiddenInput'
 import styles from './DataGrid.module.css'
 
 export interface DataGridColumn<T> {
@@ -11,6 +13,11 @@ export interface DataGridColumn<T> {
   render?: (row: T) => React.ReactNode
   /** Whether the column is sortable */
   sortable?: boolean
+  /**
+   * Value to sort by when DataGrid sorts `data` itself (uncontrolled sorting).
+   * Defaults to `row[key]`.
+   */
+  sortValue?: (row: T) => unknown
   /** Column width */
   width?: string
 }
@@ -29,14 +36,62 @@ export interface DataGridProps<T> extends Omit<React.HTMLAttributes<HTMLDivEleme
   data: T[]
   /** Function to get a unique key for each row */
   rowKey: (row: T) => string | number
-  /** Current sort state (controlled) */
+  /**
+   * Current sort state (controlled). When set, `data` is rendered in the
+   * order given; sort it yourself in `onSortChange`. Leave it out to let
+   * DataGrid sort `data` itself.
+   */
   sort?: SortState | null
+  /** Initial sort state when uncontrolled */
+  defaultSort?: SortState | null
   /** Callback when sort changes */
   onSortChange?: (sort: SortState) => void
+  /** Extra props for the `<table>` element (the outer `<div>` gets the rest) */
+  tableProps?: React.TableHTMLAttributes<HTMLTableElement>
   /** Whether to apply striped styling */
   striped?: boolean
   /** Whether rows are hoverable */
   hoverable?: boolean
+}
+
+const collator = new Intl.Collator(undefined, {
+  numeric: true,
+  sensitivity: 'base',
+})
+
+function compareValues(a: unknown, b: unknown): number {
+  if (a instanceof Date && b instanceof Date) return a.getTime() - b.getTime()
+  if (typeof a === 'number' && typeof b === 'number') return a - b
+  if (typeof a === 'boolean' && typeof b === 'boolean') {
+    return Number(a) - Number(b)
+  }
+  return collator.compare(String(a), String(b))
+}
+
+const isEmpty = (value: unknown) => value == null || value === ''
+
+function sortRows<T>(
+  data: T[],
+  columns: DataGridColumn<T>[],
+  sort: SortState | null | undefined,
+): T[] {
+  if (!sort?.direction) return data
+  const column = columns.find((col) => col.key === sort.key)
+  if (!column) return data
+  const getValue =
+    column.sortValue ??
+    ((row: T) => (row as Record<string, unknown>)[column.key])
+  const factor = sort.direction === 'desc' ? -1 : 1
+  return data
+    .map((row) => ({row, value: getValue(row)}))
+    .sort((a, b) => {
+      // Empty values always sort last.
+      if (isEmpty(a.value) || isEmpty(b.value)) {
+        return Number(isEmpty(a.value)) - Number(isEmpty(b.value))
+      }
+      return compareValues(a.value, b.value) * factor
+    })
+    .map(({row}) => row)
 }
 
 function DataGridInner<T>(
@@ -44,31 +99,65 @@ function DataGridInner<T>(
     columns,
     data,
     rowKey,
-    sort,
+    sort: sortProp,
+    defaultSort = null,
     onSortChange,
     striped,
     hoverable,
+    tableProps,
     className,
+    'aria-label': ariaLabel,
+    'aria-labelledby': ariaLabelledBy,
+    'aria-describedby': ariaDescribedBy,
     ...props
   }: DataGridProps<T>,
   ref: React.ForwardedRef<HTMLDivElement>,
 ) {
+  const controlled = sortProp !== undefined
+  const [internalSort, setInternalSort] = React.useState<SortState | null>(
+    defaultSort,
+  )
+  const sort = controlled ? sortProp : internalSort
+  const region = useScrollRegion<HTMLDivElement>()
+  const wrapperRef = useMergedRef(ref, region.ref)
+
+  const rows = React.useMemo(
+    () => (controlled ? data : sortRows(data, columns, internalSort)),
+    [controlled, data, columns, internalSort],
+  )
+
   const handleSort = (key: string) => {
-    if (!onSortChange) return
+    let next: SortState
     if (sort?.key === key) {
-      const next: SortDirection = sort.direction === 'asc' ? 'desc' : sort.direction === 'desc' ? null : 'asc'
-      onSortChange(next ? {key, direction: next} : {key, direction: null})
+      const direction: SortDirection =
+        sort.direction === 'asc'
+          ? 'desc'
+          : sort.direction === 'desc'
+            ? null
+            : 'asc'
+      next = {key, direction}
     } else {
-      onSortChange({key, direction: 'asc'})
+      next = {key, direction: 'asc'}
     }
+    if (!controlled) setInternalSort(next)
+    onSortChange?.(next)
   }
 
   return (
-    <div ref={ref} className={clsx(styles.wrapper, className)} {...props}>
+    <div
+      ref={wrapperRef}
+      className={clsx(styles.wrapper, className)}
+      {...scrollRegionProps(region.overflowing, ariaLabel, ariaLabelledBy)}
+      {...props}
+    >
       <table
-        className={styles.root}
+        {...tableProps}
+        className={clsx(styles.root, tableProps?.className)}
         data-striped={striped || undefined}
         data-hoverable={hoverable || undefined}
+        aria-label={tableProps?.['aria-label'] ?? ariaLabel}
+        aria-labelledby={tableProps?.['aria-labelledby'] ?? ariaLabelledBy}
+        aria-describedby={tableProps?.['aria-describedby'] ?? ariaDescribedBy}
       >
         <thead className={styles.head}>
           <tr>
@@ -104,7 +193,7 @@ function DataGridInner<T>(
           </tr>
         </thead>
         <tbody className={styles.body}>
-          {data.map((row) => (
+          {rows.map((row) => (
             <tr key={rowKey(row)} className={styles.row}>
               {columns.map((col) => (
                 <td key={col.key} className={styles.cell}>

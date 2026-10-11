@@ -1,5 +1,6 @@
 import {describe, it, expect} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
 import {Show} from './Show'
 
 describe('Show', () => {
@@ -28,5 +29,16 @@ describe('Show', () => {
     const el = screen.getByTestId('show')
     expect(el).not.toHaveAttribute('data-above')
     expect(el).not.toHaveAttribute('data-below')
+  })
+})
+
+describe('Show accessibility', () => {
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <Show above="md">Desktop only</Show>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })

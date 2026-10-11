@@ -2,6 +2,19 @@ import * as React from 'react'
 import {clsx} from 'clsx'
 import styles from './PricingTable.module.css'
 
+/** Hides text visually while keeping it in the accessibility tree. */
+const visuallyHidden: React.CSSProperties = {
+  position: 'absolute',
+  width: 1,
+  height: 1,
+  padding: 0,
+  margin: -1,
+  overflow: 'hidden',
+  clip: 'rect(0, 0, 0, 0)',
+  whiteSpace: 'nowrap',
+  border: 0,
+}
+
 export interface PricingTableProps
   extends React.HTMLAttributes<HTMLDivElement> {
   /** Number of columns (auto-fits to content by default) */
@@ -103,24 +116,42 @@ export interface PricingCardFeatureProps
   extends React.HTMLAttributes<HTMLLIElement> {
   /** Whether this feature is included */
   included?: boolean
+  /**
+   * Text announced to screen readers before an excluded feature, whose
+   * cross mark is decorative
+   * @default 'Not included:'
+   */
+  excludedLabel?: string
 }
 
 export const PricingCardFeature = React.forwardRef<
   HTMLLIElement,
   PricingCardFeatureProps
->(({included = true, className, children, ...props}, ref) => (
-  <li
-    ref={ref}
-    className={clsx(styles.feature, className)}
-    data-included={included}
-    {...props}
-  >
-    <span className={styles.featureCheck} aria-hidden="true">
-      {included ? '\u2713' : '\u2717'}
-    </span>
-    {children}
-  </li>
-))
+>(
+  (
+    {
+      included = true,
+      excludedLabel = 'Not included:',
+      className,
+      children,
+      ...props
+    },
+    ref,
+  ) => (
+    <li
+      ref={ref}
+      className={clsx(styles.feature, className)}
+      data-included={included}
+      {...props}
+    >
+      <span className={styles.featureCheck} aria-hidden="true">
+        {included ? '\u2713' : '\u2717'}
+      </span>
+      {!included && <span style={visuallyHidden}>{excludedLabel} </span>}
+      {children}
+    </li>
+  ),
+)
 
 PricingCardFeature.displayName = 'PricingCardFeature'
 

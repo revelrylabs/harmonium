@@ -509,9 +509,18 @@ defmodule Harmonium.ComponentsTest do
                ["completed", "active"]
 
       assert html
-             |> LazyHTML.query(".hm-stepper-indicator")
-             |> Enum.map(&String.trim(LazyHTML.text(&1))) ==
-               ["✓", "2"]
+             |> LazyHTML.query(".hm-stepper-indicator [aria-hidden=true]")
+             |> LazyHTML.text() == "✓"
+
+      assert html
+             |> LazyHTML.query(".hm-stepper-indicator span[style]")
+             |> LazyHTML.text()
+             |> String.trim() == "Completed"
+
+      assert html
+             |> LazyHTML.query(".hm-stepper-indicator[data-state=active]")
+             |> LazyHTML.text()
+             |> String.trim() == "2"
 
       assert html |> LazyHTML.query(".hm-stepper-label") |> Enum.map(&LazyHTML.text/1) == [
                "Account",
@@ -522,6 +531,24 @@ defmodule Harmonium.ComponentsTest do
                "Tell us more"
 
       assert html_attr(html, ".hm-stepper-connector", "data-state") == "completed"
+      assert html_attr(html, ".hm-stepper-connector", "aria-hidden") == "true"
+
+      assert html_attr(html, ".hm-stepper-step[data-state=active]", "aria-current") == "step"
+    end
+
+    test "hm_stepper_step takes a custom completed label" do
+      assigns = %{}
+
+      html =
+        parse(~H"""
+        <.hm_stepper_step state="completed" number={1} label="Account" completed_label="Done" />
+        """)
+
+      assert html
+             |> LazyHTML.query(".hm-stepper-indicator span[style]")
+             |> LazyHTML.text()
+             |> String.trim() ==
+               "Done"
     end
   end
 

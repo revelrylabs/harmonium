@@ -1,6 +1,15 @@
 import * as React from 'react'
 import {clsx} from 'clsx'
+import {useRender} from '@base-ui/react/use-render'
 import styles from './Sidebar.module.css'
+
+interface SidebarContextValue {
+  collapsed: boolean
+}
+
+const SidebarContext = React.createContext<SidebarContextValue>({
+  collapsed: false,
+})
 
 export interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
   /** Whether the sidebar is collapsed to icon-only mode */
@@ -11,16 +20,23 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
 
 export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
   ({collapsed, width = 'md', className, children, ...props}, ref) => {
+    const context = React.useMemo(
+      () => ({collapsed: Boolean(collapsed)}),
+      [collapsed],
+    )
+
     return (
-      <nav
-        ref={ref}
-        className={clsx(styles.root, className)}
-        data-collapsed={collapsed || undefined}
-        data-width={width}
-        {...props}
-      >
-        {children}
-      </nav>
+      <SidebarContext.Provider value={context}>
+        <nav
+          ref={ref}
+          className={clsx(styles.root, className)}
+          data-collapsed={collapsed || undefined}
+          data-width={width}
+          {...props}
+        >
+          {children}
+        </nav>
+      </SidebarContext.Provider>
     )
   },
 )
@@ -29,7 +45,7 @@ Sidebar.displayName = 'Sidebar'
 
 export interface SidebarSectionProps
   extends React.HTMLAttributes<HTMLDivElement> {
-  /** Optional label for the section */
+  /** Optional label for the section. Also names the section as a group. */
   label?: string
 }
 
@@ -37,9 +53,21 @@ export const SidebarSection = React.forwardRef<
   HTMLDivElement,
   SidebarSectionProps
 >(({label, className, children, ...props}, ref) => {
+  const labelId = React.useId()
+
   return (
-    <div ref={ref} className={clsx(styles.section, className)} {...props}>
-      {label && <div className={styles.sectionLabel}>{label}</div>}
+    <div
+      ref={ref}
+      className={clsx(styles.section, className)}
+      role={label ? 'group' : undefined}
+      aria-labelledby={label ? labelId : undefined}
+      {...props}
+    >
+      {label && (
+        <div id={labelId} className={styles.sectionLabel}>
+          {label}
+        </div>
+      )}
       {children}
     </div>
   )
@@ -47,28 +75,119 @@ export const SidebarSection = React.forwardRef<
 
 SidebarSection.displayName = 'SidebarSection'
 
+type AnchorOnlyProps = Pick<
+  React.AnchorHTMLAttributes<HTMLAnchorElement>,
+  'href' | 'target' | 'rel' | 'download' | 'hrefLang' | 'referrerPolicy'
+>
+
 export interface SidebarItemProps
-  extends React.HTMLAttributes<HTMLButtonElement> {
-  /** Whether this item is currently active */
+  extends React.ButtonHTMLAttributes<HTMLButtonElement>,
+    AnchorOnlyProps {
+  /** Whether this item is the current page. Sets `aria-current="page"`. */
   active?: boolean
   /** Optional icon element rendered before the label */
   icon?: React.ReactNode
+  /**
+   * Link target. When set, the item renders as an `<a>` instead of a
+   * `<button>`.
+   */
+  href?: string
+  /**
+   * Replaces the rendered element, e.g. a router link:
+   * `render={<Link to="/settings" />}`. Harmonium's props (class, data
+   * attributes, ARIA) are merged onto it.
+   */
+  render?: React.ReactElement
 }
 
-export const SidebarItem = React.forwardRef<HTMLButtonElement, SidebarItemProps>(
-  ({active, icon, className, children, ...props}, ref) => {
-    return (
-      <button
-        ref={ref}
-        type="button"
-        className={clsx(styles.item, className)}
-        data-active={active || undefined}
-        {...props}
-      >
-        {icon && <span className={styles.itemIcon}>{icon}</span>}
-        <span className={styles.itemLabel}>{children}</span>
-      </button>
-    )
+/** Plain text of a React node, used to name icon-only items. */
+function getNodeText(node: React.ReactNode): string {
+  if (node == null || typeof node === 'boolean') return ''
+  if (typeof node === 'string' || typeof node === 'number') return String(node)
+  if (Array.isArray(node)) return node.map(getNodeText).join('')
+  if (React.isValidElement<{children?: React.ReactNode}>(node)) {
+    return getNodeText(node.props.children)
+  }
+  return ''
+}
+
+export const SidebarItem = React.forwardRef<
+  HTMLButtonElement | HTMLAnchorElement,
+  SidebarItemProps
+>(
+  (
+    {
+      active,
+      icon,
+      className,
+      children,
+      render,
+      href,
+      type,
+      disabled,
+      ...props
+    },
+    ref,
+  ) => {
+    const {collapsed} = React.useContext(SidebarContext)
+    const isLink = href !== undefined
+    const isNativeButton = !render && !isLink
+
+    // Collapsed sidebars hide the label visually, so name the item from it.
+    const text = collapsed ? getNodeText(children).trim() : ''
+
+    const ownProps: Record<string, unknown> = {
+      className: clsx(styles.item, className),
+      'data-active': active || undefined,
+      'aria-current': active ? 'page' : undefined,
+      'aria-label': text || undefined,
+      title: text || undefined,
+      children: (
+        <>
+          {icon && (
+            <span className={styles.itemIcon} aria-hidden="true">
+              {icon}
+            </span>
+          )}
+          <span className={styles.itemLabel}>{children}</span>
+        </>
+      ),
+    }
+
+    if (isNativeButton) {
+      ownProps.type = type ?? 'button'
+      ownProps.disabled = disabled
+    } else if (disabled) {
+      // Links can't be disabled natively: drop the target and say so.
+      ownProps['aria-disabled'] = true
+    } else if (isLink) {
+      ownProps.href = href
+    }
+
+    // Consumer props come after ours so explicit `aria-label`, `title` or
+    // `aria-current` still win; `className` was already merged above.
+    const merged: Record<string, unknown> = {...ownProps}
+    for (const [key, value] of Object.entries(props)) {
+      if (value !== undefined) merged[key] = value
+    }
+
+    // A disabled router link (via `render`) keeps its target, so take it out
+    // of the tab order and cancel activation. Routers skip navigation when
+    // the click is default-prevented.
+    if (disabled && !isNativeButton) {
+      merged.tabIndex = -1
+      merged.onClick = (event: React.MouseEvent) => event.preventDefault()
+      merged.onKeyDown = (event: React.KeyboardEvent) => {
+        if (event.key === 'Enter') event.preventDefault()
+      }
+    }
+
+    return useRender({
+      render,
+      ref: ref as React.Ref<HTMLElement>,
+      defaultTagName: isLink ? 'a' : 'button',
+      props: merged,
+    })
   },
 )
 

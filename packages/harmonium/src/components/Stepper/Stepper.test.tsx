@@ -1,5 +1,6 @@
 import {describe, it, expect} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
 import {Stepper, Step} from './Stepper'
 
 describe('Stepper', () => {
@@ -70,5 +71,69 @@ describe('Stepper', () => {
       </Stepper>,
     )
     expect(screen.getByTestId('stepper')).toHaveAttribute('data-orientation', 'vertical')
+  })
+
+  it('marks the active step with aria-current="step"', () => {
+    render(
+      <Stepper activeStep={1}>
+        <Step label="Account" />
+        <Step label="Profile" />
+        <Step label="Review" />
+      </Stepper>,
+    )
+    const items = screen.getAllByRole('listitem')
+    expect(items[0]).not.toHaveAttribute('aria-current')
+    expect(items[1]).toHaveAttribute('aria-current', 'step')
+    expect(items[2]).not.toHaveAttribute('aria-current')
+  })
+
+  it('announces completed steps with text, not just the check mark', () => {
+    render(
+      <Stepper activeStep={1}>
+        <Step label="Account" />
+        <Step label="Profile" />
+      </Stepper>,
+    )
+    const [completed] = screen.getAllByRole('listitem')
+    expect(completed).toHaveTextContent('Completed')
+    expect(screen.getByText('✓')).toHaveAttribute('aria-hidden', 'true')
+  })
+
+  it('accepts a custom completed label on Stepper or Step', () => {
+    render(
+      <Stepper activeStep={2} completedLabel="Terminé">
+        <Step label="Compte" />
+        <Step label="Profil" completedLabel="Fait" />
+        <Step label="Revue" />
+      </Stepper>,
+    )
+    const items = screen.getAllByRole('listitem')
+    expect(items[0]).toHaveTextContent('Terminé')
+    expect(items[1]).toHaveTextContent('Fait')
+  })
+
+  it('hides connectors from assistive technology', () => {
+    const {container} = render(
+      <Stepper activeStep={0}>
+        <Step label="Account" />
+        <Step label="Profile" />
+      </Stepper>,
+    )
+    const connector = container.querySelector('.connector')
+    expect(connector).toHaveAttribute('aria-hidden', 'true')
+    expect(connector).toHaveAttribute('data-state', 'pending')
+  })
+
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <Stepper activeStep={1} aria-label="Checkout progress">
+        <Step label="Account" description="Create your account" />
+        <Step label="Profile" />
+        <Step label="Review" />
+      </Stepper>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })

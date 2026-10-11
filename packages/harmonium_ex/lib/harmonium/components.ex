@@ -851,14 +851,32 @@ if Code.ensure_loaded?(Phoenix.Component) do
     attr :number, :any, default: nil, doc: "Step number shown in the indicator."
     attr :label, :string, required: true
     attr :description, :string, default: nil
+
+    attr :completed_label, :string,
+      default: "Completed",
+      doc: "Text announced to screen readers for a completed step."
+
     attr :class, :any, default: nil
     attr :rest, :global
 
     def hm_stepper_step(assigns) do
       ~H"""
-      <div class={["hm-stepper-step", @class]} data-state={@state} role="listitem" {@rest}>
+      <div
+        class={["hm-stepper-step", @class]}
+        data-state={@state}
+        role="listitem"
+        aria-current={if @state == "active", do: "step"}
+        {@rest}
+      >
         <div class="hm-stepper-indicator" data-state={@state}>
-          {if @state == "completed", do: "✓", else: @number}
+          <%= if @state == "completed" do %>
+            <span aria-hidden="true">✓</span>
+            <span style="position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0">
+              {@completed_label}
+            </span>
+          <% else %>
+            {@number}
+          <% end %>
         </div>
         <div class="hm-stepper-content">
           <div class="hm-stepper-label">{@label}</div>
@@ -868,14 +886,20 @@ if Code.ensure_loaded?(Phoenix.Component) do
       """
     end
 
-    @doc "Renders the connector line between two steps."
+    @doc "Renders the connector line between two steps, hidden from assistive tech."
     attr :state, :string, default: "pending", values: ~w(pending completed)
     attr :class, :any, default: nil
     attr :rest, :global
 
     def hm_stepper_connector(assigns) do
       ~H"""
-      <div class={["hm-stepper-connector", @class]} data-state={@state} {@rest}></div>
+      <div
+        class={["hm-stepper-connector", @class]}
+        data-state={@state}
+        aria-hidden="true"
+        {@rest}
+      >
+      </div>
       """
     end
 

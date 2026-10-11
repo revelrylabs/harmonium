@@ -1,5 +1,6 @@
 import {describe, it, expect, vi} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
 import {Container} from './Container'
 
 describe('Container', () => {
@@ -62,5 +63,16 @@ describe('Container', () => {
     const el = screen.getByTestId('container')
     expect(el).toHaveAttribute('data-padding', 'sm')
     expect(el).toHaveAttribute('data-padding-lg', 'lg')
+  })
+})
+
+describe('Container accessibility', () => {
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <Container>Content</Container>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })

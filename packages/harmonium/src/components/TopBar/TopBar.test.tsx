@@ -1,5 +1,6 @@
 import {describe, it, expect} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
 import {TopBar, TopBarSection} from './TopBar'
 
 describe('TopBar', () => {
@@ -27,5 +28,23 @@ describe('TopBar', () => {
     )
     expect(screen.getByTestId('left')).toHaveAttribute('data-align', 'left')
     expect(screen.getByTestId('right')).toHaveAttribute('data-align', 'right')
+  })
+})
+
+describe('TopBar accessibility', () => {
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <TopBar fixed>
+        <TopBarSection align="left">Logo</TopBarSection>
+        <TopBarSection align="right">
+          <nav aria-label="Account">
+            <a href="/profile">Profile</a>
+          </nav>
+        </TopBarSection>
+      </TopBar>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })

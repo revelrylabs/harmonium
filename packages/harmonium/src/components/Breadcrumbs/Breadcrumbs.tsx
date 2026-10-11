@@ -39,19 +39,43 @@ export interface BreadcrumbItemProps
 }
 
 export const BreadcrumbItem = React.forwardRef<
-  HTMLAnchorElement,
+  HTMLAnchorElement | HTMLSpanElement,
   BreadcrumbItemProps
 >(({active, className, children, ...props}, ref) => {
   if (active) {
+    // The current page isn't a link: drop link-only attributes, keep the rest.
+    /* eslint-disable @typescript-eslint/no-unused-vars */
+    const {
+      href,
+      target,
+      rel,
+      download,
+      hrefLang,
+      ping,
+      referrerPolicy,
+      type,
+      media,
+      ...spanProps
+    } = props
+    /* eslint-enable @typescript-eslint/no-unused-vars */
     return (
-      <span className={clsx(styles.link, styles.active, className)} aria-current="page">
+      <span
+        ref={ref}
+        className={clsx(styles.link, styles.active, className)}
+        aria-current="page"
+        {...(spanProps as React.HTMLAttributes<HTMLSpanElement>)}
+      >
         {children}
       </span>
     )
   }
 
   return (
-    <a ref={ref} className={clsx(styles.link, className)} {...props}>
+    <a
+      ref={ref as React.Ref<HTMLAnchorElement>}
+      className={clsx(styles.link, className)}
+      {...props}
+    >
       {children}
     </a>
   )
