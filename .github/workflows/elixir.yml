@@ -1,0 +1,66 @@
+name: Elixir
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - packages/harmonium_ex/**
+      - packages/harmonium/src/**
+      - packages/harmonium/scripts/**
+      - design-tokens/**
+      - .github/workflows/elixir.yml
+  pull_request:
+    paths:
+      - packages/harmonium_ex/**
+      - packages/harmonium/src/**
+      - packages/harmonium/scripts/**
+      - design-tokens/**
+      - .github/workflows/elixir.yml
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: packages/harmonium_ex
+    env:
+      MIX_ENV: test
+    steps:
+      - uses: actions/checkout@v7
+      - uses: erlef/setup-beam@v1.24.1
+        with:
+          version-file: packages/harmonium_ex/.tool-versions
+          version-type: strict
+      - uses: actions/cache@v6
+        with:
+          path: |
+            packages/harmonium_ex/deps
+            packages/harmonium_ex/_build
+          key: mix-${{ runner.os }}-${{ hashFiles('packages/harmonium_ex/.tool-versions', 'packages/harmonium_ex/mix.lock') }}
+      - run: mix deps.get --check-locked
+      - run: mix format --check-formatted
+      - run: mix compile --warnings-as-errors
+      - run: mix test
+      - run: mix hex.build
+        env:
+          MIX_ENV: dev
+
+  # priv/static/harmonium.css is a copy of the CSS the npm package builds.
+  # Fail when a component style changes without the copy being refreshed.
+  css-sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm --filter harmonium run build
+      - name: Check priv/static/harmonium.css matches dist/harmonium.css
+        run: |
+          if ! diff -u packages/harmonium_ex/priv/static/harmonium.css packages/harmonium/dist/harmonium.css; then
+            echo "::error file=packages/harmonium_ex/priv/static/harmonium.css::harmonium.css is out of date. Run: pnpm --filter harmonium run build && cp packages/harmonium/dist/harmonium.css packages/harmonium_ex/priv/static/harmonium.css"
+            exit 1
+          fi
