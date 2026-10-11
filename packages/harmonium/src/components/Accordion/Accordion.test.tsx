@@ -1,3 +1,4 @@
+import {StrictMode} from 'react'
 import {describe, it, expect, vi} from 'vitest'
 import {render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
@@ -78,5 +79,23 @@ describe('Accordion', () => {
     expect(trigger).toHaveAttribute('aria-expanded', 'false')
     await user.click(trigger)
     expect(trigger).toHaveAttribute('aria-expanded', 'true')
+  })
+
+  it('calls onValueChange once per click under StrictMode', async () => {
+    const user = userEvent.setup()
+    const onChange = vi.fn()
+    render(
+      <StrictMode>
+        <Accordion onValueChange={onChange}>
+          <AccordionItem value="one">
+            <AccordionTrigger value="one">Section 1</AccordionTrigger>
+            <AccordionContent value="one">Content 1</AccordionContent>
+          </AccordionItem>
+        </Accordion>
+      </StrictMode>,
+    )
+    await user.click(screen.getByText('Section 1'))
+    expect(onChange).toHaveBeenCalledOnce()
+    expect(onChange).toHaveBeenCalledWith(['one'])
   })
 })

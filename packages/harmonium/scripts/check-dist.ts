@@ -3,8 +3,11 @@
  * - a CSS Module import compiled to an empty object (components render unstyled)
  * - a class referenced from JS is missing from dist/index.css
  * - the global CSS build rewrote text inside url(...) (e.g. a data-URI SVG)
+ * - styles.css doesn't define the design tokens its rules depend on
+ * - styles.layer.css isn't wrapped in `@layer harmonium`
+ * - a JS file doesn't start with 'use client' (React Server Components)
  */
-import {readFileSync} from 'fs'
+import {readFileSync, readdirSync} from 'fs'
 import {join} from 'path'
 
 const DIST = join(import.meta.dirname, '..', 'dist')
@@ -34,6 +37,21 @@ if (missing.length > 0) {
 const corruptedUrls = read('harmonium.css').match(/url\([^)]*hm-[^)]*\)/g) ?? []
 if (corruptedUrls.length > 0) {
   errors.push(`harmonium.css: class renaming leaked into url(): ${corruptedUrls[0].slice(0, 80)}`)
+}
+
+if (!css.includes('--harmonium-color-brand-primary:')) {
+  errors.push('index.css: design tokens are missing (styles.css alone would render unstyled)')
+}
+
+const layered = read('index.layer.css')
+if (!layered.startsWith('@layer harmonium {') || !layered.includes('--harmonium-color-brand-primary:')) {
+  errors.push('index.layer.css: expected tokens and component CSS inside `@layer harmonium { ... }`')
+}
+
+for (const file of readdirSync(DIST).filter((f) => /\.(c?js)$/.test(f))) {
+  if (!/^['"]use client['"]/.test(read(file))) {
+    errors.push(`${file}: missing the 'use client' directive (breaks React Server Components)`)
+  }
 }
 
 if (errors.length > 0) {

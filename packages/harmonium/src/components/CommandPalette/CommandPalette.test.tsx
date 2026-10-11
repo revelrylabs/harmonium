@@ -56,4 +56,29 @@ describe('CommandPalette', () => {
     await user.type(screen.getByPlaceholderText('Type a command...'), 'xyz')
     expect(screen.getByText('No results')).toBeInTheDocument()
   })
+
+  it('arrow keys follow the on-screen order when groups are interleaved', async () => {
+    const user = userEvent.setup()
+    const onSelect = {a: vi.fn(), b: vi.fn(), c: vi.fn()}
+    const interleaved = [
+      {id: 'a', label: 'Alpha', group: 'File', onSelect: onSelect.a},
+      {id: 'b', label: 'Beta', group: 'App', onSelect: onSelect.b},
+      {id: 'c', label: 'Gamma', group: 'File', onSelect: onSelect.c},
+    ]
+    render(<CommandPalette open items={interleaved} />)
+
+    // Rendered grouped: File (Alpha, Gamma), then App (Beta)
+    expect(screen.getAllByRole('option').map((o) => o.textContent)).toEqual([
+      'Alpha',
+      'Gamma',
+      'Beta',
+    ])
+
+    await user.type(screen.getByRole('textbox'), '{ArrowDown}')
+    expect(screen.getByRole('option', {selected: true})).toHaveTextContent('Gamma')
+
+    await user.type(screen.getByRole('textbox'), '{Enter}')
+    expect(onSelect.c).toHaveBeenCalledOnce()
+    expect(onSelect.b).not.toHaveBeenCalled()
+  })
 })

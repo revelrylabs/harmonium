@@ -1,6 +1,6 @@
 # Harmonium — Complete API Reference
 
-Harmonium is a React component library with typed props, design-token theming via CSS custom properties, and accessible defaults. All components use `forwardRef`, accept a `className` prop (merged last for easy overrides), and use `data-*` attributes for variant styling.
+Harmonium is a React component library with typed props, design-token theming via CSS custom properties, and accessible defaults. All components use `forwardRef`, accept a `className` prop (merged last; import `harmonium/styles.layer.css` instead of `styles.css` when your CSS must always override variant styles), and use `data-*` attributes for variant styling.
 
 ## Setup
 

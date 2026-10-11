@@ -26,16 +26,27 @@ interface GroupedItem {
   group: string
 }
 
-function buildGroupedItems(filtered: CommandItem[]): Map<string, GroupedItem[]> {
+/**
+ * Group items by first appearance of their group, and number them in the
+ * order they render so keyboard navigation follows what's on screen.
+ */
+function buildGroupedItems(filtered: CommandItem[]): {
+  groups: Map<string, GroupedItem[]>
+  ordered: CommandItem[]
+} {
   const groups = new Map<string, GroupedItem[]>()
-  let flatIndex = 0
   for (const item of filtered) {
     const group = item.group ?? ''
     if (!groups.has(group)) groups.set(group, [])
-    groups.get(group)?.push({item, flatIndex, group})
-    flatIndex++
+    groups.get(group)?.push({item, flatIndex: 0, group})
   }
-  return groups
+  const ordered: CommandItem[] = []
+  for (const groupedItems of groups.values()) {
+    for (const entry of groupedItems) {
+      entry.flatIndex = ordered.push(entry.item) - 1
+    }
+  }
+  return {groups, ordered}
 }
 
 export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPaletteProps>(
@@ -44,11 +55,18 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
     const [highlightIndex, setHighlightIndex] = React.useState(0)
     const inputRef = React.useRef<HTMLInputElement>(null)
 
-    const filtered = query
-      ? items.filter((item) => item.label.toLowerCase().includes(query.toLowerCase()))
-      : items
+    const filtered = React.useMemo(
+      () =>
+        query
+          ? items.filter((item) => item.label.toLowerCase().includes(query.toLowerCase()))
+          : items,
+      [items, query],
+    )
 
-    const grouped = React.useMemo(() => buildGroupedItems(filtered), [filtered])
+    const {groups: grouped, ordered} = React.useMemo(
+      () => buildGroupedItems(filtered),
+      [filtered],
+    )
 
     React.useEffect(() => {
       if (open) {
@@ -76,7 +94,7 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
       switch (event.key) {
         case 'ArrowDown':
           event.preventDefault()
-          setHighlightIndex((prev) => Math.min(prev + 1, filtered.length - 1))
+          setHighlightIndex((prev) => Math.min(prev + 1, ordered.length - 1))
           break
         case 'ArrowUp':
           event.preventDefault()
@@ -84,7 +102,7 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
           break
         case 'Enter':
           event.preventDefault()
-          if (filtered[highlightIndex]) select(filtered[highlightIndex])
+          if (ordered[highlightIndex]) select(ordered[highlightIndex])
           break
       }
     }

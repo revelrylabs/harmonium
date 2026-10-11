@@ -14,7 +14,7 @@ import 'harmonium/styles.css' // Required — include once in your app entry
 - All components use `forwardRef` and accept standard HTML attributes
 - Variants use enum props (`variant`, `size`), not boolean props
 - Variants render as `data-*` attributes (e.g. `data-variant="primary"`)
-- `className` is always merged last — you can override any style
+- `className` is always merged last. Variant rules (`[data-variant]`, `[data-size]`) out-rank a single class in `harmonium/styles.css`; import `harmonium/styles.layer.css` instead when consumer CSS must always win
 - Use `clsx` for conditional classes (not `classnames`)
 
 ## Theming
