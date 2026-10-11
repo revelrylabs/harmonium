@@ -23,6 +23,30 @@
   box-shadow: var(--harmonium-shadow-lg);
   pointer-events: auto;
   font-size: var(--harmonium-font-size-sm);
+  transition:
+    opacity var(--harmonium-transition-duration-base) ease,
+    transform var(--harmonium-transition-duration-base) ease;
+}
+
+/* Enter / exit (set by the React component while a toast mounts or closes) */
+.toast[data-starting-style],
+.toast[data-ending-style] {
+  opacity: 0;
+  transform: translateY(0.5rem);
+}
+
+/* Swipe to dismiss */
+.toast[data-swiping] {
+  transition: none;
+  transform: translate(var(--toast-swipe-movement-x), var(--toast-swipe-movement-y));
+}
+
+.toast[data-ending-style][data-swipe-direction='right'] {
+  transform: translateX(calc(var(--toast-swipe-movement-x) + 100%));
+}
+
+.toast[data-ending-style][data-swipe-direction='left'] {
+  transform: translateX(calc(var(--toast-swipe-movement-x) - 100%));
 }
 
 .toast[data-variant='info'] {
@@ -68,4 +92,15 @@
   outline: 2px solid currentColor;
   outline-offset: 2px;
   opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    transition: none;
+  }
+
+  .toast[data-starting-style],
+  .toast[data-ending-style] {
+    transform: none;
+  }
 }

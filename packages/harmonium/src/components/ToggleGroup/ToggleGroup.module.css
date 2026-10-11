@@ -41,7 +41,8 @@
   color: var(--harmonium-color-text);
 }
 
-.item[data-state='active'] {
+.item[data-state='active'],
+.item[data-pressed] {
   background: var(--harmonium-color-surface);
   color: var(--harmonium-color-brand-primary);
   box-shadow: var(--harmonium-shadow-sm);
@@ -58,6 +59,14 @@
 }
 
 .item[data-state='active'] + .item,
-.item + .item[data-state='active'] {
+.item + .item[data-state='active'],
+.item[data-pressed] + .item,
+.item + .item[data-pressed] {
   border-left-color: transparent;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    transition: none;
+  }
 }

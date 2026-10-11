@@ -29,7 +29,8 @@
   color: var(--harmonium-color-text);
 }
 
-.trigger[data-state='active'] {
+.trigger[data-state='active'],
+.trigger[data-active] {
   color: var(--harmonium-color-brand-primary);
   border-bottom-color: var(--harmonium-color-brand-primary);
 }
@@ -41,4 +42,15 @@
 
 .content {
   padding: var(--harmonium-spacing-md) 0;
+}
+
+.content:focus-visible {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trigger {
+    transition: none;
+  }
 }
