@@ -3,26 +3,30 @@ import {clsx} from 'clsx'
 import {Field as BaseField} from '@base-ui/react/field'
 import styles from './Field.module.css'
 
-type FieldPart = 'description' | 'error' | 'control'
+type FieldPart = 'label' | 'description' | 'error' | 'control'
 
 export interface FieldContextValue {
-  /** The id given to the field's control (and the `htmlFor` of `FieldLabel`) */
+  /**
+   * The id the Field gives its control (and the `htmlFor` of `FieldLabel`).
+   * A Harmonium control given its own `id` keeps it, and `FieldLabel`
+   * follows that id instead.
+   */
   fieldId: string
   /** Whether the field has an error */
   error?: boolean
-  /** The id of the `FieldLabel` */
+  /** The id of the `FieldLabel` (its own `id` when you pass one) */
   labelId: string
-  /** The id of the `FieldDescription`, when one is rendered */
+  /** The id of the `FieldDescription`, when one is rendered (its own `id` when you pass one) */
   descriptionId?: string
-  /** The id of the `FieldError`, when one is rendered */
+  /** The id of the `FieldError`, when one is rendered (its own `id` when you pass one) */
   errorId?: string
   /**
    * Space-separated ids of the description and error parts that are actually
    * rendered, ready for `aria-describedby`. `undefined` when there are none.
    */
   describedBy?: string
-  /** @internal Lets Field parts announce that they are mounted */
-  registerPart: (part: FieldPart, mounted: boolean) => void
+  /** @internal Lets Field parts announce that they are mounted, and with which id */
+  registerPart: (part: FieldPart, id: string, mounted: boolean) => void
   /** @internal Whether one of Harmonium's (Base UI-wired) controls is mounted */
   hasControl: boolean
 }
@@ -42,16 +46,22 @@ export function useFieldContext(): FieldContextValue | null {
   return React.useContext(FieldContext)
 }
 
-/** Registers a Field part while it is mounted. */
-function useRegisterPart(part: FieldPart, enabled: boolean) {
+/**
+ * Registers a Field part, under the id it renders with, while it is mounted.
+ * The Field links its control to these ids, so a part keeps working when the
+ * consumer gives it its own `id`.
+ */
+function useRegisterPart(part: FieldPart, id: string | undefined, enabled: boolean) {
   const ctx = useFieldContext()
   const register = ctx?.registerPart
   useIsoLayoutEffect(() => {
-    if (!register || !enabled) return undefined
-    register(part, true)
-    return () => register(part, false)
-  }, [register, part, enabled])
+    if (!register || !enabled || !id) return undefined
+    register(part, id, true)
+    return () => register(part, id, false)
+  }, [register, part, id, enabled])
 }
+
+type FieldParts = Record<FieldPart, string[]>
 
 export interface FieldProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Whether the field has an error */
@@ -61,32 +71,40 @@ export interface FieldProps extends React.HTMLAttributes<HTMLDivElement> {
 export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
   ({error, className, children, ...props}, ref) => {
     const fieldId = React.useId()
-    const [parts, setParts] = React.useState<Record<FieldPart, number>>({
-      description: 0,
-      error: 0,
-      control: 0,
+    const [parts, setParts] = React.useState<FieldParts>({
+      label: [],
+      description: [],
+      error: [],
+      control: [],
     })
 
     const registerPart = React.useCallback(
-      (part: FieldPart, mounted: boolean) => {
-        setParts((prev) => ({...prev, [part]: prev[part] + (mounted ? 1 : -1)}))
+      (part: FieldPart, id: string, mounted: boolean) => {
+        setParts((prev) => {
+          const ids = prev[part]
+          if (mounted) return {...prev, [part]: [...ids, id]}
+          // Remove one registration, so two parts sharing an id stay counted
+          const index = ids.indexOf(id)
+          if (index === -1) return prev
+          return {...prev, [part]: [...ids.slice(0, index), ...ids.slice(index + 1)]}
+        })
       },
       [],
     )
 
     const value = React.useMemo<FieldContextValue>(() => {
-      const descriptionId = parts.description > 0 ? `${fieldId}-description` : undefined
-      const errorId = parts.error > 0 ? `${fieldId}-error` : undefined
-      const describedBy = [descriptionId, errorId].filter(Boolean).join(' ') || undefined
+      const descriptionIds = unique(parts.description)
+      const errorIds = unique(parts.error)
+      const describedBy = [...descriptionIds, ...errorIds].join(' ') || undefined
       return {
         fieldId,
         error,
-        labelId: `${fieldId}-label`,
-        descriptionId,
-        errorId,
+        labelId: parts.label[0] ?? `${fieldId}-label`,
+        descriptionId: descriptionIds[0],
+        errorId: errorIds[0],
         describedBy,
         registerPart,
-        hasControl: parts.control > 0,
+        hasControl: parts.control.length > 0,
       }
     }, [fieldId, error, parts, registerPart])
 
@@ -108,11 +126,17 @@ export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
 
 Field.displayName = 'Field'
 
+function unique(ids: string[]) {
+  return Array.from(new Set(ids))
+}
+
 export type FieldLabelProps = React.LabelHTMLAttributes<HTMLLabelElement>
 
 export const FieldLabel = React.forwardRef<HTMLLabelElement, FieldLabelProps>(
-  ({className, children, ...props}, ref) => {
+  ({className, children, id, ...props}, ref) => {
     const ctx = useFieldContext()
+    const labelId = id ?? (ctx ? `${ctx.fieldId}-label` : undefined)
+    useRegisterPart('label', labelId, true)
     // Base UI points the label at Harmonium's controls (whatever their id).
     // A custom control built with useFieldContext uses `fieldId` instead.
     const htmlFor = ctx && !ctx.hasControl ? ctx.fieldId : undefined
@@ -121,7 +145,7 @@ export const FieldLabel = React.forwardRef<HTMLLabelElement, FieldLabelProps>(
       <BaseField.Label
         ref={ref}
         className={clsx(styles.label, className)}
-        id={ctx?.labelId}
+        id={labelId}
         {...(htmlFor ? {htmlFor} : null)}
         {...props}
       >
@@ -138,15 +162,16 @@ export type FieldDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>
 export const FieldDescription = React.forwardRef<
   HTMLParagraphElement,
   FieldDescriptionProps
->(({className, children, ...props}, ref) => {
+>(({className, children, id, ...props}, ref) => {
   const ctx = useFieldContext()
-  useRegisterPart('description', true)
+  const descriptionId = id ?? (ctx ? `${ctx.fieldId}-description` : undefined)
+  useRegisterPart('description', descriptionId, true)
 
   return (
     <BaseField.Description
       ref={ref}
       className={clsx(styles.description, className)}
-      id={ctx ? `${ctx.fieldId}-description` : undefined}
+      id={descriptionId}
       {...props}
     >
       {children}
@@ -172,20 +197,21 @@ function hasContent(node: React.ReactNode) {
 }
 
 export const FieldError = React.forwardRef<HTMLParagraphElement, FieldErrorProps>(
-  ({className, children, match, ...props}, ref) => {
+  ({className, children, match, id, ...props}, ref) => {
     const ctx = useFieldContext()
     const content = hasContent(children)
     const resolvedMatch = match ?? (content ? true : undefined)
+    const errorId = id ?? (ctx ? `${ctx.fieldId}-error` : undefined)
     // Only a message that is always shown can be registered up front; Base UI
     // links the validity-driven ones to the control itself.
-    useRegisterPart('error', resolvedMatch === true)
+    useRegisterPart('error', errorId, resolvedMatch === true)
 
     return (
       <BaseField.Error
         ref={ref as React.Ref<HTMLDivElement>}
         render={<p />}
         className={clsx(styles.error, className)}
-        id={ctx ? `${ctx.fieldId}-error` : undefined}
+        id={errorId}
         role="alert"
         match={resolvedMatch}
         {...props}
@@ -203,7 +229,8 @@ FieldError.displayName = 'FieldError'
  * @internal
  */
 export function useRegisterFieldControl() {
-  useRegisterPart('control', true)
+  const ctx = useFieldContext()
+  useRegisterPart('control', ctx?.fieldId, true)
 }
 
 /**
