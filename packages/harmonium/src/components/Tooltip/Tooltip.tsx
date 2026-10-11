@@ -14,6 +14,17 @@ export interface TooltipProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
 
 type DescribableElement = React.ReactElement<{'aria-describedby'?: string}>
 
+/**
+ * A short description shown when its child is hovered or focused. The child
+ * must be focusable (for example a `Button`); it gets `aria-describedby`
+ * pointing at the tooltip, merged with any it already has. Closes on Escape.
+ *
+ * @category Overlays
+ * @example
+ * <Tooltip content="Copy link">
+ *   <Button variant="ghost" aria-label="Copy link"><CopyIcon /></Button>
+ * </Tooltip>
+ */
 export const Tooltip = React.forwardRef<HTMLDivElement, TooltipProps>(
   ({content, side = 'top', delay = 0, className, children, ...props}, ref) => {
     const [open, setOpen] = React.useState(false)

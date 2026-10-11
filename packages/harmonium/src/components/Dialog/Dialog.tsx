@@ -32,6 +32,23 @@ export function useCloseHandler(onClose?: () => void) {
   }, [])
 }
 
+/**
+ * A modal dialog, rendered in a portal on `document.body`. While open it
+ * traps focus, locks page scroll and returns focus on close. It's controlled:
+ * it calls `onClose` on Escape or a backdrop click, and you set `open` to
+ * false. A `DialogHeader` inside labels it. It has no built-in close button.
+ *
+ * @category Overlays
+ * @example
+ * <Dialog open={open} onClose={() => setOpen(false)} size="sm">
+ *   <DialogHeader>Delete project?</DialogHeader>
+ *   <DialogBody>This can't be undone.</DialogBody>
+ *   <DialogFooter>
+ *     <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
+ *     <Button onClick={remove}>Delete</Button>
+ *   </DialogFooter>
+ * </Dialog>
+ */
 export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>(
   ({open, onClose, size = 'md', className, children, ...props}, ref) => {
     const handleOpenChange = useCloseHandler(onClose)
@@ -62,7 +79,7 @@ Dialog.displayName = 'Dialog'
 
 export type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
-/** Inside a Dialog or Drawer, the header also labels the dialog (`aria-labelledby`). */
+/** The title area of a `Dialog`. Inside a Dialog or Drawer, it also labels the dialog (`aria-labelledby`). */
 export const DialogHeader = React.forwardRef<HTMLDivElement, DialogHeaderProps>(
   ({className, children, ...props}, ref) => {
     const labelsDialog = React.useContext(DialogLabelContext)
@@ -89,7 +106,8 @@ DialogHeader.displayName = 'DialogHeader'
 
 export type DialogBodyProps = React.HTMLAttributes<HTMLDivElement>
 
-export const DialogBody = React.forwardRef<HTMLDivElement, DialogBodyProps>(
+/** The main content of a `Dialog` or `Drawer`. */
+export const DialogBody =React.forwardRef<HTMLDivElement, DialogBodyProps>(
   ({className, children, ...props}, ref) => (
     <div ref={ref} className={clsx(styles.body, className)} {...props}>
       {children}
@@ -100,7 +118,8 @@ DialogBody.displayName = 'DialogBody'
 
 export type DialogFooterProps = React.HTMLAttributes<HTMLDivElement>
 
-export const DialogFooter = React.forwardRef<HTMLDivElement, DialogFooterProps>(
+/** The actions row at the bottom of a `Dialog` or `Drawer`. */
+export const DialogFooter =React.forwardRef<HTMLDivElement, DialogFooterProps>(
   ({className, children, ...props}, ref) => (
     <div ref={ref} className={clsx(styles.footer, className)} {...props}>
       {children}

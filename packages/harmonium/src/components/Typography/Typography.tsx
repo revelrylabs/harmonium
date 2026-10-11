@@ -17,6 +17,15 @@ export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   htmlFor?: string
 }
 
+/**
+ * Body text with size, weight and color variants. Renders a `<p>` unless
+ * `as` says otherwise.
+ *
+ * @category Typography
+ * @example
+ * <Text>Your trial ends in 3 days.</Text>
+ * <Text size="sm" color="muted" as="span">Updated 2 hours ago</Text>
+ */
 export const Text = React.forwardRef<HTMLElement, TextProps>(
   (
     {
@@ -60,6 +69,15 @@ export interface HeadingProps extends React.HTMLAttributes<HTMLHeadingElement> {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'
 }
 
+/**
+ * A heading. `level` sets the element (`h1`–`h6`, default `h2`) and
+ * `size` the look, so the outline and the styling can differ.
+ *
+ * @category Typography
+ * @example
+ * <Heading level={1}>Dashboard</Heading>
+ * <Heading level={3} size="sm">Recent activity</Heading>
+ */
 export const Heading = React.forwardRef<HTMLHeadingElement, HeadingProps>(
   ({level = 2, size, className, children, ...props}, ref) => {
     const Component = `h${level}` as const

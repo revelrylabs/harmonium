@@ -10,7 +10,17 @@ export interface DatePickerProps
   size?: 'sm' | 'md' | 'lg'
 }
 
-/** A native `<input type="date">`, wired to the surrounding `<Field>`. */
+/**
+ * A native `<input type="date">`, wired to the surrounding `<Field>`. Its
+ * value is an ISO date string (`'2026-10-11'`).
+ *
+ * @category Forms
+ * @example
+ * <Field>
+ *   <FieldLabel>Start date</FieldLabel>
+ *   <DatePicker value={date} onChange={(e) => setDate(e.target.value)} min="2026-01-01" />
+ * </Field>
+ */
 export const DatePicker = React.forwardRef<HTMLInputElement, DatePickerProps>(
   ({size = 'md', className, id, ...props}, ref) => {
     const fieldProps = useFieldControlProps(id)

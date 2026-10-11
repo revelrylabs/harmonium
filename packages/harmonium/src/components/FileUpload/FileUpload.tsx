@@ -37,7 +37,24 @@ function matchesAccept(file: File, accept: string | undefined): boolean {
     })
 }
 
-export const FileUpload = React.forwardRef<HTMLDivElement, FileUploadProps>(
+/**
+ * A drop zone that also opens the file picker on click, Enter or Space.
+ * Picked and dropped files are checked against `accept`, `maxSize` and
+ * `multiple`: matching files go to `onChange`, the rest to `onReject`. It
+ * doesn't upload anything itself. Children replace the default
+ * "Drop files here or click to browse" text.
+ *
+ * @category Forms
+ * @example
+ * <FileUpload
+ *   accept="image/*,.pdf"
+ *   multiple
+ *   maxSize={5_000_000}
+ *   onChange={(files) => upload(files)}
+ *   onReject={(files) => setError(`${files.length} file(s) skipped`)}
+ * />
+ */
+export const FileUpload =React.forwardRef<HTMLDivElement, FileUploadProps>(
   (
     {accept, multiple, disabled, onChange, onReject, maxSize, className, children, ...props},
     ref,

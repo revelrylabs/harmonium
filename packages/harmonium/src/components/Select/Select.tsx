@@ -18,6 +18,16 @@ export interface SelectProps
 /**
  * A native `<select>`, wired to the surrounding `<Field>`. Pass `<option>`
  * elements as children.
+ *
+ * @category Forms
+ * @example
+ * <Field>
+ *   <FieldLabel>Role</FieldLabel>
+ *   <Select placeholder="Choose a role" value={role} onChange={(e) => setRole(e.target.value)}>
+ *     <option value="admin">Admin</option>
+ *     <option value="member">Member</option>
+ *   </Select>
+ * </Field>
  */
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
   ({placeholder, size = 'md', className, id, children, ...props}, ref) => {

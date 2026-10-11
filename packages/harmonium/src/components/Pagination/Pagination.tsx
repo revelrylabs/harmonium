@@ -53,7 +53,16 @@ function getPageRange(
   return pages
 }
 
-export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
+/**
+ * Previous/next buttons and page numbers. Shows at most `maxVisible` page
+ * buttons, always including the first and last page, with an ellipsis for
+ * skipped pages. It's controlled: update `page` in `onPageChange`.
+ *
+ * @category Navigation
+ * @example
+ * <Pagination page={page} totalPages={20} onPageChange={setPage} />
+ */
+export const Pagination =React.forwardRef<HTMLElement, PaginationProps>(
   (
     {
       page: pageProp,

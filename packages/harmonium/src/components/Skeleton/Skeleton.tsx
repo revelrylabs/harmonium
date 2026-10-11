@@ -11,7 +11,16 @@ export interface SkeletonProps extends React.HTMLAttributes<HTMLDivElement> {
   variant?: 'text' | 'circular' | 'rectangular'
 }
 
-export const Skeleton = React.forwardRef<HTMLDivElement, SkeletonProps>(
+/**
+ * A pulsing placeholder shown while content loads. Numbers for `width` and
+ * `height` are pixels. The pulse stops under `prefers-reduced-motion`.
+ *
+ * @category Display
+ * @example
+ * <Skeleton variant="circular" width={40} height={40} />
+ * <Skeleton width="60%" />
+ */
+export const Skeleton =React.forwardRef<HTMLDivElement, SkeletonProps>(
   ({width, height, variant = 'text', className, style, ...props}, ref) => {
     return (
       <div

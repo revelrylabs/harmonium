@@ -9,7 +9,15 @@ export interface SpinnerProps extends React.HTMLAttributes<HTMLSpanElement> {
   label?: string
 }
 
-export const Spinner = React.forwardRef<HTMLSpanElement, SpinnerProps>(
+/**
+ * A loading indicator, announced as `role="status"` with `label`.
+ *
+ * @category Display
+ * @example
+ * <Spinner />
+ * <Spinner size="sm" label="Saving" />
+ */
+export const Spinner =React.forwardRef<HTMLSpanElement, SpinnerProps>(
   ({size = 'md', label = 'Loading', className, ...props}, ref) => {
     return (
       <span

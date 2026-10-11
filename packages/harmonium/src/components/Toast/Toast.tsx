@@ -2,10 +2,15 @@ import * as React from 'react'
 import {Toast as BaseToast} from '@base-ui/react/toast'
 import styles from './Toast.module.css'
 
+/** A toast, as passed to `toast()` (without `id`). */
 export interface ToastData {
+  /** Id returned by `toast()`, for `dismiss(id)` */
   id: string
+  /** The message */
   message: React.ReactNode
+  /** Color and urgency; `error` toasts are announced assertively. Defaults to `'info'`. */
   variant?: 'info' | 'success' | 'warning' | 'error'
+  /** Milliseconds before it closes itself. Defaults to 5000; `0` or `Infinity` keeps it open until dismissed. */
   duration?: number
 }
 
@@ -16,6 +21,16 @@ interface ToastContextValue {
 
 const ToastContext = React.createContext<ToastContextValue | null>(null)
 
+/**
+ * Shows toasts from anywhere inside a `ToastProvider`. Returns
+ * `toast({message, variant, duration})`, which returns the toast's id, and
+ * `dismiss(id)`. Throws outside a `ToastProvider`.
+ *
+ * @category Feedback
+ * @example
+ * const {toast} = useToast()
+ * toast({message: 'Saved', variant: 'success'})
+ */
 export function useToast() {
   const ctx = React.useContext(ToastContext)
   if (!ctx) throw new Error('useToast must be used within <ToastProvider>')
@@ -23,17 +38,26 @@ export function useToast() {
 }
 
 export interface ToastProviderProps {
+  /** Your app, or the part of it that shows toasts */
   children: React.ReactNode
   /** Position of toast stack */
   position?: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'
 }
 
 /**
- * Toasts built on Base UI. The viewport is a persistent `aria-live` region, so
+ * Shows the toasts created with `useToast()`; wrap your app in it once.
+ *
+ * Built on Base UI. The viewport is a persistent `aria-live` region, so
  * screen readers announce each toast as it is added; `error` toasts are
  * announced assertively (`role="alert"`). Auto-dismiss timers pause while the
  * pointer is over the stack, while it has keyboard focus (F6 jumps to it) and
  * while the window is in the background.
+ *
+ * @category Feedback
+ * @example
+ * <ToastProvider position="top-right">
+ *   <App />
+ * </ToastProvider>
  */
 export function ToastProvider({children, position = 'bottom-right'}: ToastProviderProps) {
   return (

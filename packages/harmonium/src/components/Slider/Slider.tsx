@@ -32,7 +32,9 @@ function rangeDefault(min: number, max: number, step: number) {
 }
 
 /**
- * A slider built on Base UI's Slider. Keyboard, pointer and screen-reader
+ * A range slider; `showValue` shows the current value next to it.
+ *
+ * Built on Base UI's Slider. Keyboard, pointer and screen-reader
  * support come from Base UI; a visually hidden `<input type="range">` inside
  * the thumb carries `name`/`value` for form submission.
  *
@@ -41,8 +43,15 @@ function rangeDefault(min: number, max: number, step: number) {
  * range input; `onChange` receives a change event whose `target` is that
  * input; `className`, `style`, `id` and other attributes go on the root
  * `<div>`.
+ *
+ * @category Forms
+ * @example
+ * <Field>
+ *   <FieldLabel>Volume</FieldLabel>
+ *   <Slider min={0} max={100} value={volume} onChange={(e) => setVolume(Number(e.target.value))} showValue />
+ * </Field>
  */
-export const Slider = React.forwardRef<HTMLInputElement, SliderProps>(
+export const Slider =React.forwardRef<HTMLInputElement, SliderProps>(
   (
     {
       size = 'md',

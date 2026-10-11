@@ -115,6 +115,21 @@ const InlineMenu = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDiv
 )
 InlineMenu.displayName = 'InlineMenu'
 
+/**
+ * A list of actions. With `trigger` it's a dropdown that opens from that
+ * element; without it, it renders inline. Either way it has one tab stop,
+ * arrow keys, Home/End and typeahead, and skips disabled items.
+ *
+ * @category Overlays
+ * @example
+ * <Menu trigger={<Button variant="outline">Actions</Button>}>
+ *   <MenuLabel>Project</MenuLabel>
+ *   <MenuItem onClick={rename}>Rename</MenuItem>
+ *   <MenuItem onClick={duplicate}>Duplicate</MenuItem>
+ *   <MenuSeparator />
+ *   <MenuItem variant="danger" onClick={remove}>Delete</MenuItem>
+ * </Menu>
+ */
 export const Menu = React.forwardRef<HTMLDivElement, MenuProps>(
   ({trigger, side = 'bottom', open, onOpenChange, className, children, ...props}, ref) => {
     if (!trigger) {
@@ -153,7 +168,8 @@ export interface MenuItemProps extends React.ButtonHTMLAttributes<HTMLButtonElem
   variant?: 'default' | 'danger'
 }
 
-export const MenuItem = React.forwardRef<HTMLButtonElement, MenuItemProps>(
+/** An action in a `Menu`: a `<button role="menuitem">`. In a dropdown, choosing it closes the menu. */
+export const MenuItem =React.forwardRef<HTMLButtonElement, MenuItemProps>(
   ({variant = 'default', className, disabled, children, ...props}, ref) => {
     const inDropdown = React.useContext(DropdownContext)
 
@@ -192,7 +208,8 @@ MenuItem.displayName = 'MenuItem'
 
 export type MenuSeparatorProps = React.HTMLAttributes<HTMLDivElement>
 
-export const MenuSeparator = React.forwardRef<HTMLDivElement, MenuSeparatorProps>(
+/** A divider between groups of `MenuItem`s. */
+export const MenuSeparator =React.forwardRef<HTMLDivElement, MenuSeparatorProps>(
   ({className, ...props}, ref) => (
     <div
       ref={ref}
@@ -207,7 +224,8 @@ MenuSeparator.displayName = 'MenuSeparator'
 
 export type MenuLabelProps = React.HTMLAttributes<HTMLDivElement>
 
-export const MenuLabel = React.forwardRef<HTMLDivElement, MenuLabelProps>(
+/** A non-interactive heading for a group of `MenuItem`s. */
+export const MenuLabel =React.forwardRef<HTMLDivElement, MenuLabelProps>(
   ({className, children, ...props}, ref) => (
     <div ref={ref} className={clsx(styles.label, className)} {...props}>
       {children}

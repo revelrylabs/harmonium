@@ -7,7 +7,21 @@ export interface AppShellProps extends React.HTMLAttributes<HTMLDivElement> {
   sidebarCollapsed?: boolean
 }
 
-export const AppShell = React.forwardRef<HTMLDivElement, AppShellProps>(
+/**
+ * Page layout grid with header, sidebar, main and footer areas.
+ * `sidebarCollapsed` narrows the sidebar column to 60px; below 768px the
+ * areas stack.
+ *
+ * @category Layout
+ * @example
+ * <AppShell sidebarCollapsed={collapsed}>
+ *   <AppShellHeader><TopBar>…</TopBar></AppShellHeader>
+ *   <AppShellSidebar><Sidebar collapsed={collapsed}>…</Sidebar></AppShellSidebar>
+ *   <AppShellMain>{children}</AppShellMain>
+ *   <AppShellFooter>© 2026</AppShellFooter>
+ * </AppShell>
+ */
+export const AppShell =React.forwardRef<HTMLDivElement, AppShellProps>(
   ({sidebarCollapsed, className, children, ...props}, ref) => {
     return (
       <div
@@ -26,7 +40,8 @@ AppShell.displayName = 'AppShell'
 
 export type AppShellHeaderProps = React.HTMLAttributes<HTMLElement>
 
-export const AppShellHeader = React.forwardRef<
+/** The `AppShell` header area, a `<header>`. */
+export const AppShellHeader =React.forwardRef<
   HTMLElement,
   AppShellHeaderProps
 >(({className, children, ...props}, ref) => (
@@ -43,7 +58,8 @@ AppShellHeader.displayName = 'AppShellHeader'
 
 export type AppShellSidebarProps = React.HTMLAttributes<HTMLElement>
 
-export const AppShellSidebar = React.forwardRef<
+/** The `AppShell` sidebar column, an `<aside>`. */
+export const AppShellSidebar =React.forwardRef<
   HTMLElement,
   AppShellSidebarProps
 >(({className, children, ...props}, ref) => (
@@ -60,7 +76,8 @@ AppShellSidebar.displayName = 'AppShellSidebar'
 
 export type AppShellMainProps = React.HTMLAttributes<HTMLElement>
 
-export const AppShellMain = React.forwardRef<HTMLElement, AppShellMainProps>(
+/** The `AppShell` main content area, a `<main>`. */
+export const AppShellMain =React.forwardRef<HTMLElement, AppShellMainProps>(
   ({className, children, ...props}, ref) => (
     <main
       ref={ref}
@@ -76,7 +93,8 @@ AppShellMain.displayName = 'AppShellMain'
 
 export type AppShellFooterProps = React.HTMLAttributes<HTMLElement>
 
-export const AppShellFooter = React.forwardRef<
+/** The `AppShell` footer area, a `<footer>`. */
+export const AppShellFooter =React.forwardRef<
   HTMLElement,
   AppShellFooterProps
 >(({className, children, ...props}, ref) => (

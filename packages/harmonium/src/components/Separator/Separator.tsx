@@ -9,7 +9,15 @@ export interface SeparatorProps extends React.HTMLAttributes<HTMLHRElement> {
   spacing?: 'xs' | 'sm' | 'md' | 'lg' | 'xl'
 }
 
-export const Separator = React.forwardRef<HTMLHRElement, SeparatorProps>(
+/**
+ * A horizontal or vertical divider (`<hr>`).
+ *
+ * @category Layout
+ * @example
+ * <Separator spacing="lg" />
+ * <Group><span>Left</span><Separator orientation="vertical" /><span>Right</span></Group>
+ */
+export const Separator =React.forwardRef<HTMLHRElement, SeparatorProps>(
   ({orientation = 'horizontal', spacing = 'md', className, ...props}, ref) => {
     return (
       <hr

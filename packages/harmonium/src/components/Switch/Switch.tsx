@@ -14,7 +14,9 @@ export interface SwitchProps
 }
 
 /**
- * A switch built on Base UI's Switch: a `<span role="switch">` (the `.track`)
+ * An on/off switch with a label.
+ *
+ * Built on Base UI's Switch: a `<span role="switch">` (the `.track`)
  * with a `.thumb`, plus a hidden native checkbox that carries `name`/`value`
  * for form submission.
  *
@@ -22,6 +24,11 @@ export interface SwitchProps
  * visible component); `ref` points at the hidden `<input type="checkbox">`;
  * `onChange` receives that input's change event; everything else (`aria-*`,
  * `data-*`, `onFocus`, ...) goes on the `role="switch"` element.
+ *
+ * @category Forms
+ * @example
+ * <Switch label="Email notifications" checked={enabled} onChange={(e) => setEnabled(e.target.checked)} />
+ * <Switch label="Dark mode" size="sm" defaultChecked />
  */
 export const Switch = React.forwardRef<HTMLInputElement, SwitchProps>(
   (

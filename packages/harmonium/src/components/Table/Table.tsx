@@ -65,6 +65,22 @@ export function scrollRegionProps(
   }
 }
 
+/**
+ * A semantic HTML table built from `TableHead`, `TableBody`, `TableRow`,
+ * `TableHeader` (`<th>`) and `TableCell` (`<td>`). For column definitions
+ * and sorting, use `DataGrid`.
+ *
+ * @category Data
+ * @example
+ * <Table striped hoverable responsive aria-label="Invoices">
+ *   <TableHead>
+ *     <TableRow><TableHeader>Invoice</TableHeader><TableHeader>Amount</TableHeader></TableRow>
+ *   </TableHead>
+ *   <TableBody>
+ *     <TableRow><TableCell>#1024</TableCell><TableCell>$120</TableCell></TableRow>
+ *   </TableBody>
+ * </Table>
+ */
 export const Table = React.forwardRef<HTMLTableElement, TableProps>(
   ({striped, hoverable, responsive, className, children, ...props}, ref) => {
     const region = useScrollRegion<HTMLDivElement>(Boolean(responsive))
@@ -103,6 +119,7 @@ export const Table = React.forwardRef<HTMLTableElement, TableProps>(
 
 Table.displayName = 'Table'
 
+/** The `<thead>` of a `Table`. */
 export const TableHead = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
@@ -111,6 +128,7 @@ export const TableHead = React.forwardRef<
 ))
 TableHead.displayName = 'TableHead'
 
+/** The `<tbody>` of a `Table`. */
 export const TableBody = React.forwardRef<
   HTMLTableSectionElement,
   React.HTMLAttributes<HTMLTableSectionElement>
@@ -119,6 +137,7 @@ export const TableBody = React.forwardRef<
 ))
 TableBody.displayName = 'TableBody'
 
+/** A `<tr>` of a `Table`. */
 export const TableRow = React.forwardRef<
   HTMLTableRowElement,
   React.HTMLAttributes<HTMLTableRowElement>
@@ -127,6 +146,7 @@ export const TableRow = React.forwardRef<
 ))
 TableRow.displayName = 'TableRow'
 
+/** A header cell (`<th>`) of a `Table`. */
 export const TableHeader = React.forwardRef<
   HTMLTableCellElement,
   React.ThHTMLAttributes<HTMLTableCellElement>
@@ -135,6 +155,7 @@ export const TableHeader = React.forwardRef<
 ))
 TableHeader.displayName = 'TableHeader'
 
+/** A data cell (`<td>`) of a `Table`. */
 export const TableCell = React.forwardRef<
   HTMLTableCellElement,
   React.TdHTMLAttributes<HTMLTableCellElement>

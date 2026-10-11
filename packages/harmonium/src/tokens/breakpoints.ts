@@ -1,3 +1,7 @@
+/**
+ * Minimum viewport widths, in px, of the breakpoints used by responsive props
+ * (`{base, sm, md, lg, xl}`) and `Show`.
+ */
 export const breakpoints = {
   sm: 640,
   md: 768,
@@ -5,4 +9,5 @@ export const breakpoints = {
   xl: 1280,
 } as const
 
+/** A breakpoint name: `'sm' | 'md' | 'lg' | 'xl'`. */
 export type Breakpoint = keyof typeof breakpoints

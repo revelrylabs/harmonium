@@ -11,7 +11,18 @@ export interface ContainerProps extends React.HTMLAttributes<HTMLDivElement> {
   padding?: ResponsiveValue<'none' | 'sm' | 'md' | 'lg'>
 }
 
-export const Container = React.forwardRef<HTMLDivElement, ContainerProps>(
+/**
+ * Centers content with a max width and horizontal padding. Both props take a
+ * single value or a responsive object (`{base: 'md', lg: 'xl'}`).
+ *
+ * @category Layout
+ * @example
+ * <Container size="md">
+ *   <Heading>Account</Heading>
+ * </Container>
+ * <Container size={{base: 'full', lg: 'lg'}} padding="lg">…</Container>
+ */
+export const Container =React.forwardRef<HTMLDivElement, ContainerProps>(
   ({size = 'lg', padding = 'md', className, children, ...props}, ref) => {
     return (
       <div

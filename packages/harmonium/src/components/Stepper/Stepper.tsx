@@ -28,7 +28,20 @@ export interface StepperProps extends React.HTMLAttributes<HTMLDivElement> {
   completedLabel?: string
 }
 
-export const Stepper = React.forwardRef<HTMLDivElement, StepperProps>(
+/**
+ * Progress through a multi-step flow. Steps before `activeStep` show as
+ * completed, the active one gets `aria-current="step"`. It only displays the
+ * steps; moving between them is up to you.
+ *
+ * @category Wizard
+ * @example
+ * <Stepper activeStep={1}>
+ *   <Step label="Account" />
+ *   <Step label="Profile" description="Tell us about you" />
+ *   <Step label="Confirm" />
+ * </Stepper>
+ */
+export const Stepper =React.forwardRef<HTMLDivElement, StepperProps>(
   (
     {
       activeStep,
@@ -95,7 +108,8 @@ export interface StepProps extends React.HTMLAttributes<HTMLDivElement> {
   'data-state'?: 'completed' | 'active' | 'pending'
 }
 
-export const Step = React.forwardRef<HTMLDivElement, StepProps>(
+/** One step of a `Stepper`. Its number and state come from the Stepper. */
+export const Step =React.forwardRef<HTMLDivElement, StepProps>(
   (
     {
       label,

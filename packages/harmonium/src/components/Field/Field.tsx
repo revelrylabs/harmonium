@@ -5,6 +5,7 @@ import styles from './Field.module.css'
 
 type FieldPart = 'label' | 'description' | 'error' | 'control'
 
+/** What `useFieldContext()` returns inside a `Field`. */
 export interface FieldContextValue {
   /**
    * The id the Field gives its control (and the `htmlFor` of `FieldLabel`).
@@ -68,6 +69,21 @@ export interface FieldProps extends React.HTMLAttributes<HTMLDivElement> {
   error?: boolean
 }
 
+/**
+ * Groups a form control with its label, description and error, and wires
+ * them up for assistive technology: `FieldLabel`'s `htmlFor` points at the
+ * control, and the control's `aria-describedby` lists the description and
+ * error that are rendered. `error` marks the control `aria-invalid`.
+ *
+ * @category Forms
+ * @example
+ * <Field error={!!errors.email}>
+ *   <FieldLabel>Email</FieldLabel>
+ *   <FieldDescription>We'll never share it.</FieldDescription>
+ *   <Input type="email" name="email" />
+ *   <FieldError>{errors.email}</FieldError>
+ * </Field>
+ */
 export const Field = React.forwardRef<HTMLDivElement, FieldProps>(
   ({error, className, children, ...props}, ref) => {
     const fieldId = React.useId()
@@ -132,7 +148,8 @@ function unique(ids: string[]) {
 
 export type FieldLabelProps = React.LabelHTMLAttributes<HTMLLabelElement>
 
-export const FieldLabel = React.forwardRef<HTMLLabelElement, FieldLabelProps>(
+/** The `<label>` of a `Field`, pointed at its control. */
+export const FieldLabel =React.forwardRef<HTMLLabelElement, FieldLabelProps>(
   ({className, children, id, ...props}, ref) => {
     const ctx = useFieldContext()
     const labelId = id ?? (ctx ? `${ctx.fieldId}-label` : undefined)
@@ -159,7 +176,8 @@ FieldLabel.displayName = 'FieldLabel'
 
 export type FieldDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>
 
-export const FieldDescription = React.forwardRef<
+/** Help text for a `Field`, linked to its control with `aria-describedby`. */
+export const FieldDescription =React.forwardRef<
   HTMLParagraphElement,
   FieldDescriptionProps
 >(({className, children, id, ...props}, ref) => {
@@ -196,7 +214,11 @@ function hasContent(node: React.ReactNode) {
   return node !== undefined && node !== null && node !== false && node !== ''
 }
 
-export const FieldError = React.forwardRef<HTMLParagraphElement, FieldErrorProps>(
+/**
+ * A `Field`'s error message (`role="alert"`), linked to its control with
+ * `aria-describedby` and `aria-errormessage`. It renders nothing while empty.
+ */
+export const FieldError =React.forwardRef<HTMLParagraphElement, FieldErrorProps>(
   ({className, children, match, id, ...props}, ref) => {
     const ctx = useFieldContext()
     const content = hasContent(children)

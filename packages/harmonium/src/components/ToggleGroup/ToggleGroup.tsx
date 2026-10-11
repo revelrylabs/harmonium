@@ -17,10 +17,20 @@ export interface ToggleGroupProps
 }
 
 /**
- * A single-select group of toggle buttons built on Base UI: the group is one
+ * A set of toggle buttons where one is selected, like a segmented control.
+ *
+ * Built on Base UI: the group is one
  * tab stop, arrow keys (and Home/End) move focus between items, and each item
  * reports its state with `aria-pressed`. Pressing the selected item again
- * keeps it selected.
+ * keeps it selected. Controlled with `value` + `onValueChange`, or
+ * uncontrolled with `defaultValue`.
+ *
+ * @category Actions
+ * @example
+ * <ToggleGroup defaultValue="grid" aria-label="View">
+ *   <ToggleGroupItem value="grid">Grid</ToggleGroupItem>
+ *   <ToggleGroupItem value="list">List</ToggleGroupItem>
+ * </ToggleGroup>
  */
 export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
   (
@@ -58,6 +68,7 @@ export interface ToggleGroupItemProps
   value: string
 }
 
+/** A toggle button in a `ToggleGroup`, pressed while its `value` is selected. */
 export const ToggleGroupItem = React.forwardRef<
   HTMLButtonElement,
   ToggleGroupItemProps

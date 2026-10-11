@@ -14,6 +14,14 @@ export interface InputProps
  * A native `<input>`. Inside a `<Field>` it is labelled by `FieldLabel`,
  * described by `FieldDescription`/`FieldError` and marked invalid by
  * `<Field error>` (via Base UI's `Field.Control`).
+ *
+ * @category Forms
+ * @example
+ * <Field>
+ *   <FieldLabel>Name</FieldLabel>
+ *   <Input value={name} onChange={(e) => setName(e.target.value)} />
+ * </Field>
+ * <Input type="search" size="sm" placeholder="Search" aria-label="Search" />
  */
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   ({size = 'md', className, id, ...props}, ref) => {

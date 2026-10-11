@@ -37,7 +37,20 @@ function getTrigger(children: React.ReactNode): {
   return {render: <span>{children}</span>, nativeButton: false}
 }
 
-export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
+/**
+ * Floating content that opens when its child is clicked. The child (for
+ * example a `Button`) becomes the trigger. The popup is portalled, flips when
+ * there's no room, and closes on Escape or an outside click, returning focus
+ * to the trigger. Uncontrolled by default, or controlled with `open` +
+ * `onOpenChange`.
+ *
+ * @category Overlays
+ * @example
+ * <Popover content={<Stack gap="sm">…filters…</Stack>} side="bottom">
+ *   <Button variant="outline">Filters</Button>
+ * </Popover>
+ */
+export const Popover =React.forwardRef<HTMLDivElement, PopoverProps>(
   ({content, side = 'bottom', open, onOpenChange, className, children, ...props}, ref) => {
     const generatedId = React.useId()
     const {render, nativeButton, childId} = getTrigger(children)

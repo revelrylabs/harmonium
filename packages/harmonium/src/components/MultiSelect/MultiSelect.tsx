@@ -5,8 +5,11 @@ import {clsx} from 'clsx'
 import {useFieldContext} from '../Field'
 import styles from './MultiSelect.module.css'
 
+/** An option of a `MultiSelect`. */
 export interface MultiSelectOption {
+  /** Value included in `onChange`'s array when selected */
   value: string
+  /** Text shown in the list and on the selected tag, and matched by search */
   label: string
 }
 
@@ -31,7 +34,24 @@ export interface MultiSelectProps
 
 const EMPTY: string[] = []
 
-export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
+/**
+ * A searchable multi-select. Selected options show as removable tags
+ * (Backspace removes the last one); typing filters the list. Follows the ARIA
+ * combobox pattern. Controlled with `value` + `onChange`, or uncontrolled with
+ * `defaultValue`. Wired to the surrounding `Field`.
+ *
+ * @category Forms
+ * @example
+ * <Field>
+ *   <FieldLabel>Labels</FieldLabel>
+ *   <MultiSelect
+ *     options={[{value: 'bug', label: 'Bug'}, {value: 'docs', label: 'Docs'}]}
+ *     value={labels}
+ *     onChange={setLabels}
+ *   />
+ * </Field>
+ */
+export const MultiSelect =React.forwardRef<HTMLDivElement, MultiSelectProps>(
   (
     {
       options,

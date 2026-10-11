@@ -52,7 +52,9 @@ export interface RadioGroupProps
 }
 
 /**
- * A group of radios built on Base UI's RadioGroup: a `<fieldset
+ * A group of `Radio`s with a `legend`; one can be selected.
+ *
+ * Built on Base UI's RadioGroup: a `<fieldset
  * role="radiogroup">` with roving focus and arrow-key selection. The `name`
  * for form submission comes from the group, or from the radios' `name`.
  */
@@ -122,7 +124,9 @@ export interface RadioProps
 }
 
 /**
- * A radio. Inside a `RadioGroup` it is Base UI's Radio: a `<span
+ * A radio button with a label, used inside a `RadioGroup`.
+ *
+ * Inside a `RadioGroup` it is Base UI's Radio: a `<span
  * role="radio">` (the `.indicator`) plus a hidden native input that carries
  * `name`/`value` for form submission. Outside a group it falls back to a
  * plain native radio.
@@ -131,6 +135,13 @@ export interface RadioProps
  * points at the native `<input type="radio">`; `onChange` receives that
  * input's change event; `name`, `checked` and `defaultChecked` are read by the
  * group; everything else goes on the `role="radio"` element.
+ *
+ * @category Forms
+ * @example
+ * <RadioGroup legend="Plan" name="plan" value={plan} onValueChange={setPlan}>
+ *   <Radio value="free" label="Free" />
+ *   <Radio value="pro" label="Pro" />
+ * </RadioGroup>
  */
 export const Radio = React.forwardRef<HTMLInputElement, RadioProps>(
   (

@@ -18,7 +18,22 @@ export interface SidebarProps extends React.HTMLAttributes<HTMLElement> {
   width?: 'sm' | 'md' | 'lg'
 }
 
-export const Sidebar = React.forwardRef<HTMLElement, SidebarProps>(
+/**
+ * Side navigation: a `<nav>` of `SidebarSection`s and `SidebarItem`s. When
+ * `collapsed`, items show only their icons and keep their label as their
+ * accessible name. Give it an `aria-label` when the page has more than one
+ * `<nav>`.
+ *
+ * @category Layout
+ * @example
+ * <Sidebar aria-label="Main" collapsed={collapsed}>
+ *   <SidebarSection label="Workspace">
+ *     <SidebarItem icon={<HomeIcon />} href="/" active>Home</SidebarItem>
+ *     <SidebarItem icon={<GearIcon />} render={<Link to="/settings" />}>Settings</SidebarItem>
+ *   </SidebarSection>
+ * </Sidebar>
+ */
+export const Sidebar =React.forwardRef<HTMLElement, SidebarProps>(
   ({collapsed, width = 'md', className, children, ...props}, ref) => {
     const context = React.useMemo(
       () => ({collapsed: Boolean(collapsed)}),
@@ -49,7 +64,8 @@ export interface SidebarSectionProps
   label?: string
 }
 
-export const SidebarSection = React.forwardRef<
+/** A group of `SidebarItem`s, optionally labelled. */
+export const SidebarSection =React.forwardRef<
   HTMLDivElement,
   SidebarSectionProps
 >(({label, className, children, ...props}, ref) => {
@@ -111,7 +127,12 @@ function getNodeText(node: React.ReactNode): string {
   return ''
 }
 
-export const SidebarItem = React.forwardRef<
+/**
+ * A navigation item: a `<button>`, an `<a>` with `href`, or your router link
+ * with `render`. `active` marks the current page. A disabled item can't be
+ * focused or followed.
+ */
+export const SidebarItem =React.forwardRef<
   HTMLButtonElement | HTMLAnchorElement,
   SidebarItemProps
 >(

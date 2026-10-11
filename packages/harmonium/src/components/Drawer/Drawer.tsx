@@ -15,7 +15,19 @@ export interface DrawerProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'sm' | 'md' | 'lg'
 }
 
-export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(
+/**
+ * A modal panel that slides in from the left or right edge. It behaves like
+ * `Dialog` (portal, focus trap, scroll lock, `onClose` on Escape or a backdrop
+ * click) and can hold `DialogHeader`, `DialogBody` and `DialogFooter`.
+ *
+ * @category Overlays
+ * @example
+ * <Drawer open={open} onClose={() => setOpen(false)} side="right" size="sm">
+ *   <DialogHeader>Filters</DialogHeader>
+ *   <DialogBody>…</DialogBody>
+ * </Drawer>
+ */
+export const Drawer =React.forwardRef<HTMLDivElement, DrawerProps>(
   ({open, onClose, side = 'right', size = 'md', className, children, ...props}, ref) => {
     const handleOpenChange = useCloseHandler(onClose)
 
