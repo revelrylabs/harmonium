@@ -1,6 +1,6 @@
 # Harmonium
 
-[![Bundle size, all components (gzip)](https://img.shields.io/badge/all_components_%28gzip%29-123.9_KB_JS_%2B_12.2_KB_CSS-blue)](#bundle-size)
+[![Bundle size, all components (gzip)](https://img.shields.io/badge/all_components_%28gzip%29-125.3_KB_JS_%2B_12.3_KB_CSS-blue)](#bundle-size)
 
 **Ship products, not utility classes.**
 
@@ -109,8 +109,8 @@ import 'harmonium/styles.layer.css' // instead of 'harmonium/styles.css'
 | Feature | Harmonium | MUI | Chakra UI | Mantine | shadcn/ui | Radix Themes |
 |---------|-----------|-----|-----------|---------|-----------|--------------|
 | **JS for one Button (gzip)** | 0.5 KB | 37.6 KB | 61.3 KB (with `ChakraProvider`) | 15.1 KB (with `MantineProvider`) | Varies (you own source) | 23.6 KB (with `Theme`) |
-| **JS for all components (gzip)** | 123.9 KB (13.6 KB Harmonium + Base UI) | 164.5 KB | 307.6 KB | 187.8 KB | Varies (you own source) | 83.2 KB |
-| **CSS (gzip)** | 12.2 KB | Generated at runtime | Generated at runtime | 40.0 KB | Tailwind output | 83.4 KB |
+| **JS for all components (gzip)** | 125.3 KB (14.9 KB Harmonium + Base UI) | 164.5 KB | 307.6 KB | 187.8 KB | Varies (you own source) | 83.2 KB |
+| **CSS (gzip)** | 12.3 KB | Generated at runtime | Generated at runtime | 40.0 KB | Tailwind output | 83.4 KB |
 | **Components** | 50 | 60+ | 50+ | 60+ | ~40 (copy-paste) | ~30 |
 | **Install & use** | `npm install`, import | `npm install`, import | `npm install`, import | `npm install`, import | CLI copies source into your repo | `npm install`, import |
 | **Styling approach** | CSS Modules (zero runtime) | Emotion (JS runtime) | Emotion (JS runtime) | Static CSS (zero runtime) | Tailwind utility classes | Static CSS (zero runtime) |
@@ -133,9 +133,9 @@ Every number here is measured, not estimated. CI measures Harmonium on every pul
 
 | What your app imports | JS (gzip) | CSS (gzip) |
 |---|--:|--:|
-| `Button` | 0.5 KB | 12.2 KB, all components |
+| `Button` | 0.5 KB | 12.3 KB, all components |
 | `Dialog` | 23.4 KB | |
-| Every component | 123.9 KB (13.6 KB is Harmonium, the rest is Base UI) | |
+| Every component | 125.3 KB (14.9 KB is Harmonium, the rest is Base UI) | |
 
 How: each case is a one-line app (`export {Button} from 'harmonium'`) bundled with esbuild the way a production build would bundle it: through the package's `exports` and `sideEffects`, tree-shaken, minified, `NODE_ENV=production`, with React left out because your app already has it. Dependencies such as Base UI are included, because your app ships them. The stylesheet is measured as published. Sizes are gzip level 9.
 
