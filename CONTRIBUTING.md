@@ -176,10 +176,12 @@ Releases use [Changesets](https://github.com/changesets/changesets). `main` is i
 1. In your PR, run `pnpm changeset` and describe the change. Choose `patch`, `minor` or `major` for `harmonium`.
 2. After merge, the Release workflow opens or updates a **Version Packages** PR that bumps versions and writes `CHANGELOG.md`.
 3. Merge the Version Packages PR.
-4. Run **Actions → Release → Run workflow** on `main` with tag `next`. It builds, tests, checks the dist-tag (`scripts/check-dist-tag.mjs`), publishes with npm provenance, and pushes the git tag.
+4. Run **Actions → Release → Run workflow** on `main` with tag `next`. It builds, tests, checks the dist-tag (`scripts/check-dist-tag.mjs`), then waits for a maintainer to approve the `npm` environment. Once approved, it publishes with npm provenance and pushes the git tag.
+
+Publishing uses [npm trusted publishing](https://docs.npmjs.com/trusted-publishers). npm accepts publishes only from `release.yml` running in the `npm` GitHub environment, so there is no npm token to manage. Reviewers for the `npm` environment are set in the repo settings (Settings → Environments → npm).
 
 To move to beta or a stable 9.0.0: `pnpm changeset pre exit` (or `pre enter beta`), then publish stable with tag `latest`. Before that, tag the last v8 release: `npm dist-tag add harmonium@8.x.y v8`.
 
 ### 8.x (`8.x`)
 
-Fixes for v8 go in PRs against the `8.x` branch. Once 9.0.0 is `latest`, every 8.x publish **must** use `--tag v8`, so it doesn't take back `latest`.
+Fixes for v8 go in PRs against the `8.x` branch. To release, bump the version in a PR (`npm version patch --no-git-tag-version`), merge it, then run **Actions → Release v8 → Run workflow** on `8.x` and approve the `npm` environment. The workflow picks the dist-tag itself: `latest` while v8 is still `latest` on npm, then `v8` once 9.0.0 is `latest`, so an 8.x patch never takes `latest` back.
