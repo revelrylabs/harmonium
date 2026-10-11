@@ -1,5 +1,6 @@
 /**
- * Prepend 'use client' to every JS file in dist/. Every component is a client
+ * Prepend 'use client' to every JS file in dist/ (entries, component entries
+ * in dist/components/ and shared chunks). Every component is a client
  * component (hooks, context, event handlers); the directive lets React Server
  * Component frameworks (e.g. the Next.js App Router) import Harmonium from
  * server components. Done after tsup because its tree-shaking pass drops
@@ -11,7 +12,8 @@ import {join} from 'path'
 const DIST = join(import.meta.dirname, '..', 'dist')
 const DIRECTIVE = "'use client';\n"
 
-for (const file of readdirSync(DIST).filter((f) => /\.c?js$/.test(f))) {
+const files = readdirSync(DIST, {recursive: true, encoding: 'utf8'}).filter((f) => /\.c?js$/.test(f))
+for (const file of files) {
   const path = join(DIST, file)
   const code = readFileSync(path, 'utf8')
   if (/^['"]use client['"]/.test(code)) continue
@@ -26,4 +28,4 @@ for (const file of readdirSync(DIST).filter((f) => /\.c?js$/.test(f))) {
   }
 }
 
-console.log("Added 'use client' to dist/*.js")
+console.log(`Added 'use client' to ${files.length} dist JS files`)

@@ -18,5 +18,8 @@ jobs:
           cache: pnpm
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
+      # Fails when a bundle-size budget in packages/harmonium/scripts/check-size.ts
+      # is exceeded; the table also lands in the job summary.
+      - run: pnpm size
       - run: pnpm test
       - run: pnpm lint

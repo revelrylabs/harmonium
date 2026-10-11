@@ -5,11 +5,20 @@
  * - dist/index.layer.css (harmonium/styles.layer.css) is the same CSS inside
  *   `@layer harmonium`, so any unlayered app CSS (including a single
  *   className) or a later-declared layer overrides it.
+ * - The per-component CSS tsup emits next to each component entry
+ *   (dist/components/*.css) is deleted: Harmonium ships one stylesheet. Those
+ *   files lack the tokens and would duplicate rules for components that
+ *   render other components.
  */
-import {readFileSync, writeFileSync} from 'fs'
+import {readFileSync, writeFileSync, readdirSync, rmSync} from 'fs'
 import {join} from 'path'
 
 const DIST = join(import.meta.dirname, '..', 'dist')
+
+for (const file of readdirSync(join(DIST, 'components')).filter((f) => /\.css(\.map)?$/.test(f))) {
+  rmSync(join(DIST, 'components', file))
+}
+
 const tokens = readFileSync(join(import.meta.dirname, '..', 'src', 'tokens', 'tokens.css'), 'utf8')
 const css = readFileSync(join(DIST, 'index.css'), 'utf8')
 

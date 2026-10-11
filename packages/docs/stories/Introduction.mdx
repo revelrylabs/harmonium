@@ -184,16 +184,16 @@ import {Meta} from '@storybook/blocks'
     <span className="label">Components</span>
   </div>
   <div className="intro-stat">
-    <span className="number">~12 KB</span>
-    <span className="label">JS gzipped</span>
+    <span className="number">0.5 KB</span>
+    <span className="label">JS for a Button, gzipped</span>
   </div>
   <div className="intro-stat">
-    <span className="number">~8 KB</span>
-    <span className="label">CSS gzipped</span>
+    <span className="number">12 KB</span>
+    <span className="label">CSS for all components, gzipped</span>
   </div>
   <div className="intro-stat">
     <span className="number">0</span>
-    <span className="label">Runtime dependencies</span>
+    <span className="label">CSS-in-JS runtime</span>
   </div>
 </div>
 
@@ -247,7 +247,7 @@ function App() {
   </div>
   <div className="intro-card">
     <h3>Tiny Footprint</h3>
-    <p>~20 KB gzipped for all 50 components (JS + CSS). Lighter than most alternatives ship for a single component.</p>
+    <p>Every component is its own module, so a Button costs 0.5 KB of JS. All components together are 124 KB of JS (14 KB Harmonium, the rest Base UI) and 12 KB of CSS, gzipped.</p>
   </div>
 </div>
 
@@ -266,19 +266,27 @@ function App() {
   </thead>
   <tbody>
     <tr>
-      <td><strong>JS size (gzip)</strong></td>
-      <td>~12 KB</td>
-      <td>~80 KB+</td>
-      <td>~45 KB+</td>
-      <td>~35 KB+</td>
+      <td><strong>JS for one Button (gzip)</strong></td>
+      <td>0.5 KB</td>
+      <td>37.6 KB</td>
+      <td>61.3 KB (with provider)</td>
+      <td>15.1 KB (with provider)</td>
       <td>Varies</td>
     </tr>
     <tr>
-      <td><strong>CSS size (gzip)</strong></td>
-      <td>~8 KB</td>
+      <td><strong>JS for all components (gzip)</strong></td>
+      <td>123.9 KB (13.6 KB Harmonium + Base UI)</td>
+      <td>164.5 KB</td>
+      <td>307.6 KB</td>
+      <td>187.8 KB</td>
+      <td>Varies</td>
+    </tr>
+    <tr>
+      <td><strong>CSS (gzip)</strong></td>
+      <td>12.2 KB</td>
       <td>Runtime</td>
       <td>Runtime</td>
-      <td>Runtime</td>
+      <td>40.0 KB</td>
       <td>Tailwind</td>
     </tr>
     <tr>
@@ -286,7 +294,7 @@ function App() {
       <td>CSS Modules (zero runtime)</td>
       <td>Emotion (JS runtime)</td>
       <td>Emotion (JS runtime)</td>
-      <td>CSS-in-JS runtime</td>
+      <td>Static CSS (zero runtime)</td>
       <td>Tailwind utilities</td>
     </tr>
     <tr>
@@ -339,6 +347,11 @@ function App() {
     </tr>
   </tbody>
 </table>
+
+<p className="intro-version-note">
+  Sizes measured 2026-10-11: Harmonium 9.0.0-alpha.2, MUI 9.5.0, Chakra UI 3.37.0, Mantine 9.7.2. "One Button" includes the provider a library needs to render it.
+  See <a href="https://github.com/revelrylabs/harmonium#bundle-size">how sizes are measured</a>.
+</p>
 
 <h2 className="intro-section-header">Components</h2>
 

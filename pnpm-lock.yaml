@@ -70,6 +70,9 @@ importers:
       '@types/react-dom':
         specifier: ^19.1.0
         version: 19.2.3(@types/react@19.2.14)
+      esbuild:
+        specifier: 0.27.3
+        version: 0.27.3
       eslint:
         specifier: ^9.20.0
         version: 9.39.3

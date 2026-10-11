@@ -9,6 +9,8 @@ import { Button, Card, CardBody, Input } from 'harmonium'
 import 'harmonium/styles.css' // Required — include once in your app entry
 ```
 
+Importing from `harmonium` is tree-shaken per component. Each component also has its own entry, `harmonium/<kebab-case-name>` (`import {Button} from 'harmonium/button'`, `import {ToggleGroup} from 'harmonium/toggle-group'`). Sub-components come from their parent's entry (`CardBody` from `harmonium/card`); `Text`/`Heading` are in `harmonium/typography` and `ToastProvider`/`useToast` in `harmonium/toast`. `harmonium/styles.css` is still required either way. `harmonium/Button` (PascalCase) does not exist.
+
 ## Conventions
 
 - All components use `forwardRef` and accept standard HTML attributes
