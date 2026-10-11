@@ -43,6 +43,10 @@ jobs:
   publish:
     if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    # Publishing uses npm trusted publishing (OIDC): npm accepts this job
+    # because it runs from release.yml in the `npm` environment, which
+    # requires a maintainer's approval. No npm token is stored anywhere.
+    environment: npm
     permissions:
       contents: write
       id-token: write
@@ -53,13 +57,14 @@ jobs:
         with:
           node-version: 22
           cache: pnpm
-          registry-url: https://registry.npmjs.org
+      # Trusted publishing needs npm 11.5.1 or newer.
+      - run: npm install -g npm@11
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
       - run: pnpm test
       - run: node scripts/check-dist-tag.mjs packages/harmonium/package.json "${{ inputs.tag }}"
       # `changeset publish` refuses a custom dist-tag in pre mode, so publish
-      # with pnpm directly. Skips if this version is already on npm.
+      # with npm directly. Skips if this version is already on npm.
       - name: Publish to npm
         working-directory: packages/harmonium
         run: |
@@ -67,10 +72,8 @@ jobs:
           if npm view "harmonium@$version" version >/dev/null 2>&1; then
             echo "harmonium@$version is already published"
           else
-            pnpm publish --tag "${{ inputs.tag }}" --access public --provenance --no-git-checks
+            npm publish --tag "${{ inputs.tag }}" --access public --provenance
           fi
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
       - name: Tag the release
         run: |
           tag="harmonium@$(node -p "require('./packages/harmonium/package.json').version")"
