@@ -1,6 +1,6 @@
 # Harmonium: complete API reference
 
-Harmonium is a React design system: typed components on Base UI primitives, themed with CSS custom properties, with accessible defaults. Version 9.0.0-alpha.3.
+Harmonium is a React design system: typed components on Base UI primitives, themed with CSS custom properties, with accessible defaults. Version 9.0.0-alpha.4.
 
 ## Setup
 

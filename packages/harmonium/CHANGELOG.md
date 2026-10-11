@@ -1,5 +1,25 @@
 # harmonium
 
+## 9.0.0-alpha.4
+
+### Patch Changes
+
+- 04f134a: A `TopBar` inside `AppShellHeader` now renders a `<div>` instead of a second `<header>`, so the page has one banner landmark instead of two nested ones. A `TopBar` used on its own still renders `<header>`. Found by the new axe checks, which now cover every component in each state shown in Storybook (open overlays, Field errors, disabled controls, variants), alongside new keyboard tests for Drawer, Popover, Checkbox, Switch, RadioGroup, Slider, DatePicker, TimePicker, FileUpload, DataGrid, Pagination, Breadcrumbs, Sidebar and Toast.
+- 3677d99: The LLM docs are generated from the source, so they match the installed version.
+  
+  - `llms.txt`, `llms-full.txt` and `AGENTS.md` are built from the components' TypeScript types and JSDoc (`pnpm docs:llms`), and CI fails when they are out of date. They now cover every export, including AppShell, Sidebar, Container, Text/Heading, Tag, EmptyState, ToggleGroup, Stat, PricingTable, Show, `breakpoints` and `useFieldContext`, with each prop's type and default, the `harmonium/<component>` import, and the plain-HTML `hm-*` classes and `data-*` attributes.
+  - The npm package now ships `llms.txt`, `llms-full.txt` and `components.json` (the same data as JSON), so agents can read `node_modules/harmonium/llms-full.txt` offline. The package `CLAUDE.md` now points at `AGENTS.md` instead of duplicating it.
+  - `llms.txt` and `llms-full.txt` are served from the docs site (https://revelrylabs.github.io/harmonium/llms.txt), and the links in them, and the README's Storybook link, point there instead of a 404 and `localhost`.
+  - Every exported component has a JSDoc description, and the main component of each family an `@example`, enforced by a lint rule. Corrected docs: `Group`'s `grow` makes every item share the row (it doesn't grow the group), and `Progress`'s `value` runs from 0 to `max`, not 0 to 100.
+  - The README and Storybook component lists include `Show`: 52 components across 11 categories.
+- a130363: Consumer props add to a component's own behaviour instead of replacing it.
+  
+  - **Handlers**: an `onClick`, `onKeyDown`, `onFocus`, ... you pass runs alongside the component's own handler, not instead of it. Yours runs first. Call `event.preventBaseUIHandler()` in it to skip the component's handling (for example, a `TabsTrigger` that shouldn't activate, or Enter in a `NumberInput` that shouldn't clamp). `FileUpload` also skips opening the file picker when `onClick`/`onKeyDown` calls `event.preventDefault()`.
+  - **`aria-describedby`** on a Field-wired control (Input, Textarea, Select, DatePicker, TimePicker, NumberInput, Checkbox, Switch, Slider) is merged with the Field's description and error ids, and on a `Tooltip` trigger with the tooltip's id.
+  - **`id`**: the Field gives its control an id unless you pass one; then `FieldLabel` points at your id. `FieldLabel`, `FieldDescription` and `FieldError` can take their own `id` too: the control's `aria-describedby` and `aria-errormessage`, and `useFieldContext()` (`labelId`, `descriptionId`, `errorId`, `describedBy`), now follow it instead of pointing at an id that isn't rendered.
+  - **`NumberInput`**: a consumer `onKeyDown` now runs before the Enter commit, so it can cancel it.
+  - Added tests for consumer handlers, ids and `aria-describedby` across Dialog, Drawer, CommandPalette, Tabs, Accordion, ToggleGroup, Tooltip, Popover, Menu, FileUpload and the Field-wired controls.
+
 ## 9.0.0-alpha.3
 
 ### Patch Changes
