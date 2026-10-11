@@ -176,7 +176,7 @@ Releases use [Changesets](https://github.com/changesets/changesets). `main` is i
 1. In your PR, run `pnpm changeset` and describe the change. Choose `patch`, `minor` or `major` for `harmonium`.
 2. After merge, the Release workflow opens or updates a **Version Packages** PR that bumps versions and writes `CHANGELOG.md`.
 3. Merge the Version Packages PR.
-4. Run **Actions → Release → Run workflow** on `main` with tag `next`. It builds, tests, checks the dist-tag (`scripts/check-dist-tag.mjs`), then waits for a maintainer to approve the `npm` environment. Once approved, it publishes with npm provenance and pushes the git tag.
+4. Run **Actions → Release → Run workflow** on `main` with tag `next`. It runs the full Test workflow (build, tests, lint), then waits for a maintainer to approve the `npm` environment. Once approved, it checks the dist-tag (`scripts/check-dist-tag.mjs`), builds, publishes with npm provenance and pushes the git tag. Re-running a finished release is safe: an already-published version and an existing tag are skipped.
 
 Publishing uses [npm trusted publishing](https://docs.npmjs.com/trusted-publishers). npm accepts publishes only from `release.yml` running in the `npm` GitHub environment, so there is no npm token to manage. Reviewers for the `npm` environment are set in the repo settings (Settings → Environments → npm).
 

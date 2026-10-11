@@ -15,66 +15,81 @@ on:
         options: [next, latest]
         default: next
 
-concurrency: release
-
 jobs:
   version:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
+    # Scoped per job so a publish waiting for approval never blocks this.
+    concurrency: release-version
     permissions:
       contents: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
           cache: pnpm
       - run: pnpm install --frozen-lockfile
-      - uses: changesets/action@v1
+      - uses: changesets/action@v2
         with:
-          version: pnpm run version-packages
-          title: Version Packages
-          commit: 'chore: version packages'
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          version-script: pnpm run version-packages
+          pr-title: Version Packages
+          commit-message: 'chore: version packages'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+  test:
+    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    uses: ./.github/workflows/test.yml
 
   publish:
-    if: github.event_name == 'workflow_dispatch' && github.ref == 'refs/heads/main'
+    needs: [test]
     runs-on: ubuntu-latest
+    concurrency: release-publish
     # Publishing uses npm trusted publishing (OIDC): npm accepts this job
     # because it runs from release.yml in the `npm` environment, which
-    # requires a maintainer's approval. No npm token is stored anywhere.
+    # requires a maintainer's approval. Provenance is generated automatically.
     environment: npm
     permissions:
       contents: write
       id-token: write
     steps:
-      - uses: actions/checkout@v4
-      - uses: pnpm/action-setup@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      # Fail fast on a wrong dist-tag; this only reads package.json.
+      - run: node scripts/check-dist-tag.mjs packages/harmonium/package.json "${{ inputs.tag }}"
+      - uses: pnpm/action-setup@v6
+      - uses: actions/setup-node@v7
         with:
           node-version: 22
-          cache: pnpm
-      # Trusted publishing needs npm 11.5.1 or newer.
-      - run: npm install -g npm@11
+          # No dependency cache in the job that can publish.
+          package-manager-cache: false
+      # Trusted publishing needs npm 11.5.1 or newer; pinned because this job
+      # holds publish rights.
+      - run: npm install -g npm@11.20.0
       - run: pnpm install --frozen-lockfile
       - run: pnpm build
-      - run: pnpm test
-      - run: node scripts/check-dist-tag.mjs packages/harmonium/package.json "${{ inputs.tag }}"
       # `changeset publish` refuses a custom dist-tag in pre mode, so publish
-      # with npm directly. Skips if this version is already on npm.
+      # with npm directly. Skips a version that is already on npm, and fails
+      # on any registry error other than "not found".
       - name: Publish to npm
         working-directory: packages/harmonium
         run: |
           version=$(node -p "require('./package.json').version")
-          if npm view "harmonium@$version" version >/dev/null 2>&1; then
+          if out=$(npm view "harmonium@$version" version 2>&1); then status=0; else status=$?; fi
+          if [ "$status" -eq 0 ] && [ "$out" = "$version" ]; then
             echo "harmonium@$version is already published"
+          elif [ "$status" -eq 0 ] || grep -q E404 <<<"$out"; then
+            npm publish --tag "${{ inputs.tag }}" --access public
           else
-            npm publish --tag "${{ inputs.tag }}" --access public --provenance
+            echo "$out" >&2
+            exit 1
           fi
       - name: Tag the release
         run: |
           tag="harmonium@$(node -p "require('./packages/harmonium/package.json').version")"
-          git tag "$tag" && git push origin "$tag"
+          if git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null; then
+            echo "$tag already exists"
+          else
+            git tag "$tag" && git push origin "$tag"
+          fi
