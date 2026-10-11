@@ -3,7 +3,7 @@ import {clsx} from 'clsx'
 import styles from './Progress.module.css'
 
 export interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
-  /** Current value (0-100) */
+  /** Current value, from 0 to `max` */
   value?: number
   /** Maximum value */
   max?: number
@@ -15,7 +15,15 @@ export interface ProgressProps extends React.HTMLAttributes<HTMLDivElement> {
   showLabel?: boolean
 }
 
-export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
+/**
+ * A progress bar (`role="progressbar"`). `showLabel` adds the percentage
+ * below the bar.
+ *
+ * @category Display
+ * @example
+ * <Progress value={uploaded} max={total} aria-label="Upload progress" showLabel />
+ */
+export const Progress =React.forwardRef<HTMLDivElement, ProgressProps>(
   (
     {
       value = 0,

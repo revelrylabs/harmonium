@@ -15,7 +15,19 @@ export interface EmptyStateProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'sm' | 'md' | 'lg'
 }
 
-export const EmptyState = React.forwardRef<HTMLDivElement, EmptyStateProps>(
+/**
+ * A placeholder for when there's nothing to show yet: icon, title,
+ * description and an action.
+ *
+ * @category Display
+ * @example
+ * <EmptyState
+ *   title="No projects yet"
+ *   description="Create a project to get started."
+ *   action={<Button onClick={create}>New project</Button>}
+ * />
+ */
+export const EmptyState =React.forwardRef<HTMLDivElement, EmptyStateProps>(
   (
     {icon, title, description, action, size = 'md', className, ...props},
     ref,

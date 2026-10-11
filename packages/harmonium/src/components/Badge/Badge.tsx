@@ -9,7 +9,15 @@ export interface BadgeProps extends React.HTMLAttributes<HTMLSpanElement> {
   size?: 'sm' | 'md' | 'lg'
 }
 
-export const Badge = React.forwardRef<HTMLSpanElement, BadgeProps>(
+/**
+ * A short status label.
+ *
+ * @category Display
+ * @example
+ * <Badge variant="success">Active</Badge>
+ * <Badge variant="warning" size="sm">Pending</Badge>
+ */
+export const Badge =React.forwardRef<HTMLSpanElement, BadgeProps>(
   ({variant = 'neutral', size = 'md', className, children, ...props}, ref) => {
     return (
       <span

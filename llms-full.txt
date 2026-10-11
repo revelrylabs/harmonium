@@ -1,19 +1,51 @@
-# Harmonium — Complete API Reference
+# Harmonium: complete API reference
 
-Harmonium is a React component library with typed props, design-token theming via CSS custom properties, and accessible defaults. All components use `forwardRef`, accept a `className` prop (merged last; import `harmonium/styles.layer.css` instead of `styles.css` when your CSS must always override variant styles), and use `data-*` attributes for variant styling.
+Harmonium is a React design system: typed components on Base UI primitives, themed with CSS custom properties, with accessible defaults. Version 9.0.0-alpha.3.
 
 ## Setup
+
+Harmonium 9 is in pre-release under the `next` tag; `npm install harmonium` still installs v8.
 
 ```bash
 npm install harmonium@next
 ```
 
 ```tsx
-import { Button, Card, CardBody, Input } from 'harmonium'
-import 'harmonium/styles.css'
+import {Button, Card, CardBody, Input} from 'harmonium'
+import 'harmonium/styles.css' // required, once, in your app entry
 ```
 
-Theme by overriding CSS custom properties:
+Importing from `harmonium` only pulls in the components you use. Each component also has its own entry, `harmonium/<kebab-case-name>`: `import {Button} from 'harmonium/button'`, `import {ToggleGroup} from 'harmonium/toggle-group'`. Sub-components come from their parent's entry (`CardBody` from `harmonium/card`). Two exceptions: `Text` and `Heading` come from `harmonium/typography`, and `ToastProvider` and `useToast` from `harmonium/toast`. `harmonium/Button` (PascalCase) does not exist. Import `harmonium/styles.css` either way.
+
+Components are marked `'use client'`, so they can be imported from React Server Components.
+
+## Conventions
+
+- Every component forwards its `ref` and accepts the HTML attributes of the element it renders.
+- Variants are enum props (`variant`, `size`), not boolean props, and render as `data-*` attributes (`data-variant="primary"`) you can inspect and style.
+- `className` is merged last. Variant rules (`[data-variant]`, `[data-size]`) out-rank a single class in `harmonium/styles.css`; import `harmonium/styles.layer.css` instead when your CSS must always win.
+- Components support both controlled (`value` + `onChange`) and uncontrolled (`defaultValue`) use where it applies.
+- Props you pass add to a component's behaviour instead of replacing it. Your event handlers (`onClick`, `onKeyDown`, ...) run first, then the component's own; call `event.preventBaseUIHandler()` in yours to skip the component's handling. `className` and `style` are merged.
+
+## Forms: the Field pattern
+
+`Field` wires its label, description and error to the control inside it (`id`, `htmlFor`, `aria-describedby`, `aria-errormessage`):
+
+```tsx
+<Field error={!!errors.email}>
+  <FieldLabel>Email</FieldLabel>
+  <FieldDescription>We won't share this.</FieldDescription>
+  <Input type="email" placeholder="you@example.com" />
+  <FieldError>{errors.email}</FieldError>
+</Field>
+```
+
+Field-aware controls: Input, Textarea, Select, Checkbox, RadioGroup, Switch, Slider, NumberInput, DatePicker, TimePicker, Combobox, MultiSelect. If you pass the control an `id`, `FieldLabel` points at it. An `aria-describedby` you pass is merged with the Field's. Custom controls can wire themselves up with `useFieldContext()`.
+
+## Theming
+
+Override CSS custom properties; no build step:
+
 ```css
 :root {
   --harmonium-color-brand-primary: #E91E63;
@@ -23,683 +55,489 @@ Theme by overriding CSS custom properties:
 }
 ```
 
-Dark mode:
+Dark mode: components only use semantic color tokens, so overriding them is enough. Put `data-theme="dark"` on `<html>` (or any wrapper) and add:
+
 ```css
 [data-theme="dark"] {
-  --harmonium-color-bg: #1a1a1a;
-  --harmonium-color-text: #f0f0f0;
-  --harmonium-color-surface: #2d2d2d;
-  --harmonium-color-border: #404040;
+  color-scheme: dark; /* native controls, scrollbars and date/time pickers */
+  --harmonium-color-bg: #141414;
+  --harmonium-color-surface: #1c1c1c;
+  --harmonium-color-surface-raised: #262626;  /* menus, popovers, dialogs, drawers */
+  --harmonium-color-surface-muted: #232323;   /* filled cards, striped rows */
+  --harmonium-color-surface-hover: #313131;
+  --harmonium-color-surface-active: #3b3b3b;
+  --harmonium-color-surface-neutral: #333333; /* neutral badges/tags, skeletons, tracks */
+  --harmonium-color-surface-strong: #4a4a4a;  /* switch/slider tracks, spinner ring */
+  --harmonium-color-surface-inverse: #ececec; /* tooltips, info toasts */
+  --harmonium-color-text: #ececec;
+  --harmonium-color-text-muted: #a3a3a3;
+  --harmonium-color-text-placeholder: #909090;
+  --harmonium-color-text-inverse: #1a1a1a;
+  --harmonium-color-border: #4f4f4f;
+  --harmonium-color-disabled: #5c5c5c;
 }
 ```
 
----
+## Without React
 
-## Button
+`harmonium/harmonium.css` is the same styles as global `hm-*` classes, for plain HTML, Phoenix, Rails or any other stack. Variants use the same `data-*` attributes. `llms-full.txt` lists each component's classes.
 
-Import: `import { Button } from 'harmonium'`
+```html
+<link rel="stylesheet" href="node_modules/harmonium/dist/harmonium.css">
 
-Props (extends `<button>` HTML attributes):
-- variant: 'primary' | 'secondary' | 'outline' | 'ghost' (default: 'primary')
-- size: 'sm' | 'md' | 'lg' (default: 'md')
-- expanded: boolean — full-width button
-
-```tsx
-<Button variant="primary" size="md">Save</Button>
-<Button variant="outline" disabled>Cancel</Button>
-<Button variant="ghost" size="sm" onClick={handleClick}>Edit</Button>
-<Button variant="secondary" expanded>Full Width</Button>
+<button class="hm-button" data-variant="primary">Save</button>
+<div class="hm-card"><div class="hm-card-body">Content</div></div>
 ```
+
+Interactive components (dialogs, menus, comboboxes, tabs) need your own JavaScript for their behaviour in plain HTML.
 
 ---
 
 ## Stack
 
-Import: `import { Stack } from 'harmonium'`
+`import {Stack} from 'harmonium/stack'` (or from `'harmonium'`)
 
-Props (extends `<div>` HTML attributes):
-- direction: 'vertical' | 'horizontal' (default: 'vertical')
-- gap: 'xs' | 'sm' | 'md' | 'lg' | 'xl' (default: 'md')
-- align: 'start' | 'center' | 'end' | 'stretch'
-- justify: 'start' | 'center' | 'end' | 'between' | 'around'
-- wrap: boolean
+Plain HTML classes: `hm-stack`
+
+### Stack
+
+Lays out items in a column (or a row with `direction="horizontal"`) with consistent gaps. Props take a single value or a responsive object (`{base: 'vertical', md: 'horizontal'}`).
+
+Props:
+
+- `direction`: `ResponsiveValue<'vertical' | 'horizontal'>` (default: `'vertical'`). Direction of the stack
+- `gap`: `ResponsiveValue<'xs' | 'sm' | 'md' | 'lg' | 'xl'>` (default: `'md'`). Gap between items
+- `align`: `ResponsiveValue<'start' | 'center' | 'end' | 'stretch'>`. Alignment of items on the cross axis
+- `justify`: `ResponsiveValue<'start' | 'center' | 'end' | 'between' | 'around'>`. Justification of items on the main axis
+- `wrap`: `ResponsiveValue<boolean>`. Whether items should wrap
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
 
 ```tsx
 <Stack gap="lg">
-  <Input placeholder="Name" />
-  <Input placeholder="Email" />
-  <Button>Submit</Button>
+  <Heading>Settings</Heading>
+  <Card>…</Card>
 </Stack>
-
-<Stack direction="horizontal" gap="sm" align="center">
-  <Avatar src="/photo.jpg" />
-  <span>Jane Doe</span>
-</Stack>
+<Stack direction={{base: 'vertical', md: 'horizontal'}} gap="md" align="center">…</Stack>
 ```
 
 ---
 
 ## Group
 
-Import: `import { Group } from 'harmonium'`
+`import {Group} from 'harmonium/group'` (or from `'harmonium'`)
 
-Props (extends `<div>` HTML attributes):
-- gap: 'xs' | 'sm' | 'md' | 'lg' | 'xl' (default: 'md')
-- align: 'start' | 'center' | 'end' | 'stretch'
-- justify: 'start' | 'center' | 'end' | 'between' | 'around'
-- wrap: boolean
-- grow: boolean — children fill available space
+Plain HTML classes: `hm-group`
+
+### Group
+
+Lays out items in a row. Props take a single value or a responsive object (`{base: true, md: false}`).
+
+Props:
+
+- `gap`: `ResponsiveValue<'xs' | 'sm' | 'md' | 'lg' | 'xl'>` (default: `'md'`). Gap between items
+- `align`: `ResponsiveValue<'start' | 'center' | 'end' | 'stretch'>`. Alignment of items on the cross axis
+- `justify`: `ResponsiveValue<'start' | 'center' | 'end' | 'between' | 'around'>`. Justification of items on the main axis
+- `wrap`: `ResponsiveValue<boolean>`. Whether items should wrap
+- `grow`: `ResponsiveValue<boolean>`. Whether every item grows to share the row's width equally (`flex: 1`)
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
 
 ```tsx
 <Group justify="end" gap="sm">
   <Button variant="outline">Cancel</Button>
-  <Button variant="primary">Save</Button>
+  <Button>Save</Button>
 </Group>
 ```
 
 ---
 
-## Grid + GridCol
+## Grid
 
-Import: `import { Grid, GridCol } from 'harmonium'`
+`import {Grid, GridCol} from 'harmonium/grid'` (or from `'harmonium'`)
 
-Grid props (extends `<div>` HTML attributes):
-- columns: number | string (default: 12) — number sets repeat(N, 1fr), string used as-is
-- gap: 'xs' | 'sm' | 'md' | 'lg' | 'xl' (default: 'md')
-- align: 'start' | 'center' | 'end' | 'stretch'
+Plain HTML classes: `hm-grid`, `hm-grid-col`
 
-GridCol props (extends `<div>` HTML attributes):
-- span: number | string — number sets span N, string used as-is
+Data attributes: `data-responsive-columns`, `data-responsive-span`
+
+### Grid
+
+A CSS grid. `columns` is a count (`12` means 12 equal columns) or any `grid-template-columns` value; place children in `GridCol`s. Props take a single value or a responsive object (`{base: 1, md: 2, lg: 3}`).
+
+Props:
+
+- `columns`: `ResponsiveValue<number | string>` (default: `12`). Number of columns
+- `gap`: `ResponsiveValue<'xs' | 'sm' | 'md' | 'lg' | 'xl'>` (default: `'md'`). Gap between grid items
+- `align`: `ResponsiveValue<'start' | 'center' | 'end' | 'stretch'>`. Alignment of items within their grid area
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
 
 ```tsx
 <Grid columns={12} gap="md">
-  <GridCol span={8}>
-    <Card><CardBody>Main content</CardBody></Card>
-  </GridCol>
-  <GridCol span={4}>
-    <Card><CardBody>Sidebar</CardBody></Card>
-  </GridCol>
+  <GridCol span={{base: 12, md: 4}}>Sidebar</GridCol>
+  <GridCol span={{base: 12, md: 8}}>Content</GridCol>
 </Grid>
 ```
+
+### GridCol
+
+A `Grid` cell. `span` is a column count, or any `grid-column` value (`'1 / -1'`).
+
+Props:
+
+- `span`: `ResponsiveValue<number | string>`. Number of columns to span
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
 
 ---
 
 ## Separator
 
-Import: `import { Separator } from 'harmonium'`
+`import {Separator} from 'harmonium/separator'` (or from `'harmonium'`)
 
-Props (extends `<hr>` HTML attributes):
-- orientation: 'horizontal' | 'vertical' (default: 'horizontal')
-- spacing: 'xs' | 'sm' | 'md' | 'lg' | 'xl' (default: 'md')
+Plain HTML classes: `hm-separator`
+
+Data attributes: `data-orientation`, `data-spacing`
+
+### Separator
+
+A horizontal or vertical divider (`<hr>`).
+
+Props:
+
+- `orientation`: `'horizontal' | 'vertical'` (default: `'horizontal'`). Orientation of the separator
+- `spacing`: `'xs' | 'sm' | 'md' | 'lg' | 'xl'` (default: `'md'`). Spacing around the separator
+
+Also accepts the props of `React.HTMLAttributes<HTMLHRElement>`.
 
 ```tsx
-<Stack>
-  <p>Section one</p>
-  <Separator />
-  <p>Section two</p>
-</Stack>
+<Separator spacing="lg" />
+<Group><span>Left</span><Separator orientation="vertical" /><span>Right</span></Group>
 ```
 
 ---
 
-## Card + CardHeader + CardBody + CardFooter
+## Container
 
-Import: `import { Card, CardHeader, CardBody, CardFooter } from 'harmonium'`
+`import {Container} from 'harmonium/container'` (or from `'harmonium'`)
 
-Card props (extends `<div>` HTML attributes):
-- variant: 'elevated' | 'outlined' | 'filled' (default: 'elevated')
-- padding: 'none' | 'sm' | 'md' | 'lg' (default: 'md')
+Plain HTML classes: `hm-container`
 
-CardHeader, CardBody, CardFooter: extend `<div>` HTML attributes, no custom props.
+### Container
+
+Centers content with a max width and horizontal padding. Both props take a single value or a responsive object (`{base: 'md', lg: 'xl'}`).
+
+Props:
+
+- `size`: `ResponsiveValue<'sm' | 'md' | 'lg' | 'xl' | 'full'>` (default: `'lg'`). Max-width size
+- `padding`: `ResponsiveValue<'none' | 'sm' | 'md' | 'lg'>` (default: `'md'`). Horizontal padding
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
 
 ```tsx
-<Card variant="outlined">
-  <CardHeader>User Profile</CardHeader>
-  <CardBody>
-    <p>Name: Jane Doe</p>
-    <p>Email: jane@example.com</p>
-  </CardBody>
-  <CardFooter>
-    <Group justify="end" gap="sm">
-      <Button variant="outline">Cancel</Button>
-      <Button>Save</Button>
-    </Group>
-  </CardFooter>
-</Card>
+<Container size="md">
+  <Heading>Account</Heading>
+</Container>
+<Container size={{base: 'full', lg: 'lg'}} padding="lg">…</Container>
 ```
 
 ---
 
-## Badge
+## AppShell
 
-Import: `import { Badge } from 'harmonium'`
+`import {AppShell, AppShellHeader, AppShellSidebar, AppShellMain, AppShellFooter} from 'harmonium/app-shell'` (or from `'harmonium'`)
 
-Props (extends `<span>` HTML attributes):
-- variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'neutral' (default: 'neutral')
-- size: 'sm' | 'md' | 'lg' (default: 'md')
+Plain HTML classes: `hm-app-shell`, `hm-app-shell-footer`, `hm-app-shell-header`, `hm-app-shell-main`, `hm-app-shell-sidebar`
+
+Data attributes: `data-sidebar-collapsed`
+
+### AppShell
+
+Page layout grid with header, sidebar, main and footer areas. `sidebarCollapsed` narrows the sidebar column to 60px; below 768px the areas stack.
+
+Props:
+
+- `sidebarCollapsed`: `boolean`. Whether the sidebar is collapsed
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
 
 ```tsx
-<Badge variant="success">Active</Badge>
-<Badge variant="error" size="sm">Overdue</Badge>
+<AppShell sidebarCollapsed={collapsed}>
+  <AppShellHeader><TopBar>…</TopBar></AppShellHeader>
+  <AppShellSidebar><Sidebar collapsed={collapsed}>…</Sidebar></AppShellSidebar>
+  <AppShellMain>{children}</AppShellMain>
+  <AppShellFooter>© 2026</AppShellFooter>
+</AppShell>
+```
+
+### AppShellHeader
+
+The `AppShell` header area, a `<header>`.
+
+Also accepts the props of `React.HTMLAttributes<HTMLElement>`.
+
+### AppShellSidebar
+
+The `AppShell` sidebar column, an `<aside>`.
+
+Also accepts the props of `React.HTMLAttributes<HTMLElement>`.
+
+### AppShellMain
+
+The `AppShell` main content area, a `<main>`.
+
+Also accepts the props of `React.HTMLAttributes<HTMLElement>`.
+
+### AppShellFooter
+
+The `AppShell` footer area, a `<footer>`.
+
+Also accepts the props of `React.HTMLAttributes<HTMLElement>`.
+
+---
+
+## Sidebar
+
+`import {Sidebar, SidebarSection, SidebarItem} from 'harmonium/sidebar'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-sidebar`, `hm-sidebar-item`, `hm-sidebar-item-icon`, `hm-sidebar-item-label`, `hm-sidebar-section`, `hm-sidebar-section-label`
+
+Data attributes: `data-collapsed`, `data-width`
+
+### Sidebar
+
+Side navigation: a `<nav>` of `SidebarSection`s and `SidebarItem`s. When `collapsed`, items show only their icons and keep their label as their accessible name. Give it an `aria-label` when the page has more than one `<nav>`.
+
+Props:
+
+- `collapsed`: `boolean`. Whether the sidebar is collapsed to icon-only mode
+- `width`: `'sm' | 'md' | 'lg'` (default: `'md'`). Width variant
+
+Also accepts the props of `React.HTMLAttributes<HTMLElement>`.
+
+```tsx
+<Sidebar aria-label="Main" collapsed={collapsed}>
+  <SidebarSection label="Workspace">
+    <SidebarItem icon={<HomeIcon />} href="/" active>Home</SidebarItem>
+    <SidebarItem icon={<GearIcon />} render={<Link to="/settings" />}>Settings</SidebarItem>
+  </SidebarSection>
+</Sidebar>
+```
+
+### SidebarSection
+
+A group of `SidebarItem`s, optionally labelled.
+
+Props:
+
+- `label`: `string`. Optional label for the section. Also names the section as a group.
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+### SidebarItem
+
+A navigation item: a `<button>`, an `<a>` with `href`, or your router link with `render`. `active` marks the current page. A disabled item can't be focused or followed.
+
+Props:
+
+- `active`: `boolean`. Whether this item is the current page. Sets `aria-current="page"`.
+- `icon`: `React.ReactNode`. Optional icon element rendered before the label
+- `href`: `string`. Link target. When set, the item renders as an `<a>` instead of a `<button>`.
+- `render`: `React.ReactElement`. Replaces the rendered element, e.g. a router link: `render={<Link to="/settings" />}`. Harmonium's props (class, data attributes, ARIA) are merged onto it.
+
+Also accepts the props of `React.ButtonHTMLAttributes<HTMLButtonElement>`.
+
+---
+
+## Show
+
+`import {Show} from 'harmonium/show'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-show`
+
+Data attributes: `data-above`, `data-below`
+
+### Show
+
+Shows its children only at some screen widths, using the `breakpoints` (sm 640px, md 768px, lg 1024px, xl 1280px). It hides them with CSS, so they are still rendered.
+
+Props:
+
+- `above`: `Breakpoint`. Show content at this breakpoint and above
+- `below`: `Breakpoint`. Show content below this breakpoint (hidden at and above)
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<Show below="md"><MobileNav /></Show>
+<Show above="md"><DesktopNav /></Show>
 ```
 
 ---
 
-## Alert
+## Text + Heading
 
-Import: `import { Alert } from 'harmonium'`
+`import {Text, Heading} from 'harmonium/typography'` (or from `'harmonium'`)
 
-Props (extends `<div>` HTML attributes):
-- variant: 'info' | 'success' | 'warning' | 'error' (default: 'info')
-- dismissible: boolean
-- onDismiss: () => void
+Plain HTML classes: `hm-typography-heading`, `hm-typography-text`
+
+Data attributes: `data-color`, `data-size`, `data-truncate`, `data-weight`
+
+### Text
+
+Body text with size, weight and color variants. Renders a `<p>` unless `as` says otherwise.
+
+Props:
+
+- `size`: `'xs' | 'sm' | 'md' | 'lg' | 'xl'` (default: `'md'`). Text size
+- `weight`: `'light' | 'normal' | 'medium' | 'semibold' | 'bold'`. Font weight
+- `color`: `'default' | 'muted' | 'primary' | 'success' | 'warning' | 'error'`. Text color
+- `truncate`: `boolean`. Whether to truncate overflow with ellipsis
+- `as`: `'p' | 'span' | 'div' | 'label'` (default: `'p'`). Rendered HTML element
+- `htmlFor`: `string`. Id of the labelled control (only used when `as="label"`)
+
+Also accepts the props of `React.HTMLAttributes<HTMLElement>`.
 
 ```tsx
-<Alert variant="success" dismissible onDismiss={() => setShow(false)}>
-  Changes saved successfully.
-</Alert>
-<Alert variant="error">Something went wrong.</Alert>
+<Text>Your trial ends in 3 days.</Text>
+<Text size="sm" color="muted" as="span">Updated 2 hours ago</Text>
+```
+
+### Heading
+
+A heading. `level` sets the element (`h1`–`h6`, default `h2`) and `size` the look, so the outline and the styling can differ.
+
+Props:
+
+- `level`: `1 | 2 | 3 | 4 | 5 | 6` (default: `2`). Heading level (renders h1–h6)
+- `size`: `'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl' | '3xl' | '4xl'`. Visual size (independent of semantic level)
+
+Also accepts the props of `React.HTMLAttributes<HTMLHeadingElement>`.
+
+```tsx
+<Heading level={1}>Dashboard</Heading>
+<Heading level={3} size="sm">Recent activity</Heading>
 ```
 
 ---
 
-## Progress
+## Field
 
-Import: `import { Progress } from 'harmonium'`
+`import {Field, FieldLabel, FieldDescription, FieldError, useFieldContext} from 'harmonium/field'` (or from `'harmonium'`)
 
-Props (extends `<div>` HTML attributes, renders with role="progressbar"):
-- value: number (default: 0)
-- max: number (default: 100)
-- variant: 'primary' | 'secondary' | 'success' | 'warning' | 'error' (default: 'primary')
-- size: 'sm' | 'md' | 'lg' (default: 'md')
-- showLabel: boolean
+Plain HTML classes: `hm-field`, `hm-field-description`, `hm-field-error`, `hm-field-label`
 
-```tsx
-<Progress value={75} max={100} showLabel />
-<Progress value={30} variant="warning" size="sm" />
-```
+Data attributes: `data-error`
 
----
+### Field
 
-## Spinner
+Groups a form control with its label, description and error, and wires them up for assistive technology: `FieldLabel`'s `htmlFor` points at the control, and the control's `aria-describedby` lists the description and error that are rendered. `error` marks the control `aria-invalid`.
 
-Import: `import { Spinner } from 'harmonium'`
+Props:
 
-Props (extends `<span>` HTML attributes):
-- size: 'sm' | 'md' | 'lg' (default: 'md')
-- label: string (default: 'Loading') — accessible label for screen readers
+- `error`: `boolean`. Whether the field has an error
 
-```tsx
-<Spinner size="lg" />
-<Spinner size="sm" label="Saving" />
-```
-
----
-
-## Avatar
-
-Import: `import { Avatar } from 'harmonium'`
-
-Props (extends `<span>` HTML attributes):
-- src: string — image URL
-- alt: string (default: '')
-- fallback: string — text shown when no image (e.g. initials)
-- size: 'sm' | 'md' | 'lg' | 'xl' (default: 'md')
-
-```tsx
-<Avatar src="/photo.jpg" alt="Jane Doe" size="lg" />
-<Avatar fallback="JD" size="md" />
-```
-
----
-
-## Skeleton
-
-Import: `import { Skeleton } from 'harmonium'`
-
-Props (extends `<div>` HTML attributes, renders aria-hidden="true"):
-- width: string | number
-- height: string | number
-- variant: 'text' | 'circular' | 'rectangular' (default: 'text')
-
-```tsx
-<Skeleton width="100%" height={20} />
-<Skeleton variant="circular" width={48} height={48} />
-<Skeleton variant="rectangular" width="100%" height={200} />
-```
-
----
-
-## Table + TableHead + TableBody + TableRow + TableHeader + TableCell
-
-Import: `import { Table, TableHead, TableBody, TableRow, TableHeader, TableCell } from 'harmonium'`
-
-Table props (extends `<table>` HTML attributes):
-- striped: boolean
-- hoverable: boolean
-- responsive: boolean
-
-TableHead, TableBody: extend their respective HTML section attributes, no custom props.
-TableRow: extends `<tr>` HTML attributes, no custom props.
-TableHeader: extends `<th>` HTML attributes, no custom props.
-TableCell: extends `<td>` HTML attributes, no custom props.
-
-```tsx
-<Table striped hoverable>
-  <TableHead>
-    <TableRow>
-      <TableHeader>Name</TableHeader>
-      <TableHeader>Email</TableHeader>
-      <TableHeader>Role</TableHeader>
-    </TableRow>
-  </TableHead>
-  <TableBody>
-    <TableRow>
-      <TableCell>Jane Doe</TableCell>
-      <TableCell>jane@example.com</TableCell>
-      <TableCell>Admin</TableCell>
-    </TableRow>
-  </TableBody>
-</Table>
-```
-
----
-
-## DataGrid
-
-Import: `import { DataGrid } from 'harmonium'`
-Types: `import type { DataGridColumn, SortState } from 'harmonium'`
-
-Generic component `DataGrid<T>`. Props (extends `<div>` HTML attributes):
-- columns: DataGridColumn<T>[] — required
-- data: T[] — required
-- rowKey: (row: T) => string | number — required
-- sort: SortState | null — controlled sort state
-- onSortChange: (sort: SortState) => void
-- striped: boolean
-- hoverable: boolean
-
-DataGridColumn<T>:
-- key: string — required
-- header: string — required
-- render: (row: T) => React.ReactNode — optional, falls back to String(row[key])
-- sortable: boolean
-- width: string
-
-SortState: { key: string; direction: 'asc' | 'desc' | null }
-
-```tsx
-const columns = [
-  { key: 'name', header: 'Name', sortable: true },
-  { key: 'email', header: 'Email' },
-  { key: 'role', header: 'Role', render: (row) => <Badge>{row.role}</Badge> },
-]
-
-<DataGrid
-  columns={columns}
-  data={users}
-  rowKey={(row) => row.id}
-  sort={sort}
-  onSortChange={setSort}
-  striped
-  hoverable
-/>
-```
-
----
-
-## Tabs + TabsList + TabsTrigger + TabsContent
-
-Import: `import { Tabs, TabsList, TabsTrigger, TabsContent } from 'harmonium'`
-
-Tabs props (extends `<div>` HTML attributes):
-- value: string — controlled active tab
-- defaultValue: string — uncontrolled initial tab
-- onValueChange: (value: string) => void
-
-TabsList: extends `<div>` HTML attributes, no custom props.
-
-TabsTrigger props (extends `<button>` HTML attributes):
-- value: string — required, tab ID
-
-TabsContent props (extends `<div>` HTML attributes):
-- value: string — required, tab ID
-
-```tsx
-<Tabs defaultValue="general">
-  <TabsList>
-    <TabsTrigger value="general">General</TabsTrigger>
-    <TabsTrigger value="security">Security</TabsTrigger>
-    <TabsTrigger value="notifications">Notifications</TabsTrigger>
-  </TabsList>
-  <TabsContent value="general">General settings...</TabsContent>
-  <TabsContent value="security">Security settings...</TabsContent>
-  <TabsContent value="notifications">Notification preferences...</TabsContent>
-</Tabs>
-```
-
----
-
-## Accordion + AccordionItem + AccordionTrigger + AccordionContent
-
-Import: `import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from 'harmonium'`
-
-Accordion props (extends `<div>` HTML attributes):
-- multiple: boolean — allow multiple items open
-- value: string | string[] — controlled
-- defaultValue: string | string[] — uncontrolled
-- onValueChange: (value: string[]) => void
-
-AccordionItem props (extends `<div>` HTML attributes):
-- value: string — required, unique item ID
-
-AccordionTrigger props (extends `<button>` HTML attributes):
-- value: string — required, item value this trigger controls
-
-AccordionContent props (extends `<div>` HTML attributes):
-- value: string — required, item value this content belongs to
-
-```tsx
-<Accordion defaultValue="faq-1">
-  <AccordionItem value="faq-1">
-    <AccordionTrigger value="faq-1">What is Harmonium?</AccordionTrigger>
-    <AccordionContent value="faq-1">
-      A React component library with design-token theming.
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="faq-2">
-    <AccordionTrigger value="faq-2">How do I theme it?</AccordionTrigger>
-    <AccordionContent value="faq-2">
-      Override --harmonium-* CSS custom properties.
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>
-```
-
----
-
-## Breadcrumbs + BreadcrumbItem
-
-Import: `import { Breadcrumbs, BreadcrumbItem } from 'harmonium'`
-
-Breadcrumbs props (extends `<nav>` HTML attributes):
-- separator: React.ReactNode (default: '/')
-
-BreadcrumbItem props (extends `<a>` HTML attributes):
-- active: boolean — renders as `<span>` when true (current page)
-
-```tsx
-<Breadcrumbs>
-  <BreadcrumbItem href="/">Home</BreadcrumbItem>
-  <BreadcrumbItem href="/settings">Settings</BreadcrumbItem>
-  <BreadcrumbItem active>Profile</BreadcrumbItem>
-</Breadcrumbs>
-```
-
----
-
-## Pagination
-
-Import: `import { Pagination } from 'harmonium'`
-
-Props (extends `<nav>` HTML attributes):
-- page: number — required, 1-based current page
-- totalPages: number — required
-- onPageChange: (page: number) => void — required
-- maxVisible: number (default: 5) — max visible page buttons
-
-```tsx
-<Pagination page={currentPage} totalPages={10} onPageChange={setCurrentPage} />
-```
-
----
-
-## TopBar + TopBarSection
-
-Import: `import { TopBar, TopBarSection } from 'harmonium'`
-
-TopBar props (extends `<header>` HTML attributes):
-- fixed: boolean — sticky positioning
-
-TopBarSection props (extends `<div>` HTML attributes):
-- align: 'left' | 'center' | 'right' (default: 'left')
-
-```tsx
-<TopBar>
-  <TopBarSection align="left">
-    <strong>My App</strong>
-  </TopBarSection>
-  <TopBarSection align="right">
-    <Button variant="ghost" size="sm">Settings</Button>
-    <Avatar src="/me.jpg" size="sm" />
-  </TopBarSection>
-</TopBar>
-```
-
----
-
-## Dialog + DialogHeader + DialogBody + DialogFooter
-
-Import: `import { Dialog, DialogHeader, DialogBody, DialogFooter } from 'harmonium'`
-
-Dialog props (extends `<div>` HTML attributes):
-- open: boolean
-- onClose: () => void
-- size: 'sm' | 'md' | 'lg' | 'full' (default: 'md')
-
-DialogHeader, DialogBody, DialogFooter: extend `<div>` HTML attributes, no custom props.
-
-```tsx
-<Dialog open={isOpen} onClose={() => setIsOpen(false)} size="md">
-  <DialogHeader>Confirm Delete</DialogHeader>
-  <DialogBody>
-    <p>Are you sure you want to delete this item?</p>
-  </DialogBody>
-  <DialogFooter>
-    <Group justify="end" gap="sm">
-      <Button variant="outline" onClick={() => setIsOpen(false)}>Cancel</Button>
-      <Button variant="primary" onClick={handleDelete}>Delete</Button>
-    </Group>
-  </DialogFooter>
-</Dialog>
-```
-
----
-
-## Drawer
-
-Import: `import { Drawer } from 'harmonium'`
-
-Props (extends `<div>` HTML attributes):
-- open: boolean
-- onClose: () => void
-- side: 'left' | 'right' (default: 'right')
-- size: 'sm' | 'md' | 'lg' (default: 'md')
-
-```tsx
-<Drawer open={isOpen} onClose={() => setIsOpen(false)} side="right" size="md">
-  <h2>Drawer Title</h2>
-  <p>Drawer content goes here.</p>
-</Drawer>
-```
-
----
-
-## Tooltip
-
-Import: `import { Tooltip } from 'harmonium'`
-
-Props (extends `<div>` HTML attributes, excluding 'content'):
-- content: React.ReactNode — required, tooltip text/content
-- side: 'top' | 'bottom' | 'left' | 'right' (default: 'top')
-
-Wraps its children. Shows on hover and focus.
-
-```tsx
-<Tooltip content="Save your changes">
-  <Button>Save</Button>
-</Tooltip>
-```
-
----
-
-## Popover
-
-Import: `import { Popover } from 'harmonium'`
-
-Props (extends `<div>` HTML attributes, excluding 'content'):
-- content: React.ReactNode — required
-- side: 'top' | 'bottom' | 'left' | 'right' (default: 'bottom')
-- open: boolean — controlled
-- onOpenChange: (open: boolean) => void
-
-Wraps its children. Opens on click.
-
-```tsx
-<Popover content={<div><p>Popover content</p></div>}>
-  <Button variant="outline">Options</Button>
-</Popover>
-```
-
----
-
-## Menu + MenuItem + MenuSeparator + MenuLabel
-
-Import: `import { Menu, MenuItem, MenuSeparator, MenuLabel } from 'harmonium'`
-
-Menu props (extends `<div>` HTML attributes, renders role="menu"): no custom props.
-
-MenuItem props (extends `<button>` HTML attributes):
-- variant: 'default' | 'danger' (default: 'default')
-
-MenuSeparator: extends `<div>` HTML attributes, renders role="separator", no custom props.
-MenuLabel: extends `<div>` HTML attributes, no custom props.
-
-```tsx
-<Menu>
-  <MenuLabel>Actions</MenuLabel>
-  <MenuItem onClick={handleEdit}>Edit</MenuItem>
-  <MenuItem onClick={handleDuplicate}>Duplicate</MenuItem>
-  <MenuSeparator />
-  <MenuItem variant="danger" onClick={handleDelete}>Delete</MenuItem>
-</Menu>
-```
-
----
-
-## CommandPalette
-
-Import: `import { CommandPalette } from 'harmonium'`
-Types: `import type { CommandItem } from 'harmonium'`
-
-Props (extends `<div>` HTML attributes):
-- open: boolean
-- onClose: () => void
-- items: CommandItem[] — required
-- placeholder: string (default: 'Type a command...')
-
-CommandItem: { id: string, label: string, group?: string, onSelect: () => void }
-
-```tsx
-const commands = [
-  { id: '1', label: 'Go to Dashboard', group: 'Navigation', onSelect: () => navigate('/') },
-  { id: '2', label: 'Go to Settings', group: 'Navigation', onSelect: () => navigate('/settings') },
-  { id: '3', label: 'Create New Project', group: 'Actions', onSelect: () => setShowNew(true) },
-]
-
-<CommandPalette open={isOpen} onClose={() => setIsOpen(false)} items={commands} />
-```
-
----
-
-## Toast (ToastProvider + useToast)
-
-Import: `import { ToastProvider, useToast } from 'harmonium'`
-
-ToastProvider props:
-- children: React.ReactNode — required
-- position: 'top-right' | 'top-left' | 'bottom-right' | 'bottom-left' (default: 'bottom-right')
-
-useToast() returns: { toast, dismiss }
-- toast(options): string — creates a toast, returns ID
-- dismiss(id: string): void
-
-Toast options:
-- message: React.ReactNode
-- variant: 'info' | 'success' | 'warning' | 'error'
-- duration: number (default: 5000, 0 = persistent)
-
-```tsx
-// Wrap your app
-<ToastProvider position="bottom-right">
-  <App />
-</ToastProvider>
-
-// In any component
-function SaveButton() {
-  const { toast } = useToast()
-
-  return (
-    <Button onClick={() => toast({ message: 'Saved!', variant: 'success' })}>
-      Save
-    </Button>
-  )
-}
-```
-
----
-
-## Field + FieldLabel + FieldDescription + FieldError
-
-Import: `import { Field, FieldLabel, FieldDescription, FieldError } from 'harmonium'`
-
-Field provides context that auto-wires accessibility attributes (id, htmlFor, aria-describedby, aria-errormessage) to child form controls (Input, Textarea, Select, NumberInput, DatePicker, TimePicker).
-
-Field props (extends `<div>` HTML attributes):
-- error: boolean
-
-FieldLabel: extends `<label>` HTML attributes, auto-connects htmlFor. No custom props.
-FieldDescription: extends `<p>` HTML attributes, auto-sets id for aria-describedby. No custom props.
-FieldError: extends `<p>` HTML attributes, auto-sets id for aria-errormessage, adds role="alert". No custom props.
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
 
 ```tsx
 <Field error={!!errors.email}>
   <FieldLabel>Email</FieldLabel>
-  <FieldDescription>We'll never share your email.</FieldDescription>
-  <Input type="email" placeholder="you@example.com" />
+  <FieldDescription>We'll never share it.</FieldDescription>
+  <Input type="email" name="email" />
   <FieldError>{errors.email}</FieldError>
 </Field>
 ```
+
+### FieldLabel
+
+The `<label>` of a `Field`, pointed at its control.
+
+Also accepts the props of `React.LabelHTMLAttributes<HTMLLabelElement>`.
+
+### FieldDescription
+
+Help text for a `Field`, linked to its control with `aria-describedby`.
+
+Also accepts the props of `React.HTMLAttributes<HTMLParagraphElement>`.
+
+### FieldError
+
+A `Field`'s error message (`role="alert"`), linked to its control with `aria-describedby` and `aria-errormessage`. It renders nothing while empty.
+
+Props:
+
+- `match`: `boolean | keyof ValidityState`. When to show the message. By default it shows whenever it has content, so `<FieldError>{errors.email}</FieldError>` renders nothing while there is no error. Without children it shows the browser's validation message once the control is invalid. Pass a `ValidityState` key (e.g. `"valueMissing"`) to show it only for that failure.
+
+Also accepts the props of `React.HTMLAttributes<HTMLParagraphElement>`.
+
+### useFieldContext
+
+Reads the surrounding `<Field>`, or `null` outside one. Use it to build your own Field-aware control: put `fieldId` on the control, `describedBy` in its `aria-describedby` and `error` in its `aria-invalid`. Harmonium's own controls are wired up automatically.
+
+```ts
+useFieldContext(): FieldContextValue | null
+```
+
+### FieldContextValue
+
+What `useFieldContext()` returns inside a `Field`.
+
+Fields:
+
+- `fieldId`: `string` **required**. The id the Field gives its control (and the `htmlFor` of `FieldLabel`). A Harmonium control given its own `id` keeps it, and `FieldLabel` follows that id instead.
+- `error`: `boolean`. Whether the field has an error
+- `labelId`: `string` **required**. The id of the `FieldLabel` (its own `id` when you pass one)
+- `descriptionId`: `string`. The id of the `FieldDescription`, when one is rendered (its own `id` when you pass one)
+- `errorId`: `string`. The id of the `FieldError`, when one is rendered (its own `id` when you pass one)
+- `describedBy`: `string`. Space-separated ids of the description and error parts that are actually rendered, ready for `aria-describedby`. `undefined` when there are none.
 
 ---
 
 ## Input
 
-Import: `import { Input } from 'harmonium'`
+`import {Input} from 'harmonium/input'` (or from `'harmonium'`)
 
-Props (extends `<input>` HTML attributes, excluding native 'size'):
-- size: 'sm' | 'md' | 'lg' (default: 'md')
+Plain HTML classes: `hm-input`
 
-Field-context-aware: auto-wires id, aria-describedby, aria-errormessage, aria-invalid.
+Data attributes: `data-size`
+
+### Input
+
+A native `<input>`. Inside a `<Field>` it is labelled by `FieldLabel`, described by `FieldDescription`/`FieldError` and marked invalid by `<Field error>` (via Base UI's `Field.Control`).
+
+Props:
+
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size variant
+
+Also accepts the props of `Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'>`.
 
 ```tsx
-<Input placeholder="Search..." size="md" />
-<Input type="password" size="lg" />
+<Field>
+  <FieldLabel>Name</FieldLabel>
+  <Input value={name} onChange={(e) => setName(e.target.value)} />
+</Field>
+<Input type="search" size="sm" placeholder="Search" aria-label="Search" />
 ```
 
 ---
 
 ## Textarea
 
-Import: `import { Textarea } from 'harmonium'`
+`import {Textarea} from 'harmonium/textarea'` (or from `'harmonium'`)
 
-Props: extends `<textarea>` HTML attributes. No custom props beyond native attributes.
-Field-context-aware.
+Plain HTML classes: `hm-textarea`
+
+### Textarea
+
+A native `<textarea>`, wired to the surrounding `<Field>`.
+
+Also accepts the props of `React.TextareaHTMLAttributes<HTMLTextAreaElement>`.
 
 ```tsx
 <Field>
   <FieldLabel>Bio</FieldLabel>
-  <Textarea rows={4} placeholder="Tell us about yourself..." />
+  <FieldDescription>A sentence or two about you.</FieldDescription>
+  <Textarea rows={4} value={bio} onChange={(e) => setBio(e.target.value)} />
 </Field>
 ```
 
@@ -707,21 +545,29 @@ Field-context-aware.
 
 ## Select
 
-Import: `import { Select } from 'harmonium'`
+`import {Select} from 'harmonium/select'` (or from `'harmonium'`)
 
-Props (extends `<select>` HTML attributes, excluding native 'size'):
-- placeholder: string
-- size: 'sm' | 'md' | 'lg' (default: 'md')
+Plain HTML classes: `hm-select`
 
-Field-context-aware.
+Data attributes: `data-size`
+
+### Select
+
+A native `<select>`, wired to the surrounding `<Field>`. Pass `<option>` elements as children.
+
+Props:
+
+- `placeholder`: `string`. Placeholder option text. It is shown (and submits an empty value) until an option is picked, in both controlled and uncontrolled use.
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size variant
+
+Also accepts the props of `Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'size'>`.
 
 ```tsx
 <Field>
-  <FieldLabel>Country</FieldLabel>
-  <Select placeholder="Choose a country">
-    <option value="us">United States</option>
-    <option value="uk">United Kingdom</option>
-    <option value="ca">Canada</option>
+  <FieldLabel>Role</FieldLabel>
+  <Select placeholder="Choose a role" value={role} onChange={(e) => setRole(e.target.value)}>
+    <option value="admin">Admin</option>
+    <option value="member">Member</option>
   </Select>
 </Field>
 ```
@@ -730,160 +576,244 @@ Field-context-aware.
 
 ## Checkbox
 
-Import: `import { Checkbox } from 'harmonium'`
+`import {Checkbox} from 'harmonium/checkbox'` (or from `'harmonium'`)
 
-Props (extends `<input>` HTML attributes, excluding 'type'):
-- label: React.ReactNode
+Plain HTML classes: `hm-checkbox`, `hm-checkbox-indicator`, `hm-checkbox-input`, `hm-checkbox-label`
+
+### Checkbox
+
+A checkbox with a label.
+
+Built on Base UI's Checkbox: a `<span role="checkbox">` (the visible box, `.indicator`) plus a hidden native input that carries `name`/`value` for form submission.
+
+Prop routing: `className` and `style` go on the wrapping `<label>` (the visible component); `ref` points at the hidden `<input type="checkbox">`; `onChange` receives that input's change event; everything else (`aria-*`, `data-*`, `onFocus`, ...) goes on the `role="checkbox"` element.
+
+Props:
+
+- `label`: `React.ReactNode`. Label text
+
+Also accepts the props of `Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'>`.
 
 ```tsx
-<Checkbox label="I agree to the terms" checked={agreed} onChange={handleChange} />
-<Checkbox label="Subscribe to newsletter" />
+<Checkbox label="Remember me" name="remember" defaultChecked />
+<Checkbox label="I agree" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} />
 ```
 
 ---
 
-## Radio + RadioGroup
+## Radio
 
-Import: `import { Radio, RadioGroup } from 'harmonium'`
+`import {Radio, RadioGroup} from 'harmonium/radio'` (or from `'harmonium'`)
 
-RadioGroup props (extends `<fieldset>` HTML attributes):
-- legend: React.ReactNode
+Plain HTML classes: `hm-radio`, `hm-radio-group`, `hm-radio-indicator`, `hm-radio-input`, `hm-radio-label`, `hm-radio-legend`, `hm-radio-options`
 
-Radio props (extends `<input>` HTML attributes, excluding 'type'):
-- label: React.ReactNode
+### Radio
+
+A radio button with a label, used inside a `RadioGroup`.
+
+Inside a `RadioGroup` it is Base UI's Radio: a `<span role="radio">` (the `.indicator`) plus a hidden native input that carries `name`/`value` for form submission. Outside a group it falls back to a plain native radio.
+
+Prop routing: `className` and `style` go on the wrapping `<label>`; `ref` points at the native `<input type="radio">`; `onChange` receives that input's change event; `name`, `checked` and `defaultChecked` are read by the group; everything else goes on the `role="radio"` element.
+
+Props:
+
+- `label`: `React.ReactNode`. Label text
+
+Also accepts the props of `Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'>`.
 
 ```tsx
-<RadioGroup legend="Plan" name="plan">
-  <Radio label="Free" value="free" />
-  <Radio label="Pro" value="pro" />
-  <Radio label="Enterprise" value="enterprise" />
+<RadioGroup legend="Plan" name="plan" value={plan} onValueChange={setPlan}>
+  <Radio value="free" label="Free" />
+  <Radio value="pro" label="Pro" />
 </RadioGroup>
 ```
+
+### RadioGroup
+
+A group of `Radio`s with a `legend`; one can be selected.
+
+Built on Base UI's RadioGroup: a `<fieldset role="radiogroup">` with roving focus and arrow-key selection. The `name` for form submission comes from the group, or from the radios' `name`.
+
+Props:
+
+- `legend`: `React.ReactNode`. Legend/label for the radio group
+- `value`: `string | null`. The selected value (controlled). Alternatively set `checked` on a `Radio`.
+- `defaultValue`: `string`. The initially selected value. Alternatively set `defaultChecked` on a `Radio`.
+- `onValueChange`: `(value: string) => void`. Called with the newly selected value
+- `required`: `boolean`. Whether a selection is required to submit the form
+- `readOnly`: `boolean`. Whether the selection can't be changed
+
+Also accepts the props of `Omit<React.FieldsetHTMLAttributes<HTMLFieldSetElement>, 'defaultValue'>`.
 
 ---
 
 ## Switch
 
-Import: `import { Switch } from 'harmonium'`
+`import {Switch} from 'harmonium/switch'` (or from `'harmonium'`)
 
-Props (extends `<input>` HTML attributes, excluding 'type', 'role', 'size'):
-- label: React.ReactNode
-- size: 'sm' | 'md' | 'lg' (default: 'md')
+Plain HTML classes: `hm-switch`, `hm-switch-input`, `hm-switch-label`, `hm-switch-thumb`, `hm-switch-track`
 
-Renders as `<input type="checkbox" role="switch">`.
+Data attributes: `data-size`
 
-```tsx
-<Switch label="Dark mode" checked={darkMode} onChange={toggleDarkMode} />
-<Switch label="Notifications" size="sm" />
-```
+### Switch
 
----
+An on/off switch with a label.
 
-## NumberInput
+Built on Base UI's Switch: a `<span role="switch">` (the `.track`) with a `.thumb`, plus a hidden native checkbox that carries `name`/`value` for form submission.
 
-Import: `import { NumberInput } from 'harmonium'`
+Prop routing: `className` and `style` go on the wrapping `<label>` (the visible component); `ref` points at the hidden `<input type="checkbox">`; `onChange` receives that input's change event; everything else (`aria-*`, `data-*`, `onFocus`, ...) goes on the `role="switch"` element.
 
-Props (extends `<input>` HTML attributes, excluding 'type', 'size', 'onChange', 'value', 'defaultValue'):
-- size: 'sm' | 'md' | 'lg' (default: 'md')
-- step: number (default: 1)
-- min: number
-- max: number
-- value: number — controlled
-- defaultValue: number (default: 0)
-- onChange: (value: number) => void
+Props:
 
-Field-context-aware.
+- `label`: `React.ReactNode`. Label text
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size variant
+
+Also accepts the props of `Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'role' | 'size'>`.
 
 ```tsx
-<Field>
-  <FieldLabel>Quantity</FieldLabel>
-  <NumberInput min={0} max={100} step={1} value={qty} onChange={setQty} />
-</Field>
+<Switch label="Email notifications" checked={enabled} onChange={(e) => setEnabled(e.target.checked)} />
+<Switch label="Dark mode" size="sm" defaultChecked />
 ```
 
 ---
 
 ## Slider
 
-Import: `import { Slider } from 'harmonium'`
+`import {Slider} from 'harmonium/slider'` (or from `'harmonium'`)
 
-Props (extends `<input>` HTML attributes, excluding 'type', 'size'):
-- size: 'sm' | 'md' | 'lg' (default: 'md')
-- showValue: boolean
+Plain HTML classes: `hm-slider`, `hm-slider-control`, `hm-slider-input`, `hm-slider-thumb`, `hm-slider-track`, `hm-slider-value`
 
-Renders as `<input type="range">`.
+Data attributes: `data-size`
+
+### Slider
+
+A range slider; `showValue` shows the current value next to it.
+
+Built on Base UI's Slider. Keyboard, pointer and screen-reader support come from Base UI; a visually hidden `<input type="range">` inside the thumb carries `name`/`value` for form submission.
+
+Prop routing: `ref`, `aria-label`, `aria-labelledby`, `aria-describedby`, `aria-valuetext`, `onFocus`, `onBlur`, `onKeyDown` and `tabIndex` go to that range input; `onChange` receives a change event whose `target` is that input; `className`, `style`, `id` and other attributes go on the root `<div>`.
+
+Props:
+
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size variant
+- `showValue`: `boolean`. Whether to show the current value label
+
+Also accepts the props of `Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'>`.
 
 ```tsx
-<Slider min={0} max={100} value={volume} onChange={handleChange} showValue />
+<Field>
+  <FieldLabel>Volume</FieldLabel>
+  <Slider min={0} max={100} value={volume} onChange={(e) => setVolume(Number(e.target.value))} showValue />
+</Field>
+```
+
+---
+
+## NumberInput
+
+`import {NumberInput} from 'harmonium/number-input'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-number-input`, `hm-number-input-button`, `hm-number-input-input`
+
+Data attributes: `data-size`
+
+### NumberInput
+
+A number input with decrement and increment buttons. Arrow keys step by `step`; typed values are clamped to `min`/`max` on blur or Enter.
+
+Built on Base UI's NumberField. The visible input is a text field with `role="spinbutton"`; a hidden `<input type="number">` carries `name`/`value` for form submission.
+
+Prop routing: `className` goes on the root `<div>`; `id`, `name`, `form`, `disabled`, `readOnly` and `required` configure the field (and reach the stepper buttons); `ref` and every other attribute go on the visible input.
+
+Props:
+
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size variant
+- `step`: `number` (default: `1`). Step increment
+- `min`: `number`. Minimum value
+- `max`: `number`. Maximum value
+- `value`: `number`. Controlled value
+- `defaultValue`: `number` (default: `0`). Default value
+- `onChange`: `(value: number) => void`. Change handler. Called with finite numbers only: while typing it gets the typed number as-is; out-of-range values are clamped to `min`/`max` when the input loses focus or Enter is pressed. Clearing the input doesn't call it.
+- `decrementLabel`: `string` (default: `'Decrease'`). Accessible label of the decrement button
+- `incrementLabel`: `string` (default: `'Increase'`). Accessible label of the increment button
+
+Also accepts the props of `Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size' | 'onChange' | 'value' | 'defaultValue'>`.
+
+```tsx
+<Field>
+  <FieldLabel>Quantity</FieldLabel>
+  <NumberInput min={1} max={10} value={qty} onChange={setQty} />
+</Field>
 ```
 
 ---
 
 ## Combobox
 
-Import: `import { Combobox } from 'harmonium'`
-Types: `import type { ComboboxOption } from 'harmonium'`
+`import {Combobox} from 'harmonium/combobox'` (or from `'harmonium'`)
 
-Props (extends `<div>` HTML attributes, excluding 'onChange'):
-- options: ComboboxOption[] — required
-- value: string — controlled
-- onChange: (value: string) => void
-- placeholder: string (default: 'Search...')
-- disabled: boolean
+Plain HTML classes: `hm-combobox`, `hm-combobox-empty`, `hm-combobox-input`, `hm-combobox-list`, `hm-combobox-option`, `hm-combobox-popup`, `hm-combobox-positioner`
 
-ComboboxOption: { value: string, label: string }
+### Combobox
 
-```tsx
-const countries = [
-  { value: 'us', label: 'United States' },
-  { value: 'uk', label: 'United Kingdom' },
-  { value: 'ca', label: 'Canada' },
-]
+A searchable single-select: typing filters `options`, arrow keys move through them and Enter picks one. Follows the ARIA combobox pattern. Controlled with `value` + `onChange`, or uncontrolled with `defaultValue`. Wired to the surrounding `Field`.
 
-<Combobox options={countries} value={country} onChange={setCountry} placeholder="Select country" />
-```
+Props:
 
----
+- `options`: `ComboboxOption[]` **required**. Available options
+- `value`: `string`. Current value (controlled). Use `''` for no selection.
+- `defaultValue`: `string`. Initial value when uncontrolled
+- `onChange`: `(value: string) => void`. Callback when value changes. Receives `''` when the input is cleared.
+- `placeholder`: `string` (default: `'Search...'`). Placeholder text
+- `disabled`: `boolean`. Whether the combobox is disabled
 
-## MultiSelect
-
-Import: `import { MultiSelect } from 'harmonium'`
-Types: `import type { MultiSelectOption } from 'harmonium'`
-
-Props (extends `<div>` HTML attributes, excluding 'onChange'):
-- options: MultiSelectOption[] — required
-- value: string[] (default: [])
-- onChange: (value: string[]) => void
-- placeholder: string (default: 'Select...')
-- disabled: boolean
-
-MultiSelectOption: { value: string, label: string }
+Also accepts the props of `Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'>`.
 
 ```tsx
-const tags = [
-  { value: 'react', label: 'React' },
-  { value: 'typescript', label: 'TypeScript' },
-  { value: 'css', label: 'CSS' },
-]
-
-<MultiSelect options={tags} value={selectedTags} onChange={setSelectedTags} />
+<Field>
+  <FieldLabel>Country</FieldLabel>
+  <Combobox
+    options={[{value: 'us', label: 'United States'}, {value: 'ca', label: 'Canada'}]}
+    value={country}
+    onChange={setCountry}
+    placeholder="Search countries"
+  />
+</Field>
 ```
+
+### ComboboxOption
+
+An option of a `Combobox`.
+
+Fields:
+
+- `value`: `string` **required**. Value passed to `onChange` when this option is chosen
+- `label`: `string` **required**. Text shown in the list and in the input, and matched by search
 
 ---
 
 ## DatePicker
 
-Import: `import { DatePicker } from 'harmonium'`
+`import {DatePicker} from 'harmonium/date-picker'` (or from `'harmonium'`)
 
-Props (extends `<input>` HTML attributes, excluding 'type', 'size'):
-- size: 'sm' | 'md' | 'lg' (default: 'md')
+Plain HTML classes: `hm-date-picker`
 
-Renders as `<input type="date">`. Field-context-aware.
+Data attributes: `data-size`
+
+### DatePicker
+
+A native `<input type="date">`, wired to the surrounding `<Field>`. Its value is an ISO date string (`'2026-10-11'`).
+
+Props:
+
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size variant
+
+Also accepts the props of `Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'>`.
 
 ```tsx
 <Field>
-  <FieldLabel>Start Date</FieldLabel>
-  <DatePicker value={startDate} onChange={handleChange} />
+  <FieldLabel>Start date</FieldLabel>
+  <DatePicker value={date} onChange={(e) => setDate(e.target.value)} min="2026-01-01" />
 </Field>
 ```
 
@@ -891,17 +821,26 @@ Renders as `<input type="date">`. Field-context-aware.
 
 ## TimePicker
 
-Import: `import { TimePicker } from 'harmonium'`
+`import {TimePicker} from 'harmonium/time-picker'` (or from `'harmonium'`)
 
-Props (extends `<input>` HTML attributes, excluding 'type', 'size'):
-- size: 'sm' | 'md' | 'lg' (default: 'md')
+Plain HTML classes: `hm-time-picker`
 
-Renders as `<input type="time">`. Field-context-aware.
+Data attributes: `data-size`
+
+### TimePicker
+
+A native `<input type="time">`, wired to the surrounding `<Field>`. Its value is a 24-hour `HH:mm` string.
+
+Props:
+
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size variant
+
+Also accepts the props of `Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'>`.
 
 ```tsx
 <Field>
-  <FieldLabel>Meeting Time</FieldLabel>
-  <TimePicker value={time} onChange={handleChange} />
+  <FieldLabel>Start time</FieldLabel>
+  <TimePicker value={time} onChange={(e) => setTime(e.target.value)} />
 </Field>
 ```
 
@@ -909,46 +848,1268 @@ Renders as `<input type="time">`. Field-context-aware.
 
 ## FileUpload
 
-Import: `import { FileUpload } from 'harmonium'`
+`import {FileUpload} from 'harmonium/file-upload'` (or from `'harmonium'`)
 
-Props (extends `<div>` HTML attributes, excluding 'onChange'):
-- accept: string — file type filter (e.g. 'image/*,.pdf')
-- multiple: boolean
-- disabled: boolean
-- onChange: (files: File[]) => void
-- maxSize: number — max file size in bytes
+Plain HTML classes: `hm-file-upload`, `hm-file-upload-icon`, `hm-file-upload-input`, `hm-file-upload-placeholder`
+
+Data attributes: `data-disabled`, `data-drag-active`
+
+### FileUpload
+
+A drop zone that also opens the file picker on click, Enter or Space. Picked and dropped files are checked against `accept`, `maxSize` and `multiple`: matching files go to `onChange`, the rest to `onReject`. It doesn't upload anything itself. Children replace the default "Drop files here or click to browse" text.
+
+Props:
+
+- `accept`: `string`. Accepted file types (e.g., "image/*,.pdf")
+- `multiple`: `boolean`. Whether multiple files can be selected
+- `disabled`: `boolean`. Whether the upload is disabled
+- `onChange`: `(files: File[]) => void`. Callback when files are selected
+- `onReject`: `(files: File[]) => void`. Callback with the files left out for not matching `accept`, `maxSize` or `multiple`
+- `maxSize`: `number`. Maximum file size in bytes
+
+Also accepts the props of `Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'>`.
 
 ```tsx
 <FileUpload
-  accept="image/*"
+  accept="image/*,.pdf"
   multiple
   maxSize={5_000_000}
-  onChange={(files) => setFiles(files)}
+  onChange={(files) => upload(files)}
+  onReject={(files) => setError(`${files.length} file(s) skipped`)}
 />
 ```
 
 ---
 
-## Stepper + Step
+## MultiSelect
 
-Import: `import { Stepper, Step } from 'harmonium'`
+`import {MultiSelect} from 'harmonium/multi-select'` (or from `'harmonium'`)
 
-Stepper props (extends `<div>` HTML attributes):
-- activeStep: number — required, 0-based index
-- orientation: 'horizontal' | 'vertical' (default: 'horizontal')
+Plain HTML classes: `hm-multi-select`, `hm-multi-select-control`, `hm-multi-select-input`, `hm-multi-select-list`, `hm-multi-select-option`, `hm-multi-select-popup`, `hm-multi-select-positioner`, `hm-multi-select-tag`, `hm-multi-select-tag-remove`
 
-Step props (extends `<div>` HTML attributes):
-- label: string — required
-- description: string
+### MultiSelect
 
-Stepper automatically injects `stepNumber` and `data-state` ('completed' | 'active' | 'pending') into Step children.
+A searchable multi-select. Selected options show as removable tags (Backspace removes the last one); typing filters the list. Follows the ARIA combobox pattern. Controlled with `value` + `onChange`, or uncontrolled with `defaultValue`. Wired to the surrounding `Field`.
+
+Props:
+
+- `options`: `MultiSelectOption[]` **required**. Available options
+- `value`: `string[]`. Currently selected values (controlled)
+- `defaultValue`: `string[]`. Initially selected values when uncontrolled
+- `onChange`: `(value: string[]) => void`. Callback when selection changes
+- `placeholder`: `string` (default: `'Select...'`). Placeholder text
+- `disabled`: `boolean`. Whether the component is disabled
+
+Also accepts the props of `Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange' | 'defaultValue'>`.
+
+```tsx
+<Field>
+  <FieldLabel>Labels</FieldLabel>
+  <MultiSelect
+    options={[{value: 'bug', label: 'Bug'}, {value: 'docs', label: 'Docs'}]}
+    value={labels}
+    onChange={setLabels}
+  />
+</Field>
+```
+
+### MultiSelectOption
+
+An option of a `MultiSelect`.
+
+Fields:
+
+- `value`: `string` **required**. Value included in `onChange`'s array when selected
+- `label`: `string` **required**. Text shown in the list and on the selected tag, and matched by search
+
+---
+
+## Button
+
+`import {Button} from 'harmonium/button'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-button`
+
+Data attributes: `data-expanded`, `data-size`, `data-variant`
+
+### Button
+
+A native `<button>` with variants and sizes.
+
+Props:
+
+- `variant`: `'primary' | 'secondary' | 'outline' | 'ghost'` (default: `'primary'`). Visual style variant
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size of the button
+- `expanded`: `boolean`. Whether the button should take full width
+
+Also accepts the props of `React.ButtonHTMLAttributes<HTMLButtonElement>`.
+
+```tsx
+<Button onClick={save}>Save</Button>
+<Button variant="outline" disabled>Cancel</Button>
+<Button variant="ghost" size="sm">Edit</Button>
+<Button expanded>Full width</Button>
+```
+
+---
+
+## ToggleGroup
+
+`import {ToggleGroup, ToggleGroupItem} from 'harmonium/toggle-group'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-toggle-group`, `hm-toggle-group-item`
+
+Data attributes: `data-size`, `data-state`
+
+### ToggleGroup
+
+A set of toggle buttons where one is selected, like a segmented control.
+
+Built on Base UI: the group is one tab stop, arrow keys (and Home/End) move focus between items, and each item reports its state with `aria-pressed`. Pressing the selected item again keeps it selected. Controlled with `value` + `onValueChange`, or uncontrolled with `defaultValue`.
+
+Props:
+
+- `value`: `string`. Currently selected value (controlled)
+- `defaultValue`: `string`. Default selected value (uncontrolled)
+- `onValueChange`: `(value: string) => void`. Callback when the selected value changes
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size of the toggle group
+
+Also accepts the props of `Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue'>`.
+
+```tsx
+<ToggleGroup defaultValue="grid" aria-label="View">
+  <ToggleGroupItem value="grid">Grid</ToggleGroupItem>
+  <ToggleGroupItem value="list">List</ToggleGroupItem>
+</ToggleGroup>
+```
+
+### ToggleGroupItem
+
+A toggle button in a `ToggleGroup`, pressed while its `value` is selected.
+
+Props:
+
+- `value`: `string` **required**. Value of this item
+
+Also accepts the props of `Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'>`.
+
+---
+
+## Card
+
+`import {Card, CardHeader, CardBody, CardFooter} from 'harmonium/card'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-card`, `hm-card-body`, `hm-card-footer`, `hm-card-header`
+
+Data attributes: `data-padding`, `data-variant`
+
+### Card
+
+A content container, with optional `CardHeader`, `CardBody` and `CardFooter` sections.
+
+Props:
+
+- `variant`: `'elevated' | 'outlined' | 'filled'` (default: `'elevated'`). Visual variant
+- `padding`: `'none' | 'sm' | 'md' | 'lg'` (default: `'md'`). Padding size
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<Card variant="outlined">
+  <CardHeader>Plan</CardHeader>
+  <CardBody>You're on the free plan.</CardBody>
+  <CardFooter><Button size="sm">Upgrade</Button></CardFooter>
+</Card>
+```
+
+### CardHeader
+
+The top section of a `Card`, usually its title.
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+### CardBody
+
+The main content of a `Card`.
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+### CardFooter
+
+The bottom section of a `Card`, usually actions.
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+---
+
+## Badge
+
+`import {Badge} from 'harmonium/badge'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-badge`
+
+Data attributes: `data-size`, `data-variant`
+
+### Badge
+
+A short status label.
+
+Props:
+
+- `variant`: `'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'neutral'` (default: `'neutral'`). Visual variant
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size
+
+Also accepts the props of `React.HTMLAttributes<HTMLSpanElement>`.
+
+```tsx
+<Badge variant="success">Active</Badge>
+<Badge variant="warning" size="sm">Pending</Badge>
+```
+
+---
+
+## Alert
+
+`import {Alert} from 'harmonium/alert'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-alert`, `hm-alert-content`, `hm-alert-dismiss`
+
+Data attributes: `data-variant`
+
+### Alert
+
+A message banner. `info` and `success` use `role="status"` (announced politely); `warning` and `error` use `role="alert"`. With `dismissible` it shows a "Dismiss" button that calls `onDismiss`; removing the alert is up to you.
+
+Props:
+
+- `variant`: `'info' | 'success' | 'warning' | 'error'` (default: `'info'`). Visual variant
+- `dismissible`: `boolean`. Whether the alert can be dismissed
+- `onDismiss`: `() => void`. Callback when the alert is dismissed
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<Alert variant="success">Your changes were saved.</Alert>
+<Alert variant="error" dismissible onDismiss={() => setError(null)}>
+  Couldn't save your changes.
+</Alert>
+```
+
+---
+
+## Progress
+
+`import {Progress} from 'harmonium/progress'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-progress`, `hm-progress-bar`, `hm-progress-label`
+
+Data attributes: `data-size`, `data-variant`
+
+### Progress
+
+A progress bar (`role="progressbar"`). `showLabel` adds the percentage below the bar.
+
+Props:
+
+- `value`: `number` (default: `0`). Current value, from 0 to `max`
+- `max`: `number` (default: `100`). Maximum value
+- `variant`: `'primary' | 'secondary' | 'success' | 'warning' | 'error'` (default: `'primary'`). Visual variant
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size
+- `showLabel`: `boolean`. Whether to show the value label
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<Progress value={uploaded} max={total} aria-label="Upload progress" showLabel />
+```
+
+---
+
+## Spinner
+
+`import {Spinner} from 'harmonium/spinner'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-spinner`, `hm-spinner-circle`
+
+Data attributes: `data-size`
+
+### Spinner
+
+A loading indicator, announced as `role="status"` with `label`.
+
+Props:
+
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size of the spinner
+- `label`: `string` (default: `'Loading'`). Accessible label
+
+Also accepts the props of `React.HTMLAttributes<HTMLSpanElement>`.
+
+```tsx
+<Spinner />
+<Spinner size="sm" label="Saving" />
+```
+
+---
+
+## Avatar
+
+`import {Avatar} from 'harmonium/avatar'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-avatar`, `hm-avatar-fallback`, `hm-avatar-image`
+
+Data attributes: `data-size`
+
+### Avatar
+
+A user's picture, or `fallback` text (usually initials) when there's no `src` or the image fails to load. The fallback is announced as an image named by `alt`, else `fallback`.
+
+Props:
+
+- `src`: `string`. Image source URL
+- `alt`: `string` (default: `''`). Alt text for the image
+- `fallback`: `string`. Fallback text (typically initials) shown when no image
+- `size`: `'sm' | 'md' | 'lg' | 'xl'` (default: `'md'`). Size of the avatar
+
+Also accepts the props of `React.HTMLAttributes<HTMLSpanElement>`.
+
+```tsx
+<Avatar src={user.photoUrl} alt={user.name} fallback="JD" />
+<Avatar fallback="JD" size="lg" />
+```
+
+---
+
+## Skeleton
+
+`import {Skeleton} from 'harmonium/skeleton'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-skeleton`
+
+Data attributes: `data-variant`
+
+### Skeleton
+
+A pulsing placeholder shown while content loads. Numbers for `width` and `height` are pixels. The pulse stops under `prefers-reduced-motion`.
+
+Props:
+
+- `width`: `string | number`. Width of the skeleton
+- `height`: `string | number`. Height of the skeleton
+- `variant`: `'text' | 'circular' | 'rectangular'` (default: `'text'`). Shape variant
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<Skeleton variant="circular" width={40} height={40} />
+<Skeleton width="60%" />
+```
+
+---
+
+## Tag
+
+`import {Tag} from 'harmonium/tag'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-tag`, `hm-tag-icon`, `hm-tag-label`, `hm-tag-remove`
+
+Data attributes: `data-size`, `data-variant`
+
+### Tag
+
+A label for a category, filter or selection. With `removable` it shows a remove button named "Remove <label>" that calls `onRemove`.
+
+Props:
+
+- `variant`: `'primary' | 'secondary' | 'success' | 'warning' | 'error' | 'neutral'` (default: `'neutral'`). Visual variant
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size
+- `removable`: `boolean`. Whether the tag can be removed
+- `onRemove`: `() => void`. Callback when the remove button is clicked
+- `icon`: `React.ReactNode`. Optional icon or avatar rendered before the label
+
+Also accepts the props of `React.HTMLAttributes<HTMLSpanElement>`.
+
+```tsx
+<Tag variant="primary">Design</Tag>
+<Tag removable onRemove={() => removeFilter('bug')}>bug</Tag>
+```
+
+---
+
+## EmptyState
+
+`import {EmptyState} from 'harmonium/empty-state'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-empty-state`, `hm-empty-state-action`, `hm-empty-state-description`, `hm-empty-state-icon`, `hm-empty-state-title`
+
+Data attributes: `data-size`
+
+### EmptyState
+
+A placeholder for when there's nothing to show yet: icon, title, description and an action.
+
+Props:
+
+- `icon`: `React.ReactNode`. Icon or illustration displayed above the title
+- `title`: `string` **required**. Primary heading text
+- `description`: `string`. Supporting description text
+- `action`: `React.ReactNode`. Action element (typically a Button) displayed below the description
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Size of the empty state
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<EmptyState
+  title="No projects yet"
+  description="Create a project to get started."
+  action={<Button onClick={create}>New project</Button>}
+/>
+```
+
+---
+
+## Stat
+
+`import {Stat} from 'harmonium/stat'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-stat`, `hm-stat-change`, `hm-stat-header`, `hm-stat-icon`, `hm-stat-label`, `hm-stat-value`
+
+Data attributes: `data-trend`
+
+### Stat
+
+A key metric: label, value and an optional change colored by `trend`.
+
+Props:
+
+- `label`: `string` **required**. Label describing the metric
+- `value`: `string | number` **required**. Formatted value to display
+- `change`: `string`. Change indicator (e.g., "+12%", "-3.2%")
+- `trend`: `'up' | 'down' | 'neutral'`. Trend direction for visual styling
+- `icon`: `React.ReactNode`. Optional icon or sparkline rendered alongside the value
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<Grid columns={{base: 1, md: 3}} gap="md">
+  <Stat label="Revenue" value="$48,200" change="+12%" trend="up" />
+  <Stat label="Churn" value="2.1%" change="-0.4%" trend="down" />
+</Grid>
+```
+
+---
+
+## Tabs
+
+`import {Tabs, TabsList, TabsTrigger, TabsContent} from 'harmonium/tabs'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-tabs`, `hm-tabs-content`, `hm-tabs-list`, `hm-tabs-trigger`
+
+Data attributes: `data-state`
+
+### Tabs
+
+Tabbed panels: one `TabsContent` shows at a time.
+
+Built on Base UI: arrow keys (and Home/End) move between tabs with a roving tabindex, and each tab is wired to its panel with `aria-controls` / `aria-labelledby`. Controlled with `value` + `onValueChange`, or uncontrolled with `defaultValue`.
+
+Props:
+
+- `value`: `string`. Currently active tab ID (controlled)
+- `defaultValue`: `string`. Default active tab ID (uncontrolled). When omitted, the first enabled tab is selected.
+- `onValueChange`: `(value: string) => void`. Callback when active tab changes
+
+Also accepts the props of `Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue'>`.
+
+```tsx
+<Tabs defaultValue="profile">
+  <TabsList aria-label="Settings">
+    <TabsTrigger value="profile">Profile</TabsTrigger>
+    <TabsTrigger value="billing">Billing</TabsTrigger>
+  </TabsList>
+  <TabsContent value="profile">…</TabsContent>
+  <TabsContent value="billing">…</TabsContent>
+</Tabs>
+```
+
+### TabsList
+
+The row of `TabsTrigger`s (`role="tablist"`).
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+### TabsTrigger
+
+A tab (`role="tab"`) that shows the `TabsContent` with the same `value`.
+
+Props:
+
+- `value`: `string` **required**. Tab ID this trigger controls
+
+Also accepts the props of `Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'>`.
+
+### TabsContent
+
+The panel (`role="tabpanel"`) shown while its tab is active.
+
+Props:
+
+- `value`: `string` **required**. Tab ID this content belongs to
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+---
+
+## Accordion
+
+`import {Accordion, AccordionItem, AccordionTrigger, AccordionContent} from 'harmonium/accordion'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-accordion`, `hm-accordion-chevron`, `hm-accordion-content`, `hm-accordion-header`, `hm-accordion-item`, `hm-accordion-trigger`
+
+Data attributes: `data-state`
+
+### Accordion
+
+Expandable sections. One item opens at a time unless `multiple`. Each trigger sits in an `<h3>`, toggles `aria-expanded` and controls a labelled `region` panel. Controlled with `value` + `onValueChange`, or uncontrolled with `defaultValue`.
+
+Props:
+
+- `multiple`: `boolean` (default: `false`). Allow multiple items to be open simultaneously
+- `value`: `string | string[]`. Currently open item(s) (controlled)
+- `defaultValue`: `string | string[]`. Default open item(s) (uncontrolled)
+- `onValueChange`: `(value: string[]) => void`. Callback when open items change
+
+Also accepts the props of `Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue'>`.
+
+```tsx
+<Accordion defaultValue="shipping">
+  <AccordionItem value="shipping">
+    <AccordionTrigger value="shipping">Shipping</AccordionTrigger>
+    <AccordionContent value="shipping">Ships in 2 days.</AccordionContent>
+  </AccordionItem>
+  <AccordionItem value="returns">
+    <AccordionTrigger value="returns">Returns</AccordionTrigger>
+    <AccordionContent value="returns">30-day returns.</AccordionContent>
+  </AccordionItem>
+</Accordion>
+```
+
+### AccordionItem
+
+One section of an `Accordion`: wraps its `AccordionTrigger` and `AccordionContent`.
+
+Props:
+
+- `value`: `string` **required**. Unique item value
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+### AccordionTrigger
+
+The button that opens and closes its `AccordionItem`, rendered inside an `<h3>` heading. `ref`, `className` and other props go to the button.
+
+Props:
+
+- `value`: `string` **required**. Item value this trigger controls (the enclosing `AccordionItem` decides)
+
+Also accepts the props of `Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'>`.
+
+### AccordionContent
+
+The collapsible panel of an `AccordionItem`, labelled by its trigger.
+
+Props:
+
+- `value`: `string` **required**. Item value this content belongs to (the enclosing `AccordionItem` decides)
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+---
+
+## Breadcrumbs
+
+`import {Breadcrumbs, BreadcrumbItem} from 'harmonium/breadcrumbs'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-breadcrumbs`, `hm-breadcrumbs-active`, `hm-breadcrumbs-item`, `hm-breadcrumbs-link`, `hm-breadcrumbs-list`, `hm-breadcrumbs-separator`
+
+### Breadcrumbs
+
+A breadcrumb trail: a `<nav aria-label="Breadcrumb">` with an ordered list of `BreadcrumbItem`s and a decorative separator between them.
+
+Props:
+
+- `separator`: `React.ReactNode` (default: `'/'`). Custom separator between items
+
+Also accepts the props of `React.HTMLAttributes<HTMLElement>`.
+
+```tsx
+<Breadcrumbs>
+  <BreadcrumbItem href="/">Home</BreadcrumbItem>
+  <BreadcrumbItem href="/projects">Projects</BreadcrumbItem>
+  <BreadcrumbItem active>Harmonium</BreadcrumbItem>
+</Breadcrumbs>
+```
+
+### BreadcrumbItem
+
+One breadcrumb: a link, or with `active` the current page, rendered as a `<span aria-current="page">` without the link attributes.
+
+Props:
+
+- `active`: `boolean`. Whether this is the current/active page
+
+Also accepts the props of `React.AnchorHTMLAttributes<HTMLAnchorElement>`.
+
+---
+
+## Pagination
+
+`import {Pagination} from 'harmonium/pagination'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-pagination`, `hm-pagination-button`, `hm-pagination-ellipsis`
+
+Data attributes: `data-active`
+
+### Pagination
+
+Previous/next buttons and page numbers. Shows at most `maxVisible` page buttons, always including the first and last page, with an ellipsis for skipped pages. It's controlled: update `page` in `onPageChange`.
+
+Props:
+
+- `page`: `number` **required**. Current active page (1-based)
+- `totalPages`: `number` **required**. Total number of pages
+- `onPageChange`: `(page: number) => void` **required**. Callback when page changes
+- `maxVisible`: `number` (default: `5`). Maximum number of visible page buttons
+
+Also accepts the props of `React.HTMLAttributes<HTMLElement>`.
+
+```tsx
+<Pagination page={page} totalPages={20} onPageChange={setPage} />
+```
+
+---
+
+## TopBar
+
+`import {TopBar, TopBarSection} from 'harmonium/top-bar'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-top-bar`, `hm-top-bar-inner`, `hm-top-bar-section`
+
+Data attributes: `data-align`, `data-fixed`
+
+### TopBar
+
+An application header bar (`<header>`) with `TopBarSection`s aligned left, center or right. `fixed` pins it to the top of the viewport.
+
+Props:
+
+- `fixed`: `boolean`. Whether the TopBar is fixed to the top
+
+Also accepts the props of `React.HTMLAttributes<HTMLElement>`.
+
+```tsx
+<TopBar>
+  <TopBarSection align="left"><strong>Acme</strong></TopBarSection>
+  <TopBarSection align="right"><Avatar fallback="JD" size="sm" /></TopBarSection>
+</TopBar>
+```
+
+### TopBarSection
+
+A group of items in a `TopBar`, aligned with `align`.
+
+Props:
+
+- `align`: `'left' | 'center' | 'right'` (default: `'left'`). Alignment of this section
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+---
+
+## Table
+
+`import {Table, TableHead, TableBody, TableRow, TableHeader, TableCell} from 'harmonium/table'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-table`, `hm-table-body`, `hm-table-cell`, `hm-table-head`, `hm-table-header-cell`, `hm-table-responsive`, `hm-table-row`
+
+Data attributes: `data-hoverable`, `data-striped`
+
+### Table
+
+A semantic HTML table built from `TableHead`, `TableBody`, `TableRow`, `TableHeader` (`<th>`) and `TableCell` (`<td>`). For column definitions and sorting, use `DataGrid`.
+
+Props:
+
+- `striped`: `boolean`. Whether to apply striped row styling
+- `hoverable`: `boolean`. Whether to apply hover styling to rows
+- `responsive`: `boolean`. Whether the table should scroll horizontally. When it overflows, the scroll container becomes keyboard focusable and, if the table has an `aria-label`/`aria-labelledby`, a region with the same name.
+
+Also accepts the props of `React.TableHTMLAttributes<HTMLTableElement>`.
+
+```tsx
+<Table striped hoverable responsive aria-label="Invoices">
+  <TableHead>
+    <TableRow><TableHeader>Invoice</TableHeader><TableHeader>Amount</TableHeader></TableRow>
+  </TableHead>
+  <TableBody>
+    <TableRow><TableCell>#1024</TableCell><TableCell>$120</TableCell></TableRow>
+  </TableBody>
+</Table>
+```
+
+### TableHead
+
+The `<thead>` of a `Table`.
+
+Also accepts the props of `HTMLAttributes<HTMLTableSectionElement>`.
+
+### TableBody
+
+The `<tbody>` of a `Table`.
+
+Also accepts the props of `HTMLAttributes<HTMLTableSectionElement>`.
+
+### TableRow
+
+A `<tr>` of a `Table`.
+
+Also accepts the props of `HTMLAttributes<HTMLTableRowElement>`.
+
+### TableHeader
+
+A header cell (`<th>`) of a `Table`.
+
+Also accepts the props of `ThHTMLAttributes<HTMLTableCellElement>`.
+
+### TableCell
+
+A data cell (`<td>`) of a `Table`.
+
+Also accepts the props of `TdHTMLAttributes<HTMLTableCellElement>`.
+
+---
+
+## DataGrid
+
+`import {DataGrid} from 'harmonium/data-grid'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-data-grid`, `hm-data-grid-body`, `hm-data-grid-cell`, `hm-data-grid-head`, `hm-data-grid-header-cell`, `hm-data-grid-row`, `hm-data-grid-sort-button`, `hm-data-grid-sort-icon`, `hm-data-grid-wrapper`
+
+Data attributes: `data-hoverable`, `data-striped`
+
+### DataGrid
+
+A table driven by `columns` and `data`. Clicking a `sortable` header cycles ascending, descending, unsorted. Without `sort`, DataGrid sorts `data` itself (by `row[key]`, or the column's `sortValue`; empty values last). With `sort`, it's controlled: rows render in the order you pass, so sort `data` in `onSortChange`. When the grid overflows, its scroll area is keyboard focusable. `aria-label`/`aria-labelledby` name the `<table>`.
+
+Props:
+
+- `columns`: `DataGridColumn<T>[]` **required**. Column definitions
+- `data`: `T[]` **required**. Row data
+- `rowKey`: `(row: T) => string | number` **required**. Function to get a unique key for each row
+- `sort`: `SortState | null`. Current sort state (controlled). When set, `data` is rendered in the order given; sort it yourself in `onSortChange`. Leave it out to let DataGrid sort `data` itself.
+- `defaultSort`: `SortState | null` (default: `null`). Initial sort state when uncontrolled
+- `onSortChange`: `(sort: SortState) => void`. Callback when sort changes
+- `tableProps`: `React.TableHTMLAttributes<HTMLTableElement>`. Extra props for the `<table>` element (the outer `<div>` gets the rest)
+- `striped`: `boolean`. Whether to apply striped styling
+- `hoverable`: `boolean`. Whether rows are hoverable
+
+Also accepts the props of `Omit<React.HTMLAttributes<HTMLDivElement>, 'children'>`.
+
+```tsx
+<DataGrid
+  aria-label="Users"
+  columns={[
+    {key: 'name', header: 'Name', sortable: true},
+    {key: 'joined', header: 'Joined', sortable: true, sortValue: (u) => u.joinedAt, render: (u) => u.joinedAt.toLocaleDateString()},
+    {key: 'status', header: 'Status', render: (u) => <Badge>{u.status}</Badge>},
+  ]}
+  data={users}
+  rowKey={(u) => u.id}
+  defaultSort={{key: 'name', direction: 'asc'}}
+  striped
+  hoverable
+/>
+```
+
+### DataGridColumn
+
+A column of a `DataGrid`.
+
+Fields:
+
+- `key`: `string` **required**. Unique key for the column
+- `header`: `string` **required**. Column header label
+- `render`: `(row: T) => React.ReactNode`. Function to render cell content
+- `sortable`: `boolean`. Whether the column is sortable
+- `sortValue`: `(row: T) => unknown`. Value to sort by when DataGrid sorts `data` itself (uncontrolled sorting). Defaults to `row[key]`.
+- `width`: `string`. Column width
+
+### SortState
+
+The sorted column and direction of a `DataGrid`.
+
+Fields:
+
+- `key`: `string` **required**. `key` of the sorted column
+- `direction`: `SortDirection` **required**. `'asc'`, `'desc'`, or `null` for unsorted
+
+### SortDirection
+
+A sort direction; `null` means unsorted.
+
+```ts
+type SortDirection = 'asc' | 'desc' | null
+```
+
+---
+
+## Dialog
+
+`import {Dialog, DialogHeader, DialogBody, DialogFooter} from 'harmonium/dialog'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-dialog`, `hm-dialog-body`, `hm-dialog-footer`, `hm-dialog-header`, `hm-dialog-overlay`
+
+Data attributes: `data-size`
+
+### Dialog
+
+A modal dialog, rendered in a portal on `document.body`. While open it traps focus, locks page scroll and returns focus on close. It's controlled: it calls `onClose` on Escape or a backdrop click, and you set `open` to false. A `DialogHeader` inside labels it. It has no built-in close button.
+
+Props:
+
+- `open`: `boolean`. Whether the dialog is open
+- `onClose`: `() => void`. Callback when the dialog should close
+- `size`: `'sm' | 'md' | 'lg' | 'full'` (default: `'md'`). Size of the dialog
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<Dialog open={open} onClose={() => setOpen(false)} size="sm">
+  <DialogHeader>Delete project?</DialogHeader>
+  <DialogBody>This can't be undone.</DialogBody>
+  <DialogFooter>
+    <Button variant="outline" onClick={() => setOpen(false)}>Cancel</Button>
+    <Button onClick={remove}>Delete</Button>
+  </DialogFooter>
+</Dialog>
+```
+
+### DialogHeader
+
+The title area of a `Dialog`. Inside a Dialog or Drawer, it also labels the dialog (`aria-labelledby`).
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+### DialogBody
+
+The main content of a `Dialog` or `Drawer`.
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+### DialogFooter
+
+The actions row at the bottom of a `Dialog` or `Drawer`.
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+---
+
+## Drawer
+
+`import {Drawer} from 'harmonium/drawer'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-drawer`, `hm-drawer-overlay`
+
+Data attributes: `data-side`, `data-size`
+
+### Drawer
+
+A modal panel that slides in from the left or right edge. It behaves like `Dialog` (portal, focus trap, scroll lock, `onClose` on Escape or a backdrop click) and can hold `DialogHeader`, `DialogBody` and `DialogFooter`.
+
+Props:
+
+- `open`: `boolean`. Whether the drawer is open
+- `onClose`: `() => void`. Callback when the drawer should close
+- `side`: `'left' | 'right'` (default: `'right'`). Side the drawer slides in from
+- `size`: `'sm' | 'md' | 'lg'` (default: `'md'`). Width of the drawer
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<Drawer open={open} onClose={() => setOpen(false)} side="right" size="sm">
+  <DialogHeader>Filters</DialogHeader>
+  <DialogBody>…</DialogBody>
+</Drawer>
+```
+
+---
+
+## Tooltip
+
+`import {Tooltip} from 'harmonium/tooltip'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-tooltip`, `hm-tooltip-content`, `hm-tooltip-positioner`
+
+### Tooltip
+
+A short description shown when its child is hovered or focused. The child must be focusable (for example a `Button`); it gets `aria-describedby` pointing at the tooltip, merged with any it already has. Closes on Escape.
+
+Props:
+
+- `content`: `React.ReactNode` **required**. Tooltip content
+- `side`: `'top' | 'bottom' | 'left' | 'right'` (default: `'top'`). Side of the trigger to show the tooltip
+- `delay`: `number` (default: `0`). Milliseconds to wait before showing the tooltip on hover (focus shows it immediately)
+
+Also accepts the props of `Omit<React.HTMLAttributes<HTMLDivElement>, 'content'>`.
+
+```tsx
+<Tooltip content="Copy link">
+  <Button variant="ghost" aria-label="Copy link"><CopyIcon /></Button>
+</Tooltip>
+```
+
+---
+
+## Popover
+
+`import {Popover} from 'harmonium/popover'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-popover`, `hm-popover-content`, `hm-popover-positioner`, `hm-popover-trigger`
+
+### Popover
+
+Floating content that opens when its child is clicked. The child (for example a `Button`) becomes the trigger. The popup is portalled, flips when there's no room, and closes on Escape or an outside click, returning focus to the trigger. Uncontrolled by default, or controlled with `open` + `onOpenChange`.
+
+Props:
+
+- `content`: `React.ReactNode` **required**. Popover content
+- `side`: `'top' | 'bottom' | 'left' | 'right'` (default: `'bottom'`). Side of the trigger to show the popover
+- `open`: `boolean`. Whether the popover is open (controlled)
+- `onOpenChange`: `(open: boolean) => void`. Callback when open state changes
+
+Also accepts the props of `Omit<React.HTMLAttributes<HTMLDivElement>, 'content'>`.
+
+```tsx
+<Popover content={<Stack gap="sm">…filters…</Stack>} side="bottom">
+  <Button variant="outline">Filters</Button>
+</Popover>
+```
+
+---
+
+## Menu
+
+`import {Menu, MenuItem, MenuSeparator, MenuLabel} from 'harmonium/menu'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-menu`, `hm-menu-item`, `hm-menu-label`, `hm-menu-positioner`, `hm-menu-separator`
+
+Data attributes: `data-variant`
+
+### Menu
+
+A list of actions. With `trigger` it's a dropdown that opens from that element; without it, it renders inline. Either way it has one tab stop, arrow keys, Home/End and typeahead, and skips disabled items.
+
+Props:
+
+- `trigger`: `React.ReactElement`. Element that opens the menu as a dropdown (e.g. `<Button>Actions</Button>`). Without it, the menu renders inline.
+- `side`: `'top' | 'bottom' | 'left' | 'right'` (default: `'bottom'`). Side of the trigger to show the dropdown
+- `open`: `boolean`. Whether the dropdown is open (controlled)
+- `onOpenChange`: `(open: boolean) => void`. Callback when the dropdown's open state changes
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<Menu trigger={<Button variant="outline">Actions</Button>}>
+  <MenuLabel>Project</MenuLabel>
+  <MenuItem onClick={rename}>Rename</MenuItem>
+  <MenuItem onClick={duplicate}>Duplicate</MenuItem>
+  <MenuSeparator />
+  <MenuItem variant="danger" onClick={remove}>Delete</MenuItem>
+</Menu>
+```
+
+### MenuItem
+
+An action in a `Menu`: a `<button role="menuitem">`. In a dropdown, choosing it closes the menu.
+
+Props:
+
+- `variant`: `'default' | 'danger'` (default: `'default'`). Whether the item is destructive/dangerous
+
+Also accepts the props of `React.ButtonHTMLAttributes<HTMLButtonElement>`.
+
+### MenuSeparator
+
+A divider between groups of `MenuItem`s.
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+### MenuLabel
+
+A non-interactive heading for a group of `MenuItem`s.
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+---
+
+## CommandPalette
+
+`import {CommandPalette} from 'harmonium/command-palette'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-command-palette`, `hm-command-palette-empty`, `hm-command-palette-group-label`, `hm-command-palette-input`, `hm-command-palette-item`, `hm-command-palette-list`, `hm-command-palette-overlay`
+
+Data attributes: `data-highlighted`
+
+### CommandPalette
+
+A modal, searchable command list (the "Command-K" pattern). Typing filters `items` by label, arrow keys move, Enter runs the highlighted command and closes. Opening it is up to you (for example on Cmd/Ctrl+K); it calls `onClose` on Escape, an outside click or after a command runs.
+
+Props:
+
+- `open`: `boolean`. Whether the palette is open
+- `onClose`: `() => void`. Callback when the palette should close
+- `items`: `CommandItem[]` **required**. Available commands
+- `placeholder`: `string` (default: `'Type a command...'`). Placeholder text
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<CommandPalette
+  open={open}
+  onClose={() => setOpen(false)}
+  items={[
+    {id: 'new', label: 'New project', group: 'Projects', onSelect: createProject},
+    {id: 'settings', label: 'Open settings', group: 'Navigation', onSelect: () => navigate('/settings')},
+  ]}
+/>
+```
+
+### CommandItem
+
+A command in a `CommandPalette`.
+
+Fields:
+
+- `id`: `string` **required**. Unique id
+- `label`: `string` **required**. Text shown and matched by the search
+- `group`: `string`. Heading to group the command under; groups appear in order of first use
+- `onSelect`: `() => void` **required**. Runs when the command is chosen; the palette then calls `onClose`
+
+---
+
+## ToastProvider + useToast
+
+`import {ToastProvider, useToast} from 'harmonium/toast'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-toast-container`, `hm-toast-dismiss`, `hm-toast-message`, `hm-toast-toast`
+
+Data attributes: `data-position`, `data-variant`
+
+### ToastProvider
+
+Shows the toasts created with `useToast()`; wrap your app in it once.
+
+Built on Base UI. The viewport is a persistent `aria-live` region, so screen readers announce each toast as it is added; `error` toasts are announced assertively (`role="alert"`). Auto-dismiss timers pause while the pointer is over the stack, while it has keyboard focus (F6 jumps to it) and while the window is in the background.
+
+Props:
+
+- `children`: `React.ReactNode` **required**. Your app, or the part of it that shows toasts
+- `position`: `'top-right' | 'top-left' | 'bottom-right' | 'bottom-left'` (default: `'bottom-right'`). Position of toast stack
+
+```tsx
+<ToastProvider position="top-right">
+  <App />
+</ToastProvider>
+```
+
+### useToast
+
+Shows toasts from anywhere inside a `ToastProvider`. Returns `toast({message, variant, duration})`, which returns the toast's id, and `dismiss(id)`. Throws outside a `ToastProvider`.
+
+```ts
+useToast(): ToastContextValue
+```
+
+```tsx
+const {toast} = useToast()
+toast({message: 'Saved', variant: 'success'})
+```
+
+### ToastData
+
+A toast, as passed to `toast()` (without `id`).
+
+Fields:
+
+- `id`: `string` **required**. Id returned by `toast()`, for `dismiss(id)`
+- `message`: `React.ReactNode` **required**. The message
+- `variant`: `'info' | 'success' | 'warning' | 'error'`. Color and urgency; `error` toasts are announced assertively. Defaults to `'info'`.
+- `duration`: `number`. Milliseconds before it closes itself. Defaults to 5000; `0` or `Infinity` keeps it open until dismissed.
+
+---
+
+## Stepper
+
+`import {Stepper, Step} from 'harmonium/stepper'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-stepper`, `hm-stepper-connector`, `hm-stepper-content`, `hm-stepper-description`, `hm-stepper-indicator`, `hm-stepper-label`, `hm-stepper-step`
+
+Data attributes: `data-orientation`, `data-state`
+
+### Stepper
+
+Progress through a multi-step flow. Steps before `activeStep` show as completed, the active one gets `aria-current="step"`. It only displays the steps; moving between them is up to you.
+
+Props:
+
+- `activeStep`: `number` **required**. Current active step (0-based)
+- `orientation`: `'horizontal' | 'vertical'` (default: `'horizontal'`). Orientation of the stepper
+- `completedLabel`: `string` (default: `'Completed'`). Text announced to screen readers for completed steps, whose indicator shows only a check mark.
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
 
 ```tsx
 <Stepper activeStep={1}>
-  <Step label="Account" description="Create your account" />
-  <Step label="Profile" description="Fill in your profile" />
-  <Step label="Review" description="Review and submit" />
+  <Step label="Account" />
+  <Step label="Profile" description="Tell us about you" />
+  <Step label="Confirm" />
 </Stepper>
+```
+
+### Step
+
+One step of a `Stepper`. Its number and state come from the Stepper.
+
+Props:
+
+- `label`: `string` **required**. Label for the step
+- `description`: `string`. Optional description
+- `stepNumber`: `number`. Step number (injected by Stepper)
+- `completedLabel`: `string` (default: `'Completed'`). Text announced to screen readers for a completed step
+- `data-state`: `'completed' | 'active' | 'pending'`. State (injected by Stepper)
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+---
+
+## PricingTable
+
+`import {PricingTable, PricingCard, PricingCardHeader, PricingCardPrice, PricingCardFeatures, PricingCardFeature, PricingCardFooter} from 'harmonium/pricing-table'` (or from `'harmonium'`)
+
+Plain HTML classes: `hm-pricing-table`, `hm-pricing-table-amount`, `hm-pricing-table-card`, `hm-pricing-table-card-footer`, `hm-pricing-table-card-header`, `hm-pricing-table-card-price`, `hm-pricing-table-feature`, `hm-pricing-table-feature-check`, `hm-pricing-table-features`, `hm-pricing-table-period`
+
+Data attributes: `data-featured`, `data-included`
+
+### PricingTable
+
+A responsive row of `PricingCard`s, one per plan. Columns wrap onto more rows on narrow screens.
+
+Props:
+
+- `columns`: `number`. Number of columns (auto-fits to content by default)
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+```tsx
+<PricingTable>
+  <PricingCard>
+    <PricingCardHeader>Free</PricingCardHeader>
+    <PricingCardPrice amount="$0" period="/month" />
+    <PricingCardFeatures>
+      <PricingCardFeature>1 project</PricingCardFeature>
+      <PricingCardFeature included={false}>Custom domains</PricingCardFeature>
+    </PricingCardFeatures>
+    <PricingCardFooter><Button variant="outline" expanded>Start free</Button></PricingCardFooter>
+  </PricingCard>
+  <PricingCard featured>
+    <PricingCardHeader>Pro</PricingCardHeader>
+    <PricingCardPrice amount="$29" period="/month" />
+    <PricingCardFeatures>
+      <PricingCardFeature>Unlimited projects</PricingCardFeature>
+      <PricingCardFeature>Custom domains</PricingCardFeature>
+    </PricingCardFeatures>
+    <PricingCardFooter><Button expanded>Upgrade</Button></PricingCardFooter>
+  </PricingCard>
+</PricingTable>
+```
+
+### PricingCard
+
+One plan in a `PricingTable`; `featured` highlights it.
+
+Props:
+
+- `featured`: `boolean`. Whether this is the highlighted/recommended plan
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+### PricingCardHeader
+
+The plan name at the top of a `PricingCard`.
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+### PricingCardPrice
+
+The price of a `PricingCard`, with an optional billing period.
+
+Props:
+
+- `amount`: `string` **required**. Formatted price string (e.g., "$29")
+- `period`: `string`. Billing period (e.g., "/month", "/year")
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+### PricingCardFeatures
+
+The feature list of a `PricingCard`, a `<ul>` of `PricingCardFeature`s.
+
+Also accepts the props of `React.HTMLAttributes<HTMLUListElement>`.
+
+### PricingCardFeature
+
+One feature of a plan, with a check mark, or a cross when `included={false}` (announced with `excludedLabel`).
+
+Props:
+
+- `included`: `boolean` (default: `true`). Whether this feature is included
+- `excludedLabel`: `string` (default: `'Not included:'`). Text announced to screen readers before an excluded feature, whose cross mark is decorative
+
+Also accepts the props of `React.HTMLAttributes<HTMLLIElement>`.
+
+### PricingCardFooter
+
+The call to action at the bottom of a `PricingCard`.
+
+Also accepts the props of `React.HTMLAttributes<HTMLDivElement>`.
+
+---
+
+## Responsive values
+
+`import {breakpoints} from 'harmonium'`
+
+### breakpoints
+
+Minimum viewport widths, in px, of the breakpoints used by responsive props (`{base, sm, md, lg, xl}`) and `Show`.
+
+```ts
+{ readonly sm: 640; readonly md: 768; readonly lg: 1024; readonly xl: 1280; }
+```
+
+### Breakpoint
+
+A breakpoint name: `'sm' | 'md' | 'lg' | 'xl'`.
+
+```ts
+type Breakpoint = keyof typeof breakpoints
+```
+
+### ResponsiveValue
+
+A prop value that can change with screen width: a single value, or an object keyed by breakpoint (`{base: 'sm', md: 'lg'}`), where each key applies from that breakpoint up.
+
+```ts
+type ResponsiveValue<T> = T | {base?: T; sm?: T; md?: T; lg?: T; xl?: T}
 ```
 
 ---

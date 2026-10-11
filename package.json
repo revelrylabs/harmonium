@@ -10,7 +10,8 @@
     "storybook": "pnpm --filter docs run storybook",
     "clean": "turbo run clean",
     "changeset": "changeset",
-    "version-packages": "changeset version && pnpm install --lockfile-only"
+    "version-packages": "changeset version && pnpm install --lockfile-only && pnpm docs:llms",
+    "docs:llms": "pnpm --filter harmonium run docs:llms"
   },
   "devDependencies": {
     "@changesets/cli": "^3.0.3",

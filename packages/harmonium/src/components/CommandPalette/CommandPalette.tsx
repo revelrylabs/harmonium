@@ -4,10 +4,15 @@ import {clsx} from 'clsx'
 import {useCloseHandler} from '../Dialog/Dialog'
 import styles from './CommandPalette.module.css'
 
+/** A command in a `CommandPalette`. */
 export interface CommandItem {
+  /** Unique id */
   id: string
+  /** Text shown and matched by the search */
   label: string
+  /** Heading to group the command under; groups appear in order of first use */
   group?: string
+  /** Runs when the command is chosen; the palette then calls `onClose` */
   onSelect: () => void
 }
 
@@ -51,7 +56,24 @@ function buildGroupedItems(filtered: CommandItem[]): {
   return {groups, ordered}
 }
 
-export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPaletteProps>(
+/**
+ * A modal, searchable command list (the "Command-K" pattern). Typing filters
+ * `items` by label, arrow keys move, Enter runs the highlighted command and
+ * closes. Opening it is up to you (for example on Cmd/Ctrl+K); it calls
+ * `onClose` on Escape, an outside click or after a command runs.
+ *
+ * @category Overlays
+ * @example
+ * <CommandPalette
+ *   open={open}
+ *   onClose={() => setOpen(false)}
+ *   items={[
+ *     {id: 'new', label: 'New project', group: 'Projects', onSelect: createProject},
+ *     {id: 'settings', label: 'Open settings', group: 'Navigation', onSelect: () => navigate('/settings')},
+ *   ]}
+ * />
+ */
+export const CommandPalette =React.forwardRef<HTMLDivElement, CommandPaletteProps>(
   ({open, onClose, items, placeholder = 'Type a command...', className, ...props}, ref) => {
     const [query, setQuery] = React.useState('')
     const [highlightIndex, setHighlightIndex] = React.useState(0)

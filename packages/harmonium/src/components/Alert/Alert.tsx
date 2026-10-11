@@ -11,7 +11,20 @@ export interface AlertProps extends React.HTMLAttributes<HTMLDivElement> {
   onDismiss?: () => void
 }
 
-export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
+/**
+ * A message banner. `info` and `success` use `role="status"` (announced
+ * politely); `warning` and `error` use `role="alert"`. With `dismissible` it
+ * shows a "Dismiss" button that calls `onDismiss`; removing the alert is up
+ * to you.
+ *
+ * @category Display
+ * @example
+ * <Alert variant="success">Your changes were saved.</Alert>
+ * <Alert variant="error" dismissible onDismiss={() => setError(null)}>
+ *   Couldn't save your changes.
+ * </Alert>
+ */
+export const Alert =React.forwardRef<HTMLDivElement, AlertProps>(
   ({variant = 'info', dismissible, onDismiss, className, children, ...props}, ref) => {
     return (
       <div

@@ -10,7 +10,17 @@ export interface ShowProps extends React.HTMLAttributes<HTMLDivElement> {
   below?: Breakpoint
 }
 
-export const Show = React.forwardRef<HTMLDivElement, ShowProps>(
+/**
+ * Shows its children only at some screen widths, using the `breakpoints`
+ * (sm 640px, md 768px, lg 1024px, xl 1280px). It hides them with CSS, so they
+ * are still rendered.
+ *
+ * @category Layout
+ * @example
+ * <Show below="md"><MobileNav /></Show>
+ * <Show above="md"><DesktopNav /></Show>
+ */
+export const Show =React.forwardRef<HTMLDivElement, ShowProps>(
   ({above, below, className, children, ...props}, ref) => {
     return (
       <div

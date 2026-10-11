@@ -61,13 +61,13 @@ export const WithError: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
-      <Input size="sm" placeholder="Small" />
-      <Input size="md" placeholder="Medium" />
-      <Input size="lg" placeholder="Large" />
+      <Input size="sm" placeholder="Small" aria-label="Small input" />
+      <Input size="md" placeholder="Medium" aria-label="Medium input" />
+      <Input size="lg" placeholder="Large" aria-label="Large input" />
     </div>
   ),
 }
 
 export const Disabled: Story = {
-  render: () => <Input placeholder="Disabled input" disabled />,
+  render: () => <Input placeholder="Disabled input" aria-label="Disabled input" disabled />,
 }

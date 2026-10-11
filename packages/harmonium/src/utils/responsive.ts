@@ -1,5 +1,10 @@
 export type Breakpoint = 'sm' | 'md' | 'lg' | 'xl'
 
+/**
+ * A prop value that can change with screen width: a single value, or an
+ * object keyed by breakpoint (`{base: 'sm', md: 'lg'}`), where each key
+ * applies from that breakpoint up.
+ */
 export type ResponsiveValue<T> =
   | T
   | {base?: T; sm?: T; md?: T; lg?: T; xl?: T}

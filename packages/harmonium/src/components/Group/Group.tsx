@@ -13,11 +13,22 @@ export interface GroupProps extends React.HTMLAttributes<HTMLDivElement> {
   justify?: ResponsiveValue<'start' | 'center' | 'end' | 'between' | 'around'>
   /** Whether items should wrap */
   wrap?: ResponsiveValue<boolean>
-  /** Whether the group should grow to fill available space */
+  /** Whether every item grows to share the row's width equally (`flex: 1`) */
   grow?: ResponsiveValue<boolean>
 }
 
-export const Group = React.forwardRef<HTMLDivElement, GroupProps>(
+/**
+ * Lays out items in a row. Props take a single value or a responsive object
+ * (`{base: true, md: false}`).
+ *
+ * @category Layout
+ * @example
+ * <Group justify="end" gap="sm">
+ *   <Button variant="outline">Cancel</Button>
+ *   <Button>Save</Button>
+ * </Group>
+ */
+export const Group =React.forwardRef<HTMLDivElement, GroupProps>(
   ({gap = 'md', align, justify, wrap, grow, className, children, ...props}, ref) => {
     return (
       <div

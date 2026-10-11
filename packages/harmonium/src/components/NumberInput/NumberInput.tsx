@@ -54,13 +54,23 @@ function roundToStep(value: number, step: number, from: number | null) {
 const FORMAT: Intl.NumberFormatOptions = {useGrouping: false, maximumFractionDigits: 20}
 
 /**
- * A number input with stepper buttons, built on Base UI's NumberField. The
+ * A number input with decrement and increment buttons. Arrow keys step by
+ * `step`; typed values are clamped to `min`/`max` on blur or Enter.
+ *
+ * Built on Base UI's NumberField. The
  * visible input is a text field with `role="spinbutton"`; a hidden
  * `<input type="number">` carries `name`/`value` for form submission.
  *
  * Prop routing: `className` goes on the root `<div>`; `id`, `name`, `form`,
  * `disabled`, `readOnly` and `required` configure the field (and reach the
  * stepper buttons); `ref` and every other attribute go on the visible input.
+ *
+ * @category Forms
+ * @example
+ * <Field>
+ *   <FieldLabel>Quantity</FieldLabel>
+ *   <NumberInput min={1} max={10} value={qty} onChange={setQty} />
+ * </Field>
  */
 export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
   (

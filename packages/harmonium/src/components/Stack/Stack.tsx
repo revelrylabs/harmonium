@@ -17,7 +17,20 @@ export interface StackProps extends React.HTMLAttributes<HTMLDivElement> {
   wrap?: ResponsiveValue<boolean>
 }
 
-export const Stack = React.forwardRef<HTMLDivElement, StackProps>(
+/**
+ * Lays out items in a column (or a row with `direction="horizontal"`) with
+ * consistent gaps. Props take a single value or a responsive object
+ * (`{base: 'vertical', md: 'horizontal'}`).
+ *
+ * @category Layout
+ * @example
+ * <Stack gap="lg">
+ *   <Heading>Settings</Heading>
+ *   <Card>…</Card>
+ * </Stack>
+ * <Stack direction={{base: 'vertical', md: 'horizontal'}} gap="md" align="center">…</Stack>
+ */
+export const Stack =React.forwardRef<HTMLDivElement, StackProps>(
   (
     {
       direction = 'vertical',

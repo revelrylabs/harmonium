@@ -7,7 +7,19 @@ export interface BreadcrumbsProps extends React.HTMLAttributes<HTMLElement> {
   separator?: React.ReactNode
 }
 
-export const Breadcrumbs = React.forwardRef<HTMLElement, BreadcrumbsProps>(
+/**
+ * A breadcrumb trail: a `<nav aria-label="Breadcrumb">` with an ordered list
+ * of `BreadcrumbItem`s and a decorative separator between them.
+ *
+ * @category Navigation
+ * @example
+ * <Breadcrumbs>
+ *   <BreadcrumbItem href="/">Home</BreadcrumbItem>
+ *   <BreadcrumbItem href="/projects">Projects</BreadcrumbItem>
+ *   <BreadcrumbItem active>Harmonium</BreadcrumbItem>
+ * </Breadcrumbs>
+ */
+export const Breadcrumbs =React.forwardRef<HTMLElement, BreadcrumbsProps>(
   ({separator = '/', className, children, ...props}, ref) => {
     const items = React.Children.toArray(children)
 
@@ -38,7 +50,11 @@ export interface BreadcrumbItemProps
   active?: boolean
 }
 
-export const BreadcrumbItem = React.forwardRef<
+/**
+ * One breadcrumb: a link, or with `active` the current page, rendered as a
+ * `<span aria-current="page">` without the link attributes.
+ */
+export const BreadcrumbItem =React.forwardRef<
   HTMLAnchorElement | HTMLSpanElement,
   BreadcrumbItemProps
 >(({active, className, children, ...props}, ref) => {

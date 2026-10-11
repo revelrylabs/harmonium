@@ -13,7 +13,17 @@ export interface AvatarProps extends React.HTMLAttributes<HTMLSpanElement> {
   size?: 'sm' | 'md' | 'lg' | 'xl'
 }
 
-export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
+/**
+ * A user's picture, or `fallback` text (usually initials) when there's no
+ * `src` or the image fails to load. The fallback is announced as an image
+ * named by `alt`, else `fallback`.
+ *
+ * @category Display
+ * @example
+ * <Avatar src={user.photoUrl} alt={user.name} fallback="JD" />
+ * <Avatar fallback="JD" size="lg" />
+ */
+export const Avatar =React.forwardRef<HTMLSpanElement, AvatarProps>(
   ({src, alt = '', fallback, size = 'md', className, ...props}, ref) => {
     const [imgError, setImgError] = React.useState(false)
 

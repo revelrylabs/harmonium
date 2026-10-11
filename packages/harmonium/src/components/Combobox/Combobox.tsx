@@ -5,8 +5,11 @@ import {clsx} from 'clsx'
 import {useFieldContext} from '../Field'
 import styles from './Combobox.module.css'
 
+/** An option of a `Combobox`. */
 export interface ComboboxOption {
+  /** Value passed to `onChange` when this option is chosen */
   value: string
+  /** Text shown in the list and in the input, and matched by search */
   label: string
 }
 
@@ -32,7 +35,25 @@ export interface ComboboxProps
 const toBaseValue = (value: string | undefined) =>
   value === undefined ? undefined : value === '' ? null : value
 
-export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(
+/**
+ * A searchable single-select: typing filters `options`, arrow keys move
+ * through them and Enter picks one. Follows the ARIA combobox pattern.
+ * Controlled with `value` + `onChange`, or uncontrolled with `defaultValue`.
+ * Wired to the surrounding `Field`.
+ *
+ * @category Forms
+ * @example
+ * <Field>
+ *   <FieldLabel>Country</FieldLabel>
+ *   <Combobox
+ *     options={[{value: 'us', label: 'United States'}, {value: 'ca', label: 'Canada'}]}
+ *     value={country}
+ *     onChange={setCountry}
+ *     placeholder="Search countries"
+ *   />
+ * </Field>
+ */
+export const Combobox =React.forwardRef<HTMLDivElement, ComboboxProps>(
   (
     {
       options,

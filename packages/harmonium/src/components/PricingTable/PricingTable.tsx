@@ -21,7 +21,34 @@ export interface PricingTableProps
   columns?: number
 }
 
-export const PricingTable = React.forwardRef<HTMLDivElement, PricingTableProps>(
+/**
+ * A responsive row of `PricingCard`s, one per plan. Columns wrap onto more
+ * rows on narrow screens.
+ *
+ * @category Marketing
+ * @example
+ * <PricingTable>
+ *   <PricingCard>
+ *     <PricingCardHeader>Free</PricingCardHeader>
+ *     <PricingCardPrice amount="$0" period="/month" />
+ *     <PricingCardFeatures>
+ *       <PricingCardFeature>1 project</PricingCardFeature>
+ *       <PricingCardFeature included={false}>Custom domains</PricingCardFeature>
+ *     </PricingCardFeatures>
+ *     <PricingCardFooter><Button variant="outline" expanded>Start free</Button></PricingCardFooter>
+ *   </PricingCard>
+ *   <PricingCard featured>
+ *     <PricingCardHeader>Pro</PricingCardHeader>
+ *     <PricingCardPrice amount="$29" period="/month" />
+ *     <PricingCardFeatures>
+ *       <PricingCardFeature>Unlimited projects</PricingCardFeature>
+ *       <PricingCardFeature>Custom domains</PricingCardFeature>
+ *     </PricingCardFeatures>
+ *     <PricingCardFooter><Button expanded>Upgrade</Button></PricingCardFooter>
+ *   </PricingCard>
+ * </PricingTable>
+ */
+export const PricingTable =React.forwardRef<HTMLDivElement, PricingTableProps>(
   ({columns, className, children, style, ...props}, ref) => {
     const gridStyle: React.CSSProperties = {
       ...style,
@@ -49,7 +76,8 @@ export interface PricingCardProps
   featured?: boolean
 }
 
-export const PricingCard = React.forwardRef<HTMLDivElement, PricingCardProps>(
+/** One plan in a `PricingTable`; `featured` highlights it. */
+export const PricingCard =React.forwardRef<HTMLDivElement, PricingCardProps>(
   ({featured, className, children, ...props}, ref) => {
     return (
       <div
@@ -68,7 +96,8 @@ PricingCard.displayName = 'PricingCard'
 
 export type PricingCardHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
-export const PricingCardHeader = React.forwardRef<
+/** The plan name at the top of a `PricingCard`. */
+export const PricingCardHeader =React.forwardRef<
   HTMLDivElement,
   PricingCardHeaderProps
 >(({className, children, ...props}, ref) => (
@@ -87,7 +116,8 @@ export interface PricingCardPriceProps
   period?: string
 }
 
-export const PricingCardPrice = React.forwardRef<
+/** The price of a `PricingCard`, with an optional billing period. */
+export const PricingCardPrice =React.forwardRef<
   HTMLDivElement,
   PricingCardPriceProps
 >(({amount, period, className, ...props}, ref) => (
@@ -101,7 +131,8 @@ PricingCardPrice.displayName = 'PricingCardPrice'
 
 export type PricingCardFeaturesProps = React.HTMLAttributes<HTMLUListElement>
 
-export const PricingCardFeatures = React.forwardRef<
+/** The feature list of a `PricingCard`, a `<ul>` of `PricingCardFeature`s. */
+export const PricingCardFeatures =React.forwardRef<
   HTMLUListElement,
   PricingCardFeaturesProps
 >(({className, children, ...props}, ref) => (
@@ -124,7 +155,11 @@ export interface PricingCardFeatureProps
   excludedLabel?: string
 }
 
-export const PricingCardFeature = React.forwardRef<
+/**
+ * One feature of a plan, with a check mark, or a cross when
+ * `included={false}` (announced with `excludedLabel`).
+ */
+export const PricingCardFeature =React.forwardRef<
   HTMLLIElement,
   PricingCardFeatureProps
 >(
@@ -157,7 +192,8 @@ PricingCardFeature.displayName = 'PricingCardFeature'
 
 export type PricingCardFooterProps = React.HTMLAttributes<HTMLDivElement>
 
-export const PricingCardFooter = React.forwardRef<
+/** The call to action at the bottom of a `PricingCard`. */
+export const PricingCardFooter =React.forwardRef<
   HTMLDivElement,
   PricingCardFooterProps
 >(({className, children, ...props}, ref) => (

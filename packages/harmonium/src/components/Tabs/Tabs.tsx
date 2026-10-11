@@ -17,9 +17,24 @@ export interface TabsProps
 }
 
 /**
- * Tabs built on Base UI: arrow keys (and Home/End) move between tabs with a
+ * Tabbed panels: one `TabsContent` shows at a time.
+ *
+ * Built on Base UI: arrow keys (and Home/End) move between tabs with a
  * roving tabindex, and each tab is wired to its panel with `aria-controls` /
  * `aria-labelledby`.
+ * Controlled with `value` + `onValueChange`, or uncontrolled with
+ * `defaultValue`.
+ *
+ * @category Navigation
+ * @example
+ * <Tabs defaultValue="profile">
+ *   <TabsList aria-label="Settings">
+ *     <TabsTrigger value="profile">Profile</TabsTrigger>
+ *     <TabsTrigger value="billing">Billing</TabsTrigger>
+ *   </TabsList>
+ *   <TabsContent value="profile">…</TabsContent>
+ *   <TabsContent value="billing">…</TabsContent>
+ * </Tabs>
  */
 export const Tabs = React.forwardRef<HTMLDivElement, TabsProps>(
   ({value, defaultValue, onValueChange, className, ...props}, ref) => (
@@ -43,6 +58,7 @@ Tabs.displayName = 'Tabs'
 
 export type TabsListProps = React.HTMLAttributes<HTMLDivElement>
 
+/** The row of `TabsTrigger`s (`role="tablist"`). */
 export const TabsList = React.forwardRef<HTMLDivElement, TabsListProps>(
   ({className, ...props}, ref) => (
     <BaseTabs.List
@@ -60,6 +76,7 @@ export interface TabsTriggerProps
   value: string
 }
 
+/** A tab (`role="tab"`) that shows the `TabsContent` with the same `value`. */
 export const TabsTrigger = React.forwardRef<HTMLButtonElement, TabsTriggerProps>(
   ({value, className, ...props}, ref) => (
     <BaseTabs.Tab
@@ -85,6 +102,7 @@ export interface TabsContentProps extends React.HTMLAttributes<HTMLDivElement> {
   value: string
 }
 
+/** The panel (`role="tabpanel"`) shown while its tab is active. */
 export const TabsContent = React.forwardRef<HTMLDivElement, TabsContentProps>(
   ({value, className, ...props}, ref) => (
     <BaseTabs.Panel

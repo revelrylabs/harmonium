@@ -21,8 +21,23 @@ function toArray(val: string | string[] | undefined) {
 }
 
 /**
- * Accordion built on Base UI: each trigger sits in a heading, toggles
- * `aria-expanded` and controls a labelled `region` panel.
+ * Expandable sections. One item opens at a time unless `multiple`. Each
+ * trigger sits in an `<h3>`, toggles `aria-expanded` and controls a labelled
+ * `region` panel. Controlled with `value` + `onValueChange`, or uncontrolled
+ * with `defaultValue`.
+ *
+ * @category Navigation
+ * @example
+ * <Accordion defaultValue="shipping">
+ *   <AccordionItem value="shipping">
+ *     <AccordionTrigger value="shipping">Shipping</AccordionTrigger>
+ *     <AccordionContent value="shipping">Ships in 2 days.</AccordionContent>
+ *   </AccordionItem>
+ *   <AccordionItem value="returns">
+ *     <AccordionTrigger value="returns">Returns</AccordionTrigger>
+ *     <AccordionContent value="returns">30-day returns.</AccordionContent>
+ *   </AccordionItem>
+ * </Accordion>
  */
 export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
   ({multiple = false, value, defaultValue, onValueChange, className, ...props}, ref) => {
@@ -55,7 +70,8 @@ export interface AccordionItemProps extends React.HTMLAttributes<HTMLDivElement>
   value: string
 }
 
-export const AccordionItem = React.forwardRef<HTMLDivElement, AccordionItemProps>(
+/** One section of an `Accordion`: wraps its `AccordionTrigger` and `AccordionContent`. */
+export const AccordionItem =React.forwardRef<HTMLDivElement, AccordionItemProps>(
   ({value, className, ...props}, ref) => (
     <BaseAccordion.Item
       ref={ref}
@@ -78,8 +94,8 @@ export interface AccordionTriggerProps
 }
 
 /**
- * Renders a `<button>` inside an `<h3>` heading. `ref`, `className` and other
- * props go to the button.
+ * The button that opens and closes its `AccordionItem`, rendered inside an
+ * `<h3>` heading. `ref`, `className` and other props go to the button.
  */
 export const AccordionTrigger = React.forwardRef<HTMLButtonElement, AccordionTriggerProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -113,7 +129,8 @@ export interface AccordionContentProps extends React.HTMLAttributes<HTMLDivEleme
   value: string
 }
 
-export const AccordionContent = React.forwardRef<HTMLDivElement, AccordionContentProps>(
+/** The collapsible panel of an `AccordionItem`, labelled by its trigger. */
+export const AccordionContent =React.forwardRef<HTMLDivElement, AccordionContentProps>(
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
   ({value, className, ...props}, ref) => (
     <BaseAccordion.Panel

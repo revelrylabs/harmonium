@@ -12,7 +12,9 @@ export interface CheckboxProps
 }
 
 /**
- * A checkbox built on Base UI's Checkbox: a `<span role="checkbox">` (the
+ * A checkbox with a label.
+ *
+ * Built on Base UI's Checkbox: a `<span role="checkbox">` (the
  * visible box, `.indicator`) plus a hidden native input that carries
  * `name`/`value` for form submission.
  *
@@ -20,6 +22,11 @@ export interface CheckboxProps
  * visible component); `ref` points at the hidden `<input type="checkbox">`;
  * `onChange` receives that input's change event; everything else (`aria-*`,
  * `data-*`, `onFocus`, ...) goes on the `role="checkbox"` element.
+ *
+ * @category Forms
+ * @example
+ * <Checkbox label="Remember me" name="remember" defaultChecked />
+ * <Checkbox label="I agree" checked={agreed} onChange={(e) => setAgreed(e.target.checked)} />
  */
 export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
   (

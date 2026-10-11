@@ -12,7 +12,17 @@ export interface ButtonProps
   expanded?: boolean
 }
 
-export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
+/**
+ * A native `<button>` with variants and sizes.
+ *
+ * @category Actions
+ * @example
+ * <Button onClick={save}>Save</Button>
+ * <Button variant="outline" disabled>Cancel</Button>
+ * <Button variant="ghost" size="sm">Edit</Button>
+ * <Button expanded>Full width</Button>
+ */
+export const Button =React.forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
       variant = 'primary',

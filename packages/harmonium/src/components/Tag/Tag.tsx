@@ -15,6 +15,15 @@ export interface TagProps extends React.HTMLAttributes<HTMLSpanElement> {
   icon?: React.ReactNode
 }
 
+/**
+ * A label for a category, filter or selection. With `removable` it shows a
+ * remove button named "Remove <label>" that calls `onRemove`.
+ *
+ * @category Display
+ * @example
+ * <Tag variant="primary">Design</Tag>
+ * <Tag removable onRemove={() => removeFilter('bug')}>bug</Tag>
+ */
 export const Tag = React.forwardRef<HTMLSpanElement, TagProps>(
   (
     {

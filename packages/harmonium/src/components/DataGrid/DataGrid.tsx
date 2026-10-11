@@ -4,6 +4,7 @@ import {scrollRegionProps, useScrollRegion} from '../Table/Table'
 import {useMergedRef} from '../../utils/hiddenInput'
 import styles from './DataGrid.module.css'
 
+/** A column of a `DataGrid`. */
 export interface DataGridColumn<T> {
   /** Unique key for the column */
   key: string
@@ -22,10 +23,14 @@ export interface DataGridColumn<T> {
   width?: string
 }
 
+/** A sort direction; `null` means unsorted. */
 export type SortDirection = 'asc' | 'desc' | null
 
+/** The sorted column and direction of a `DataGrid`. */
 export interface SortState {
+  /** `key` of the sorted column */
   key: string
+  /** `'asc'`, `'desc'`, or `null` for unsorted */
   direction: SortDirection
 }
 
@@ -210,6 +215,30 @@ function DataGridInner<T>(
   )
 }
 
+/**
+ * A table driven by `columns` and `data`. Clicking a `sortable` header cycles
+ * ascending, descending, unsorted. Without `sort`, DataGrid sorts `data`
+ * itself (by `row[key]`, or the column's `sortValue`; empty values last).
+ * With `sort`, it's controlled: rows render in the order you pass, so sort
+ * `data` in `onSortChange`. When the grid overflows, its scroll area is
+ * keyboard focusable. `aria-label`/`aria-labelledby` name the `<table>`.
+ *
+ * @category Data
+ * @example
+ * <DataGrid
+ *   aria-label="Users"
+ *   columns={[
+ *     {key: 'name', header: 'Name', sortable: true},
+ *     {key: 'joined', header: 'Joined', sortable: true, sortValue: (u) => u.joinedAt, render: (u) => u.joinedAt.toLocaleDateString()},
+ *     {key: 'status', header: 'Status', render: (u) => <Badge>{u.status}</Badge>},
+ *   ]}
+ *   data={users}
+ *   rowKey={(u) => u.id}
+ *   defaultSort={{key: 'name', direction: 'asc'}}
+ *   striped
+ *   hoverable
+ * />
+ */
 export const DataGrid = React.forwardRef(DataGridInner) as <T>(
   props: DataGridProps<T> & {ref?: React.Ref<HTMLDivElement>},
 ) => React.ReactElement

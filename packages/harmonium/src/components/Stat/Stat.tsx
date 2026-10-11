@@ -15,7 +15,17 @@ export interface StatProps extends React.HTMLAttributes<HTMLDivElement> {
   icon?: React.ReactNode
 }
 
-export const Stat = React.forwardRef<HTMLDivElement, StatProps>(
+/**
+ * A key metric: label, value and an optional change colored by `trend`.
+ *
+ * @category Display
+ * @example
+ * <Grid columns={{base: 1, md: 3}} gap="md">
+ *   <Stat label="Revenue" value="$48,200" change="+12%" trend="up" />
+ *   <Stat label="Churn" value="2.1%" change="-0.4%" trend="down" />
+ * </Grid>
+ */
+export const Stat =React.forwardRef<HTMLDivElement, StatProps>(
   ({label, value, change, trend, icon, className, ...props}, ref) => {
     return (
       <div ref={ref} className={clsx(styles.root, className)} {...props}>

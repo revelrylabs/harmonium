@@ -10,7 +10,17 @@ export interface TimePickerProps
   size?: 'sm' | 'md' | 'lg'
 }
 
-/** A native `<input type="time">`, wired to the surrounding `<Field>`. */
+/**
+ * A native `<input type="time">`, wired to the surrounding `<Field>`. Its
+ * value is a 24-hour `HH:mm` string.
+ *
+ * @category Forms
+ * @example
+ * <Field>
+ *   <FieldLabel>Start time</FieldLabel>
+ *   <TimePicker value={time} onChange={(e) => setTime(e.target.value)} />
+ * </Field>
+ */
 export const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
   ({size = 'md', className, id, ...props}, ref) => {
     const fieldProps = useFieldControlProps(id)

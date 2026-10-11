@@ -22,4 +22,7 @@ jobs:
       # is exceeded; the table also lands in the job summary.
       - run: pnpm size
       - run: pnpm test
+      # Fails when llms.txt, llms-full.txt, AGENTS.md, components.json or the
+      # README/Storybook component lists are out of date with the source JSDoc.
+      - run: pnpm docs:llms --check
       - run: pnpm lint

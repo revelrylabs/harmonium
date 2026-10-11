@@ -180,7 +180,9 @@ import {Meta} from '@storybook/blocks'
 
 <div className="intro-stats">
   <div className="intro-stat">
-    <span className="number">50</span>
+    {/* generated:component-count */}
+    <span className="number">52</span>
+    {/* /generated:component-count */}
     <span className="label">Components</span>
   </div>
   <div className="intro-stat">
@@ -357,9 +359,10 @@ function App() {
 
 <table className="intro-components">
   <tbody>
+    {/* generated:components */}
     <tr>
       <th>Layout</th>
-      <td>Stack, Group, Grid, Container, Separator, AppShell, Sidebar</td>
+      <td>Stack, Group, Grid, Separator, Container, AppShell, Sidebar, Show</td>
     </tr>
     <tr>
       <th>Typography</th>
@@ -367,7 +370,7 @@ function App() {
     </tr>
     <tr>
       <th>Forms</th>
-      <td>Field, Input, Textarea, Select, Checkbox, Radio, Switch, NumberInput, Slider, Combobox, MultiSelect, DatePicker, TimePicker, FileUpload</td>
+      <td>Field, Input, Textarea, Select, Checkbox, Radio, Switch, Slider, NumberInput, Combobox, DatePicker, TimePicker, FileUpload, MultiSelect</td>
     </tr>
     <tr>
       <th>Actions</th>
@@ -375,7 +378,7 @@ function App() {
     </tr>
     <tr>
       <th>Display</th>
-      <td>Card, Badge, Tag, Alert, Progress, Spinner, Avatar, Skeleton, Stat, EmptyState</td>
+      <td>Card, Badge, Alert, Progress, Spinner, Avatar, Skeleton, Tag, EmptyState, Stat</td>
     </tr>
     <tr>
       <th>Navigation</th>
@@ -391,7 +394,7 @@ function App() {
     </tr>
     <tr>
       <th>Feedback</th>
-      <td>Toast (Provider + useToast hook)</td>
+      <td>ToastProvider, useToast</td>
     </tr>
     <tr>
       <th>Wizard</th>
@@ -401,6 +404,7 @@ function App() {
       <th>Marketing</th>
       <td>PricingTable</td>
     </tr>
+    {/* /generated:components */}
   </tbody>
 </table>
 
@@ -433,16 +437,30 @@ Override design tokens with plain CSS — no build tools required:
 }
 ```
 
-Dark mode:
+Dark mode: components only use semantic color tokens, so overriding them is enough. Put `data-theme="dark"` on `<html>` (or any wrapper) and add:
 
+{/* generated:dark-mode */}
 ```css
 [data-theme="dark"] {
-  --harmonium-color-bg: #1a1a1a;
-  --harmonium-color-text: #f0f0f0;
-  --harmonium-color-surface: #2d2d2d;
-  --harmonium-color-border: #404040;
+  color-scheme: dark; /* native controls, scrollbars and date/time pickers */
+  --harmonium-color-bg: #141414;
+  --harmonium-color-surface: #1c1c1c;
+  --harmonium-color-surface-raised: #262626;  /* menus, popovers, dialogs, drawers */
+  --harmonium-color-surface-muted: #232323;   /* filled cards, striped rows */
+  --harmonium-color-surface-hover: #313131;
+  --harmonium-color-surface-active: #3b3b3b;
+  --harmonium-color-surface-neutral: #333333; /* neutral badges/tags, skeletons, tracks */
+  --harmonium-color-surface-strong: #4a4a4a;  /* switch/slider tracks, spinner ring */
+  --harmonium-color-surface-inverse: #ececec; /* tooltips, info toasts */
+  --harmonium-color-text: #ececec;
+  --harmonium-color-text-muted: #a3a3a3;
+  --harmonium-color-text-placeholder: #909090;
+  --harmonium-color-text-inverse: #1a1a1a;
+  --harmonium-color-border: #4f4f4f;
+  --harmonium-color-disabled: #5c5c5c;
 }
 ```
+{/* /generated:dark-mode */}
 
 <h2 className="intro-section-header">Recipes</h2>
 

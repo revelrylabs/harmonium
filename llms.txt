@@ -1,67 +1,95 @@
 # Harmonium
 
-> Ship products, not utility classes. A complete React design system with typed components, design-token theming, and accessible defaults.
+> Ship products, not utility classes. A complete React design system out of the box.
+
+Harmonium is a React design system: typed components on Base UI primitives, themed with CSS custom properties, with accessible defaults. Version 9.0.0-alpha.3.
 
 ## Docs
 
-- [Full API Reference](https://harmonium.revelry.co/llms-full.txt): Complete props, types, and usage examples for every component
-- [GitHub](https://github.com/revelrylabs/harmonium): Source code and issue tracker
-- [Storybook](https://harmonium.revelry.co): Interactive component demos
+- [Full API reference](https://revelrylabs.github.io/harmonium/llms-full.txt): props, types, defaults and examples for every component. Also in the npm package at `node_modules/harmonium/llms-full.txt`, matching the installed version.
+- [Storybook](https://revelrylabs.github.io/harmonium/): interactive docs
+- [GitHub](https://github.com/revelrylabs/harmonium): source and issues
 
-## Quick Start
+## Quick start
 
-Install: `npm install harmonium@next`
-Import: `import { Button } from 'harmonium'`
-Styles: `import 'harmonium/styles.css'`
-Theme: Override `--harmonium-*` CSS custom properties
+- Install: `npm install harmonium@next` (v9 is in pre-release; `npm install harmonium` installs v8)
+- Import: `import {Button} from 'harmonium'` or `import {Button} from 'harmonium/button'`
+- Styles: `import 'harmonium/styles.css'` once in your app entry
+- Theme: override `--harmonium-*` CSS custom properties
 
 ## Components
 
 ### Layout
-- Stack: Vertical/horizontal flex layout with gap, align, justify
-- Group: Horizontal flex with gap, align, justify, wrap, grow
-- Grid + GridCol: CSS Grid layout with configurable columns and span
-- Separator: Horizontal/vertical divider
+- Stack (`harmonium/stack`): Lays out items in a column (or a row with `direction="horizontal"`) with consistent gaps.
+- Group (`harmonium/group`): Lays out items in a row.
+- Grid (`harmonium/grid`): A CSS grid. With GridCol.
+- Separator (`harmonium/separator`): A horizontal or vertical divider (`<hr>`).
+- Container (`harmonium/container`): Centers content with a max width and horizontal padding.
+- AppShell (`harmonium/app-shell`): Page layout grid with header, sidebar, main and footer areas. With AppShellHeader, AppShellSidebar, AppShellMain, AppShellFooter.
+- Sidebar (`harmonium/sidebar`): Side navigation: a `<nav>` of `SidebarSection`s and `SidebarItem`s. With SidebarSection, SidebarItem.
+- Show (`harmonium/show`): Shows its children only at some screen widths, using the `breakpoints` (sm 640px, md 768px, lg 1024px, xl 1280px).
+
+### Typography
+- Text (`harmonium/typography`): Body text with size, weight and color variants.
+- Heading (`harmonium/typography`): A heading.
 
 ### Forms
-- Field + FieldLabel + FieldDescription + FieldError: Form field wrapper with auto-wired accessibility
-- Input: Text input with size variants (sm/md/lg), Field-context-aware
-- Textarea: Multi-line text input, Field-context-aware
-- Select: Native select with size variants, Field-context-aware
-- Checkbox: Checkbox with label
-- Radio + RadioGroup: Radio buttons with fieldset grouping
-- Switch: Toggle switch with label and size variants
-- NumberInput: Numeric input with increment/decrement, Field-context-aware
-- Slider: Range slider with size variants and optional value display
-- Combobox: Searchable single-select dropdown
-- MultiSelect: Tag-based multi-selection with search
-- DatePicker: Date input, Field-context-aware
-- TimePicker: Time input, Field-context-aware
-- FileUpload: Drag-and-drop file upload zone
+- Field (`harmonium/field`): Groups a form control with its label, description and error, and wires them up for assistive technology: `FieldLabel`'s `htmlFor` points at the control, and the control's `aria-describedby` lists the description and error that are rendered. With FieldLabel, FieldDescription, FieldError, useFieldContext.
+- Input (`harmonium/input`): A native `<input>`.
+- Textarea (`harmonium/textarea`): A native `<textarea>`, wired to the surrounding `<Field>`.
+- Select (`harmonium/select`): A native `<select>`, wired to the surrounding `<Field>`.
+- Checkbox (`harmonium/checkbox`): A checkbox with a label.
+- Radio (`harmonium/radio`): A radio button with a label, used inside a `RadioGroup`. With RadioGroup.
+- Switch (`harmonium/switch`): An on/off switch with a label.
+- Slider (`harmonium/slider`): A range slider; `showValue` shows the current value next to it.
+- NumberInput (`harmonium/number-input`): A number input with decrement and increment buttons.
+- Combobox (`harmonium/combobox`): A searchable single-select: typing filters `options`, arrow keys move through them and Enter picks one.
+- DatePicker (`harmonium/date-picker`): A native `<input type="date">`, wired to the surrounding `<Field>`.
+- TimePicker (`harmonium/time-picker`): A native `<input type="time">`, wired to the surrounding `<Field>`.
+- FileUpload (`harmonium/file-upload`): A drop zone that also opens the file picker on click, Enter or Space.
+- MultiSelect (`harmonium/multi-select`): A searchable multi-select.
 
-### Data Display
-- Card + CardHeader + CardBody + CardFooter: Content container with elevated/outlined/filled variants
-- Badge: Status label with semantic variants
-- Alert: Dismissible notification banner
-- Progress: Progress bar with variants and optional label
-- Spinner: Loading indicator with size variants
-- Avatar: User avatar with image and fallback
-- Skeleton: Loading placeholder (text/circular/rectangular)
-- Table + TableHead + TableBody + TableRow + TableHeader + TableCell: Semantic HTML table
-- DataGrid: Sortable data table with column configuration
+### Actions
+- Button (`harmonium/button`): A native `<button>` with variants and sizes.
+- ToggleGroup (`harmonium/toggle-group`): A set of toggle buttons where one is selected, like a segmented control. With ToggleGroupItem.
+
+### Display
+- Card (`harmonium/card`): A content container, with optional `CardHeader`, `CardBody` and `CardFooter` sections. With CardHeader, CardBody, CardFooter.
+- Badge (`harmonium/badge`): A short status label.
+- Alert (`harmonium/alert`): A message banner.
+- Progress (`harmonium/progress`): A progress bar (`role="progressbar"`).
+- Spinner (`harmonium/spinner`): A loading indicator, announced as `role="status"` with `label`.
+- Avatar (`harmonium/avatar`): A user's picture, or `fallback` text (usually initials) when there's no `src` or the image fails to load.
+- Skeleton (`harmonium/skeleton`): A pulsing placeholder shown while content loads.
+- Tag (`harmonium/tag`): A label for a category, filter or selection.
+- EmptyState (`harmonium/empty-state`): A placeholder for when there's nothing to show yet: icon, title, description and an action.
+- Stat (`harmonium/stat`): A key metric: label, value and an optional change colored by `trend`.
 
 ### Navigation
-- Tabs + TabsList + TabsTrigger + TabsContent: Tabbed interface (controlled/uncontrolled)
-- Accordion + AccordionItem + AccordionTrigger + AccordionContent: Expandable sections
-- Breadcrumbs + BreadcrumbItem: Navigation breadcrumb trail
-- Pagination: Page navigation with configurable visible pages
-- TopBar + TopBarSection: Application header bar
+- Tabs (`harmonium/tabs`): Tabbed panels: one `TabsContent` shows at a time. With TabsList, TabsTrigger, TabsContent.
+- Accordion (`harmonium/accordion`): Expandable sections. With AccordionItem, AccordionTrigger, AccordionContent.
+- Breadcrumbs (`harmonium/breadcrumbs`): A breadcrumb trail: a `<nav aria-label="Breadcrumb">` with an ordered list of `BreadcrumbItem`s and a decorative separator between them. With BreadcrumbItem.
+- Pagination (`harmonium/pagination`): Previous/next buttons and page numbers.
+- TopBar (`harmonium/top-bar`): An application header bar (`<header>`) with `TopBarSection`s aligned left, center or right. With TopBarSection.
+
+### Data
+- Table (`harmonium/table`): A semantic HTML table built from `TableHead`, `TableBody`, `TableRow`, `TableHeader` (`<th>`) and `TableCell` (`<td>`). With TableHead, TableBody, TableRow, TableHeader, TableCell.
+- DataGrid (`harmonium/data-grid`): A table driven by `columns` and `data`.
 
 ### Overlays
-- Dialog + DialogHeader + DialogBody + DialogFooter: Modal dialog with size variants
-- Drawer: Slide-in panel from left or right
-- Tooltip: Hover/focus tooltip with side positioning
-- Popover: Click-triggered floating content
-- Menu + MenuItem + MenuSeparator + MenuLabel: Dropdown menu
-- CommandPalette: Command-K style searchable command list
-- Toast (ToastProvider + useToast hook): Notification toast system
+- Dialog (`harmonium/dialog`): A modal dialog, rendered in a portal on `document.body`. With DialogHeader, DialogBody, DialogFooter.
+- Drawer (`harmonium/drawer`): A modal panel that slides in from the left or right edge.
+- Tooltip (`harmonium/tooltip`): A short description shown when its child is hovered or focused.
+- Popover (`harmonium/popover`): Floating content that opens when its child is clicked.
+- Menu (`harmonium/menu`): A list of actions. With MenuItem, MenuSeparator, MenuLabel.
+- CommandPalette (`harmonium/command-palette`): A modal, searchable command list (the "Command-K" pattern).
+
+### Feedback
+- ToastProvider (`harmonium/toast`): Shows the toasts created with `useToast()`; wrap your app in it once.
+- useToast (`harmonium/toast`): Shows toasts from anywhere inside a `ToastProvider`.
+
+### Wizard
+- Stepper (`harmonium/stepper`): Progress through a multi-step flow. With Step.
+
+### Marketing
+- PricingTable (`harmonium/pricing-table`): A responsive row of `PricingCard`s, one per plan. With PricingCard, PricingCardHeader, PricingCardPrice, PricingCardFeatures, PricingCardFeature, PricingCardFooter.
