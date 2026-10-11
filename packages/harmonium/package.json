@@ -22,7 +22,18 @@
     "./styles.css": "./dist/index.css",
     "./styles.layer.css": "./dist/index.layer.css",
     "./tokens.css": "./dist/tokens.css",
-    "./harmonium.css": "./dist/harmonium.css"
+    "./harmonium.css": "./dist/harmonium.css",
+    "./package.json": "./package.json",
+    "./*": {
+      "import": {
+        "types": "./dist/components/*.d.ts",
+        "default": "./dist/components/*.js"
+      },
+      "require": {
+        "types": "./dist/components/*.d.cts",
+        "default": "./dist/components/*.cjs"
+      }
+    }
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.js",
@@ -32,13 +43,13 @@
   ],
   "files": [
     "dist",
-    "scripts",
     "CLAUDE.md",
     "AGENTS.md"
   ],
   "scripts": {
     "build": "pnpm run tokens && tsup && node --import tsx scripts/add-use-client.ts && cp src/tokens/tokens.css dist/tokens.css && node --import tsx scripts/build-css.ts && node --import tsx scripts/build-global-css.ts && node --import tsx scripts/check-dist.ts",
     "tokens": "node --import tsx ./src/tokens/build.ts",
+    "size": "node --import tsx scripts/check-size.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint src/",
@@ -60,6 +71,7 @@
     "@testing-library/user-event": "^14.6.0",
     "@types/react": "^19.1.0",
     "@types/react-dom": "^19.1.0",
+    "esbuild": "0.27.3",
     "eslint": "^9.20.0",
     "eslint-config-prettier": "^10.1.0",
     "eslint-plugin-react": "^7.37.0",

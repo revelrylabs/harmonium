@@ -160,6 +160,21 @@ Building settings-templates.zip
 
 which are nessesary for for the doc site, the styles included in harmonoium, as well as the downloadable harmonium settings.
 
+## Bundle size
+
+CI runs `pnpm size` after `pnpm build` and fails when a budget is exceeded. The script is `packages/harmonium/scripts/check-size.ts`; the limits live there too.
+
+How it measures:
+
+- Each JS case is a one-line app (for example `export {Button} from 'harmonium'`) bundled with esbuild the way a production app build would bundle it: resolved through the package's `exports` and `sideEffects`, tree-shaken, minified, `NODE_ENV=production`.
+- React and ReactDOM are replaced by a stand-in, since the app already ships them. `@base-ui/react` and `clsx` are bundled in, so a single-component number is what an app actually pays, Base UI included. One case leaves them out to show Harmonium's own code.
+- `styles.css` (`dist/index.css`: tokens plus all component CSS) is measured as published.
+- Sizes are gzip, level 9. The versions measured are the ones in `pnpm-lock.yaml`.
+
+Each limit is set about 10% above the measurement when it was set. If your change grows a number on purpose, raise the limit in the same PR and say why. Never raise it just to make CI pass.
+
+Each component is its own module in `dist/` (and its own `harmonium/<component>` entry), so `import {Button} from 'harmonium'` only pulls in Button's JS. CSS still ships as one stylesheet for every component, `harmonium/styles.css`; there is no per-component CSS.
+
 ## Releasing
 
 Harmonium has two release lines:
