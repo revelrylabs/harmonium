@@ -64,7 +64,7 @@ Field auto-wires accessibility (id, htmlFor, aria-describedby, aria-errormessage
 </Field>
 ```
 
-Field-aware controls: Input, Textarea, Select, NumberInput, DatePicker, TimePicker.
+Field-aware controls: Input, Textarea, Select, Checkbox, RadioGroup, Switch, Slider, NumberInput, DatePicker, TimePicker, Combobox, MultiSelect. Custom controls can wire themselves up with `useFieldContext()`.
 
 ### Form Controls
 - `<Input size="sm|md|lg">` — extends `<input>`

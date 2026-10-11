@@ -159,6 +159,16 @@ describe('Combobox', () => {
     }
   })
 
+  it('does not reference a Field description that is not rendered', () => {
+    render(
+      <Field>
+        <FieldLabel>Fruit</FieldLabel>
+        <Combobox options={[{value: 'a', label: 'Apple'}]} />
+      </Field>,
+    )
+    expect(screen.getByRole('combobox')).not.toHaveAttribute('aria-describedby')
+  })
+
   it('is labelled and described by Field', () => {
     render(
       <Field>
