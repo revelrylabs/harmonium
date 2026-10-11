@@ -1,24 +1,11 @@
 import * as React from 'react'
+import {ToggleGroup as BaseToggleGroup} from '@base-ui/react/toggle-group'
+import {Toggle} from '@base-ui/react/toggle'
 import {clsx} from 'clsx'
 import styles from './ToggleGroup.module.css'
 
-interface ToggleGroupContextValue {
-  value: string
-  setValue: (value: string) => void
-}
-
-const ToggleGroupContext = React.createContext<ToggleGroupContextValue | null>(
-  null,
-)
-
-function useToggleGroupContext() {
-  const ctx = React.useContext(ToggleGroupContext)
-  if (!ctx)
-    throw new Error('ToggleGroupItem must be used within <ToggleGroup>')
-  return ctx
-}
-
-export interface ToggleGroupProps extends React.HTMLAttributes<HTMLDivElement> {
+export interface ToggleGroupProps
+  extends Omit<React.HTMLAttributes<HTMLDivElement>, 'defaultValue'> {
   /** Currently selected value (controlled) */
   value?: string
   /** Default selected value (uncontrolled) */
@@ -29,42 +16,36 @@ export interface ToggleGroupProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'sm' | 'md' | 'lg'
 }
 
+/**
+ * A single-select group of toggle buttons built on Base UI: the group is one
+ * tab stop, arrow keys (and Home/End) move focus between items, and each item
+ * reports its state with `aria-pressed`. Pressing the selected item again
+ * keeps it selected.
+ */
 export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
   (
-    {
-      value,
-      defaultValue,
-      onValueChange,
-      size = 'md',
-      className,
-      children,
-      ...props
-    },
+    {value, defaultValue, onValueChange, size = 'md', className, ...props},
     ref,
   ) => {
     const [internal, setInternal] = React.useState(defaultValue ?? '')
     const current = value ?? internal
-
-    const setValue = React.useCallback(
-      (v: string) => {
-        if (value === undefined) setInternal(v)
-        onValueChange?.(v)
-      },
-      [value, onValueChange],
-    )
+    const groupValue = React.useMemo(() => (current ? [current] : []), [current])
 
     return (
-      <ToggleGroupContext.Provider value={{value: current, setValue}}>
-        <div
-          ref={ref}
-          role="radiogroup"
-          className={clsx(styles.root, className)}
-          data-size={size}
-          {...props}
-        >
-          {children}
-        </div>
-      </ToggleGroupContext.Provider>
+      <BaseToggleGroup
+        ref={ref}
+        className={clsx(styles.root, className)}
+        data-size={size}
+        value={groupValue}
+        onValueChange={(next) => {
+          // Single-select: ignore the "unpress the selected item" change
+          const selected = next[0]
+          if (selected === undefined || selected === current) return
+          if (value === undefined) setInternal(selected)
+          onValueChange?.(selected)
+        }}
+        {...props}
+      />
     )
   },
 )
@@ -72,7 +53,7 @@ export const ToggleGroup = React.forwardRef<HTMLDivElement, ToggleGroupProps>(
 ToggleGroup.displayName = 'ToggleGroup'
 
 export interface ToggleGroupItemProps
-  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'value'> {
   /** Value of this item */
   value: string
 }
@@ -80,24 +61,20 @@ export interface ToggleGroupItemProps
 export const ToggleGroupItem = React.forwardRef<
   HTMLButtonElement,
   ToggleGroupItemProps
->(({value, className, children, ...props}, ref) => {
-  const {value: selected, setValue} = useToggleGroupContext()
-  const isActive = selected === value
-
-  return (
-    <button
-      ref={ref}
-      type="button"
-      role="radio"
-      className={clsx(styles.item, className)}
-      aria-checked={isActive}
-      data-state={isActive ? 'active' : 'inactive'}
-      onClick={() => setValue(value)}
-      {...props}
-    >
-      {children}
-    </button>
-  )
-})
+>(({value, className, ...props}, ref) => (
+  <Toggle
+    ref={ref}
+    value={value}
+    className={clsx(styles.item, className)}
+    // Keep the `data-state` styling hook alongside Base UI's `data-pressed`.
+    render={(renderProps, state) => (
+      <button
+        {...renderProps}
+        data-state={state.pressed ? 'active' : 'inactive'}
+      />
+    )}
+    {...props}
+  />
+))
 
 ToggleGroupItem.displayName = 'ToggleGroupItem'
