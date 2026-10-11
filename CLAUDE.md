@@ -16,6 +16,7 @@ All commands run from the repo root unless noted:
 - **Test**: `pnpm test` (Vitest)
 - **Single test file**: `pnpm --filter harmonium exec vitest run src/components/Button/Button.test.tsx`
 - **Test watch**: `pnpm --filter harmonium run test:watch`
+- **Test with coverage**: `pnpm --filter harmonium run test:coverage` (CI runs this; thresholds in `vitest.config.ts`)
 - **Lint**: `pnpm lint`
 - **Storybook**: `pnpm storybook` (port 6006)
 
