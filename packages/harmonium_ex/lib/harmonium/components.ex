@@ -489,7 +489,8 @@ if Code.ensure_loaded?(Phoenix.Component) do
     end
 
     @doc """
-    Renders an alert with `role="alert"`.
+    Renders an alert. Info and success alerts use `role="status"`; warning and
+    error alerts use `role="alert"`.
 
     Set `dismissible` to render a dismiss button; `on_dismiss` is its
     `phx-click` (an event name or a `Phoenix.LiveView.JS` command).
@@ -503,7 +504,12 @@ if Code.ensure_loaded?(Phoenix.Component) do
 
     def hm_alert(assigns) do
       ~H"""
-      <div class={["hm-alert", @class]} data-variant={@variant} role="alert" {@rest}>
+      <div
+        class={["hm-alert", @class]}
+        data-variant={@variant}
+        role={if @variant in ~w(warning error), do: "alert", else: "status"}
+        {@rest}
+      >
         <div class="hm-alert-content">{render_slot(@inner_block)}</div>
         <button
           :if={@dismissible}
@@ -541,7 +547,7 @@ if Code.ensure_loaded?(Phoenix.Component) do
     @doc """
     Renders a progress bar with `role="progressbar"`.
 
-    `show_label` prints the rounded percentage inside the bar; an inner block
+    `show_label` prints the rounded percentage after the bar; an inner block
     replaces that label. A `max` of zero or less renders an empty bar.
     """
     attr :value, :any, default: 0, doc: "Current value (a number)."
@@ -558,29 +564,40 @@ if Code.ensure_loaded?(Phoenix.Component) do
     slot :inner_block
 
     def hm_progress(assigns) do
-      assigns = assign(assigns, :percent, percent(assigns.value, assigns.max))
+      valid? = is_number(assigns.max) and assigns.max > 0
+
+      assigns =
+        assigns
+        |> assign(:percent, percent(assigns.value, assigns.max))
+        |> assign(:value_max, if(valid?, do: assigns.max, else: 0))
+        |> assign(
+          :value_now,
+          if(valid? and is_number(assigns.value),
+            do: assigns.value |> max(0) |> min(assigns.max),
+            else: 0
+          )
+        )
 
       ~H"""
       <div
         class={["hm-progress", @class]}
         role="progressbar"
-        aria-valuenow={@value}
+        aria-valuenow={@value_now}
         aria-valuemin="0"
-        aria-valuemax={@max}
+        aria-valuemax={@value_max}
         data-variant={@variant}
         data-size={@size}
         {@rest}
       >
-        <div class="hm-progress-bar" style={"width: #{format_percent(@percent)}%"}>
-          <span :if={@show_label or @inner_block != []} class="hm-progress-label">
-            <%= if @inner_block != [] do %>
-              {render_slot(@inner_block)}
-            <% else %>
-              {round(@percent)}%
-            <% end %>
-          </span>
-        </div>
+        <div class="hm-progress-bar" style={"width: #{format_percent(@percent)}%"}></div>
       </div>
+      <span :if={@show_label or @inner_block != []} class="hm-progress-label" aria-hidden="true">
+        <%= if @inner_block != [] do %>
+          {render_slot(@inner_block)}
+        <% else %>
+          {round(@percent)}%
+        <% end %>
+      </span>
       """
     end
 
@@ -970,7 +987,12 @@ if Code.ensure_loaded?(Phoenix.Component) do
 
     def hm_file_upload(assigns) do
       ~H"""
-      <div class={["hm-file-upload", @class]} data-disabled={@disabled} {@rest}>
+      <div
+        class={["hm-file-upload", @class]}
+        data-disabled={@disabled}
+        aria-disabled={@disabled && "true"}
+        {@rest}
+      >
         {render_slot(@inner_block)}
       </div>
       """

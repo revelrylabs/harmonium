@@ -288,19 +288,64 @@ defmodule Harmonium.ComponentsTest do
                "width: 33.33%"
     end
 
-    test "hm_progress label sits inside the bar" do
+    test "hm_progress label follows the bar, hidden from assistive technology" do
       assigns = %{}
       html = parse(~H"<.hm_progress value={2} max={3} show_label />")
 
+      assert html |> LazyHTML.query(".hm-progress-bar > .hm-progress-label") |> Enum.empty?()
+
       assert html
-             |> LazyHTML.query(".hm-progress-bar > .hm-progress-label")
+             |> LazyHTML.query(".hm-progress + .hm-progress-label")
              |> LazyHTML.text()
              |> String.trim() == "67%"
+
+      assert html_attr(html, ".hm-progress-label", "aria-hidden") == "true"
 
       html = parse(~H"<.hm_progress value={2} max={3}>2 of 3</.hm_progress>")
 
       assert html |> LazyHTML.query(".hm-progress-label") |> LazyHTML.text() |> String.trim() ==
                "2 of 3"
+    end
+
+    test "hm_progress clamps its ARIA values" do
+      assigns = %{}
+      html = parse(~H"<.hm_progress value={150} />")
+      assert html_attr(html, ".hm-progress", "aria-valuenow") == "100"
+
+      html = parse(~H"<.hm_progress value={5} max={0} />")
+      assert html_attr(html, ".hm-progress", "aria-valuenow") == "0"
+      assert html_attr(html, ".hm-progress", "aria-valuemax") == "0"
+    end
+
+    test "hm_alert uses status for info and success, alert for warning and error" do
+      assigns = %{}
+      assert html_attr(parse(~H"<.hm_alert>Saved</.hm_alert>"), ".hm-alert", "role") == "status"
+
+      assert html_attr(
+               parse(~H|<.hm_alert variant="success">Saved</.hm_alert>|),
+               ".hm-alert",
+               "role"
+             ) ==
+               "status"
+
+      assert html_attr(
+               parse(~H|<.hm_alert variant="error">Failed</.hm_alert>|),
+               ".hm-alert",
+               "role"
+             ) ==
+               "alert"
+    end
+
+    test "hm_file_upload marks a disabled drop zone" do
+      assigns = %{}
+      html = parse(~H"<.hm_file_upload disabled>Drop</.hm_file_upload>")
+      assert html_attr(html, ".hm-file-upload", "aria-disabled") == "true"
+
+      assert html_attr(
+               parse(~H"<.hm_file_upload>Drop</.hm_file_upload>"),
+               ".hm-file-upload",
+               "aria-disabled"
+             ) == nil
     end
 
     test "hm_skeleton is hidden from assistive technology and sized by style" do
