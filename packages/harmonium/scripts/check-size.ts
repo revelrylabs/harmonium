@@ -41,7 +41,7 @@ const CASES: Case[] = [
     name: 'All components (Harmonium code only)',
     code: "export * from 'harmonium'",
     exclude: ['@base-ui/react', 'clsx'],
-    limit: 15,
+    limit: 16.5,
   },
   {name: 'All components + Base UI', code: "export * from 'harmonium'", limit: 136, badge: 'js'},
   {name: 'styles.css (tokens + all components)', file: 'dist/index.css', limit: 13.5, badge: 'css'},

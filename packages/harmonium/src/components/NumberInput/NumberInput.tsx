@@ -162,9 +162,12 @@ export const NumberInput = React.forwardRef<HTMLInputElement, NumberInputProps>(
           aria-valuemin={min}
           aria-valuemax={max}
           aria-errormessage={ctx?.error ? ctx.errorId : undefined}
-          {...(mergeProps<'input'>(props as React.ComponentProps<'input'>, {
-            onKeyDown: handleKeyDown,
-          }) as NumberField.Input.Props)}
+          // The consumer's onKeyDown runs first; event.preventBaseUIHandler()
+          // skips the Enter commit below
+          {...(mergeProps<'input'>(
+            {onKeyDown: handleKeyDown},
+            props as React.ComponentProps<'input'>,
+          ) as NumberField.Input.Props)}
         />
         <NumberField.Increment className={styles.button} aria-label={incrementLabel}>
           +
