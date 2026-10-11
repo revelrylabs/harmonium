@@ -65,6 +65,7 @@ Override design tokens with plain CSS — no build tools required:
 
 Dark mode: components only use semantic color tokens (`surface-*`, `text-*`, `border`), never the raw gray scale, so overriding the semantic set is enough. Put `data-theme="dark"` on `<html>` (or any wrapper) and add:
 
+<!-- generated:dark-mode -->
 ```css
 [data-theme="dark"] {
   color-scheme: dark; /* native controls, scrollbars and date/time pickers */
@@ -85,6 +86,7 @@ Dark mode: components only use semantic color tokens (`surface-*`, `text-*`, `bo
   --harmonium-color-disabled: #5c5c5c;
 }
 ```
+<!-- /generated:dark-mode -->
 
 Set your page background from the tokens too (`body { background: var(--harmonium-color-bg); color: var(--harmonium-color-text); }`). To follow the OS setting instead, put the same declarations in `@media (prefers-color-scheme: dark) { [data-theme="auto"] { … } }` and use `data-theme="auto"`. Brand and status colors aren't changed by this block; if you use `brand-primary` as text on dark surfaces, a lighter brand shade reads better.
 

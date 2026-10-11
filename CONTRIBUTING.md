@@ -1,164 +1,94 @@
 # Contributing and Development
 
-## Development Setup
+Harmonium 9 lives on `main`; v8 fixes go to the `8.x` branch (see [Releasing](#releasing)).
 
-Clone and run `./bin/setup`.
+## Setup
 
-## Running the docs site locally
+You need [Node.js](https://nodejs.org/) 18+ and [pnpm](https://pnpm.io/) 10+.
 
-```
-cd docs-src
-npm run develop
-```
-
-This will open up a new browser tab at localhost:8000.
-While this is running you can make changes in the src folder and the site will
-automatically reload with your changes.
-
-From time to time, you may need to run `npm run build` in the root harmonium
-directory to rebuild the `lib/` directory as you change components.
-
-## How to add code
-
-### React component JavaScript
-
-* Write a component like `src/my-component.js`.
-* Write an example file like `docs-src/src/examples/my-component.js.example`.
-  * The module should have one or more named exports that are React components, defined with ES6 class syntax. (`export class Example1 extends Compnent {}`)
-  * Each example will be built into the docs site.
-* Import your component into `docs-src/src/ExampleScope.js`
-* Write a test file like `src/my-component.test.js`.
-  * Run tests with `npm test`.
-  * See `test-config.js` to see what additional globals are available in tests. (`expect`, `shallow`, `mount`, etc.)
-
-### Add Vars table at the bottom of the Component's Example Page:
-
-* Create a new folder in `/docs-src/src/pages/components called ComponentNameTables`
-* Create a new file in that folder called `ComponentNameVars.js`
-* Table Markup:
-```jsx
-<Table>
-  <Table.Head>
-    <Table.Row>
-      <Table.Header>Variable Name</Table.Header>
-      <Table.Header>Default Value</Table.Header>
-      <Table.Header>Description</Table.Header>
-    </Table.Row>
-  </Table.Head>
-  <Table.HeadStacked>
-    <Table.Data>[ComponentName] Vars</Table.Data>
-  </Table.HeadStacked>
-  <Table.Body>
-    <Table.Row>
-      <Table.Data>
-        <Table.HeaderInline>Var:</Table.HeaderInline> [Var]
-      </Table.Data>
-      <Table.Data>
-        <Table.HeaderInline>Default Value:</Table.HeaderInline> [Var Default]
-      </Table.Data>
-      <Table.Data>
-        <Table.HeaderInline>Description:</Table.HeaderInline> [Var Desc.]
-      </Table.Data>
-    </Table.Row>
-  </Table.Body>
-</Table>
-```
-  * Make sure to check the harmonium-settings.scss file for any vars that were not listed at the top of the components stylesheet.
-* Import the ComponentNameVars file into the main example page: `/docs-src/src/pages/components/ComponentName.js`
-* After the `ExampleSection` include `<h3>Variables:</h3>`
-* Then call in the table: `<ComponentNameVars />`
-
-### Add Props table at the bottom of the Component's Example Page:
-
-* If you haven't already, create a new folder in `/docs-src/src/pages/components called ComponentNameTables`
-* Create a new file in the `ComponentNameTables` folder called `ComponentNameProps.js`
-* Table details:
-```jsx
-<Table>
-  <Table.Head>
-    <Table.Row>
-      <Table.Header>Name</Table.Header>
-      <Table.Header>Type</Table.Header>
-      <Table.Header>Default</Table.Header>
-      <Table.Header>Description</Table.Header>
-    </Table.Row>
-  </Table.Head>
-  <Table.HeadStacked>
-    <Table.Data>[ComponentName] Props</Table.Data>
-  </Table.HeadStacked>
-  <Table.Body>
-    <Table.Row>
-      <Table.Data>
-        <Table.HeaderInline>Name:</Table.HeaderInline> [prop]
-      </Table.Data>
-      <Table.Data>
-        <Table.HeaderInline>Type:</Table.HeaderInline> [PropType]
-      </Table.Data>
-      <Table.Data>
-        <Table.HeaderInline>Default:</Table.HeaderInline> [Prop Default]
-      </Table.Data>
-      <Table.Data>
-        <Table.HeaderInline>Description:</Table.HeaderInline> [Prop Desc.]
-      </Table.Data>
-    </Table.Row>
-  </Table.Body>
-</Table>
-```
-  * Include all possible props (also check the components file to make sure you didnt miss any props that were not listed on the site.)
-* Import the ComponentNameProps file into the main example page: `/docs-src/src/pages/components/ComponentName.js`
-* After the Variables section include `<h3>Properties:</h3>`
-* Then call in the table: `<ComponentNameProps />`
-
-
-### Sass
-
-When creating a new component, new styles will likely be needed. Follow the steps below to ensure you have updated all the necessary files.
-
-* Add an SCSS file like `scss/components/_ComponentName.scss`
-* Update `scss/components/_components.scss` so that it imports your new component's style sheet.
-* New variables should be at the top of the component's style sheet (`_ComponentName.scss`) with `!default` tags.
-* Add component vars to `/harmonium/settings-templates/harmonium-component-settings.scss`. Remove any `!default` tags
-
-
-## Submitting Changes
-
-1. Fork the repository.
-2. Set up the gem per the instructions above and ensure `npm test`
-   runs cleanly.
-3. Create a topic branch.
-4. Add tests for your unimplemented feature or bug fix.
-5. Run `npm test`. If your specs pass, return to step 4.
-6. Implement your feature or bug fix.
-7. Re-run `npm test`. If your specs fail, return to step 6.
-8. Thoroughly document and comment your code.
-9. Add a usage example as src/ComponentName.example.js
-10. Run `cd docs-src && npm run develop` and make sure your example loads and looks like you expect.
-11. Add, commit, and push your changes.
-12. Submit a pull request.
-
-## Updating Design Tokens
-
-The design tokens help us define our style variables in one spot. The `/design-tokens` directory is where design token values should be updated. Once you update a design token, you will need to run `npm run build` to generate all of these files:
-```
-Building design token output
-
-scss
-✔︎  ./settings-templates/_harmonium-settings.scss
-✔︎  ./settings-templates/_color-palette.scss
-
-scss-defaults
-✔︎  ./scss/vars/_design-token-defaults.scss
-✔︎  ./scss/vars/_color-palette-defaults.scss
-
-docs
-✔︎  ./docs-src/designTokens.js
-
-js
-✔︎  ./settings-templates/harmonium-tokens.js
-Building settings-templates.zip
+```bash
+pnpm install
+pnpm build        # design tokens + the harmonium package (tsup)
+pnpm storybook    # docs on http://localhost:6006
 ```
 
-which are nessesary for for the doc site, the styles included in harmonoium, as well as the downloadable harmonium settings.
+The repo is a pnpm workspace run with Turborepo:
+
+| Package | Path | What it is |
+|---------|------|------------|
+| `harmonium` | `packages/harmonium/` | The published React library |
+| `@harmonium/docs` | `packages/docs/` | Storybook docs, deployed to https://revelrylabs.github.io/harmonium/ |
+| `@harmonium/playground` | `packages/playground/` | A Vite app for trying components by hand |
+| `harmonium_ex` | `packages/harmonium_ex/` | Phoenix components for the plain-HTML stylesheet (Hex package) |
+
+## Commands
+
+Run from the repo root:
+
+| Command | What it does |
+|---------|--------------|
+| `pnpm build` | Build tokens and every package |
+| `pnpm --filter harmonium run tokens` | Rebuild only the design tokens |
+| `pnpm test` | Run the Vitest suite |
+| `pnpm --filter harmonium exec vitest run src/components/Button/Button.test.tsx` | Run one test file |
+| `pnpm --filter harmonium run test:watch` | Tests in watch mode |
+| `pnpm lint` | ESLint, including the `require-docs` rule |
+| `pnpm size` | Check bundle sizes against their budgets (after `pnpm build`) |
+| `pnpm docs:llms` | Regenerate the LLM docs and component lists; `--check` fails if they're stale |
+| `pnpm storybook` | Storybook on port 6006 |
+| `pnpm changeset` | Describe your change for the changelog |
+
+CI runs build, `pnpm size`, the tests, `pnpm docs:llms --check` and lint on every pull request.
+
+## Adding or changing a component
+
+Each component lives in `packages/harmonium/src/components/ComponentName/`:
+
+- `ComponentName.tsx`: the component, with `forwardRef` and an exported `ComponentNameProps` interface
+- `ComponentName.module.css`: its styles, as a CSS Module themed with `--harmonium-*` custom properties
+- `ComponentName.test.tsx`: Vitest + React Testing Library tests
+- `index.ts`: re-exports
+
+Then export it from `packages/harmonium/src/components/index.ts` and `packages/harmonium/src/index.ts`, and add a story in `packages/docs/stories/ComponentName.stories.tsx`. The build gives every folder its own `harmonium/<kebab-name>` entry automatically.
+
+Conventions:
+
+- Variants are enum props (`variant`, `size`) rendered as `data-*` attributes (`data-variant="primary"`), and CSS targets those attributes.
+- Compose classes with `clsx`, and merge the consumer's `className` last.
+- Build interactive behaviour on [Base UI](https://base-ui.com/) primitives rather than hand-rolling focus and keyboard handling. Merge consumer props with Base UI's `mergeProps`, so consumer handlers run first and can call `event.preventBaseUIHandler()`.
+- Style only with semantic color tokens (`surface-*`, `text-*`, `border`), never the raw gray scale, so dark mode keeps working.
+- Code style is Prettier (single quotes, no semicolons, trailing commas, no bracket spacing) and ESLint.
+
+### JSDoc and the generated docs
+
+`llms.txt`, `llms-full.txt`, `packages/harmonium/AGENTS.md`, `packages/harmonium/components.json`, the component tables in `README.md` and `Introduction.mdx`, and the dark-mode block in both are generated from the source by `packages/harmonium/scripts/generate-llm-docs.ts`. Don't edit them by hand: change the JSDoc (or the prose in `packages/harmonium/scripts/llm-docs/`), then run `pnpm docs:llms` and commit the result.
+
+The `harmonium/require-docs` lint rule (`packages/harmonium/eslint-rules/require-docs.js`) requires:
+
+- a JSDoc description on every exported component;
+- on the component a file is named after (`Card` in `Card.tsx`), an `@example` and a `@category` (one of the categories in `generate-llm-docs.ts`);
+- a description on every member of an exported interface or object type, unless it's marked `@internal`.
+
+Use `@default` on a prop when its default isn't set in the component's parameter list.
+
+### Testing
+
+Write tests with Vitest, `@testing-library/react` and `@testing-library/user-event` next to the component. Cover keyboard use and consumer props (a consumer `onClick` or `id` must add to the component's behaviour, not replace it). Accessibility checks with axe and shared keyboard tests are being added in #693.
+
+## Design tokens
+
+Tokens are W3C DTCG JSON files in `design-tokens/`. Style Dictionary turns them into `--harmonium-*` CSS custom properties in `packages/harmonium/src/tokens/tokens.css` (generated, not committed). After editing a token, run `pnpm --filter harmonium run tokens` (or `pnpm build`).
+
+## The plain-HTML stylesheet
+
+The build also writes `dist/harmonium.css`: the same styles as global `hm-*` classes (`.root` in `Card.module.css` becomes `.hm-card`, `.header` becomes `.hm-card-header`). `packages/harmonium_ex/priv/static/harmonium.css` is a committed copy that CI checks against the build, so commit it whenever component CSS changes. If you change a component's markup, update the matching `harmonium_ex` component too.
+
+## Submitting changes
+
+1. Branch from `main` (or `8.x` for a v8 fix).
+2. Make your change with tests, and run `pnpm build`, `pnpm test`, `pnpm lint`, `pnpm size` and `pnpm docs:llms --check`.
+3. Run `pnpm changeset` and describe the change for users.
+4. Open a pull request against `main`.
 
 ## Bundle size
 

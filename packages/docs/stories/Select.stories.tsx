@@ -47,9 +47,9 @@ export const Default: Story = {
 export const Sizes: Story = {
   render: () => (
     <div style={{display: 'flex', flexDirection: 'column', gap: '12px'}}>
-      <Select size="sm"><option>Small</option></Select>
-      <Select size="md"><option>Medium</option></Select>
-      <Select size="lg"><option>Large</option></Select>
+      <Select size="sm" aria-label="Small select"><option>Small</option></Select>
+      <Select size="md" aria-label="Medium select"><option>Medium</option></Select>
+      <Select size="lg" aria-label="Large select"><option>Large</option></Select>
     </div>
   ),
 }

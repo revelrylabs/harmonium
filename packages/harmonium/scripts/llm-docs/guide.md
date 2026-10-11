@@ -53,26 +53,7 @@ Override CSS custom properties; no build step:
 
 Dark mode: components only use semantic color tokens, so overriding them is enough. Put `data-theme="dark"` on `<html>` (or any wrapper) and add:
 
-```css
-[data-theme="dark"] {
-  color-scheme: dark;
-  --harmonium-color-bg: #141414;
-  --harmonium-color-surface: #1c1c1c;
-  --harmonium-color-surface-raised: #262626;
-  --harmonium-color-surface-muted: #232323;
-  --harmonium-color-surface-hover: #313131;
-  --harmonium-color-surface-active: #3b3b3b;
-  --harmonium-color-surface-neutral: #333333;
-  --harmonium-color-surface-strong: #4a4a4a;
-  --harmonium-color-surface-inverse: #ececec;
-  --harmonium-color-text: #ececec;
-  --harmonium-color-text-muted: #a3a3a3;
-  --harmonium-color-text-placeholder: #909090;
-  --harmonium-color-text-inverse: #1a1a1a;
-  --harmonium-color-border: #4f4f4f;
-  --harmonium-color-disabled: #5c5c5c;
-}
-```
+{{dark-mode}}
 
 ## Without React
 
