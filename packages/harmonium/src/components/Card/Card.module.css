@@ -14,7 +14,7 @@
 }
 
 .root[data-variant='filled'] {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-muted);
 }
 
 .header,

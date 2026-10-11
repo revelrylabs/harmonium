@@ -35,7 +35,7 @@
 }
 
 .indicator[data-state='pending'] {
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-neutral);
   color: var(--harmonium-color-text-muted);
 }
 
@@ -85,5 +85,12 @@
 }
 
 .connector[data-state='pending'] {
-  background: var(--harmonium-color-gray-200);
+  background: var(--harmonium-color-surface-strong);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .indicator,
+  .connector {
+    transition: none;
+  }
 }

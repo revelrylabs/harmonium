@@ -67,7 +67,7 @@
 }
 
 .item:hover {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .item[data-active] {
@@ -102,4 +102,11 @@
 .root[data-collapsed] .item {
   justify-content: center;
   padding: var(--harmonium-spacing-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root,
+  .item {
+    transition: none;
+  }
 }

@@ -23,7 +23,7 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  background: var(--harmonium-color-gray-200);
+  background: var(--harmonium-color-surface-strong);
   border-radius: var(--harmonium-radius-full);
   transition: background-color var(--harmonium-transition-duration-base) ease;
   flex-shrink: 0;
@@ -111,4 +111,11 @@
 
 .root:has(.track[data-disabled]) {
   cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .track,
+  .thumb {
+    transition: none;
+  }
 }

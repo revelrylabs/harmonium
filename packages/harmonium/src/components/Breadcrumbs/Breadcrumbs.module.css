@@ -41,3 +41,9 @@
   color: var(--harmonium-color-text);
   pointer-events: none;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .link {
+    transition: none;
+  }
+}

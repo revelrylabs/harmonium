@@ -75,3 +75,9 @@
 .root:has(.indicator[data-disabled]) {
   cursor: not-allowed;
 }
+
+@media (prefers-reduced-motion: reduce) {
+  .indicator {
+    transition: none;
+  }
+}

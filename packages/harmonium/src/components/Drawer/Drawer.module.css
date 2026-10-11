@@ -10,8 +10,9 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   box-shadow: var(--harmonium-shadow-xl);
+  max-width: 100vw;
   overflow-y: auto;
   display: flex;
   flex-direction: column;

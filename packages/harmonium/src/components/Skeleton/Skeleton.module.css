@@ -1,7 +1,7 @@
 .root {
   display: block;
-  background: var(--harmonium-color-gray-100);
-  animation: pulse 1.5s ease-in-out infinite;
+  background: var(--harmonium-color-surface-neutral);
+  animation: hm-skeleton-pulse 1.5s ease-in-out infinite;
 }
 
 .root[data-variant='text'] {
@@ -18,11 +18,17 @@
   border-radius: var(--harmonium-radius-md);
 }
 
-@keyframes pulse {
+@keyframes hm-skeleton-pulse {
   0%, 100% {
     opacity: 1;
   }
   50% {
     opacity: 0.4;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    animation: none;
   }
 }

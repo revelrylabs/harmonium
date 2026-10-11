@@ -27,7 +27,8 @@
   background: color-mix(in srgb, var(--harmonium-color-brand-primary) 8%, transparent);
 }
 
-.root[data-disabled] {
+.root[data-disabled],
+.root[aria-disabled='true'] {
   opacity: var(--harmonium-opacity-disabled);
   cursor: not-allowed;
 }
@@ -48,4 +49,10 @@
 
 .icon {
   font-size: var(--harmonium-font-size-2xl);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    transition: none;
+  }
 }

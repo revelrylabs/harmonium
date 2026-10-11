@@ -7,12 +7,15 @@
 }
 
 .root:focus-within {
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
 
 .input {
   border: none;
+  /* The focus ring is drawn on .root (:focus-within) */
   outline: none;
   text-align: center;
   font-family: inherit;
@@ -50,7 +53,7 @@
   align-items: center;
   justify-content: center;
   border: none;
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-muted);
   color: var(--harmonium-color-text);
   cursor: pointer;
   font-family: inherit;
@@ -78,7 +81,7 @@
 }
 
 .button:hover:not(:disabled, [aria-disabled='true']) {
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-active);
 }
 
 /* Base UI keeps read-only steppers focusable: they get aria-disabled instead. */
@@ -86,4 +89,10 @@
 .button[aria-disabled='true'] {
   opacity: var(--harmonium-opacity-disabled);
   cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
 }

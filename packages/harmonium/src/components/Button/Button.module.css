@@ -60,11 +60,11 @@
 }
 
 .root[data-variant='outline']:hover:not(:disabled) {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .root[data-variant='outline']:active:not(:disabled) {
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-active);
 }
 
 .root[data-variant='ghost'] {
@@ -74,11 +74,11 @@
 }
 
 .root[data-variant='ghost']:hover:not(:disabled) {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .root[data-variant='ghost']:active:not(:disabled) {
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-active);
 }
 
 /* Sizes */
@@ -100,4 +100,10 @@
 
 .root[data-expanded] {
   width: 100%;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    transition: none;
+  }
 }

@@ -13,7 +13,7 @@
 }
 
 .input::-webkit-slider-runnable-track {
-  background: var(--harmonium-color-gray-200);
+  background: var(--harmonium-color-surface-strong);
   border-radius: var(--harmonium-radius-full);
 }
 
@@ -85,7 +85,7 @@
 
 .track {
   width: 100%;
-  background: var(--harmonium-color-gray-200);
+  background: var(--harmonium-color-surface-strong);
   border-radius: var(--harmonium-radius-full);
 }
 

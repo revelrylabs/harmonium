@@ -3,7 +3,7 @@
   flex-direction: column;
   min-width: 180px;
   padding: var(--harmonium-spacing-xs) 0;
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border: 1px solid var(--harmonium-color-border);
   border-radius: var(--harmonium-radius-lg);
   box-shadow: var(--harmonium-shadow-lg);
@@ -27,7 +27,7 @@
 
 .item:hover,
 .item[data-highlighted] {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .item:focus-visible {
@@ -74,3 +74,9 @@
 .root[data-side='bottom'] { margin-top: var(--harmonium-spacing-xs); }
 .root[data-side='left'] { margin-right: var(--harmonium-spacing-xs); }
 .root[data-side='right'] { margin-left: var(--harmonium-spacing-xs); }
+
+@media (prefers-reduced-motion: reduce) {
+  .item {
+    transition: none;
+  }
+}

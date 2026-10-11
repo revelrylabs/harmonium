@@ -24,7 +24,7 @@
 }
 
 .button:hover:not(:disabled) {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }
 
 .button[data-active] {
@@ -51,4 +51,10 @@
   height: 32px;
   color: var(--harmonium-color-text-muted);
   font-size: var(--harmonium-font-size-sm);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .button {
+    transition: none;
+  }
 }

@@ -15,7 +15,7 @@
 .content {
   z-index: var(--harmonium-z-index-popover);
   padding: var(--harmonium-spacing-md);
-  background: var(--harmonium-color-surface);
+  background: var(--harmonium-color-surface-raised);
   border: 1px solid var(--harmonium-color-border);
   border-radius: var(--harmonium-radius-lg);
   box-shadow: var(--harmonium-shadow-lg);

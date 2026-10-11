@@ -10,6 +10,7 @@
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath d='M6 8L1 3h10z' fill='%23818181'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 12px center;
+  /* Room for the chevron: the size rules below set the other sides only. */
   padding-right: 32px;
   cursor: pointer;
   transition:
@@ -18,22 +19,31 @@
 }
 
 .root[data-size='sm'] {
-  padding: var(--harmonium-spacing-xs) var(--harmonium-spacing-sm);
+  padding-block: var(--harmonium-spacing-xs);
+  padding-left: var(--harmonium-spacing-sm);
   font-size: var(--harmonium-font-size-sm);
 }
 
 .root[data-size='md'] {
-  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-sm);
+  padding-block: var(--harmonium-spacing-sm);
+  padding-left: var(--harmonium-spacing-sm);
   font-size: var(--harmonium-font-size-base);
 }
 
 .root[data-size='lg'] {
-  padding: var(--harmonium-spacing-sm) var(--harmonium-spacing-md);
+  padding-block: var(--harmonium-spacing-sm);
+  padding-left: var(--harmonium-spacing-md);
   font-size: var(--harmonium-font-size-md);
 }
 
+/* The empty placeholder option is selected */
+.root:has(> option[value='']:checked) {
+  color: var(--harmonium-color-text-placeholder);
+}
+
 .root:focus {
-  outline: none;
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
@@ -45,4 +55,10 @@
 .root:disabled {
   opacity: var(--harmonium-opacity-disabled);
   cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    transition: none;
+  }
 }

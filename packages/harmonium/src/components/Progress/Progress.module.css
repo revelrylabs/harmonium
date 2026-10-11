@@ -1,6 +1,6 @@
 .root {
   width: 100%;
-  background: var(--harmonium-color-gray-100);
+  background: var(--harmonium-color-surface-neutral);
   border-radius: var(--harmonium-radius-full);
   overflow: hidden;
 }
@@ -13,9 +13,6 @@
   height: 100%;
   border-radius: var(--harmonium-radius-full);
   transition: width var(--harmonium-transition-duration-slow) ease;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
 }
 
 .root[data-variant='primary'] .bar { background: var(--harmonium-color-brand-primary); }
@@ -24,10 +21,32 @@
 .root[data-variant='warning'] .bar { background: var(--harmonium-color-warning); }
 .root[data-variant='error'] .bar { background: var(--harmonium-color-error); }
 
+/* Rendered after the progressbar (a sibling of .root), right-aligned below it */
 .label {
+  display: block;
+  margin-top: var(--harmonium-spacing-xs);
   font-size: var(--harmonium-font-size-xs);
   font-weight: var(--harmonium-font-weight-medium);
-  color: var(--harmonium-color-white);
-  padding-right: var(--harmonium-spacing-xs);
+  color: var(--harmonium-color-text-muted);
+  text-align: right;
   white-space: nowrap;
+}
+
+/* Older markup with the label inside the bar */
+.bar:has(> .label) {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.bar > .label {
+  margin-top: 0;
+  padding-right: var(--harmonium-spacing-xs);
+  color: var(--harmonium-color-white);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bar {
+    transition: none;
+  }
 }

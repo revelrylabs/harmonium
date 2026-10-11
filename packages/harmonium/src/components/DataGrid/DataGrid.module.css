@@ -59,9 +59,9 @@
 }
 
 .root[data-striped] .body .row:nth-child(even) {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-muted);
 }
 
 .root[data-hoverable] .body .row:hover {
-  background: var(--harmonium-color-gray-50);
+  background: var(--harmonium-color-surface-hover);
 }

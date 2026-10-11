@@ -27,7 +27,8 @@
 }
 
 .root:focus {
-  outline: none;
+  /* Transparent, not none: forced-colors mode paints it as the focus ring. */
+  outline: 2px solid transparent;
   border-color: var(--harmonium-color-brand-primary);
   box-shadow: 0 0 0 2px color-mix(in srgb, var(--harmonium-color-brand-primary) 20%, transparent);
 }
@@ -39,4 +40,10 @@
 .root:disabled {
   opacity: var(--harmonium-opacity-disabled);
   cursor: not-allowed;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .root {
+    transition: none;
+  }
 }
