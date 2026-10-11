@@ -1,5 +1,7 @@
 import * as React from 'react'
+import {Dialog as BaseDialog} from '@base-ui/react/dialog'
 import {clsx} from 'clsx'
+import {useCloseHandler} from '../Dialog/Dialog'
 import styles from './CommandPalette.module.css'
 
 export interface CommandItem {
@@ -68,22 +70,16 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
       [filtered],
     )
 
+    // Base UI Dialog handles Escape, outside clicks, the focus trap, focus
+    // return and scroll lock; the palette only resets its own state.
+    const handleOpenChange = useCloseHandler(onClose)
+
     React.useEffect(() => {
       if (open) {
         setQuery('')
         setHighlightIndex(0)
-        setTimeout(() => inputRef.current?.focus(), 0)
       }
     }, [open])
-
-    React.useEffect(() => {
-      if (!open) return
-      const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') onClose?.()
-      }
-      document.addEventListener('keydown', handleKeyDown)
-      return () => document.removeEventListener('keydown', handleKeyDown)
-    }, [open, onClose])
 
     const select = (item: CommandItem) => {
       item.onSelect()
@@ -107,53 +103,57 @@ export const CommandPalette = React.forwardRef<HTMLDivElement, CommandPalettePro
       }
     }
 
-    if (!open) return null
-
     return (
-      <div className={styles.overlay} onClick={onClose}>
-        <div
-          ref={ref}
-          className={clsx(styles.root, className)}
-          onClick={(event) => event.stopPropagation()}
-          {...props}
-        >
-          <input
-            ref={inputRef}
-            type="text"
-            className={styles.input}
-            value={query}
-            placeholder={placeholder}
-            onChange={(event) => {
-              setQuery(event.target.value)
-              setHighlightIndex(0)
-            }}
-            onKeyDown={handleKeyDown}
-          />
-          <div className={styles.list} role="listbox">
-            {filtered.length === 0 && (
-              <div className={styles.empty}>No results</div>
-            )}
-            {Array.from(grouped.entries()).map(([group, groupedItems]) => (
-              <div key={group}>
-                {group && <div className={styles.groupLabel}>{group}</div>}
-                {groupedItems.map(({item, flatIndex}) => (
-                  <div
-                    key={item.id}
-                    className={styles.item}
-                    role="option"
-                    aria-selected={flatIndex === highlightIndex}
-                    data-highlighted={flatIndex === highlightIndex || undefined}
-                    onClick={() => select(item)}
-                    onMouseEnter={() => setHighlightIndex(flatIndex)}
-                  >
-                    {item.label}
+      <BaseDialog.Root open={Boolean(open)} onOpenChange={handleOpenChange}>
+        <BaseDialog.Portal>
+          <BaseDialog.Viewport className={styles.overlay}>
+            <BaseDialog.Popup
+              ref={ref}
+              className={clsx(styles.root, className)}
+              aria-modal="true"
+              aria-label="Command palette"
+              initialFocus={inputRef}
+              {...props}
+            >
+              <input
+                ref={inputRef}
+                type="text"
+                className={styles.input}
+                value={query}
+                placeholder={placeholder}
+                onChange={(event) => {
+                  setQuery(event.target.value)
+                  setHighlightIndex(0)
+                }}
+                onKeyDown={handleKeyDown}
+              />
+              <div className={styles.list} role="listbox" aria-label="Commands">
+                {filtered.length === 0 && (
+                  <div className={styles.empty}>No results</div>
+                )}
+                {Array.from(grouped.entries()).map(([group, groupedItems]) => (
+                  <div key={group}>
+                    {group && <div className={styles.groupLabel}>{group}</div>}
+                    {groupedItems.map(({item, flatIndex}) => (
+                      <div
+                        key={item.id}
+                        className={styles.item}
+                        role="option"
+                        aria-selected={flatIndex === highlightIndex}
+                        data-highlighted={flatIndex === highlightIndex || undefined}
+                        onClick={() => select(item)}
+                        onMouseEnter={() => setHighlightIndex(flatIndex)}
+                      >
+                        {item.label}
+                      </div>
+                    ))}
                   </div>
                 ))}
               </div>
-            ))}
-          </div>
-        </div>
-      </div>
+            </BaseDialog.Popup>
+          </BaseDialog.Viewport>
+        </BaseDialog.Portal>
+      </BaseDialog.Root>
     )
   },
 )

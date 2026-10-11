@@ -2,7 +2,8 @@
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.5);
-  z-index: var(--harmonium-z-index-overlay);
+  /* Same layer as Dialog, so whichever opened last (rendered later) is on top. */
+  z-index: var(--harmonium-z-index-modal);
 }
 
 .root {

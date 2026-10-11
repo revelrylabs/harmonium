@@ -1,4 +1,5 @@
 import * as React from 'react'
+import {Popover as BasePopover} from '@base-ui/react/popover'
 import {clsx} from 'clsx'
 import styles from './Popover.module.css'
 
@@ -13,73 +14,55 @@ export interface PopoverProps extends Omit<React.HTMLAttributes<HTMLDivElement>,
   onOpenChange?: (open: boolean) => void
 }
 
+type TriggerElement = React.ReactElement<{id?: string}>
+
+/**
+ * The child element becomes the trigger, so `<Popover><Button/></Popover>` has
+ * a single tab stop. Text children get a focusable `<span role="button">`.
+ */
+function getTrigger(children: React.ReactNode): {
+  render: React.ReactElement
+  nativeButton: boolean
+  childId?: string
+} {
+  if (React.isValidElement(children)) {
+    const child = children as TriggerElement
+    return {
+      render: child,
+      // Custom components (Button, IconButton) are assumed to render <button>.
+      nativeButton: typeof child.type === 'string' ? child.type === 'button' : true,
+      childId: child.props.id,
+    }
+  }
+  return {render: <span>{children}</span>, nativeButton: false}
+}
+
 export const Popover = React.forwardRef<HTMLDivElement, PopoverProps>(
-  ({content, side = 'bottom', open: controlledOpen, onOpenChange, className, children, ...props}, ref) => {
-    const [internalOpen, setInternalOpen] = React.useState(false)
-    const isOpen = controlledOpen ?? internalOpen
-    const rootRef = React.useRef<HTMLDivElement>(null)
-
-    const toggle = React.useCallback(() => {
-      const next = !isOpen
-      if (controlledOpen === undefined) setInternalOpen(next)
-      onOpenChange?.(next)
-    }, [isOpen, controlledOpen, onOpenChange])
-
-    const close = React.useCallback(() => {
-      if (controlledOpen === undefined) setInternalOpen(false)
-      onOpenChange?.(false)
-    }, [controlledOpen, onOpenChange])
-
-    React.useEffect(() => {
-      if (!isOpen) return
-      const handleClick = (event: MouseEvent) => {
-        const target = event.target as Node
-        if (rootRef.current && !rootRef.current.contains(target)) {
-          close()
-        }
-      }
-      const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') close()
-      }
-      document.addEventListener('mousedown', handleClick)
-      document.addEventListener('keydown', handleKeyDown)
-      return () => {
-        document.removeEventListener('mousedown', handleClick)
-        document.removeEventListener('keydown', handleKeyDown)
-      }
-    }, [isOpen, close])
+  ({content, side = 'bottom', open, onOpenChange, className, children, ...props}, ref) => {
+    const generatedId = React.useId()
+    const {render, nativeButton, childId} = getTrigger(children)
+    const triggerId = childId ?? generatedId
 
     return (
-      <div
-        ref={(node) => {
-          (rootRef as React.MutableRefObject<HTMLDivElement | null>).current = node
-          if (typeof ref === 'function') ref(node)
-          else if (ref) ref.current = node
-        }}
-        className={clsx(styles.root, className)}
-        {...props}
-      >
-        <div
-          onClick={toggle}
-          onKeyDown={(event) => {
-            if (event.key === 'Enter' || event.key === ' ') {
-              event.preventDefault()
-              toggle()
-            }
-          }}
-          className={styles.trigger}
-          role="button"
-          tabIndex={0}
-          aria-expanded={isOpen}
-          aria-haspopup="true"
+      <div ref={ref} className={clsx(styles.root, className)} {...props}>
+        <BasePopover.Root
+          open={open}
+          onOpenChange={onOpenChange ? (next) => onOpenChange(next) : undefined}
         >
-          {children}
-        </div>
-        {isOpen && (
-          <div className={styles.content} data-side={side}>
-            {content}
-          </div>
-        )}
+          <BasePopover.Trigger
+            id={triggerId}
+            className={styles.trigger}
+            render={render}
+            nativeButton={nativeButton}
+          />
+          <BasePopover.Portal>
+            <BasePopover.Positioner className={styles.positioner} side={side}>
+              <BasePopover.Popup className={styles.content} aria-labelledby={triggerId}>
+                {content}
+              </BasePopover.Popup>
+            </BasePopover.Positioner>
+          </BasePopover.Portal>
+        </BasePopover.Root>
       </div>
     )
   },

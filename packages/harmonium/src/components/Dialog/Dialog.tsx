@@ -1,6 +1,13 @@
 import * as React from 'react'
+import {Dialog as BaseDialog} from '@base-ui/react/dialog'
 import {clsx} from 'clsx'
 import styles from './Dialog.module.css'
+
+/**
+ * Lets `DialogHeader` label the surrounding dialog. `Drawer` provides it too,
+ * since both are built on Base UI Dialog.
+ */
+export const DialogLabelContext = React.createContext(false)
 
 export interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
   /** Whether the dialog is open */
@@ -11,37 +18,42 @@ export interface DialogProps extends React.HTMLAttributes<HTMLDivElement> {
   size?: 'sm' | 'md' | 'lg' | 'full'
 }
 
+/**
+ * Keeps the latest `onClose` in a ref so Base UI always calls the current
+ * callback without re-subscribing.
+ */
+export function useCloseHandler(onClose?: () => void) {
+  const onCloseRef = React.useRef(onClose)
+  React.useLayoutEffect(() => {
+    onCloseRef.current = onClose
+  })
+  return React.useCallback((open: boolean) => {
+    if (!open) onCloseRef.current?.()
+  }, [])
+}
+
 export const Dialog = React.forwardRef<HTMLDivElement, DialogProps>(
   ({open, onClose, size = 'md', className, children, ...props}, ref) => {
-    React.useEffect(() => {
-      if (!open) return
-      const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') onClose?.()
-      }
-      document.addEventListener('keydown', handleKeyDown)
-      document.body.style.overflow = 'hidden'
-      return () => {
-        document.removeEventListener('keydown', handleKeyDown)
-        document.body.style.overflow = ''
-      }
-    }, [open, onClose])
-
-    if (!open) return null
+    const handleOpenChange = useCloseHandler(onClose)
 
     return (
-      <div className={styles.overlay} onClick={onClose}>
-        <div
-          ref={ref}
-          className={clsx(styles.root, className)}
-          data-size={size}
-          role="dialog"
-          aria-modal="true"
-          onClick={(event) => event.stopPropagation()}
-          {...props}
-        >
-          {children}
-        </div>
-      </div>
+      <BaseDialog.Root open={Boolean(open)} onOpenChange={handleOpenChange}>
+        <BaseDialog.Portal>
+          <BaseDialog.Viewport className={styles.overlay}>
+            <BaseDialog.Popup
+              ref={ref}
+              className={clsx(styles.root, className)}
+              data-size={size}
+              aria-modal="true"
+              {...props}
+            >
+              <DialogLabelContext.Provider value={true}>
+                {children}
+              </DialogLabelContext.Provider>
+            </BaseDialog.Popup>
+          </BaseDialog.Viewport>
+        </BaseDialog.Portal>
+      </BaseDialog.Root>
     )
   },
 )
@@ -50,12 +62,28 @@ Dialog.displayName = 'Dialog'
 
 export type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement>
 
+/** Inside a Dialog or Drawer, the header also labels the dialog (`aria-labelledby`). */
 export const DialogHeader = React.forwardRef<HTMLDivElement, DialogHeaderProps>(
-  ({className, children, ...props}, ref) => (
-    <div ref={ref} className={clsx(styles.header, className)} {...props}>
-      {children}
-    </div>
-  ),
+  ({className, children, ...props}, ref) => {
+    const labelsDialog = React.useContext(DialogLabelContext)
+    if (labelsDialog) {
+      return (
+        <BaseDialog.Title
+          ref={ref}
+          render={<div />}
+          className={clsx(styles.header, className)}
+          {...props}
+        >
+          {children}
+        </BaseDialog.Title>
+      )
+    }
+    return (
+      <div ref={ref} className={clsx(styles.header, className)} {...props}>
+        {children}
+      </div>
+    )
+  },
 )
 DialogHeader.displayName = 'DialogHeader'
 

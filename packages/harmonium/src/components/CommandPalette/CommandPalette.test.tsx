@@ -1,6 +1,7 @@
 import {describe, it, expect, vi} from 'vitest'
-import {render, screen} from '@testing-library/react'
+import {render, screen, waitFor} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
+import {axe} from 'vitest-axe'
 import {CommandPalette} from './CommandPalette'
 
 const items = [
@@ -80,5 +81,53 @@ describe('CommandPalette', () => {
     await user.type(screen.getByRole('textbox'), '{Enter}')
     expect(onSelect.c).toHaveBeenCalledOnce()
     expect(onSelect.b).not.toHaveBeenCalled()
+  })
+
+  it('focuses the input when opened and returns focus on close', async () => {
+    const {rerender} = render(
+      <>
+        <button>Open</button>
+        <CommandPalette open={false} items={items} />
+      </>,
+    )
+    const trigger = screen.getByRole('button', {name: 'Open'})
+    trigger.focus()
+    rerender(
+      <>
+        <button>Open</button>
+        <CommandPalette open items={items} />
+      </>,
+    )
+    await waitFor(() => expect(screen.getByRole('textbox')).toHaveFocus())
+    rerender(
+      <>
+        <button>Open</button>
+        <CommandPalette open={false} items={items} />
+      </>,
+    )
+    await waitFor(() => expect(trigger).toHaveFocus())
+  })
+
+  it('calls onClose on Escape and on overlay click', async () => {
+    const user = userEvent.setup()
+    const onClose = vi.fn()
+    render(<CommandPalette open items={items} onClose={onClose} />)
+    await user.keyboard('{Escape}')
+    expect(onClose).toHaveBeenCalledTimes(1)
+    await user.click(document.querySelector('.overlay') as Element)
+    expect(onClose).toHaveBeenCalledTimes(2)
+  })
+
+  it('renders a labelled modal dialog', () => {
+    render(<CommandPalette open items={items} />)
+    expect(screen.getByRole('dialog', {name: 'Command palette'})).toHaveAttribute(
+      'aria-modal',
+      'true',
+    )
+  })
+
+  it('has no axe violations', async () => {
+    render(<CommandPalette open items={items} />)
+    expect(await axe(screen.getByRole('dialog'))).toHaveNoViolations()
   })
 })

@@ -1,5 +1,7 @@
 import * as React from 'react'
+import {Dialog as BaseDialog} from '@base-ui/react/dialog'
 import {clsx} from 'clsx'
+import {DialogLabelContext, useCloseHandler} from '../Dialog/Dialog'
 import styles from './Drawer.module.css'
 
 export interface DrawerProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -15,36 +17,27 @@ export interface DrawerProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export const Drawer = React.forwardRef<HTMLDivElement, DrawerProps>(
   ({open, onClose, side = 'right', size = 'md', className, children, ...props}, ref) => {
-    React.useEffect(() => {
-      if (!open) return
-      const handleKeyDown = (event: KeyboardEvent) => {
-        if (event.key === 'Escape') onClose?.()
-      }
-      document.addEventListener('keydown', handleKeyDown)
-      document.body.style.overflow = 'hidden'
-      return () => {
-        document.removeEventListener('keydown', handleKeyDown)
-        document.body.style.overflow = ''
-      }
-    }, [open, onClose])
-
-    if (!open) return null
+    const handleOpenChange = useCloseHandler(onClose)
 
     return (
-      <div className={styles.overlay} onClick={onClose}>
-        <div
-          ref={ref}
-          className={clsx(styles.root, className)}
-          data-side={side}
-          data-size={size}
-          role="dialog"
-          aria-modal="true"
-          onClick={(event) => event.stopPropagation()}
-          {...props}
-        >
-          {children}
-        </div>
-      </div>
+      <BaseDialog.Root open={Boolean(open)} onOpenChange={handleOpenChange}>
+        <BaseDialog.Portal>
+          <BaseDialog.Viewport className={styles.overlay}>
+            <BaseDialog.Popup
+              ref={ref}
+              className={clsx(styles.root, className)}
+              data-side={side}
+              data-size={size}
+              aria-modal="true"
+              {...props}
+            >
+              <DialogLabelContext.Provider value={true}>
+                {children}
+              </DialogLabelContext.Provider>
+            </BaseDialog.Popup>
+          </BaseDialog.Viewport>
+        </BaseDialog.Portal>
+      </BaseDialog.Root>
     )
   },
 )
