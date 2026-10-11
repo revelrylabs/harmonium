@@ -8,11 +8,12 @@ defmodule Harmonium.MixProject do
     [
       app: :harmonium,
       version: @version,
-      elixir: "~> 1.14",
+      elixir: "~> 1.15",
       deps: deps(),
       package: package(),
       name: "Harmonium",
-      description: "CSS design system for Phoenix and LiveView. Design tokens, layout primitives, and component styles — zero JavaScript required.",
+      description:
+        "CSS design system for Phoenix and LiveView. Design tokens, layout primitives, and component styles — zero JavaScript required.",
       source_url: @source_url,
       docs: docs()
     ]
@@ -24,7 +25,8 @@ defmodule Harmonium.MixProject do
 
   defp deps do
     [
-      {:phoenix_live_view, "~> 0.20 or ~> 1.0", optional: true},
+      {:phoenix_live_view, "~> 1.0", optional: true},
+      {:lazy_html, ">= 0.1.0", only: :test},
       {:ex_doc, "~> 0.34", only: :dev, runtime: false}
     ]
   end
@@ -38,13 +40,15 @@ defmodule Harmonium.MixProject do
         "npm (React)" => "https://www.npmjs.com/package/harmonium",
         "Storybook" => "https://revelrylabs.github.io/harmonium"
       },
-      files: ~w(lib priv/static mix.exs README.md LICENSE)
+      files: ~w(lib priv/static .formatter.exs mix.exs README.md LICENSE)
     ]
   end
 
   defp docs do
     [
       main: "Harmonium",
+      source_ref: "main",
+      source_url_pattern: "#{@source_url}/blob/main/packages/harmonium_ex/%{path}#L%{line}",
       extras: ["README.md"]
     ]
   end
