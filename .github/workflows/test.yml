@@ -21,7 +21,9 @@ jobs:
       # Fails when a bundle-size budget in packages/harmonium/scripts/check-size.ts
       # is exceeded; the table also lands in the job summary.
       - run: pnpm size
-      - run: pnpm test
+      # Tests with coverage; fails below the thresholds in
+      # packages/harmonium/vitest.config.ts.
+      - run: pnpm --filter harmonium run test:coverage
       # Fails when llms.txt, llms-full.txt, AGENTS.md, components.json or the
       # README/Storybook component lists are out of date with the source JSDoc.
       - run: pnpm docs:llms --check

@@ -70,9 +70,16 @@ const PURE_REACT_CALLS = new Set(['forwardRef', 'memo', 'createContext'])
 const annotatePure: Plugin = {
   name: 'harmonium-annotate-pure',
   setup(build) {
-    build.onLoad({filter: /[\\/]src[\\/]components[\\/].*\.tsx$/}, (args) => {
+    build.onLoad({filter: /[\\/]src[\\/](components|utils)[\\/].*\.tsx?$/}, (args) => {
       const source = readFileSync(args.path, 'utf8')
-      const file = ts.createSourceFile(args.path, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)
+      const tsx = args.path.endsWith('.tsx')
+      const file = ts.createSourceFile(
+        args.path,
+        source,
+        ts.ScriptTarget.Latest,
+        true,
+        tsx ? ts.ScriptKind.TSX : ts.ScriptKind.TS,
+      )
 
       const displayNames = new Map<string, ts.ExpressionStatement>()
       for (const statement of file.statements) {
@@ -124,7 +131,7 @@ const annotatePure: Plugin = {
       for (const edit of edits.sort((a, b) => b.at - a.at)) {
         contents = contents.slice(0, edit.at) + edit.text + contents.slice(edit.end ?? edit.at)
       }
-      return {contents, loader: 'tsx'}
+      return {contents, loader: tsx ? 'tsx' : 'ts'}
     })
   },
 }

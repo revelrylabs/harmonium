@@ -73,7 +73,7 @@ Use `@default` on a prop when its default isn't set in the component's parameter
 
 ### Testing
 
-Write tests with Vitest, `@testing-library/react` and `@testing-library/user-event` next to the component. Cover keyboard use and consumer props (a consumer `onClick` or `id` must add to the component's behaviour, not replace it). Accessibility checks with axe and shared keyboard tests are being added in #693.
+Write tests with Vitest, `@testing-library/react` and `@testing-library/user-event` next to the component. Cover keyboard use and consumer props (a consumer `onClick` or `id` must add to the component's behaviour, not replace it). See [Accessibility tests and coverage](#accessibility-tests-and-coverage) for the shared axe and keyboard suites.
 
 ## Design tokens
 
@@ -89,6 +89,12 @@ The build also writes `dist/harmonium.css`: the same styles as global `hm-*` cla
 2. Make your change with tests, and run `pnpm build`, `pnpm test`, `pnpm lint`, `pnpm size` and `pnpm docs:llms --check`.
 3. Run `pnpm changeset` and describe the change for users.
 4. Open a pull request against `main`.
+
+## Accessibility tests and coverage
+
+- `packages/harmonium/src/a11y.test.tsx` runs axe on every exported component in each state that changes its markup or ARIA (open overlays, Field error and disabled states, variants). Add a case when you add a component or a state.
+- `packages/harmonium/src/keyboard.test.tsx` covers keyboard support that a component's own test file doesn't, following the WAI-ARIA Authoring Practices.
+- CI runs `pnpm --filter harmonium run test:coverage`, which fails if coverage drops below the thresholds in `packages/harmonium/vitest.config.ts`. Raise them when coverage goes up.
 
 ## Bundle size
 

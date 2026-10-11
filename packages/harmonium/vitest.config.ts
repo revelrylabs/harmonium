@@ -16,8 +16,16 @@ export default defineConfig({
     include: ['src/**/*.test.{ts,tsx}'],
     coverage: {
       provider: 'v8',
-      include: ['src/components/**/*.{ts,tsx}'],
+      include: ['src/components/**/*.{ts,tsx}', 'src/utils/**/*.{ts,tsx}'],
       exclude: ['**/*.test.*', '**/index.ts'],
+      // A little under the current numbers, so CI catches a real drop but not
+      // noise. Raise them when coverage goes up.
+      thresholds: {
+        statements: 98,
+        branches: 92,
+        functions: 91,
+        lines: 98,
+      },
     },
   },
 })
