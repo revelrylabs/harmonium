@@ -1,5 +1,8 @@
 import * as React from 'react'
+import {Combobox as BaseCombobox} from '@base-ui/react/combobox'
+import {mergeProps} from '@base-ui/react/merge-props'
 import {clsx} from 'clsx'
+import {useFieldContext} from '../Field'
 import styles from './Combobox.module.css'
 
 export interface ComboboxOption {
@@ -7,12 +10,18 @@ export interface ComboboxOption {
   label: string
 }
 
-export interface ComboboxProps extends Omit<React.HTMLAttributes<HTMLDivElement>, 'onChange'> {
+export interface ComboboxProps
+  extends Omit<
+    React.HTMLAttributes<HTMLDivElement>,
+    'onChange' | 'defaultValue'
+  > {
   /** Available options */
   options: ComboboxOption[]
-  /** Current value */
+  /** Current value (controlled). Use `''` for no selection. */
   value?: string
-  /** Callback when value changes */
+  /** Initial value when uncontrolled */
+  defaultValue?: string
+  /** Callback when value changes. Receives `''` when the input is cleared. */
   onChange?: (value: string) => void
   /** Placeholder text */
   placeholder?: string
@@ -20,112 +29,87 @@ export interface ComboboxProps extends Omit<React.HTMLAttributes<HTMLDivElement>
   disabled?: boolean
 }
 
+const toBaseValue = (value: string | undefined) =>
+  value === undefined ? undefined : value === '' ? null : value
+
 export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(
-  ({options, value, onChange, placeholder = 'Search...', disabled, className, ...props}, ref) => {
-    const instanceId = React.useId()
-    const [query, setQuery] = React.useState('')
-    const [open, setOpen] = React.useState(false)
-    const [highlightIndex, setHighlightIndex] = React.useState(-1)
-    const inputRef = React.useRef<HTMLInputElement>(null)
+  (
+    {
+      options,
+      value,
+      defaultValue,
+      onChange,
+      placeholder = 'Search...',
+      disabled,
+      className,
+      ...props
+    },
+    ref,
+  ) => {
+    const ctx = useFieldContext()
+    const rootRef = React.useRef<HTMLDivElement | null>(null)
+    const setRootRef = React.useCallback(
+      (node: HTMLDivElement | null) => {
+        rootRef.current = node
+        if (typeof ref === 'function') ref(node)
+        else if (ref) ref.current = node
+      },
+      [ref],
+    )
 
-    const filtered = query
-      ? options.filter((opt) => opt.label.toLowerCase().includes(query.toLowerCase()))
-      : options
-
-    const selectedLabel = options.find((opt) => opt.value === value)?.label ?? ''
-
-    React.useEffect(() => {
-      if (!open) {
-        setQuery('')
-        setHighlightIndex(-1)
-      }
-    }, [open])
-
-    const select = (val: string) => {
-      onChange?.(val)
-      setOpen(false)
-    }
-
-    const handleKeyDown = (event: React.KeyboardEvent) => {
-      if (!open && (event.key === 'ArrowDown' || event.key === 'Enter')) {
-        setOpen(true)
-        event.preventDefault()
-        return
-      }
-      if (!open) return
-
-      switch (event.key) {
-        case 'ArrowDown':
-          event.preventDefault()
-          setHighlightIndex((prev) => Math.min(prev + 1, filtered.length - 1))
-          break
-        case 'ArrowUp':
-          event.preventDefault()
-          setHighlightIndex((prev) => Math.max(prev - 1, 0))
-          break
-        case 'Enter':
-          event.preventDefault()
-          if (highlightIndex >= 0 && filtered[highlightIndex]) {
-            select(filtered[highlightIndex].value)
-          }
-          break
-        case 'Escape':
-          event.preventDefault()
-          setOpen(false)
-          break
-      }
-    }
-
-    const optionId = (index: number) => `${instanceId}-option-${index}`
+    const items = React.useMemo(() => options.map((opt) => opt.value), [options])
+    const labels = React.useMemo(
+      () => new Map(options.map((opt) => [opt.value, opt.label])),
+      [options],
+    )
+    const itemToStringLabel = React.useCallback(
+      (val: string) => labels.get(val) ?? val,
+      [labels],
+    )
 
     return (
-      <div ref={ref} className={clsx(styles.root, className)} {...props}>
-        <input
-          ref={inputRef}
-          type="text"
-          className={styles.input}
-          value={open ? query : selectedLabel}
-          placeholder={placeholder}
+      <div
+        {...mergeProps<'div'>({className: clsx(styles.root, className)}, props)}
+        ref={setRootRef}
+      >
+        <BaseCombobox.Root<string>
+          items={items}
+          value={toBaseValue(value)}
+          defaultValue={toBaseValue(defaultValue)}
+          onValueChange={(next) => onChange?.(next ?? '')}
+          itemToStringLabel={itemToStringLabel}
           disabled={disabled}
-          role="combobox"
-          aria-expanded={open}
-          aria-autocomplete="list"
-          aria-activedescendant={
-            highlightIndex >= 0 ? optionId(highlightIndex) : undefined
-          }
-          onChange={(event) => {
-            setQuery(event.target.value)
-            if (!open) setOpen(true)
-            setHighlightIndex(-1)
-          }}
-          onFocus={() => setOpen(true)}
-          onBlur={() => setTimeout(() => setOpen(false), 200)}
-          onKeyDown={handleKeyDown}
-        />
-        {open && filtered.length > 0 && (
-          <ul className={styles.list} role="listbox">
-            {filtered.map((opt, index) => (
-              <li
-                key={opt.value}
-                id={optionId(index)}
-                className={styles.option}
-                role="option"
-                aria-selected={opt.value === value}
-                data-highlighted={index === highlightIndex || undefined}
-                onMouseDown={(event) => {
-                  event.preventDefault()
-                  select(opt.value)
-                }}
-                onMouseEnter={() => setHighlightIndex(index)}
-              >
-                {opt.label}
-              </li>
-            ))}
-          </ul>
-        )}
-        {open && filtered.length === 0 && query && (
-          <div className={styles.empty}>No results</div>
-        )}
+        >
+          <BaseCombobox.Input
+            className={styles.input}
+            placeholder={placeholder}
+            id={ctx?.fieldId}
+            aria-describedby={ctx ? `${ctx.fieldId}-description` : undefined}
+            aria-errormessage={ctx?.error ? `${ctx.fieldId}-error` : undefined}
+            aria-invalid={ctx?.error || undefined}
+          />
+          <BaseCombobox.Portal container={rootRef}>
+            <BaseCombobox.Positioner className={styles.positioner}>
+              <BaseCombobox.Popup className={styles.popup}>
+                <BaseCombobox.Empty className={styles.empty}>
+                  No results
+                </BaseCombobox.Empty>
+                <BaseCombobox.List className={styles.list} render={<ul />}>
+                  {(item: string) => (
+                    <BaseCombobox.Item
+                      key={item}
+                      value={item}
+                      className={styles.option}
+                      render={<li />}
+                    >
+                      {itemToStringLabel(item)}
+                    </BaseCombobox.Item>
+                  )}
+                </BaseCombobox.List>
+              </BaseCombobox.Popup>
+            </BaseCombobox.Positioner>
+          </BaseCombobox.Portal>
+        </BaseCombobox.Root>
       </div>
     )
   },
