@@ -59,6 +59,22 @@ Dark mode:
 }
 ```
 
+### Overriding component styles
+
+Variant styles use `[data-variant]` / `[data-size]` selectors, so a single custom class doesn't beat them in `harmonium/styles.css`. To make your own CSS always win, import the layered stylesheet instead. It's the same CSS inside `@layer harmonium`, and any CSS outside that layer takes precedence:
+
+```tsx
+import 'harmonium/styles.layer.css' // instead of 'harmonium/styles.css'
+```
+
+```tsx
+<Button className="checkout-button">Pay</Button>
+```
+
+```css
+.checkout-button { background: #0a7d32; } /* wins over the primary variant */
+```
+
 ## Comparison
 
 | Feature | Harmonium | MUI | Chakra UI | Mantine | shadcn/ui | Radix Themes |
@@ -71,7 +87,7 @@ Dark mode:
 | **Theming** | Plain CSS custom properties | JS theme object + `ThemeProvider` | JS theme object + `ChakraProvider` | JS theme object + `MantineProvider` | `tailwind.config.js` | Proprietary token system |
 | **Provider wrapper required** | No | Yes | Yes | Yes | No | No |
 | **Build plugin required** | No | No | No | No | Yes (PostCSS/Tailwind) | No |
-| **RSC compatible** | Yes | Partial | No | Partial | Yes | Partial |
+| **RSC compatible** | Yes (`'use client'` components) | Partial | No | Partial | Yes | Partial |
 | **Design tokens** | W3C DTCG standard | Proprietary | Proprietary | Proprietary | None (Tailwind config) | Proprietary |
 | **Accessibility** | WCAG 2.1 AA (Base UI) | WCAG 2.1 AA | WCAG 2.1 AA | WCAG 2.1 AA | Depends on implementation | WCAG 2.1 AA (Radix) |
 | **TypeScript** | Strict, typed enum props | Yes | Yes | Yes | Yes | Yes |
@@ -110,7 +126,7 @@ All components follow consistent patterns:
 
 - **`forwardRef`** — attach refs to any component
 - **`data-*` attributes** for variants — inspectable in DevTools, styleable by consumers
-- **`className` prop** always merged last — easy to override styles
+- **`className` prop** always merged last; use `harmonium/styles.layer.css` when your CSS should always win (see [Overriding component styles](#overriding-component-styles))
 - **Enum props** (`variant`, `size`) instead of boolean prop soup
 - **Controlled + uncontrolled** — components support both patterns where applicable
 
@@ -119,7 +135,7 @@ All components follow consistent patterns:
 Harmonium is designed for AI-assisted development. Typed enum props, consistent component patterns, and `data-*` attribute styling mean LLMs generate correct code on the first try — no string-based class guessing.
 
 - **`llms.txt`** and **`llms-full.txt`** — structured API references that AI tools can ingest for complete library knowledge
-- **`CLAUDE.md`** / **`AGENTS.md`** — shipped in the npm package so AI coding assistants in your project automatically understand Harmonium's API
+- **`AGENTS.md`** — shipped in the npm package at `node_modules/harmonium/AGENTS.md`; point your AI coding assistant at it (e.g. reference it from your project's own `AGENTS.md` or `CLAUDE.md`)
 - **Typed props** — `variant="primary"` not `className="btn-primary"`, so autocomplete and AI tools always know valid values
 
 ## Development

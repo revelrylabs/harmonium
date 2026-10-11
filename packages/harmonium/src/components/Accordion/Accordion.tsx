@@ -38,29 +38,19 @@ export const Accordion = React.forwardRef<HTMLDivElement, AccordionProps>(
 
     const toggle = React.useCallback(
       (item: string) => {
-        const compute = (current: Set<string>) => {
-          const next = new Set(current)
-          if (next.has(item)) {
-            next.delete(item)
-          } else {
-            if (!multiple) next.clear()
-            next.add(item)
-          }
-          return next
-        }
-
-        if (value === undefined) {
-          setInternal((prev) => {
-            const next = compute(prev)
-            onValueChange?.(Array.from(next))
-            return next
-          })
+        // Compute outside a state updater: React may run updaters twice
+        // (StrictMode), which would call onValueChange twice per click.
+        const next = new Set(openItems)
+        if (next.has(item)) {
+          next.delete(item)
         } else {
-          const next = compute(toSet(value))
-          onValueChange?.(Array.from(next))
+          if (!multiple) next.clear()
+          next.add(item)
         }
+        if (value === undefined) setInternal(next)
+        onValueChange?.(Array.from(next))
       },
-      [multiple, value, onValueChange],
+      [multiple, openItems, value, onValueChange],
     )
 
     return (
