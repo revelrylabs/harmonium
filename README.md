@@ -1,5 +1,7 @@
 # Harmonium
 
+[![Bundle size, all components (gzip)](https://img.shields.io/badge/all_components_%28gzip%29-123.9_KB_JS_%2B_12.2_KB_CSS-blue)](#bundle-size)
+
 **Ship products, not utility classes.**
 
 A complete design system out of the box. Install, import, and build — no assembling primitives, no configuring class utilities, no copy-pasting component source code.
@@ -34,6 +36,19 @@ function App() {
   )
 }
 ```
+
+### Importing one component
+
+Every component is its own module, so importing from `harmonium` only pulls in the components you use. Each one also has its own entry point, `harmonium/<component>` in kebab-case:
+
+```tsx
+import {Button} from 'harmonium/button'
+import {ToggleGroup, ToggleGroupItem} from 'harmonium/toggle-group'
+import {Table, TableRow, TableCell} from 'harmonium/table'
+import 'harmonium/styles.css' // still required once
+```
+
+Sub-components come from their parent's entry (`CardBody` from `harmonium/card`). Two exceptions: `Text` and `Heading` come from `harmonium/typography`, and `ToastProvider` and `useToast` from `harmonium/toast`. CSS ships as one stylesheet for all components, so import `harmonium/styles.css` (or `harmonium/styles.layer.css`) either way.
 
 ## Theming
 
@@ -93,13 +108,14 @@ import 'harmonium/styles.layer.css' // instead of 'harmonium/styles.css'
 
 | Feature | Harmonium | MUI | Chakra UI | Mantine | shadcn/ui | Radix Themes |
 |---------|-----------|-----|-----------|---------|-----------|--------------|
-| **JS size (gzip)** | ~12 KB | ~80 KB+ | ~45 KB+ | ~35 KB+ | Varies (you own source) | ~30 KB+ |
-| **CSS size (gzip)** | ~8 KB | Generated at runtime | Generated at runtime | Generated at runtime | Tailwind output | ~15 KB+ |
+| **JS for one Button (gzip)** | 0.5 KB | 37.6 KB | 61.3 KB (with `ChakraProvider`) | 15.1 KB (with `MantineProvider`) | Varies (you own source) | 23.6 KB (with `Theme`) |
+| **JS for all components (gzip)** | 123.9 KB (13.6 KB Harmonium + Base UI) | 164.5 KB | 307.6 KB | 187.8 KB | Varies (you own source) | 83.2 KB |
+| **CSS (gzip)** | 12.2 KB | Generated at runtime | Generated at runtime | 40.0 KB | Tailwind output | 83.4 KB |
 | **Components** | 50 | 60+ | 50+ | 60+ | ~40 (copy-paste) | ~30 |
 | **Install & use** | `npm install`, import | `npm install`, import | `npm install`, import | `npm install`, import | CLI copies source into your repo | `npm install`, import |
-| **Styling approach** | CSS Modules (zero runtime) | Emotion (JS runtime) | Emotion (JS runtime) | CSS-in-JS runtime | Tailwind utility classes | Runtime CSS-in-JS |
+| **Styling approach** | CSS Modules (zero runtime) | Emotion (JS runtime) | Emotion (JS runtime) | Static CSS (zero runtime) | Tailwind utility classes | Static CSS (zero runtime) |
 | **Theming** | Plain CSS custom properties | JS theme object + `ThemeProvider` | JS theme object + `ChakraProvider` | JS theme object + `MantineProvider` | `tailwind.config.js` | Proprietary token system |
-| **Provider wrapper required** | No | Yes | Yes | Yes | No | No |
+| **Provider wrapper required** | No | Yes | Yes | Yes | No | Yes (`Theme`) |
 | **Build plugin required** | No | No | No | No | Yes (PostCSS/Tailwind) | No |
 | **RSC compatible** | Yes (`'use client'` components) | Partial | No | Partial | Yes | Partial |
 | **Design tokens** | W3C DTCG standard | Proprietary | Proprietary | Proprietary | None (Tailwind config) | Proprietary |
@@ -108,6 +124,22 @@ import 'harmonium/styles.layer.css' // instead of 'harmonium/styles.css'
 | **LLM context files** | `llms.txt`, `CLAUDE.md`, `AGENTS.md` | No | No | No | No | No |
 | **Centrally maintained** | Yes (`npm update`) | Yes | Yes | Yes | No (you own the source) | Yes |
 | **Visual design out of the box** | Yes | Yes (Material) | Yes | Yes | No (unstyled) | Yes |
+
+Sizes measured 2026-10-11: Harmonium 9.0.0-alpha.2, MUI 9.5.0, Chakra UI 3.37.0, Mantine 9.7.2, Radix Themes 3.3.0. "One Button" includes the provider a library needs to render it. See [Bundle size](#bundle-size) for how they're measured.
+
+## Bundle size
+
+Every number here is measured, not estimated. CI measures Harmonium on every pull request and fails if a size goes over its budget (`packages/harmonium/scripts/check-size.ts`).
+
+| What your app imports | JS (gzip) | CSS (gzip) |
+|---|--:|--:|
+| `Button` | 0.5 KB | 12.2 KB, all components |
+| `Dialog` | 23.4 KB | |
+| Every component | 123.9 KB (13.6 KB is Harmonium, the rest is Base UI) | |
+
+How: each case is a one-line app (`export {Button} from 'harmonium'`) bundled with esbuild the way a production build would bundle it: through the package's `exports` and `sideEffects`, tree-shaken, minified, `NODE_ENV=production`, with React left out because your app already has it. Dependencies such as Base UI are included, because your app ships them. The stylesheet is measured as published. Sizes are gzip level 9.
+
+The comparison table measures MUI, Chakra UI, Mantine and Radix Themes the same way, with `pnpm --filter harmonium run size:competitors`. shadcn/ui isn't measured: it copies source into your app, so its size depends on what you copy. MUI and Chakra UI generate their CSS at runtime; their JS sizes include the Emotion runtime that does it.
 
 ## Components
 
