@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "scripts": {
     "storybook": "storybook dev -p 6006",
-    "build": "storybook build"
+    "build": "storybook build && cp ../../llms.txt ../../llms-full.txt storybook-static/"
   },
   "dependencies": {
     "harmonium": "workspace:*"

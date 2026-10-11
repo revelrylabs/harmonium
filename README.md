@@ -143,27 +143,29 @@ The comparison table measures MUI, Chakra UI, Mantine and Radix Themes the same 
 
 ## Components
 
-50 components across 10 categories:
+<!-- generated:components -->
+52 components across 11 categories:
 
 | Category | Components |
 |----------|------------|
-| **Layout** | Stack, Group, Grid, Container, Separator, AppShell, Sidebar |
+| **Layout** | Stack, Group, Grid, Separator, Container, AppShell, Sidebar, Show |
 | **Typography** | Text, Heading |
-| **Forms** | Field, Input, Textarea, Select, Checkbox, Radio, Switch, NumberInput, Slider, Combobox, MultiSelect, DatePicker, TimePicker, FileUpload |
+| **Forms** | Field, Input, Textarea, Select, Checkbox, Radio, Switch, Slider, NumberInput, Combobox, DatePicker, TimePicker, FileUpload, MultiSelect |
 | **Actions** | Button, ToggleGroup |
-| **Display** | Card, Badge, Tag, Alert, Progress, Spinner, Avatar, Skeleton, Stat, EmptyState |
+| **Display** | Card, Badge, Alert, Progress, Spinner, Avatar, Skeleton, Tag, EmptyState, Stat |
 | **Navigation** | Tabs, Accordion, Breadcrumbs, Pagination, TopBar |
 | **Data** | Table, DataGrid |
 | **Overlays** | Dialog, Drawer, Tooltip, Popover, Menu, CommandPalette |
-| **Feedback** | Toast (Provider + useToast hook) |
+| **Feedback** | ToastProvider, useToast |
 | **Wizard** | Stepper |
 | **Marketing** | PricingTable |
+<!-- /generated:components -->
 
 Many components include compound sub-components (e.g., `Card` exports `CardHeader`, `CardBody`, `CardFooter`).
 
 **Explore the full API:**
-- **[Storybook](http://localhost:6006)** — run `pnpm storybook` for interactive docs with live examples
-- **`llms.txt` / `llms-full.txt`** — structured API references for AI tools
+- **[Storybook](https://revelrylabs.github.io/harmonium/)** — interactive docs with live examples
+- **[`llms.txt`](https://revelrylabs.github.io/harmonium/llms.txt) / [`llms-full.txt`](https://revelrylabs.github.io/harmonium/llms-full.txt)** — structured API references for AI tools
 - **TypeScript autocomplete** — all props are fully typed with JSDoc descriptions
 
 ## Component Patterns
@@ -180,8 +182,9 @@ All components follow consistent patterns:
 
 Harmonium is designed for AI-assisted development. Typed enum props, consistent component patterns, and `data-*` attribute styling mean LLMs generate correct code on the first try — no string-based class guessing.
 
-- **`llms.txt`** and **`llms-full.txt`** — structured API references that AI tools can ingest for complete library knowledge
+- **[`llms.txt`](https://revelrylabs.github.io/harmonium/llms.txt)** and **[`llms-full.txt`](https://revelrylabs.github.io/harmonium/llms-full.txt)** — structured API references that AI tools can ingest for complete library knowledge. `llms-full.txt` also ships in the npm package (`node_modules/harmonium/llms-full.txt`), so it always matches the installed version.
 - **`AGENTS.md`** — shipped in the npm package at `node_modules/harmonium/AGENTS.md`; point your AI coding assistant at it (e.g. reference it from your project's own `AGENTS.md` or `CLAUDE.md`)
+- All three are generated from the components' TypeScript types and JSDoc, and CI fails if they fall out of date.
 - **Typed props** — `variant="primary"` not `className="btn-primary"`, so autocomplete and AI tools always know valid values
 
 ## Development

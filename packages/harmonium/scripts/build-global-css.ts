@@ -6,48 +6,14 @@
  * a single concatenated CSS file at dist/harmonium.css.
  */
 import {readFileSync, writeFileSync, readdirSync, existsSync} from 'fs'
-import {join, basename, dirname} from 'path'
+import {join, dirname} from 'path'
+import {toKebab, protect, extractClassNames, globalClassName} from './css-classes'
 
 const SRC = join(import.meta.dirname, '..', 'src', 'components')
 const TOKENS = join(import.meta.dirname, '..', 'src', 'tokens', 'tokens.css')
 const OUT = join(import.meta.dirname, '..', 'dist', 'harmonium.css')
 // The Elixir package ships its own copy; CI checks it is committed in sync.
 const ELIXIR_COPY = join(import.meta.dirname, '..', '..', 'harmonium_ex', 'priv', 'static', 'harmonium.css')
-
-function toKebab(name: string): string {
-  return name
-    .replace(/([a-z])([A-Z])/g, '$1-$2')
-    .replace(/([A-Z])([A-Z][a-z])/g, '$1-$2')
-    .toLowerCase()
-}
-
-/**
- * Swap comments, strings and url(...) values for placeholders so the class
- * regexes can't touch their contents (e.g. `www.w3.org` in a data-URI SVG).
- */
-function protect(css: string): {masked: string; restore: (s: string) => string} {
-  const saved: string[] = []
-  const masked = css.replace(
-    /\/\*[\s\S]*?\*\/|url\((?:"[^"]*"|'[^']*'|[^)]*)\)|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'/g,
-    (match) => `__HM_PROTECTED_${saved.push(match) - 1}__`,
-  )
-  const restore = (s: string) =>
-    s.replace(/__HM_PROTECTED_(\d+)__/g, (_, i) => saved[Number(i)])
-  return {masked, restore}
-}
-
-/**
- * Extract all class names from a CSS file (e.g., .root, .header, .body)
- */
-function extractClassNames(css: string): string[] {
-  const names = new Set<string>()
-  const re = /\.([a-zA-Z][a-zA-Z0-9]*)/g
-  let match
-  while ((match = re.exec(css)) !== null) {
-    names.add(match[1])
-  }
-  return Array.from(names)
-}
 
 /**
  * Replace class names in CSS content with namespaced versions.
@@ -59,14 +25,13 @@ function renameClasses(
   componentName: string,
   classNames: string[],
 ): string {
-  const prefix = `hm-${componentName}`
   let result = css
 
   // Sort by length descending to avoid partial replacements
   const sorted = [...classNames].sort((a, b) => b.length - a.length)
 
   for (const cls of sorted) {
-    const globalName = cls === 'root' ? prefix : `${prefix}-${toKebab(cls)}`
+    const globalName = globalClassName(componentName, cls)
     // Replace .className when followed by a non-alphanumeric char (selector boundary)
     const re = new RegExp(`\\.${cls}(?=[^a-zA-Z0-9_-])`, 'g')
     result = result.replace(re, `.${globalName}`)
