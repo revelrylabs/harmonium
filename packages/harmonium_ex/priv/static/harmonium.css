@@ -611,6 +611,12 @@
   height: 0;
 }
 
+/*
+ * The React component renders Base UI's checkbox: `.indicator` is the
+ * `<span role="checkbox">` and carries data-checked/data-disabled. Plain-HTML
+ * markup uses a native `<input class="…-input">` followed by the indicator.
+ * Every state rule accepts both.
+ */
 .hm-checkbox-indicator {
   display: inline-flex;
   align-items: center;
@@ -626,12 +632,14 @@
     border-color var(--harmonium-transition-duration-base) ease;
 }
 
-.hm-checkbox-input:checked + .hm-checkbox-indicator {
+.hm-checkbox-input:checked + .hm-checkbox-indicator,
+.hm-checkbox-indicator[data-checked] {
   background: var(--harmonium-color-brand-primary);
   border-color: var(--harmonium-color-brand-primary);
 }
 
-.hm-checkbox-input:checked + .hm-checkbox-indicator::after {
+.hm-checkbox-input:checked + .hm-checkbox-indicator::after,
+.hm-checkbox-indicator[data-checked]::after {
   content: '';
   display: block;
   width: 5px;
@@ -641,21 +649,28 @@
   transform: rotate(45deg) translate(-1px, -1px);
 }
 
-.hm-checkbox-input:focus-visible + .hm-checkbox-indicator {
+.hm-checkbox-input:focus-visible + .hm-checkbox-indicator,
+.hm-checkbox-indicator:focus-visible {
   outline: 2px solid var(--harmonium-color-brand-primary);
   outline-offset: 2px;
 }
 
-.hm-checkbox-input:disabled + .hm-checkbox-indicator {
+.hm-checkbox-input:disabled + .hm-checkbox-indicator,
+.hm-checkbox-indicator[data-disabled] {
   opacity: var(--harmonium-opacity-disabled);
 }
 
-.hm-checkbox-input:disabled ~ .hm-checkbox-label {
+.hm-checkbox-input:disabled ~ .hm-checkbox-label,
+.hm-checkbox-indicator[data-disabled] ~ .hm-checkbox-label {
   opacity: var(--harmonium-opacity-disabled);
 }
 
 .hm-checkbox-label {
   color: var(--harmonium-color-text);
+}
+
+.hm-checkbox:has(.hm-checkbox-indicator[data-disabled]) {
+  cursor: not-allowed;
 }
 
 
@@ -1849,11 +1864,13 @@
   font-size: var(--harmonium-font-size-md);
 }
 
-.hm-number-input-button:hover:not(:disabled) {
+.hm-number-input-button:hover:not(:disabled, [aria-disabled='true']) {
   background: var(--harmonium-color-gray-100);
 }
 
-.hm-number-input-button:disabled {
+/* Base UI keeps read-only steppers focusable: they get aria-disabled instead. */
+.hm-number-input-button:disabled,
+.hm-number-input-button[aria-disabled='true'] {
   opacity: var(--harmonium-opacity-disabled);
   cursor: not-allowed;
 }
@@ -2144,6 +2161,13 @@
   height: 0;
 }
 
+/*
+ * Inside a RadioGroup the React component renders Base UI's radio:
+ * `.indicator` is the `<span role="radio">` and carries
+ * data-checked/data-disabled. Plain-HTML markup (and a Radio outside a group)
+ * uses a native `<input class="…-input">` followed by the indicator. Every
+ * state rule accepts both.
+ */
 .hm-radio-indicator {
   display: inline-flex;
   align-items: center;
@@ -2158,11 +2182,13 @@
     border-color var(--harmonium-transition-duration-base) ease;
 }
 
-.hm-radio-input:checked + .hm-radio-indicator {
+.hm-radio-input:checked + .hm-radio-indicator,
+.hm-radio-indicator[data-checked] {
   border-color: var(--harmonium-color-brand-primary);
 }
 
-.hm-radio-input:checked + .hm-radio-indicator::after {
+.hm-radio-input:checked + .hm-radio-indicator::after,
+.hm-radio-indicator[data-checked]::after {
   content: '';
   display: block;
   width: 8px;
@@ -2171,21 +2197,28 @@
   background: var(--harmonium-color-brand-primary);
 }
 
-.hm-radio-input:focus-visible + .hm-radio-indicator {
+.hm-radio-input:focus-visible + .hm-radio-indicator,
+.hm-radio-indicator:focus-visible {
   outline: 2px solid var(--harmonium-color-brand-primary);
   outline-offset: 2px;
 }
 
-.hm-radio-input:disabled + .hm-radio-indicator {
+.hm-radio-input:disabled + .hm-radio-indicator,
+.hm-radio-indicator[data-disabled] {
   opacity: var(--harmonium-opacity-disabled);
 }
 
-.hm-radio-input:disabled ~ .hm-radio-label {
+.hm-radio-input:disabled ~ .hm-radio-label,
+.hm-radio-indicator[data-disabled] ~ .hm-radio-label {
   opacity: var(--harmonium-opacity-disabled);
 }
 
 .hm-radio-label {
   color: var(--harmonium-color-text);
+}
+
+.hm-radio:has(.hm-radio-indicator[data-disabled]) {
+  cursor: not-allowed;
 }
 
 
@@ -2522,6 +2555,66 @@
   text-align: right;
 }
 
+/*
+ * The React component renders Base UI's slider: `.control` > `.track` >
+ * `.thumb` (Base UI positions the thumb inline; a visually hidden range input
+ * inside it carries the value). The `.input` rules above remain for plain-HTML
+ * markup that uses a native `<input type="range">`.
+ */
+.hm-slider-control {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-block: var(--harmonium-spacing-xs);
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+}
+
+.hm-slider-track {
+  width: 100%;
+  background: var(--harmonium-color-gray-200);
+  border-radius: var(--harmonium-radius-full);
+}
+
+.hm-slider[data-size='sm'] .hm-slider-track { height: 4px; }
+.hm-slider[data-size='md'] .hm-slider-track { height: 6px; }
+.hm-slider[data-size='lg'] .hm-slider-track { height: 8px; }
+
+.hm-slider-thumb {
+  box-sizing: border-box;
+  background: var(--harmonium-color-brand-primary);
+  border-radius: 50%;
+  border: 2px solid var(--harmonium-color-surface);
+  box-shadow: var(--harmonium-shadow-sm);
+}
+
+.hm-slider[data-size='sm'] .hm-slider-thumb {
+  width: 14px;
+  height: 14px;
+}
+
+.hm-slider[data-size='md'] .hm-slider-thumb {
+  width: 18px;
+  height: 18px;
+}
+
+.hm-slider[data-size='lg'] .hm-slider-thumb {
+  width: 22px;
+  height: 22px;
+}
+
+.hm-slider-thumb:has(:focus-visible) {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: 2px;
+}
+
+.hm-slider[data-disabled] .hm-slider-control {
+  opacity: var(--harmonium-opacity-disabled);
+  cursor: not-allowed;
+}
+
 
 /* === Spinner === */
 .hm-spinner {
@@ -2848,6 +2941,12 @@
   height: 0;
 }
 
+/*
+ * The React component renders Base UI's switch: `.track` is the
+ * `<span role="switch">` and carries data-checked/data-disabled. Plain-HTML
+ * markup uses a native `<input class="…-input">` followed by the track.
+ * Every state rule accepts both.
+ */
 .hm-switch-track {
   position: relative;
   display: inline-flex;
@@ -2897,38 +2996,49 @@
   height: 22px;
 }
 
-.hm-switch-input:checked + .hm-switch-track {
+.hm-switch-input:checked + .hm-switch-track,
+.hm-switch-track[data-checked] {
   background: var(--harmonium-color-brand-primary);
 }
 
-.hm-switch[data-size='sm'] .hm-switch-input:checked + .hm-switch-track .hm-switch-thumb {
+.hm-switch[data-size='sm'] .hm-switch-input:checked + .hm-switch-track .hm-switch-thumb,
+.hm-switch[data-size='sm'] .hm-switch-track[data-checked] .hm-switch-thumb {
   transform: translateX(14px);
 }
 
-.hm-switch[data-size='md'] .hm-switch-input:checked + .hm-switch-track .hm-switch-thumb {
+.hm-switch[data-size='md'] .hm-switch-input:checked + .hm-switch-track .hm-switch-thumb,
+.hm-switch[data-size='md'] .hm-switch-track[data-checked] .hm-switch-thumb {
   transform: translateX(18px);
 }
 
-.hm-switch[data-size='lg'] .hm-switch-input:checked + .hm-switch-track .hm-switch-thumb {
+.hm-switch[data-size='lg'] .hm-switch-input:checked + .hm-switch-track .hm-switch-thumb,
+.hm-switch[data-size='lg'] .hm-switch-track[data-checked] .hm-switch-thumb {
   transform: translateX(22px);
 }
 
-.hm-switch-input:focus-visible + .hm-switch-track {
+.hm-switch-input:focus-visible + .hm-switch-track,
+.hm-switch-track:focus-visible {
   outline: 2px solid var(--harmonium-color-brand-primary);
   outline-offset: 2px;
 }
 
-.hm-switch-input:disabled + .hm-switch-track {
+.hm-switch-input:disabled + .hm-switch-track,
+.hm-switch-track[data-disabled] {
   opacity: var(--harmonium-opacity-disabled);
 }
 
-.hm-switch-input:disabled ~ .hm-switch-label {
+.hm-switch-input:disabled ~ .hm-switch-label,
+.hm-switch-track[data-disabled] ~ .hm-switch-label {
   opacity: var(--harmonium-opacity-disabled);
 }
 
 .hm-switch-label {
   font-size: var(--harmonium-font-size-sm);
   color: var(--harmonium-color-text);
+}
+
+.hm-switch:has(.hm-switch-track[data-disabled]) {
+  cursor: not-allowed;
 }
 
 

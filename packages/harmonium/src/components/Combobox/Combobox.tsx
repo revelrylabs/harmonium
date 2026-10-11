@@ -84,8 +84,8 @@ export const Combobox = React.forwardRef<HTMLDivElement, ComboboxProps>(
             className={styles.input}
             placeholder={placeholder}
             id={ctx?.fieldId}
-            aria-describedby={ctx ? `${ctx.fieldId}-description` : undefined}
-            aria-errormessage={ctx?.error ? `${ctx.fieldId}-error` : undefined}
+            aria-describedby={ctx?.describedBy}
+            aria-errormessage={ctx?.error ? ctx.errorId : undefined}
             aria-invalid={ctx?.error || undefined}
           />
           <BaseCombobox.Portal container={rootRef}>

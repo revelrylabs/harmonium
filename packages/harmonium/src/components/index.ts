@@ -37,8 +37,14 @@ export type {TabsProps, TabsListProps, TabsTriggerProps, TabsContentProps} from 
 export {Accordion, AccordionItem, AccordionTrigger, AccordionContent} from './Accordion'
 export type {AccordionProps, AccordionItemProps, AccordionTriggerProps, AccordionContentProps} from './Accordion'
 
-export {Field, FieldLabel, FieldDescription, FieldError} from './Field'
-export type {FieldProps, FieldLabelProps, FieldDescriptionProps, FieldErrorProps} from './Field'
+export {Field, FieldLabel, FieldDescription, FieldError, useFieldContext} from './Field'
+export type {
+  FieldProps,
+  FieldLabelProps,
+  FieldDescriptionProps,
+  FieldErrorProps,
+  FieldContextValue,
+} from './Field'
 
 export {Input} from './Input'
 export type {InputProps} from './Input'

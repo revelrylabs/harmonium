@@ -1,23 +1,23 @@
 import * as React from 'react'
 import {clsx} from 'clsx'
-import {useFieldContext} from '../Field'
+import {Field as BaseField} from '@base-ui/react/field'
+import {useFieldControlProps} from '../Field/Field'
 import styles from './Textarea.module.css'
 
 export type TextareaProps = React.TextareaHTMLAttributes<HTMLTextAreaElement>
 
+/** A native `<textarea>`, wired to the surrounding `<Field>`. */
 export const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(
-  ({className, ...props}, ref) => {
-    const ctx = useFieldContext()
+  ({className, id, ...props}, ref) => {
+    const fieldProps = useFieldControlProps(id)
 
     return (
-      <textarea
-        ref={ref}
+      <BaseField.Control
+        ref={ref as React.Ref<HTMLElement>}
+        render={<textarea />}
         className={clsx(styles.root, className)}
-        id={ctx?.fieldId}
-        aria-describedby={ctx ? `${ctx.fieldId}-description` : undefined}
-        aria-errormessage={ctx?.error ? `${ctx.fieldId}-error` : undefined}
-        aria-invalid={ctx?.error || undefined}
-        {...props}
+        {...fieldProps}
+        {...(props as BaseField.Control.Props)}
       />
     )
   },

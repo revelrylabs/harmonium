@@ -130,8 +130,8 @@ export const MultiSelect = React.forwardRef<HTMLDivElement, MultiSelectProps>(
               className={styles.input}
               placeholder={value.length === 0 ? placeholder : ''}
               id={ctx?.fieldId}
-              aria-describedby={ctx ? `${ctx.fieldId}-description` : undefined}
-              aria-errormessage={ctx?.error ? `${ctx.fieldId}-error` : undefined}
+              aria-describedby={ctx?.describedBy}
+              aria-errormessage={ctx?.error ? ctx.errorId : undefined}
               aria-invalid={ctx?.error || undefined}
             />
           </BaseCombobox.Chips>
