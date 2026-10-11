@@ -74,7 +74,11 @@ export default class Button extends Component {
       ]
     }
 
-    // Finish
+    // Default a plain button to type="button" so a Button inside a form
+    // does not submit that form.
+    if (component === 'button' && !('type' in props)) {
+      props.type = 'button'
+    }
     return createElement(
       component,
       {...props, className: buttonClassName},
