@@ -63,7 +63,8 @@
   background: var(--harmonium-color-gray-50);
 }
 
-.option[aria-selected='true'] {
+.option[aria-selected='true'],
+.option[data-selected] {
   font-weight: var(--harmonium-font-weight-medium);
   color: var(--harmonium-color-brand-primary);
 }
@@ -83,4 +84,35 @@
   font-size: var(--harmonium-font-size-sm);
   color: var(--harmonium-color-text-muted);
   text-align: center;
+}
+
+/*
+ * Popup wrappers rendered by the React component (Base UI positions them
+ * against the input). `.list` and `.empty` stay absolutely positioned for
+ * plain-HTML usage; inside the positioner they flow normally instead.
+ */
+.positioner {
+  z-index: var(--harmonium-z-index-dropdown);
+  width: var(--anchor-width);
+}
+
+.positioner[data-empty] .list {
+  display: none;
+}
+
+/* Base UI keeps the empty-state live region mounted; collapse it while blank */
+.positioner .empty:empty {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+.popup {
+  outline: none;
+}
+
+.positioner .list,
+.positioner .empty {
+  position: static;
 }

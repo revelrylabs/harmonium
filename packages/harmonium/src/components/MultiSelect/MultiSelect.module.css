@@ -101,3 +101,29 @@
 .option:hover {
   background: var(--harmonium-color-gray-50);
 }
+
+.option[data-highlighted] {
+  background: var(--harmonium-color-gray-50);
+}
+
+/*
+ * Popup wrappers rendered by the React component (Base UI positions them
+ * against the control). `.list` stays absolutely positioned for plain-HTML
+ * usage; inside the positioner it flows normally instead.
+ */
+.positioner {
+  z-index: var(--harmonium-z-index-dropdown);
+  width: var(--anchor-width);
+}
+
+.positioner[data-empty] {
+  display: none;
+}
+
+.popup {
+  outline: none;
+}
+
+.positioner .list {
+  position: static;
+}
