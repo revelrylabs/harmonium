@@ -1,12 +1,23 @@
 import {describe, it, expect} from 'vitest'
 import {render, screen} from '@testing-library/react'
 import {axe} from 'vitest-axe'
+import {AppShellHeader} from '../AppShell'
 import {TopBar, TopBarSection} from './TopBar'
 
 describe('TopBar', () => {
   it('renders as header element', () => {
     render(<TopBar data-testid="topbar">Nav</TopBar>)
     expect(screen.getByTestId('topbar').tagName).toBe('HEADER')
+  })
+
+  it('renders a div inside AppShellHeader, so there is one banner', () => {
+    render(
+      <AppShellHeader>
+        <TopBar data-testid="topbar">Nav</TopBar>
+      </AppShellHeader>,
+    )
+    expect(screen.getByTestId('topbar').tagName).toBe('DIV')
+    expect(screen.getAllByRole('banner')).toHaveLength(1)
   })
 
   it('renders children', () => {

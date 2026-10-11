@@ -1,5 +1,6 @@
 import * as React from 'react'
 import {clsx} from 'clsx'
+import {BannerContext} from '../../utils/landmark'
 import styles from './AppShell.module.css'
 
 export interface AppShellProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -50,7 +51,7 @@ export const AppShellHeader =React.forwardRef<
     className={clsx(styles.header, className)}
     {...props}
   >
-    {children}
+    <BannerContext.Provider value>{children}</BannerContext.Provider>
   </header>
 ))
 
