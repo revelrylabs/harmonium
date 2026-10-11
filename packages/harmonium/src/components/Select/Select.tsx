@@ -1,38 +1,52 @@
 import * as React from 'react'
 import {clsx} from 'clsx'
-import {useFieldContext} from '../Field'
+import {Field as BaseField} from '@base-ui/react/field'
+import {useFieldControlProps} from '../Field/Field'
 import styles from './Select.module.css'
 
 export interface SelectProps
   extends Omit<React.SelectHTMLAttributes<HTMLSelectElement>, 'size'> {
-  /** Placeholder option text */
+  /**
+   * Placeholder option text. It is shown (and submits an empty value) until an
+   * option is picked, in both controlled and uncontrolled use.
+   */
   placeholder?: string
   /** Size variant */
   size?: 'sm' | 'md' | 'lg'
 }
 
+/**
+ * A native `<select>`, wired to the surrounding `<Field>`. Pass `<option>`
+ * elements as children.
+ */
 export const Select = React.forwardRef<HTMLSelectElement, SelectProps>(
-  ({placeholder, size = 'md', className, children, ...props}, ref) => {
-    const ctx = useFieldContext()
+  ({placeholder, size = 'md', className, id, children, ...props}, ref) => {
+    const fieldProps = useFieldControlProps(id)
+    // Without a default, an uncontrolled <select> selects its first enabled
+    // option and the (disabled) placeholder never shows.
+    const uncontrolledPlaceholder =
+      placeholder !== undefined &&
+      props.value === undefined &&
+      props.defaultValue === undefined &&
+      !props.multiple
 
     return (
-      <select
-        ref={ref}
+      <BaseField.Control
+        ref={ref as React.Ref<HTMLElement>}
+        render={<select />}
         className={clsx(styles.root, className)}
-        id={ctx?.fieldId}
-        aria-describedby={ctx ? `${ctx.fieldId}-description` : undefined}
-        aria-errormessage={ctx?.error ? `${ctx.fieldId}-error` : undefined}
-        aria-invalid={ctx?.error || undefined}
         data-size={size}
-        {...props}
+        {...fieldProps}
+        {...(uncontrolledPlaceholder ? {defaultValue: ''} : null)}
+        {...(props as BaseField.Control.Props)}
       >
-        {placeholder && (
+        {placeholder !== undefined && (
           <option value="" disabled>
             {placeholder}
           </option>
         )}
         {children}
-      </select>
+      </BaseField.Control>
     )
   },
 )

@@ -1,6 +1,7 @@
 import * as React from 'react'
 import {clsx} from 'clsx'
-import {useFieldContext} from '../Field'
+import {Field as BaseField} from '@base-ui/react/field'
+import {useFieldControlProps} from '../Field/Field'
 import styles from './TimePicker.module.css'
 
 export interface TimePickerProps
@@ -9,20 +10,18 @@ export interface TimePickerProps
   size?: 'sm' | 'md' | 'lg'
 }
 
+/** A native `<input type="time">`, wired to the surrounding `<Field>`. */
 export const TimePicker = React.forwardRef<HTMLInputElement, TimePickerProps>(
-  ({size = 'md', className, ...props}, ref) => {
-    const ctx = useFieldContext()
+  ({size = 'md', className, id, ...props}, ref) => {
+    const fieldProps = useFieldControlProps(id)
 
     return (
-      <input
-        ref={ref}
+      <BaseField.Control
+        ref={ref as React.Ref<HTMLElement>}
         type="time"
         className={clsx(styles.root, className)}
-        id={ctx?.fieldId}
-        aria-describedby={ctx ? `${ctx.fieldId}-description` : undefined}
-        aria-errormessage={ctx?.error ? `${ctx.fieldId}-error` : undefined}
-        aria-invalid={ctx?.error || undefined}
         data-size={size}
+        {...fieldProps}
         {...props}
       />
     )

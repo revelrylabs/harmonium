@@ -65,3 +65,63 @@
   min-width: 2em;
   text-align: right;
 }
+
+/*
+ * The React component renders Base UI's slider: `.control` > `.track` >
+ * `.thumb` (Base UI positions the thumb inline; a visually hidden range input
+ * inside it carries the value). The `.input` rules above remain for plain-HTML
+ * markup that uses a native `<input type="range">`.
+ */
+.control {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-block: var(--harmonium-spacing-xs);
+  cursor: pointer;
+  touch-action: none;
+  user-select: none;
+}
+
+.track {
+  width: 100%;
+  background: var(--harmonium-color-gray-200);
+  border-radius: var(--harmonium-radius-full);
+}
+
+.root[data-size='sm'] .track { height: 4px; }
+.root[data-size='md'] .track { height: 6px; }
+.root[data-size='lg'] .track { height: 8px; }
+
+.thumb {
+  box-sizing: border-box;
+  background: var(--harmonium-color-brand-primary);
+  border-radius: 50%;
+  border: 2px solid var(--harmonium-color-surface);
+  box-shadow: var(--harmonium-shadow-sm);
+}
+
+.root[data-size='sm'] .thumb {
+  width: 14px;
+  height: 14px;
+}
+
+.root[data-size='md'] .thumb {
+  width: 18px;
+  height: 18px;
+}
+
+.root[data-size='lg'] .thumb {
+  width: 22px;
+  height: 22px;
+}
+
+.thumb:has(:focus-visible) {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: 2px;
+}
+
+.root[data-disabled] .control {
+  opacity: var(--harmonium-opacity-disabled);
+  cursor: not-allowed;
+}

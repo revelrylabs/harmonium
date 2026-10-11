@@ -13,6 +13,12 @@
   height: 0;
 }
 
+/*
+ * The React component renders Base UI's switch: `.track` is the
+ * `<span role="switch">` and carries data-checked/data-disabled. Plain-HTML
+ * markup uses a native `<input class="…-input">` followed by the track.
+ * Every state rule accepts both.
+ */
 .track {
   position: relative;
   display: inline-flex;
@@ -62,36 +68,47 @@
   height: 22px;
 }
 
-.input:checked + .track {
+.input:checked + .track,
+.track[data-checked] {
   background: var(--harmonium-color-brand-primary);
 }
 
-.root[data-size='sm'] .input:checked + .track .thumb {
+.root[data-size='sm'] .input:checked + .track .thumb,
+.root[data-size='sm'] .track[data-checked] .thumb {
   transform: translateX(14px);
 }
 
-.root[data-size='md'] .input:checked + .track .thumb {
+.root[data-size='md'] .input:checked + .track .thumb,
+.root[data-size='md'] .track[data-checked] .thumb {
   transform: translateX(18px);
 }
 
-.root[data-size='lg'] .input:checked + .track .thumb {
+.root[data-size='lg'] .input:checked + .track .thumb,
+.root[data-size='lg'] .track[data-checked] .thumb {
   transform: translateX(22px);
 }
 
-.input:focus-visible + .track {
+.input:focus-visible + .track,
+.track:focus-visible {
   outline: 2px solid var(--harmonium-color-brand-primary);
   outline-offset: 2px;
 }
 
-.input:disabled + .track {
+.input:disabled + .track,
+.track[data-disabled] {
   opacity: var(--harmonium-opacity-disabled);
 }
 
-.input:disabled ~ .label {
+.input:disabled ~ .label,
+.track[data-disabled] ~ .label {
   opacity: var(--harmonium-opacity-disabled);
 }
 
 .label {
   font-size: var(--harmonium-font-size-sm);
   color: var(--harmonium-color-text);
+}
+
+.root:has(.track[data-disabled]) {
+  cursor: not-allowed;
 }

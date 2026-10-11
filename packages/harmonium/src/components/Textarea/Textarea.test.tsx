@@ -1,7 +1,11 @@
 import {describe, it, expect} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
+import * as matchers from 'vitest-axe/matchers'
 import {Textarea} from './Textarea'
-import {Field, FieldLabel} from '../Field'
+import {Field, FieldLabel, FieldDescription} from '../Field'
+
+expect.extend(matchers)
 
 describe('Textarea', () => {
   it('renders a textarea', () => {
@@ -28,5 +32,26 @@ describe('Textarea', () => {
       </Field>,
     )
     expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true')
+  })
+
+  it('is described by the Field description', () => {
+    render(
+      <Field>
+        <FieldLabel>Bio</FieldLabel>
+        <FieldDescription>Keep it short</FieldDescription>
+        <Textarea />
+      </Field>,
+    )
+    expect(screen.getByRole('textbox', {name: 'Bio'})).toHaveAccessibleDescription('Keep it short')
+  })
+
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <Field>
+        <FieldLabel>Bio</FieldLabel>
+        <Textarea />
+      </Field>,
+    )
+    expect(await axe(container)).toHaveNoViolations()
   })
 })

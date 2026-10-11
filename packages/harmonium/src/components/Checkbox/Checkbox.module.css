@@ -14,6 +14,12 @@
   height: 0;
 }
 
+/*
+ * The React component renders Base UI's checkbox: `.indicator` is the
+ * `<span role="checkbox">` and carries data-checked/data-disabled. Plain-HTML
+ * markup uses a native `<input class="…-input">` followed by the indicator.
+ * Every state rule accepts both.
+ */
 .indicator {
   display: inline-flex;
   align-items: center;
@@ -29,12 +35,14 @@
     border-color var(--harmonium-transition-duration-base) ease;
 }
 
-.input:checked + .indicator {
+.input:checked + .indicator,
+.indicator[data-checked] {
   background: var(--harmonium-color-brand-primary);
   border-color: var(--harmonium-color-brand-primary);
 }
 
-.input:checked + .indicator::after {
+.input:checked + .indicator::after,
+.indicator[data-checked]::after {
   content: '';
   display: block;
   width: 5px;
@@ -44,19 +52,26 @@
   transform: rotate(45deg) translate(-1px, -1px);
 }
 
-.input:focus-visible + .indicator {
+.input:focus-visible + .indicator,
+.indicator:focus-visible {
   outline: 2px solid var(--harmonium-color-brand-primary);
   outline-offset: 2px;
 }
 
-.input:disabled + .indicator {
+.input:disabled + .indicator,
+.indicator[data-disabled] {
   opacity: var(--harmonium-opacity-disabled);
 }
 
-.input:disabled ~ .label {
+.input:disabled ~ .label,
+.indicator[data-disabled] ~ .label {
   opacity: var(--harmonium-opacity-disabled);
 }
 
 .label {
   color: var(--harmonium-color-text);
+}
+
+.root:has(.indicator[data-disabled]) {
+  cursor: not-allowed;
 }
