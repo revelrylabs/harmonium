@@ -6,11 +6,13 @@
  * a single concatenated CSS file at dist/harmonium.css.
  */
 import {readFileSync, writeFileSync, readdirSync, existsSync} from 'fs'
-import {join, basename} from 'path'
+import {join, basename, dirname} from 'path'
 
 const SRC = join(import.meta.dirname, '..', 'src', 'components')
 const TOKENS = join(import.meta.dirname, '..', 'src', 'tokens', 'tokens.css')
 const OUT = join(import.meta.dirname, '..', 'dist', 'harmonium.css')
+// The Elixir package ships its own copy; CI checks it is committed in sync.
+const ELIXIR_COPY = join(import.meta.dirname, '..', '..', 'harmonium_ex', 'priv', 'static', 'harmonium.css')
 
 function toKebab(name: string): string {
   return name
@@ -99,6 +101,7 @@ for (const dir of components) {
 
 const output = sections.join('\n\n')
 writeFileSync(OUT, output, 'utf8')
+if (existsSync(dirname(ELIXIR_COPY))) writeFileSync(ELIXIR_COPY, output, 'utf8')
 
 const sizeKB = (Buffer.byteLength(output) / 1024).toFixed(1)
 console.log(`Built dist/harmonium.css (${sizeKB} KB, ${components.length} components)`)

@@ -712,7 +712,8 @@
   background: var(--harmonium-color-gray-50);
 }
 
-.hm-combobox-option[aria-selected='true'] {
+.hm-combobox-option[aria-selected='true'],
+.hm-combobox-option[data-selected] {
   font-weight: var(--harmonium-font-weight-medium);
   color: var(--harmonium-color-brand-primary);
 }
@@ -732,6 +733,37 @@
   font-size: var(--harmonium-font-size-sm);
   color: var(--harmonium-color-text-muted);
   text-align: center;
+}
+
+/*
+ * Popup wrappers rendered by the React component (Base UI positions them
+ * against the input). `.list` and `.empty` stay absolutely positioned for
+ * plain-HTML usage; inside the positioner they flow normally instead.
+ */
+.hm-combobox-positioner {
+  z-index: var(--harmonium-z-index-dropdown);
+  width: var(--anchor-width);
+}
+
+.hm-combobox-positioner[data-empty] .hm-combobox-list {
+  display: none;
+}
+
+/* Base UI keeps the empty-state live region mounted; collapse it while blank */
+.hm-combobox-positioner .hm-combobox-empty:empty {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-shadow: none;
+}
+
+.hm-combobox-popup {
+  outline: none;
+}
+
+.hm-combobox-positioner .hm-combobox-list,
+.hm-combobox-positioner .hm-combobox-empty {
+  position: static;
 }
 
 
@@ -1681,6 +1713,32 @@
 
 .hm-multi-select-option:hover {
   background: var(--harmonium-color-gray-50);
+}
+
+.hm-multi-select-option[data-highlighted] {
+  background: var(--harmonium-color-gray-50);
+}
+
+/*
+ * Popup wrappers rendered by the React component (Base UI positions them
+ * against the control). `.list` stays absolutely positioned for plain-HTML
+ * usage; inside the positioner it flows normally instead.
+ */
+.hm-multi-select-positioner {
+  z-index: var(--harmonium-z-index-dropdown);
+  width: var(--anchor-width);
+}
+
+.hm-multi-select-positioner[data-empty] {
+  display: none;
+}
+
+.hm-multi-select-popup {
+  outline: none;
+}
+
+.hm-multi-select-positioner .hm-multi-select-list {
+  position: static;
 }
 
 
