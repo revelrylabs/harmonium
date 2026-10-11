@@ -2,6 +2,10 @@ import {describe, it, expect, vi} from 'vitest'
 import {render, screen} from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import {Button} from './Button'
+import {configureAxe} from 'vitest-axe'
+// jsdom has no layout, so colour contrast can't be computed here
+const axe = configureAxe({rules: {'color-contrast': {enabled: false}}})
+
 
 describe('Button', () => {
   it('renders children', () => {
@@ -81,5 +85,18 @@ describe('Button', () => {
     const button = screen.getByRole('button')
     expect(button).toHaveAttribute('type', 'submit')
     expect(button).toHaveAttribute('aria-label', 'Submit form')
+  })
+
+
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <>
+        <Button>Save</Button>
+        <Button variant="outline" disabled>
+          Cancel
+        </Button>
+      </>,
+    )
+    expect(await axe(container)).toHaveNoViolations()
   })
 })

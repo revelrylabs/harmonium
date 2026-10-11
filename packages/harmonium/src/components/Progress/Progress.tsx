@@ -28,24 +28,39 @@ export const Progress = React.forwardRef<HTMLDivElement, ProgressProps>(
     },
     ref,
   ) => {
-    const percent = Math.min(100, Math.max(0, (value / max) * 100))
+    // A non-positive or non-numeric max would divide by zero (NaN%), so the
+    // bar is treated as empty
+    const hasRange = Number.isFinite(max) && max > 0
+    const now = hasRange && Number.isFinite(value) ? Math.min(max, Math.max(0, value)) : 0
+    const percent = hasRange ? (now / max) * 100 : 0
 
-    return (
+    const bar = (
       <div
         ref={ref}
         className={clsx(styles.root, className)}
         role="progressbar"
-        aria-valuenow={value}
+        aria-valuenow={now}
         aria-valuemin={0}
-        aria-valuemax={max}
+        aria-valuemax={hasRange ? max : 0}
         data-variant={variant}
         data-size={size}
         {...props}
       >
-        <div className={styles.bar} style={{width: `${percent}%`}}>
-          {showLabel && <span className={styles.label}>{Math.round(percent)}%</span>}
-        </div>
+        <div className={styles.bar} style={{width: `${percent}%`}} />
       </div>
+    )
+
+    if (!showLabel) return bar
+
+    // The label sits after the track, not inside the bar, so it stays legible
+    // at low values (an inner label is clipped or runs off a narrow bar).
+    return (
+      <>
+        {bar}
+        <span className={styles.label} aria-hidden="true">
+          {Math.round(percent)}%
+        </span>
+      </>
     )
   },
 )

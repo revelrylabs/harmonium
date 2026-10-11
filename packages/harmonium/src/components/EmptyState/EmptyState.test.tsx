@@ -1,6 +1,10 @@
 import {describe, it, expect, vi} from 'vitest'
 import {render, screen} from '@testing-library/react'
 import {EmptyState} from './EmptyState'
+import {configureAxe} from 'vitest-axe'
+// jsdom has no layout, so colour contrast can't be computed here
+const axe = configureAxe({rules: {'color-contrast': {enabled: false}}})
+
 
 describe('EmptyState', () => {
   it('renders title', () => {
@@ -63,5 +67,18 @@ describe('EmptyState', () => {
     const ref = vi.fn<(el: HTMLDivElement | null) => void>()
     render(<EmptyState ref={ref} title="No results" />)
     expect(ref).toHaveBeenCalledWith(expect.any(HTMLDivElement))
+  })
+
+
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <EmptyState
+        title="No results"
+        description="Try another search."
+        icon={<span aria-hidden="true">?</span>}
+        action={<button type="button">Reset</button>}
+      />,
+    )
+    expect(await axe(container)).toHaveNoViolations()
   })
 })

@@ -18,7 +18,8 @@ export const Alert = React.forwardRef<HTMLDivElement, AlertProps>(
         ref={ref}
         className={clsx(styles.root, className)}
         data-variant={variant}
-        role="alert"
+        // Assertive announcements interrupt the user: keep them for problems
+        role={variant === 'warning' || variant === 'error' ? 'alert' : 'status'}
         {...props}
       >
         <div className={styles.content}>{children}</div>

@@ -1,6 +1,10 @@
 import {describe, it, expect, vi} from 'vitest'
 import {render, screen} from '@testing-library/react'
 import {Stat} from './Stat'
+import {configureAxe} from 'vitest-axe'
+// jsdom has no layout, so colour contrast can't be computed here
+const axe = configureAxe({rules: {'color-contrast': {enabled: false}}})
+
 
 describe('Stat', () => {
   it('renders label and value', () => {
@@ -77,5 +81,13 @@ describe('Stat', () => {
   it('renders down arrow for down trend', () => {
     render(<Stat label="Rev" value="$1" change="-2%" trend="down" />)
     expect(screen.getByText('-2%')).toBeInTheDocument()
+  })
+
+
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <Stat label="Revenue" value="$12,400" change="+12%" trend="up" />,
+    )
+    expect(await axe(container)).toHaveNoViolations()
   })
 })

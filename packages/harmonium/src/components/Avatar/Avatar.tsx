@@ -22,6 +22,9 @@ export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
     }, [src])
 
     const showImage = src && !imgError
+    // The fallback stands in for the image, so it is announced as one. With
+    // no text to name it, it is decorative and hidden instead.
+    const fallbackLabel = alt || fallback
 
     return (
       <span
@@ -38,7 +41,12 @@ export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
             onError={() => setImgError(true)}
           />
         ) : (
-          <span className={styles.fallback} aria-label={alt || fallback}>
+          <span
+            className={styles.fallback}
+            role={fallbackLabel ? 'img' : undefined}
+            aria-label={fallbackLabel || undefined}
+            aria-hidden={fallbackLabel ? undefined : true}
+          >
             {fallback}
           </span>
         )}

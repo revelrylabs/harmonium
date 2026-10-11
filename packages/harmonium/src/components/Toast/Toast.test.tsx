@@ -78,6 +78,33 @@ describe('Toast', () => {
     expect(screen.queryByText('Auto')).not.toBeInTheDocument()
   })
 
+  it('keeps a toast with a non-finite duration open', () => {
+    vi.useFakeTimers()
+
+    function PersistentTrigger() {
+      const {toast} = useToast()
+      return (
+        <button onClick={() => toast({message: 'Sticky', duration: Infinity})}>
+          Show Sticky
+        </button>
+      )
+    }
+
+    render(
+      <ToastProvider>
+        <PersistentTrigger />
+      </ToastProvider>,
+    )
+
+    act(() => {
+      screen.getByText('Show Sticky').click()
+    })
+    act(() => {
+      vi.advanceTimersByTime(60_000)
+    })
+    expect(screen.getByText('Sticky')).toBeInTheDocument()
+  })
+
   it('applies variant', async () => {
     const user = userEvent.setup()
     render(
