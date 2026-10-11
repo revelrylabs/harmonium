@@ -8,12 +8,10 @@ name: Release v8
 # 8.x patch never takes `latest` away from v9.
 #
 # Publishing uses npm trusted publishing (OIDC) from the `npm` environment;
-# no npm token is stored anywhere.
+# no npm token is stored anywhere, and provenance is generated automatically.
 
 on:
   workflow_dispatch:
-
-concurrency: release-v8
 
 jobs:
   test:
@@ -23,31 +21,46 @@ jobs:
     needs: [test]
     if: github.ref == 'refs/heads/8.x'
     runs-on: ubuntu-latest
+    concurrency: release-v8-publish
     environment: npm
     permissions:
       contents: write
       id-token: write
     steps:
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+    - uses: actions/checkout@v7
+    - uses: actions/setup-node@v7
       with:
         node-version: 22
-        cache: npm
-    # Trusted publishing needs npm 11.5.1 or newer.
-    - run: npm install -g npm@11
-    - run: npm ci
-    - run: npm run build
+        # No dependency cache in the job that can publish.
+        package-manager-cache: false
+    # Fail fast on a wrong version or dist-tag; this only reads package.json
+    # and the registry.
     - id: tag
       run: echo "tag=$(node scripts/check-dist-tag.js)" >> "$GITHUB_OUTPUT"
+    # Trusted publishing needs npm 11.5.1 or newer; pinned because this job
+    # holds publish rights.
+    - run: npm install -g npm@11.20.0
+    - run: npm ci
+    - run: npm run build
+    # Skips a version that is already on npm, and fails on any registry
+    # error other than "not found".
     - name: Publish to npm
       run: |
         version=$(node -p "require('./package.json').version")
-        if npm view "harmonium@$version" version >/dev/null 2>&1; then
+        if out=$(npm view "harmonium@$version" version 2>&1); then status=0; else status=$?; fi
+        if [ "$status" -eq 0 ] && [ "$out" = "$version" ]; then
           echo "harmonium@$version is already published"
+        elif [ "$status" -eq 0 ] || grep -q E404 <<<"$out"; then
+          npm publish --tag "${{ steps.tag.outputs.tag }}"
         else
-          npm publish --tag "${{ steps.tag.outputs.tag }}" --provenance
+          echo "$out" >&2
+          exit 1
         fi
     - name: Tag the release
       run: |
         tag="v$(node -p "require('./package.json').version")"
-        git tag "$tag" && git push origin "$tag"
+        if git ls-remote --exit-code --tags origin "refs/tags/$tag" >/dev/null; then
+          echo "$tag already exists"
+        else
+          git tag "$tag" && git push origin "$tag"
+        fi
