@@ -13,6 +13,8 @@ export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   truncate?: boolean
   /** Rendered HTML element */
   as?: 'p' | 'span' | 'div' | 'label'
+  /** Id of the labelled control (only used when `as="label"`) */
+  htmlFor?: string
 }
 
 export const Text = React.forwardRef<HTMLElement, TextProps>(
@@ -23,6 +25,7 @@ export const Text = React.forwardRef<HTMLElement, TextProps>(
       color,
       truncate,
       as = 'p',
+      htmlFor,
       className,
       children,
       ...props
@@ -39,6 +42,7 @@ export const Text = React.forwardRef<HTMLElement, TextProps>(
         data-weight={weight || undefined}
         data-color={color || undefined}
         data-truncate={truncate || undefined}
+        htmlFor={as === 'label' ? htmlFor : undefined}
         {...props}
       >
         {children}

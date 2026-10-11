@@ -1,5 +1,6 @@
 import {describe, it, expect, vi} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
 import {
   PricingTable,
   PricingCard,
@@ -130,5 +131,46 @@ describe('Full pricing card composition', () => {
     expect(
       screen.getByRole('button', {name: 'Get Started'}),
     ).toBeInTheDocument()
+  })
+})
+
+describe('PricingTable accessibility', () => {
+  it('announces excluded features with text', () => {
+    render(
+      <PricingCardFeatures>
+        <PricingCardFeature>API access</PricingCardFeature>
+        <PricingCardFeature included={false}>SSO</PricingCardFeature>
+        <PricingCardFeature included={false} excludedLabel="Sin incluir:">
+          SLA
+        </PricingCardFeature>
+      </PricingCardFeatures>,
+    )
+    const [included, excluded, translated] = screen.getAllByRole('listitem')
+    expect(included).not.toHaveTextContent('Not included')
+    expect(excluded).toHaveTextContent('Not included: SSO')
+    expect(translated).toHaveTextContent('Sin incluir: SLA')
+  })
+
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <PricingTable columns={2}>
+        <PricingCard featured>
+          <PricingCardHeader>
+            <h3>Pro</h3>
+          </PricingCardHeader>
+          <PricingCardPrice amount="$29" period="/month" />
+          <PricingCardFeatures>
+            <PricingCardFeature>API access</PricingCardFeature>
+            <PricingCardFeature included={false}>SSO</PricingCardFeature>
+          </PricingCardFeatures>
+          <PricingCardFooter>
+            <button type="button">Choose Pro</button>
+          </PricingCardFooter>
+        </PricingCard>
+      </PricingTable>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })

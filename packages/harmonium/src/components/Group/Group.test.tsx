@@ -1,5 +1,6 @@
 import {describe, it, expect} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
 import {Group} from './Group'
 
 describe('Group', () => {
@@ -52,5 +53,19 @@ describe('Group', () => {
     const el = screen.getByTestId('group')
     expect(el).toHaveAttribute('data-justify', 'start')
     expect(el).toHaveAttribute('data-justify-md', 'between')
+  })
+})
+
+describe('Group accessibility', () => {
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <Group gap="sm">
+        <button type="button">One</button>
+        <button type="button">Two</button>
+      </Group>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })

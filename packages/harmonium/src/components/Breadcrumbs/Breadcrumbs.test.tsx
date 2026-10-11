@@ -1,5 +1,8 @@
-import {describe, it, expect} from 'vitest'
+import * as React from 'react'
+import {describe, it, expect, vi} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import {axe} from 'vitest-axe'
 import {Breadcrumbs, BreadcrumbItem} from './Breadcrumbs'
 
 describe('Breadcrumbs', () => {
@@ -55,5 +58,47 @@ describe('Breadcrumbs', () => {
       </Breadcrumbs>,
     )
     expect(screen.getByText('›')).toBeInTheDocument()
+  })
+
+  it('forwards ref and props on the active item', async () => {
+    const user = userEvent.setup()
+    const ref = React.createRef<HTMLAnchorElement | HTMLSpanElement>()
+    const onClick = vi.fn()
+    render(
+      <Breadcrumbs>
+        <BreadcrumbItem href="/">Home</BreadcrumbItem>
+        <BreadcrumbItem
+          active
+          ref={ref}
+          id="current"
+          data-testid="current"
+          href="/ignored"
+          onClick={onClick}
+        >
+          Page
+        </BreadcrumbItem>
+      </Breadcrumbs>,
+    )
+    const current = screen.getByTestId('current')
+    expect(ref.current).toBe(current)
+    expect(current.tagName).toBe('SPAN')
+    expect(current).toHaveAttribute('id', 'current')
+    expect(current).toHaveAttribute('aria-current', 'page')
+    expect(current).not.toHaveAttribute('href')
+    await user.click(current)
+    expect(onClick).toHaveBeenCalledOnce()
+  })
+
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <Breadcrumbs>
+        <BreadcrumbItem href="/">Home</BreadcrumbItem>
+        <BreadcrumbItem href="/settings">Settings</BreadcrumbItem>
+        <BreadcrumbItem active>Profile</BreadcrumbItem>
+      </Breadcrumbs>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })

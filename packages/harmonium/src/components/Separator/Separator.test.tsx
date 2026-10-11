@@ -1,5 +1,6 @@
 import {describe, it, expect} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
 import {Separator} from './Separator'
 
 describe('Separator', () => {
@@ -25,5 +26,19 @@ describe('Separator', () => {
   it('applies spacing', () => {
     render(<Separator spacing="lg" />)
     expect(screen.getByRole('separator')).toHaveAttribute('data-spacing', 'lg')
+  })
+})
+
+describe('Separator accessibility', () => {
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <div>
+        <Separator />
+        <Separator orientation="vertical" />
+      </div>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })

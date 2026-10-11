@@ -1,5 +1,6 @@
 import {describe, it, expect, vi} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
 import {Text, Heading} from './Typography'
 
 describe('Text', () => {
@@ -126,5 +127,61 @@ describe('Heading', () => {
     const ref = vi.fn<(el: HTMLHeadingElement | null) => void>()
     render(<Heading ref={ref}>Title</Heading>)
     expect(ref).toHaveBeenCalledWith(expect.any(HTMLHeadingElement))
+  })
+})
+
+describe('Text as label', () => {
+  it('accepts htmlFor and labels the control', () => {
+    render(
+      <>
+        <Text as="label" htmlFor="email">
+          Email
+        </Text>
+        <input id="email" />
+      </>,
+    )
+    expect(screen.getByRole('textbox', {name: 'Email'})).toBeInTheDocument()
+    expect(screen.getByText('Email')).toHaveAttribute('for', 'email')
+  })
+
+  it('drops htmlFor on elements that are not labels', () => {
+    render(
+      <Text as="span" htmlFor="email">
+        Email
+      </Text>,
+    )
+    expect(screen.getByText('Email')).not.toHaveAttribute('for')
+  })
+
+  it('type-checks label props', () => {
+    // Type-level checks: these fail `tsc` if TextProps regresses.
+    const label = <Text as="label" htmlFor="x" />
+    // @ts-expect-error: `as` only accepts text elements
+    const bad = <Text as="button" />
+    expect([label, bad]).toHaveLength(2)
+  })
+})
+
+describe('Typography accessibility', () => {
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <main>
+        <Heading level={1}>Account</Heading>
+        <Heading level={2} size="md">
+          Profile
+        </Heading>
+        <Text>Body copy</Text>
+        <Text as="span" color="muted" size="sm" truncate>
+          Muted
+        </Text>
+        <Text as="label" htmlFor="name">
+          Name
+        </Text>
+        <input id="name" />
+      </main>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })

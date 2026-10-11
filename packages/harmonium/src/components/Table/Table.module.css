@@ -9,6 +9,11 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.responsive:focus-visible {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: 2px;
+}
+
 .head {
   border-bottom: 2px solid var(--harmonium-color-border);
 }

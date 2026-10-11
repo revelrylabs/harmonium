@@ -1,5 +1,6 @@
 import {describe, it, expect} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
 import {Grid, GridCol} from './Grid'
 
 describe('Grid', () => {
@@ -80,5 +81,19 @@ describe('GridCol', () => {
     expect(el.style.getPropertyValue('--col-span-md')).toBe('span 6')
     expect(el.style.getPropertyValue('--col-span-lg')).toBe('span 4')
     expect(el).toHaveAttribute('data-responsive-span')
+  })
+})
+
+describe('Grid accessibility', () => {
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <Grid columns={12} gap="md">
+        <GridCol span={6}>A</GridCol>
+        <GridCol span={6}>B</GridCol>
+      </Grid>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })

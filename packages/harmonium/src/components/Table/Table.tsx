@@ -7,12 +7,68 @@ export interface TableProps extends React.TableHTMLAttributes<HTMLTableElement> 
   striped?: boolean
   /** Whether to apply hover styling to rows */
   hoverable?: boolean
-  /** Whether the table should scroll horizontally */
+  /**
+   * Whether the table should scroll horizontally. When it overflows, the
+   * scroll container becomes keyboard focusable and, if the table has an
+   * `aria-label`/`aria-labelledby`, a region with the same name.
+   */
   responsive?: boolean
+}
+
+/**
+ * Tracks whether a scroll container overflows, so it can be made keyboard
+ * focusable (and named) only when there is something to scroll.
+ * @internal Shared with DataGrid; not part of the public API.
+ */
+export function useScrollRegion<T extends HTMLElement>(enabled = true) {
+  const ref = React.useRef<T>(null)
+  const [overflowing, setOverflowing] = React.useState(false)
+
+  React.useEffect(() => {
+    const el = ref.current
+    if (!enabled || !el) {
+      setOverflowing(false)
+      return
+    }
+    const measure = () =>
+      setOverflowing(
+        el.scrollWidth > el.clientWidth || el.scrollHeight > el.clientHeight,
+      )
+    measure()
+    if (typeof ResizeObserver === 'undefined') return
+    const observer = new ResizeObserver(measure)
+    observer.observe(el)
+    if (el.firstElementChild) observer.observe(el.firstElementChild)
+    return () => observer.disconnect()
+  }, [enabled])
+
+  return {ref, overflowing}
+}
+
+/**
+ * Props for a scroll container: when it overflows it becomes a focusable
+ * region (so keyboard users can scroll it), named after the table.
+ * @internal
+ */
+export function scrollRegionProps(
+  overflowing: boolean,
+  label: string | undefined,
+  labelledBy: string | undefined,
+): React.HTMLAttributes<HTMLDivElement> {
+  if (!overflowing) return {}
+  const named = Boolean(label || labelledBy)
+  return {
+    tabIndex: 0,
+    role: named ? 'region' : undefined,
+    'aria-label': labelledBy ? undefined : label,
+    'aria-labelledby': labelledBy,
+  }
 }
 
 export const Table = React.forwardRef<HTMLTableElement, TableProps>(
   ({striped, hoverable, responsive, className, children, ...props}, ref) => {
+    const region = useScrollRegion<HTMLDivElement>(Boolean(responsive))
+
     const table = (
       <table
         ref={ref}
@@ -26,7 +82,19 @@ export const Table = React.forwardRef<HTMLTableElement, TableProps>(
     )
 
     if (responsive) {
-      return <div className={styles.responsive}>{table}</div>
+      return (
+        <div
+          ref={region.ref}
+          className={styles.responsive}
+          {...scrollRegionProps(
+            region.overflowing,
+            props['aria-label'],
+            props['aria-labelledby'],
+          )}
+        >
+          {table}
+        </div>
+      )
     }
 
     return table

@@ -3,6 +3,11 @@
   -webkit-overflow-scrolling: touch;
 }
 
+.wrapper:focus-visible {
+  outline: 2px solid var(--harmonium-color-brand-primary);
+  outline-offset: 2px;
+}
+
 .root {
   width: 100%;
   border-collapse: collapse;

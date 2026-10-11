@@ -13,32 +13,61 @@ export interface PaginationProps extends React.HTMLAttributes<HTMLElement> {
   maxVisible?: number
 }
 
-function getPageRange(page: number, totalPages: number, maxVisible: number) {
-  const half = Math.floor(maxVisible / 2)
-  let start = Math.max(1, page - half)
-  const end = Math.min(totalPages, start + maxVisible - 1)
-  start = Math.max(1, end - maxVisible + 1)
-  const pages: (number | 'ellipsis')[] = []
+/**
+ * Page numbers to show, with `'ellipsis'` markers for skipped runs. At most
+ * `maxVisible` page buttons are returned; the first and last pages are always
+ * included once there is room for them.
+ */
+function getPageRange(
+  page: number,
+  totalPages: number,
+  maxVisible: number,
+): (number | 'ellipsis')[] {
+  const max = Math.max(1, Math.floor(maxVisible))
+  const range = (from: number, to: number) =>
+    Array.from({length: to - from + 1}, (_, i) => from + i)
 
-  if (start > 1) {
-    pages.push(1)
-    if (start > 2) pages.push('ellipsis')
+  if (totalPages <= max) return range(1, totalPages)
+
+  // Too few slots to pin the first and last pages: show a window around page.
+  if (max < 3) {
+    const start = Math.min(
+      Math.max(1, page - Math.floor((max - 1) / 2)),
+      totalPages - max + 1,
+    )
+    return range(start, start + max - 1)
   }
 
-  for (let i = start; i <= end; i++) {
-    pages.push(i)
-  }
-
-  if (end < totalPages) {
-    if (end < totalPages - 1) pages.push('ellipsis')
-    pages.push(totalPages)
-  }
-
+  // First and last are pinned; the remaining slots form a window around page.
+  const windowSize = max - 2
+  const start = Math.min(
+    Math.max(2, page - Math.floor((windowSize - 1) / 2)),
+    totalPages - windowSize,
+  )
+  const end = start + windowSize - 1
+  const pages: (number | 'ellipsis')[] = [1]
+  if (start > 2) pages.push('ellipsis')
+  pages.push(...range(start, end))
+  if (end < totalPages - 1) pages.push('ellipsis')
+  pages.push(totalPages)
   return pages
 }
 
 export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
-  ({page, totalPages, onPageChange, maxVisible = 5, className, ...props}, ref) => {
+  (
+    {
+      page: pageProp,
+      totalPages: totalPagesProp,
+      onPageChange,
+      maxVisible = 5,
+      className,
+      ...props
+    },
+    ref,
+  ) => {
+    // Guard out-of-range input so the controls never point past either end.
+    const totalPages = Math.max(1, Math.floor(totalPagesProp) || 1)
+    const page = Math.min(Math.max(1, Math.floor(pageProp) || 1), totalPages)
     const pages = getPageRange(page, totalPages, maxVisible)
 
     return (
@@ -54,7 +83,9 @@ export const Pagination = React.forwardRef<HTMLElement, PaginationProps>(
         </button>
         {pages.map((item, index) =>
           item === 'ellipsis' ? (
-            <span key={`e${index}`} className={styles.ellipsis}>&hellip;</span>
+            <span key={`e${index}`} className={styles.ellipsis} aria-hidden="true">
+              &hellip;
+            </span>
           ) : (
             <button
               key={item}

@@ -1,5 +1,6 @@
 import {describe, it, expect, vi} from 'vitest'
 import {render, screen} from '@testing-library/react'
+import {axe} from 'vitest-axe'
 import {
   AppShell,
   AppShellHeader,
@@ -69,5 +70,21 @@ describe('AppShell sections', () => {
     )
     expect(screen.getByText('My Header')).toBeInTheDocument()
     expect(screen.getByText('My Content')).toBeInTheDocument()
+  })
+})
+
+describe('AppShell accessibility', () => {
+  it('has no axe violations', async () => {
+    const {container} = render(
+      <AppShell sidebarCollapsed>
+        <AppShellHeader>Header</AppShellHeader>
+        <AppShellSidebar aria-label="Sections">Sidebar</AppShellSidebar>
+        <AppShellMain>Main</AppShellMain>
+        <AppShellFooter>Footer</AppShellFooter>
+      </AppShell>,
+    )
+    expect(
+      await axe(container, {rules: {'color-contrast': {enabled: false}}}),
+    ).toHaveNoViolations()
   })
 })
